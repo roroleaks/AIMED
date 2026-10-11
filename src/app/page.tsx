@@ -313,22 +313,22 @@ export default function Home() {
           </div>
 
           {/* 4-Step Pipeline Workflow Indicator */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 10, marginBottom: 20 }}>
-            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f0fdfa", border: "1.5px solid #0f766e" }}>
-              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#0f766e", textTransform: "uppercase" }}>Step 1 · Active</span>
-              <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0f172a" }}>Domain & 4–6 Tag Words</div>
+          <div className="pipeline-stepper">
+            <div className="pipeline-step-item active">
+              <span className="pipeline-step-tag active">Step 1 · Active</span>
+              <div className="pipeline-step-title active">Domain & 4–6 Tag Words</div>
             </div>
-            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
-              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 2</span>
-              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Evidence Map & 4 PICOs</div>
+            <div className="pipeline-step-item">
+              <span className="pipeline-step-tag muted">Step 2</span>
+              <div className="pipeline-step-title">Evidence Map & 4 PICOs</div>
             </div>
-            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
-              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 3</span>
-              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Select 1 of 4–6 Outcomes</div>
+            <div className="pipeline-step-item">
+              <span className="pipeline-step-tag muted">Step 3</span>
+              <div className="pipeline-step-title">Select 1 of 4–6 Outcomes</div>
             </div>
-            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
-              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 4</span>
-              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Commentary & Dual PDFs</div>
+            <div className="pipeline-step-item">
+              <span className="pipeline-step-tag muted">Step 4</span>
+              <div className="pipeline-step-title">Commentary & Dual PDFs</div>
             </div>
           </div>
 

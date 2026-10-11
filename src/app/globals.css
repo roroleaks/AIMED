@@ -951,6 +951,11 @@ footer {
     width: 100%;
   }
 
+  .row > input.free-input {
+    width: 100%;
+    min-width: 100%;
+  }
+
   .mini-btn {
     padding: 6px 10px;
     font-size: 0.78rem;
@@ -1406,4 +1411,159 @@ footer {
   font-weight: 700;
   color: var(--accent);
   font-size: 0.95rem;
+}
+
+/* Pipeline Stepper */
+.pipeline-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pipeline-step-item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.15s ease;
+}
+
+.pipeline-step-item.active {
+  background: #f0fdfa;
+  border: 1.5px solid #0f766e;
+}
+
+.pipeline-step-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.pipeline-step-tag.active {
+  color: #0f766e;
+}
+
+.pipeline-step-tag.muted {
+  color: #64748b;
+}
+
+.pipeline-step-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 2px;
+}
+
+.pipeline-step-title.active {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   Mobile & Responsive Adaptations for Multi-Specialty Interface
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .aimed-hero {
+    padding: 16px 12px 14px;
+    margin: 0 auto 14px;
+  }
+
+  .aimed-hero-title {
+    font-size: 1.55rem;
+  }
+
+  .aimed-hero-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .aimed-active-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .aimed-active-banner .mini-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 8px 12px;
+  }
+
+  .specialty-category-pills {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .specialty-category-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .specialty-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .specialty-card {
+    padding: 15px;
+  }
+
+  .specialty-dropdown-menu {
+    width: calc(100vw - 32px);
+    max-width: 320px;
+  }
+
+  .pipeline-stepper {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .pipeline-step-item {
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aimed-hero-title {
+    font-size: 1.35rem;
+  }
+
+  .aimed-hero-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .aimed-badge {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+
+  .specialty-name {
+    font-size: 0.96rem;
+  }
+
+  .specialty-desc {
+    font-size: 0.82rem;
+  }
+
+  .pipeline-stepper {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .specialty-preset-pill {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
 }
