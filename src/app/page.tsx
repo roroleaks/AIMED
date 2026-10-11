@@ -312,30 +312,28 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="modes">
-            <button className={`mode-tab ${mode === "formulate" ? "active" : ""}`} onClick={() => setMode("formulate")}>
-              <svg className="mode-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 17v4" />
-                <path d="M9 20h6" />
-                <path d="M14 11V3" />
-                <path d="M11 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6" />
-                <path d="M16 8h-5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h5a1 1 0 0 1 1 1v3" />
-              </svg>
-              <span>Formulate Question</span>
-            </button>
-            <button className={`mode-tab ${mode === "gap" ? "active" : ""}`} onClick={() => setMode("gap")}>
-              <svg className="mode-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="M21 21l-4.3-4.3" />
-                <path d="M11 8v6" />
-                <path d="M11 16h.01" />
-              </svg>
-              <span>Find Gap</span>
-            </button>
+          {/* 4-Step Pipeline Workflow Indicator */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 10, marginBottom: 20 }}>
+            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f0fdfa", border: "1.5px solid #0f766e" }}>
+              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#0f766e", textTransform: "uppercase" }}>Step 1 · Active</span>
+              <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0f172a" }}>Domain & 4–6 Tag Words</div>
+            </div>
+            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 2</span>
+              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Evidence Map & 4 PICOs</div>
+            </div>
+            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 3</span>
+              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Select 1 of 4–6 Outcomes</div>
+            </div>
+            <div style={{ padding: "10px 12px", borderRadius: 8, background: "#f8fafc", border: "1px solid #e2e8f0" }}>
+              <span style={{ fontSize: "0.74rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>Step 4</span>
+              <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#334155" }}>Commentary & Dual PDFs</div>
+            </div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 10 }}>
-            <span className="pill">📝 Step 2 · Clinical Input ({currentSpecialty.shortName})</span>
+            <span className="pill">📝 Step 1 · Clinical Keywords ({currentSpecialty.shortName})</span>
             <div style={{ display: "flex", gap: 6, background: "#f1f5f9", padding: 3, borderRadius: 8, flexWrap: "wrap" }}>
               <button
                 type="button"
@@ -530,7 +528,7 @@ export default function Home() {
 
           <div className="row" style={{ marginTop: 16 }}>
             <button className="primary" onClick={start} disabled={!input.trim() || !canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>
-              {mode === "formulate" ? "🔍 Map Evidence & Formulate PICO →" : "🗺 Map the evidence →"}
+              🔍 Search Literature & Map Evidence (Step 2) ➜
             </button>
           </div>
         </section>

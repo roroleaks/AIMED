@@ -555,8 +555,8 @@ ${bibliography}
   return (
     <div className="wrap">
       <header className="hdr">
-        <h1>📝 Step 4 · Your Scientific Commentary & Question Package</h1>
-        <p>The commentary generates automatically — choose your preferred question below</p>
+        <h1>📝 Step 4 · Scientific Commentary Paper & Deliverables</h1>
+        <p>Publication-grade clinical synthesis, Vancouver references, and dual PDF export</p>
       </header>
 
       <main className="solo">

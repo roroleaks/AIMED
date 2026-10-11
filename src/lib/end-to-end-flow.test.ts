@@ -126,3 +126,119 @@ test("End-to-End Clinical Flow: Step 1 -> Step 2 -> Step 3 -> Step 4", () => {
   });
   assert.ok(integrity.ok, "Step 4: Deliverable integrity is valid");
 });
+
+test("End-to-End Clinical Flow: Multi-Specialty Cardiology Pipeline", () => {
+  // Step 1: User enters 4-6 tag words for Cardiology
+  const tagWords = "heart failure, reduced ejection fraction, sglt2 inhibitors, ace inhibitors, cardiovascular death";
+  assert.ok(tagWords.split(",").length >= 4, "Step 1: 4-6 tag words entered");
+
+  // Step 2: Evidence Map displays 4 Known, 4 Uncertain, 4 Gaps, 4 PICO questions
+  const gapMap = generateDeterministicGapAnalysis(tagWords, "cardiology");
+  assert.equal(gapMap.known.length, 4, "Step 2: Exactly 4 established knowledge points");
+  assert.equal(gapMap.uncertain.length, 4, "Step 2: Exactly 4 conflicting points");
+  assert.equal(gapMap.gaps.length, 4, "Step 2: Exactly 4 research gaps");
+  assert.equal(gapMap.suggestedQuestions.length, 4, "Step 2: Exactly 4 PICO questions");
+
+  // User selects 1 of the 4 PICO questions
+  const selectedPico = gapMap.suggestedQuestions[0].question;
+  assert.ok(selectedPico.length > 20, "Step 2: Clinician selected a valid PICO question");
+
+  // Step 3: Automatic extraction of P, I, C, O
+  const picoParsed = extractPicoFromQuestion(selectedPico, gapMap.topic, "cardiology");
+  assert.ok(picoParsed.condition.length > 0, "Step 3: Population extracted automatically");
+  assert.ok(picoParsed.intervention.length > 0, "Step 3: Intervention extracted automatically");
+  assert.ok(picoParsed.comparator.length > 0, "Step 3: Comparator extracted automatically");
+  assert.equal(picoParsed.specialty, "cardiology", "Step 3: Correct clinical specialty mapped");
+
+  // System generates 4-6 literature-derived outcome options
+  const outcomeContext = buildOutcomeContext(
+    {
+      specialty: picoParsed.specialty,
+      condition: picoParsed.condition,
+      intervention: picoParsed.intervention,
+      comparator: picoParsed.comparator,
+      questionType: "Therapy / Prevention"
+    },
+    {},
+    {
+      originalInput: tagWords,
+      population: picoParsed.condition,
+      keywords: [gapMap.topic, ...gapMap.known.map(k => k.point)]
+    }
+  );
+  const outcomeSelection = selectOutcomes(outcomeContext);
+  assert.ok(outcomeSelection.options.length >= 4 && outcomeSelection.options.length <= 6, "Step 3: Exactly 4-6 literature outcomes generated");
+  assert.ok(outcomeSelection.recommendedOutcome, "Step 3: Primary recommended outcome identified");
+
+  // User clicks 1 outcome
+  const clickedOutcome = outcomeSelection.options[0].label;
+  assert.ok(clickedOutcome.length > 0, "Step 3: Clinician clicked 1 outcome");
+
+  // System formulates PICO
+  const analysis: Analysis = {
+    specialty: picoParsed.specialty,
+    specialtyLabel: KB[picoParsed.specialty].label,
+    condition: picoParsed.condition,
+    intervention: picoParsed.intervention,
+    comparator: picoParsed.comparator,
+    questionType: "Therapy / Prevention",
+    framework: "PICO",
+    missing: [],
+    interpretation: `PICO targeting ${picoParsed.condition} with ${picoParsed.intervention}`,
+    source: "rules"
+  };
+  const answered = {
+    condition: picoParsed.condition,
+    intervention: picoParsed.intervention,
+    comparator: picoParsed.comparator,
+    outcome: clickedOutcome
+  };
+
+  const formulation = ruleFormulate(analysis, answered);
+  assert.equal(formulation.complete, true, "Step 3: Formulation is complete");
+  assert.equal(formulation.missingElements.length, 0, "Step 3: Zero missing elements");
+
+  // Step 4: Commentary Paper Generation
+  const mockCardioRef: AuditableRef = {
+    pmid: "31535829",
+    title: "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction",
+    authors: "McMurray JJV, Solomon SD, Inzucchi SE",
+    year: "2019",
+    journal: "N Engl J Med",
+    url: "https://pubmed.ncbi.nlm.nih.gov/31535829/"
+  };
+
+  const commentary = generateDeterministicCommentary({
+    selectedQuestion: formulation.finalQuestion,
+    outcomesText: clickedOutcome,
+    reason: "Cardiology deterministic synthesis test",
+    pool: [mockCardioRef],
+    elements: formulation.elements
+  }) as {
+    title: string;
+    abstract: string;
+    introduction: string;
+    discussion: string;
+    conclusion: string;
+    references: string[];
+  };
+
+  assert.ok(commentary.title.length > 0, "Step 4: Title generated");
+  assert.ok(commentary.abstract.length > 0, "Step 4: Abstract generated");
+  assert.ok(commentary.introduction.length > 0, "Step 4: Introduction generated");
+  assert.ok(commentary.discussion.length > 0, "Step 4: Discussion generated");
+  assert.ok(commentary.conclusion.length > 0, "Step 4: Conclusion generated");
+  assert.ok(commentary.references.length > 0, "Step 4: References generated");
+
+  const integrity = validateDeliverableIntegrity({
+    fields: {
+      abstract: commentary.abstract,
+      introduction: commentary.introduction,
+      discussion: commentary.discussion,
+      conclusion: commentary.conclusion
+    },
+    references: commentary.references,
+    retainedRecords: [mockCardioRef]
+  });
+  assert.ok(integrity.ok, "Step 4: Deliverable integrity is valid for Cardiology");
+});

@@ -126,7 +126,12 @@ export default function QuestionPage() {
     if (!extractedPico || !chosenOutcome) return;
     setBusy("formulate");
 
-    const specKey = (extractedPico.specialty && extractedPico.specialty in KB) ? extractedPico.specialty : "obgyn";
+    const storedSpec = sget<string>(KEYS.specialty);
+    const specKey = (extractedPico.specialty && extractedPico.specialty in KB)
+      ? (extractedPico.specialty as SpecialtyKey)
+      : (storedSpec && storedSpec in KB)
+        ? (storedSpec as SpecialtyKey)
+        : "internal_med";
     const a: Analysis = {
       specialty: specKey,
       specialtyLabel: KB[specKey]?.label || "Clinical Medicine",
@@ -276,7 +281,7 @@ export default function QuestionPage() {
       <main className="solo">
         {extractedPico && (
           <section className="card">
-            <span className="pill">💡 Target PICO Question · {KB[extractedPico.specialty]?.label || "Obstetrics & Gynecology"}</span>
+            <span className="pill">💡 Target PICO Question · {KB[extractedPico.specialty]?.label || "Clinical Medicine"}</span>
             <div className="final-q" style={{ marginTop: 10, marginBottom: 12 }}>
               <b>{extractedPico.cleanQuestion}</b>
             </div>

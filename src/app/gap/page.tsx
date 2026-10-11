@@ -142,6 +142,7 @@ export default function GapPage() {
 
   const refine = (q: string) => {
     if (gap) sset(KEYS.gap, gap);
+    if (gap?.specialty) sset(KEYS.specialty, gap.specialty);
     sset(KEYS.question, q);
     router.push("/question");
   };
@@ -149,8 +150,8 @@ export default function GapPage() {
   return (
     <div className="wrap">
       <header className="hdr">
-        <h1>🕳️ Step 2 · Evidence Map</h1>
-        <p>What is established, what is contested, and where the real gaps are</p>
+        <h1>🕳️ Step 2 · Evidence Map & 4 PICO Questions</h1>
+        <p>4 Established knowledge points, 4 conflicting topics, 4 evidence gaps, and 4 PICO questions</p>
       </header>
 
       <main className="solo">
