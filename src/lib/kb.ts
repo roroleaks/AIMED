@@ -12,7 +12,14 @@ export type SpecialtyKey =
   | "surgery"
   | "internal_med"
   | "neurology"
-  | "endocrinology";
+  | "endocrinology"
+  | "emergency_med"
+  | "psychiatry"
+  | "orthopedics"
+  | "pulmonology"
+  | "gastroenterology"
+  | "infectious_disease"
+  | "dermatology";
 
 export interface OutcomeRule {
   keywords: string[];
@@ -300,6 +307,62 @@ export const KB: Record<SpecialtyKey, SpecialtyKB> = {
     outcomesRanked: SPECIALTIES.endocrinology.outcomesRanked,
     terminology: SPECIALTIES.endocrinology.terminology,
     outcomeRules: SPECIALTIES.endocrinology.outcomeRules
+  },
+  emergency_med: {
+    label: SPECIALTIES.emergency_med.label,
+    conditions: SPECIALTIES.emergency_med.conditions,
+    interventions: SPECIALTIES.emergency_med.interventions,
+    outcomesRanked: SPECIALTIES.emergency_med.outcomesRanked,
+    terminology: SPECIALTIES.emergency_med.terminology,
+    outcomeRules: SPECIALTIES.emergency_med.outcomeRules
+  },
+  psychiatry: {
+    label: SPECIALTIES.psychiatry.label,
+    conditions: SPECIALTIES.psychiatry.conditions,
+    interventions: SPECIALTIES.psychiatry.interventions,
+    outcomesRanked: SPECIALTIES.psychiatry.outcomesRanked,
+    terminology: SPECIALTIES.psychiatry.terminology,
+    outcomeRules: SPECIALTIES.psychiatry.outcomeRules
+  },
+  orthopedics: {
+    label: SPECIALTIES.orthopedics.label,
+    conditions: SPECIALTIES.orthopedics.conditions,
+    interventions: SPECIALTIES.orthopedics.interventions,
+    outcomesRanked: SPECIALTIES.orthopedics.outcomesRanked,
+    terminology: SPECIALTIES.orthopedics.terminology,
+    outcomeRules: SPECIALTIES.orthopedics.outcomeRules
+  },
+  pulmonology: {
+    label: SPECIALTIES.pulmonology.label,
+    conditions: SPECIALTIES.pulmonology.conditions,
+    interventions: SPECIALTIES.pulmonology.interventions,
+    outcomesRanked: SPECIALTIES.pulmonology.outcomesRanked,
+    terminology: SPECIALTIES.pulmonology.terminology,
+    outcomeRules: SPECIALTIES.pulmonology.outcomeRules
+  },
+  gastroenterology: {
+    label: SPECIALTIES.gastroenterology.label,
+    conditions: SPECIALTIES.gastroenterology.conditions,
+    interventions: SPECIALTIES.gastroenterology.interventions,
+    outcomesRanked: SPECIALTIES.gastroenterology.outcomesRanked,
+    terminology: SPECIALTIES.gastroenterology.terminology,
+    outcomeRules: SPECIALTIES.gastroenterology.outcomeRules
+  },
+  infectious_disease: {
+    label: SPECIALTIES.infectious_disease.label,
+    conditions: SPECIALTIES.infectious_disease.conditions,
+    interventions: SPECIALTIES.infectious_disease.interventions,
+    outcomesRanked: SPECIALTIES.infectious_disease.outcomesRanked,
+    terminology: SPECIALTIES.infectious_disease.terminology,
+    outcomeRules: SPECIALTIES.infectious_disease.outcomeRules
+  },
+  dermatology: {
+    label: SPECIALTIES.dermatology.label,
+    conditions: SPECIALTIES.dermatology.conditions,
+    interventions: SPECIALTIES.dermatology.interventions,
+    outcomesRanked: SPECIALTIES.dermatology.outcomesRanked,
+    terminology: SPECIALTIES.dermatology.terminology,
+    outcomeRules: SPECIALTIES.dermatology.outcomeRules
   }
 };
 

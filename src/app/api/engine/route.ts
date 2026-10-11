@@ -976,9 +976,9 @@ export async function POST(req: NextRequest) {
       // citation resolvable. When it is not, one corrective retry names the offending
       // citations rather than shipping a commentary whose reference list it does not support.
       const passedCommentarySpec = (body as { specialty?: string })?.specialty || (gapAnalysis as { specialty?: string })?.specialty;
-      const activeSpecKey = isSpecialty(passedCommentarySpec) ? passedCommentarySpec : "obgyn";
-      const activeSpecDef = getSpecialtyDefinition(activeSpecKey);
-      const promptRole = activeSpecDef.systemPromptRole || "You are an expert physician, clinical investigator, and academic medical writer.";
+      const activeSpecKey = isSpecialty(passedCommentarySpec) ? passedCommentarySpec : null;
+      const activeSpecDef = activeSpecKey ? getSpecialtyDefinition(activeSpecKey) : null;
+      const promptRole = activeSpecDef?.systemPromptRole || "You are an expert physician, clinical investigator, and academic medical writer across evidence-based clinical medicine.";
 
       const basePrompt = `${promptRole}
 
@@ -1295,7 +1295,7 @@ refAudit: directPool.map(r => auditRef(r, elements)),
         ? ((body as { specialty?: SpecialtyKey }).specialty)
         : undefined;
       const scenario = parseClinicalScenario(topic, explicitGapSpec);
-      const activeGapSpec = scenario.specialty || "obgyn";
+      const activeGapSpec = scenario.specialty || (explicitGapSpec ? explicitGapSpec : "internal_med");
       const activeGapDef = getSpecialtyDefinition(activeGapSpec);
 
       let gapAnalysis: Record<string, unknown> | null = null;
@@ -1344,7 +1344,7 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       }
 
       if (!gapAnalysis) {
-        gapAnalysis = generateDeterministicGapAnalysis(topic) as unknown as Record<string, unknown>;
+        gapAnalysis = generateDeterministicGapAnalysis(topic, explicitGapSpec) as unknown as Record<string, unknown>;
         gapSource = "deterministic";
       }
 
@@ -1441,7 +1441,7 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       const input = parsedInput.text;
       if (KEY) {
         const out = await callLLM(
-          `You are a clinical intent recognition engine for Obstetrics and Gynecology.
+          `You are a clinical intent recognition engine for universal evidence-based medicine across all clinical specialties.
 Given a clinician's raw, vague clinical uncertainty, identify:
 - specialty: one of ${Object.keys(KB).join(", ")} (or null)
 - condition: the clinical problem/population (empty string if unclear)
@@ -1547,7 +1547,7 @@ Respond ONLY with JSON:
       if (KEY && analysis?.specialty && isSpecialty(analysis.specialty)) {
         const outcomeLogic = rationalOutcomes(answered.condition || analysis.condition || "", analysis.specialty);
         const out = await callLLM(
-          `You are a clinical question formulation engine for evidence-based medicine in Obstetrics and Gynecology.
+          `You are a clinical question formulation engine for evidence-based medicine in ${analysis.specialty ? (KB[analysis.specialty]?.label || "Clinical Medicine") : "Clinical Medicine"}.
 Using the analysis and clarified answers, produce:
 - framework: the question framework name
 - elements: array of {label, value} for each framework element (PICO/PICOT/PECO/diagnostic)
@@ -1583,7 +1583,8 @@ Respond ONLY with JSON.`,
     if (stage === "gap") {
       try {
         const topic = typeof body.input === "string" ? body.input : "";
-        const fallback = generateDeterministicGapAnalysis(topic);
+        const explicitSpec = isSpecialty((body as { specialty?: string })?.specialty) ? ((body as { specialty?: SpecialtyKey }).specialty) : undefined;
+        const fallback = generateDeterministicGapAnalysis(topic, explicitSpec);
         return NextResponse.json({
           ...fallback,
           topic,

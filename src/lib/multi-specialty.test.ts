@@ -8,6 +8,8 @@ test("KB contains all major medical specialties with comprehensive data", () => 
   const expectedSpecialties: SpecialtyKey[] = [
     "obgyn", "cardiology", "oncology", "pediatrics",
     "surgery", "internal_med", "neurology", "endocrinology",
+    "emergency_med", "psychiatry", "orthopedics", "pulmonology",
+    "gastroenterology", "infectious_disease", "dermatology",
     "infertility", "gynecology", "obstetrics"
   ];
 
@@ -56,6 +58,69 @@ test("parseClinicalScenario classifies Neurology acute stroke scenario correctly
   assert.ok(scenario.population.includes("stroke"));
   assert.equal(scenario.intervention, "mechanical thrombectomy");
   assert.ok(scenario.outcomes.some(o => o.includes("functional") || o.includes("mRS") || o.includes("recovery")));
+});
+
+test("parseClinicalScenario classifies Emergency Medicine cardiac arrest scenario correctly", () => {
+  const input = "out-of-hospital cardiac arrest, targeted temperature management, hypothermia, CPC score";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "emergency_med");
+  assert.ok(scenario.population.includes("cardiac arrest"));
+  assert.equal(scenario.intervention, "targeted temperature management");
+});
+
+test("parseClinicalScenario classifies Psychiatry treatment-resistant depression scenario correctly", () => {
+  const input = "treatment-resistant depression, esketamine, quetiapine, MADRS remission";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "psychiatry");
+  assert.ok(scenario.population.includes("depression"));
+  assert.equal(scenario.intervention, "esketamine nasal spray");
+});
+
+test("parseClinicalScenario classifies Orthopedics knee arthroplasty scenario correctly", () => {
+  const input = "knee osteoarthritis, robotic total knee arthroplasty, manual tka, koos score";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "orthopedics");
+  assert.ok(scenario.population.includes("osteoarthritis"));
+  assert.equal(scenario.intervention, "robotic-assisted total knee arthroplasty");
+});
+
+test("parseClinicalScenario classifies Pulmonology COPD scenario correctly", () => {
+  const input = "chronic obstructive pulmonary disease, triple inhaled therapy, laba lama, copd exacerbations";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "pulmonology");
+  assert.ok(scenario.population.includes("copd") || scenario.population.includes("pulmonary disease"));
+  assert.equal(scenario.intervention, "triple inhaled therapy (ICS/LABA/LAMA)");
+});
+
+test("parseClinicalScenario classifies Gastroenterology Crohn's disease scenario correctly", () => {
+  const input = "crohn's disease, risankizumab, ustekinumab, mucosal healing";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "gastroenterology");
+  assert.ok(scenario.population.includes("Crohn"));
+  assert.equal(scenario.intervention, "risankizumab");
+});
+
+test("parseClinicalScenario classifies Infectious Disease C. difficile scenario correctly", () => {
+  const input = "clostridioides difficile, fidaxomicin, vancomycin, sustained clinical cure";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "infectious_disease");
+  assert.ok(scenario.population.includes("difficile"));
+  assert.equal(scenario.intervention, "fidaxomicin");
+});
+
+test("parseClinicalScenario classifies Dermatology psoriasis scenario correctly", () => {
+  const input = "plaque psoriasis, upadacitinib, dupilumab, clear skin response";
+  const scenario = parseClinicalScenario(input);
+
+  assert.equal(scenario.specialty, "dermatology");
+  assert.ok(scenario.population.includes("psoriasis"));
+  assert.equal(scenario.intervention, "upadacitinib");
 });
 
 test("parseClinicalScenario respects explicitSpecialty parameter", () => {

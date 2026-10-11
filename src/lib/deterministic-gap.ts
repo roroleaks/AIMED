@@ -17,13 +17,13 @@ export interface DeterministicGapPayload {
 }
 
 /**
- * Deterministic evidence mapping engine for Obstetrics & Gynecology.
+ * Deterministic evidence mapping engine for universal evidence-based clinical medicine.
  * Generates calibrated 4-known, 4-uncertain, 4-gaps, and 4-PICO questions
  * without requiring an external AI provider or when the AI service is unreachable/rate-limited.
  */
-export function generateDeterministicGapAnalysis(rawTopic: string): DeterministicGapPayload {
-  const topic = (rawTopic || "").trim() || "obstetric and gynecologic clinical care";
-  const scenario = parseClinicalScenario(topic);
+export function generateDeterministicGapAnalysis(rawTopic: string, explicitSpecialty?: SpecialtyKey | null): DeterministicGapPayload {
+  const topic = (rawTopic || "").trim() || "evidence-based clinical management and patient outcomes";
+  const scenario = parseClinicalScenario(topic, explicitSpecialty);
   const specialty: SpecialtyKey = scenario.specialty;
 
   const condition = scenario.population;
@@ -91,21 +91,25 @@ export function generateDeterministicGapAnalysis(rawTopic: string): Deterministi
   ];
 
   // Build 4 suggested PICO-format clinical questions
+  const popTarget = (specialty === "obstetrics" || specialty === "infertility" || specialty === "gynecology")
+    ? `women with ${condition}`
+    : `patients with ${condition}`;
+
   const suggestedQuestions: Array<{ question: string; rationale: string }> = [
     {
-      question: `In women with ${condition} (P), does ${intervention} (I) compared with ${comparator} (C) improve primary patient-centered clinical outcomes (O)?`,
+      question: `In ${popTarget} (P), does ${intervention} (I) compared with ${comparator} (C) improve primary patient-centered clinical outcomes (O)?`,
       rationale: "Evaluates the fundamental efficacy of the primary intervention against standard control."
     },
     {
-      question: `In high-risk subgroups of women with ${condition} (P), does early intervention with ${intervention} (I) compared with conservative management (C) reduce disease progression or acute complications (O)?`,
+      question: `In high-risk subgroups of ${popTarget} (P), does early intervention with ${intervention} (I) compared with conservative management (C) reduce disease progression or acute complications (O)?`,
       rationale: "Addresses risk-stratified timing and threshold for proactive clinical intervention."
     },
     {
-      question: `In women with ${condition} (P), does ${intervention} combined with adjuvant therapy (I) compared with ${intervention} monotherapy (C) improve cumulative therapeutic success (O)?`,
+      question: `In ${popTarget} (P), does ${intervention} combined with adjuvant therapy (I) compared with ${intervention} monotherapy (C) improve cumulative therapeutic success (O)?`,
       rationale: "Tests potential synergistic or additive benefit of combination regimens."
     },
     {
-      question: `In women undergoing ${intervention} for ${condition} (P), does structured protocolized follow-up (I) compared with routine clinical monitoring (C) decrease long-term morbidity and treatment-related complications (O)?`,
+      question: `In patients undergoing ${intervention} for ${condition} (P), does structured protocolized follow-up (I) compared with routine clinical monitoring (C) decrease long-term morbidity and treatment-related complications (O)?`,
       rationale: "Focuses on surveillance safety, adverse event mitigation, and quality assurance."
     }
   ];

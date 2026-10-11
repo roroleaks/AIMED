@@ -21,7 +21,22 @@ export interface SpecialtyDefinition {
   label: string;
   shortName: string;
   icon: string;
-  category: "Women's Health" | "Cardiovascular" | "Oncology" | "Pediatrics" | "Surgery" | "Internal Medicine" | "Neuroscience" | "Metabolic";
+  category:
+    | "Women's Health"
+    | "Cardiovascular"
+    | "Oncology"
+    | "Pediatrics"
+    | "Surgery"
+    | "Internal Medicine"
+    | "Neuroscience"
+    | "Metabolic"
+    | "Emergency & Critical Care"
+    | "Psychiatry & Behavioral Health"
+    | "Orthopedics & Musculoskeletal"
+    | "Pulmonology & Respiratory"
+    | "Gastroenterology & Hepatology"
+    | "Infectious Diseases"
+    | "Dermatology";
   description: string;
   authorityGuidelines: string;
   conditions: string[];
@@ -701,6 +716,615 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
     ],
     systemPromptRole: "You are an expert endocrinologist, metabolic clinical investigator, and academic endocrine medical writer.",
     gapPromptRole: "You are an evidence-mapping engine for Endocrinology & Metabolism with strict scientific editorial standards."
+  },
+
+  emergency_med: {
+    id: "emergency_med",
+    label: "Emergency Medicine & Critical Care",
+    shortName: "Emergency Med",
+    icon: "🚑",
+    category: "Emergency & Critical Care",
+    description: "Acute resuscitation, hemodynamic instability, trauma, sepsis, respiratory failure, and emergency procedures.",
+    authorityGuidelines: "ACEP · SCCM · ERC · AHA",
+    conditions: [
+      "septic shock",
+      "out-of-hospital cardiac arrest (OHCA)",
+      "acute respiratory distress syndrome (ARDS)",
+      "severe traumatic brain injury (TBI)",
+      "massive pulmonary embolism",
+      "status epilepticus in ED",
+      "anaphylactic shock",
+      "severe hemorrhagic shock"
+    ],
+    interventions: [
+      "targeted temperature management (TTM)",
+      "early goal-directed norepinephrine resuscitation",
+      "extracorporeal membrane oxygenation (ECMO / ECPR)",
+      "point-of-care ultrasound (POCUS) guided resuscitation",
+      "early tranexamic acid in major trauma",
+      "rapid sequence intubation (RSI) with ketamine",
+      "balanced crystalloids vs normal saline",
+      "catheter-directed thrombolysis"
+    ],
+    outcomesRanked: [
+      "30-day all-cause mortality",
+      "favorable neurological outcome (CPC 1-2 at discharge)",
+      "in-hospital mortality",
+      "ventilator-free days at 28 days",
+      "ICU length of stay",
+      "vasopressor-free hours at 72 hours",
+      "major bleeding complications"
+    ],
+    terminology: ["ACEP", "SCCM", "ROSC", "OHCA", "ARDS", "TTM", "ECPR", "POCUS", "RSI", "CPC"],
+    presets: [
+      {
+        id: "cardiac-arrest-ttm",
+        name: "Cardiac Arrest (TTM 33°C vs Normothermia)",
+        description: "Comatose adult survivors of out-of-hospital cardiac arrest",
+        p: "comatose adults after resuscitation from out-of-hospital cardiac arrest",
+        i: "targeted temperature management at 33°C",
+        c: "targeted normothermia (36-37.5°C)",
+        o: "favorable neurological outcome (CPC 1-2) at 6 months",
+        raw: "cardiac arrest, targeted temperature management, hypothermia, neurological outcome, CPC score"
+      },
+      {
+        id: "trauma-txa",
+        name: "Trauma Hemorrhage (Early Tranexamic Acid vs Placebo)",
+        description: "Adult trauma patients with or at risk of significant hemorrhage within 3 hours",
+        p: "adult trauma patients with significant bleeding within 3 hours",
+        i: "intravenous tranexamic acid (CRASH-2 protocol)",
+        c: "placebo",
+        o: "all-cause mortality at 28 days",
+        raw: "severe trauma, tranexamic acid, hemorrhage, 28-day mortality, thromboembolic events"
+      },
+      {
+        id: "septic-shock-norepi",
+        name: "Septic Shock (Early Norepinephrine vs Delayed Vasopressor)",
+        description: "Adults presenting to the emergency department with fluid-refractory septic shock",
+        p: "adults with fluid-refractory septic shock in emergency department",
+        i: "early continuous norepinephrine infusion within 1 hour",
+        c: "standard delayed vasopressor initiation after fluid completion",
+        o: "28-day in-hospital mortality",
+        raw: "septic shock, early norepinephrine, vasopressor timing, in-hospital mortality, lactate clearance"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["cardiac arrest", "resuscitation", "rosc", "hypothermia", "ttm"],
+        primary: "favorable neurological outcome (CPC 1-2 at discharge)",
+        alternatives: ["all-cause mortality at 6 months", "in-hospital mortality", "time to ROSC"],
+        rationale: "Survival with functional neurological recovery defines successful emergency cardiac arrest resuscitation."
+      },
+      {
+        keywords: ["septic shock", "sepsis", "vasopressor", "norepinephrine"],
+        primary: "28-day all-cause mortality",
+        alternatives: ["time to shock reversal", "ICU length of stay", "lactate clearance at 6 hours"],
+        rationale: "Rapid hemodynamic stabilization in sepsis is judged primarily by short-term survival."
+      }
+    ],
+    systemPromptRole: "You are an expert emergency physician, resuscitation trialist, and intensivist specializing in Emergency Medicine and Critical Care.",
+    gapPromptRole: "You are an evidence-mapping engine for Emergency Medicine & Critical Care with strict scientific editorial standards."
+  },
+
+  psychiatry: {
+    id: "psychiatry",
+    label: "Psychiatry & Behavioral Health",
+    shortName: "Psychiatry",
+    icon: "🧩",
+    category: "Psychiatry & Behavioral Health",
+    description: "Major mood disorders, treatment-resistant depression, schizophrenia, psychopharmacology, and neuromodulation.",
+    authorityGuidelines: "APA · CANMAT · NICE · WFSBP",
+    conditions: [
+      "major depressive disorder (MDD)",
+      "treatment-resistant depression (TRD)",
+      "bipolar I and II disorder (depressive and manic episodes)",
+      "schizophrenia and schizoaffective disorder",
+      "generalized anxiety disorder (GAD)",
+      "obsessive-compulsive disorder (OCD)",
+      "post-traumatic stress disorder (PTSD)",
+      "adult attention-deficit/hyperactivity disorder (ADHD)"
+    ],
+    interventions: [
+      "esketamine nasal spray",
+      "repetitive transcranial magnetic stimulation (rTMS)",
+      "electroconvulsive therapy (ECT)",
+      "cognitive behavioral therapy (CBT)",
+      "second-generation atypical antipsychotics",
+      "SSRIs and SNRIs",
+      "lithium maintenance therapy",
+      "adjunctive atypical antipsychotics (aripiprazole, brexpiprazole)"
+    ],
+    outcomesRanked: [
+      "clinical remission (MADRS <= 10 or HAM-D <= 7)",
+      "treatment response (>= 50% symptom reduction)",
+      "time to relapse or recurrence",
+      "all-cause treatment discontinuation",
+      "suicidality / suicide attempt rate",
+      "functional recovery (Sheehan Disability Scale)",
+      "metabolic and extrapyramidal adverse events"
+    ],
+    terminology: ["APA", "CANMAT", "MADRS", "HAM-D", "PANSS", "CBT", "rTMS", "ECT", "TRD", "MDD"],
+    presets: [
+      {
+        id: "trd-esketamine",
+        name: "Treatment-Resistant Depression (Esketamine vs Quetiapine)",
+        description: "Adults with major depressive disorder failing >= 2 prior antidepressant trials",
+        p: "treatment-resistant major depressive disorder",
+        i: "adjunctive esketamine nasal spray plus SSRI/SNRI",
+        c: "adjunctive quetiapine extended-release plus SSRI/SNRI",
+        o: "clinical remission at 8 weeks (MADRS <= 10)",
+        raw: "treatment-resistant depression, esketamine, quetiapine, MADRS remission, relapse prevention"
+      },
+      {
+        id: "mdd-rtms",
+        name: "MDD (Repetitive TMS vs Sham Stimulation)",
+        description: "Pharmacotherapy-resistant unipolar major depressive episode",
+        p: "pharmacoresistant major depressive disorder",
+        i: "high-frequency left prefrontal rTMS",
+        c: "sham rTMS stimulation",
+        o: "treatment response and remission rates at 6 weeks",
+        raw: "major depressive disorder, transcranial magnetic stimulation, sham TMS, response rate, MADRS"
+      },
+      {
+        id: "bipolar-lithium",
+        name: "Bipolar Maintenance (Lithium vs Valproate)",
+        description: "Bipolar I disorder requiring long-term maintenance mood stabilization",
+        p: "bipolar I disorder in maintenance phase",
+        i: "lithium monotherapy",
+        c: "valproate monotherapy",
+        o: "time to recurrence of any mood episode",
+        raw: "bipolar I disorder, lithium, valproate, mood episode recurrence, hospital admission"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["depression", "mdd", "trd", "antidepressant", "esketamine", "madrs"],
+        primary: "clinical remission (MADRS <= 10 or HAM-D <= 7)",
+        alternatives: ["treatment response (>= 50% symptom reduction)", "time to relapse", "all-cause discontinuation"],
+        rationale: "Full syndromal remission rather than partial response is required to restore psychosocial function and prevent relapse."
+      },
+      {
+        keywords: ["bipolar", "lithium", "valproate", "mania"],
+        primary: "time to recurrence of any mood episode",
+        alternatives: ["time to depressive relapse", "time to manic relapse", "all-cause medication discontinuation"],
+        rationale: "Maintenance stability is defined by prolonging euthymia and preventing mood episode relapse."
+      }
+    ],
+    systemPromptRole: "You are an expert academic psychiatrist, neuropsychopharmacologist, and behavioral clinical trialist specializing in Psychiatry and Mental Health.",
+    gapPromptRole: "You are an evidence-mapping engine for Psychiatry & Behavioral Health with strict scientific editorial standards."
+  },
+
+  orthopedics: {
+    id: "orthopedics",
+    label: "Orthopedic Surgery & Sports Medicine",
+    shortName: "Orthopedics",
+    icon: "🦴",
+    category: "Orthopedics & Musculoskeletal",
+    description: "Joint arthroplasty, sports ligamentous reconstruction, musculoskeletal trauma, spine disorders, and cartilage restoration.",
+    authorityGuidelines: "AAOS · BOA · EFORT · ESSKA",
+    conditions: [
+      "end-stage knee osteoarthritis",
+      "end-stage hip osteoarthritis",
+      "anterior cruciate ligament (ACL) rupture",
+      "full-thickness rotator cuff tear",
+      "displaced femoral neck fracture in elderly",
+      "lumbar disc herniation with radiculopathy",
+      "femoroacetabular impingement (FAI)",
+      "subacromial shoulder impingement"
+    ],
+    interventions: [
+      "total knee arthroplasty (TKA, robotic-assisted)",
+      "conventional manual total knee arthroplasty",
+      "total hip arthroplasty (THA, direct anterior approach)",
+      "ACL reconstruction (autograft bone-tendon-bone vs hamstring)",
+      "arthroscopic rotator cuff repair",
+      "hemiarthroplasty vs total hip arthroplasty for femoral neck fracture",
+      "lumbar microdiscectomy vs structured conservative therapy",
+      "platelet-rich plasma (PRP) intra-articular injections"
+    ],
+    outcomesRanked: [
+      "validated patient-reported outcome measures (KOOS / WOMAC / Oxford score)",
+      "implant survivorship and revision rate at 5-10 years",
+      "return to pre-injury sport or baseline activity",
+      "major postoperative complications (prosthetic joint infection, DVT)",
+      "visual analogue scale (VAS) pain score reduction at 12 months",
+      "range of motion and functional recovery"
+    ],
+    terminology: ["AAOS", "TKA", "THA", "ACL", "KOOS", "WOMAC", "PROMs", "PRP", "FAI", "PJI"],
+    presets: [
+      {
+        id: "tka-robotic-manual",
+        name: "Knee Arthroplasty (Robotic vs Conventional Manual TKA)",
+        description: "End-stage primary knee osteoarthritis undergoing total knee replacement",
+        p: "end-stage primary knee osteoarthritis",
+        i: "robotic-assisted total knee arthroplasty",
+        c: "conventional manual total knee arthroplasty",
+        o: "patient-reported joint function (KOOS / WOMAC) and revision rate",
+        raw: "knee osteoarthritis, robotic total knee arthroplasty, manual TKA, patient reported outcomes, revision rate"
+      },
+      {
+        id: "acl-reconstruction-rehab",
+        name: "ACL Rupture (Early Reconstruction vs Rehabilitation)",
+        description: "Young active adults with acute anterior cruciate ligament rupture",
+        p: "active young adults with acute ACL rupture",
+        i: "early surgical ACL reconstruction",
+        c: "structured rehabilitation with optional delayed ACL reconstruction",
+        o: "KOOS functional score and secondary meniscus injury at 5 years",
+        raw: "ACL rupture, early ACL reconstruction, conservative rehabilitation, KOOS score, meniscal tears"
+      },
+      {
+        id: "hip-fracture-tha-hemi",
+        name: "Hip Fracture (Total Hip Arthroplasty vs Hemiarthroplasty)",
+        description: "Active elderly patients with displaced intracapsular femoral neck fractures",
+        p: "active elderly patients with displaced femoral neck fracture",
+        i: "total hip arthroplasty (THA)",
+        c: "hemiarthroplasty",
+        o: "reoperation rate and functional mobility at 2 years",
+        raw: "displaced femoral neck fracture, total hip arthroplasty, hemiarthroplasty, reoperation rate, mobility score"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["arthroplasty", "tka", "tha", "knee replacement", "hip replacement", "implant"],
+        primary: "implant survivorship and revision rate at 5-10 years",
+        alternatives: ["KOOS / WOMAC patient-reported functional score", "prosthetic joint infection rate", "pain score at 1 year"],
+        rationale: "Long-term joint survivorship and freedom from revision are the primary benchmarks of arthroplasty efficacy."
+      },
+      {
+        keywords: ["acl", "ligament", "rotator cuff", "meniscus", "sports"],
+        primary: "return to pre-injury sport and validated functional score (KOOS/IKDC)",
+        alternatives: ["graft failure / re-rupture rate", "secondary meniscal tears", "pain reduction"],
+        rationale: "Restoration of biomechanical stability and athletic function represents the definitive outcome in sports orthopedics."
+      }
+    ],
+    systemPromptRole: "You are an expert orthopedic surgeon, biomechanics researcher, and musculoskeletal clinical trialist specializing in Orthopedic Surgery and Sports Medicine.",
+    gapPromptRole: "You are an evidence-mapping engine for Orthopedics & Musculoskeletal Medicine with strict scientific editorial standards."
+  },
+
+  pulmonology: {
+    id: "pulmonology",
+    label: "Pulmonology & Respiratory Medicine",
+    shortName: "Pulmonology",
+    icon: "🫁",
+    category: "Pulmonology & Respiratory",
+    description: "Obstructive airway diseases, interstitial lung fibrosis, pulmonary hypertension, and acute lung injury.",
+    authorityGuidelines: "ATS · ERS · GOLD · GINA",
+    conditions: [
+      "chronic obstructive pulmonary disease (COPD) with frequent exacerbations",
+      "severe uncontrolled eosinophilic asthma",
+      "idiopathic pulmonary fibrosis (IPF)",
+      "pulmonary arterial hypertension (PAH)",
+      "moderate-to-severe obstructive sleep apnea (OSA)",
+      "non-cystic fibrosis bronchiectasis",
+      "pulmonary sarcoidosis"
+    ],
+    interventions: [
+      "triple inhaled therapy (ICS/LABA/LAMA)",
+      "dual bronchodilator therapy (LABA/LAMA)",
+      "targeted biologic therapies (dupilumab, tezepelumab, mepolizumab)",
+      "antifibrotic agents (nintedanib, pirfenidone)",
+      "prostacyclin receptor agonists and endothelin antagonists",
+      "continuous positive airway pressure (CPAP)",
+      "bronchoscopic lung volume reduction (BLVR) with endobronchial valves",
+      "long-term azithromycin maintenance"
+    ],
+    outcomesRanked: [
+      "annualized rate of moderate-to-severe exacerbations",
+      "annual rate of decline in forced vital capacity (FVC)",
+      "all-cause mortality",
+      "change in trough FEV1 from baseline",
+      "St. George's Respiratory Questionnaire (SGRQ) score",
+      "6-minute walk distance (6MWD)",
+      "hospitalization for acute respiratory failure"
+    ],
+    terminology: ["ATS", "ERS", "GOLD", "GINA", "FEV1", "FVC", "SGRQ", "6MWD", "IPF", "PAH"],
+    presets: [
+      {
+        id: "copd-triple-dual",
+        name: "COPD (Triple Inhaled ICS/LABA/LAMA vs Dual LABA/LAMA)",
+        description: "Symptomatic COPD patients with a history of frequent exacerbations",
+        p: "symptomatic COPD with history of >= 1 exacerbation",
+        i: "single-inhaler triple therapy (ICS/LABA/LAMA)",
+        c: "dual bronchodilator therapy (LABA/LAMA)",
+        o: "annualized rate of moderate or severe COPD exacerbations",
+        raw: "COPD, triple therapy, LABA LAMA, exacerbation rate, all-cause mortality, FEV1"
+      },
+      {
+        id: "ipf-antifibrotic",
+        name: "IPF (Nintedanib vs Pirfenidone)",
+        description: "Adults with confirmed idiopathic pulmonary fibrosis and mild-to-moderate impairment",
+        p: "idiopathic pulmonary fibrosis, mild-to-moderate restriction",
+        i: "nintedanib 150 mg twice daily",
+        c: "pirfenidone titrated to 2403 mg daily",
+        o: "annual rate of decline in forced vital capacity (FVC)",
+        raw: "idiopathic pulmonary fibrosis, nintedanib, pirfenidone, FVC decline, disease progression"
+      },
+      {
+        id: "asthma-biologics",
+        name: "Severe Asthma (Dupilumab vs Placebo/Standard Inhaled Care)",
+        description: "Severe uncontrolled asthma with elevated blood eosinophils or FeNO",
+        p: "severe uncontrolled asthma with type 2 inflammatory phenotype",
+        i: "add-on dupilumab subcutaneous every 2 weeks",
+        c: "standard high-dose inhaled therapy alone",
+        o: "annualized severe asthma exacerbation rate and FEV1 improvement",
+        raw: "severe eosinophilic asthma, dupilumab, exacerbation rate, FEV1, oral corticosteroid reduction"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["copd", "asthma", "exacerbation", "bronch", "fev1"],
+        primary: "annualized rate of moderate-to-severe exacerbations",
+        alternatives: ["all-cause mortality", "trough FEV1 change from baseline", "SGRQ quality of life score"],
+        rationale: "Exacerbation frequency directly drives lung function decline, healthcare costs, and mortality in airway disease."
+      },
+      {
+        keywords: ["fibrosis", "ipf", "interstitial", "fvc", "nintedanib", "pirfenidone"],
+        primary: "annual rate of decline in forced vital capacity (FVC)",
+        alternatives: ["all-cause mortality", "acute exacerbation of IPF", "progression-free survival"],
+        rationale: "FVC trajectory is the validated physiological surrogate of parenchymal progression and survival in pulmonary fibrosis."
+      }
+    ],
+    systemPromptRole: "You are an expert pulmonologist, respiratory physiologist, and clinical investigator specializing in Pulmonology and Respiratory Medicine.",
+    gapPromptRole: "You are an evidence-mapping engine for Pulmonology & Respiratory Medicine with strict scientific editorial standards."
+  },
+
+  gastroenterology: {
+    id: "gastroenterology",
+    label: "Gastroenterology & Hepatology",
+    shortName: "Gastroenterology",
+    icon: "🧪",
+    category: "Gastroenterology & Hepatology",
+    description: "Inflammatory bowel disease, steatotic liver disease, cirrhosis, portal hypertension, and acute gastrointestinal emergencies.",
+    authorityGuidelines: "AGA · ACG · ECCO · EASL",
+    conditions: [
+      "moderate-to-severe Crohn's disease",
+      "moderate-to-severe ulcerative colitis",
+      "metabolic dysfunction-associated steatohepatitis (MASH / NASH)",
+      "decompensated liver cirrhosis with variceal bleeding",
+      "acute severe pancreatitis",
+      "irritable bowel syndrome with diarrhea (IBS-D)",
+      "eosinophilic esophagitis"
+    ],
+    interventions: [
+      "IL-23 p19 inhibitors (risankizumab, mirikizumab)",
+      "anti-TNF agents (infliximab, adalimumab)",
+      "oral JAK inhibitors (upadacitinib, tofacitinib)",
+      "resmetirom (THR-beta agonist)",
+      "early preemptive TIPS (transjugular portosystemic shunt)",
+      "early aggressive goal-directed fluid resuscitation (lactated Ringer's)",
+      "fecal microbiota transplantation (FMT)",
+      "endoscopic mucosal resection"
+    ],
+    outcomesRanked: [
+      "endoscopic mucosal healing / clinical remission at 52 weeks",
+      "MASH resolution without worsening of liver fibrosis",
+      "corticosteroid-free sustained clinical remission",
+      "6-week all-cause mortality (variceal bleeding)",
+      "progression to decompensated cirrhosis or liver transplantation",
+      "persistent organ failure in acute pancreatitis",
+      "treatment-related serious adverse events"
+    ],
+    terminology: ["AGA", "ACG", "ECCO", "EASL", "IBD", "MASH", "NASH", "TIPS", "CDAI", "SES-CD"],
+    presets: [
+      {
+        id: "crohn-il23-antitnf",
+        name: "Crohn's Disease (IL-23 Inhibitors vs Anti-TNF)",
+        description: "Moderate-to-severe active Crohn's disease naive or refractory to biologics",
+        p: "moderate-to-severe active Crohn's disease",
+        i: "risankizumab intravenous induction then subcutaneous maintenance",
+        c: "ustekinumab or adalimumab standard maintenance",
+        o: "endoscopic mucosal healing and clinical remission at 52 weeks",
+        raw: "Crohn's disease, risankizumab, ustekinumab, endoscopic healing, clinical remission"
+      },
+      {
+        id: "mash-resmetirom",
+        name: "MASH Liver Fibrosis (Resmetirom vs Placebo)",
+        description: "Metabolic dysfunction-associated steatohepatitis with moderate-to-advanced fibrosis (stages F2-F3)",
+        p: "biopsy-confirmed MASH with stage F2-F3 fibrosis",
+        i: "resmetirom 100 mg once daily",
+        c: "placebo",
+        o: "MASH resolution and at least 1-stage fibrosis improvement",
+        raw: "MASH, resmetirom, placebo, steatohepatitis resolution, liver fibrosis improvement"
+      },
+      {
+        id: "cirrhosis-early-tips",
+        name: "Variceal Bleeding (Early TIPS vs Standard Endoscopy/Medical)",
+        description: "Cirrhotic patients with high-risk acute esophageal variceal hemorrhage (Child-Pugh B or C)",
+        p: "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C",
+        i: "early preemptive TIPS within 72 hours",
+        c: "standard medical therapy (vasoactive drugs) plus endoscopic band ligation",
+        o: "treatment failure and 6-week all-cause mortality",
+        raw: "cirrhosis, acute variceal bleeding, early TIPS, endoscopic band ligation, 6-week mortality, rebleeding"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["crohn", "ulcerative colitis", "ibd", "colitis", "mucosal"],
+        primary: "endoscopic mucosal healing and corticosteroid-free remission",
+        alternatives: ["clinical response (CDAI / Mayo score)", "surgery / bowel resection rate", "quality of life (IBDQ)"],
+        rationale: "Objective endoscopic mucosal healing alters disease natural history and prevents progressive bowel damage."
+      },
+      {
+        keywords: ["mash", "nash", "liver fibrosis", "steatohepatitis", "cirrhosis"],
+        primary: "MASH resolution without worsening of liver fibrosis",
+        alternatives: ["at least 1-stage improvement in fibrosis", "progression to cirrhosis", "all-cause mortality"],
+        rationale: "Dual histological endpoints of steatohepatitis resolution and fibrosis regression predict long-term hepatic survival."
+      }
+    ],
+    systemPromptRole: "You are an expert gastroenterologist, hepatologist, and digestive clinical trialist specializing in Gastroenterology and Hepatology.",
+    gapPromptRole: "You are an evidence-mapping engine for Gastroenterology & Hepatology with strict scientific editorial standards."
+  },
+
+  infectious_disease: {
+    id: "infectious_disease",
+    label: "Infectious Diseases & Antimicrobial Stewardship",
+    shortName: "Infectious Disease",
+    icon: "🦠",
+    category: "Infectious Diseases",
+    description: "Multidrug-resistant pathogens, antimicrobial stewardship, bacteremia, HIV, opportunistic infections, and sepsis.",
+    authorityGuidelines: "IDSA · ESCMID · WHO · CDC",
+    conditions: [
+      "methicillin-resistant Staphylococcus aureus (MRSA) bacteremia",
+      "carbapenem-resistant Enterobacterales (CRE) infections",
+      "recurrent Clostridioides difficile infection (CDI)",
+      "hospital-acquired and ventilator-associated pneumonia (HAP/VAP)",
+      "invasive candidiasis / candidemia",
+      "treatment-naive HIV-1 infection",
+      "multidrug-resistant Pseudomonas aeruginosa pneumonia"
+    ],
+    interventions: [
+      "ceftazidime-avibactam vs polymyxin/colistin regimens",
+      "daptomycin high-dose plus beta-lactam combination therapy",
+      "fidaxomicin oral vs oral vancomycin",
+      "fecal microbiota spores (oral biotherapeutic)",
+      "short-course vs traditional extended antibiotic duration",
+      "echinocandin antifungal therapy (anidulafungin, caspofungin)",
+      "single-tablet integrase inhibitor antiretroviral therapy"
+    ],
+    outcomesRanked: [
+      "30-day all-cause mortality",
+      "clinical cure at test-of-cure visit",
+      "microbiological eradication / persistent bacteremia clearance",
+      "sustained clinical response without recurrence at 8 weeks",
+      "emergence of secondary antimicrobial resistance",
+      "adverse drug events / acute kidney injury",
+      "virological suppression (HIV RNA < 50 copies/mL)"
+    ],
+    terminology: ["IDSA", "ESCMID", "MRSA", "CRE", "CDI", "HAP", "VAP", "PK/PD", "MIC", "AMR"],
+    presets: [
+      {
+        id: "cdi-fidaxomicin-vanc",
+        name: "C. Difficile (Fidaxomicin vs Vancomycin)",
+        description: "Adults with initial or recurrent Clostridioides difficile infection",
+        p: "adults with initial or recurrent Clostridioides difficile infection",
+        i: "oral fidaxomicin (standard or pulsed regimen)",
+        c: "oral vancomycin 125 mg four times daily",
+        o: "sustained clinical cure without recurrence at 30-90 days",
+        raw: "Clostridioides difficile, fidaxomicin, vancomycin, clinical cure, recurrence rate"
+      },
+      {
+        id: "cre-ceftazidime-avibactam",
+        name: "CRE Infections (Ceftazidime-Avibactam vs Colistin)",
+        description: "Hospitalized patients with confirmed carbapenem-resistant Enterobacterales bacteremia",
+        p: "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia",
+        i: "ceftazidime-avibactam monotherapy",
+        c: "colistin-based combination regimens",
+        o: "30-day all-cause mortality and renal toxicity",
+        raw: "carbapenem resistant enterobacterales, ceftazidime-avibactam, colistin, 30-day mortality, acute kidney injury"
+      },
+      {
+        id: "mrsa-bacteremia-combination",
+        name: "MRSA Bacteremia (Daptomycin + Ceftaroline vs Vancomycin)",
+        description: "Adults with persistent or high-inoculum MRSA bacteremia",
+        p: "adults with persistent MRSA bacteremia",
+        i: "high-dose daptomycin plus ceftaroline combination",
+        c: "standard vancomycin monotherapy",
+        o: "time to bacteremia clearance and 30-day mortality",
+        raw: "MRSA bacteremia, daptomycin, ceftaroline, vancomycin, blood culture clearance, mortality"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["bacteremia", "mrsa", "cre", "sepsis", "antimicrobial", "colistin"],
+        primary: "30-day all-cause mortality and microbiological clearance",
+        alternatives: ["clinical cure at test-of-cure", "acute kidney injury rate", "emergence of secondary resistance"],
+        rationale: "Rapid bloodstream sterilization with survival without nephrotoxicity defines optimal antimicrobial management."
+      },
+      {
+        keywords: ["cdi", "clostridioides", "difficile", "fidaxomicin", "vancomycin"],
+        primary: "sustained clinical response without recurrence at 8 weeks",
+        alternatives: ["initial clinical cure at day 14", "time to diarrhea resolution", "all-cause mortality"],
+        rationale: "Preventing debilitating and costly recurrent CDI episodes is the definitive clinical endpoint."
+      }
+    ],
+    systemPromptRole: "You are an expert infectious disease specialist, medical microbiologist, and clinical antimicrobial trialist specializing in Infectious Diseases and Global Health.",
+    gapPromptRole: "You are an evidence-mapping engine for Infectious Diseases & Antimicrobial Stewardship with strict scientific editorial standards."
+  },
+
+  dermatology: {
+    id: "dermatology",
+    label: "Dermatology & Cutaneous Biology",
+    shortName: "Dermatology",
+    icon: "🧴",
+    category: "Dermatology",
+    description: "Immune-mediated skin diseases, psoriasis, atopic eczema, cutaneous oncology, and targeted biologics.",
+    authorityGuidelines: "AAD · EADV · BAD · EDF",
+    conditions: [
+      "moderate-to-severe plaque psoriasis",
+      "moderate-to-severe atopic dermatitis",
+      "hidradenitis suppurativa (Hurley stage II-III)",
+      "severe alopecia areata",
+      "cutaneous malignant melanoma (early stage / in situ)",
+      "generalized vitiligo",
+      "bullous pemphigoid"
+    ],
+    interventions: [
+      "IL-23 p19 inhibitors (guselkumab, risankizumab)",
+      "IL-17A/F inhibitors (bimekizumab, secukinumab)",
+      "oral and topical JAK inhibitors (upadacitinib, ruxolitinib)",
+      "IL-4/IL-13 dual receptor antagonist (dupilumab)",
+      "Mohs micrographic surgery vs wide local excision",
+      "narrowband UVB phototherapy",
+      "systemic methotrexate vs biologics"
+    ],
+    outcomesRanked: [
+      "PASI 90 / PASI 100 clear skin response at 16 weeks",
+      "EASI 75 / EASI 90 and validated Investigator Global Assessment (vIGA 0/1)",
+      "peak pruritus numerical rating scale (PP-NRS >= 4-point reduction)",
+      "hidradenitis suppurativa clinical response (HiSCR 50 / HiSCR 75)",
+      "Dermatology Life Quality Index (DLQI 0/1 - no impact on life)",
+      "local surgical recurrence rate at 5 years",
+      "treatment-emergent serious adverse events"
+    ],
+    terminology: ["AAD", "EADV", "PASI", "EASI", "vIGA", "HiSCR", "DLQI", "PP-NRS", "IL-17", "IL-23"],
+    presets: [
+      {
+        id: "psoriasis-il23-il17",
+        name: "Plaque Psoriasis (IL-23 Inhibitors vs IL-17 Inhibitors)",
+        description: "Adults with moderate-to-severe chronic plaque psoriasis",
+        p: "moderate-to-severe chronic plaque psoriasis",
+        i: "risankizumab (IL-23 p19 inhibitor)",
+        c: "secukinumab (IL-17A inhibitor)",
+        o: "PASI 90 and PASI 100 clear skin response at 52 weeks",
+        raw: "plaque psoriasis, risankizumab, secukinumab, PASI 90, PASI 100, durable skin clearance"
+      },
+      {
+        id: "atopic-derm-jak-biologic",
+        name: "Atopic Dermatitis (Upadacitinib vs Dupilumab)",
+        description: "Moderate-to-severe atopic dermatitis eligible for systemic therapy",
+        p: "moderate-to-severe atopic dermatitis in adults",
+        i: "oral upadacitinib 30 mg daily",
+        c: "subcutaneous dupilumab 300 mg every 2 weeks",
+        o: "EASI 75 and PP-NRS itch reduction at week 16",
+        raw: "atopic dermatitis, upadacitinib, dupilumab, EASI 75, pruritus score, skin clearance"
+      },
+      {
+        id: "hidradenitis-biologics",
+        name: "Hidradenitis Suppurativa (Bimekizumab/Secukinumab vs Adalimumab)",
+        description: "Moderate-to-severe hidradenitis suppurativa (Hurley stage II/III)",
+        p: "moderate-to-severe active hidradenitis suppurativa",
+        i: "secukinumab subcutaneous every 2 weeks",
+        c: "adalimumab standard dosing",
+        o: "HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        raw: "hidradenitis suppurativa, secukinumab, adalimumab, HiSCR response, inflammatory lesions"
+      }
+    ],
+    outcomeRules: [
+      {
+        keywords: ["psoriasis", "pasi", "plaque psoriasis", "skin clearance"],
+        primary: "PASI 90 and PASI 100 clear skin response at 16-52 weeks",
+        alternatives: ["sPGA 0/1 (clear or almost clear)", "DLQI 0/1 remission", "adverse events"],
+        rationale: "Near-complete (PASI 90) or complete (PASI 100) cutaneous clearance is the benchmark for modern systemic therapy."
+      },
+      {
+        keywords: ["atopic dermatitis", "eczema", "pruritus", "easi", "itch"],
+        primary: "EASI 75 and rapid itch reduction (PP-NRS >= 4-point reduction)",
+        alternatives: ["vIGA 0/1 clear skin", "EASI 90 response", "DLQI score improvement"],
+        rationale: "Concurrent substantial lesion clearance and meaningful pruritus relief represent transformative patient benefit."
+      }
+    ],
+    systemPromptRole: "You are an expert academic dermatologist, cutaneous immunologist, and dermatologic clinical trialist specializing in Dermatology and Cutaneous Biology.",
+    gapPromptRole: "You are an evidence-mapping engine for Dermatology & Cutaneous Biology with strict scientific editorial standards."
   }
 };
 
@@ -713,7 +1337,14 @@ export const SPECIALTY_CATEGORIES = [
   "Surgery",
   "Internal Medicine",
   "Neuroscience",
-  "Metabolic"
+  "Metabolic",
+  "Emergency & Critical Care",
+  "Psychiatry & Behavioral Health",
+  "Orthopedics & Musculoskeletal",
+  "Pulmonology & Respiratory",
+  "Gastroenterology & Hepatology",
+  "Infectious Diseases",
+  "Dermatology"
 ] as const;
 
 export function getSpecialtyDefinition(id: string): SpecialtyDefinition {
@@ -724,5 +1355,5 @@ export function getSpecialtyDefinition(id: string): SpecialtyDefinition {
   if (id === "infertility" || id === "gynecology" || id === "obstetrics") {
     return SPECIALTIES.obgyn;
   }
-  return SPECIALTIES.obgyn;
+  return SPECIALTIES.internal_med;
 }

@@ -86,7 +86,28 @@ export const CLINICAL_PHRASES: string[] = [
   // Outcomes
   "patient reported symptom relief", "health related quality of life",
   "patient satisfaction", "reoperation rate", "major complications",
-  "hemoglobin change", "menstrual blood loss reduction", "ovarian reserve"
+  "hemoglobin change", "menstrual blood loss reduction", "ovarian reserve",
+  // Universal multi-specialty clinical medicine
+  "heart failure with reduced ejection fraction", "heart failure with preserved ejection fraction",
+  "acute coronary syndrome", "atrial fibrillation", "percutaneous coronary intervention",
+  "coronary artery bypass grafting", "transcatheter aortic valve replacement",
+  "sglt2 inhibitors", "direct oral anticoagulants", "major adverse cardiovascular events",
+  "non small cell lung cancer", "triple negative breast cancer", "immune checkpoint inhibitors",
+  "antibody drug conjugates", "overall survival", "progression free survival",
+  "neonatal respiratory distress syndrome", "continuous positive airway pressure",
+  "high flow nasal cannula", "bronchopulmonary dysplasia",
+  "laparoscopic appendectomy", "laparoscopic cholecystectomy", "surgical site infection",
+  "chronic kidney disease", "end stage kidney disease", "major adverse kidney events",
+  "acute ischemic stroke", "large vessel occlusion", "mechanical thrombectomy",
+  "modified rankin scale", "functional independence",
+  "type 2 diabetes mellitus", "continuous glucose monitoring", "bone mineral density",
+  "septic shock", "out of hospital cardiac arrest", "targeted temperature management",
+  "major depressive disorder", "treatment resistant depression", "transcranial magnetic stimulation",
+  "knee osteoarthritis", "total knee arthroplasty", "anterior cruciate ligament rupture",
+  "chronic obstructive pulmonary disease", "idiopathic pulmonary fibrosis", "forced vital capacity",
+  "crohn s disease", "ulcerative colitis", "endoscopic mucosal healing",
+  "clostridioides difficile infection", "mrsa bacteremia", "sustained clinical cure",
+  "plaque psoriasis", "atopic dermatitis", "clear skin response"
 ];
 
 /**

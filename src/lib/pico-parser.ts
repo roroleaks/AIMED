@@ -29,32 +29,46 @@ const GYNECOLOGY_CUES = [
 ];
 
 export function detectSpecialty(text: string, fallback?: SpecialtyKey | null): SpecialtyKey {
-  if (fallback && (fallback === "obstetrics" || fallback === "gynecology" || fallback === "infertility")) {
-    return fallback;
+  if (fallback && fallback in KB) {
+    // If fallback is explicitly provided, verify if text strongly suggests a different specialty
+    const lower = text.toLowerCase();
+    let hasStrongCue = false;
+    for (const [key, spec] of Object.entries(KB) as [SpecialtyKey, typeof KB[SpecialtyKey]][]) {
+      if (key !== fallback && spec.conditions.some(c => lower.includes(c.toLowerCase()))) {
+        hasStrongCue = true;
+        break;
+      }
+    }
+    if (!hasStrongCue) return fallback;
   }
+
   const lower = text.toLowerCase();
-  let obsScore = 0;
-  let gynScore = 0;
-  let infScore = 0;
+  let bestKey: SpecialtyKey = fallback && fallback in KB ? fallback : "internal_med";
+  let bestScore = 0;
 
-  for (const c of KB.obstetrics.conditions) { if (lower.includes(c.toLowerCase())) obsScore += 2; }
-  for (const i of KB.obstetrics.interventions) { if (lower.includes(i.toLowerCase())) obsScore += 1; }
-  for (const w of OBSTETRICS_CUES) { if (lower.includes(w)) obsScore += 1; }
+  for (const [key, spec] of Object.entries(KB) as [SpecialtyKey, typeof KB[SpecialtyKey]][]) {
+    let score = 0;
+    for (const c of spec.conditions) {
+      if (lower.includes(c.toLowerCase())) score += 3;
+    }
+    for (const i of spec.interventions) {
+      if (lower.includes(i.toLowerCase())) score += 2;
+    }
+    for (const t of spec.terminology) {
+      if (lower.includes(t.toLowerCase())) score += 1;
+    }
+    if (key === "obstetrics" && OBSTETRICS_CUES.some(w => lower.includes(w))) score += 1;
+    if (key === "infertility" && FERTILITY_CUES.some(w => lower.includes(w))) score += 1;
+    if (key === "gynecology" && GYNECOLOGY_CUES.some(w => lower.includes(w))) score += 1;
 
-  for (const c of KB.infertility.conditions) { if (lower.includes(c.toLowerCase())) infScore += 2; }
-  for (const i of KB.infertility.interventions) { if (lower.includes(i.toLowerCase())) infScore += 1; }
-  for (const w of FERTILITY_CUES) { if (lower.includes(w)) infScore += 1; }
+    if (score > bestScore) {
+      bestScore = score;
+      bestKey = key;
+    }
+  }
 
-  for (const c of KB.gynecology.conditions) { if (lower.includes(c.toLowerCase())) gynScore += 2; }
-  for (const i of KB.gynecology.interventions) { if (lower.includes(i.toLowerCase())) gynScore += 1; }
-  for (const w of GYNECOLOGY_CUES) { if (lower.includes(w)) gynScore += 1; }
-
-  if (obsScore >= infScore && obsScore >= gynScore && obsScore > 0) return "obstetrics";
-  if (FERTILITY_CUES.some(w => lower.includes(w)) && infScore > 0) return "infertility";
-  if (gynScore >= infScore && gynScore > 0) return "gynecology";
-  if (infScore > 0) return "infertility";
-
-  return "obstetrics"; // Default O&G specialty
+  if (bestScore > 0) return bestKey;
+  return fallback && fallback in KB ? fallback : "internal_med";
 }
 
 function cleanPicoToken(s: string): string {

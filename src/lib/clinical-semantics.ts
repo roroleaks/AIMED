@@ -736,6 +736,201 @@ const MEDICAL_TAXONOMY: MedicalTermEntry[] = [
     specialty: "endocrinology",
     direction: "desirable",
     synonyms: ["body weight loss", "weight loss", "weight reduction", "percentage weight change"]
+  },
+
+  // --- EMERGENCY MEDICINE & CRITICAL CARE ---
+  {
+    canonical: "septic shock",
+    category: "condition",
+    specialty: "emergency_med",
+    synonyms: ["septic shock", "severe sepsis", "refractory sepsis", "sepsis with hypotension"]
+  },
+  {
+    canonical: "out-of-hospital cardiac arrest",
+    category: "condition",
+    specialty: "emergency_med",
+    synonyms: ["out-of-hospital cardiac arrest", "ohca", "cardiac arrest", "cardiopulmonary arrest", "rosc"]
+  },
+  {
+    canonical: "targeted temperature management",
+    category: "intervention",
+    specialty: "emergency_med",
+    synonyms: ["targeted temperature management", "ttm", "therapeutic hypothermia", "temperature control"]
+  },
+  {
+    canonical: "favorable neurological outcome (CPC 1-2)",
+    category: "outcome",
+    specialty: "emergency_med",
+    direction: "desirable",
+    synonyms: ["favorable neurological outcome", "cpc 1-2", "neurological recovery", "cerebral performance category"]
+  },
+
+  // --- PSYCHIATRY & BEHAVIORAL HEALTH ---
+  {
+    canonical: "major depressive disorder",
+    category: "condition",
+    specialty: "psychiatry",
+    synonyms: ["major depressive disorder", "mdd", "unipolar depression", "clinical depression"]
+  },
+  {
+    canonical: "treatment-resistant depression",
+    category: "condition",
+    specialty: "psychiatry",
+    synonyms: ["treatment-resistant depression", "trd", "refractory depression", "treatment resistant mdd"]
+  },
+  {
+    canonical: "esketamine nasal spray",
+    category: "intervention",
+    specialty: "psychiatry",
+    synonyms: ["esketamine", "esketamine nasal spray", "spravato"]
+  },
+  {
+    canonical: "clinical remission (MADRS <= 10)",
+    category: "outcome",
+    specialty: "psychiatry",
+    direction: "desirable",
+    synonyms: ["clinical remission", "madrs <= 10", "madrs remission", "depressive remission", "ham-d remission"]
+  },
+
+  // --- ORTHOPEDIC SURGERY & SPORTS MEDICINE ---
+  {
+    canonical: "knee osteoarthritis",
+    category: "condition",
+    specialty: "orthopedics",
+    synonyms: ["knee osteoarthritis", "gonarthrosis", "end-stage knee oa", "osteoarthritis of the knee"]
+  },
+  {
+    canonical: "anterior cruciate ligament rupture",
+    category: "condition",
+    specialty: "orthopedics",
+    synonyms: ["anterior cruciate ligament rupture", "acl tear", "acl rupture", "acute acl injury"]
+  },
+  {
+    canonical: "robotic-assisted total knee arthroplasty",
+    category: "intervention",
+    specialty: "orthopedics",
+    synonyms: ["robotic total knee arthroplasty", "robotic tka", "robotic-assisted arthroplasty", "mako tka"]
+  },
+  {
+    canonical: "conventional manual total knee arthroplasty",
+    category: "comparator",
+    specialty: "orthopedics",
+    synonyms: ["conventional manual total knee arthroplasty", "manual tka", "standard tka"]
+  },
+  {
+    canonical: "implant survivorship and revision rate",
+    category: "outcome",
+    specialty: "orthopedics",
+    direction: "desirable",
+    synonyms: ["implant survivorship", "revision rate", "prosthetic survivorship", "revision surgery", "koos score"]
+  },
+
+  // --- PULMONOLOGY & RESPIRATORY MEDICINE ---
+  {
+    canonical: "chronic obstructive pulmonary disease",
+    category: "condition",
+    specialty: "pulmonology",
+    synonyms: ["chronic obstructive pulmonary disease", "copd", "copd exacerbation", "chronic bronchitis", "emphysema"]
+  },
+  {
+    canonical: "idiopathic pulmonary fibrosis",
+    category: "condition",
+    specialty: "pulmonology",
+    synonyms: ["idiopathic pulmonary fibrosis", "ipf", "pulmonary fibrosis", "interstitial lung disease"]
+  },
+  {
+    canonical: "triple inhaled therapy (ICS/LABA/LAMA)",
+    category: "intervention",
+    specialty: "pulmonology",
+    synonyms: ["triple inhaled therapy", "ics/laba/lama", "single-inhaler triple therapy", "trelegy", "breztri"]
+  },
+  {
+    canonical: "annualized exacerbation rate",
+    category: "outcome",
+    specialty: "pulmonology",
+    direction: "adverse",
+    synonyms: ["annualized exacerbation rate", "copd exacerbations", "asthma exacerbation rate", "severe exacerbation"]
+  },
+
+  // --- GASTROENTEROLOGY & HEPATOLOGY ---
+  {
+    canonical: "Crohn's disease",
+    category: "condition",
+    specialty: "gastroenterology",
+    synonyms: ["crohn's disease", "crohn disease", "crohn", "inflammatory bowel disease", "ibd"]
+  },
+  {
+    canonical: "metabolic dysfunction-associated steatohepatitis",
+    category: "condition",
+    specialty: "gastroenterology",
+    synonyms: ["mash", "nash", "steatohepatitis", "metabolic steatohepatitis", "nonalcoholic steatohepatitis"]
+  },
+  {
+    canonical: "risankizumab",
+    category: "intervention",
+    specialty: "gastroenterology",
+    synonyms: ["risankizumab", "skyrizi", "il-23 inhibitor", "il-23 p19"]
+  },
+  {
+    canonical: "endoscopic mucosal healing",
+    category: "outcome",
+    specialty: "gastroenterology",
+    direction: "desirable",
+    synonyms: ["endoscopic mucosal healing", "mucosal healing", "endoscopic remission", "ses-cd remission"]
+  },
+
+  // --- INFECTIOUS DISEASES & ANTIMICROBIAL STEWARDSHIP ---
+  {
+    canonical: "Clostridioides difficile infection",
+    category: "condition",
+    specialty: "infectious_disease",
+    synonyms: ["clostridioides difficile", "c. difficile", "cdi", "clostridium difficile", "c diff"]
+  },
+  {
+    canonical: "MRSA bacteremia",
+    category: "condition",
+    specialty: "infectious_disease",
+    synonyms: ["mrsa bacteremia", "methicillin-resistant staphylococcus aureus bacteremia", "staphylococcus aureus bacteremia"]
+  },
+  {
+    canonical: "fidaxomicin",
+    category: "intervention",
+    specialty: "infectious_disease",
+    synonyms: ["fidaxomicin", "dificid", "dificlir"]
+  },
+  {
+    canonical: "sustained clinical cure without recurrence",
+    category: "outcome",
+    specialty: "infectious_disease",
+    direction: "desirable",
+    synonyms: ["sustained clinical cure", "sustained cure", "recurrence-free survival", "cure without recurrence"]
+  },
+
+  // --- DERMATOLOGY & CUTANEOUS BIOLOGY ---
+  {
+    canonical: "chronic plaque psoriasis",
+    category: "condition",
+    specialty: "dermatology",
+    synonyms: ["plaque psoriasis", "psoriasis vulgaris", "moderate-to-severe psoriasis", "psoriasis"]
+  },
+  {
+    canonical: "atopic dermatitis",
+    category: "condition",
+    specialty: "dermatology",
+    synonyms: ["atopic dermatitis", "atopic eczema", "severe eczema"]
+  },
+  {
+    canonical: "upadacitinib",
+    category: "intervention",
+    specialty: "dermatology",
+    synonyms: ["upadacitinib", "rinvoq", "oral jak inhibitor"]
+  },
+  {
+    canonical: "PASI 90 clear skin response",
+    category: "outcome",
+    specialty: "dermatology",
+    direction: "desirable",
+    synonyms: ["pasi 90", "pasi 100", "pasi response", "clear skin response", "easi 75"]
   }
 ];
 
@@ -856,22 +1051,17 @@ function formulatePopulationPhrase(population: string, specialty: SpecialtyKey):
     }
     return `women presenting with ${p}`;
   }
-  if (specialty === "cardiology") {
-    return `patients with ${p}`;
-  }
   if (specialty === "pediatrics") {
     return `pediatric patients with ${p}`;
-  }
-  if (specialty === "oncology") {
-    return `patients with ${p}`;
   }
   if (specialty === "surgery") {
     return `patients presenting with ${p}`;
   }
-  if (specialty === "internal_med" || specialty === "neurology" || specialty === "endocrinology") {
-    return `patients with ${p}`;
+  if (specialty === "gynecology") {
+    return `women with ${p}`;
   }
-  return `women with ${p}`;
+  // Universal clinical medicine default across all specialties
+  return `patients with ${p}`;
 }
 
 /**
@@ -903,7 +1093,14 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     surgery: 0,
     internal_med: 0,
     neurology: 0,
-    endocrinology: 0
+    endocrinology: 0,
+    emergency_med: 0,
+    psychiatry: 0,
+    orthopedics: 0,
+    pulmonology: 0,
+    gastroenterology: 0,
+    infectious_disease: 0,
+    dermatology: 0
   };
 
   if (explicitSpecialty && explicitSpecialty in specialtyScores) {
@@ -986,19 +1183,27 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     if (/hormone|coq10|coenzyme|dhea|melatonin|inositol|somatotropin|antioxidant|priming|supplements?|adjuvant|stimulat/i.test(lower)) {
       if (!matchedInterventions.includes(token)) matchedInterventions.push(token);
       specialtyScores.infertility += 2;
-    } else if (/ectomy|scopy|surgery|treatment|therapy|drug|aspirin|progesterone|letrozole|clomiphene|cerclage|pessary|insulin|metformin|heparin|dienogest|embolization|ablation|insemination|transfer|sglt2|doac|thrombectomy|stent|bypass|thrombolysis|pembrolizumab|tirzepatide|semaglutide/i.test(lower)) {
+    } else if (/ectomy|scopy|surgery|treatment|therapy|drug|aspirin|progesterone|letrozole|clomiphene|cerclage|pessary|insulin|metformin|heparin|dienogest|embolization|ablation|insemination|transfer|sglt2|doac|thrombectomy|stent|bypass|thrombolysis|pembrolizumab|tirzepatide|semaglutide|esketamine|rtms|ect|cbt|tka|tha|acl|arthroplasty|nintedanib|pirfenidone|dupilumab|risankizumab|resmetirom|tips|fidaxomicin|ceftazidime|daptomycin|upadacitinib|secukinumab|phototherapy/i.test(lower)) {
       if (!matchedInterventions.includes(token)) matchedInterventions.push(token);
     } else if (/rate|relief|pain|birth|loss|bleeding|weight|score|morbidity|mortality|survival|gestational age|reserve|pregnancy|outcome|yield|mace|infection|hospitalization/i.test(lower)) {
       if (!matchedOutcomes.includes(token)) matchedOutcomes.push(token);
-    } else if (/poor\s+responder|low\s+responder|itis|osis|emia|oma|syndrome|disease|preterm|preeclamp|diabetes|cervix|uterus|ovary|ovarian|fibroid|polyps|prolapse|failure|incompetence|restriction|stroke|infarction|cancer|carcinoma|appendicitis|cholecystitis|hernia/i.test(lower)) {
+    } else if (/poor\s+responder|low\s+responder|itis|osis|emia|oma|syndrome|disease|preterm|preeclamp|diabetes|cervix|uterus|ovary|ovarian|fibroid|polyps|prolapse|failure|incompetence|restriction|stroke|infarction|cancer|carcinoma|appendicitis|cholecystitis|hernia|septic shock|cardiac arrest|ohca|resuscitation|depress|mdd|trd|bipolar|schizophr|osteoarthr|gonarthr|knee|hip|rotator|copd|fibrosis|ipf|asthma|crohn|colitis|ibd|mash|nash|cirrhosis|pancreat|bacteremia|mrsa|cdi|difficile|psoriasis|dermatitis|eczema|hidradenitis/i.test(lower)) {
       if (!matchedConditions.includes(token)) matchedConditions.push(token);
-      if (/preterm|cervix|preeclamp|gestation/i.test(lower)) specialtyScores.obstetrics += 1;
-      else if (/ivf|icsi|infertil|pcos|responder/i.test(lower)) specialtyScores.infertility += 1;
-      else if (/stroke/i.test(lower)) specialtyScores.neurology += 2;
+      if (/preterm|cervix|preeclamp|gestation/i.test(lower)) specialtyScores.obstetrics += 2;
+      else if (/ivf|icsi|infertil|pcos|responder/i.test(lower)) specialtyScores.infertility += 2;
+      else if (/stroke|thrombectomy/i.test(lower)) specialtyScores.neurology += 2;
       else if (/heart|cardio|infarction/i.test(lower)) specialtyScores.cardiology += 2;
       else if (/cancer|carcinoma|nsclc|tumor/i.test(lower)) specialtyScores.oncology += 2;
       else if (/appendic|cholecyst|hernia/i.test(lower)) specialtyScores.surgery += 2;
-      else specialtyScores.gynecology += 1;
+      else if (/septic\s*shock|cardiac\s*arrest|ohca|resuscitation/i.test(lower)) specialtyScores.emergency_med += 2;
+      else if (/depress|mdd|trd|bipolar|schizophr|psych/i.test(lower)) specialtyScores.psychiatry += 2;
+      else if (/osteoarthr|gonarthr|knee|hip|arthroplasty|acl|rotator/i.test(lower)) specialtyScores.orthopedics += 2;
+      else if (/copd|ipf|fibrosis|asthma|bronch/i.test(lower)) specialtyScores.pulmonology += 2;
+      else if (/crohn|colitis|ibd|mash|nash|cirrhosis|pancreat/i.test(lower)) specialtyScores.gastroenterology += 2;
+      else if (/bacteremia|mrsa|cdi|difficile|antimicrobial/i.test(lower)) specialtyScores.infectious_disease += 2;
+      else if (/psoriasis|dermatitis|eczema|hidradenitis|pasi/i.test(lower)) specialtyScores.dermatology += 2;
+      else if (/kidney|nephr|ckd/i.test(lower)) specialtyScores.internal_med += 2;
+      else if (/uter|pelvic|fibroid|menstru/i.test(lower)) specialtyScores.gynecology += 2;
     } else if (matchedConditions.length === 0) {
       matchedConditions.push(token);
     } else if (matchedInterventions.length === 0) {
@@ -1031,28 +1236,20 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     matchedConditions.push("women undergoing IVF");
   }
 
-  // Determine specialty
-  let specialty: SpecialtyKey = explicitSpecialty && explicitSpecialty in KB ? explicitSpecialty : "obstetrics";
+  // Determine specialty across all universal medical domains
+  let specialty: SpecialtyKey = explicitSpecialty && explicitSpecialty in KB ? explicitSpecialty : "internal_med";
 
-  const nonLegacySpecialties: SpecialtyKey[] = ["cardiology", "oncology", "pediatrics", "surgery", "internal_med", "neurology", "endocrinology"];
-  const highestNonLegacy = nonLegacySpecialties.reduce((best, cur) => specialtyScores[cur] > specialtyScores[best] ? cur : best, nonLegacySpecialties[0]);
+  const allSpecialties = Object.keys(specialtyScores) as SpecialtyKey[];
+  const highestSpecialty = allSpecialties.reduce((best, cur) => specialtyScores[cur] > specialtyScores[best] ? cur : best, allSpecialties[0]);
 
-  if (specialtyScores[highestNonLegacy] > 0 && specialtyScores[highestNonLegacy] >= specialtyScores.obstetrics && specialtyScores[highestNonLegacy] >= specialtyScores.gynecology && specialtyScores[highestNonLegacy] >= specialtyScores.infertility) {
-    specialty = highestNonLegacy;
-  } else if (specialtyScores.infertility > specialtyScores.obstetrics && specialtyScores.infertility >= specialtyScores.gynecology) {
-    specialty = "infertility";
-  } else if (specialtyScores.gynecology > specialtyScores.obstetrics && specialtyScores.gynecology > specialtyScores.infertility) {
-    specialty = "gynecology";
-  } else if (specialtyScores.obstetrics > 0) {
-    specialty = "obstetrics";
-  } else if (specialtyScores.infertility > 0) {
-    specialty = "infertility";
+  if (specialtyScores[highestSpecialty] > 0) {
+    specialty = highestSpecialty;
   } else if (explicitSpecialty && explicitSpecialty in KB) {
     specialty = explicitSpecialty;
   }
 
-  // Determine clean, non-overlapping P, I, C
-  const population = matchedConditions[0] || (specialty === "obstetrics" ? "short cervix" : specialty === "infertility" ? "poor ovarian response" : "endometriosis");
+  // Determine clean, non-overlapping P, I, C using dynamic knowledge base definitions
+  const population = matchedConditions[0] || (KB[specialty]?.conditions?.[0] || "target clinical condition");
   
   let intervention = "";
   let comparator = "";
@@ -1064,7 +1261,7 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     intervention = matchedInterventions[0];
     comparator = specialty === "obstetrics" ? "standard care or expectant management" : "placebo or standard care";
   } else {
-    const specDefault = KB[specialty];
+    const specDefault = KB[specialty] || KB.internal_med;
     intervention = specDefault.interventions[0] || "first-line therapy";
     comparator = specDefault.interventions[1] || "standard care";
   }
