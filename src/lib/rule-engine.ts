@@ -1,5 +1,6 @@
 import { KB, QUESTION_TYPES, SYNONYMS, rationalOutcomes, type Analysis, type Clarification, type Formulation, type SpecialtyKey } from "./kb.ts";
 import { buildOutcomeContext, selectOutcomes } from "./outcome-selection.ts";
+import { formulatePopulationPhrase } from "./clinical-semantics.ts";
 
 function normalize(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -194,11 +195,13 @@ export function ruleFormulate(analysis: Analysis, answered: Record<string, strin
   const specKey: SpecialtyKey | null =
     a.specialty && KB[a.specialty as SpecialtyKey] ? (a.specialty as SpecialtyKey) : null;
   const spec = specKey ? KB[specKey] : null;
+  const popPhrase = formulatePopulationPhrase(cond, specKey);
+  const popCap = popPhrase.charAt(0).toUpperCase() + popPhrase.slice(1);
   switch (a.framework) {
     case "PICO":
-      finalQuestion = `In women with ${cond}, does ${iv} compared with ${comp} improve ${out}?`;
+      finalQuestion = `In ${popPhrase}, does ${iv} compared with ${comp} improve ${out}?`;
       elements = [
-        { label: "P — Population", value: `Women with ${cond}` },
+        { label: "P — Population", value: popCap },
         { label: "I — Intervention", value: iv },
         { label: "C — Comparator", value: comp },
         { label: "O — Outcome", value: out }
@@ -214,9 +217,9 @@ export function ruleFormulate(analysis: Analysis, answered: Record<string, strin
       ];
       break;
     default:
-      finalQuestion = `In women with ${cond}, is exposure to ${iv} associated with ${out} compared with unexposed women?`;
+      finalQuestion = `In ${popPhrase}, is exposure to ${iv} associated with ${out} compared with control?`;
       elements = [
-        { label: "P — Population", value: `Women with ${cond}` },
+        { label: "P — Population", value: popCap },
         { label: "E — Exposure", value: iv },
         { label: "C — Comparator", value: comp },
         { label: "O — Outcome", value: out }

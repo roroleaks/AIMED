@@ -56,7 +56,7 @@ function referenceKey(ref: string): string {
   // caller's array before any element guard has run. Coercing here means a non-string can
   // never reach foldName, which assumes a real string.
   const raw = String(ref).replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-  const doi = normalizeDoi((raw.match(/10\.\d{4,9}\/[^\s"'<>,;)\]]+/i) || [])[0] || "");
+  const doi = normalizeDoi((raw.match(/10\.\d{4,9}\/[^\s"'<>]+/i) || [])[0] || "");
   if (doi) return `doi:${doi}`;
   const pmid = (raw.match(/\bPMID:?\s*(\d{6,9})\b/i) || [])[1]
     || (/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{6,9})/.exec(raw) || [])[1];
@@ -95,8 +95,11 @@ function citationMatchesRecord(author: string, year: string, rec: AuditableRef):
  */
 function referenceIsBackedBy(ref: string, retained: AuditableRef[]): boolean {
   const target = String(ref).replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-  const refDoi = referenceKey(target).startsWith("doi:") ? referenceKey(target).slice(4) : "";
-  const refPmid = referenceKey(target).startsWith("pmid:") ? referenceKey(target).slice(5) : "";
+  const directDoi = normalizeDoi((target.match(/10\.\d{4,9}\/[^\s"'<>]+/i) || [])[0] || "");
+  const directPmid = (target.match(/\bPMID:?\s*(\d{6,9})\b/i) || [])[1]
+    || (/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{6,9})/.exec(target) || [])[1];
+  const refDoi = directDoi || (referenceKey(target).startsWith("doi:") ? referenceKey(target).slice(4) : "");
+  const refPmid = directPmid || (referenceKey(target).startsWith("pmid:") ? referenceKey(target).slice(5) : "");
   const refFolded = foldName(target);
   return retained.some(rec => {
     const recDoi = normalizeDoi(rec.doi);

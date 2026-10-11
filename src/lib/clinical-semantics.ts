@@ -1023,8 +1023,8 @@ function formulateOutcomeVerbPhrase(verbType: "primary" | "secondary" | "subgrou
 /**
  * Formulate clinical population noun phrase (e.g. "women with endometriosis", "pregnant women with short cervix")
  */
-function formulatePopulationPhrase(population: string, specialty: SpecialtyKey): string {
-  const p = population.trim();
+export function formulatePopulationPhrase(population: string, specialty?: SpecialtyKey | null): string {
+  const p = (population || "").trim();
   const lower = p.toLowerCase();
 
   if (/^(women|patients|adults|individuals|pregnant individuals|pregnant women|couples|infants|children)/i.test(lower)) {

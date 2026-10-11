@@ -417,7 +417,7 @@ async function fetchCrossref(query: string, maxResults = 4): Promise<PubMedRef[]
       `https://api.crossref.org/works?query.bibliographic=${encodeURIComponent(terms)}` +
       `&rows=${Math.min(Math.max(maxResults + 4, 8), 25)}&select=${select}`;
     const res = await fetch(url, {
-      headers: { Accept: "application/json", "User-Agent": "aipico/1.0 (mailto:support@aipico.app)" },
+      headers: { Accept: "application/json", "User-Agent": "aimed/4.0 (mailto:support@aimed.app)" },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
     });
     if (!res.ok) throw new Error(`crossref ${res.status}`);
@@ -1202,7 +1202,8 @@ ${responseShape}`,
       // reconciliation so `fetchedReferences` can never drift from `references`.
       const curatedRecords: AuditableRef[] = [];
       for (const raw of finalRefs) {
-        const rec = resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
+        const rec = curated.resolved.get(raw)
+          ?? resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
         if (rec) curatedRecords.push(rec);
       }
 
@@ -1222,7 +1223,7 @@ ${responseShape}`,
       // so the UI can never present an audit row for a reference that is not in the list.
       const paperRefAudit = finalRefs
         .map((raw: string) => {
-          const rec = resolvedDirect.get(raw) ?? resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
+          const rec = curated.resolved.get(raw) ?? resolvedDirect.get(raw) ?? resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
           if (!rec) return null;
           return { ref: raw, audit: auditRef(rec, elements) };
         })
@@ -1235,7 +1236,7 @@ const noDirectEvidence = directPool.length === 0;
       // the list into agreement, and this asserts that on the exact payload being returned, so a
       // future edit cannot ship an orphan citation, an uncited reference, or a reference that
       // resolves to nothing in the retained set without this failing loudly.
-      const integrity = validateDeliverableIntegrity({
+      let integrity = validateDeliverableIntegrity({
         fields: {
           abstract: String(commentary.abstract || ""),
           introduction: String(commentary.introduction || ""),
@@ -1247,6 +1248,56 @@ const noDirectEvidence = directPool.length === 0;
         allowedKeys: evidenceSet.allowedCitationKeys,
         citationMap: evidenceSet.citationMap
       });
+      if (!integrity.ok && commentarySource === "ai") {
+        console.warn("[engine] AI commentary failed deliverable integrity. Falling back to deterministic synthesis.");
+        commentarySource = "deterministic";
+        commentary = generateDeterministicCommentary({
+          selectedQuestion: String(selectedQuestion || topic || ""),
+          outcomesText,
+          reason: "Citation integrity reconciliation",
+          pool: evidenceSet.retainedRecords as AuditableRef[],
+          elements
+        });
+        curated = curateModelRefs(commentary);
+        const fallbackReconciled = reconcileNarrative(
+          {
+            abstract: String(commentary.abstract || ""),
+            introduction: String(commentary.introduction || ""),
+            discussion: String(commentary.discussion || ""),
+            conclusion: String(commentary.conclusion || "")
+          },
+          curated.references,
+          evidenceSet.allowedCitationKeys,
+          evidenceSet.citationMap
+        );
+        commentary.abstract = fallbackReconciled.fields.abstract;
+        commentary.introduction = fallbackReconciled.fields.introduction;
+        commentary.discussion = fallbackReconciled.fields.discussion;
+        commentary.conclusion = fallbackReconciled.fields.conclusion;
+        const fallbackFinalRefs = [...fallbackReconciled.references];
+        commentary.references = fallbackFinalRefs;
+        const fallbackCuratedRecords: AuditableRef[] = [];
+        for (const raw of fallbackFinalRefs) {
+          const rec = curated.resolved.get(raw) ?? resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
+          if (rec) fallbackCuratedRecords.push(rec);
+        }
+        curatedRecords.length = 0;
+        curatedRecords.push(...fallbackCuratedRecords);
+        finalRefs.length = 0;
+        finalRefs.push(...fallbackFinalRefs);
+        integrity = validateDeliverableIntegrity({
+          fields: {
+            abstract: String(commentary.abstract || ""),
+            introduction: String(commentary.introduction || ""),
+            discussion: String(commentary.discussion || ""),
+            conclusion: String(commentary.conclusion || "")
+          },
+          references: finalRefs,
+          retainedRecords: curatedRecords,
+          allowedKeys: evidenceSet.allowedCitationKeys,
+          citationMap: evidenceSet.citationMap
+        });
+      }
       if (!integrity.ok) {
         return NextResponse.json({
           error: "Commentary failed citation integrity validation and was not published.",

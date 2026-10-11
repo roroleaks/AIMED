@@ -1,5 +1,5 @@
 import { KB, type SpecialtyKey } from "./kb.ts";
-import { parseClinicalScenario } from "./clinical-semantics.ts";
+import { parseClinicalScenario, formulatePopulationPhrase } from "./clinical-semantics.ts";
 
 export interface ExtractedPico {
   condition: string;
@@ -265,6 +265,6 @@ export function extractPicoFromQuestion(
     comparator: comparator.trim(),
     outcome: outcome.trim(),
     specialty,
-    cleanQuestion: cleanQ || `In women with ${condition}, does ${intervention} compared with ${comparator} improve ${outcome}?`
+    cleanQuestion: cleanQ || `In ${formulatePopulationPhrase(condition, specialty)}, does ${intervention} compared with ${comparator} improve ${outcome}?`
   };
 }

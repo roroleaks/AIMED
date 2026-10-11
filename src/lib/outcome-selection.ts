@@ -14,6 +14,7 @@
 import { z } from "zod";
 import { OUTCOME_ONTOLOGY, type OutcomeCandidate, type OutcomeCategory } from "./outcome-ontology.ts";
 import type { SpecialtyKey } from "./kb.ts";
+import { SPECIALTIES } from "./specialties.ts";
 
 export type { OutcomeCandidate, OutcomeCategory };
 
@@ -710,6 +711,93 @@ function questionTextFor(context: OutcomeContext): string {
   return parts.length ? parts.join(" ") : "your clinical question";
 }
 
+export function buildSpecialtyOutcomeCandidates(specialtyKey: SpecialtyKey): OutcomeCandidate[] {
+  const def = (SPECIALTIES as Record<string, unknown>)[specialtyKey] as {
+    label?: string;
+    outcomesRanked?: string[];
+    outcomeRules?: Array<{ primary: string; alternatives?: string[]; keywords?: string[]; rationale?: string }>;
+    conditions?: string[];
+    interventions?: string[];
+  } | undefined;
+  if (!def) return [];
+
+  const candidates: OutcomeCandidate[] = [];
+  const seenIds = new Set<string>();
+
+  // 1. From outcomeRules
+  for (const rule of def.outcomeRules || []) {
+    const id = `${specialtyKey}-${rule.primary.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`;
+    if (!seenIds.has(id)) {
+      seenIds.add(id);
+      candidates.push({
+        id,
+        label: rule.primary,
+        shortLabel: rule.primary.slice(0, 28),
+        category: "patient-important",
+        family: `${specialtyKey}-${rule.primary.slice(0, 20)}`,
+        priority: 1,
+        applicableSpecialties: [specialtyKey],
+        applicableConditions: rule.keywords || [],
+        applicableInterventions: def.interventions || [],
+        applicableQuestionTypes: ["Therapy / Prevention"],
+        keywords: [...(rule.keywords || []), rule.primary.toLowerCase()],
+        rationale: rule.rationale || `Primary patient-centered outcome for ${def.label || specialtyKey}.`,
+        measurable: true,
+        preferredForPrimaryOutcome: true
+      });
+    }
+
+    for (const alt of rule.alternatives || []) {
+      const altId = `${specialtyKey}-${alt.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`;
+      if (!seenIds.has(altId)) {
+        seenIds.add(altId);
+        candidates.push({
+          id: altId,
+          label: alt,
+          shortLabel: alt.slice(0, 28),
+          category: "clinical",
+          family: `${specialtyKey}-${alt.slice(0, 20)}`,
+          priority: 2,
+          applicableSpecialties: [specialtyKey],
+          applicableConditions: rule.keywords || [],
+          applicableInterventions: def.interventions || [],
+          applicableQuestionTypes: ["Therapy / Prevention"],
+          keywords: [...(rule.keywords || []), alt.toLowerCase()],
+          rationale: `Clinically relevant outcome for ${def.label || specialtyKey}.`,
+          measurable: true,
+          preferredForPrimaryOutcome: false
+        });
+      }
+    }
+  }
+
+  // 2. From outcomesRanked
+  (def.outcomesRanked || []).forEach((r, idx) => {
+    const rId = `${specialtyKey}-${r.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}`;
+    if (!seenIds.has(rId)) {
+      seenIds.add(rId);
+      candidates.push({
+        id: rId,
+        label: r,
+        shortLabel: r.slice(0, 28),
+        category: idx === 0 ? "patient-important" : "clinical",
+        family: `${specialtyKey}-${r.slice(0, 20)}`,
+        priority: idx + 1,
+        applicableSpecialties: [specialtyKey],
+        applicableConditions: def.conditions || [],
+        applicableInterventions: def.interventions || [],
+        applicableQuestionTypes: ["Therapy / Prevention"],
+        keywords: [r.toLowerCase(), specialtyKey],
+        rationale: `Standard outcome benchmark for ${def.label || specialtyKey}.`,
+        measurable: true,
+        preferredForPrimaryOutcome: idx === 0
+      });
+    }
+  });
+
+  return candidates;
+}
+
 /**
  * Chooses the option list: strictest layer first, widened only if it cannot fill the list.
  *
@@ -724,7 +812,13 @@ export function selectOutcomes(
   const min = Math.max(1, options.min ?? MIN_OUTCOME_OPTIONS);
   const max = Math.max(min, options.max ?? MAX_OUTCOME_OPTIONS);
 
-  const scored = OUTCOME_ONTOLOGY.map(candidate => scoreOutcome(candidate, context)).sort(compareScored);
+  const candidatesPool = [...OUTCOME_ONTOLOGY];
+  if (context.specialty) {
+    const specCandidates = buildSpecialtyOutcomeCandidates(context.specialty);
+    candidatesPool.push(...specCandidates);
+  }
+
+  const scored = candidatesPool.map(candidate => scoreOutcome(candidate, context)).sort(compareScored);
   const thresholdsWanted = questionWantsThresholdComparison(context);
 
   const acceptsQuestionType = (candidate: OutcomeCandidate): boolean =>
@@ -740,9 +834,12 @@ export function selectOutcomes(
    * when the condition or intervention actually matched it. Entries with an empty specialty list
    * are universal by definition and always in scope.
    */
+  const isReproSpecialty = context.specialty === "obstetrics" || context.specialty === "gynecology" || context.specialty === "infertility" || context.specialty === "obgyn";
   const inScope = (entry: ScoredOutcome): boolean => {
     if (entry.candidate.applicableSpecialties.length === 0) return true;
     if (context.specialty && entry.candidate.applicableSpecialties.includes(context.specialty)) return true;
+    const isCandidateRepro = entry.candidate.applicableSpecialties.some(s => s === "obstetrics" || s === "gynecology" || s === "infertility" || s === "obgyn");
+    if (!isReproSpecialty && isCandidateRepro) return false;
     return entry.tier === "specific";
   };
 

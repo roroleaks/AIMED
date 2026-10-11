@@ -624,33 +624,82 @@ export function checkCitations(discussion: string, refs: string[]): CitationChec
  * satisfying the match, and a record that did not survive `filterByClaim` can never resolve
  * even if the model names it, because it is simply not in the pool.
  */
+function cleanRefDoi(raw: unknown): string {
+  let doi = String(raw ?? "").trim();
+  if (!doi) return "";
+  doi = doi.replace(/^(?:https?:\/\/)?(?:dx\.)?doi\.org\//i, "").replace(/^info:doi\//i, "");
+  doi = doi.replace(/^doi:\s*/i, "");
+  doi = doi.replace(/[\s.,;:)\]}]+$/, "");
+  return doi.toLowerCase();
+}
+
 export function resolveReference<T extends AuditableRef>(raw: string, pool: T[]): T | null {
   const y = /(19|20)\d{2}/.exec(raw)?.[0];
   if (!y) return null;
+  const targetYear = parseInt(y, 10);
+
+  // Pool filtered by year (+-1 year)
+  const yearCandidates = pool.filter(r => {
+    const ry = parseInt(r.year || "", 10);
+    return ry && Math.abs(ry - targetYear) <= 1;
+  });
+  if (!yearCandidates.length) return null;
+
+  const rawLower = raw.toLowerCase().replace(/[^a-z0-9]+/g, " ");
   const names = new Set(surnamesOf(raw).map(n => n.toLowerCase()));
-  if (!names.size) return null;
-  const quoted = raw.toLowerCase().match(/"([^"]{12,})"/)?.[1];
-  const strippedNum = raw.replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-  const unquotedCandidate = strippedNum.split(/\.\s+/)[1];
-  const titleCore = (quoted || unquotedCandidate || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ").trim().slice(0, 28);
+  const quoted = raw.toLowerCase().match(/"([^"]{10,})"/)?.[1]?.replace(/[^a-z0-9]+/g, " ")?.trim();
+
+  const rawDoiMatch = (raw.match(/10\.\d{4,9}\/[^\s"'<>]+/i) || [])[0];
+  const rawDoiNorm = rawDoiMatch ? cleanRefDoi(rawDoiMatch) : "";
+  const rawPmid = (raw.match(/\bPMID:?\s*(\d{6,9})\b/i) || [])[1]
+    || (/pubmed\.ncbi\.nlm\.nih\.gov\/(\d{6,9})/.exec(raw) || [])[1];
+
   let best: T | null = null;
   let bestDelta = Number.POSITIVE_INFINITY;
-  for (const r of pool) {
+
+  for (const r of yearCandidates) {
     const ry = parseInt(r.year || "", 10);
-    if (!ry || Math.abs(ry - parseInt(y, 10)) > 1) continue;
-    const authorHit = (r.authors || "").split(/[\s,]+/).filter(Boolean)
-      .some(a => a.length > 1 && names.has(a.toLowerCase()));
-    if (!authorHit) continue;
-    if (titleCore && titleCore.length >= 6) {
-      const t = (r.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-      if (!t.includes(titleCore)) continue;
+    const delta = Math.abs(ry - targetYear);
+
+    // If a title was explicitly quoted in the citation, it MUST agree with the record's title
+    const rTitleNorm = (r.title || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    if (quoted && quoted.length >= 8) {
+      const qCore = quoted.slice(0, Math.min(25, quoted.length));
+      if (!rTitleNorm.includes(qCore) && !quoted.includes(rTitleNorm.slice(0, Math.min(25, rTitleNorm.length)))) {
+        // Quoted title contradicts this record
+        continue;
+      }
     }
-    // Prefer the closest year when several records match the author and title.
-    const delta = Math.abs(ry - parseInt(y, 10));
-    if (delta < bestDelta) { best = r; bestDelta = delta; }
+
+    // Author check
+    const rAuthorTokens = (r.authors || "").toLowerCase().split(/[\s,.;]+/).filter(w => w.length > 2);
+    const authorHit = (r.authors || "").split(/[\s,]+/).filter(Boolean)
+      .some(a => a.length > 1 && names.has(a.toLowerCase()))
+      || rAuthorTokens.some(a => names.has(a) || rawLower.includes(a));
+
+    if (!authorHit && names.size > 0) continue;
+
+    // Check title agreement or direct DOI/PMID
+    let titleHit = false;
+    if (quoted && quoted.length >= 8) {
+      titleHit = true;
+    } else if (rawDoiNorm && r.doi && cleanRefDoi(r.doi) === rawDoiNorm) {
+      titleHit = true;
+    } else if (rawPmid && String(r.pmid || "").trim() === rawPmid) {
+      titleHit = true;
+    } else if (rTitleNorm.length >= 10) {
+      const core = rTitleNorm.slice(0, Math.min(28, rTitleNorm.length));
+      titleHit = rawLower.includes(core);
+    }
+
+    if (titleHit) {
+      if (delta < bestDelta) {
+        best = r;
+        bestDelta = delta;
+      }
+    }
   }
+
   return best;
 }
 
