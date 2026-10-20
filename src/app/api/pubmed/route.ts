@@ -14,6 +14,8 @@ interface PubMedResult {
   authors: string;
   doi?: string;
   url: string;
+  pubType?: string;
+  publicationTypes?: string[];
 }
 
 interface ESummaryDoc {
@@ -23,6 +25,7 @@ interface ESummaryDoc {
   fulljournalname?: string;
   source?: string;
   elocationid?: string;
+  pubtype?: string[];
 }
 
 interface SearchPayload {
@@ -136,6 +139,7 @@ function toPubMedResult(id: string, doc: ESummaryDoc | undefined): PubMedResult 
   const title = (doc?.title || "").trim();
   // Some ESummary records carry no title; skip them instead of emitting a placeholder.
   if (!title) return null;
+  const pubtypes = Array.isArray(doc?.pubtype) ? doc.pubtype : [];
   return {
     pmid: id,
     title,
@@ -143,6 +147,8 @@ function toPubMedResult(id: string, doc: ESummaryDoc | undefined): PubMedResult 
     year: doc?.pubdate?.slice(0, 4) || "",
     authors: doc?.sortfirstauthor || "",
     doi: doc?.elocationid?.replace("doi: ", "") || undefined,
+    pubType: pubtypes.length ? pubtypes.join(", ") : undefined,
+    publicationTypes: pubtypes.length ? pubtypes : undefined,
     url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`
   };
 }

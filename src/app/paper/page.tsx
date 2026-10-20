@@ -9,6 +9,7 @@ import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { NO_LITERATURE_MESSAGE, NO_LITERATURE_HINT } from "@/lib/clinical-keywords";
 import { formatVancouverReference } from "@/lib/relevance";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
+import { classifyPaperType, getStudyTypeBadgeStyle } from "@/lib/study-design";
 
 interface ReferenceItem { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string }
 type PubMedResult = ReferenceItem;
@@ -658,11 +659,22 @@ ${bibliography}
                       </span>
                     </div>
                     <ol className="refs-numbered">
-                      {commentary.references.map((ref, i) => (
-                        <li key={i} id={`ref-${i + 1}`} className="vancouver-ref-item">
-                          {vancouverFromString(ref, i + 1)}
-                        </li>
-                      ))}
+                      {commentary.references.map((ref, i) => {
+                        const st = classifyPaperType(ref);
+                        const bStyle = getStudyTypeBadgeStyle(st);
+                        return (
+                          <li key={i} id={`ref-${i + 1}`} className="vancouver-ref-item">
+                            <span
+                              className="study-type-badge-mini"
+                              style={{ backgroundColor: bStyle.bg, color: bStyle.color, borderColor: bStyle.border }}
+                              title={`Study Design: ${st}`}
+                            >
+                              {st}
+                            </span>
+                            {vancouverFromString(ref, i + 1)}
+                          </li>
+                        );
+                      })}
                     </ol>
                   </>
                 )}

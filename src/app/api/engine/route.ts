@@ -177,7 +177,19 @@ async function callLLM(system: string, payload: unknown, attempts = 2): Promise<
   throw lastErr instanceof Error ? lastErr : new Error("LLM failed");
 }
 
-interface PubMedRef { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string; context?: string; source?: string }
+interface PubMedRef {
+  pmid: string;
+  title: string;
+  authors: string;
+  year: string;
+  journal: string;
+  doi?: string;
+  url: string;
+  context?: string;
+  source?: string;
+  pubType?: string;
+  publicationTypes?: string[];
+}
 
 interface ESummaryDoc {
   title?: string;
@@ -186,6 +198,7 @@ interface ESummaryDoc {
   fulljournalname?: string;
   source?: string;
   elocationid?: string;
+  pubtype?: string[];
 }
 
 function refKeys(r: PubMedRef): string[] {
@@ -263,6 +276,7 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
       const refs = ids
         .map((id) => {
           const doc = result?.[id];
+          const pubtypes = Array.isArray(doc?.pubtype) ? doc.pubtype : [];
           return {
             pmid: id,
             title: (doc?.title || "").trim(),
@@ -271,6 +285,8 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
             journal: doc?.fulljournalname || doc?.source || "",
             doi: doc?.elocationid?.replace("doi: ", "") || "",
             source: "pubmed",
+            pubType: pubtypes.length ? pubtypes.join(", ") : undefined,
+            publicationTypes: pubtypes.length ? pubtypes : undefined,
             url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`
           };
         })
@@ -334,6 +350,8 @@ async function fetchEuropePMC(query: string, maxResults = 4): Promise<PubMedRef[
         journal: h.journalTitle || h.journalInfo?.journal?.title || h.journalInfo?.journal?.medlineAbbreviation || "",
         doi: h.doi || "",
         source: "europepmc",
+        pubType: [h.pubTypeList?.pubType].flat().filter(Boolean).join(", ") || undefined,
+        publicationTypes: [h.pubTypeList?.pubType].flat().filter(Boolean) as string[],
         url: h.pmid
           ? `https://pubmed.ncbi.nlm.nih.gov/${h.pmid}/`
           : h.pmcid

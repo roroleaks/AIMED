@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatedProcessingIndicator } from "@/components/AnimatedProcessingIndicator";
 import { KB, type Analysis, type Formulation, type SpecialtyKey } from "@/lib/kb";
@@ -11,14 +11,45 @@ import {
 import { sget, sset, KEYS } from "@/lib/session";
 import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { extractPicoFromQuestion, type ExtractedPico } from "@/lib/pico-parser";
+import {
+  classifyPaperType,
+  getStudyTypeBadgeStyle,
+  type ClinicalStudyType
+} from "@/lib/study-design";
+
+interface RawRef {
+  pmid?: string;
+  title?: string;
+  authors?: string;
+  year?: string;
+  journal?: string;
+  doi?: string;
+  url?: string;
+  pubType?: string;
+  publicationTypes?: string[];
+}
 
 interface GapSnapshot {
   topic?: string;
   specialty?: string;
-  known?: Array<{ point?: string; references?: Array<{ title?: string }> }>;
-  uncertain?: Array<{ point?: string; references?: Array<{ title?: string }> }>;
+  known?: Array<{ point?: string; references?: Array<RawRef> }>;
+  uncertain?: Array<{ point?: string; references?: Array<RawRef> }>;
   gaps?: Array<{ gap?: string }>;
   suggestedQuestions?: Array<{ question: string; rationale: string }>;
+}
+
+export interface SupportingPaper {
+  id: string;
+  pmid: string;
+  title: string;
+  authors: string;
+  year: string;
+  journal: string;
+  doi?: string;
+  url: string;
+  studyType: ClinicalStudyType;
+  evidenceCategory: "established" | "uncertain" | "pico-direct";
+  point: string;
 }
 
 interface RenderedOutcome {
@@ -36,8 +67,32 @@ export default function QuestionPage() {
   const [recommendedRationale, setRecommendedRationale] = useState<string>("");
   const [selectedOutcome, setSelectedOutcome] = useState<string>("");
   const [customOutcome, setCustomOutcome] = useState<string>("");
+  const [supportingPapers, setSupportingPapers] = useState<SupportingPaper[]>([]);
+  const [selectedStudyTypeFilter, setSelectedStudyTypeFilter] = useState<string>("all");
   const [busy, setBusy] = useState<"loading" | "formulate" | null>("loading");
   const [notice, setNotice] = useState<string | null>(null);
+
+  const studyTypeCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    supportingPapers.forEach(p => {
+      counts[p.studyType] = (counts[p.studyType] || 0) + 1;
+    });
+    return Object.entries(counts).map(([type, count]) => ({
+      type: type as ClinicalStudyType,
+      count
+    }));
+  }, [supportingPapers]);
+
+  const filteredPapers = useMemo(() => {
+    if (selectedStudyTypeFilter === "all") return supportingPapers;
+    return supportingPapers.filter(p => p.studyType === selectedStudyTypeFilter);
+  }, [supportingPapers, selectedStudyTypeFilter]);
+
+  const primaryStudyTypes = useMemo(() => {
+    if (!supportingPapers.length) return "Clinical Studies";
+    const types = Array.from(new Set(supportingPapers.map(p => p.studyType))).slice(0, 2);
+    return types.join(" · ");
+  }, [supportingPapers]);
 
   // Collect literature keywords from Step 2 evidence map
   const getLiteratureKeywords = useCallback((): string[] => {
@@ -258,6 +313,108 @@ export default function QuestionPage() {
         const initialPick = options.find(o => o.id === selection.recommendedOutcome.id)?.label || options[0]?.label || "";
         setSelectedOutcome(initialPick);
 
+        // Extract literature references and classify their study types
+        const papers: SupportingPaper[] = [];
+        const seen = new Set<string>();
+
+        if (Array.isArray(gapSnapshot?.known)) {
+          gapSnapshot.known.forEach((k, idx) => {
+            (k.references || []).forEach(r => {
+              const key = r.pmid || r.title || `k-${idx}`;
+              if (!seen.has(key) && r.title) {
+                seen.add(key);
+                papers.push({
+                  id: key,
+                  pmid: r.pmid || "",
+                  title: r.title,
+                  authors: r.authors || "",
+                  year: r.year || "",
+                  journal: r.journal || "",
+                  doi: r.doi || "",
+                  url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  studyType: classifyPaperType({
+                    title: r.title,
+                    journal: r.journal,
+                    pubType: r.pubType,
+                    publicationTypes: r.publicationTypes
+                  }),
+                  evidenceCategory: "established",
+                  point: k.point || ""
+                });
+              }
+            });
+          });
+        }
+
+        if (Array.isArray(gapSnapshot?.uncertain)) {
+          gapSnapshot.uncertain.forEach((u, idx) => {
+            (u.references || []).forEach(r => {
+              const key = r.pmid || r.title || `u-${idx}`;
+              if (!seen.has(key) && r.title) {
+                seen.add(key);
+                papers.push({
+                  id: key,
+                  pmid: r.pmid || "",
+                  title: r.title,
+                  authors: r.authors || "",
+                  year: r.year || "",
+                  journal: r.journal || "",
+                  doi: r.doi || "",
+                  url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  studyType: classifyPaperType({
+                    title: r.title,
+                    journal: r.journal,
+                    pubType: r.pubType,
+                    publicationTypes: r.publicationTypes
+                  }),
+                  evidenceCategory: "uncertain",
+                  point: u.point || ""
+                });
+              }
+            });
+          });
+        }
+
+        if (papers.length > 0) {
+          setSupportingPapers(papers);
+        } else {
+          // If no papers in gapSnapshot, query /api/pubmed to ensure literature presence
+          fetch("/api/pubmed", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              population: pico.condition,
+              intervention: pico.intervention,
+              comparator: pico.comparator
+            })
+          })
+            .then(res => (res.ok ? res.json() : null))
+            .then(data => {
+              if (Array.isArray(data?.results) && data.results.length > 0) {
+                const fetchedPapers: SupportingPaper[] = data.results.map((r: RawRef, idx: number) => ({
+                  id: r.pmid || `pub-${idx}`,
+                  pmid: r.pmid || "",
+                  title: r.title || "",
+                  authors: r.authors || "",
+                  year: r.year || "",
+                  journal: r.journal || "",
+                  doi: r.doi || "",
+                  url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  studyType: classifyPaperType({
+                    title: r.title,
+                    journal: r.journal,
+                    pubType: r.pubType,
+                    publicationTypes: r.publicationTypes
+                  }),
+                  evidenceCategory: "pico-direct",
+                  point: "Retrieved direct PubMed evidence matching formulated PICO criteria."
+                }));
+                setSupportingPapers(fetchedPapers);
+              }
+            })
+            .catch(() => { /* silent fallback */ });
+        }
+
         setBusy(null);
       } catch (err: unknown) {
         setNotice(err instanceof Error ? err.message : "Error extracting clinical outcomes.");
@@ -297,6 +454,125 @@ export default function QuestionPage() {
           <section className="card"><div className="advisory">⚠️ {notice}</div></section>
         )}
 
+        {/* Supporting Clinical Evidence & Study Designs */}
+        {supportingPapers.length > 0 && (
+          <section className="card">
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
+              <div>
+                <h3 className="sec-h" style={{ margin: 0 }}>
+                  📚 Supporting Literature & Study Types ({supportingPapers.length})
+                </h3>
+                <p className="hint" style={{ marginTop: 4, marginBottom: 0 }}>
+                  Clinical evidence mapped to this question, classified by methodological design (EBM Hierarchy).
+                </p>
+              </div>
+              <span className="pill" style={{ margin: 0, fontSize: "0.74rem", background: "#f0fdfa", color: "#0f766e", border: "1px solid #99f6e4" }}>
+                Methodological Taxonomy
+              </span>
+            </div>
+
+            {/* Filter Pills */}
+            <div className="study-type-summary" style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
+              <button
+                type="button"
+                className={`study-type-pill ${selectedStudyTypeFilter === "all" ? "active" : ""}`}
+                style={{
+                  cursor: "pointer",
+                  background: selectedStudyTypeFilter === "all" ? "#0f766e" : "#f1f5f9",
+                  color: selectedStudyTypeFilter === "all" ? "#ffffff" : "#334155",
+                  border: "1px solid " + (selectedStudyTypeFilter === "all" ? "#0f766e" : "#cbd5e1")
+                }}
+                onClick={() => setSelectedStudyTypeFilter("all")}
+              >
+                All Study Types ({supportingPapers.length})
+              </button>
+              {studyTypeCounts.map(({ type, count }) => {
+                const style = getStudyTypeBadgeStyle(type);
+                const isSelected = selectedStudyTypeFilter === type;
+                return (
+                  <button
+                    key={type}
+                    type="button"
+                    className="study-type-pill"
+                    style={{
+                      cursor: "pointer",
+                      backgroundColor: isSelected ? style.color : style.bg,
+                      color: isSelected ? "#ffffff" : style.color,
+                      borderColor: style.border,
+                      boxShadow: isSelected ? "0 1px 4px rgba(0,0,0,0.15)" : "none"
+                    }}
+                    onClick={() => setSelectedStudyTypeFilter(isSelected ? "all" : type)}
+                    title={`Filter to ${type} papers`}
+                  >
+                    <b>{type}</b> ({count})
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Papers List */}
+            <div className="paper-list" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {filteredPapers.map((paper, pIdx) => {
+                const style = getStudyTypeBadgeStyle(paper.studyType);
+                return (
+                  <div key={paper.id || pIdx} className="paper-item-card">
+                    <div className="paper-item-header">
+                      <span
+                        className="study-type-badge"
+                        style={{
+                          backgroundColor: style.bg,
+                          color: style.color,
+                          borderColor: style.border
+                        }}
+                        title={`Study Design: ${paper.studyType}`}
+                      >
+                        🏷️ {paper.studyType}
+                      </span>
+                      <span className={`evidence-category-tag ${paper.evidenceCategory}`}>
+                        {paper.evidenceCategory === "established" ? "✓ Established Support" : paper.evidenceCategory === "uncertain" ? "⚖️ Conflicting Evidence" : "🎯 Direct PICO Support"}
+                      </span>
+                      {paper.year && <span className="paper-year">[{paper.year}]</span>}
+                    </div>
+
+                    <a
+                      href={paper.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="paper-title-link"
+                      title="Open paper in PubMed"
+                    >
+                      {paper.title} ↗
+                    </a>
+
+                    <div className="paper-meta-row">
+                      {paper.authors && <span className="paper-author">{paper.authors}</span>}
+                      {paper.journal && <span className="paper-journal">{paper.journal}</span>}
+                      {paper.pmid && (
+                        <span className="paper-pmid" title="PubMed Identifier">
+                          PMID: {paper.pmid}
+                        </span>
+                      )}
+                      {paper.doi && (
+                        <span className="paper-doi" title="Digital Object Identifier">
+                          DOI: {paper.doi}
+                        </span>
+                      )}
+                    </div>
+
+                    {paper.point && (
+                      <div className="paper-point-context">
+                        <span className="hint" style={{ margin: 0, fontSize: "0.78rem" }}>
+                          💡 <b>Clinical Finding:</b> {paper.point}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
         {outcomeOptions.length > 0 && busy !== "formulate" && (
           <section className="card">
             <h3 className="sec-h" style={{ marginTop: 0 }}>
@@ -330,6 +606,9 @@ export default function QuestionPage() {
                     <span className="outcome-chip-meta">
                       {isRec && <span className="outcome-badge">Recommended</span>}
                       <span className="outcome-category">{opt.category.replace(/-/g, " ")}</span>
+                      <span className="outcome-evidence-types" style={{ fontSize: "0.72rem", color: isSel ? "#e0f2fe" : "var(--muted, #64748b)", fontWeight: 500 }}>
+                        • Evidence: {primaryStudyTypes}
+                      </span>
                     </span>
                     <span className="outcome-why">{opt.rationale}</span>
                   </button>

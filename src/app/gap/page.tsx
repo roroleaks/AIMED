@@ -6,8 +6,19 @@ import { AnimatedProcessingIndicator } from "@/components/AnimatedProcessingIndi
 import { sget, sset, KEYS } from "@/lib/session";
 import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { NO_LITERATURE_MESSAGE, NO_LITERATURE_HINT } from "@/lib/clinical-keywords";
+import { classifyPaperType, getStudyTypeBadgeStyle } from "@/lib/study-design";
 
-interface Reference { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string }
+interface Reference {
+  pmid: string;
+  title: string;
+  authors: string;
+  year: string;
+  journal: string;
+  doi?: string;
+  url: string;
+  pubType?: string;
+  publicationTypes?: string[];
+}
 interface PointWithRefs { point: string; references: Reference[] }
 interface GapResult {
   topic: string; specialty?: string;
@@ -202,10 +213,18 @@ export default function GapPage() {
                     <li key={`k${i}`}>
                       {k.point}
                       {!!k.references?.length && (
-                        <div className="refs">{k.references.map((r, j) => (
-                          <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
-                            [{r.year}] {r.authors}. {r.title}. {r.journal}.{r.pmid ? ` PMID: ${r.pmid}.` : ""}{r.doi ? ` DOI: ${r.doi}.` : ""}
-                          </a>))}</div>
+                        <div className="refs">{k.references.map((r, j) => {
+                          const st = classifyPaperType(r);
+                          const bStyle = getStudyTypeBadgeStyle(st);
+                          return (
+                            <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
+                              <span className="study-type-badge-mini" style={{ backgroundColor: bStyle.bg, color: bStyle.color, borderColor: bStyle.border }}>
+                                {st}
+                              </span>
+                              [{r.year}] {r.authors}. {r.title}. {r.journal}.{r.pmid ? ` PMID: ${r.pmid}.` : ""}{r.doi ? ` DOI: ${r.doi}.` : ""}
+                            </a>
+                          );
+                        })}</div>
                       )}
                     </li>))}
                 </ul>
@@ -219,10 +238,18 @@ export default function GapPage() {
                     <li key={`u${i}`}>
                       {u.point}
                       {!!u.references?.length && (
-                        <div className="refs">{u.references.map((r, j) => (
-                          <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
-                            [{r.year}] {r.authors}. {r.title}. {r.journal}.{r.pmid ? ` PMID: ${r.pmid}.` : ""}{r.doi ? ` DOI: ${r.doi}.` : ""}
-                          </a>))}</div>
+                        <div className="refs">{u.references.map((r, j) => {
+                          const st = classifyPaperType(r);
+                          const bStyle = getStudyTypeBadgeStyle(st);
+                          return (
+                            <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
+                              <span className="study-type-badge-mini" style={{ backgroundColor: bStyle.bg, color: bStyle.color, borderColor: bStyle.border }}>
+                                {st}
+                              </span>
+                              [{r.year}] {r.authors}. {r.title}. {r.journal}.{r.pmid ? ` PMID: ${r.pmid}.` : ""}{r.doi ? ` DOI: ${r.doi}.` : ""}
+                            </a>
+                          );
+                        })}</div>
                       )}
                     </li>))}
                 </ul>

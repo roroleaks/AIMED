@@ -1676,3 +1676,181 @@ footer {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   Clinical Study Types & Paper Design Badges (Step 3 & Evidence Pipeline)
+   ========================================================================== */
+
+.study-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid currentColor;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+.study-type-badge-mini {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  margin-right: 6px;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.study-type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-weight: 500;
+}
+
+.paper-item-card {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.paper-item-card:hover {
+  border-color: var(--accent, #0f766e);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.08);
+}
+
+.paper-item-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.evidence-category-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.evidence-category-tag.established {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.evidence-category-tag.uncertain {
+  background: #fefce8;
+  color: #854d0e;
+  border: 1px solid #fef08a;
+}
+
+.evidence-category-tag.pico-direct {
+  background: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #99f6e4;
+}
+
+.paper-year {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  font-weight: 600;
+}
+
+.paper-title-link {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text, #0f172a);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+
+.paper-title-link:hover {
+  color: var(--accent, #0f766e);
+  text-decoration: underline;
+}
+
+.paper-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 0.78rem;
+  color: var(--muted, #64748b);
+}
+
+.paper-author {
+  font-weight: 500;
+}
+
+.paper-journal {
+  font-style: italic;
+}
+
+.paper-pmid, .paper-doi {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.70rem;
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.paper-point-context {
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border, #e2e8f0);
+}
+
+@media (max-width: 768px) {
+  .study-type-badge {
+    font-size: 0.70rem;
+    padding: 2px 6px;
+  }
+  .paper-item-card {
+    padding: 10px 12px;
+  }
+  .paper-title-link {
+    font-size: 0.88rem;
+  }
+  .paper-meta-row {
+    font-size: 0.74rem;
+    gap: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paper-item-header {
+    gap: 6px;
+  }
+  .study-type-badge {
+    font-size: 0.68rem;
+    padding: 2px 5px;
+  }
+  .evidence-category-tag {
+    font-size: 0.64rem;
+    padding: 1px 6px;
+  }
+  .paper-title-link {
+    font-size: 0.84rem;
+  }
+}
