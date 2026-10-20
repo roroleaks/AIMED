@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "node --test src/lib/*.test.ts",
+    "icons": "node scripts/build-icons.mjs",
     "snapshot": "node scripts/create-snapshot.mjs"
   },
   "dependencies": {

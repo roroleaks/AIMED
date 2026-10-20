@@ -228,10 +228,14 @@ export default function Home() {
       <header className="hdr">
         <div className="hdr-inner">
           <div className="hdr-left">
-            <svg className="lens-icon" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8" />
-              <path d="M21 21l-4.3-4.3" />
-            </svg>
+            <Image
+              src="/icon-192.png"
+              alt="AIMed App Icon"
+              width={34}
+              height={34}
+              style={{ borderRadius: 8, display: "inline-block", verticalAlign: "middle", boxShadow: "0 2px 10px rgba(0, 0, 0, 0.25)" }}
+              priority
+            />
             <span className="title-main">
               Aimed <span className="version-badge">v4.0 Multi-Specialty</span>
             </span>
