@@ -55,6 +55,45 @@ interface CitationChecks {
 }
 interface ExcludedRef { pmid: string; title: string; reason: string; url: string }
 
+function renderCitations(text: string, keyPrefix: string) {
+  // Matches Vancouver numerical citations like [1], [1, 2], [1-3], [1, 3, 5]
+  const citeRegex = /(\[\d+(?:[\s,\-]+\d+)*\])/g;
+  const parts = text.split(citeRegex);
+  return parts.map((sub, sIdx) => {
+    if (/^\[\d+(?:[\s,\-]+\d+)*\]$/.test(sub)) {
+      const firstNumMatch = sub.match(/\d+/);
+      const targetId = firstNumMatch ? `ref-${firstNumMatch[0]}` : undefined;
+      return (
+        <sup key={`${keyPrefix}-cite-${sIdx}`} className="vancouver-cite" title={`Vancouver citation ${sub}`}>
+          {targetId ? (
+            <a href={`#${targetId}`} className="vancouver-cite-link" aria-label={`View reference ${sub}`}>
+              {sub}
+            </a>
+          ) : (
+            sub
+          )}
+        </sup>
+      );
+    }
+    return sub;
+  });
+}
+
+function renderFormattedText(text: string, keyPrefix: string) {
+  const parts = text.split(/\*\*(.*?)\*\*/);
+  return parts.map((p, pIdx) => {
+    const isBold = pIdx % 2 === 1;
+    const content = renderCitations(p, `${keyPrefix}-sub-${pIdx}`);
+    return isBold ? (
+      <strong key={`${keyPrefix}-bold-${pIdx}`} style={{ color: "#0f172a" }}>
+        {content}
+      </strong>
+    ) : (
+      <span key={`${keyPrefix}-txt-${pIdx}`}>{content}</span>
+    );
+  });
+}
+
 function FormattedPaperSection({ content }: { content: string }) {
   if (!content) return null;
   const blocks = content.split(/\n{2,}/).map(b => b.trim()).filter(Boolean);
@@ -76,7 +115,7 @@ function FormattedPaperSection({ content }: { content: string }) {
                 paddingBottom: 4
               }}
             >
-              {headingText}
+              {renderFormattedText(headingText, `h-${idx}`)}
             </h4>
           );
         }
@@ -84,21 +123,17 @@ function FormattedPaperSection({ content }: { content: string }) {
           const items = block.split(/\n-\s+/).map(it => it.replace(/^- /, "").trim()).filter(Boolean);
           return (
             <ul key={idx} style={{ paddingLeft: 22, margin: "10px 0", listStyleType: "disc" }}>
-              {items.map((item, iIdx) => {
-                const parts = item.split(/\*\*(.*?)\*\*/);
-                return (
-                  <li key={iIdx} style={{ marginBottom: 6 }}>
-                    {parts.map((p, pIdx) => (pIdx % 2 === 1 ? <strong key={pIdx} style={{ color: "#0f172a" }}>{p}</strong> : p))}
-                  </li>
-                );
-              })}
+              {items.map((item, iIdx) => (
+                <li key={iIdx} style={{ marginBottom: 6 }}>
+                  {renderFormattedText(item, `li-${idx}-${iIdx}`)}
+                </li>
+              ))}
             </ul>
           );
         }
-        const parts = block.split(/\*\*(.*?)\*\*/);
         return (
           <p key={idx} style={{ marginBottom: 12 }}>
-            {parts.map((p, pIdx) => (pIdx % 2 === 1 ? <strong key={pIdx} style={{ color: "#0f172a" }}>{p}</strong> : p))}
+            {renderFormattedText(block, `p-${idx}`)}
           </p>
         );
       })}
@@ -615,8 +650,21 @@ ${bibliography}
                 <h3 className="sec-h">Discussion</h3><FormattedPaperSection content={commentary.discussion} />
                 <h3 className="sec-h">Conclusion</h3><FormattedPaperSection content={commentary.conclusion} />
                 {!!commentary.references.length && (
-                  <><h3 className="sec-h">References (Vancouver Style)</h3>
-                    <ol className="refs-numbered">{commentary.references.map((ref, i) => <li key={i}>{vancouverFromString(ref, i + 1)}</li>)}</ol></>
+                  <>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 16, marginBottom: 8 }}>
+                      <h3 className="sec-h" style={{ margin: 0 }}>References (Vancouver Style)</h3>
+                      <span className="pill" style={{ margin: 0, fontSize: "0.72rem", background: "#f0fdfa", color: "#0f766e", border: "1px solid #99f6e4" }}>
+                        Upper Case (Superscript) Citations
+                      </span>
+                    </div>
+                    <ol className="refs-numbered">
+                      {commentary.references.map((ref, i) => (
+                        <li key={i} id={`ref-${i + 1}`} className="vancouver-ref-item">
+                          {vancouverFromString(ref, i + 1)}
+                        </li>
+                      ))}
+                    </ol>
+                  </>
                 )}
                 {/* Filtering summary: how many records were retrieved, how many survived the
                     claim-specific filter, and what was dropped. Contextual records are listed
