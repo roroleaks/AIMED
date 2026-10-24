@@ -25,6 +25,7 @@ interface RawRef {
   journal?: string;
   doi?: string;
   url?: string;
+  source?: string;
   pubType?: string;
   publicationTypes?: string[];
 }
@@ -47,9 +48,21 @@ export interface SupportingPaper {
   journal: string;
   doi?: string;
   url: string;
+  source?: string;
   studyType: ClinicalStudyType;
   evidenceCategory: "established" | "uncertain" | "pico-direct";
   point: string;
+}
+
+function getSourceBadge(source?: string, pmid?: string) {
+  const s = (source || "").toLowerCase();
+  if (s === "openalex" || (pmid && pmid.startsWith("oax:"))) {
+    return { label: "OpenAlex", icon: "🟢", className: "source-badge-openalex" };
+  }
+  if (s === "crossref" || (pmid && pmid.startsWith("cr:"))) {
+    return { label: "CrossRef", icon: "🟣", className: "source-badge-crossref" };
+  }
+  return { label: "PubMed", icon: "🔵", className: "source-badge-pubmed" };
 }
 
 interface RenderedOutcome {
@@ -332,6 +345,7 @@ export default function QuestionPage() {
                   journal: r.journal || "",
                   doi: r.doi || "",
                   url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  source: r.source || "pubmed",
                   studyType: classifyPaperType({
                     title: r.title,
                     journal: r.journal,
@@ -361,6 +375,7 @@ export default function QuestionPage() {
                   journal: r.journal || "",
                   doi: r.doi || "",
                   url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  source: r.source || "pubmed",
                   studyType: classifyPaperType({
                     title: r.title,
                     journal: r.journal,
@@ -378,11 +393,13 @@ export default function QuestionPage() {
         if (papers.length > 0) {
           setSupportingPapers(papers);
         } else {
-          // If no papers in gapSnapshot, query /api/pubmed to ensure literature presence
-          fetch("/api/pubmed", {
+          // If no papers in gapSnapshot, query multi-source literature to ensure literature presence
+          const activeSources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
+          fetch("/api/literature", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+              sources: activeSources,
               population: pico.condition,
               intervention: pico.intervention,
               comparator: pico.comparator
@@ -400,6 +417,7 @@ export default function QuestionPage() {
                   journal: r.journal || "",
                   doi: r.doi || "",
                   url: r.url || (r.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/` : ""),
+                  source: r.source || "pubmed",
                   studyType: classifyPaperType({
                     title: r.title,
                     journal: r.journal,
@@ -407,7 +425,7 @@ export default function QuestionPage() {
                     publicationTypes: r.publicationTypes
                   }),
                   evidenceCategory: "pico-direct",
-                  point: "Retrieved direct PubMed evidence matching formulated PICO criteria."
+                  point: "Retrieved direct scientific evidence matching formulated PICO criteria."
                 }));
                 setSupportingPapers(fetchedPapers);
               }
@@ -517,6 +535,14 @@ export default function QuestionPage() {
                 return (
                   <div key={paper.id || pIdx} className="paper-item-card">
                     <div className="paper-item-header">
+                      {(() => {
+                        const srcBadge = getSourceBadge(paper.source, paper.pmid);
+                        return (
+                          <span className={`source-badge-mini ${srcBadge.className}`} style={{ marginRight: 6 }}>
+                            {srcBadge.icon} {srcBadge.label}
+                          </span>
+                        );
+                      })()}
                       <span
                         className="study-type-badge"
                         style={{

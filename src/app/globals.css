@@ -1854,3 +1854,68 @@ footer {
     font-size: 0.84rem;
   }
 }
+
+/* Literature Search Source Badges and Selectors */
+.source-badge-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  line-height: 1.3;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.source-badge-pubmed {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.source-badge-openalex {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.source-badge-crossref {
+  background: #faf5ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+
+.source-choice-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.source-choice-card:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .sources-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .source-choice-card {
+    padding: 12px 14px !important;
+    min-height: 48px;
+  }
+  .source-badge-mini {
+    font-size: 0.65rem;
+    padding: 1px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-sources-section {
+    padding: 10px 12px !important;
+  }
+  .source-choice-card {
+    padding: 10px 12px !important;
+  }
+}

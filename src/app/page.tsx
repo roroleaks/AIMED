@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useMemo, useState, useSyncExternalStore, useRef } from "react";
+import { useCallback, useMemo, useState, useSyncExternalStore, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { sset, KEYS } from "@/lib/session";
+import { sset, sget, KEYS } from "@/lib/session";
+import { SEARCH_SOURCE_OPTIONS, type LiteratureSource } from "@/lib/literature-sources";
 import {
   parseInput,
   toSessionInput,
@@ -211,6 +212,27 @@ export default function Home() {
     setTagError(null);
   };
 
+  // Literature search sources: PubMed, OpenAlex, CrossRef
+  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>(["pubmed", "openalex", "crossref"]);
+
+  useEffect(() => {
+    const stored = sget<LiteratureSource[]>(KEYS.sources);
+    if (Array.isArray(stored) && stored.length > 0) {
+      setSelectedSources(stored);
+    }
+  }, []);
+
+  const toggleSource = (sourceId: LiteratureSource) => {
+    setSelectedSources(prev => {
+      if (prev.includes(sourceId)) {
+        if (prev.length <= 1) return prev; // At least one source must remain active
+        return prev.filter(s => s !== sourceId);
+      } else {
+        return [...prev, sourceId];
+      }
+    });
+  };
+
   const start = () => {
     const current = resolveCorrections(parseInput(input), decisions);
     const err = entryStyle === "structured" ? structuredValidationError : validateKeywords(current);
@@ -220,6 +242,7 @@ export default function Home() {
     sset(KEYS.input, toSessionInput(current, input));
     sset(KEYS.inputText, sessionSearchText(toSessionInput(current, input)));
     sset(KEYS.mode, mode);
+    sset(KEYS.sources, selectedSources);
     router.push("/gap");
   };
 
@@ -529,6 +552,75 @@ export default function Home() {
           {alertMessage && (
             <div className="advisory" role="alert" aria-live="polite" style={{ marginTop: 10 }}>⚠️ {alertMessage}</div>
           )}
+
+          {/* Literature Search Sources Selection Card */}
+          <div className="search-sources-section" style={{ marginTop: 18, marginBottom: 8, padding: "12px 14px", background: "#f8fafc", borderRadius: 8, border: "1px solid #e2e8f0" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, flexWrap: "wrap", gap: 6 }}>
+              <div>
+                <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  🌐 Literature Search Sources ({selectedSources.length} active)
+                </span>
+                <span style={{ fontSize: "0.78rem", color: "var(--muted)", marginLeft: 6, display: "inline-block" }}>
+                  Select databases to query across the synthesis pipeline
+                </span>
+              </div>
+              <span style={{ fontSize: "0.76rem", color: selectedSources.length > 0 ? "#0f766e" : "#b91c1c", fontWeight: 700 }}>
+                {selectedSources.length === 3 ? "✓ All Sources Active" : `${selectedSources.length} of 3 Active`}
+              </span>
+            </div>
+
+            <div className="sources-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 10 }}>
+              {SEARCH_SOURCE_OPTIONS.map(opt => {
+                const active = selectedSources.includes(opt.id);
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => toggleSource(opt.id)}
+                    className={`source-choice-card ${active ? "active" : "inactive"}`}
+                    aria-pressed={active}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 10,
+                      padding: "10px 12px",
+                      borderRadius: 8,
+                      border: active ? "2px solid #0f766e" : "1px solid var(--border)",
+                      background: active ? "#ffffff" : "#f1f5f9",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      transition: "all 0.15s ease",
+                      boxShadow: active ? "0 2px 6px rgba(15, 118, 110, 0.08)" : "none"
+                    }}
+                  >
+                    <div style={{ fontSize: "1.3rem", lineHeight: 1 }}>{opt.icon}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
+                        <span style={{ fontSize: "0.88rem", fontWeight: 700, color: active ? "#0f766e" : "#475569" }}>
+                          {opt.name}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: "0.68rem",
+                            fontWeight: 700,
+                            padding: "2px 6px",
+                            borderRadius: 4,
+                            background: active ? "#0f766e" : "#cbd5e1",
+                            color: active ? "#ffffff" : "#475569"
+                          }}
+                        >
+                          {active ? "ACTIVE" : "OFF"}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: "0.74rem", color: "#64748b", marginTop: 3, lineHeight: 1.3 }}>
+                        {opt.description}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
           <div className="row" style={{ marginTop: 16 }}>
             <button className="primary" onClick={start} disabled={!input.trim() || !canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>

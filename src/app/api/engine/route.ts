@@ -30,6 +30,7 @@ import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
+import { decodeHtmlEntities } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
@@ -443,7 +444,7 @@ async function fetchCrossref(query: string, maxResults = 4): Promise<PubMedRef[]
     const hits = (data?.message?.items || []) as CrossrefItem[];
     const refs: PubMedRef[] = [];
     for (const it of hits) {
-      const title = (it.title && it.title[0] ? it.title[0] : "").trim();
+      const title = decodeHtmlEntities((it.title && it.title[0] ? it.title[0] : "").trim());
       if (!title || /protocol/i.test(title)) continue;
       // Only peer-reviewed journal articles: Crossref also returns datasets,
       // posted-content and other non-journal records that are not citable evidence.
@@ -457,7 +458,7 @@ async function fetchCrossref(query: string, maxResults = 4): Promise<PubMedRef[]
         title,
         authors: [a0?.family, a0?.given].filter(Boolean).join(" "),
         year: year ? String(year) : "",
-        journal: (it["container-title"] && it["container-title"][0]) || "",
+        journal: decodeHtmlEntities((it["container-title"] && it["container-title"][0]) || ""),
         doi,
         source: "crossref",
         url: `https://doi.org/${doi}`
@@ -469,20 +470,35 @@ async function fetchCrossref(query: string, maxResults = 4): Promise<PubMedRef[]
   }
 }
 
-async function fetchReferencesBroad(query: string, maxResults = 8, excluded: Set<string> = EMPTY_REF_SET): Promise<PubMedRef[]> {
-  const pubmed = await fetchPubMedReferences(query, maxResults, excluded);
-  const [europe, openalex, crossref] = await Promise.all([
-    fetchEuropePMC(query, maxResults),
-    fetchOpenAlex(query, maxResults),
-    fetchCrossref(query, maxResults)
-  ]);
+async function fetchReferencesBroad(
+  query: string,
+  maxResults = 8,
+  excluded: Set<string> = EMPTY_REF_SET,
+  activeSources: string[] = ["pubmed", "openalex", "crossref"]
+): Promise<PubMedRef[]> {
+  const allowed = new Set(activeSources.map(s => s.toLowerCase()));
+  const tasks: Promise<PubMedRef[]>[] = [];
+  if (allowed.has("pubmed")) {
+    tasks.push(fetchPubMedReferences(query, maxResults, excluded).catch(() => []));
+  }
+  if (allowed.has("openalex")) {
+    tasks.push(fetchOpenAlex(query, maxResults).catch(() => []));
+  }
+  if (allowed.has("crossref")) {
+    tasks.push(fetchCrossref(query, maxResults).catch(() => []));
+  }
+  if (allowed.has("europepmc")) {
+    tasks.push(fetchEuropePMC(query, maxResults).catch(() => []));
+  }
+  const fetched = await Promise.allSettled(tasks);
+  const pool: PubMedRef[] = [];
+  for (const f of fetched) {
+    if (f.status === "fulfilled") {
+      pool.push(...f.value);
+    }
+  }
   const notExcluded = (r: PubMedRef): boolean => !excluded.has(r.pmid);
-  const merged = dedupeRefs([
-    ...pubmed,
-    ...europe.filter(notExcluded),
-    ...openalex.filter(notExcluded),
-    ...crossref.filter(notExcluded)
-  ]);
+  const merged = dedupeRefs(pool.filter(notExcluded));
   const want = Math.max(maxResults, 6);
   const byScore = (r: PubMedRef): number => {
     let s = r.pmid && /^\d+$/.test(r.pmid) ? 2 : 0;
@@ -498,7 +514,7 @@ async function fetchReferencesBroad(query: string, maxResults = 8, excluded: Set
     if (/^cr:/.test(r.pmid)) return "crossref";
     return "other";
   };
-  // Score all, but guarantee the non-PubMed sources (EuropePMC/OpenAlex/Crossref) are
+  // Score all, but guarantee the non-PubMed sources (OpenAlex/Crossref) are
   // represented in the final pool instead of being crowded out by PubMed records.
   const scored = merged
     .map(r => ({ r, s: byScore(r), src: bySource(r) }))
@@ -507,10 +523,11 @@ async function fetchReferencesBroad(query: string, maxResults = 8, excluded: Set
   const srcCount: Record<string, number> = {};
   for (const it of scored) {
     if (it.src === "pubmed" || it.src === "other") continue;
-    if ((srcCount[it.src] || 0) >= 2 || picked.length >= want) continue;
+    if ((srcCount[it.src] || 0) >= 3 || picked.length >= want) continue;
     picked.push(it.r);
     srcCount[it.src] = (srcCount[it.src] || 0) + 1;
-  }  for (const it of scored) {
+  }
+  for (const it of scored) {
     if (picked.length >= want) break;
     if (picked.includes(it.r)) continue;
     picked.push(it.r);
@@ -565,38 +582,56 @@ function cleanTopicQuery(topic: string): string {
 async function fetchReferencesForPoints(
   points: Array<{ point: string; searchQuery?: string }>,
   topic: string,
-  excluded: Set<string>
+  excluded: Set<string>,
+  activeSources: string[] = ["pubmed", "openalex", "crossref"]
 ): Promise<Array<{ point: string; references: PubMedRef[] }>> {
+  const allowed = new Set(activeSources.map(s => s.toLowerCase()));
   const results: Array<{ point: string; references: PubMedRef[] }> = [];
+
   for (const p of points) {
     const query = p.searchQuery && p.searchQuery.length > 3 ? sanitizeQuery(p.searchQuery) : buildRefQuery(p.point, topic);
-    let refs = await fetchPubMedReferences(query, 3, excluded);
-    if (!refs.length) refs = await fetchPubMedReferences(buildRefQuery(p.point, topic), 3, excluded);
-    if (!refs.length) refs = await fetchPubMedReferences(sanitizeQuery(p.point), 3, excluded);
-    if (refs.length < 2) {
-      const need = 4 - refs.length;
-      const [europe, openalex, crossref] = await Promise.all([
-        fetchEuropePMC(query, need),
-        fetchOpenAlex(query, need),
-        fetchCrossref(query, need)
-      ]);
-      // Round-robin across the supplemental sources, otherwise the first bucket
-      // (Europe PMC) fills every remaining slot and OpenAlex/Crossref never appear.
-      const buckets = [europe, openalex, crossref].map(b =>
-        b.filter(r => !excluded.has(r.pmid) && !refs.some(x => x.pmid === r.pmid))
-      );
-      for (let i = 0; refs.length < 4; i++) {
-        let added = false;
-        for (const b of buckets) {
-          if (i < b.length) {
-            refs.push(b[i]);
-            added = true;
-            if (refs.length >= 4) break;
-          }
-        }
-        if (!added) break;
+    const fetchPromises: Promise<PubMedRef[]>[] = [];
+
+    if (allowed.has("pubmed")) {
+      fetchPromises.push(fetchPubMedReferences(query, 3, excluded).catch(() => []));
+    }
+    if (allowed.has("openalex")) {
+      fetchPromises.push(fetchOpenAlex(query, 3).catch(() => []));
+    }
+    if (allowed.has("crossref")) {
+      fetchPromises.push(fetchCrossref(query, 3).catch(() => []));
+    }
+
+    const fetched = await Promise.allSettled(fetchPromises);
+    const buckets: PubMedRef[][] = [];
+    for (const f of fetched) {
+      if (f.status === "fulfilled" && f.value.length) {
+        buckets.push(f.value.filter(r => !excluded.has(r.pmid)));
       }
     }
+
+    // Interleave across active sources for fair representation
+    const refs: PubMedRef[] = [];
+    const maxLen = Math.max(...buckets.map(b => b.length), 0);
+    for (let i = 0; i < maxLen && refs.length < 4; i++) {
+      for (const b of buckets) {
+        if (i < b.length && refs.length < 4) {
+          refs.push(b[i]);
+        }
+      }
+    }
+
+    // Backstop fallback if under 2 and PubMed is allowed
+    if (refs.length < 2 && allowed.has("pubmed")) {
+      const fallback = await fetchPubMedReferences(sanitizeQuery(p.point), 3, excluded).catch(() => []);
+      for (const r of fallback) {
+        if (!excluded.has(r.pmid) && !refs.some(x => x.pmid === r.pmid)) {
+          refs.push(r);
+          if (refs.length >= 4) break;
+        }
+      }
+    }
+
     // Truncate BEFORE marking as used, otherwise references dropped by the slice
     // are permanently excluded from every later point.
     const finalRefs = dedupeRefs(refs).slice(0, 4);
@@ -604,7 +639,7 @@ async function fetchReferencesForPoints(
       if (r.pmid) excluded.add(r.pmid);
     }
     results.push({ point: p.point, references: finalRefs });
-    await new Promise(r => setTimeout(r, 50));
+    await new Promise(r => setTimeout(r, 40));
   }
   return results;
 }
@@ -749,6 +784,7 @@ const intentGapSchema = z.object({
   input: z.string().max(2000).optional().nullable(),
   specialty: z.string().max(100).optional().nullable(),
   specialtyLabel: z.string().max(100).optional().nullable(),
+  sources: z.array(z.string()).optional().nullable(),
 });
 
 const clarifyFormulateSchema = z.object({
@@ -762,6 +798,7 @@ const commentaryZodSchema = z.object({
   topic: z.string().max(2000).optional().nullable(),
   specialty: z.string().max(100).optional().nullable(),
   specialtyLabel: z.string().max(100).optional().nullable(),
+  sources: z.array(z.string()).optional().nullable(),
   gapAnalysis: z.object({
     known: z.array(z.any()).optional().nullable(),
     uncertain: z.array(z.any()).optional().nullable(),
@@ -833,9 +870,13 @@ export async function POST(req: NextRequest) {
       const outcomesText = outcomesArr.length
         ? outcomesArr.join("; ")
         : (String(outcome || "").trim() || "the primary outcome for this question");
-      let refPool = await fetchReferencesBroad(cleanTopicQuery(String(topic || "")), 12);
+      const rawSources = (body as { sources?: string[] })?.sources;
+      const activeSources = Array.isArray(rawSources) && rawSources.length > 0
+        ? rawSources.map(s => String(s).toLowerCase().trim())
+        : ["pubmed", "openalex", "crossref"];
+      let refPool = await fetchReferencesBroad(cleanTopicQuery(String(topic || "")), 12, EMPTY_REF_SET, activeSources);
       if (refPool.length < 6 && selectedQuestion) {
-        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), 8);
+        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), 8, EMPTY_REF_SET, activeSources);
         refPool.push(...alt);
       }
       const extra = Array.isArray(gapAnalysis?.known) ? gapAnalysis.known : [];
@@ -919,7 +960,7 @@ export async function POST(req: NextRequest) {
         );
 
         for (const query of queriesToTry) {
-          const additionalRefs = await fetchReferencesBroad(query, 8);
+          const additionalRefs = await fetchReferencesBroad(query, 8, EMPTY_REF_SET, activeSources);
           if (additionalRefs.length) {
             refPool = dedupeRefs([...refPool, ...additionalRefs]);
             const filtered = filterByClaim(refPool, elements);
@@ -1483,12 +1524,17 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       const knownPts = normPoints(gapAnalysis.known).slice(0, 4);
       const uncertainPts = normPoints(gapAnalysis.uncertain).slice(0, 4);
 
+      const rawSources = (body as { sources?: string[] })?.sources;
+      const activeSources = Array.isArray(rawSources) && rawSources.length > 0
+        ? rawSources.map(s => String(s).toLowerCase().trim())
+        : ["pubmed", "openalex", "crossref"];
+
       const usedPmids = new Set<string>();
       let knownWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       let uncertainWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       try {
-        knownWithRefs = await fetchReferencesForPoints(knownPts, topic, usedPmids);
-        uncertainWithRefs = await fetchReferencesForPoints(uncertainPts, topic, usedPmids);
+        knownWithRefs = await fetchReferencesForPoints(knownPts, topic, usedPmids, activeSources);
+        uncertainWithRefs = await fetchReferencesForPoints(uncertainPts, topic, usedPmids, activeSources);
       } catch (refErr) {
         console.warn("[engine] Reference fetching encountered an issue, returning points without external refs:", refErr);
         knownWithRefs = knownPts.map(p => ({ point: p.point, references: [] }));

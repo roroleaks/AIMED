@@ -23,5 +23,7 @@ export const KEYS = {
   question: "cq_question",
   formulation: "cq_formulation",
   commentary: "cq_commentary",
-  outcomes: "cq_outcomes"
+  outcomes: "cq_outcomes",
+  // Selected literature search sources (e.g. ["pubmed", "openalex", "crossref"])
+  sources: "aimed_search_sources"
 };

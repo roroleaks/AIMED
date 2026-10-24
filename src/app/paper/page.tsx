@@ -267,11 +267,13 @@ export default function PaperPage() {
     setCommentaryError(false);
     try {
       const specialty = sget<string>(KEYS.specialty);
+      const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
       const res = await fetch("/api/engine", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           stage: "commentary",
           specialty,
+          sources,
           topic: gapTopic || formulation.finalQuestion,
           gapAnalysis: sget<GapSnapshot>(KEYS.gap),
           selectedQuestion: q,
@@ -354,10 +356,11 @@ export default function PaperPage() {
   const searchPubMed = async () => {
     if (!formulation) return;
     setPubmedLoading(true);
+    const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
     try {
-      const res = await fetch("/api/pubmed", {
+      const res = await fetch("/api/literature", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formulation.searchTerms)
+        body: JSON.stringify({ ...formulation.searchTerms, sources })
       });
       setPubmed((await res.json()).results || []);
     } catch {

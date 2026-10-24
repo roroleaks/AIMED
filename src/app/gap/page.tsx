@@ -16,6 +16,7 @@ interface Reference {
   journal: string;
   doi?: string;
   url: string;
+  source?: string;
   pubType?: string;
   publicationTypes?: string[];
 }
@@ -36,6 +37,17 @@ function isEmptyResult(g: GapResult): boolean {
   return !hasPoints && !hasRefs;
 }
 
+function getSourceBadge(source?: string, pmid?: string) {
+  const s = (source || "").toLowerCase();
+  if (s === "openalex" || (pmid && pmid.startsWith("oax:"))) {
+    return { label: "OpenAlex", icon: "🟢", className: "source-badge-openalex" };
+  }
+  if (s === "crossref" || (pmid && pmid.startsWith("cr:"))) {
+    return { label: "CrossRef", icon: "🟣", className: "source-badge-crossref" };
+  }
+  return { label: "PubMed", icon: "🔵", className: "source-badge-pubmed" };
+}
+
 export default function GapPage() {
   const router = useRouter();
   const [gap, setGap] = useState<GapResult | null>(null);
@@ -50,13 +62,14 @@ export default function GapPage() {
     const normalized = sget<string>(KEYS.inputText);
     const stored = readSessionInput(sget<unknown>(KEYS.input));
     const specialty = sget<string>(KEYS.specialty);
+    const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
     const input = normalized || (stored ? sessionSearchText(stored) : "");
     if (!input) { router.replace("/"); return; }
     (async () => {
       try {
         const res = await fetch("/api/engine", {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ stage: "gap", input, specialty })
+          body: JSON.stringify({ stage: "gap", input, specialty, sources })
         });
         if (!isMounted) return;
         // Surface the server's own diagnostic instead of replacing it with a generic string.
@@ -216,8 +229,12 @@ export default function GapPage() {
                         <div className="refs">{k.references.map((r, j) => {
                           const st = classifyPaperType(r);
                           const bStyle = getStudyTypeBadgeStyle(st);
+                          const srcBadge = getSourceBadge(r.source, r.pmid);
                           return (
                             <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
+                              <span className={`source-badge-mini ${srcBadge.className}`} style={{ marginRight: 5 }}>
+                                {srcBadge.icon} {srcBadge.label}
+                              </span>
                               <span className="study-type-badge-mini" style={{ backgroundColor: bStyle.bg, color: bStyle.color, borderColor: bStyle.border }}>
                                 {st}
                               </span>
@@ -241,8 +258,12 @@ export default function GapPage() {
                         <div className="refs">{u.references.map((r, j) => {
                           const st = classifyPaperType(r);
                           const bStyle = getStudyTypeBadgeStyle(st);
+                          const srcBadge = getSourceBadge(r.source, r.pmid);
                           return (
                             <a key={j} href={r.url} target="_blank" rel="noopener noreferrer" className="ref-link">
+                              <span className={`source-badge-mini ${srcBadge.className}`} style={{ marginRight: 5 }}>
+                                {srcBadge.icon} {srcBadge.label}
+                              </span>
                               <span className="study-type-badge-mini" style={{ backgroundColor: bStyle.bg, color: bStyle.color, borderColor: bStyle.border }}>
                                 {st}
                               </span>
