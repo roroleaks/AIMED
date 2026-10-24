@@ -43,6 +43,7 @@ const pdfPayloadSchema = z.object({
   sections: z.array(pdfSectionSchema).optional().nullable(),
   references: z.array(z.string().max(2000)).optional().nullable(),
   retainedReferences: z.array(auditableRefSchema).optional().nullable(),
+  citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional().nullable()
 });
 
 const BODY_MAX = 400_000;
@@ -211,8 +212,12 @@ export async function POST(req: Request) {
           doc.moveDown(0.4);
         }
         for (const block of section.blocks) {
-          const text = String(block || "").replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
+          let text = String(block || "").replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
           if (!text) continue;
+          // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
+          if (body.citationStyle === "vancouver" || !body.citationStyle) {
+            text = text.replace(/\[([\d\s,\-]+)\]/g, "$1");
+          }
           const shortHead = text.length < 70 && !/[.!?]\s*$/.test(text);
           if (shortHead) {
             ensure(24);
@@ -231,7 +236,12 @@ export async function POST(req: Request) {
 
     if (Array.isArray(body.references) && body.references.length) {
       ensure(46);
-      doc.font(FONT_B).fontSize(13).fillColor(teal).text("References");
+      const refTitle = body.citationStyle === "apa"
+        ? "References (APA 7th Edition)"
+        : body.citationStyle === "harvard"
+          ? "References (Harvard Style)"
+          : "References (Vancouver Style · Without Brackets)";
+      doc.font(FONT_B).fontSize(13).fillColor(teal).text(refTitle);
       doc.moveDown(0.15);
       doc.moveTo(doc.page.margins.left, doc.y).lineTo(doc.page.width - doc.page.margins.right, doc.y).strokeColor(teal).lineWidth(1.2).stroke();
       doc.moveDown(0.4);
@@ -239,7 +249,10 @@ export async function POST(req: Request) {
       const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
       body.references.forEach((r, i) => {
         const text = String(r || "").replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-        const lines = wrap(`${i + 1}.  ${text}`, width - 10);
+        const formattedEntry = body.citationStyle === "apa" || body.citationStyle === "harvard"
+          ? text
+          : `${i + 1}.  ${text}`;
+        const lines = wrap(formattedEntry, width - 10);
         ensure(lines.length * 15 + 8);
         doc.text(lines.join("\n"), doc.page.margins.left, doc.y, { width: width - 10, lineGap: 3 });
         doc.moveDown(lines.length * 0.6 + 0.4);

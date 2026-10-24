@@ -16,6 +16,10 @@ import {
   getStudyTypeBadgeStyle,
   type ClinicalStudyType
 } from "@/lib/study-design";
+import {
+  CITATION_STYLE_OPTIONS,
+  type CitationStyle
+} from "@/lib/citation-styles";
 
 interface RawRef {
   pmid?: string;
@@ -86,6 +90,7 @@ export default function QuestionPage() {
   const [recommendedRationale, setRecommendedRationale] = useState<string>("");
   const [selectedOutcome, setSelectedOutcome] = useState<string>("");
   const [customOutcome, setCustomOutcome] = useState<string>("");
+  const [citationStyle, setCitationStyle] = useState<CitationStyle>("vancouver");
   const [supportingPapers, setSupportingPapers] = useState<SupportingPaper[]>([]);
   const [selectedStudyTypeFilter, setSelectedStudyTypeFilter] = useState<string>("all");
   const [busy, setBusy] = useState<"loading" | "formulate" | null>("loading");
@@ -189,11 +194,12 @@ export default function QuestionPage() {
     sset(KEYS.formulation, f);
     sset(KEYS.outcomes, [chosenOutcome]);
     sset("cq_outcome", chosenOutcome);
+    sset(KEYS.citationStyle, citationStyle);
     if (typeof window !== "undefined") {
       window.sessionStorage.removeItem(KEYS.commentary);
     }
     router.push("/paper");
-  }, [router]);
+  }, [router, citationStyle]);
 
   // Formulate PICO and navigate immediately to Step 4
   const proceedToCommentary = useCallback(async (chosenOutcome: string) => {
@@ -263,6 +269,10 @@ export default function QuestionPage() {
         const gapSnapshot = sget<GapSnapshot>(KEYS.gap);
         const normalized = sget<string>(KEYS.inputText);
         const stored = readSessionInput(sget<unknown>(KEYS.input));
+        const storedStyle = sget<CitationStyle>(KEYS.citationStyle);
+        if (storedStyle && ["vancouver", "apa", "harvard"].includes(storedStyle)) {
+          setCitationStyle(storedStyle);
+        }
         const fallbackText = question
           || gapSnapshot?.suggestedQuestions?.[0]?.question
           || normalized
@@ -653,6 +663,83 @@ export default function QuestionPage() {
                 💡 <b>Evidence Grounding:</b> {recommendedRationale}
               </p>
             )}
+
+            {/* Step 3: Reference Citation Style for PDF Deliverable */}
+            <div
+              className="citation-style-box"
+              style={{
+                marginTop: 20,
+                marginBottom: 16,
+                padding: "16px 18px",
+                background: "#f0fdfa",
+                border: "1.5px solid #99f6e4",
+                borderRadius: 10
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6, flexWrap: "wrap", gap: 6 }}>
+                <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#0f766e", display: "inline-flex", alignItems: "center", gap: 6 }}>
+                  📚 Reference Citation Style for PDF Deliverable:
+                </span>
+                <span className="source-badge-mini source-badge-pubmed" style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
+                  Selected: {citationStyle === "vancouver" ? "Vancouver (Without Brackets)" : citationStyle === "apa" ? "APA 7th Edition" : "Harvard Style"}
+                </span>
+              </div>
+              <p className="hint" style={{ margin: "0 0 12px 0", fontSize: "0.82rem", color: "#334155" }}>
+                Choose how in-text citations and the bibliography will be formatted in your commentary and exported PDF documents:
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 10 }}>
+                {CITATION_STYLE_OPTIONS.map((opt) => {
+                  const isSel = citationStyle === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      className={`source-choice-card ${isSel ? "active" : ""}`}
+                      onClick={() => {
+                        setCitationStyle(opt.id);
+                        sset(KEYS.citationStyle, opt.id);
+                      }}
+                      style={{
+                        padding: "12px 14px",
+                        textAlign: "left",
+                        cursor: "pointer",
+                        borderRadius: 8,
+                        border: isSel ? "2px solid #0f766e" : "1px solid #cbd5e1",
+                        background: isSel ? "#ffffff" : "#f8fafc",
+                        boxShadow: isSel ? "0 2px 8px rgba(15, 118, 110, 0.15)" : "none",
+                        transition: "all 0.15s ease",
+                        width: "100%"
+                      }}
+                    >
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
+                        <span style={{ fontSize: "0.9rem", fontWeight: 700, color: isSel ? "#0f766e" : "#1e293b" }}>
+                          {opt.name}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: "0.68rem",
+                            fontWeight: 700,
+                            padding: "2px 6px",
+                            borderRadius: 4,
+                            background: isSel ? "#0f766e" : "#e2e8f0",
+                            color: isSel ? "#ffffff" : "#64748b"
+                          }}
+                        >
+                          {opt.badge}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: "0.76rem", color: "#64748b", marginBottom: 6, lineHeight: 1.4 }}>
+                        {opt.shortDescription}
+                      </div>
+                      <div style={{ fontSize: "0.72rem", color: "#0f766e", background: "#f0fdf4", padding: "4px 6px", borderRadius: 4, border: "1px solid #d1fae5" }}>
+                        <b>In-text:</b> {opt.inTextExample}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
             <div className="row" style={{ marginTop: 16 }}>
               <button

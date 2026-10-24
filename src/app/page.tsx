@@ -315,48 +315,28 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="aimed-banner-actions">
-              <select
-                id="specialty-dropdown-select"
-                className="aimed-specialty-select"
-                value={specialty}
-                onChange={(e) => handleSelectSpecialtyFromCard(e.target.value)}
-                aria-label="Choose Speciality from drop menu"
-              >
-                {categories.map((cat) => (
-                  <optgroup key={cat} label={`📂 ${cat}`}>
-                    {allSpecialties
-                      .filter((s) => s.category === cat)
-                      .map((s) => (
-                        <option key={s.id} value={s.id}>
-                          {s.icon} {s.label} ({s.shortName})
-                        </option>
-                      ))}
-                  </optgroup>
-                ))}
-              </select>
-              <button
-                type="button"
-                id="btn-choose-speciality"
-                className="primary"
-                onClick={() => setIsSpecialtyModalOpen(true)}
-                style={{
-                  background: "#0f766e",
-                  color: "#ffffff",
-                  padding: "9px 18px",
-                  fontSize: "0.88rem",
-                  fontWeight: 600,
-                  borderRadius: 8,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                  boxShadow: "0 2px 8px rgba(15, 118, 110, 0.25)",
-                  minHeight: 40
-                }}
-              >
-                🏥 Choose Speciality ▾
-              </button>
-            </div>
+            <button
+              type="button"
+              id="btn-choose-speciality"
+              className="primary"
+              onClick={() => setIsSpecialtyModalOpen(true)}
+              style={{
+                background: "#0f766e",
+                color: "#ffffff",
+                padding: "10px 20px",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+                borderRadius: 8,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                boxShadow: "0 2px 8px rgba(15, 118, 110, 0.25)",
+                cursor: "pointer",
+                whiteSpace: "nowrap"
+              }}
+            >
+              🏥 Choose Speciality ▾
+            </button>
           </div>
 
           {/* 4-Step Pipeline Workflow Indicator */}

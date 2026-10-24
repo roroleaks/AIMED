@@ -25,5 +25,7 @@ export const KEYS = {
   commentary: "cq_commentary",
   outcomes: "cq_outcomes",
   // Selected literature search sources (e.g. ["pubmed", "openalex", "crossref"])
-  sources: "aimed_search_sources"
+  sources: "aimed_search_sources",
+  // Selected citation style for deliverable & PDF: "vancouver" | "apa" | "harvard"
+  citationStyle: "aimed_citation_style"
 };

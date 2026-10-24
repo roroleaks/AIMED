@@ -9,9 +9,15 @@ import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { NO_LITERATURE_MESSAGE, NO_LITERATURE_HINT } from "@/lib/clinical-keywords";
 import { formatVancouverReference } from "@/lib/relevance";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
-import { classifyPaperType, getStudyTypeBadgeStyle } from "@/lib/study-design";
+import { classifyPaperType, getStudyTypeBadgeStyle, type ClinicalStudyType } from "@/lib/study-design";
+import {
+  CITATION_STYLE_OPTIONS,
+  formatReferenceInStyle,
+  convertNarrativeToStyle,
+  type CitationStyle
+} from "@/lib/citation-styles";
 
-interface ReferenceItem { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string }
+interface ReferenceItem { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string; studyType?: string; pubType?: string }
 type PubMedResult = ReferenceItem;
 interface GapSnapshot {
   topic?: string;
@@ -56,22 +62,24 @@ interface CitationChecks {
 }
 interface ExcludedRef { pmid: string; title: string; reason: string; url: string }
 
-function renderCitations(text: string, keyPrefix: string) {
-  // Matches Vancouver numerical citations like [1], [1, 2], [1-3], [1, 3, 5]
+function renderCitations(text: string, keyPrefix: string, style: CitationStyle = "vancouver") {
+  // Matches numerical citations like [1], [1, 2], [1-3], [1, 3, 5]
   const citeRegex = /(\[\d+(?:[\s,\-]+\d+)*\])/g;
   const parts = text.split(citeRegex);
   return parts.map((sub, sIdx) => {
     if (/^\[\d+(?:[\s,\-]+\d+)*\]$/.test(sub)) {
       const firstNumMatch = sub.match(/\d+/);
       const targetId = firstNumMatch ? `ref-${firstNumMatch[0]}` : undefined;
+      // In Vancouver style: display without brackets per user request
+      const displayNum = style === "vancouver" ? sub.replace(/[\[\]]/g, "") : sub;
       return (
-        <sup key={`${keyPrefix}-cite-${sIdx}`} className="vancouver-cite" title={`Vancouver citation ${sub}`}>
+        <sup key={`${keyPrefix}-cite-${sIdx}`} className="vancouver-cite" title={`Citation ${displayNum}`}>
           {targetId ? (
-            <a href={`#${targetId}`} className="vancouver-cite-link" aria-label={`View reference ${sub}`}>
-              {sub}
+            <a href={`#${targetId}`} className="vancouver-cite-link" aria-label={`View reference ${displayNum}`}>
+              {displayNum}
             </a>
           ) : (
-            sub
+            displayNum
           )}
         </sup>
       );
@@ -80,11 +88,11 @@ function renderCitations(text: string, keyPrefix: string) {
   });
 }
 
-function renderFormattedText(text: string, keyPrefix: string) {
+function renderFormattedText(text: string, keyPrefix: string, style: CitationStyle = "vancouver") {
   const parts = text.split(/\*\*(.*?)\*\*/);
   return parts.map((p, pIdx) => {
     const isBold = pIdx % 2 === 1;
-    const content = renderCitations(p, `${keyPrefix}-sub-${pIdx}`);
+    const content = renderCitations(p, `${keyPrefix}-sub-${pIdx}`, style);
     return isBold ? (
       <strong key={`${keyPrefix}-bold-${pIdx}`} style={{ color: "#0f172a" }}>
         {content}
@@ -95,11 +103,23 @@ function renderFormattedText(text: string, keyPrefix: string) {
   });
 }
 
-function FormattedPaperSection({ content }: { content: string }) {
+function FormattedPaperSection({
+  content,
+  style = "vancouver",
+  retained = []
+}: {
+  content: string;
+  style?: CitationStyle;
+  retained?: ReferenceItem[];
+}) {
   if (!content) return null;
-  const blocks = content.split(/\n{2,}/).map(b => b.trim()).filter(Boolean);
+  // If APA or Harvard style, convert bracketed tokens to author-date
+  const convertedContent = style !== "vancouver" && retained.length > 0
+    ? convertNarrativeToStyle(content, style, retained)
+    : content;
+  const blocks = convertedContent.split(/\n{2,}/).map(b => b.trim()).filter(Boolean);
   return (
-    <div className="paper-section-body" style={{ lineHeight: 1.7, fontSize: "0.97rem", color: "#1e293b" }}>
+    <div className="paper-section-body" style={{ lineHeight: 1.8, fontSize: "1.12rem", color: "#1e293b" }}>
       {blocks.map((block, idx) => {
         if (block.startsWith("#### ")) {
           const headingText = block.replace(/^####\s+/, "");
@@ -107,16 +127,16 @@ function FormattedPaperSection({ content }: { content: string }) {
             <h4
               key={idx}
               style={{
-                fontSize: "1.05rem",
+                fontSize: "1.18rem",
                 fontWeight: 700,
                 color: "#0f766e",
-                marginTop: 22,
-                marginBottom: 8,
-                borderBottom: "1px solid #e2e8f0",
-                paddingBottom: 4
+                marginTop: 24,
+                marginBottom: 10,
+                borderBottom: "1.5px solid #e2e8f0",
+                paddingBottom: 6
               }}
             >
-              {renderFormattedText(headingText, `h-${idx}`)}
+              {renderFormattedText(headingText, `h-${idx}`, style)}
             </h4>
           );
         }
@@ -126,7 +146,7 @@ function FormattedPaperSection({ content }: { content: string }) {
             <ul key={idx} style={{ paddingLeft: 22, margin: "10px 0", listStyleType: "disc" }}>
               {items.map((item, iIdx) => (
                 <li key={iIdx} style={{ marginBottom: 6 }}>
-                  {renderFormattedText(item, `li-${idx}-${iIdx}`)}
+                  {renderFormattedText(item, `li-${idx}-${iIdx}`, style)}
                 </li>
               ))}
             </ul>
@@ -134,7 +154,7 @@ function FormattedPaperSection({ content }: { content: string }) {
         }
         return (
           <p key={idx} style={{ marginBottom: 12 }}>
-            {renderFormattedText(block, `p-${idx}`)}
+            {renderFormattedText(block, `p-${idx}`, style)}
           </p>
         );
       })}
@@ -217,6 +237,10 @@ export default function PaperPage() {
     if (Array.isArray(arr) && arr.length) return arr.filter(o => typeof o === "string" && o.trim());
     const o = sget<string>("cq_outcome");
     return o ? o.split(/\s+and\s+|\s*,\s*/).filter(Boolean) : [];
+  });
+  const [citationStyle, setCitationStyle] = useState<CitationStyle>(() => {
+    const s = sget<CitationStyle>(KEYS.citationStyle);
+    return s && ["vancouver", "apa", "harvard"].includes(s) ? s : "vancouver";
   });
   const [variantIdx, setVariantIdx] = useState(0);
   const [commentary, setCommentary] = useState<CommentaryPaper | null>(() => {
@@ -480,15 +504,19 @@ export default function PaperPage() {
     // The bibliography is the same filtered set the screen and the PDF exports use, never the
     // raw search pool, so a Word copy cannot reintroduce a source the claim filter rejected.
     const refs = commentary?.fetchedReferences?.length
-      ? commentary.fetchedReferences
+      ? commentary.fetchedReferences.map((r, i) => formatReferenceInStyle(r, citationStyle, i + 1))
       : commentary?.references?.length
-        ? commentary.references
+        ? commentary.references.map((r, i) => {
+            const cleaned = r.trim().replace(/^\[?\d+\]?[\.\)]?\s*/, "");
+            return citationStyle === "vancouver" ? `${i + 1}. ${cleaned}` : cleaned;
+          })
         : [];
+    const styleLabel = citationStyle === "apa" ? "APA 7th Edition" : citationStyle === "harvard" ? "Harvard Style" : "Vancouver Style (Without Brackets)";
     const bibliography = refs.length
-      ? `<h2>References (Vancouver Style)</h2>
-<ol>${refs.map((r, i) => `<li>${esc(typeof r === "string" ? r : vancouverPlain(r, i + 1))}</li>`).join("")}</ol>`
+      ? `<h2>References (${styleLabel})</h2>
+<ol>${refs.map((r) => `<li>${esc(r)}</li>`).join("")}</ol>`
       : "";
-    if (refs.length && !guardDeliverable(refs.map((r, i) => (typeof r === "string" ? r : vancouverPlain(r, i + 1))), "Word export")) return;
+    if (refs.length && !guardDeliverable(refs, "Word export")) return;
     const html = `<html><head><meta charset="utf-8"></head><body>
 <h1>${esc(activeQuestion)}</h1>
 <h2>Framework: ${esc(formulation.framework)}</h2>
@@ -511,14 +539,16 @@ ${bibliography}
 
   const exportRefsPDF = (items: ReferenceItem[], docTitle: string, header: string, kind: "sources" | "pubmed") => {
     if (!items.length) return;
-    const refs = items.map((r, i) => vancouverPlain(r, i + 1));
+    const refs = items.map((r, i) => formatReferenceInStyle(r, citationStyle, i + 1));
     if (!guardDeliverable(refs, `${header} PDF`)) return;
+    const styleLabel = citationStyle === "apa" ? "APA 7th" : citationStyle === "harvard" ? "Harvard" : "Vancouver (Without Brackets)";
     dlPdf({
-      docType: `Reference List · ${header} (Vancouver Style)`,
+      docType: `Reference List · ${header} (${styleLabel})`,
       title: docTitle,
       meta: `Aimed Medical Intelligence · Generated ${new Date().toLocaleDateString()}`,
       pico: picoPayload(),
       outcomes: outcomes.length ? outcomes : undefined,
+      citationStyle,
       references: refs,
       retainedReferences: retainedPayload()
     }, slug(docTitle) + "-references.pdf", kind);
@@ -530,16 +560,26 @@ ${bibliography}
   };
 
   const exportCommentaryRefs = () => {
-    if (!commentary || !commentary.references?.length) return;
-    const refs = commentary.references.map((r, i) => vancouverFromString(r, i + 1));
-    if (!guardDeliverable(refs, "Reference PDF")) return;
+    if (!commentary) return;
+    const retained = commentary.fetchedReferences || [];
+    const formattedRefs = retained.length
+      ? retained.map((r, i) => formatReferenceInStyle(r, citationStyle, i + 1))
+      : (commentary.references || []).map((r, i) => {
+          const cleaned = r.trim().replace(/^\[?\d+\]?[\.\)]?\s*/, "");
+          return citationStyle === "vancouver" ? `${i + 1}. ${cleaned}` : cleaned;
+        });
+
+    if (!formattedRefs.length) return;
+    if (!guardDeliverable(formattedRefs, "Reference PDF")) return;
+    const styleLabel = citationStyle === "apa" ? "APA 7th Edition" : citationStyle === "harvard" ? "Harvard Style" : "Vancouver (Without Brackets)";
     dlPdf({
-      docType: "Reference List · Vancouver Style",
+      docType: `Reference List · ${styleLabel}`,
       title: commentary.title,
       meta: `Aimed Medical Intelligence · Generated ${new Date().toLocaleDateString()}`,
       pico: picoPayload(),
       outcomes: outcomes.length ? outcomes : undefined,
-      references: refs,
+      citationStyle,
+      references: formattedRefs,
       retainedReferences: retainedPayload()
     }, slug(commentary.title) + "-references.pdf", "refs");
   };
@@ -548,24 +588,36 @@ ${bibliography}
 
   const exportCommentaryToPDF = () => {
     if (!commentary) return;
+    const retained = commentary.fetchedReferences || [];
     const discussionBlocks = commentary.discussion.split(/\n{1,}/).map(b => b.trim()).filter(Boolean);
-    const refs = commentary.references.length ? commentary.references.map((r, i) => vancouverFromString(r, i + 1)) : [];
-    if (refs.length && !guardDeliverable(refs, "Commentary PDF")) return;
+    const formattedRefs = retained.length
+      ? retained.map((r, i) => formatReferenceInStyle(r, citationStyle, i + 1))
+      : (commentary.references || []).map((r, i) => {
+          const cleaned = r.trim().replace(/^\[?\d+\]?[\.\)]?\s*/, "");
+          return citationStyle === "vancouver" ? `${i + 1}. ${cleaned}` : cleaned;
+        });
+
+    if (formattedRefs.length && !guardDeliverable(formattedRefs, "Commentary PDF")) return;
+
+    const convert = (t: string) => convertNarrativeToStyle(t, citationStyle, retained);
+    const styleLabel = citationStyle === "apa" ? "APA 7th" : citationStyle === "harvard" ? "Harvard" : "Vancouver";
+
     dlPdf({
-      docType: "Scientific Commentary",
+      docType: `Scientific Commentary · ${styleLabel}`,
       title: commentary.title,
       meta: `Aimed · Medical Intelligence · Generated ${new Date().toLocaleDateString()}`,
       pico: picoPayload(),
       outcomes: outcomes.length ? outcomes : undefined,
       keywords: Array.isArray(commentary.keywords) ? commentary.keywords : undefined,
+      citationStyle,
       sections: [
-        { heading: "Abstract", blocks: [commentary.abstract] },
-        { heading: "Introduction", blocks: paras(commentary.introduction) },
-        { heading: "Discussion", blocks: discussionBlocks.length ? discussionBlocks : [commentary.discussion] },
-        { heading: "Conclusion", blocks: [commentary.conclusion] }
+        { heading: "Abstract", blocks: [convert(commentary.abstract)] },
+        { heading: "Introduction", blocks: paras(commentary.introduction).map(convert) },
+        { heading: "Discussion", blocks: (discussionBlocks.length ? discussionBlocks : [commentary.discussion]).map(convert) },
+        { heading: "Conclusion", blocks: [convert(commentary.conclusion)] }
       ],
-      references: refs.length ? refs : undefined,
-      retainedReferences: refs.length ? retainedPayload() : undefined
+      references: formattedRefs.length ? formattedRefs : undefined,
+      retainedReferences: formattedRefs.length ? retainedPayload() : undefined
     }, slug(commentary.title) + "-commentary.pdf", "commentary");
   };
 
@@ -647,23 +699,55 @@ ${bibliography}
                     💡 <b>Evidence Grounding:</b> {commentary.notice}
                   </div>
                 )}
-                <h2 style={{ marginBottom: 12 }}>{commentary.title}</h2>
-                <p style={{ fontSize: ".9rem", color: "var(--muted)", marginBottom: 16 }}>Keywords: {commentary.keywords.join(", ")}</p>
-                <h3 className="sec-h">Abstract</h3><FormattedPaperSection content={commentary.abstract} />
-                <h3 className="sec-h">Introduction</h3><FormattedPaperSection content={commentary.introduction} />
-                <h3 className="sec-h">Discussion</h3><FormattedPaperSection content={commentary.discussion} />
-                <h3 className="sec-h">Conclusion</h3><FormattedPaperSection content={commentary.conclusion} />
+                <h2 style={{ fontSize: "1.75rem", fontWeight: 800, color: "#0f172a", lineHeight: 1.35, marginBottom: 14 }}>{commentary.title}</h2>
+                <p style={{ fontSize: "1rem", color: "var(--muted)", marginBottom: 18 }}>Keywords: {commentary.keywords.join(", ")}</p>
+                <h3 className="sec-h">Abstract</h3><FormattedPaperSection content={commentary.abstract} style={citationStyle} retained={commentary.fetchedReferences} />
+                <h3 className="sec-h">Introduction</h3><FormattedPaperSection content={commentary.introduction} style={citationStyle} retained={commentary.fetchedReferences} />
+                <h3 className="sec-h">Discussion</h3><FormattedPaperSection content={commentary.discussion} style={citationStyle} retained={commentary.fetchedReferences} />
+                <h3 className="sec-h">Conclusion</h3><FormattedPaperSection content={commentary.conclusion} style={citationStyle} retained={commentary.fetchedReferences} />
                 {!!commentary.references.length && (
                   <>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 16, marginBottom: 8 }}>
-                      <h3 className="sec-h" style={{ margin: 0 }}>References (Vancouver Style)</h3>
-                      <span className="pill" style={{ margin: 0, fontSize: "0.72rem", background: "#f0fdfa", color: "#0f766e", border: "1px solid #99f6e4" }}>
-                        Upper Case (Superscript) Citations
-                      </span>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginTop: 18, marginBottom: 10 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <h3 className="sec-h" style={{ margin: 0 }}>
+                          References ({citationStyle === "apa" ? "APA 7th Edition" : citationStyle === "harvard" ? "Harvard Style" : "Vancouver Style · Without Brackets"})
+                        </h3>
+                        <span className="pill" style={{ margin: 0, fontSize: "0.72rem", background: "#f0fdfa", color: "#0f766e", border: "1px solid #99f6e4" }}>
+                          {citationStyle === "vancouver" ? "Unbracketed Superscript Citations" : "Author-Date Citations"}
+                        </span>
+                      </div>
+                      <div style={{ display: "inline-flex", gap: 4, background: "#f1f5f9", padding: 3, borderRadius: 8 }}>
+                        {(["vancouver", "apa", "harvard"] as const).map(style => (
+                          <button
+                            key={style}
+                            type="button"
+                            onClick={() => {
+                              setCitationStyle(style);
+                              sset(KEYS.citationStyle, style);
+                            }}
+                            style={{
+                              border: "none",
+                              padding: "4px 10px",
+                              fontSize: "0.75rem",
+                              fontWeight: 700,
+                              borderRadius: 6,
+                              cursor: "pointer",
+                              background: citationStyle === style ? "#0f766e" : "transparent",
+                              color: citationStyle === style ? "#ffffff" : "#64748b"
+                            }}
+                          >
+                            {style === "vancouver" ? "Vancouver (No Brackets)" : style === "apa" ? "APA 7th" : "Harvard"}
+                          </button>
+                        ))}
+                      </div>
                     </div>
                     <ol className="refs-numbered">
                       {commentary.references.map((ref, i) => {
-                        const st = classifyPaperType(ref);
+                        const rec = commentary.fetchedReferences?.[i];
+                        const formattedText = rec
+                          ? formatReferenceInStyle(rec, citationStyle, i + 1)
+                          : vancouverFromString(ref, i + 1);
+                        const st = (rec?.studyType as ClinicalStudyType) || classifyPaperType(ref);
                         const bStyle = getStudyTypeBadgeStyle(st);
                         return (
                           <li key={i} id={`ref-${i + 1}`} className="vancouver-ref-item">
@@ -674,7 +758,7 @@ ${bibliography}
                             >
                               {st}
                             </span>
-                            {vancouverFromString(ref, i + 1)}
+                            {formattedText}
                           </li>
                         );
                       })}
