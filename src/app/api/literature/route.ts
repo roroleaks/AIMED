@@ -9,7 +9,7 @@ import {
 export const maxDuration = 60;
 
 const literatureSchema = z.object({
-  sources: z.array(z.enum(["pubmed", "openalex", "crossref"])).optional().default(["pubmed", "openalex", "crossref"]),
+  sources: z.array(z.enum(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"])).optional().default(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"]),
   query: z.string().max(500).optional().nullable(),
   population: z.string().max(500).optional().nullable(),
   intervention: z.string().max(500).optional().nullable(),
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
 
   const sources: LiteratureSource[] = body.sources.length > 0
     ? body.sources
-    : ["pubmed", "openalex", "crossref"];
+    : ["pubmed", "pmc", "semanticscholar", "openalex", "crossref"];
 
   try {
     const results = await searchMultiSourceLiterature({

@@ -2,7 +2,7 @@
  * Literature Search Sources Engine
  * 
  * Provides unified, resilient, multi-source scientific literature retrieval
- * across PubMed (NCBI E-utilities), OpenAlex, and CrossRef.
+ * across PubMed, PMC (PubMed Central / Europe PMC), Semantic Scholar, OpenAlex, and CrossRef.
  * 
  * Enforces:
  * 1. Consistent canonical typing for downstream evidence synthesis
@@ -15,10 +15,10 @@
 import { normalizeDoi } from "./evidence-set.ts";
 import { classifyPaperType } from "./study-design.ts";
 
-export type LiteratureSource = "pubmed" | "openalex" | "crossref";
+export type LiteratureSource = "pubmed" | "pmc" | "semanticscholar" | "openalex" | "crossref";
 
 export interface LiteratureArticle {
-  pmid: string; // Canonical identifier (e.g. numeric "12345678", "oax:W12345", or "cr:10.1000/xyz")
+  pmid: string; // Canonical identifier (e.g. numeric "12345678", "pmc:PMC1234", "s2:abc", "oax:W12345", or "cr:10.1000/xyz")
   title: string;
   journal: string;
   year: string;
@@ -51,6 +51,22 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
     provider: "NCBI / NLM"
   },
   {
+    id: "pmc",
+    name: "PMC (PubMed Central)",
+    icon: "🟡",
+    badgeClass: "source-badge-pmc",
+    description: "Full-text open access biomedical repository · Europe PMC",
+    provider: "NLM / Europe PMC"
+  },
+  {
+    id: "semanticscholar",
+    name: "Semantic Scholar",
+    icon: "🟠",
+    badgeClass: "source-badge-semanticscholar",
+    description: "AI-powered scientific graph · 200M+ academic publications",
+    provider: "Allen Institute for AI"
+  },
+  {
     id: "openalex",
     name: "OpenAlex",
     icon: "🟢",
@@ -72,6 +88,7 @@ const API_TIMEOUT_MS = 12_000;
 const OPENALEX_MAILTO = "support@aimed.app";
 const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:support@aimed.app)";
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
+const S2_DEFAULT_KEY = process.env.S2_API_KEY || "s2k-0rcC3ztnxRdNGsOKL1SNvwbOPnSaRh4qHBT9qe7A";
 
 /**
  * Strips HTML tags (including JATS XML tags from CrossRef) and decodes standard entities.
@@ -330,6 +347,210 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
   }
 }
 
+interface S2PaperItem {
+  paperId: string;
+  title?: string;
+  venue?: string;
+  year?: number;
+  authors?: Array<{ name?: string }>;
+  abstract?: string;
+  publicationTypes?: string[];
+  externalIds?: {
+    DOI?: string;
+    PubMed?: string;
+    PubMedCentral?: string;
+  };
+}
+
+/**
+ * Fetches scientific papers from Semantic Scholar (Allen Institute for AI).
+ * Automatically fails over to unauthenticated polite pool if the configured API key is rate-limited.
+ */
+export async function fetchSemanticScholarArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+  const sanitized = sanitizeSearchQuery(query);
+  if (!sanitized) return [];
+
+  const limit = Math.min(Math.max(maxResults + 4, 8), 25);
+  const fields = "paperId,title,authors,year,venue,externalIds,abstract,publicationTypes";
+  const url = `https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(sanitized)}&limit=${limit}&fields=${fields}`;
+
+  const tryFetch = async (useKey: boolean) => {
+    const headers: Record<string, string> = {
+      Accept: "application/json",
+      "User-Agent": USER_AGENT
+    };
+    if (useKey && S2_DEFAULT_KEY) {
+      headers["x-api-key"] = S2_DEFAULT_KEY;
+    }
+    return fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
+  };
+
+  try {
+    let res = await tryFetch(true);
+    // If rate limited with key, fail over immediately to unauthenticated request
+    if (res.status === 429 && S2_DEFAULT_KEY) {
+      res = await tryFetch(false);
+    }
+
+    if (!res.ok) {
+      throw new Error(`Semantic Scholar HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    const hits = (data?.data || []) as S2PaperItem[];
+    const articles: LiteratureArticle[] = [];
+
+    for (const item of hits) {
+      const rawTitle = decodeHtmlEntities(item.title || "");
+      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+
+      const rawDoi = item.externalIds?.DOI || "";
+      const doi = normalizeDoi(rawDoi);
+      const pmidNum = item.externalIds?.PubMed ? String(item.externalIds.PubMed).replace(/\D/g, "") : "";
+      const pmid = pmidNum || (doi ? `doi:${doi}` : `s2:${item.paperId}`);
+
+      const authors = (item.authors || [])
+        .slice(0, 4)
+        .map(a => a.name?.trim())
+        .filter(Boolean)
+        .join(", ");
+
+      const journal = decodeHtmlEntities(item.venue || "");
+      const year = item.year ? String(item.year) : "";
+      const context = decodeHtmlEntities(item.abstract || "");
+
+      const pubTypes = item.publicationTypes || ["Journal Article"];
+      const studyType = classifyPaperType({
+        title: rawTitle,
+        pubType: pubTypes[0],
+        publicationTypes: pubTypes,
+        context
+      });
+
+      articles.push({
+        pmid,
+        title: rawTitle,
+        authors: authors || "Research Authors",
+        year,
+        journal: journal || "Peer-Reviewed Literature",
+        doi: doi || undefined,
+        url: doi ? `https://doi.org/${doi}` : `https://www.semanticscholar.org/paper/${item.paperId}`,
+        source: "semanticscholar",
+        pubType: pubTypes.join(", "),
+        publicationTypes: pubTypes,
+        context: context || undefined,
+        studyType
+      });
+
+      if (articles.length >= maxResults) break;
+    }
+
+    return articles;
+  } catch (err) {
+    console.warn("[Semantic Scholar] search error:", err instanceof Error ? err.message : err);
+    return [];
+  }
+}
+
+interface EuropePmcItem {
+  id: string;
+  source: string;
+  pmcid?: string;
+  pmid?: string;
+  doi?: string;
+  title?: string;
+  authorString?: string;
+  pubYear?: string;
+  journalTitle?: string;
+  journalInfo?: { journal?: { title?: string } };
+  abstractText?: string;
+  pubTypeList?: { pubType?: string | string[] } | null;
+}
+
+/**
+ * Fetches peer-reviewed open access papers from PubMed Central (PMC) via Europe PMC.
+ */
+export async function fetchPmcArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+  const sanitized = sanitizeSearchQuery(query);
+  if (!sanitized) return [];
+
+  const pageSize = Math.min(Math.max(maxResults + 4, 8), 25);
+  // Focus query on PubMed Central and Open Access full text
+  const pmcFilterQuery = `${sanitized} AND (SRC:PMC OR OPEN_ACCESS:y)`;
+  const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(pmcFilterQuery)}&pageSize=${pageSize}&format=json&resultType=core`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "User-Agent": USER_AGENT
+      },
+      signal: AbortSignal.timeout(API_TIMEOUT_MS)
+    });
+
+    if (!res.ok) {
+      throw new Error(`Europe PMC HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    const hits = (data?.resultList?.result || []) as EuropePmcItem[];
+    const articles: LiteratureArticle[] = [];
+
+    for (const item of hits) {
+      const rawTitle = decodeHtmlEntities(item.title || "");
+      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+
+      const pmcid = item.pmcid ? item.pmcid.replace(/^PMC/i, "PMC") : "";
+      const pmidNum = item.pmid ? String(item.pmid).replace(/\D/g, "") : "";
+      const rawDoi = item.doi || "";
+      const doi = normalizeDoi(rawDoi);
+
+      // Prefer numerical PMID, then PMCID, then DOI
+      const pmid = pmidNum || (pmcid ? `pmc:${pmcid}` : (doi ? `doi:${doi}` : `epmc:${item.id}`));
+
+      const authors = decodeHtmlEntities(item.authorString || "PMC Authors");
+      const journal = decodeHtmlEntities(item.journalTitle || item.journalInfo?.journal?.title || "PubMed Central Archive");
+      const year = item.pubYear ? String(item.pubYear) : "";
+      const context = decodeHtmlEntities(item.abstractText || "");
+
+      const rawPubTypes = [item.pubTypeList?.pubType].flat().filter(Boolean) as string[];
+      const pubTypes = rawPubTypes.length ? rawPubTypes : ["Journal Article"];
+      const studyType = classifyPaperType({
+        title: rawTitle,
+        pubType: pubTypes[0],
+        publicationTypes: pubTypes,
+        context
+      });
+
+      const articleUrl = pmcid
+        ? `https://europepmc.org/article/PMC/${pmcid}`
+        : (doi ? `https://doi.org/${doi}` : `https://pubmed.ncbi.nlm.nih.gov/${pmidNum}/`);
+
+      articles.push({
+        pmid,
+        title: rawTitle,
+        authors: authors.slice(0, 120),
+        year,
+        journal,
+        doi: doi || undefined,
+        url: articleUrl,
+        source: "pmc",
+        pubType: pubTypes.join(", "),
+        publicationTypes: pubTypes,
+        context: context || undefined,
+        studyType
+      });
+
+      if (articles.length >= maxResults) break;
+    }
+
+    return articles;
+  } catch (err) {
+    console.warn("[PMC] search error:", err instanceof Error ? err.message : err);
+    return [];
+  }
+}
+
 interface ESummaryDoc {
   title?: string;
   sortfirstauthor?: string;
@@ -473,6 +694,18 @@ export async function searchMultiSourceLiterature(options: MultiSourceSearchOpti
           .then(articles => ({ source: "crossref" as LiteratureSource, articles }))
           .catch(() => ({ source: "crossref" as LiteratureSource, articles: [] }))
       );
+    } else if (src === "semanticscholar") {
+      fetchTasks.push(
+        fetchSemanticScholarArticles(query, perSourceLimit)
+          .then(articles => ({ source: "semanticscholar" as LiteratureSource, articles }))
+          .catch(() => ({ source: "semanticscholar" as LiteratureSource, articles: [] }))
+      );
+    } else if (src === "pmc") {
+      fetchTasks.push(
+        fetchPmcArticles(query, perSourceLimit)
+          .then(articles => ({ source: "pmc" as LiteratureSource, articles }))
+          .catch(() => ({ source: "pmc" as LiteratureSource, articles: [] }))
+      );
     } else if (src === "pubmed") {
       fetchTasks.push(
         fetchPubMedArticles(query, perSourceLimit)
@@ -485,6 +718,8 @@ export async function searchMultiSourceLiterature(options: MultiSourceSearchOpti
   const results = await Promise.allSettled(fetchTasks);
   const buckets: Record<LiteratureSource, LiteratureArticle[]> = {
     pubmed: [],
+    pmc: [],
+    semanticscholar: [],
     openalex: [],
     crossref: []
   };

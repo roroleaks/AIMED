@@ -68,7 +68,7 @@ function sessionModeSnapshot(): "formulate" | "gap" {
 
 export default function Home() {
   const router = useRouter();
-  const { specialty, setSpecialty, currentSpecialty, activePresets } = useAimedContext();
+  const { specialty, setSpecialty, currentSpecialty, activePresets, allSpecialties, categories } = useAimedContext();
   const workspaceRef = useRef<HTMLDivElement>(null);
   const selectorRef = useRef<HTMLDivElement>(null);
 
@@ -212,8 +212,18 @@ export default function Home() {
     setTagError(null);
   };
 
-  // Literature search sources: PubMed, OpenAlex, CrossRef
-  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>(["pubmed", "openalex", "crossref"]);
+  // Modal dialog states
+  const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
+  const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
+
+  // Literature search sources: PubMed, PMC, Semantic Scholar, OpenAlex, CrossRef
+  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>([
+    "pubmed",
+    "pmc",
+    "semanticscholar",
+    "openalex",
+    "crossref"
+  ]);
 
   useEffect(() => {
     const stored = sget<LiteratureSource[]>(KEYS.sources);
@@ -289,54 +299,64 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Medical Specialty Selector Section */}
-      <section ref={selectorRef} className="card" style={{ marginBottom: 24 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-          <div>
-            <h3 style={{ fontSize: "1.15rem", fontWeight: 700, color: "#0f172a", margin: 0 }}>
-              🏥 Step 1 · Choose Clinical Domain
-            </h3>
-            <span style={{ fontSize: "0.82rem", color: "var(--muted)" }}>
-              Select a specialty to calibrate PICO ontology and guideline-backed parameters
-            </span>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: "0.82rem", fontWeight: 600, color: "#0f766e" }}>
-              Active: {currentSpecialty.icon} {currentSpecialty.shortName}
-            </span>
-          </div>
-        </div>
-
-        <SpecialtySelector
-          onSelectSpecialty={handleSelectSpecialtyFromCard}
-          onSelectPreset={handleSelectPresetFromCard}
-        />
-      </section>
-
       {/* Core Clinical Workspace Section */}
       <main className="solo" ref={workspaceRef}>
         <section className="card">
-          {/* Active Domain Status Banner */}
-          <div className="aimed-active-banner">
+          {/* Active Domain Status Banner with Dropdown Modal Button */}
+          <div className="aimed-active-banner" style={{ marginBottom: 18 }}>
             <div className="aimed-banner-left">
               <span className="aimed-banner-icon">{currentSpecialty.icon}</span>
               <div>
                 <div className="aimed-banner-title">
-                  Active Domain: {currentSpecialty.label}
+                  Active Domain: {currentSpecialty.label} ({currentSpecialty.shortName})
                 </div>
                 <div className="aimed-banner-sub">
                   Practice Guidelines: <b>{currentSpecialty.authorityGuidelines}</b> · Category: <b>{currentSpecialty.category}</b>
                 </div>
               </div>
             </div>
-            <button
-              type="button"
-              className="mini-btn"
-              onClick={scrollToSelector}
-              style={{ background: "#ffffff", border: "1px solid #99f6e4", color: "#0f766e" }}
-            >
-              🔄 Change Specialty
-            </button>
+            <div className="aimed-banner-actions">
+              <select
+                id="specialty-dropdown-select"
+                className="aimed-specialty-select"
+                value={specialty}
+                onChange={(e) => handleSelectSpecialtyFromCard(e.target.value)}
+                aria-label="Choose Speciality from drop menu"
+              >
+                {categories.map((cat) => (
+                  <optgroup key={cat} label={`📂 ${cat}`}>
+                    {allSpecialties
+                      .filter((s) => s.category === cat)
+                      .map((s) => (
+                        <option key={s.id} value={s.id}>
+                          {s.icon} {s.label} ({s.shortName})
+                        </option>
+                      ))}
+                  </optgroup>
+                ))}
+              </select>
+              <button
+                type="button"
+                id="btn-choose-speciality"
+                className="primary"
+                onClick={() => setIsSpecialtyModalOpen(true)}
+                style={{
+                  background: "#0f766e",
+                  color: "#ffffff",
+                  padding: "9px 18px",
+                  fontSize: "0.88rem",
+                  fontWeight: 600,
+                  borderRadius: 8,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  boxShadow: "0 2px 8px rgba(15, 118, 110, 0.25)",
+                  minHeight: 40
+                }}
+              >
+                🏥 Choose Speciality ▾
+              </button>
+            </div>
           </div>
 
           {/* 4-Step Pipeline Workflow Indicator */}
@@ -553,73 +573,53 @@ export default function Home() {
             <div className="advisory" role="alert" aria-live="polite" style={{ marginTop: 10 }}>⚠️ {alertMessage}</div>
           )}
 
-          {/* Literature Search Sources Selection Card */}
-          <div className="search-sources-section" style={{ marginTop: 18, marginBottom: 8, padding: "12px 14px", background: "#f8fafc", borderRadius: 8, border: "1px solid #e2e8f0" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10, flexWrap: "wrap", gap: 6 }}>
-              <div>
-                <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 6 }}>
-                  🌐 Literature Search Sources ({selectedSources.length} active)
-                </span>
-                <span style={{ fontSize: "0.78rem", color: "var(--muted)", marginLeft: 6, display: "inline-block" }}>
-                  Select databases to query across the synthesis pipeline
-                </span>
-              </div>
-              <span style={{ fontSize: "0.76rem", color: selectedSources.length > 0 ? "#0f766e" : "#b91c1c", fontWeight: 700 }}>
-                {selectedSources.length === 3 ? "✓ All Sources Active" : `${selectedSources.length} of 3 Active`}
+          {/* Compact Literature Search Sources Bar */}
+          <div
+            style={{
+              marginTop: 18,
+              marginBottom: 8,
+              padding: "10px 14px",
+              background: "#f8fafc",
+              borderRadius: 8,
+              border: "1px solid #e2e8f0",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: 10
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
+                🌐 Literature Databases ({selectedSources.length} active):
               </span>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {SEARCH_SOURCE_OPTIONS.filter(o => selectedSources.includes(o.id)).map(opt => (
+                  <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
+                    {opt.icon} {opt.name}
+                  </span>
+                ))}
+              </div>
             </div>
-
-            <div className="sources-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 10 }}>
-              {SEARCH_SOURCE_OPTIONS.map(opt => {
-                const active = selectedSources.includes(opt.id);
-                return (
-                  <button
-                    key={opt.id}
-                    type="button"
-                    onClick={() => toggleSource(opt.id)}
-                    className={`source-choice-card ${active ? "active" : "inactive"}`}
-                    aria-pressed={active}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: 10,
-                      padding: "10px 12px",
-                      borderRadius: 8,
-                      border: active ? "2px solid #0f766e" : "1px solid var(--border)",
-                      background: active ? "#ffffff" : "#f1f5f9",
-                      cursor: "pointer",
-                      textAlign: "left",
-                      transition: "all 0.15s ease",
-                      boxShadow: active ? "0 2px 6px rgba(15, 118, 110, 0.08)" : "none"
-                    }}
-                  >
-                    <div style={{ fontSize: "1.3rem", lineHeight: 1 }}>{opt.icon}</div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
-                        <span style={{ fontSize: "0.88rem", fontWeight: 700, color: active ? "#0f766e" : "#475569" }}>
-                          {opt.name}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: "0.68rem",
-                            fontWeight: 700,
-                            padding: "2px 6px",
-                            borderRadius: 4,
-                            background: active ? "#0f766e" : "#cbd5e1",
-                            color: active ? "#ffffff" : "#475569"
-                          }}
-                        >
-                          {active ? "ACTIVE" : "OFF"}
-                        </span>
-                      </div>
-                      <div style={{ fontSize: "0.74rem", color: "#64748b", marginTop: 3, lineHeight: 1.3 }}>
-                        {opt.description}
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+            <button
+              type="button"
+              onClick={() => setIsSourcesModalOpen(true)}
+              className="mini-btn"
+              style={{
+                background: "#ffffff",
+                border: "1px solid #0f766e",
+                color: "#0f766e",
+                fontWeight: 700,
+                padding: "6px 14px",
+                borderRadius: 6,
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 5
+              }}
+            >
+              ⚙️ Choose Sources Choice Dialog ▾
+            </button>
           </div>
 
           <div className="row" style={{ marginTop: 16 }}>
@@ -634,6 +634,145 @@ export default function Home() {
         Aimed v4.0 — Multi-Specialty Clinical Intelligence Platform · Educational & Research Decision Support: always verify formulated questions clinically.<br />
         Copyright©RaoufRoshdy2026
       </footer>
+
+      {/* Specialty Drop Menu Dialog Choice Modal */}
+      {isSpecialtyModalOpen && (
+        <div className="aimed-modal-backdrop" onClick={() => setIsSpecialtyModalOpen(false)}>
+          <div className="aimed-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="aimed-modal-header">
+              <h3>🏥 Choose Clinical Specialty Domain</h3>
+              <button
+                type="button"
+                className="aimed-modal-close"
+                onClick={() => setIsSpecialtyModalOpen(false)}
+                title="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="aimed-modal-body">
+              <SpecialtySelector
+                onSelectSpecialty={(id) => {
+                  handleSelectSpecialtyFromCard(id);
+                  setIsSpecialtyModalOpen(false);
+                }}
+                onSelectPreset={(preset) => {
+                  handleSelectPresetFromCard(preset);
+                  setIsSpecialtyModalOpen(false);
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Literature Sources Choice Dialog Modal */}
+      {isSourcesModalOpen && (
+        <div className="aimed-modal-backdrop" onClick={() => setIsSourcesModalOpen(false)}>
+          <div className="aimed-modal-content" style={{ maxWidth: 660 }} onClick={(e) => e.stopPropagation()}>
+            <div className="aimed-modal-header">
+              <h3>🌐 Choose Literature Search Databases</h3>
+              <button
+                type="button"
+                className="aimed-modal-close"
+                onClick={() => setIsSourcesModalOpen(false)}
+                title="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="aimed-modal-body">
+              <p style={{ margin: "0 0 14px 0", fontSize: "0.85rem", color: "#64748b" }}>
+                Select scientific databases to search concurrently across the evidence synthesis pipeline. Results are automatically merged, deduplicated, and mapped with study design hierarchies.
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {SEARCH_SOURCE_OPTIONS.map(opt => {
+                  const active = selectedSources.includes(opt.id);
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => toggleSource(opt.id)}
+                      className={`source-choice-card ${active ? "active" : "inactive"}`}
+                      aria-pressed={active}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 12,
+                        padding: "12px 14px",
+                        borderRadius: 10,
+                        border: active ? "2px solid #0f766e" : "1px solid var(--border)",
+                        background: active ? "#f0fdfa" : "#ffffff",
+                        cursor: "pointer",
+                        textAlign: "left",
+                        transition: "all 0.15s ease",
+                        width: "100%",
+                        boxShadow: active ? "0 2px 6px rgba(15, 118, 110, 0.08)" : "none"
+                      }}
+                    >
+                      <div style={{ fontSize: "1.5rem", lineHeight: 1 }}>{opt.icon}</div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
+                          <span style={{ fontSize: "0.95rem", fontWeight: 700, color: active ? "#0f766e" : "#334155" }}>
+                            {opt.name}
+                          </span>
+                          <span
+                            style={{
+                              fontSize: "0.72rem",
+                              fontWeight: 700,
+                              padding: "3px 8px",
+                              borderRadius: 4,
+                              background: active ? "#0f766e" : "#e2e8f0",
+                              color: active ? "#ffffff" : "#64748b"
+                            }}
+                          >
+                            {active ? "ACTIVE" : "OFF"}
+                          </span>
+                        </div>
+                        <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 2 }}>
+                          {opt.description}
+                        </div>
+                        <div style={{ fontSize: "0.70rem", color: "#94a3b8", marginTop: 2 }}>
+                          Provider: {opt.provider}
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="aimed-modal-footer">
+              <div style={{ display: "flex", gap: 8, marginRight: "auto", flexWrap: "wrap" }}>
+                <button
+                  type="button"
+                  className="mini-btn"
+                  onClick={() => setSelectedSources(SEARCH_SOURCE_OPTIONS.map(o => o.id))}
+                  style={{ background: "#ffffff", border: "1px solid #cbd5e1" }}
+                >
+                  Select All
+                </button>
+                <button
+                  type="button"
+                  className="mini-btn"
+                  onClick={() => setSelectedSources(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"])}
+                  style={{ background: "#ffffff", border: "1px solid #cbd5e1" }}
+                >
+                  Reset Defaults
+                </button>
+              </div>
+              <button
+                type="button"
+                className="primary"
+                onClick={() => setIsSourcesModalOpen(false)}
+                style={{ padding: "8px 20px", fontSize: "0.9rem" }}
+              >
+                ✓ Apply & Close ({selectedSources.length} Active)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

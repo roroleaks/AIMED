@@ -30,7 +30,7 @@ import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { decodeHtmlEntities } from "@/lib/literature-sources";
+import { decodeHtmlEntities, fetchSemanticScholarArticles, fetchPmcArticles } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
@@ -487,8 +487,43 @@ async function fetchReferencesBroad(
   if (allowed.has("crossref")) {
     tasks.push(fetchCrossref(query, maxResults).catch(() => []));
   }
-  if (allowed.has("europepmc")) {
-    tasks.push(fetchEuropePMC(query, maxResults).catch(() => []));
+  if (allowed.has("semanticscholar") || allowed.has("s2")) {
+    tasks.push(
+      fetchSemanticScholarArticles(query, maxResults)
+        .then(arts => arts.map(a => ({
+          pmid: a.pmid,
+          title: a.title,
+          authors: a.authors,
+          year: a.year,
+          journal: a.journal,
+          doi: a.doi,
+          url: a.url,
+          source: "semanticscholar",
+          pubType: a.pubType,
+          publicationTypes: a.publicationTypes,
+          context: a.context
+        })))
+        .catch(() => [])
+    );
+  }
+  if (allowed.has("pmc") || allowed.has("europepmc")) {
+    tasks.push(
+      fetchPmcArticles(query, maxResults)
+        .then(arts => arts.map(a => ({
+          pmid: a.pmid,
+          title: a.title,
+          authors: a.authors,
+          year: a.year,
+          journal: a.journal,
+          doi: a.doi,
+          url: a.url,
+          source: "pmc",
+          pubType: a.pubType,
+          publicationTypes: a.publicationTypes,
+          context: a.context
+        })))
+        .catch(() => [])
+    );
   }
   const fetched = await Promise.allSettled(tasks);
   const pool: PubMedRef[] = [];
@@ -509,9 +544,10 @@ async function fetchReferencesBroad(
   const bySource = (r: PubMedRef): string => {
     if (r.source) return r.source;
     if (/^\d+$/.test(r.pmid)) return "pubmed";
-    if (/^(pmc|epmc):/.test(r.pmid)) return "europepmc";
-    if (/^oax:/.test(r.pmid)) return "openalex";
-    if (/^cr:/.test(r.pmid)) return "crossref";
+    if (/^(pmc|epmc):/i.test(r.pmid)) return "pmc";
+    if (/^s2:/i.test(r.pmid)) return "semanticscholar";
+    if (/^oax:/i.test(r.pmid)) return "openalex";
+    if (/^cr:/i.test(r.pmid)) return "crossref";
     return "other";
   };
   // Score all, but guarantee the non-PubMed sources (OpenAlex/Crossref) are
@@ -600,6 +636,44 @@ async function fetchReferencesForPoints(
     }
     if (allowed.has("crossref")) {
       fetchPromises.push(fetchCrossref(query, 3).catch(() => []));
+    }
+    if (allowed.has("semanticscholar") || allowed.has("s2")) {
+      fetchPromises.push(
+        fetchSemanticScholarArticles(query, 3)
+          .then(arts => arts.map(a => ({
+            pmid: a.pmid,
+            title: a.title,
+            authors: a.authors,
+            year: a.year,
+            journal: a.journal,
+            doi: a.doi,
+            url: a.url,
+            source: "semanticscholar",
+            pubType: a.pubType,
+            publicationTypes: a.publicationTypes,
+            context: a.context
+          })))
+          .catch(() => [])
+      );
+    }
+    if (allowed.has("pmc") || allowed.has("europepmc")) {
+      fetchPromises.push(
+        fetchPmcArticles(query, 3)
+          .then(arts => arts.map(a => ({
+            pmid: a.pmid,
+            title: a.title,
+            authors: a.authors,
+            year: a.year,
+            journal: a.journal,
+            doi: a.doi,
+            url: a.url,
+            source: "pmc",
+            pubType: a.pubType,
+            publicationTypes: a.publicationTypes,
+            context: a.context
+          })))
+          .catch(() => [])
+      );
     }
 
     const fetched = await Promise.allSettled(fetchPromises);

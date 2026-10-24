@@ -45,6 +45,12 @@ function getSourceBadge(source?: string, pmid?: string) {
   if (s === "crossref" || (pmid && pmid.startsWith("cr:"))) {
     return { label: "CrossRef", icon: "🟣", className: "source-badge-crossref" };
   }
+  if (s === "semanticscholar" || (pmid && pmid.startsWith("s2:"))) {
+    return { label: "Semantic Scholar", icon: "🟠", className: "source-badge-semanticscholar" };
+  }
+  if (s === "pmc" || (pmid && /^(pmc:|PMC)/.test(pmid))) {
+    return { label: "PMC", icon: "🟡", className: "source-badge-pmc" };
+  }
   return { label: "PubMed", icon: "🔵", className: "source-badge-pubmed" };
 }
 
