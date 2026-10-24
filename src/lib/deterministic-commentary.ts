@@ -6,9 +6,11 @@ export interface DeterministicCommentaryInput {
   selectedQuestion: string;
   outcomesText: string;
   /** Context or note regarding evidence synthesis pathway. */
-  reason: string;
+  reason?: string;
   pool: AuditableRef[];
-  elements: PicoElement[];
+  elements?: PicoElement[];
+  topic?: string;
+  specialty?: string;
 }
 
 function cleanPhrase(text: string): string {
@@ -43,8 +45,8 @@ export function generateDeterministicCommentary(
   opts: DeterministicCommentaryInput
 ): Record<string, unknown> {
   const pool = (opts.pool || []).slice(0, 8);
-  const question = opts.selectedQuestion.trim() || "the selected clinical question";
-  const outcomesText = opts.outcomesText.trim() || "the selected outcome";
+  const question = (opts.selectedQuestion || opts.topic || "").trim() || "the selected clinical question";
+  const outcomesText = (opts.outcomesText || "").trim() || "the selected outcome";
 
   // Retain only records with verifiable citation metadata
   const entries = pool

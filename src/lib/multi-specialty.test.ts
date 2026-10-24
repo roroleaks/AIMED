@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { parseClinicalScenario } from "./clinical-semantics.ts";
-import { KB, rationalOutcomes, type SpecialtyKey } from "./kb.ts";
+import { KB, type SpecialtyKey } from "./kb.ts";
 import { SPECIALTIES, getSpecialtyDefinition } from "./specialties.ts";
 
 test("KB contains all major medical specialties with comprehensive data", () => {

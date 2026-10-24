@@ -30,7 +30,7 @@ import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { decodeHtmlEntities, fetchSemanticScholarArticles, fetchPmcArticles } from "@/lib/literature-sources";
+import { decodeHtmlEntities, fetchSemanticScholarArticles, fetchPmcArticles, DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
@@ -302,71 +302,6 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
   return [];
 }
 
-interface EuropePMCBase {
-  id: string;
-  source: string;
-  pmid?: string;
-  pmcid?: string;
-  doi?: string;
-  title?: string;
-  authorString?: string;
-  firstPublicationDate?: string;
-  journalTitle?: string;
-  // With resultType=core, Europe PMC puts the journal under journalInfo. `journalTitle` is
-  // frequently absent there, which left published references with no journal at all.
-  journalInfo?: { journal?: { title?: string; medlineAbbreviation?: string } };
-  abstractText?: string;
-  pubTypeList?: { pubType?: string } | null;
-}
-
-const EXCLUDED_PUB_TYPES = /protocol|letter|erratum|correction|conference abstract|comment|retraction|news/i;
-
-async function fetchEuropePMC(query: string, maxResults = 4): Promise<PubMedRef[]> {
-  try {
-    const terms = sanitizeQuery(query).split(" ").filter(Boolean).slice(0, 5).map(t => `"${t}"`).join(" AND ");
-    if (!terms) return [];
-    const typeFilter = ` AND NOT (PUB_TYPE:"Letter" OR PUB_TYPE:"Editorial" OR PUB_TYPE:"Erratum" OR PUB_TYPE:"Case Reports")`;
-    const url =
-      `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(terms + typeFilter)}` +
-      `&resultType=core&format=json&pageSize=${Math.max(maxResults + 8, 12)}`;
-    const res = await fetch(url, {
-      headers: { Accept: "application/json" },
-      signal: AbortSignal.timeout(API_TIMEOUT_MS)
-    });
-    if (!res.ok) throw new Error(`europepmc ${res.status}`);
-    const data = await res.json();
-    const hits = (data?.resultList?.result || []) as EuropePMCBase[];
-    const refs: PubMedRef[] = [];
-    for (const h of hits) {
-      const types = [h.pubTypeList?.pubType].flat().join(" ").toLowerCase();
-      if (EXCLUDED_PUB_TYPES.test(types)) continue;
-      const title = (h.title || "").trim();
-      if (!title) continue;
-      const pmid = h.pmid ? h.pmid : h.pmcid ? `pmc:${h.pmcid}` : `epmc:${h.source || ""}:${h.id}`;
-      refs.push({
-        pmid,
-        title,
-        authors: h.authorString || "",
-        year: (h.firstPublicationDate || "").slice(0, 4),
-        journal: h.journalTitle || h.journalInfo?.journal?.title || h.journalInfo?.journal?.medlineAbbreviation || "",
-        doi: h.doi || "",
-        source: "europepmc",
-        pubType: [h.pubTypeList?.pubType].flat().filter(Boolean).join(", ") || undefined,
-        publicationTypes: [h.pubTypeList?.pubType].flat().filter(Boolean) as string[],
-        url: h.pmid
-          ? `https://pubmed.ncbi.nlm.nih.gov/${h.pmid}/`
-          : h.pmcid
-            ? `https://europepmc.org/article/PMC/${h.pmcid}`
-            : `https://europepmc.org/abstract/${h.source}/${encodeURIComponent(h.id)}`,
-        context: h.abstractText || ""
-      });
-    }
-    return dedupeRefs(refs).slice(0, maxResults);
-  } catch {
-    return [];
-  }
-}
-
 interface OpenAlexWork {
   id?: string;
   doi?: string;
@@ -474,7 +409,7 @@ async function fetchReferencesBroad(
   query: string,
   maxResults = 8,
   excluded: Set<string> = EMPTY_REF_SET,
-  activeSources: string[] = ["pubmed", "openalex", "crossref"]
+  activeSources: string[] = DEFAULT_LITERATURE_SOURCES
 ): Promise<PubMedRef[]> {
   const allowed = new Set(activeSources.map(s => s.toLowerCase()));
   const tasks: Promise<PubMedRef[]>[] = [];
@@ -619,7 +554,7 @@ async function fetchReferencesForPoints(
   points: Array<{ point: string; searchQuery?: string }>,
   topic: string,
   excluded: Set<string>,
-  activeSources: string[] = ["pubmed", "openalex", "crossref"]
+  activeSources: string[] = DEFAULT_LITERATURE_SOURCES
 ): Promise<Array<{ point: string; references: PubMedRef[] }>> {
   const allowed = new Set(activeSources.map(s => s.toLowerCase()));
   const results: Array<{ point: string; references: PubMedRef[] }> = [];
@@ -947,7 +882,7 @@ export async function POST(req: NextRequest) {
       const rawSources = (body as { sources?: string[] })?.sources;
       const activeSources = Array.isArray(rawSources) && rawSources.length > 0
         ? rawSources.map(s => String(s).toLowerCase().trim())
-        : ["pubmed", "openalex", "crossref"];
+        : DEFAULT_LITERATURE_SOURCES;
       let refPool = await fetchReferencesBroad(cleanTopicQuery(String(topic || "")), 12, EMPTY_REF_SET, activeSources);
       if (refPool.length < 6 && selectedQuestion) {
         const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), 8, EMPTY_REF_SET, activeSources);
@@ -1601,7 +1536,7 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       const rawSources = (body as { sources?: string[] })?.sources;
       const activeSources = Array.isArray(rawSources) && rawSources.length > 0
         ? rawSources.map(s => String(s).toLowerCase().trim())
-        : ["pubmed", "openalex", "crossref"];
+        : DEFAULT_LITERATURE_SOURCES;
 
       const usedPmids = new Set<string>();
       let knownWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];

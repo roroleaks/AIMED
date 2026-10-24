@@ -7,6 +7,7 @@ import { sget, sset, KEYS } from "@/lib/session";
 import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { NO_LITERATURE_MESSAGE, NO_LITERATURE_HINT } from "@/lib/clinical-keywords";
 import { classifyPaperType, getStudyTypeBadgeStyle } from "@/lib/study-design";
+import { DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
 
 interface Reference {
   pmid: string;
@@ -68,7 +69,7 @@ export default function GapPage() {
     const normalized = sget<string>(KEYS.inputText);
     const stored = readSessionInput(sget<unknown>(KEYS.input));
     const specialty = sget<string>(KEYS.specialty);
-    const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
+    const sources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
     const input = normalized || (stored ? sessionSearchText(stored) : "");
     if (!input) { router.replace("/"); return; }
     (async () => {

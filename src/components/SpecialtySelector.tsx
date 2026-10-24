@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useAimedContext } from "@/context/AimedContext";
 import type { SpecialtyDefinition, PicoPreset } from "@/lib/specialties";
 
@@ -21,8 +21,6 @@ export function SpecialtySelector({ onSelectSpecialty, onSelectPreset, compact =
     setSearchQuery,
     filteredSpecialties
   } = useAimedContext();
-
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const handleCardClick = (s: SpecialtyDefinition) => {
     setSpecialty(s.id);
@@ -113,7 +111,6 @@ export function SpecialtySelector({ onSelectSpecialty, onSelectPreset, compact =
         <div className={`specialty-grid ${compact ? "compact" : ""}`}>
           {filteredSpecialties.map((s) => {
             const isSelected = specialty === s.id;
-            const isExpanded = expandedId === s.id || isSelected;
 
             return (
               <div
@@ -177,60 +174,6 @@ export function SpecialtySelector({ onSelectSpecialty, onSelectPreset, compact =
             );
           })}
         </div>
-      )}
-    </div>
-  );
-}
-
-export function SpecialtyHeaderDropdown() {
-  const { specialty, setSpecialty, allSpecialties, currentSpecialty } = useAimedContext();
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="specialty-dropdown-container" style={{ position: "relative", display: "inline-block" }}>
-      <button
-        type="button"
-        className="specialty-selector-header-btn"
-        onClick={() => setOpen(!open)}
-        title="Switch Medical Domain"
-      >
-        <span style={{ fontSize: "1.1rem" }}>{currentSpecialty.icon}</span>
-        <span style={{ fontWeight: 600 }}>{currentSpecialty.shortName}</span>
-        <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>▾</span>
-      </button>
-
-      {open && (
-        <>
-          <div
-            style={{ position: "fixed", inset: 0, zIndex: 90 }}
-            onClick={() => setOpen(false)}
-          />
-          <div className="specialty-dropdown-menu">
-            <div className="specialty-dropdown-header">
-              <span>Select Medical Specialty</span>
-            </div>
-            <div className="specialty-dropdown-list">
-              {allSpecialties.map((s) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  className={`specialty-dropdown-item ${specialty === s.id ? "active" : ""}`}
-                  onClick={() => {
-                    setSpecialty(s.id);
-                    setOpen(false);
-                  }}
-                >
-                  <span className="dropdown-item-icon">{s.icon}</span>
-                  <div className="dropdown-item-info">
-                    <span className="dropdown-item-title">{s.label}</span>
-                    <span className="dropdown-item-meta">{s.authorityGuidelines}</span>
-                  </div>
-                  {specialty === s.id && <span className="dropdown-item-check">✓</span>}
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
       )}
     </div>
   );

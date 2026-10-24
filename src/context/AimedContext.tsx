@@ -1,9 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, useMemo, useCallback } from "react";
+import React, { createContext, useContext, useState, useMemo, useCallback } from "react";
 import { SPECIALTIES, SPECIALTY_CATEGORIES, getSpecialtyDefinition, type SpecialtyDefinition, type PicoPreset } from "@/lib/specialties";
 import { sget, sset, KEYS } from "@/lib/session";
-import type { SpecialtyKey } from "@/lib/kb";
 
 interface AimedContextValue {
   specialty: string;
@@ -22,22 +21,20 @@ interface AimedContextValue {
 const AimedContext = createContext<AimedContextValue | null>(null);
 
 export function AimedProvider({ children }: { children: React.ReactNode }) {
-  const [specialty, setSpecialtyState] = useState<string>("obgyn");
-  const [selectedCategory, setSelectedCategory] = useState<string>("All Specialties");
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
-  // Initialize from sessionStorage on client mount
-  useEffect(() => {
+  const [specialty, setSpecialtyState] = useState<string>(() => {
+    if (typeof window === "undefined") return "obgyn";
     try {
       const stored = sget<string>(KEYS.specialty);
       if (stored && (stored in SPECIALTIES || stored === "infertility" || stored === "gynecology" || stored === "obstetrics")) {
-        const canonical = stored === "infertility" || stored === "gynecology" || stored === "obstetrics" ? "obgyn" : stored;
-        setSpecialtyState(canonical);
+        return (stored === "infertility" || stored === "gynecology" || stored === "obstetrics") ? "obgyn" : stored;
       }
     } catch {
       // sessionStorage unavailable
     }
-  }, []);
+    return "obgyn";
+  });
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Specialties");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const setSpecialty = useCallback((id: string) => {
     const canonical = (id === "infertility" || id === "gynecology" || id === "obstetrics") ? "obgyn" : id;

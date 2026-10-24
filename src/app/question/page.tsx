@@ -20,6 +20,7 @@ import {
   CITATION_STYLE_OPTIONS,
   type CitationStyle
 } from "@/lib/citation-styles";
+import { DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
 
 interface RawRef {
   pmid?: string;
@@ -410,7 +411,7 @@ export default function QuestionPage() {
           setSupportingPapers(papers);
         } else {
           // If no papers in gapSnapshot, query multi-source literature to ensure literature presence
-          const activeSources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
+          const activeSources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
           fetch("/api/literature", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

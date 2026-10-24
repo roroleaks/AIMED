@@ -84,6 +84,14 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
   }
 ];
 
+export const DEFAULT_LITERATURE_SOURCES: LiteratureSource[] = [
+  "pubmed",
+  "pmc",
+  "semanticscholar",
+  "openalex",
+  "crossref"
+];
+
 const API_TIMEOUT_MS = 12_000;
 const OPENALEX_MAILTO = "support@aimed.app";
 const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:support@aimed.app)";

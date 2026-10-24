@@ -1,5 +1,4 @@
 import type { AuditableRef } from "./relevance.ts";
-import { foldName } from "./relevance.ts";
 
 export type CitationStyle = "vancouver" | "apa" | "harvard";
 

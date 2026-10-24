@@ -520,7 +520,7 @@ export function extractInTextCites(text: string): { author: string; year: string
 export function extractNumericCites(text: string): { citedNumbers: Set<number>; rawBrackets: string[] } {
   const citedNumbers = new Set<number>();
   const rawBrackets: string[] = [];
-  const bracketRegex = /\[([\d\s,\-]+)\]/g;
+  const bracketRegex = /(?:\[|<sup>)([\d\s,\-]+)(?:\]|<\/sup>)/gi;
   let match: RegExpExecArray | null;
   while ((match = bracketRegex.exec(text || ""))) {
     const inner = match[1].trim();

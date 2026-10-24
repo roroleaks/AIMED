@@ -11,11 +11,11 @@ import { formatVancouverReference } from "@/lib/relevance";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { classifyPaperType, getStudyTypeBadgeStyle, type ClinicalStudyType } from "@/lib/study-design";
 import {
-  CITATION_STYLE_OPTIONS,
   formatReferenceInStyle,
   convertNarrativeToStyle,
   type CitationStyle
 } from "@/lib/citation-styles";
+import { DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
 
 interface ReferenceItem { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string; studyType?: string; pubType?: string }
 type PubMedResult = ReferenceItem;
@@ -291,7 +291,7 @@ export default function PaperPage() {
     setCommentaryError(false);
     try {
       const specialty = sget<string>(KEYS.specialty);
-      const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
+      const sources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
       const res = await fetch("/api/engine", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -380,7 +380,7 @@ export default function PaperPage() {
   const searchPubMed = async () => {
     if (!formulation) return;
     setPubmedLoading(true);
-    const sources = sget<string[]>(KEYS.sources) || ["pubmed", "openalex", "crossref"];
+    const sources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
     try {
       const res = await fetch("/api/literature", {
         method: "POST", headers: { "Content-Type": "application/json" },
@@ -830,7 +830,7 @@ ${bibliography}
                     <div style={{ marginTop: 14 }}>
                       <h3 className="sec-h">Reference Validation</h3>
                       <p className="hint" style={{ marginTop: 4 }}>
-                        Claim-to-reference audit: each source (PubMed · Europe PMC · OpenAlex · Crossref) is checked against the PICO elements (population · intervention · comparator · outcome) and every in-text citation is checked against the reference list.
+                        Claim-to-reference audit: each source (PubMed · PMC · Semantic Scholar · OpenAlex · Crossref) is checked against the PICO elements (population · intervention · comparator · outcome) and every in-text citation is checked against the reference list.
                       </p>
                       <p className="hint" style={{ marginTop: 4 }}>
                         🔗 Sources resolved: {resolved}/{a.length} · Valid DOIs: {withDoi} · In-text citations matched: {c.citedRefs}/{c.totalRefs}
@@ -882,7 +882,7 @@ ${bibliography}
         {!!commentary?.fetchedReferences?.length && (
           <section className="card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-              <span className="pill">📚 Evidence sources (PubMed · Europe PMC · OpenAlex · Crossref)</span>
+              <span className="pill">📚 Evidence Sources (PubMed · PMC · Semantic Scholar · OpenAlex · Crossref)</span>
               <button className="secondary" disabled={!!exporting} onClick={() => exportRefsPDF(commentary.fetchedReferences || [], commentary.title, "Evidence Sources", "sources")}>{exporting === "sources" ? "⏳ Generating PDF…" : "📄 References PDF"}</button>
             </div>
             {commentary.fetchedReferences.map(r => {

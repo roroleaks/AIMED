@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useMemo, useState, useSyncExternalStore, useRef, useEffect } from "react";
+import { useCallback, useMemo, useState, useSyncExternalStore, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { sset, sget, KEYS } from "@/lib/session";
-import { SEARCH_SOURCE_OPTIONS, type LiteratureSource } from "@/lib/literature-sources";
+import { SEARCH_SOURCE_OPTIONS, DEFAULT_LITERATURE_SOURCES, type LiteratureSource } from "@/lib/literature-sources";
 import {
   parseInput,
   toSessionInput,
@@ -68,9 +68,8 @@ function sessionModeSnapshot(): "formulate" | "gap" {
 
 export default function Home() {
   const router = useRouter();
-  const { specialty, setSpecialty, currentSpecialty, activePresets, allSpecialties, categories } = useAimedContext();
+  const { specialty, setSpecialty, currentSpecialty, activePresets } = useAimedContext();
   const workspaceRef = useRef<HTMLDivElement>(null);
-  const selectorRef = useRef<HTMLDivElement>(null);
 
   const restored = useSyncExternalStore(subscribeToNothing, sessionInputSnapshot, serverSnapshot);
   const restoredMode = useSyncExternalStore(subscribeToNothing, sessionModeSnapshot, serverModeSnapshot);
@@ -78,9 +77,8 @@ export default function Home() {
   const [draft, setDraft] = useState<string | null>(null);
   const input = draft ?? restored?.rawInput ?? "";
   const setInput = useCallback((v: string) => setDraft(v), []);
-  const [modeDraft, setModeDraft] = useState<"formulate" | "gap" | null>(null);
+  const [modeDraft] = useState<"formulate" | "gap" | null>(null);
   const mode = modeDraft ?? restoredMode;
-  const setMode = useCallback((v: "formulate" | "gap") => setModeDraft(v), []);
   const [tagError, setTagError] = useState<string | null>(null);
 
   // Input style: Quick tag words (free-text) vs Structured labeled fields (P, I, C, O)
@@ -168,12 +166,6 @@ export default function Home() {
     applyPreset(preset);
   };
 
-  const scrollToSelector = () => {
-    if (selectorRef.current) {
-      selectorRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   const handleStructuredChange = (field: "p" | "i" | "c" | "o", val: string) => {
     const nextP = field === "p" ? val : structP;
     const nextI = field === "i" ? val : structI;
@@ -217,20 +209,18 @@ export default function Home() {
   const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
 
   // Literature search sources: PubMed, PMC, Semantic Scholar, OpenAlex, CrossRef
-  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>([
-    "pubmed",
-    "pmc",
-    "semanticscholar",
-    "openalex",
-    "crossref"
-  ]);
-
-  useEffect(() => {
-    const stored = sget<LiteratureSource[]>(KEYS.sources);
-    if (Array.isArray(stored) && stored.length > 0) {
-      setSelectedSources(stored);
+  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>(() => {
+    if (typeof window === "undefined") return DEFAULT_LITERATURE_SOURCES;
+    try {
+      const stored = sget<LiteratureSource[]>(KEYS.sources);
+      if (Array.isArray(stored) && stored.length > 0) {
+        return stored;
+      }
+    } catch {
+      // sessionStorage unavailable
     }
-  }, []);
+    return DEFAULT_LITERATURE_SOURCES;
+  });
 
   const toggleSource = (sourceId: LiteratureSource) => {
     setSelectedSources(prev => {

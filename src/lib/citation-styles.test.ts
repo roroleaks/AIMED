@@ -4,11 +4,7 @@ import {
   CITATION_STYLE_OPTIONS,
   formatReferenceInStyle,
   convertNarrativeToStyle,
-  parseAuthorNames,
-  formatVancouverAuthors,
-  formatApaAuthors,
-  formatHarvardAuthors,
-  type CitationStyle
+  parseAuthorNames
 } from "./citation-styles.ts";
 import type { AuditableRef } from "./relevance.ts";
 
