@@ -123,7 +123,6 @@ export async function POST(req: Request) {
     const teal = "#0f6b6b";
     const ink = "#1c2430";
     const muted = "#8a95a0";
-    const lineGap = 14;
 
     const wrap = (text: string, width: number): string[] => {
       const out: string[] = [];
@@ -141,14 +140,6 @@ export async function POST(req: Request) {
 
     const ensure = (needed: number) => {
       if (doc.y + needed > doc.page.height - doc.page.margins.bottom) doc.addPage();
-    };
-
-    const footer = () => {
-      doc.font(FONT_O).fontSize(8.5).fillColor(muted);
-      const fLeftF: number = doc.page.margins.left;
-      const fRightF: number = doc.page.width - doc.page.margins.right;
-      doc.text("Aimed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026", fLeftF, doc.page.height - doc.page.margins.bottom + 4, { width: fRightF - doc.page.margins.left - 170, lineBreak: false });
-      doc.text(new Date().toLocaleDateString(), fRightF, doc.page.height - doc.page.margins.bottom + 4, { width: 120, align: "right", lineBreak: false });
     };
 
     const title = String(body.title).trim();
@@ -212,24 +203,76 @@ export async function POST(req: Request) {
           doc.moveDown(0.4);
         }
         for (const block of section.blocks) {
-          let text = String(block || "").replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
-          if (!text) continue;
-          // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
-          if (body.citationStyle === "vancouver" || !body.citationStyle) {
-            text = text.replace(/\[([\d\s,\-]+)\]/g, "$1");
-          }
-          const shortHead = text.length < 70 && !/[.!?]\s*$/.test(text);
-          if (shortHead) {
+          // Normalize line breaks in case block contains multiple sub-paragraphs or headers
+          const rawSubBlocks = String(block || "")
+            .replace(/\r\n/g, "\n")
+            .split(/\n{2,}/)
+            .map(s => s.trim())
+            .filter(Boolean);
+
+          for (const rawSub of rawSubBlocks) {
+            // Check if subBlock is a markdown heading
+            if (/^#{1,4}\s+/.test(rawSub)) {
+              const headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
+              ensure(32);
+              doc.font(FONT_B).fontSize(11.5).fillColor("#14535a").text(headTitle, {
+                width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+                lineGap: 2
+              });
+              doc.moveDown(0.35);
+              continue;
+            }
+
+            // Check if subBlock is a bullet list
+            if (rawSub.startsWith("- ") || rawSub.startsWith("• ") || rawSub.startsWith("* ")) {
+              const items = rawSub
+                .split(/\n(?=[-•*]\s+)/)
+                .map(it => it.replace(/^[-•*]\s+/, "").replace(/\*\*/g, "").trim())
+                .filter(Boolean);
+              for (const it of items) {
+                let cleanIt = it;
+                if (body.citationStyle === "vancouver" || !body.citationStyle) {
+                  cleanIt = cleanIt.replace(/\[([\d\s,\-]+)\]/g, "$1");
+                }
+                const bulletLines = wrap(cleanIt, doc.page.width - doc.page.margins.left - doc.page.margins.right - 18);
+                ensure(bulletLines.length * 15 + 8);
+                const bulletY = doc.y;
+                doc.font(FONT_B).fontSize(10).fillColor(teal).text("•", doc.page.margins.left + 4, bulletY);
+                doc.font(FONT).fontSize(10.5).fillColor(ink).text(
+                  bulletLines.join("\n"),
+                  doc.page.margins.left + 16,
+                  bulletY,
+                  { width: doc.page.width - doc.page.margins.left - doc.page.margins.right - 18, lineGap: 3 }
+                );
+                doc.moveDown(0.3);
+              }
+              doc.moveDown(0.2);
+              continue;
+            }
+
+            // Normal paragraph
+            let text = rawSub.replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
+            if (!text) continue;
+            // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
+            if (body.citationStyle === "vancouver" || !body.citationStyle) {
+              text = text.replace(/\[([\d\s,\-]+)\]/g, "$1");
+            }
+            const shortHead = text.length < 70 && !/[.!?]\s*$/.test(text);
+            if (shortHead) {
+              ensure(26);
+              doc.font(FONT_B).fontSize(11).fillColor("#14535a").text(text, {
+                width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+                lineGap: 3
+              });
+              doc.moveDown(0.3);
+              continue;
+            }
             ensure(24);
-            doc.font(FONT_B).fontSize(11).fillColor("#14535a").text(text, { width: doc.page.width - doc.page.margins.left - doc.page.margins.right, lineGap: 3 });
-            doc.moveDown(0.25);
-            continue;
+            doc.font(FONT).fontSize(10.5).fillColor(ink);
+            const lines = wrap(text, doc.page.width - doc.page.margins.left - doc.page.margins.right);
+            doc.text(lines.join("\n"), { align: "justify", lineGap: 3.5 });
+            doc.moveDown(0.45);
           }
-          ensure(22);
-          doc.font(FONT).fontSize(11).fillColor(ink);
-          const lines = wrap(text, doc.page.width - doc.page.margins.left - doc.page.margins.right);
-          doc.text(lines.join("\n"), { align: "justify", lineGap });
-          doc.moveDown(0.45);
         }
       }
     }
@@ -255,14 +298,41 @@ export async function POST(req: Request) {
         const lines = wrap(formattedEntry, width - 10);
         ensure(lines.length * 15 + 8);
         doc.text(lines.join("\n"), doc.page.margins.left, doc.y, { width: width - 10, lineGap: 3 });
-        doc.moveDown(lines.length * 0.6 + 0.4);
+        doc.moveDown(0.4);
       });
     }
 
     const range = doc.bufferedPageRange();
     for (let i = range.start; i < range.start + range.count; i++) {
       doc.switchToPage(i);
-      footer();
+      const fLeft: number = doc.page.margins.left;
+      const fRight: number = doc.page.width - doc.page.margins.right;
+      const fWidth: number = fRight - fLeft;
+
+      // Running header on page 2+
+      if (i > range.start) {
+        doc.font(FONT_O).fontSize(8).fillColor(muted);
+        const headerText = title.length > 70 ? title.slice(0, 67) + "…" : title;
+        doc.text(headerText, fLeft, 24, { width: fWidth, align: "left", lineBreak: false });
+        doc.moveTo(fLeft, 36).lineTo(fRight, 36).strokeColor("#cbd5e1").lineWidth(0.5).stroke();
+      }
+
+      // Running footer on every page
+      doc.moveTo(fLeft, doc.page.height - doc.page.margins.bottom - 4).lineTo(fRight, doc.page.height - doc.page.margins.bottom - 4).strokeColor("#e2e8f0").lineWidth(0.5).stroke();
+      doc.font(FONT_O).fontSize(8.5).fillColor(muted);
+      doc.text(
+        "Aimed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026",
+        fLeft,
+        doc.page.height - doc.page.margins.bottom + 4,
+        { width: fWidth - 110, lineBreak: false }
+      );
+      const pageNumText = `Page ${i - range.start + 1} of ${range.count}`;
+      doc.text(
+        pageNumText,
+        fRight - 100,
+        doc.page.height - doc.page.margins.bottom + 4,
+        { width: 100, align: "right", lineBreak: false }
+      );
     }
     doc.flushPages();
     doc.end();

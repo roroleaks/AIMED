@@ -171,13 +171,14 @@ export function generateDeterministicCommentary(
   const yearSpanText = minYear === maxYear ? `in ${minYear}` : `spanning ${minYear} to ${maxYear}`;
 
   // Structured Abstract adhering strictly to Vancouver & medical commentary conventions
-  const abstract =
-    `Background: Clinical management of ${popVal || "the target clinical cohort"} presents significant therapeutic complexity, where optimizing ${outVal || outcomesText} represents a paramount clinical milestone. Underlying biological variations and heterogeneous protocolization often lead to clinical equipoise regarding therapeutic strategies. ` +
-    `Objective: To systematically synthesize and critically appraise current peer-reviewed evidence evaluating ${cleanQ} ${allCiteToken}. ` +
-    `Methods & Evidence Scope: Multi-database indexing across PubMed/MEDLINE, Europe PMC, OpenAlex, and Crossref was filtered against strict PICO claim-level relevance boundaries. A total of ${n} verified clinical record${plural ? "" : "s"} ${yearSpanText} ${plural ? "was" : "were"} retained and analyzed for ${outVal || outcomesText} ${allCiteToken}. ` +
-    `Results & Synthesis: The retained evidence base ${allCiteToken} provides grounded clinical data examining therapeutic protocols and observed clinical endpoints across the evaluated patient cohort. ` +
-    `    Clinical Interpretation: Current literature underscores the necessity of precise patient stratification, individualized intervention timing, and meticulous clinical risk evaluation rather than empirical universal application. ` +
-    `Conclusion: The available evidence base provides essential clinical insights into ${outVal || outcomesText} in ${popVal || "this population"} ${allCiteToken}, while highlighting the imperative for standardized multi-center randomized investigations to resolve remaining clinical uncertainties.`;
+  const abstract = [
+    `**Background:** Clinical management of ${popVal || "the target clinical cohort"} presents significant therapeutic complexity, where optimizing ${outVal || outcomesText} represents a paramount clinical milestone. Underlying biological variations and heterogeneous protocolization often lead to clinical equipoise regarding therapeutic strategies.`,
+    `**Objective:** To systematically synthesize and critically appraise current peer-reviewed evidence evaluating ${cleanQ} ${allCiteToken}.`,
+    `**Methods & Evidence Scope:** Multi-database indexing across PubMed/MEDLINE, Europe PMC, Semantic Scholar, OpenAlex, and CrossRef was filtered against strict PICO claim-level relevance boundaries. A total of ${n} verified clinical record${plural ? "" : "s"} ${yearSpanText} ${plural ? "was" : "were"} retained and analyzed for ${outVal || outcomesText} ${allCiteToken}.`,
+    `**Results & Synthesis:** The retained evidence base ${allCiteToken} provides grounded clinical data examining therapeutic protocols and observed clinical endpoints across the evaluated patient cohort.`,
+    `**Clinical Interpretation:** Current literature underscores the necessity of precise patient stratification, individualized intervention timing, and meticulous clinical risk evaluation rather than empirical universal application.`,
+    `**Conclusions:** The available evidence base provides essential clinical insights into ${outVal || outcomesText} in ${popVal || "this population"} ${allCiteToken}, while highlighting the imperative for standardized multi-center randomized investigations to resolve remaining clinical uncertainties.`
+  ].join("\n\n");
 
   // Introduction providing deep clinical background, biological plausibility, and explicit knowledge gap
   const introP1 =
@@ -212,38 +213,38 @@ export function generateDeterministicCommentary(
     `evaluated in this synthesis in Vancouver style: ${allCiteToken}.`;
 
   const discScope =
-    `#### Evidence Base Scope & Methodological Characteristics\n` +
-    `The assembled evidence base comprises ${n} peer-reviewed publication${plural ? "" : "s"} ${yearSpanText} ${allCiteToken}, retrieved through systematic querying across PubMed/MEDLINE, Europe PMC, OpenAlex, and Crossref. ` +
+    `#### Evidence Base Scope & Methodological Characteristics\n\n` +
+    `The assembled evidence base comprises ${n} peer-reviewed publication${plural ? "" : "s"} ${yearSpanText} ${allCiteToken}, retrieved through systematic querying across PubMed/MEDLINE, Europe PMC, Semantic Scholar, OpenAlex, and CrossRef. ` +
     `Each included record underwent claim-specific filtering to ensure direct relevance to ${popVal || "the clinical population"}, the intervention pathways under review, and the primary endpoint of ${outVal || outcomesText}. ` +
     `The evidence base incorporates diverse study designs, offering valuable perspectives across observational cohorts and structured clinical evaluations ${allCiteToken}.`;
 
   const discStudyByStudy =
-    `#### Study-by-Study Critical Appraisal & Reported Findings\n` +
+    `#### Study-by-Study Critical Appraisal & Reported Findings\n\n` +
     studySummaries.join("\n\n");
 
   const discComparative =
-    `#### Comparative Analysis & Clinical Concordance\n` +
+    `#### Comparative Analysis & Clinical Concordance\n\n` +
     `Across the retained investigations ${allCiteToken}, clinical observations reflect a consistent focus on optimizing ${outVal || outcomesText} through individualized therapeutic protocols. ` +
     `Clinical concordance across studies is observed regarding the necessity of baseline risk assessment and standardized monitoring. ` +
     `Where variations in reported outcomes emerge, they appear primarily attributable to heterogeneity in patient age distribution, disease severity staging, baseline functional reserves, and differing co-intervention protocols. ` +
     `These comparative nuances demonstrate that therapeutic response is rarely uniform, reinforcing the clinical requirement for phenotype-specific stratification.`;
 
   const discMethodology =
-    `#### Methodological Quality, Risk of Bias & Evidence Certainty\n` +
+    `#### Methodological Quality, Risk of Bias & Evidence Certainty\n\n` +
     `Critical appraisal of the evidence base under GRADE principles reveals important methodological strengths alongside recognizable constraints ${allCiteToken}. ` +
     `Strengths include detailed reporting of clinical endpoints and verifiable peer-reviewed publication with documented DOIs and PMIDs. ` +
     `However, potential sources of bias across the literature include single-center participant recruitment, variable degrees of allocation concealment, and modest sample sizes that limit statistical power for detecting small effect sizes. ` +
     `Consequently, the overall certainty of evidence regarding ${outVal || outcomesText} across unselected populations is appropriately characterized as moderate to low, requiring cautious clinical interpretation.`;
 
   const discClinicalTranslation =
-    `#### Clinical Interpretation & Practice Translation\n` +
+    `#### Clinical Interpretation & Practice Translation\n\n` +
     `From a clinical translation perspective, the available literature provides valuable guidance for practicing physicians managing ${popVal || "this clinical condition"} ${allCiteToken}. ` +
     `Rather than supporting unselected, empirical administration, clinical decision-making warrants guidance through rigorous clinical risk evaluation, baseline diagnostic parameters, and individualized patient counseling. ` +
     `Clinicians must recognize the boundaries of current data: findings from specific study cohorts cannot be extrapolated uncritically across all clinical severity grades or alternative patient subgroups. ` +
     `Shared decision-making, accompanied by transparent discussion of evidence certainty and potential therapeutic limitations, represents the most prudent clinical approach.`;
 
   const discGaps =
-    `#### Research Gaps & Unanswered Questions\n` +
+    `#### Research Gaps & Unanswered Questions\n\n` +
     `The synthesis of current literature highlights several critical research gaps that warrant prioritized investigation:\n` +
     `- **Definitive Head-to-Head RCTs:** A scarcity of adequately powered, multi-center, double-blind randomized trials directly evaluating ${intVal || "the intervention"} against active modern comparators in well-defined clinical cohorts.\n` +
     `- **Stratification Biomarkers:** Absence of validated molecular or clinical biomarkers to identify which patient subgroups exhibit optimal responsiveness regarding ${outVal || outcomesText}.\n` +
