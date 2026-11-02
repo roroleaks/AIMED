@@ -510,13 +510,15 @@ interface EuropePmcItem {
 /**
  * Fetches peer-reviewed open access papers from PubMed Central (PMC) via Europe PMC.
  */
-export async function fetchPmcArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+export async function fetchPmcArticles(query: string, maxResults = 6, questionType?: string): Promise<LiteratureArticle[]> {
   const sanitized = sanitizeSearchQuery(query);
   if (!sanitized) return [];
 
-  const pageSize = Math.min(Math.max(maxResults + 4, 8), 25);
+  const pageSize = Math.min(Math.max(maxResults + 4, 8), 50);
   // Focus query on PubMed Central and Open Access full text
-  const pmcFilterQuery = `${sanitized} AND (SRC:PMC OR OPEN_ACCESS:y)`;
+  const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
+  const rctFilter = isTherapy ? ' AND PUB_TYPE:"randomized controlled trial"' : "";
+  const pmcFilterQuery = `${sanitized} AND (SRC:PMC OR OPEN_ACCESS:y)${rctFilter}`;
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(pmcFilterQuery)}&pageSize=${pageSize}&format=json&resultType=core`;
 
   try {
@@ -604,12 +606,14 @@ interface ESummaryDoc {
 /**
  * Fetches peer-reviewed journal articles from PubMed via NCBI E-utilities.
  */
-export async function fetchPubMedArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+export async function fetchPubMedArticles(query: string, maxResults = 6, questionType?: string): Promise<LiteratureArticle[]> {
   const sanitized = sanitizeSearchQuery(query);
   if (!sanitized) return [];
 
   const apiKeyParam = NCBI_API_KEY ? `&api_key=${encodeURIComponent(NCBI_API_KEY)}` : "";
-  const term = `${sanitized} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
+  const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
+  const rctFilter = isTherapy ? ' AND ("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])' : "";
+  const term = `${sanitized}${rctFilter} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
   const esearchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=${maxResults * 2}&sort=relevance&term=${encodeURIComponent(term)}${apiKeyParam}`;
 
   try {

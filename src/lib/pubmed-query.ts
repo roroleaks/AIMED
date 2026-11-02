@@ -22,6 +22,7 @@ export interface ClinicalSearchInput {
   outcome?: string | null;
   intervention?: string | null;
   comparator?: string | null;
+  questionType?: string | null;
 }
 
 const PHRASE_MAX_CHARS = 120;
@@ -239,6 +240,13 @@ function buildBroadClause(value: string | null | undefined): string {
   return phrase ? `(${quotePhrase(phrase)})` : "";
 }
 
+export function getPublicationTypeFilter(questionType?: string | null): string {
+  if (questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention") {
+    return '("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])';
+  }
+  return "";
+}
+
 const MAX_CANDIDATES = 8;
 
 /**
@@ -258,6 +266,8 @@ export function buildCandidates(input: ClinicalSearchInput): string[] {
     .filter(Boolean)
     .join(" OR ");
 
+  const ptFilter = getPublicationTypeFilter(input.questionType);
+
   const ordered = [
     [population, intervention, outcome].filter(Boolean).join(" AND "),
     [population, intervention].filter(Boolean).join(" AND "),
@@ -274,9 +284,11 @@ export function buildCandidates(input: ClinicalSearchInput): string[] {
   const seen = new Set<string>();
   const candidates: string[] = [];
   for (const candidate of ordered) {
-    if (!candidate || seen.has(candidate)) continue;
-    seen.add(candidate);
-    candidates.push(candidate);
+    if (!candidate) continue;
+    const fullCandidate = ptFilter ? `${candidate} AND ${ptFilter}` : candidate;
+    if (seen.has(fullCandidate)) continue;
+    seen.add(fullCandidate);
+    candidates.push(fullCandidate);
     if (candidates.length >= MAX_CANDIDATES) break;
   }
   return candidates;

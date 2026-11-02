@@ -309,8 +309,19 @@ async function efetchAbstracts(ids: string[]): Promise<Map<string, string>> {
   return map;
 }
 
-async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Set<string> = EMPTY_REF_SET): Promise<PubMedRef[]> {
-  const term = `${query} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
+async function fetchPubMedReferences(
+  query: string,
+  maxResults = 3,
+  excluded: Set<string> = EMPTY_REF_SET,
+  questionType?: string,
+  interventionToken?: string
+): Promise<PubMedRef[]> {
+  const isExcluded = questionType && ["diagnosis", "prognosis", "etiology", "screening"].some(t => questionType.toLowerCase().includes(t));
+  const isTherapy = !isExcluded && (!questionType || /therapy|prevention/i.test(questionType));
+  const rctFilter = (!query.includes("[pt]") && isTherapy)
+    ? ' AND ("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])'
+    : "";
+  const term = `${query}${rctFilter} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
   const extra = Math.min(excluded.size, 25);
   const want = Math.max(maxResults, 6);
   for (let attempt = 0; attempt < 3; attempt++) {
@@ -318,8 +329,31 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
       const reviewIds = await esearchIds(term, want + extra, "&filter=pubt.review");
       if (!NCBI_API_KEY) await new Promise(r => setTimeout(r, 120));
       const generalIds = await esearchIds(term, want + extra);
-      if (!reviewIds.length && !generalIds.length) return [];
-      const ids = Array.from(new Set([...reviewIds, ...generalIds]))
+
+      let secondaryIds: string[] = [];
+      const cleanInterv = interventionToken ? interventionToken.replace(/["()]/g, "").trim() : "";
+      if (cleanInterv && isTherapy) {
+        if (!NCBI_API_KEY) await new Promise(r => setTimeout(r, 120));
+        const secondaryTerm = `(${cleanInterv}[tiab]) AND ("randomized controlled trial"[pt]) NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
+        try {
+          secondaryIds = await esearchIds(secondaryTerm, Math.min(want, 20));
+        } catch {
+          secondaryIds = [];
+        }
+      }
+
+      if (!reviewIds.length && !generalIds.length && !secondaryIds.length) {
+        if (rctFilter) {
+          const fallbackTerm = `${query} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
+          const fallbackIds = await esearchIds(fallbackTerm, want + extra);
+          if (fallbackIds.length) {
+            generalIds.push(...fallbackIds);
+          }
+        }
+        if (!reviewIds.length && !generalIds.length && !secondaryIds.length) return [];
+      }
+
+      const ids = Array.from(new Set([...generalIds, ...secondaryIds, ...reviewIds]))
         .filter(id => !excluded.has(id))
         .slice(0, maxResults);
       if (!NCBI_API_KEY) await new Promise(r => setTimeout(r, 120));
@@ -372,7 +406,7 @@ async function fetchOpenAlex(query: string, maxResults = 4): Promise<PubMedRef[]
     const select = "id,ids,doi,title,publication_year,authorships,primary_location";
     const url =
       `https://api.openalex.org/works?search=${encodeURIComponent(terms)}&filter=type:article` +
-      `&per_page=${Math.min(Math.max(maxResults + 4, 8), 25)}&select=${select}&mailto=support@aipico.app`;
+      `&per_page=${Math.min(Math.max(maxResults + 4, 8), 50)}&select=${select}&mailto=support@aipico.app`;
     const res = await fetch(url, {
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -422,7 +456,7 @@ async function fetchCrossref(query: string, maxResults = 4): Promise<PubMedRef[]
     const select = "title,issued,DOI,author,container-title,type,URL";
     const url =
       `https://api.crossref.org/works?query.bibliographic=${encodeURIComponent(terms)}` +
-      `&rows=${Math.min(Math.max(maxResults + 4, 8), 25)}&select=${select}`;
+      `&rows=${Math.min(Math.max(maxResults + 4, 8), 50)}&select=${select}`;
     const res = await fetch(url, {
       headers: { Accept: "application/json", "User-Agent": "aimed/4.0 (mailto:support@aimed.app)" },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -462,12 +496,14 @@ async function fetchReferencesBroad(
   query: string,
   maxResults = 8,
   excluded: Set<string> = EMPTY_REF_SET,
-  activeSources: string[] = DEFAULT_LITERATURE_SOURCES
+  activeSources: string[] = DEFAULT_LITERATURE_SOURCES,
+  questionType?: string,
+  interventionToken?: string
 ): Promise<PubMedRef[]> {
   const allowed = new Set(activeSources.map(s => s.toLowerCase()));
   const tasks: Promise<PubMedRef[]>[] = [];
   if (allowed.has("pubmed")) {
-    tasks.push(fetchPubMedReferences(query, maxResults, excluded).catch(() => []));
+    tasks.push(fetchPubMedReferences(query, maxResults, excluded, questionType, interventionToken).catch(() => []));
   }
   if (allowed.has("openalex")) {
     tasks.push(fetchOpenAlex(query, maxResults).catch(() => []));
@@ -496,7 +532,7 @@ async function fetchReferencesBroad(
   }
   if (allowed.has("pmc") || allowed.has("europepmc")) {
     tasks.push(
-      fetchPmcArticles(query, maxResults)
+      fetchPmcArticles(query, maxResults, questionType)
         .then(arts => arts.map(a => ({
           pmid: a.pmid,
           title: a.title,
@@ -874,6 +910,13 @@ const commentaryZodSchema = z.object({
     label: z.string().max(200),
     value: z.string().max(2000),
   })).optional().nullable(),
+  condition: z.string().max(1000).optional().nullable(),
+  intervention: z.string().max(1000).optional().nullable(),
+  comparator: z.string().max(1000).optional().nullable(),
+  input: z.string().max(2000).optional().nullable(),
+  questionType: z.string().max(200).optional().nullable(),
+  age: z.string().max(50).optional().nullable(),
+  sex: z.string().max(50).optional().nullable(),
 });
 
 export async function POST(req: NextRequest) {
@@ -921,6 +964,12 @@ export async function POST(req: NextRequest) {
         topic?: string; gapAnalysis?: { known?: unknown[]; uncertain?: unknown[] };
         selectedQuestion?: string; outcome?: string; outcomes?: Array<unknown>; picoElements?: Array<{ label?: unknown; value?: unknown }>;
       };
+      const condParam = String((body as Record<string, unknown>).condition || "").trim();
+      const intervParam = String((body as Record<string, unknown>).intervention || "").trim();
+      const compParam = String((body as Record<string, unknown>).comparator || "").trim();
+      const inputParam = String((body as Record<string, unknown>).input || "").trim();
+      const qTypeParam = String((body as Record<string, unknown>).questionType || "").trim() || "Therapy / Prevention";
+
       // NOTE: there is deliberately no `if (!KEY) return 503` here. That guard made the
       // deterministic fallback below unreachable whenever no key was configured, which is the
       // situation of every desktop install (F-23) - so the evidence-critical stage failed outright
@@ -937,9 +986,42 @@ export async function POST(req: NextRequest) {
       const activeSources = Array.isArray(rawSources) && rawSources.length > 0
         ? rawSources.map(s => String(s).toLowerCase().trim())
         : DEFAULT_LITERATURE_SOURCES;
-      let refPool = await fetchReferencesBroad(cleanTopicQuery(String(topic || "")), 12, EMPTY_REF_SET, activeSources);
+
+      const elements: PicoElement[] = Array.isArray(picoElements)
+        ? picoElements
+            .map(e => ({ label: String(e?.label || ""), value: String(e?.value || "") }))
+            .filter(e => e.label && e.value)
+        : [];
+
+      // If elements is empty, populate from condition/intervention or parse from input/question/topic
+      if (elements.length === 0) {
+        if (condParam || intervParam) {
+          if (condParam) elements.push({ label: "Population", value: condParam });
+          if (intervParam) elements.push({ label: "Intervention", value: intervParam });
+          if (compParam) elements.push({ label: "Comparator", value: compParam });
+          const outVal = outcomesArr[0] || String(outcome || "").trim() || "clinical outcome";
+          elements.push({ label: "Outcome", value: outVal });
+        } else {
+          const parsed = extractPicoFromQuestion(
+            String(selectedQuestion || topic || inputParam || ""),
+            String(topic || inputParam || ""),
+            (gapAnalysis as { specialty?: SpecialtyKey } | undefined)?.specialty
+          );
+          if (parsed.condition) elements.push({ label: "Population", value: parsed.condition });
+          if (parsed.intervention) elements.push({ label: "Intervention", value: parsed.intervention });
+          if (parsed.comparator) elements.push({ label: "Comparator", value: parsed.comparator });
+          const outVal = outcomesArr[0] || String(outcome || "").trim() || "clinical outcome";
+          elements.push({ label: "Outcome", value: outVal });
+        }
+      }
+
+      const interventionToken = intervParam || elements.find(e => /interv/i.test(e.label))?.value || "";
+
+      const commentaryMaxResults = 50;
+      const primaryTopic = cleanTopicQuery(String(topic || "")) || [intervParam, condParam].filter(Boolean).join(" ") || inputParam || String(selectedQuestion || "");
+      let refPool = await fetchReferencesBroad(primaryTopic, commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
       if (refPool.length < 6 && selectedQuestion) {
-        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), 8, EMPTY_REF_SET, activeSources);
+        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
         refPool.push(...alt);
       }
       const extra = Array.isArray(gapAnalysis?.known) ? gapAnalysis.known : [];
@@ -967,25 +1049,6 @@ export async function POST(req: NextRequest) {
         }
       }
       refPool = dedupeRefs(refPool);
-      const elements: PicoElement[] = Array.isArray(picoElements)
-        ? picoElements
-            .map(e => ({ label: String(e?.label || ""), value: String(e?.value || "") }))
-            .filter(e => e.label && e.value)
-        : [];
-
-      // If elements is empty, parse them directly from selectedQuestion and topic
-      if (elements.length === 0) {
-        const parsed = extractPicoFromQuestion(
-          String(selectedQuestion || topic || ""),
-          String(topic || ""),
-          (gapAnalysis as { specialty?: SpecialtyKey } | undefined)?.specialty
-        );
-        if (parsed.condition) elements.push({ label: "Population", value: parsed.condition });
-        if (parsed.intervention) elements.push({ label: "Intervention", value: parsed.intervention });
-        if (parsed.comparator) elements.push({ label: "Comparator", value: parsed.comparator });
-        const outVal = outcomesArr[0] || String(outcome || "").trim() || "clinical outcome";
-        elements.push({ label: "Outcome", value: outVal });
-      }
 
       // ---- Claim-specific filtering boundary ----
       // Everything downstream (commentary generation, the rendered reference list, the audit
@@ -1023,7 +1086,7 @@ export async function POST(req: NextRequest) {
         );
 
         for (const query of queriesToTry) {
-          const additionalRefs = await fetchReferencesBroad(query, 8, EMPTY_REF_SET, activeSources);
+          const additionalRefs = await fetchReferencesBroad(query, commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
           if (additionalRefs.length) {
             refPool = dedupeRefs([...refPool, ...additionalRefs]);
             const filtered = filterByClaim(refPool, elements);
