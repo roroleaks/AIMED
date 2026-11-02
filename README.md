@@ -148,11 +148,11 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 400 tests (394 deterministic PASS, 6 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm test                              # 402 tests (394 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
 npm run test:live                     # Live multi-source queries (PubMed, PMC, S2, CrossRef, OpenAlex)
 npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
-npm run build                         # Production Next.js build
+npm run build                         # Production Next.js build (17 routes, 0 errors)
 node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 90s)
 node scripts/test-all-specialties.mjs --offline --specialty <id> # Single specialty offline run
 node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases

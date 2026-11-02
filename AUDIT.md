@@ -58,11 +58,11 @@ Following the remediation audit of commit `430a415`, all identified defects have
 
 | Verification Step | Command | Result |
 | :--- | :--- | :--- |
-| **Deterministic Unit Tests** | `npm test` | **394 PASS**, 0 FAIL, 6 skipped (live network) |
+| **Deterministic Unit Tests** | `npm test` | **394 PASS**, 0 FAIL, 8 skipped (live network) |
 | **Secret Scan CI Guard** | `npm run secret-scan` | **PASS**, 0 secret patterns found in `src/` |
 | **TypeScript Strict Check** | `npm run typecheck` | **PASS**, 0 type errors |
 | **Linting & Code Style** | `npm run lint` | **PASS**, 0 errors, 0 warnings |
-| **Production Build** | `npm run build` | **PASS**, 18 static & dynamic routes compiled |
+| **Production Build** | `npm run build` | **PASS**, 17 routes compiled (5 pages + 7 API + _not-found + 2 icon generators + manifest + root) |
 | **Multi-Specialty E2E** | `node scripts/test-all-specialties.mjs` | **15/15 PASS**, domain-specific outcomes verified |
 
 ---
