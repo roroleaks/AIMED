@@ -916,6 +916,7 @@ export async function POST(req: NextRequest) {
 
   try {
     if (stage === "commentary") {
+      const commentaryStartTime = Date.now();
       const { topic, gapAnalysis, selectedQuestion, outcome, outcomes, picoElements } = body as {
         topic?: string; gapAnalysis?: { known?: unknown[]; uncertain?: unknown[] };
         selectedQuestion?: string; outcome?: string; outcomes?: Array<unknown>; picoElements?: Array<{ label?: unknown; value?: unknown }>;
@@ -1090,7 +1091,14 @@ export async function POST(req: NextRequest) {
           noDirectEvidence: true,
           refAudit: [],
           paperRefAudit: [],
-          citationChecks: { totalRefs: 0, citedRefs: 0, uncited: [], orphans: [], consistent: true }
+          citationChecks: { totalRefs: 0, citedRefs: 0, uncited: [], orphans: [], consistent: true },
+          telemetry: {
+            pathUsed: "deterministic",
+            fallbackTriggered: false,
+            failedGates: 0,
+            processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+            llmAvailable: !!KEY
+          }
         });
       }
       // The model is asked for a self-consistent draft: every listed reference cited, every
@@ -1151,7 +1159,16 @@ let commentary: Record<string, unknown>;
       // synthesis are very different things to hand a clinician, and the response previously gave
       // no way to tell them apart (`source` came back undefined for both).
       let commentarySource: "ai" | "deterministic";
-      const commentaryStartTime = Date.now();
+      let activeTelemetry: {
+        pathUsed: "llm" | "deterministic";
+        fallbackTriggered: boolean;
+        failedGates: number;
+        processingTimeMs: number;
+        llmAvailable: boolean;
+        fallbackReason?: string;
+      } | null = null;
+      let confidenceSummary: string | undefined = undefined;
+
       if (!KEY) {
         commentarySource = "deterministic";
         commentary = generateDeterministicCommentary({
@@ -1188,6 +1205,7 @@ let commentary: Record<string, unknown>;
           { ...DEFAULT_CONFIDENCE_CONFIG, llmAvailable: !!KEY },
           commentaryStartTime
         );
+        confidenceSummary = confidenceResult.fallbackReason;
         
         // Telemetry logging for LLM vs deterministic path tracking
         const telemetry = createTelemetryEvent(confidenceResult.telemetry, {
@@ -1198,6 +1216,13 @@ let commentary: Record<string, unknown>;
           processingTimeMs: Date.now() - commentaryStartTime
         });
         console.log("[engine] [telemetry]", JSON.stringify(telemetry));
+        activeTelemetry = {
+          pathUsed: confidenceResult.telemetry.pathUsed,
+          fallbackTriggered: confidenceResult.telemetry.fallbackTriggered,
+          failedGates: confidenceResult.telemetry.failedGates,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+          llmAvailable: !!KEY
+        };
         
         // If confidence gates fail, gracefully fall back to deterministic output
         if (shouldUseDeterministicFallback(confidenceResult)) {
@@ -1224,13 +1249,21 @@ let commentary: Record<string, unknown>;
             processingTimeMs: Date.now() - commentaryStartTime
           });
           console.log("[engine] [telemetry] [fallback]", JSON.stringify(fallbackTelemetry));
+          activeTelemetry = {
+            pathUsed: "deterministic",
+            fallbackTriggered: true,
+            failedGates: confidenceResult.gates.filter(g => !g.passed).length,
+            processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+            llmAvailable: true,
+            fallbackReason: confidenceResult.fallbackReason
+          };
         }
       } else {
         // Deterministic path telemetry
         const fallbackReason = !KEY ? "no_key" : "llm_failure";
         const telemetry = createTelemetryEvent({
           pathUsed: "deterministic",
-          fallbackTriggered: true,
+          fallbackTriggered: !KEY ? false : true,
           failedGates: 0,
           llmAvailable: !!KEY
         }, {
@@ -1241,6 +1274,14 @@ let commentary: Record<string, unknown>;
           processingTimeMs: Date.now() - commentaryStartTime
         });
         console.log("[engine] [telemetry]", JSON.stringify(telemetry));
+        activeTelemetry = {
+          pathUsed: "deterministic",
+          fallbackTriggered: !KEY ? false : true,
+          failedGates: 0,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+          llmAvailable: !!KEY,
+          fallbackReason
+        };
       }
       let curated = curateModelRefs(commentary, evidenceSet, commentarySource);
       let citationChecks = checkCitations(String(commentary.discussion || ""), curated.references);
@@ -1367,6 +1408,14 @@ const noDirectEvidence = directPool.length === 0;
       if (!integrity.ok && commentarySource === "ai") {
         console.warn("[engine] AI commentary failed deliverable integrity. Falling back to deterministic synthesis.");
         commentarySource = "deterministic";
+        activeTelemetry = {
+          pathUsed: "deterministic",
+          fallbackTriggered: true,
+          failedGates: 1,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+          llmAvailable: !!KEY,
+          fallbackReason: "Citation integrity reconciliation"
+        };
         commentary = generateDeterministicCommentary({
           selectedQuestion: String(selectedQuestion || topic || ""),
           outcomesText,
@@ -1417,13 +1466,28 @@ const noDirectEvidence = directPool.length === 0;
       if (!integrity.ok) {
         return NextResponse.json({
           error: "Commentary failed citation integrity validation and was not published.",
-          integrity
+          integrity,
+          telemetry: activeTelemetry ? {
+            ...activeTelemetry,
+            processingTimeMs: Math.max(1, Date.now() - commentaryStartTime)
+          } : undefined
         }, { status: 500 });
       }
       return NextResponse.json({
         ...commentary,
         source: commentarySource,
         synthesisGenerated: true,
+        telemetry: activeTelemetry ? {
+          ...activeTelemetry,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime)
+        } : {
+          pathUsed: commentarySource,
+          fallbackTriggered: commentarySource === "deterministic",
+          failedGates: 0,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+          llmAvailable: !!KEY
+        },
+        confidenceSummary,
         ...(commentarySource === "deterministic"
           ? {
               notice:
