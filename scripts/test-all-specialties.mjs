@@ -129,6 +129,34 @@ async function runTest() {
       assert.ok(outcomeOptions.length >= 4 && outcomeOptions.length <= 6, `Must generate 4–6 outcome options, got ${outcomeOptions.length}`);
       console.log(`    ✓ Generated ${outcomeOptions.length} clinical outcome options: [${outcomeOptions.map(o => o.label).join(", ")}]`);
 
+      // Assert at least one specialty-specific outcome is generated (R1 compliance)
+      const specialtyKeywordsMap = {
+        obgyn: ["preterm", "birth", "pregnancy", "neonatal", "maternal", "preeclampsia"],
+        cardiology: ["cardiovascular", "mortality", "mace", "heart failure", "stroke", "bleeding", "kccq"],
+        oncology: ["survival", "os", "pfs", "orr", "response", "adverse"],
+        pediatrics: ["bpd", "mortality", "picu", "pediatric", "neonatal", "growth"],
+        surgery: ["complication", "surgical", "recurrence", "ssi", "postoperative", "bleeding"],
+        internal_med: ["egfr", "kidney", "mortality", "mace", "cardiovascular", "remission"],
+        neurology: ["mrs", "rankin", "stroke", "hemorrhage", "mortality", "relapse", "recanalization", "independence"],
+        endocrinology: ["hba1c", "weight", "mace", "glucose", "hypoglycemia"],
+        emergency_med: ["mortality", "cpc", "neurological", "icu", "survival", "shock"],
+        psychiatry: ["remission", "relapse", "response", "madrs", "ham-d", "discontinuation"],
+        orthopedics: ["koos", "womac", "function", "survivorship", "pain", "revision"],
+        pulmonology: ["exacerbation", "fev1", "fvc", "mortality", "sgrq", "dyspnea"],
+        gastroenterology: ["mucosal", "remission", "mash", "fibrosis", "healing", "recurrence"],
+        infectious_disease: ["mortality", "cure", "clearance", "eradication", "bacteremia"],
+        dermatology: ["pasi", "easi", "viga", "pruritus", "skin", "clearance", "dlqi"]
+      };
+      const expectedKeywords = specialtyKeywordsMap[spec.id] || [];
+      const hasDomainOutcome = outcomeOptions.some(o =>
+        expectedKeywords.some(kw => o.label.toLowerCase().includes(kw))
+      );
+      assert.ok(
+        hasDomainOutcome,
+        `Outcome options for ${spec.name} must include at least one domain-specific clinical endpoint (expected one of: ${expectedKeywords.join(", ")})`
+      );
+      console.log(`    ✓ Domain-specific clinical outcome verified for ${spec.name}`);
+
       // Pick 1 outcome
       const chosenOutcome = outcomeOptions[0].label;
       console.log(`  Step 4: Chosen Outcome: "${chosenOutcome}"`);

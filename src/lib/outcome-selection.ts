@@ -961,7 +961,7 @@ export function buildOutcomeContext(
   const ans = answered ?? {};
   const text = (v: unknown): string => (typeof v === "string" ? v.trim() : "");
   return {
-    specialty: (a.specialty && ["infertility", "gynecology", "obstetrics"].includes(a.specialty)
+    specialty: (a.specialty && (a.specialty in SPECIALTIES || a.specialty === "obgyn" || a.specialty === "infertility" || a.specialty === "gynecology" || a.specialty === "obstetrics")
       ? a.specialty
       : null) as SpecialtyKey | null,
     condition: text(ans.condition) || text(a.condition),

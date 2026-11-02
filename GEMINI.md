@@ -17,4 +17,4 @@ From now on, every task, edit, or feature in AIMed must strictly follow this 3-s
 
 3. **Final Zip Snapshot Update**:
    - Update the distribution snapshot after every edit: `npm run snapshot`.
-   - Snapshot location: `C:\Users\raouf.RAOUFDESKTOP\.gemini\antigravity\scratch\aimed-snapshot.zip`.
+   - Snapshot location: `dist/aimed-snapshot.zip` (and parent scratch directory `aimed-snapshot.zip`).

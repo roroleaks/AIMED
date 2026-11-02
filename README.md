@@ -148,7 +148,9 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 365 unit tests across deterministic modules & taxonomy
+npm test                              # 395 unit tests (389 deterministic tests offline, 6 opt-in network tests)
+npm run test:live                     # Live multi-source queries (PubMed, PMC, S2, CrossRef, OpenAlex)
+npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
 npm run build                         # Production Next.js build
 node scripts/test-all-specialties.mjs # End-to-end 15-specialty integration test against localhost
@@ -161,7 +163,7 @@ node scripts/test-all-specialties.mjs # End-to-end 15-specialty integration test
 To initialize and push Aimed to GitHub:
 
 ```bash
-cd C:\Users\raouf.RAOUFDESKTOP\.gemini\antigravity\scratch\AIMed
+cd /path/to/Aimed
 
 # Initialize Git repository and add remote
 git remote add origin https://github.com/<your-username>/Aimed.git

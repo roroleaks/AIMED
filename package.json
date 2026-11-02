@@ -2,17 +2,21 @@
   "name": "aimed",
   "version": "4.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint && node scripts/secret-scan.mjs",
+    "secret-scan": "node scripts/secret-scan.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --test src/lib/*.test.ts",
+    "test:live": "node scripts/test-live.mjs",
     "icons": "node scripts/build-icons.mjs",
     "snapshot": "node scripts/create-snapshot.mjs"
   },
   "dependencies": {
+    "docx": "^9.15.1",
     "next": "16.3.8",
     "pdfkit": "^0.20.2",
     "react": "19.2.8",

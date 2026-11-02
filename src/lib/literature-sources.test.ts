@@ -63,18 +63,18 @@ test("LS5. deduplicateArticles collapses identical papers from different sources
       journal: "Int J Gynaecol Obstet",
       year: "2021",
       authors: "Shennan A",
-      doi: "10.1002/ijgo.13885",
+      doi: "10.1002/ijgo.13888",
       url: "https://pubmed.ncbi.nlm.nih.gov/34520055/",
       source: "pubmed"
     },
     {
-      pmid: "cr:10.1002/ijgo.13885",
+      pmid: "cr:10.1002/ijgo.13888",
       title: "FIGO good practice recommendations on cervical cerclage",
       journal: "International Journal of Gynecology & Obstetrics",
       year: "2021",
       authors: "Shennan Andrew",
-      doi: "10.1002/ijgo.13885",
-      url: "https://doi.org/10.1002/ijgo.13885",
+      doi: "10.1002/ijgo.13888",
+      url: "https://doi.org/10.1002/ijgo.13888",
       source: "crossref"
     },
     {
@@ -83,8 +83,8 @@ test("LS5. deduplicateArticles collapses identical papers from different sources
       journal: "International Journal of Gynecology and Obstetrics",
       year: "2021",
       authors: "A. Shennan",
-      doi: "https://doi.org/10.1002/ijgo.13885",
-      url: "https://doi.org/10.1002/ijgo.13885",
+      doi: "https://doi.org/10.1002/ijgo.13888",
+      url: "https://doi.org/10.1002/ijgo.13888",
       source: "openalex"
     },
     {
@@ -93,8 +93,8 @@ test("LS5. deduplicateArticles collapses identical papers from different sources
       journal: "Int J Gynaecol Obstet",
       year: "2021",
       authors: "Shennan A",
-      doi: "10.1002/ijgo.13885",
-      url: "https://doi.org/10.1002/ijgo.13885",
+      doi: "10.1002/ijgo.13888",
+      url: "https://doi.org/10.1002/ijgo.13888",
       source: "semanticscholar"
     },
     {
@@ -115,7 +115,10 @@ test("LS5. deduplicateArticles collapses identical papers from different sources
   assert.equal(deduped[1].title, "A completely different clinical trial on progesterone");
 });
 
-test("LS6. OpenAlex live search returns valid structured peer-reviewed articles", async () => {
+const RUN_LIVE = process.env.AIMED_LIVE_NETWORK === "1";
+const liveTest = RUN_LIVE ? test : test.skip;
+
+liveTest("LS6. OpenAlex live search returns valid structured peer-reviewed articles", async () => {
   const articles = await fetchOpenAlexArticles("cervical cerclage preterm birth", 3);
   assert.ok(Array.isArray(articles), "Must return an array");
   assert.ok(articles.length > 0, "Should return at least 1 hit for standard medical query");
@@ -126,7 +129,7 @@ test("LS6. OpenAlex live search returns valid structured peer-reviewed articles"
   assert.ok(first.studyType, "Must assign study design classification");
 });
 
-test("LS7. CrossRef live search returns valid structured journal articles", async () => {
+liveTest("LS7. CrossRef live search returns valid structured journal articles", async () => {
   const articles = await fetchCrossrefArticles("cervical cerclage preterm birth", 3);
   assert.ok(Array.isArray(articles), "Must return an array");
   assert.ok(articles.length > 0, "Should return at least 1 hit for standard medical query");
@@ -138,7 +141,7 @@ test("LS7. CrossRef live search returns valid structured journal articles", asyn
   assert.ok(first.studyType, "Must assign study design classification");
 });
 
-test("LS8. Semantic Scholar live search returns valid academic papers", async () => {
+liveTest("LS8. Semantic Scholar live search returns valid academic papers", async () => {
   const articles = await fetchSemanticScholarArticles("cervical cerclage preterm birth", 3);
   assert.ok(Array.isArray(articles), "Must return an array");
   if (articles.length > 0) {
@@ -154,7 +157,7 @@ test("LS8. Semantic Scholar live search returns valid academic papers", async ()
   }
 });
 
-test("LS9. PMC (Europe PMC) live search returns valid open access medical records", async () => {
+liveTest("LS9. PMC (Europe PMC) live search returns valid open access medical records", async () => {
   const articles = await fetchPmcArticles("cervical cerclage preterm birth", 3);
   assert.ok(Array.isArray(articles), "Must return an array");
   assert.ok(articles.length > 0, "Should return at least 1 hit for standard medical query");
@@ -165,7 +168,7 @@ test("LS9. PMC (Europe PMC) live search returns valid open access medical record
   assert.ok(first.studyType, "Must assign study design classification");
 });
 
-test("LS10. PubMed live search returns valid structured MEDLINE records", async () => {
+liveTest("LS10. PubMed live search returns valid structured MEDLINE records", async () => {
   const articles = await fetchPubMedArticles("cervical cerclage preterm birth", 3);
   assert.ok(Array.isArray(articles), "Must return an array");
   assert.ok(articles.length > 0, "Should return at least 1 hit for standard medical query");
@@ -176,7 +179,7 @@ test("LS10. PubMed live search returns valid structured MEDLINE records", async 
   assert.ok(first.studyType, "Must assign study design classification");
 });
 
-test("LS11. Multi-source search combines all active sources with error isolation", async () => {
+liveTest("LS11. Multi-source search combines all active sources with error isolation", async () => {
   const merged = await searchMultiSourceLiterature({
     sources: ["pubmed", "pmc", "semanticscholar", "openalex", "crossref"],
     query: "cervical cerclage preterm birth",

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import PDFDocument from "pdfkit";
+import fs from "node:fs";
+import path from "node:path";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import type { AuditableRef } from "@/lib/relevance";
 
@@ -117,9 +119,28 @@ export async function POST(req: Request) {
     const chunks: Buffer[] = [];
     doc.on("data", (c: Buffer) => chunks.push(c));
 
-    const FONT = "Helvetica";
-    const FONT_B = "Helvetica-Bold";
-    const FONT_O = "Helvetica-Oblique";
+    const fontsDir = path.join(process.cwd(), "public", "fonts");
+    const regularFontPath = path.join(fontsDir, "NotoSans-Regular.ttf");
+    const boldFontPath = path.join(fontsDir, "NotoSans-Bold.ttf");
+    const italicFontPath = path.join(fontsDir, "NotoSans-Italic.ttf");
+
+    let FONT = "Helvetica";
+    let FONT_B = "Helvetica-Bold";
+    let FONT_O = "Helvetica-Oblique";
+
+    if (
+      fs.existsSync(regularFontPath) &&
+      fs.existsSync(boldFontPath) &&
+      fs.existsSync(italicFontPath)
+    ) {
+      doc.registerFont("NotoSans", regularFontPath);
+      doc.registerFont("NotoSans-Bold", boldFontPath);
+      doc.registerFont("NotoSans-Italic", italicFontPath);
+      FONT = "NotoSans";
+      FONT_B = "NotoSans-Bold";
+      FONT_O = "NotoSans-Italic";
+    }
+
     const teal = "#0f6b6b";
     const ink = "#1c2430";
     const muted = "#8a95a0";
@@ -309,6 +330,12 @@ export async function POST(req: Request) {
       const fRight: number = doc.page.width - doc.page.margins.right;
       const fWidth: number = fRight - fLeft;
 
+      const origBottomMargin = doc.page.margins.bottom;
+      const origTopMargin = doc.page.margins.top;
+      // Temporarily clear margins so writing header/footer in margin area never triggers addPage()
+      doc.page.margins.bottom = 0;
+      doc.page.margins.top = 0;
+
       // Running header on page 2+
       if (i > range.start) {
         doc.font(FONT_O).fontSize(8).fillColor(muted);
@@ -318,21 +345,26 @@ export async function POST(req: Request) {
       }
 
       // Running footer on every page
-      doc.moveTo(fLeft, doc.page.height - doc.page.margins.bottom - 4).lineTo(fRight, doc.page.height - doc.page.margins.bottom - 4).strokeColor("#e2e8f0").lineWidth(0.5).stroke();
+      const footerY = doc.page.height - 38;
+      doc.moveTo(fLeft, footerY - 6).lineTo(fRight, footerY - 6).strokeColor("#e2e8f0").lineWidth(0.5).stroke();
       doc.font(FONT_O).fontSize(8.5).fillColor(muted);
       doc.text(
         "Aimed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026",
         fLeft,
-        doc.page.height - doc.page.margins.bottom + 4,
+        footerY,
         { width: fWidth - 110, lineBreak: false }
       );
       const pageNumText = `Page ${i - range.start + 1} of ${range.count}`;
       doc.text(
         pageNumText,
         fRight - 100,
-        doc.page.height - doc.page.margins.bottom + 4,
+        footerY,
         { width: 100, align: "right", lineBreak: false }
       );
+
+      // Restore margins
+      doc.page.margins.bottom = origBottomMargin;
+      doc.page.margins.top = origTopMargin;
     }
     doc.flushPages();
     doc.end();

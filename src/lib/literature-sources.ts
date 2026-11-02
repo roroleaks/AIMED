@@ -93,10 +93,10 @@ export const DEFAULT_LITERATURE_SOURCES: LiteratureSource[] = [
 ];
 
 const API_TIMEOUT_MS = 12_000;
-const OPENALEX_MAILTO = "support@aimed.app";
-const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:support@aimed.app)";
+const OPENALEX_MAILTO = process.env.OPENALEX_MAILTO || "raouf.roshdy@gmail.com";
+const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
-const S2_DEFAULT_KEY = process.env.S2_API_KEY || "s2k-0rcC3ztnxRdNGsOKL1SNvwbOPnSaRh4qHBT9qe7A";
+const S2_API_KEY = process.env.S2_API_KEY || "";
 
 /**
  * Strips HTML tags (including JATS XML tags from CrossRef) and decodes standard entities.
@@ -190,14 +190,22 @@ export async function fetchOpenAlexArticles(query: string, maxResults = 6): Prom
 
   const perPage = Math.min(Math.max(maxResults + 4, 8), 25);
   const select = "id,ids,doi,title,publication_year,type,authorships,primary_location,abstract_inverted_index";
-  const url = `https://api.openalex.org/works?search=${encodeURIComponent(sanitized)}&filter=type:article&per_page=${perPage}&select=${select}&mailto=${encodeURIComponent(OPENALEX_MAILTO)}`;
+  const openAlexApiKey = process.env.OPENALEX_API_KEY || "";
+  let url = `https://api.openalex.org/works?search=${encodeURIComponent(sanitized)}&filter=type:article&per_page=${perPage}&select=${select}&mailto=${encodeURIComponent(OPENALEX_MAILTO)}`;
+  if (openAlexApiKey) {
+    url += `&api_key=${encodeURIComponent(openAlexApiKey)}`;
+  }
 
   try {
+    const headers: Record<string, string> = {
+      Accept: "application/json",
+      "User-Agent": USER_AGENT
+    };
+    if (openAlexApiKey) {
+      headers["Authorization"] = `Bearer ${openAlexApiKey}`;
+    }
     const res = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-        "User-Agent": USER_AGENT
-      },
+      headers,
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
     });
 
@@ -387,8 +395,8 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
       Accept: "application/json",
       "User-Agent": USER_AGENT
     };
-    if (useKey && S2_DEFAULT_KEY) {
-      headers["x-api-key"] = S2_DEFAULT_KEY;
+    if (useKey && S2_API_KEY) {
+      headers["x-api-key"] = S2_API_KEY;
     }
     return fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
   };
@@ -396,7 +404,7 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
   try {
     let res = await tryFetch(true);
     // If rate limited with key, fail over immediately to unauthenticated request
-    if (res.status === 429 && S2_DEFAULT_KEY) {
+    if (res.status === 429 && S2_API_KEY) {
       res = await tryFetch(false);
     }
 

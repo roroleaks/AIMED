@@ -657,8 +657,8 @@ test("OS-U01. every question type still offers a usable list when nothing is rec
 
 test("OS-U02. an unrecognised specialty offers universal outcomes and never OB/GYN-specific ones", () => {
   const sel = selectOutcomes(buildOutcomeContext(
-    { specialty: "oncology" as never, condition: "metastatic colorectal cancer",
-      intervention: "pembrolizumab", questionType: THERAPY, framework: "PICO" },
+    { specialty: "unrecognised_specialty" as never, condition: "unspecified clinical condition",
+      intervention: "experimental compound", questionType: THERAPY, framework: "PICO" },
     {}
   ));
   assert.ok(sel.options.length >= MIN_OUTCOME_OPTIONS);
