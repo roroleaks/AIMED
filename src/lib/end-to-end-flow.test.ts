@@ -128,9 +128,9 @@ test("End-to-End Clinical Flow: Step 1 -> Step 2 -> Step 3 -> Step 4", () => {
 });
 
 test("End-to-End Clinical Flow: Multi-Specialty Cardiology Pipeline", () => {
-  // Step 1: User enters 4-6 tag words for Cardiology
+  // Step 1: User enters 4-12 tag words for Cardiology
   const tagWords = "heart failure, reduced ejection fraction, sglt2 inhibitors, ace inhibitors, cardiovascular death";
-  assert.ok(tagWords.split(",").length >= 4, "Step 1: 4-6 tag words entered");
+  assert.ok(tagWords.split(",").length >= 4 && tagWords.split(",").length <= 12, "Step 1: 4-12 tag words entered");
 
   // Step 2: Evidence Map displays 4 Known, 4 Uncertain, 4 Gaps, 4 PICO questions
   const gapMap = generateDeterministicGapAnalysis(tagWords, "cardiology");

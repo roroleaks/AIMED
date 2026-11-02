@@ -1065,7 +1065,7 @@ export function formulatePopulationPhrase(population: string, specialty?: Specia
 }
 
 /**
- * Parses 4–6 clinical tag words into distinct, non-overlapping PICO roles:
+ * Parses 4–12 clinical tag words into distinct, non-overlapping PICO roles:
  * - Population / Clinical Problem (P)
  * - Intervention (I)
  * - Comparator (C)

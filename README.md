@@ -77,7 +77,7 @@ Aimed features a modular specialty configuration architecture (`src/config/speci
 The platform operates through a rigorous 7-step evidence-based pipeline:
 
 ```
-[4 to 6 Tag Words]
+[4 to 12 Tag Words]
        │
        ▼
 [Stage: Gap Analysis & Mapping]

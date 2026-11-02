@@ -23,10 +23,14 @@ test("1. four comma-separated terms are valid", () => {
   assert.equal(validateKeywords(p), null);
 });
 
-test("2. six comma-separated terms are valid", () => {
-  const p = parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, gestational age");
-  assert.equal(p.logicalCount, 6);
-  assert.equal(validateKeywords(p), null);
+test("2. six and twelve comma-separated terms are valid", () => {
+  const p6 = parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, gestational age");
+  assert.equal(p6.logicalCount, 6);
+  assert.equal(validateKeywords(p6), null);
+
+  const p12 = parseClinicalKeywords("t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12");
+  assert.equal(p12.logicalCount, 12);
+  assert.equal(validateKeywords(p12), null);
 });
 
 test("3. three terms are rejected", () => {
@@ -35,10 +39,14 @@ test("3. three terms are rejected", () => {
   assert.ok(validateKeywords(p));
 });
 
-test("4. seven terms are rejected", () => {
-  const p = parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, singleton pregnancy, gestational age");
-  assert.equal(p.logicalCount, 7);
-  assert.ok(validateKeywords(p));
+test("4. thirteen terms are rejected (maximum is 12)", () => {
+  const p7 = parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, singleton pregnancy, gestational age");
+  assert.equal(p7.logicalCount, 7);
+  assert.equal(validateKeywords(p7), null, "7 terms must be valid when max is 12");
+
+  const p13 = parseClinicalKeywords("t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13");
+  assert.equal(p13.logicalCount, 13);
+  assert.ok(validateKeywords(p13));
 });
 
 test("5. co enzyme q 10 counts as one logical keyword", () => {
@@ -200,17 +208,17 @@ test("11f. decisions for terms absent from the input are inert", () => {
   assert.ok(p.normalizedTokens.includes("cerclage"));
 });
 
-test("12. invalid-entry message states detected count and the 4-6 range", () => {
+test("12. invalid-entry message states detected count and the 4-12 range", () => {
   const msg3 = validateKeywords(parseClinicalKeywords("short cervix, progesterone, cerclage"))!;
   assert.match(msg3, /3 logical keywords/);
   assert.match(msg3, /4 required minimum/);
   assert.match(msg3, new RegExp(`${MIN_KEYWORDS}[–-]${MAX_KEYWORDS}`));
 
-  const msg7 = validateKeywords(
-    parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, singleton pregnancy, gestational age")
+  const msg13 = validateKeywords(
+    parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth, cervical length, singleton pregnancy, gestational age, parity, screening, fetal fibronectin, tocolysis, neonatal outcome, follow up")
   )!;
-  assert.match(msg7, /7 logical keywords/);
-  assert.match(msg7, /maximum is 6/);
+  assert.match(msg13, /13 logical keywords/);
+  assert.match(msg13, /maximum is 12/);
 
   // explanatory content required by the brief
   assert.match(msg3, /count as one keyword each/);
@@ -225,9 +233,13 @@ test("live count hint reads correctly in and out of range", () => {
   assert.equal(keywordCountHint(parseClinicalKeywords("short cervix, progesterone, cerclage, preterm birth")),
     "4 logical keywords detected.");
   assert.equal(keywordCountHint(parseClinicalKeywords("")), "");
-  assert.match(
+  assert.equal(
     keywordCountHint(parseClinicalKeywords("endometriosis, metformin, aspirin, cerclage, hypertension, diabetes, anemia")),
-    /7 logical keywords detected — maximum is 6/
+    "7 logical keywords detected."
+  );
+  assert.match(
+    keywordCountHint(parseClinicalKeywords("t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13")),
+    /13 logical keywords detected — maximum is 12/
   );
 });
 

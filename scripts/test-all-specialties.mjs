@@ -52,7 +52,7 @@ async function runTest() {
       const tagWords = preset.raw;
       const tagCount = tagWords.split(",").length;
       console.log(`  Step 1: Tag Words [Count: ${tagCount}] -> "${tagWords}"`);
-      assert.ok(tagCount >= 4 && tagCount <= 6, `Tag words count must be 4–6`);
+      assert.ok(tagCount >= 4 && tagCount <= 12, `Tag words count must be 4–12`);
 
       // 1. Test POST /api/engine stage: gap on localhost
       console.log(`  Step 2: Calling localhost /api/engine stage: "gap"...`);

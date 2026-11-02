@@ -8,6 +8,8 @@ import {
   resolveCorrections,
   keywordsToString,
   correctionKey,
+  MIN_KEYWORDS,
+  MAX_KEYWORDS,
   type ParsedKeywords,
   type KeywordCorrection,
   type CorrectionRecord
@@ -115,5 +117,5 @@ export function readSessionInput(stored: unknown): ClinicalInput | null {
   return null;
 }
 
-export { validateKeywords, keywordCountHint, resolveCorrections, keywordsToString, correctionKey };
+export { validateKeywords, keywordCountHint, resolveCorrections, keywordsToString, correctionKey, MIN_KEYWORDS, MAX_KEYWORDS };
 export type { KeywordCorrection, CorrectionRecord, ParsedKeywords };

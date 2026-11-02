@@ -13,7 +13,8 @@ import {
   keywordCountHint,
   resolveCorrections,
   correctionKey,
-  readSessionInput
+  readSessionInput,
+  MAX_KEYWORDS
 } from "@/lib/clinical-input";
 import type { KeywordCorrection, CorrectionRecord } from "@/lib/clinical-input";
 import type { ClinicalInput } from "@/lib/clinical-input";
@@ -109,8 +110,8 @@ export default function Home() {
     if (!structC.trim() && !structO.trim()) {
       return "Please specify a Comparator / Control (C) or a Target Outcome (O) (or both).";
     }
-    if (parsed.logicalCount > 6) {
-      return `${parsed.logicalCount} keywords detected — maximum is 6.`;
+    if (parsed.logicalCount > MAX_KEYWORDS) {
+      return `${parsed.logicalCount} keywords detected — maximum is ${MAX_KEYWORDS}.`;
     }
     return null;
   }, [entryStyle, structP, structI, structC, structO, parsed.logicalCount]);
@@ -333,7 +334,7 @@ export default function Home() {
           <div className="pipeline-stepper">
             <div className="pipeline-step-item active">
               <span className="pipeline-step-tag active">Step 1 · Active</span>
-              <div className="pipeline-step-title active">Domain & 4–6 Tag Words</div>
+              <div className="pipeline-step-title active">Domain & 4–12 Tag Words</div>
             </div>
             <div className="pipeline-step-item">
               <span className="pipeline-step-tag muted">Step 2</span>
@@ -390,7 +391,7 @@ export default function Home() {
           {entryStyle === "tags" ? (
             <>
               <p className="hint">
-                Enter 4–6 clinically meaningful keywords or phrases for <b>{currentSpecialty.label}</b>. Separate terms with commas, semicolons, or new lines.
+                Enter 4–12 clinically meaningful keywords or phrases for <b>{currentSpecialty.label}</b>. Separate terms with commas, semicolons, or new lines.
               </p>
               <textarea
                 aria-label="Clinical keywords"
