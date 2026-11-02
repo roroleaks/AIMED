@@ -73,6 +73,7 @@ function cleanJsonResponse(raw: string): Record<string, unknown> {
     const start = cleaned.indexOf("{");
     const end = cleaned.lastIndexOf("}");
     if (start !== -1 && end > start) {
+      console.warn("[engine] cleanJsonResponse: JSON.parse failed on root; falling back to substring extraction between braces");
       return JSON.parse(cleaned.slice(start, end + 1));
     }
     throw new Error("Unable to parse JSON from LLM response");
@@ -232,6 +233,17 @@ function dedupeRefs(refs: PubMedRef[]): PubMedRef[] {
   return out;
 }
 
+function curateModelRefs(
+  c: Record<string, unknown>,
+  evidenceSet: { retainedRecords: unknown[] },
+  commentarySource: "ai" | "deterministic"
+) {
+  const fromModel = (Array.isArray(c.references) ? c.references : [])
+    .filter((x): x is string => typeof x === "string" && x.trim().length > 0);
+  const minCount = commentarySource === "deterministic" ? fromModel.length : 4;
+  return curateReferences(fromModel, evidenceSet.retainedRecords as AuditableRef[], { min: minCount, max: 8 });
+}
+
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
 
 async function esearchIds(term: string, retmax: number, filters = ""): Promise<string[]> {
@@ -259,6 +271,44 @@ async function esummaryForIds(ids: string[]): Promise<Record<string, ESummaryDoc
   return (data?.result as Record<string, ESummaryDoc>) || {};
 }
 
+async function efetchAbstracts(ids: string[]): Promise<Map<string, string>> {
+  const map = new Map<string, string>();
+  if (!ids.length) return map;
+  const apiKeyParam = NCBI_API_KEY ? `&api_key=${encodeURIComponent(NCBI_API_KEY)}` : "";
+  try {
+    const res = await fetch(
+      `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(",")}&rettype=abstract&retmode=xml${apiKeyParam}`,
+      { signal: AbortSignal.timeout(API_TIMEOUT_MS) }
+    );
+    if (!res.ok) return map;
+    const xml = await res.text();
+    const articleRegex = /<PubmedArticle>([\s\S]*?)<\/PubmedArticle>/gi;
+    let match: RegExpExecArray | null;
+    while ((match = articleRegex.exec(xml)) !== null) {
+      const artXml = match[1];
+      const pmidMatch = /<PMID[^>]*>(\d+)<\/PMID>/i.exec(artXml);
+      if (!pmidMatch) continue;
+      const pmid = pmidMatch[1];
+      const abstractTexts: string[] = [];
+      const absRegex = /<AbstractText(?:\s+Label="([^"]*)")?[^>]*>([\s\S]*?)<\/AbstractText>/gi;
+      let absMatch: RegExpExecArray | null;
+      while ((absMatch = absRegex.exec(artXml)) !== null) {
+        const label = absMatch[1];
+        const text = absMatch[2].replace(/<[^>]+>/g, "").trim();
+        if (text) {
+          abstractTexts.push(label ? `${label}: ${text}` : text);
+        }
+      }
+      if (abstractTexts.length) {
+        map.set(pmid, abstractTexts.join(" "));
+      }
+    }
+  } catch {
+    // Non-blocking degradation
+  }
+  return map;
+}
+
 async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Set<string> = EMPTY_REF_SET): Promise<PubMedRef[]> {
   const term = `${query} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
   const extra = Math.min(excluded.size, 25);
@@ -274,6 +324,8 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
         .slice(0, maxResults);
       if (!NCBI_API_KEY) await new Promise(r => setTimeout(r, 120));
       const result = await esummaryForIds(ids);
+      if (!NCBI_API_KEY) await new Promise(r => setTimeout(r, 120));
+      const abstracts = await efetchAbstracts(ids);
       const refs = ids
         .map((id) => {
           const doc = result?.[id];
@@ -286,6 +338,7 @@ async function fetchPubMedReferences(query: string, maxResults = 3, excluded: Se
             journal: doc?.fulljournalname || doc?.source || "",
             doi: doc?.elocationid?.replace("doi: ", "") || "",
             source: "pubmed",
+            context: abstracts.get(id) || undefined,
             pubType: pubtypes.length ? pubtypes.join(", ") : undefined,
             publicationTypes: pubtypes.length ? pubtypes : undefined,
             url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`
@@ -1132,7 +1185,8 @@ let commentary: Record<string, unknown>;
           commentary,
           evidenceSet,
           elements,
-          { ...DEFAULT_CONFIDENCE_CONFIG, llmAvailable: !!KEY }
+          { ...DEFAULT_CONFIDENCE_CONFIG, llmAvailable: !!KEY },
+          commentaryStartTime
         );
         
         // Telemetry logging for LLM vs deterministic path tracking
@@ -1188,7 +1242,7 @@ let commentary: Record<string, unknown>;
         });
         console.log("[engine] [telemetry]", JSON.stringify(telemetry));
       }
-      let curated = curateModelRefs(commentary);
+      let curated = curateModelRefs(commentary, evidenceSet, commentarySource);
       let citationChecks = checkCitations(String(commentary.discussion || ""), curated.references);
       let repairs = 0;
       // Only a model-produced draft can be repaired by asking the model again. A deterministic
@@ -1207,7 +1261,7 @@ ${responseShape}`,
           } catch (e) {
             console.error("[engine] LLM commentary repair failed, using current commentary:", e);
           }
-        curated = curateModelRefs(commentary);
+        curated = curateModelRefs(commentary, evidenceSet, commentarySource);
         citationChecks = checkCitations(String(commentary.discussion || ""), curated.references);
       }
 
@@ -1275,12 +1329,6 @@ ${responseShape}`,
         if (rec) curatedRecords.push(rec);
       }
 
-      function curateModelRefs(c: Record<string, unknown>) {
-        const fromModel = (Array.isArray(c.references) ? c.references : [])
-          .filter((x): x is string => typeof x === "string" && x.trim().length > 0);
-        const minCount = commentarySource === "deterministic" ? fromModel.length : 4;
-        return curateReferences(fromModel, evidenceSet.retainedRecords as AuditableRef[], { min: minCount, max: 8 });
-      }
       // Retained records that are not in the bibliography. Shown as additional evidence so the
       // user can see the full evidence base, never mixed into the reference list.
       const citedKeys = new Set(curatedRecords.map(r => r.doi ? `doi:${r.doi.toLowerCase()}` : (r.title || "").slice(0, 60).toLowerCase()));
@@ -1326,7 +1374,7 @@ const noDirectEvidence = directPool.length === 0;
           pool: evidenceSet.retainedRecords as AuditableRef[],
           elements
         });
-        curated = curateModelRefs(commentary);
+        curated = curateModelRefs(commentary, evidenceSet, commentarySource);
         const fallbackReconciled = reconcileNarrative(
           {
             abstract: String(commentary.abstract || ""),

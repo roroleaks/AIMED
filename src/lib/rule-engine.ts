@@ -3,7 +3,7 @@ import { buildOutcomeContext, selectOutcomes } from "./outcome-selection.ts";
 import { formulatePopulationPhrase } from "./clinical-semantics.ts";
 
 function normalize(s: string): string {
-  return s.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
 }
 
 function singular(t: string): string {
@@ -12,20 +12,41 @@ function singular(t: string): string {
 
 function canonical(term: string): string {
   const n = normalize(singular(term));
-  return SYNONYMS[n] || term;
+  return SYNONYMS[n] || SYNONYMS[term] || term;
 }
 
-const NORM_SYNONYMS: Record<string, string> = Object.fromEntries(
-  Object.entries(SYNONYMS).map(([k, v]) => [normalize(k), v])
-);
+const ALIAS_LOOKUP: Map<string, string[]> = new Map();
+for (const [alias, target] of Object.entries(SYNONYMS)) {
+  const normTarget = normalize(target);
+  const singTarget = normalize(singular(target));
+  const normAlias = normalize(alias);
+  for (const key of [normTarget, singTarget]) {
+    if (!ALIAS_LOOKUP.has(key)) ALIAS_LOOKUP.set(key, []);
+    ALIAS_LOOKUP.get(key)!.push(normAlias);
+  }
+}
 
 function matchIn(text: string, list: string[]): string[] {
   const norm = normalize(text);
   const found: string[] = [];
   for (const raw of list) {
-    const t = NORM_SYNONYMS[singular(normalize(raw))] || NORM_SYNONYMS[normalize(raw)] || normalize(singular(raw));
-    if (t.length >= 4 && norm.includes(t)) {
+    const normRaw = normalize(raw);
+    const singRaw = normalize(singular(raw));
+    let matched = false;
+
+    if ((normRaw.length >= 3 && norm.includes(normRaw)) || (singRaw.length >= 3 && norm.includes(singRaw))) {
       found.push(canonical(raw));
+      matched = true;
+    }
+
+    if (!matched) {
+      const aliases = [...(ALIAS_LOOKUP.get(normRaw) || []), ...(ALIAS_LOOKUP.get(singRaw) || [])];
+      for (const alias of aliases) {
+        if (alias.length >= 2 && norm.includes(alias)) {
+          found.push(canonical(raw));
+          break;
+        }
+      }
     }
   }
   return [...new Set(found)];
@@ -60,11 +81,14 @@ export function ruleAnalyze(input: string): Analysis {
   const spec = KB[specKey];
   const conds = matchIn(lower, spec.conditions);
   const ivs = matchIn(lower, spec.interventions);
+  const preventionWords = ["prevent", "prevention", "prophylaxis", "treatment", "therapy", "therapeutic"];
   const diagWords = ["diagnos", "ultrasound", "mri", "accuracy", "test"];
   const progWords = ["prognos", "predict", "risk of", "likelihood"];
   let qt = QUESTION_TYPES[0];
-  if (diagWords.some(w => lower.includes(w))) qt = QUESTION_TYPES[1];
-  else if (!ivs.length && !progWords.some(w => lower.includes(w))) qt = QUESTION_TYPES[3];
+  if (preventionWords.some(w => lower.includes(w))) qt = QUESTION_TYPES[0];
+  else if (diagWords.some(w => lower.includes(w))) qt = QUESTION_TYPES[1];
+  else if (progWords.some(w => lower.includes(w))) qt = QUESTION_TYPES[2];
+  else if (!ivs.length) qt = QUESTION_TYPES[3];
 
   const missing: string[] = [];
   if (!conds.length) missing.push("condition");

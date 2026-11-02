@@ -14,6 +14,7 @@ interface PubMedResult {
   authors: string;
   doi?: string;
   url: string;
+  context?: string;
   pubType?: string;
   publicationTypes?: string[];
 }
@@ -135,7 +136,44 @@ async function fetchSummaries(ids: string[]): Promise<Map<string, ESummaryDoc>> 
   return docs;
 }
 
-function toPubMedResult(id: string, doc: ESummaryDoc | undefined): PubMedResult | null {
+async function fetchAbstracts(ids: string[]): Promise<Map<string, string>> {
+  const map = new Map<string, string>();
+  if (!ids.length) return map;
+  const apiKeyParam = NCBI_API_KEY ? `&api_key=${encodeURIComponent(NCBI_API_KEY)}` : "";
+  try {
+    const res = await eutilsFetch(
+      `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=${ids.join(",")}&rettype=abstract&retmode=xml${apiKeyParam}`
+    );
+    if (!res.ok) return map;
+    const xml = await res.text();
+    const articleRegex = /<PubmedArticle>([\s\S]*?)<\/PubmedArticle>/gi;
+    let match: RegExpExecArray | null;
+    while ((match = articleRegex.exec(xml)) !== null) {
+      const artXml = match[1];
+      const pmidMatch = /<PMID[^>]*>(\d+)<\/PMID>/i.exec(artXml);
+      if (!pmidMatch) continue;
+      const pmid = pmidMatch[1];
+      const abstractTexts: string[] = [];
+      const absRegex = /<AbstractText(?:\s+Label="([^"]*)")?[^>]*>([\s\S]*?)<\/AbstractText>/gi;
+      let absMatch: RegExpExecArray | null;
+      while ((absMatch = absRegex.exec(artXml)) !== null) {
+        const label = absMatch[1];
+        const text = absMatch[2].replace(/<[^>]+>/g, "").trim();
+        if (text) {
+          abstractTexts.push(label ? `${label}: ${text}` : text);
+        }
+      }
+      if (abstractTexts.length) {
+        map.set(pmid, abstractTexts.join(" "));
+      }
+    }
+  } catch {
+    // Non-blocking fallback
+  }
+  return map;
+}
+
+function toPubMedResult(id: string, doc: ESummaryDoc | undefined, abstract?: string): PubMedResult | null {
   const title = (doc?.title || "").trim();
   // Some ESummary records carry no title; skip them instead of emitting a placeholder.
   if (!title) return null;
@@ -147,6 +185,7 @@ function toPubMedResult(id: string, doc: ESummaryDoc | undefined): PubMedResult 
     year: doc?.pubdate?.slice(0, 4) || "",
     authors: doc?.sortfirstauthor || "",
     doi: doc?.elocationid?.replace("doi: ", "") || undefined,
+    context: abstract || undefined,
     pubType: pubtypes.length ? pubtypes.join(", ") : undefined,
     publicationTypes: pubtypes.length ? pubtypes : undefined,
     url: `https://pubmed.ncbi.nlm.nih.gov/${id}/`
@@ -159,8 +198,9 @@ async function runSearch(input: ClinicalSearchInput): Promise<SearchPayload> {
     const ids = await fetchEsearchIds(candidate);
     if (!ids.length) continue;
     const docs = await fetchSummaries(ids);
+    const abstracts = await fetchAbstracts(ids);
     const results = ids
-      .map(id => toPubMedResult(id, docs.get(id)))
+      .map(id => toPubMedResult(id, docs.get(id), abstracts.get(id)))
       .filter((r): r is PubMedResult => r !== null);
     // Every record was malformed; treat the rung as a miss so the next candidate can still answer.
     if (!results.length) continue;

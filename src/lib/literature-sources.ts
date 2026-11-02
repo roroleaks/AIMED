@@ -378,6 +378,22 @@ interface S2PaperItem {
   };
 }
 
+async function fetchS2WithRetry(url: string, headers: Record<string, string>, attempts = 3): Promise<Response> {
+  let lastStatus = 0;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    const res = await fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
+    if (res.status !== 429 && res.status !== 503) return res;
+    lastStatus = res.status;
+    if (attempt < attempts - 1) {
+      const ra = Number(res.headers.get("retry-after"));
+      const backoff = 1500 * Math.pow(2, attempt) + Math.floor(Math.random() * 500);
+      const delay = Number.isFinite(ra) && ra > 0 ? Math.min(ra * 1000, 10_000) : backoff;
+      await new Promise(r => setTimeout(r, delay));
+    }
+  }
+  throw new Error(`Semantic Scholar throttled (${lastStatus})`);
+}
+
 /**
  * Fetches scientific papers from Semantic Scholar (Allen Institute for AI).
  * Automatically fails over to unauthenticated polite pool if the configured API key is rate-limited.
@@ -390,7 +406,7 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
   const fields = "paperId,title,authors,year,venue,externalIds,abstract,publicationTypes";
   const url = `https://api.semanticscholar.org/graph/v1/paper/search?query=${encodeURIComponent(sanitized)}&limit=${limit}&fields=${fields}`;
 
-  const tryFetch = async (useKey: boolean) => {
+  const getHeaders = (useKey: boolean) => {
     const headers: Record<string, string> = {
       Accept: "application/json",
       "User-Agent": USER_AGENT
@@ -398,14 +414,22 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
     if (useKey && S2_API_KEY) {
       headers["x-api-key"] = S2_API_KEY;
     }
-    return fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
+    return headers;
   };
 
   try {
-    let res = await tryFetch(true);
-    // If rate limited with key, fail over immediately to unauthenticated request
-    if (res.status === 429 && S2_API_KEY) {
-      res = await tryFetch(false);
+    let res: Response;
+    if (S2_API_KEY) {
+      try {
+        res = await fetchS2WithRetry(url, getHeaders(true));
+        if (res.status === 401 || res.status === 403) {
+          res = await fetchS2WithRetry(url, getHeaders(false));
+        }
+      } catch {
+        res = await fetchS2WithRetry(url, getHeaders(false));
+      }
+    } else {
+      res = await fetchS2WithRetry(url, getHeaders(false));
     }
 
     if (!res.ok) {

@@ -50,6 +50,13 @@ const pdfPayloadSchema = z.object({
 
 const BODY_MAX = 400_000;
 
+function normalizeVancouver(text: string, citationStyle?: string | null): string {
+  if (citationStyle === "vancouver" || !citationStyle) {
+    return text.replace(/\[([\d\s,\-]+)\]/g, "$1");
+  }
+  return text;
+}
+
 export async function POST(req: Request) {
   try {
     const raw = await req.text();
@@ -234,7 +241,8 @@ export async function POST(req: Request) {
           for (const rawSub of rawSubBlocks) {
             // Check if subBlock is a markdown heading
             if (/^#{1,4}\s+/.test(rawSub)) {
-              const headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
+              let headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
+              headTitle = normalizeVancouver(headTitle, body.citationStyle);
               ensure(32);
               doc.font(FONT_B).fontSize(11.5).fillColor("#14535a").text(headTitle, {
                 width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
@@ -251,10 +259,7 @@ export async function POST(req: Request) {
                 .map(it => it.replace(/^[-•*]\s+/, "").replace(/\*\*/g, "").trim())
                 .filter(Boolean);
               for (const it of items) {
-                let cleanIt = it;
-                if (body.citationStyle === "vancouver" || !body.citationStyle) {
-                  cleanIt = cleanIt.replace(/\[([\d\s,\-]+)\]/g, "$1");
-                }
+                const cleanIt = normalizeVancouver(it, body.citationStyle);
                 const bulletLines = wrap(cleanIt, doc.page.width - doc.page.margins.left - doc.page.margins.right - 18);
                 ensure(bulletLines.length * 15 + 8);
                 const bulletY = doc.y;
@@ -275,9 +280,7 @@ export async function POST(req: Request) {
             let text = rawSub.replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
             if (!text) continue;
             // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
-            if (body.citationStyle === "vancouver" || !body.citationStyle) {
-              text = text.replace(/\[([\d\s,\-]+)\]/g, "$1");
-            }
+            text = normalizeVancouver(text, body.citationStyle);
             const shortHead = text.length < 70 && !/[.!?]\s*$/.test(text);
             if (shortHead) {
               ensure(26);

@@ -1,6 +1,7 @@
 import { formatVancouverReference, elementByType, type PicoElement } from "./relevance.ts";
 import type { AuditableRef } from "./relevance.ts";
 import { extractPicoFromQuestion } from "./pico-parser.ts";
+import { getSpecialtyDefinition } from "./specialties.ts";
 
 export interface DeterministicCommentaryInput {
   selectedQuestion: string;
@@ -243,14 +244,21 @@ export function generateDeterministicCommentary(
     `Clinicians must recognize the boundaries of current data: findings from specific study cohorts cannot be extrapolated uncritically across all clinical severity grades or alternative patient subgroups. ` +
     `Shared decision-making, accompanied by transparent discussion of evidence certainty and potential therapeutic limitations, represents the most prudent clinical approach.`;
 
+  const isObGyn = /^(obstetrics|gynecology|infertility|obgyn)$/i.test(opts.specialty || "");
+  const specDef = opts.specialty ? getSpecialtyDefinition(opts.specialty) : null;
+  const endpointPhrase = specDef?.gapBoilerplate?.endpointPhrase
+    || (isObGyn ? "cumulative live birth" : "long-term functional outcomes");
+  const trialDomainPhrase = specDef?.gapBoilerplate?.trialDomainPhrase
+    || (isObGyn ? "reproductive and gynecological" : specDef ? specDef.label.toLowerCase() : "specialty-specific");
+
   const discGaps =
     `#### Research Gaps & Unanswered Questions\n\n` +
     `The synthesis of current literature highlights several critical research gaps that warrant prioritized investigation:\n` +
     `- **Definitive Head-to-Head RCTs:** A scarcity of adequately powered, multi-center, double-blind randomized trials directly evaluating ${intVal || "the intervention"} against active modern comparators in well-defined clinical cohorts.\n` +
     `- **Stratification Biomarkers:** Absence of validated molecular or clinical biomarkers to identify which patient subgroups exhibit optimal responsiveness regarding ${outVal || outcomesText}.\n` +
     `- **Standardized Dosing & Timing:** Unresolved questions regarding optimal dosage, duration of therapy, and ideal timing of administration relative to key procedural milestones.\n` +
-    `- **Long-Term & Patient-Reported Endpoints:** Limited prospective tracking of long-term health outcomes, cumulative live birth or safety endpoints, and patient-reported quality-of-life measures.\n` +
-    `- **Core Outcome Standardization:** The need for standardized outcome reporting across reproductive and gynecological trials to facilitate reliable future meta-analyses.`;
+    `- **Long-Term & Patient-Reported Endpoints:** Limited prospective tracking of long-term health outcomes, ${endpointPhrase} or safety endpoints, and patient-reported quality-of-life measures.\n` +
+    `- **Core Outcome Standardization:** The need for standardized outcome reporting across ${trialDomainPhrase} trials to facilitate reliable future meta-analyses.`;
 
   const discussion = [
     discIntro,

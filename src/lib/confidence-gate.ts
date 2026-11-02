@@ -101,8 +101,10 @@ export function evaluateConfidence(
   commentary: Record<string, unknown>,
   evidenceSet: { retainedRecords: AuditableRef[]; allowedCitationKeys: Set<string>; citationMap: Map<string, unknown>; retrievedCount: number; retainedCount: number; excludedCount: number },
   elements: PicoElement[],
-  config: ConfidenceGateConfig = DEFAULT_CONFIDENCE_CONFIG
+  config: ConfidenceGateConfig = DEFAULT_CONFIDENCE_CONFIG,
+  startTime?: number
 ): ConfidenceGateResult {
+  const start = typeof startTime === "number" ? startTime : Date.now();
   const gates: GateResult[] = [];
 
   // Gate 1: Citation Integrity
@@ -188,11 +190,13 @@ export function evaluateConfidence(
     ? failedGates.map(g => `${g.name}: ${g.details}`).join("; ")
     : undefined;
 
+  const elapsed = Math.max(0, Date.now() - start);
+
   const telemetry: TelemetryData = {
     pathUsed: passed ? "llm" : "deterministic",
     fallbackTriggered: !passed,
     failedGates: failedGates.length,
-    processingTimeMs: Date.now() - Date.now(),
+    processingTimeMs: elapsed,
     llmAvailable: config.llmAvailable
   };
 
@@ -201,10 +205,7 @@ export function evaluateConfidence(
     score: Math.round(overallScore),
     gates,
     fallbackReason,
-    telemetry: {
-      ...telemetry,
-      processingTimeMs: Date.now() - Date.now()
-    }
+    telemetry
   };
 }
 

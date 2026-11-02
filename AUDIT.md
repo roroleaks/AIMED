@@ -19,7 +19,7 @@ Following the remediation audit of commit `430a415`, all identified defects have
 | **F1 (Critical)** | PDFKit footer loop spawned 2N phantom blank pages | Fixed: margins cleared during running header/footer rendering | `src/lib/pdf-pagination.test.ts` (PDF1: PASS, 0 phantom pages) |
 | **F2 (High)** | Standard Helvetica WinAnsi lacked glyphs for `≤`, `≥`, `±`, `μ`, `°`, `→`, `×`, `α`, `β` | Fixed: bundled and registered NotoSans TTF Unicode font family | `src/lib/pdf-pagination.test.ts` (PDF2: PASS, 100% glyph coverage) |
 | **F3 (High)** | Word export was HTML-as-`.doc`, not OOXML | Fixed: created `/api/docx` route with `docx` package emitting genuine `.docx` manuscripts with parity gate | `src/app/api/docx/route.ts` (Valid PK zip OOXML + integrity gate) |
-| **F4 (High)** | OpenAlex live network test failed on rate-limit budget | Fixed: gated live network tests (`LS6`–`LS11`) behind `AIMED_LIVE_NETWORK=1` and `npm run test:live` | `npm test` passes 389/389 offline (0 failures) |
+| **F4 (High)** | OpenAlex live network test failed on rate-limit budget | Fixed: gated live network tests (`LS6`–`LS11`) behind `AIMED_LIVE_NETWORK=1` and `npm run test:live` | `npm test` passes 394/394 offline (0 failures) |
 | **F5 (High)** | Hardcoded Semantic Scholar fallback key in source | Fixed: removed fallback key; added `scripts/secret-scan.mjs` CI guard | `npm run secret-scan` passes (0 secrets in `src/`) |
 | **R1 (Reasoning)** | Outcome selector fell back to 5 generic outcomes for non-OB specialties | Fixed: removed hardcoded 3-specialty restriction in `buildOutcomeContext`; full 15-specialty ontology active | `scripts/test-all-specialties.mjs` asserts domain endpoints |
 | **D1–D7 (Config)** | Docs, paths, package.json `"type": "module"`, legacy audit | Fixed: updated package.json, removed typeless warnings, portable paths | Clean lint, typecheck, and build |
@@ -58,7 +58,7 @@ Following the remediation audit of commit `430a415`, all identified defects have
 
 | Verification Step | Command | Result |
 | :--- | :--- | :--- |
-| **Deterministic Unit Tests** | `npm test` | **389 PASS**, 0 FAIL, 6 skipped (live network) |
+| **Deterministic Unit Tests** | `npm test` | **394 PASS**, 0 FAIL, 6 skipped (live network) |
 | **Secret Scan CI Guard** | `npm run secret-scan` | **PASS**, 0 secret patterns found in `src/` |
 | **TypeScript Strict Check** | `npm run typecheck` | **PASS**, 0 type errors |
 | **Linting & Code Style** | `npm run lint` | **PASS**, 0 errors, 0 warnings |

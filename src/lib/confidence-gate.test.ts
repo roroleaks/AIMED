@@ -1,5 +1,6 @@
-﻿import test from "node:test";
+import test from "node:test";
 import assert from "node:assert/strict";
+import { evaluateConfidence } from "./confidence-gate.ts";
 import {
   auditRef,
   filterByClaim,
@@ -117,4 +118,27 @@ test("the confidence policy and the claim filter agree on every fixture", () => 
     const kept = res.kept.some(k => k === ref);
     assert.equal(decision.eligible, kept, `${ref.title}: policy and filter disagree`);
   }
+});
+
+test("FIX 3: evaluateConfidence tracks elapsed processingTimeMs correctly when startTime is passed", () => {
+  const pastStartTime = Date.now() - 150;
+  const mockEvidenceSet = {
+    retainedRecords: [],
+    allowedCitationKeys: new Set<string>(),
+    citationMap: new Map(),
+    retrievedCount: 0,
+    retainedCount: 0,
+    excludedCount: 0
+  };
+  const result = evaluateConfidence(
+    { discussion: "Test discussion", references: [] },
+    mockEvidenceSet,
+    PICO,
+    undefined,
+    pastStartTime
+  );
+  assert.ok(
+    typeof result.telemetry.processingTimeMs === "number" && result.telemetry.processingTimeMs >= 100,
+    `processingTimeMs should be >= 100ms, got ${result.telemetry.processingTimeMs}`
+  );
 });

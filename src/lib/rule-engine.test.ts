@@ -136,3 +136,16 @@ test("ruleAnalyze survives an empty string", () => {
   assert.deepEqual(r.missing, ["condition", "intervention", "comparator", "outcome"]);
   assert.equal(r.source, "rules");
 });
+
+test("FIX 5: ruleAnalyze classifies 'preterm birth prevention' as Therapy / Prevention, not Etiology", () => {
+  const r = ruleAnalyze("preterm birth prevention");
+  assert.equal(r.specialty, "obstetrics");
+  assert.equal(r.questionType, "Therapy / Prevention");
+  assert.equal(r.framework, "PICO");
+});
+
+test("FIX 12: ruleAnalyze handles non-English multilingual input (Arabic)", () => {
+  const r = ruleAnalyze("الولادة المبكرة");
+  assert.equal(r.specialty, "obstetrics");
+  assert.equal(r.condition, "preterm birth risk");
+});

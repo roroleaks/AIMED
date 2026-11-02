@@ -335,3 +335,43 @@ test("the reference pool is capped so a large pool cannot flood the paper", () =
   assert.deepEqual(checks.uncited, []);
   assert.deepEqual(checks.orphans, []);
 });
+
+test("FIX 1: deterministic commentary does NOT leak OB/GYN vocabulary into non-OB specialties", () => {
+  const nonObSpecialties = [
+    "cardiology",
+    "oncology",
+    "pediatrics",
+    "surgery",
+    "internal_med",
+    "neurology",
+    "endocrinology",
+    "emergency_med",
+    "psychiatry",
+    "orthopedics",
+    "pulmonology",
+    "gastroenterology",
+    "infectious_disease",
+    "dermatology"
+  ];
+
+  for (const spec of nonObSpecialties) {
+    const out = generateDeterministicCommentary({
+      selectedQuestion: `In patients with ${spec} disease, does active therapy compared with control improve clinical outcomes?`,
+      outcomesText: "clinical outcomes",
+      reason: "deterministic fallback",
+      pool: CERVIX_RECORDS,
+      elements: CERVIX,
+      specialty: spec
+    });
+
+    const disc = String(out.discussion);
+    assert.ok(
+      !disc.includes("live birth"),
+      `Specialty ${spec} leaked 'live birth' in discussion: ${disc}`
+    );
+    assert.ok(
+      !disc.includes("gynecological"),
+      `Specialty ${spec} leaked 'gynecological' in discussion: ${disc}`
+    );
+  }
+});

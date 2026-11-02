@@ -17,6 +17,7 @@ import {
   isDirectSupport,
   referenceSetKey,
   surnamesOf,
+  type AuditableRef,
   type PicoElement
 } from "./relevance.ts";
 
@@ -383,4 +384,49 @@ test("R25. every audit marks whether the record resolved to a citable source", (
   }
   assert.equal(audits.get("11100001")?.resolved, true);
   assert.equal(audits.get("11100001")?.doiOk, true);
+});
+
+test("FIX 2 & FIX 6: Landmark RCT (DAPA-HF) is retained as direct support for cardiology PICO", () => {
+  const CARDIO_PICO: PicoElement[] = [
+    { label: "P — Population", value: "heart failure with reduced ejection fraction" },
+    { label: "I — Intervention", value: "dapagliflozin" },
+    { label: "C — Comparator", value: "placebo" },
+    { label: "O — Outcome", value: "cardiovascular mortality" }
+  ];
+
+  // 1. DAPA-HF trial with real abstract (FIX 2)
+  const dapaHfWithAbstract: AuditableRef = {
+    pmid: "31535829",
+    doi: "10.1056/NEJMoa1911303",
+    title: "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction",
+    authors: "McMurray JJV, Solomon SD, Inzucchi SE, et al.",
+    year: "2019",
+    journal: "N Engl J Med",
+    pubType: "Randomized Controlled Trial",
+    context: "In patients with heart failure and reduced ejection fraction, the risk of worsening heart failure or death from cardiovascular causes was lower among those who received dapagliflozin than among those who received placebo."
+  };
+
+  const audit1 = auditRef(dapaHfWithAbstract, CARDIO_PICO);
+  assert.equal(audit1.population, true, "population matches HFrEF");
+  assert.equal(audit1.intervention, true, "intervention matches dapagliflozin");
+  assert.equal(audit1.outcome, true, "outcome matches cardiovascular death / mortality from abstract");
+  assert.equal(isDirectSupport(audit1, CARDIO_PICO), true, "DAPA-HF with abstract is direct support");
+
+  // 2. DAPA-HF trial even with empty abstract via design-aware RCT outcome matching (FIX 6)
+  const dapaHfEmptyContext: AuditableRef = {
+    pmid: "31535829",
+    doi: "10.1056/NEJMoa1911303",
+    title: "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction",
+    authors: "McMurray JJV, Solomon SD, Inzucchi SE, et al.",
+    year: "2019",
+    journal: "N Engl J Med",
+    pubType: "Randomized Controlled Trial",
+    context: ""
+  };
+
+  const audit2 = auditRef(dapaHfEmptyContext, CARDIO_PICO);
+  assert.equal(audit2.population, true, "population matches HFrEF");
+  assert.equal(audit2.intervention, true, "intervention matches dapagliflozin");
+  assert.equal(audit2.outcome, true, "design-aware matching credits RCT outcome");
+  assert.equal(isDirectSupport(audit2, CARDIO_PICO), true, "DAPA-HF without abstract is direct support via design-aware match");
 });

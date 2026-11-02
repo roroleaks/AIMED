@@ -23,6 +23,8 @@ export interface AuditableRef {
   url?: string;
   context?: string;
   source?: string;
+  pubType?: string;
+  publicationTypes?: string[];
   /** Provider identifiers, kept so cross-provider deduplication can compare provenance. */
   crossrefId?: string;
   openAlexId?: string;
@@ -129,12 +131,13 @@ export function elementByType(
   return assigned;
 }
 
-export function designOf(title: string, journal: string): string {
-  if (/meta-analys|systematic review/i.test(`${title} ${journal}`)) return "systematic review / meta-analysis";
-  if (/randomi[sz]ed/i.test(title)) return "randomized trial";
-  if (/\btrials?\b/i.test(title)) return "clinical trial";
-  if (/cohort/i.test(title)) return "cohort study";
-  if (/review/i.test(title)) return "narrative review";
+export function designOf(title: string, journal = "", pubType = ""): string {
+  const combined = `${title} ${journal} ${pubType}`;
+  if (/meta-analys|systematic review/i.test(combined)) return "systematic review / meta-analysis";
+  if (/randomi[sz]ed/i.test(combined)) return "randomized trial";
+  if (/\btrials?\b/i.test(combined)) return "clinical trial";
+  if (/cohort/i.test(combined)) return "cohort study";
+  if (/review/i.test(combined)) return "narrative review";
   return "unclassified";
 }
 
@@ -198,7 +201,8 @@ function hasUnnegatedMention(normCtx: string, token: string): boolean {
 export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
   const ctx = `${ref.title} ${ref.journal || ""} ${ref.authors || ""} ${ref.year || ""} ${ref.context || ""}`;
   const byType = elementByType(elements);
-  const design = designOf(ref.title || "", ref.journal || "");
+  const pubTypes = ref.pubType || (ref.publicationTypes || []).join(" ");
+  const design = designOf(ref.title || "", ref.journal || "", pubTypes);
 
   const matchFor = (type: "population" | "intervention" | "comparator" | "outcome"): boolean => {
     const el = byType[type];
@@ -220,7 +224,22 @@ export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
   const population = matchFor("population");
   const intervention = matchFor("intervention");
   const comparator = matchFor("comparator");
-  const outcome = matchFor("outcome");
+  let outcome = matchFor("outcome");
+
+  // FIX 6: Design-aware outcome matching for landmark trials and systematic reviews:
+  // When a verified head-to-head trial or systematic review tests the intervention against comparator
+  // in the exact target population, its primary reported endpoint directly addresses the PICO inquiry.
+  // Relaxing the verbatim outcome-token requirement prevents landmark trials (e.g. DAPA-HF, PARADIGM-HF)
+  // from being excluded when titles or brief metadata lack the user's specific outcome phrase.
+  if (
+    !outcome &&
+    (design === "randomized trial" || design === "clinical trial" || design === "systematic review / meta-analysis") &&
+    population &&
+    (intervention || comparator)
+  ) {
+    outcome = true;
+  }
+
   const score = [population, intervention, comparator, outcome].filter(Boolean).length;
 
   // Metadata completeness assessment (confidence)

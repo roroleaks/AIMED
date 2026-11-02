@@ -16,6 +16,11 @@ export interface OutcomeRule {
   rationale: string;
 }
 
+export interface GapBoilerplate {
+  endpointPhrase: string;
+  trialDomainPhrase: string;
+}
+
 export interface SpecialtyDefinition {
   id: string;
   label: string;
@@ -47,6 +52,7 @@ export interface SpecialtyDefinition {
   outcomeRules: OutcomeRule[];
   systemPromptRole: string;
   gapPromptRole: string;
+  gapBoilerplate?: GapBoilerplate;
 }
 
 export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
@@ -140,7 +146,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert physician, maternal-fetal medicine specialist, and academic medical writer specializing in Obstetrics, Gynecology, and Reproductive Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Obstetrics & Gynecology with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Obstetrics & Gynecology with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "cumulative live birth",
+      trialDomainPhrase: "reproductive and gynecological"
+    }
   },
 
   cardiology: {
@@ -245,7 +255,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert cardiologist, cardiovascular clinical trialist, and academic medical writer specializing in Cardiology and Vascular Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Cardiology & Cardiovascular Medicine with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Cardiology & Cardiovascular Medicine with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "cardiovascular mortality and heart failure hospitalization",
+      trialDomainPhrase: "cardiovascular and cardiothoracic"
+    }
   },
 
   oncology: {
@@ -328,7 +342,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert medical oncologist, clinical trialist, and academic oncology writer specializing in Medical Oncology and Precision Cancer Therapeutics.",
-    gapPromptRole: "You are an evidence-mapping engine for Medical Oncology & Cancer Therapeutics with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Medical Oncology & Cancer Therapeutics with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "overall survival and progression-free survival",
+      trialDomainPhrase: "oncology and hematology"
+    }
   },
 
   pediatrics: {
@@ -419,7 +437,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert pediatrician, neonatologist, and pediatric clinical researcher specializing in General Pediatrics and Neonatal Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Pediatrics & Neonatal Medicine with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Pediatrics & Neonatal Medicine with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "neurodevelopmental impairment and pediatric morbidity",
+      trialDomainPhrase: "pediatric and neonatal"
+    }
   },
 
   surgery: {
@@ -500,7 +522,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert general and minimally invasive surgeon, academic surgical trialist, and surgical literature editor.",
-    gapPromptRole: "You are an evidence-mapping engine for General & Minimally Invasive Surgery with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for General & Minimally Invasive Surgery with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "long-term anatomical recovery and surgical reoperation rates",
+      trialDomainPhrase: "surgical and perioperative"
+    }
   },
 
   internal_med: {
@@ -570,7 +596,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert internist, clinical epidemiologist, and academic medical writer specializing in Internal Medicine and Nephrology.",
-    gapPromptRole: "You are an evidence-mapping engine for Internal Medicine & Clinical Specialties with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Internal Medicine & Clinical Specialties with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "major adverse kidney events and composite systemic endpoints",
+      trialDomainPhrase: "internal medicine and nephrology"
+    }
   },
 
   neurology: {
@@ -640,7 +670,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert neurologist, vascular neuro-interventionalist, and academic clinical trials investigator in Neurology and Stroke Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Neurology & Neuroscience with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Neurology & Neuroscience with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "functional independence (modified Rankin Scale) and disability scores",
+      trialDomainPhrase: "neurology and stroke"
+    }
   },
 
   endocrinology: {
@@ -715,7 +749,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert endocrinologist, metabolic clinical investigator, and academic endocrine medical writer.",
-    gapPromptRole: "You are an evidence-mapping engine for Endocrinology & Metabolism with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Endocrinology & Metabolism with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "durable glycemic control and microvascular/macrovascular events",
+      trialDomainPhrase: "endocrinology and metabolic"
+    }
   },
 
   emergency_med: {
@@ -803,7 +841,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert emergency physician, resuscitation trialist, and intensivist specializing in Emergency Medicine and Critical Care.",
-    gapPromptRole: "You are an evidence-mapping engine for Emergency Medicine & Critical Care with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Emergency Medicine & Critical Care with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "28-day survival and favorable cerebral performance category (CPC) scores",
+      trialDomainPhrase: "emergency and critical care resuscitation"
+    }
   },
 
   psychiatry: {
@@ -891,7 +933,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert academic psychiatrist, neuropsychopharmacologist, and behavioral clinical trialist specializing in Psychiatry and Mental Health.",
-    gapPromptRole: "You are an evidence-mapping engine for Psychiatry & Behavioral Health with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Psychiatry & Behavioral Health with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "sustained psychiatric remission and functional social recovery",
+      trialDomainPhrase: "psychiatric and behavioral health"
+    }
   },
 
   orthopedics: {
@@ -978,7 +1024,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert orthopedic surgeon, biomechanics researcher, and musculoskeletal clinical trialist specializing in Orthopedic Surgery and Sports Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Orthopedics & Musculoskeletal Medicine with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Orthopedics & Musculoskeletal Medicine with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "joint implant longevity, revision rates, and validated mobility indices",
+      trialDomainPhrase: "orthopedic and musculoskeletal"
+    }
   },
 
   pulmonology: {
@@ -1065,7 +1115,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert pulmonologist, respiratory physiologist, and clinical investigator specializing in Pulmonology and Respiratory Medicine.",
-    gapPromptRole: "You are an evidence-mapping engine for Pulmonology & Respiratory Medicine with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Pulmonology & Respiratory Medicine with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "rate of moderate-to-severe exacerbations and lung function decline",
+      trialDomainPhrase: "pulmonary and respiratory medicine"
+    }
   },
 
   gastroenterology: {
@@ -1152,7 +1206,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert gastroenterologist, hepatologist, and digestive clinical trialist specializing in Gastroenterology and Hepatology.",
-    gapPromptRole: "You are an evidence-mapping engine for Gastroenterology & Hepatology with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Gastroenterology & Hepatology with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "durable endoscopic-histologic mucosal healing and fibrosis progression",
+      trialDomainPhrase: "gastroenterology and hepatology"
+    }
   },
 
   infectious_disease: {
@@ -1238,7 +1296,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert infectious disease specialist, medical microbiologist, and clinical antimicrobial trialist specializing in Infectious Diseases and Global Health.",
-    gapPromptRole: "You are an evidence-mapping engine for Infectious Diseases & Antimicrobial Stewardship with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Infectious Diseases & Antimicrobial Stewardship with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "microbiological sustained eradication, clinical cure, and resistance rates",
+      trialDomainPhrase: "infectious disease and antimicrobial"
+    }
   },
 
   dermatology: {
@@ -1324,7 +1386,11 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
       }
     ],
     systemPromptRole: "You are an expert academic dermatologist, cutaneous immunologist, and dermatologic clinical trialist specializing in Dermatology and Cutaneous Biology.",
-    gapPromptRole: "You are an evidence-mapping engine for Dermatology & Cutaneous Biology with strict scientific editorial standards."
+    gapPromptRole: "You are an evidence-mapping engine for Dermatology & Cutaneous Biology with strict scientific editorial standards.",
+    gapBoilerplate: {
+      endpointPhrase: "complete skin clearance (PASI 100/EASI 90) and durable itch remission",
+      trialDomainPhrase: "dermatology and cutaneous biology"
+    }
   }
 };
 

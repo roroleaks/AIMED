@@ -148,7 +148,7 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 395 unit tests (389 deterministic tests offline, 6 opt-in network tests)
+npm test                              # 400 tests (394 deterministic PASS, 6 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
 npm run test:live                     # Live multi-source queries (PubMed, PMC, S2, CrossRef, OpenAlex)
 npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
