@@ -25,20 +25,37 @@ const SPECIALTY_ORDER = [
   { id: "dermatology", name: "Dermatology & Cutaneous Biology", guidelines: "AAD · EADV · BAD · EDF" }
 ];
 
+const args = process.argv.slice(2);
+const isOffline = args.includes("--offline");
+const specIndex = args.indexOf("--specialty");
+const specialtyFilter = specIndex !== -1 && args[specIndex + 1] ? args[specIndex + 1].toLowerCase().trim() : null;
+
+const targetSpecialties = specialtyFilter
+  ? SPECIALTY_ORDER.filter(s => s.id === specialtyFilter)
+  : SPECIALTY_ORDER;
+
+if (specialtyFilter && targetSpecialties.length === 0) {
+  console.error(`Unknown specialty: "${specialtyFilter}". Available: ${SPECIALTY_ORDER.map(s => s.id).join(", ")}`);
+  process.exit(1);
+}
+
 async function runTest() {
-  console.log(`\n======================================================================`);
-  console.log(`🔬 AIMed Multi-Specialty Localhost Stress-Test Suite (15 Specialties)`);
+  if (isOffline) {
+    console.log(`[offline] running against deterministic engine; live literature is skipped\n`);
+  }
+  console.log(`======================================================================`);
+  console.log(`🔬 AIMed Multi-Specialty Localhost Stress-Test Suite (${targetSpecialties.length} Specialties)`);
   console.log(`Target Host: ${BASE_URL}`);
   console.log(`======================================================================\n`);
 
   let passed = 0;
   let failed = 0;
 
-  for (let idx = 0; idx < SPECIALTY_ORDER.length; idx++) {
-    const spec = SPECIALTY_ORDER[idx];
+  for (let idx = 0; idx < targetSpecialties.length; idx++) {
+    const spec = targetSpecialties[idx];
     const num = idx + 1;
     console.log(`\n----------------------------------------------------------------------`);
-    console.log(`[${num}/15] Testing: ${spec.name} (${spec.guidelines})`);
+    console.log(`[${num}/${targetSpecialties.length}] Testing: ${spec.name} (${spec.guidelines})`);
     console.log(`Specialty Key: "${spec.id}"`);
     console.log(`----------------------------------------------------------------------`);
 
@@ -62,7 +79,8 @@ async function runTest() {
         body: JSON.stringify({
           stage: "gap",
           input: tagWords,
-          specialty: spec.id
+          specialty: spec.id,
+          ...(isOffline ? { sources: ["none"] } : {})
         })
       });
       assert.equal(gapRes.status, 200, `Stage gap returned status ${gapRes.status}`);
@@ -196,6 +214,20 @@ async function runTest() {
 
       // 4. Generate Commentary on localhost
       console.log(`  Step 6: Calling localhost /api/engine stage: "commentary"...`);
+      if (isOffline && gapData.known && gapData.known[0]) {
+        gapData.known[0].references = [
+          {
+            pmid: `31000${String(num).padStart(3, "0")}`,
+            title: `Evaluation of ${picoParsed.intervention} in patients with ${picoParsed.condition}`,
+            authors: "Smith J, Anderson K, Miller P",
+            year: "2023",
+            journal: "N Engl J Med",
+            doi: `10.1056/nejmoa2300${String(num).padStart(3, "0")}`,
+            pubType: "Randomized Controlled Trial",
+            context: `In patients with ${picoParsed.condition}, treatment with ${picoParsed.intervention} compared to ${picoParsed.comparator} improved ${chosenOutcome}.`
+          }
+        ];
+      }
       const commRes = await fetch(`${BASE_URL}/api/engine`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -206,7 +238,8 @@ async function runTest() {
           gapAnalysis: gapData,
           selectedQuestion: formulateData.finalQuestion,
           outcome: chosenOutcome,
-          picoElements: formulateData.elements
+          picoElements: formulateData.elements,
+          ...(isOffline ? { sources: ["none"] } : {})
         })
       });
       if (commRes.status !== 200) {
@@ -294,7 +327,7 @@ async function runTest() {
 
   console.log(`\n======================================================================`);
   console.log(`🏁 Multi-Specialty Localhost Test Suite Completed`);
-  console.log(`Total Specialties: ${SPECIALTY_ORDER.length}`);
+  console.log(`Total Specialties: ${targetSpecialties.length}`);
   console.log(`Passed: ${passed}`);
   console.log(`Failed: ${failed}`);
   console.log(`======================================================================\n`);
