@@ -113,6 +113,27 @@ The platform operates through a rigorous 7-step evidence-based pipeline:
 
 ---
 
+## 📚 Mandatory Literature Sources (No Choice, No Repeats)
+
+Every search queries **all** of these free scholarly databases concurrently. There is no source picker: the selection is fixed in `src/lib/literature-sources.ts` (`ALL_LITERATURE_SOURCES`), and any `sources` field sent by a client is ignored.
+
+| Source | API | Key |
+|---|---|---|
+| 🔵 PubMed (MEDLINE) | NCBI E-utilities | optional `NCBI_API_KEY` (higher rate limit) |
+| 🟡 PMC (PubMed Central, open-access full text) | Europe PMC REST | none |
+| 🇪🇺 Europe PMC (MEDLINE + preprints + Agricola + patents) | Europe PMC REST | none |
+| 🎓 Google Scholar | SerpApi `google_scholar` engine | **`SERPAPI_API_KEY` required** (free plan available) |
+| 🟠 Semantic Scholar | S2 Graph API | optional `S2_API_KEY` |
+| 🟢 OpenAlex | OpenAlex API | optional `OPENALEX_API_KEY` |
+| 🟣 CrossRef | Crossref REST | none |
+| 🔓 DOAJ (Directory of Open Access Journals) | DOAJ API | none |
+
+Google Scholar has no official API and blocks direct scraping, so it is reached via SerpApi. Without `SERPAPI_API_KEY` that one source is skipped silently and the other seven still run.
+
+**No paper is ever repeated.** Each record gets identity keys (normalized DOI, numeric PMID, provider id, folded title — `articleIdentityKeys`). A paper returned by several databases is listed once, and in the gap map every reference used on one evidence point is excluded from all later points, whichever database returns it again.
+
+---
+
 ## 🎯 The Deterministic Integrity Pipeline
 
 Aimed retains 100% of the deterministic integrity pipeline guarding clinical outputs against AI hallucinations:
@@ -148,8 +169,8 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 402 tests (394 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
-npm run test:live                     # Live multi-source queries (PubMed, PMC, S2, CrossRef, OpenAlex)
+npm test                              # 409 tests (401 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm run test:live                     # Live multi-source queries (all 8 mandatory sources)
 npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
 npm run build                         # Production Next.js build (17 routes, 0 errors)

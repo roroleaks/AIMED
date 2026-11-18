@@ -3,13 +3,14 @@ import { z } from "zod";
 import {
   searchMultiSourceLiterature,
   buildSearchQuery,
-  type LiteratureSource
+  resolveMandatorySources
 } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
 const literatureSchema = z.object({
-  sources: z.array(z.enum(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"])).optional().default(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"]),
+  // Accepted for backward compatibility but ignored: every literature source is mandatory.
+  sources: z.array(z.string().max(40)).max(20).optional(),
   query: z.string().max(500).optional().nullable(),
   population: z.string().max(500).optional().nullable(),
   intervention: z.string().max(500).optional().nullable(),
@@ -41,13 +42,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ results: [], error: "Provide at least one search term or PICO element." }, { status: 400 });
   }
 
-  const sources: LiteratureSource[] = body.sources.length > 0
-    ? body.sources
-    : ["pubmed", "pmc", "semanticscholar", "openalex", "crossref"];
+  const sources = resolveMandatorySources();
 
   try {
     const results = await searchMultiSourceLiterature({
-      sources,
       query: term,
       maxResults: body.maxResults
     });

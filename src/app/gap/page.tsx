@@ -7,7 +7,7 @@ import { sget, sset, KEYS } from "@/lib/session";
 import { readSessionInput, sessionSearchText } from "@/lib/clinical-input";
 import { NO_LITERATURE_MESSAGE, NO_LITERATURE_HINT } from "@/lib/clinical-keywords";
 import { classifyPaperType, getStudyTypeBadgeStyle } from "@/lib/study-design";
-import { DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
+import { ALL_LITERATURE_SOURCES, getSourceBadge } from "@/lib/literature-sources";
 
 interface Reference {
   pmid: string;
@@ -38,22 +38,6 @@ function isEmptyResult(g: GapResult): boolean {
   return !hasPoints && !hasRefs;
 }
 
-function getSourceBadge(source?: string, pmid?: string) {
-  const s = (source || "").toLowerCase();
-  if (s === "openalex" || (pmid && pmid.startsWith("oax:"))) {
-    return { label: "OpenAlex", icon: "🟢", className: "source-badge-openalex" };
-  }
-  if (s === "crossref" || (pmid && pmid.startsWith("cr:"))) {
-    return { label: "CrossRef", icon: "🟣", className: "source-badge-crossref" };
-  }
-  if (s === "semanticscholar" || (pmid && pmid.startsWith("s2:"))) {
-    return { label: "Semantic Scholar", icon: "🟠", className: "source-badge-semanticscholar" };
-  }
-  if (s === "pmc" || (pmid && /^(pmc:|PMC)/.test(pmid))) {
-    return { label: "PMC", icon: "🟡", className: "source-badge-pmc" };
-  }
-  return { label: "PubMed", icon: "🔵", className: "source-badge-pubmed" };
-}
 
 export default function GapPage() {
   const router = useRouter();
@@ -69,7 +53,7 @@ export default function GapPage() {
     const normalized = sget<string>(KEYS.inputText);
     const stored = readSessionInput(sget<unknown>(KEYS.input));
     const specialty = sget<string>(KEYS.specialty);
-    const sources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
+    const sources = ALL_LITERATURE_SOURCES;
     const input = normalized || (stored ? sessionSearchText(stored) : "");
     if (!input) { router.replace("/"); return; }
     (async () => {

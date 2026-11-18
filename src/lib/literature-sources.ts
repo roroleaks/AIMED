@@ -2,7 +2,16 @@
  * Literature Search Sources Engine
  * 
  * Provides unified, resilient, multi-source scientific literature retrieval
- * across PubMed, PMC (PubMed Central / Europe PMC), Semantic Scholar, OpenAlex, and CrossRef.
+ * across PubMed, PMC (PubMed Central), Europe PMC, Google Scholar, Semantic Scholar,
+ * OpenAlex, CrossRef and DOAJ.
+ *
+ * Every source is MANDATORY: each search queries all of them, there is no user choice
+ * (see ALL_LITERATURE_SOURCES / resolveMandatorySources). Results are merged and
+ * cross-provider duplicates are dropped, so the same paper is never listed twice.
+ *
+ * Google Scholar has no official API and blocks automated scraping, so it is reached
+ * through SerpApi's Google Scholar endpoint (free plan available) when SERPAPI_API_KEY
+ * is configured. Without the key that one source is skipped and the others still run.
  * 
  * Enforces:
  * 1. Consistent canonical typing for downstream evidence synthesis
@@ -15,7 +24,15 @@
 import { normalizeDoi } from "./evidence-set.ts";
 import { classifyPaperType } from "./study-design.ts";
 
-export type LiteratureSource = "pubmed" | "pmc" | "semanticscholar" | "openalex" | "crossref";
+export type LiteratureSource =
+  | "pubmed"
+  | "pmc"
+  | "europepmc"
+  | "googlescholar"
+  | "semanticscholar"
+  | "openalex"
+  | "crossref"
+  | "doaj";
 
 export interface LiteratureArticle {
   pmid: string; // Canonical identifier (e.g. numeric "12345678", "pmc:PMC1234", "s2:abc", "oax:W12345", or "cr:10.1000/xyz")
@@ -59,6 +76,22 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
     provider: "NLM / Europe PMC"
   },
   {
+    id: "europepmc",
+    name: "Europe PMC",
+    icon: "🇪🇺",
+    badgeClass: "source-badge-europepmc",
+    description: "MEDLINE, PMC, preprints, Agricola & patents · 45M+ life-science records",
+    provider: "EMBL-EBI"
+  },
+  {
+    id: "googlescholar",
+    name: "Google Scholar",
+    icon: "🎓",
+    badgeClass: "source-badge-googlescholar",
+    description: "Broad scholarly index incl. grey literature & theses (via SerpApi)",
+    provider: "Google · SerpApi"
+  },
+  {
     id: "semanticscholar",
     name: "Semantic Scholar",
     icon: "🟠",
@@ -81,22 +114,37 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
     badgeClass: "source-badge-crossref",
     description: "Digital Object Identifier (DOI) registry & publisher metadata",
     provider: "Crossref / Publishers"
+  },
+  {
+    id: "doaj",
+    name: "DOAJ",
+    icon: "🔓",
+    badgeClass: "source-badge-doaj",
+    description: "Directory of Open Access Journals · peer-reviewed OA articles",
+    provider: "DOAJ / IS4OA"
   }
 ];
 
-export const DEFAULT_LITERATURE_SOURCES: LiteratureSource[] = [
-  "pubmed",
-  "pmc",
-  "semanticscholar",
-  "openalex",
-  "crossref"
-];
+/** Every literature source. All of them are searched on every request - none is optional. */
+export const ALL_LITERATURE_SOURCES: LiteratureSource[] = SEARCH_SOURCE_OPTIONS.map(o => o.id);
+
+/** Kept for existing imports; identical to ALL_LITERATURE_SOURCES because every source is mandatory. */
+export const DEFAULT_LITERATURE_SOURCES: LiteratureSource[] = ALL_LITERATURE_SOURCES;
+
+/**
+ * Sources are mandatory, so whatever a client sends (an old saved selection, a subset, junk)
+ * the search always runs against every source.
+ */
+export function resolveMandatorySources(): LiteratureSource[] {
+  return [...ALL_LITERATURE_SOURCES];
+}
 
 const API_TIMEOUT_MS = 12_000;
 const OPENALEX_MAILTO = process.env.OPENALEX_MAILTO || "raouf.roshdy@gmail.com";
 const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
 const S2_API_KEY = process.env.S2_API_KEY || "";
+const serpApiKey = (): string => process.env.SERPAPI_API_KEY || process.env.SERPAPI_KEY || "";
 
 /**
  * Strips HTML tags (including JATS XML tags from CrossRef) and decodes standard entities.
@@ -675,31 +723,270 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
   }
 }
 
+interface EuropePmcCoreItem extends EuropePmcItem {
+  firstPublicationDate?: string;
+}
+
+/**
+ * Fetches records from the whole Europe PMC index (MEDLINE, PMC, preprints, Agricola, patents),
+ * not only the open-access subset that the "pmc" source covers.
+ */
+export async function fetchEuropePmcArticles(query: string, maxResults = 6, questionType?: string): Promise<LiteratureArticle[]> {
+  const sanitized = sanitizeSearchQuery(query);
+  if (!sanitized) return [];
+
+  const pageSize = Math.min(Math.max(maxResults + 4, 8), 50);
+  const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
+  const rctFilter = isTherapy ? ' AND PUB_TYPE:"randomized controlled trial"' : "";
+  const q = `${sanitized}${rctFilter}`;
+  const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&pageSize=${pageSize}&format=json&resultType=core&sort=RELEVANCE`;
+
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "application/json", "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(API_TIMEOUT_MS)
+    });
+    if (!res.ok) throw new Error(`Europe PMC HTTP ${res.status}`);
+
+    const data = await res.json();
+    const hits = (data?.resultList?.result || []) as EuropePmcCoreItem[];
+    const articles: LiteratureArticle[] = [];
+
+    for (const item of hits) {
+      const rawTitle = decodeHtmlEntities(item.title || "");
+      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+
+      const pmcid = item.pmcid || "";
+      const pmidNum = item.pmid ? String(item.pmid).replace(/\D/g, "") : "";
+      const doi = normalizeDoi(item.doi || "");
+      const pmid = pmidNum || (pmcid ? `pmc:${pmcid}` : (doi ? `doi:${doi}` : `epmc:${item.source || "MED"}:${item.id}`));
+
+      const rawPubTypes = [item.pubTypeList?.pubType].flat().filter(Boolean) as string[];
+      const pubTypes = rawPubTypes.length ? rawPubTypes : ["Journal Article"];
+      const context = decodeHtmlEntities(item.abstractText || "");
+      const studyType = classifyPaperType({ title: rawTitle, pubType: pubTypes[0], publicationTypes: pubTypes, context });
+
+      const articleUrl = pmidNum
+        ? `https://europepmc.org/article/MED/${pmidNum}`
+        : pmcid
+          ? `https://europepmc.org/article/PMC/${pmcid}`
+          : (doi ? `https://doi.org/${doi}` : `https://europepmc.org/article/${item.source || "MED"}/${item.id}`);
+
+      articles.push({
+        pmid,
+        title: rawTitle,
+        authors: decodeHtmlEntities(item.authorString || "Europe PMC Authors").slice(0, 120),
+        year: item.pubYear ? String(item.pubYear) : (item.firstPublicationDate || "").slice(0, 4),
+        journal: decodeHtmlEntities(item.journalTitle || item.journalInfo?.journal?.title || "Europe PMC Indexed Record"),
+        doi: doi || undefined,
+        url: articleUrl,
+        source: "europepmc",
+        pubType: pubTypes.join(", "),
+        publicationTypes: pubTypes,
+        context: context || undefined,
+        studyType
+      });
+
+      if (articles.length >= maxResults) break;
+    }
+    return articles;
+  } catch (err) {
+    console.warn("[Europe PMC] search error:", err instanceof Error ? err.message : err);
+    return [];
+  }
+}
+
+interface DoajItem {
+  id?: string;
+  bibjson?: {
+    title?: string;
+    year?: string;
+    abstract?: string;
+    author?: Array<{ name?: string }>;
+    journal?: { title?: string };
+    identifier?: Array<{ type?: string; id?: string }>;
+    link?: Array<{ type?: string; url?: string }>;
+  };
+}
+
+/**
+ * Fetches peer-reviewed open-access articles from the Directory of Open Access Journals.
+ * Free, keyless API.
+ */
+export async function fetchDoajArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+  const sanitized = sanitizeSearchQuery(query);
+  if (!sanitized) return [];
+
+  const pageSize = Math.min(Math.max(maxResults + 4, 8), 50);
+  const url = `https://doaj.org/api/search/articles/${encodeURIComponent(sanitized)}?page=1&pageSize=${pageSize}`;
+
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "application/json", "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(API_TIMEOUT_MS)
+    });
+    if (!res.ok) throw new Error(`DOAJ HTTP ${res.status}`);
+
+    const data = await res.json();
+    const hits = (data?.results || []) as DoajItem[];
+    const articles: LiteratureArticle[] = [];
+
+    for (const item of hits) {
+      const b = item.bibjson || {};
+      const rawTitle = decodeHtmlEntities(b.title || "");
+      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+
+      const doi = normalizeDoi((b.identifier || []).find(i => (i.type || "").toLowerCase() === "doi")?.id || "");
+      const fullText = (b.link || []).find(l => (l.type || "").toLowerCase() === "fulltext")?.url || "";
+      const id = item.id || "";
+      if (!doi && !id) continue;
+
+      const context = decodeHtmlEntities(b.abstract || "");
+      const pubType = "Journal Article";
+      const studyType = classifyPaperType({ title: rawTitle, pubType, publicationTypes: [pubType], context });
+
+      articles.push({
+        pmid: doi ? `doi:${doi}` : `doaj:${id}`,
+        title: rawTitle,
+        authors: (b.author || []).slice(0, 4).map(a => (a.name || "").trim()).filter(Boolean).join(", ") || "Open Access Authors",
+        year: b.year ? String(b.year) : "",
+        journal: decodeHtmlEntities(b.journal?.title || "Open Access Journal"),
+        doi: doi || undefined,
+        url: doi ? `https://doi.org/${doi}` : (/^https?:\/\//i.test(fullText) ? fullText : `https://doaj.org/article/${id}`),
+        source: "doaj",
+        pubType,
+        publicationTypes: [pubType],
+        context: context || undefined,
+        studyType
+      });
+
+      if (articles.length >= maxResults) break;
+    }
+    return articles;
+  } catch (err) {
+    console.warn("[DOAJ] search error:", err instanceof Error ? err.message : err);
+    return [];
+  }
+}
+
+interface SerpScholarItem {
+  result_id?: string;
+  title?: string;
+  link?: string;
+  snippet?: string;
+  publication_info?: { summary?: string; authors?: Array<{ name?: string }> };
+}
+
+const DOI_IN_TEXT = /\b(10\.\d{4,9}\/[^\s"<>]+)/i;
+
+/**
+ * Splits a Google Scholar byline ("A Smith, B Jones - The Lancet, 2021 - thelancet.com")
+ * into authors, venue and year.
+ */
+export function parseScholarSummary(summary: string): { authors: string; journal: string; year: string } {
+  const parts = decodeHtmlEntities(summary || "").split(/\s+-\s+/);
+  const authors = (parts[0] || "").replace(/…|\.\.\./g, "").trim();
+  const venuePart = parts.length > 2 ? parts[1] : (parts[1] || "");
+  const yearMatch = /\b(19|20)\d{2}\b/.exec(venuePart) || /\b(19|20)\d{2}\b/.exec(summary || "");
+  const journal = venuePart.replace(/,?\s*\b(19|20)\d{2}\b/, "").replace(/…|\.\.\./g, "").trim();
+  return { authors, journal, year: yearMatch ? yearMatch[0] : "" };
+}
+
+/**
+ * Fetches results from Google Scholar. Google offers no Scholar API and blocks direct
+ * scraping, so this uses SerpApi's google_scholar engine. Requires SERPAPI_API_KEY;
+ * without it the source returns nothing and the other sources carry the search.
+ */
+export async function fetchGoogleScholarArticles(query: string, maxResults = 6): Promise<LiteratureArticle[]> {
+  const sanitized = sanitizeSearchQuery(query);
+  const key = serpApiKey();
+  if (!sanitized || !key) return [];
+
+  const num = Math.min(Math.max(maxResults + 4, 8), 20);
+  const url = `https://serpapi.com/search.json?engine=google_scholar&q=${encodeURIComponent(sanitized)}&num=${num}&hl=en&api_key=${encodeURIComponent(key)}`;
+
+  try {
+    const res = await fetch(url, {
+      headers: { Accept: "application/json", "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(API_TIMEOUT_MS)
+    });
+    if (!res.ok) throw new Error(`Google Scholar (SerpApi) HTTP ${res.status}`);
+
+    const data = await res.json();
+    const hits = (data?.organic_results || []) as SerpScholarItem[];
+    const articles: LiteratureArticle[] = [];
+
+    for (const item of hits) {
+      const rawTitle = decodeHtmlEntities(item.title || "").replace(/^\[(?:PDF|HTML|CITATION|BOOK)\]\s*/i, "");
+      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+
+      const link = typeof item.link === "string" && /^https?:\/\//i.test(item.link) ? item.link : "";
+      const doiMatch = DOI_IN_TEXT.exec(link);
+      const doi = doiMatch ? normalizeDoi(decodeURIComponent(doiMatch[1])) : "";
+      const id = item.result_id || "";
+      if (!doi && !id && !link) continue;
+
+      const { authors, journal, year } = parseScholarSummary(item.publication_info?.summary || "");
+      const namedAuthors = (item.publication_info?.authors || []).map(a => (a.name || "").trim()).filter(Boolean);
+      const context = decodeHtmlEntities(item.snippet || "");
+      const pubType = "Journal Article";
+      const studyType = classifyPaperType({ title: rawTitle, pubType, publicationTypes: [pubType], context });
+
+      articles.push({
+        pmid: doi ? `doi:${doi}` : `gs:${id || link}`,
+        title: rawTitle,
+        authors: (namedAuthors.length ? namedAuthors.slice(0, 4).join(", ") : authors) || "Scholarly Authors",
+        year,
+        journal: journal || "Google Scholar Indexed Work",
+        doi: doi || undefined,
+        url: doi ? `https://doi.org/${doi}` : (link || `https://scholar.google.com/scholar?cluster=${encodeURIComponent(id)}`),
+        source: "googlescholar",
+        pubType,
+        publicationTypes: [pubType],
+        context: context || undefined,
+        studyType
+      });
+
+      if (articles.length >= maxResults) break;
+    }
+    return articles;
+  } catch (err) {
+    console.warn("[Google Scholar] search error:", err instanceof Error ? err.message : err);
+    return [];
+  }
+}
+
+/**
+ * Identity keys for a paper. Two records describe the same paper when ANY key matches, so a
+ * paper retrieved from several providers (PubMed id, DOI, or just a matching title) collapses
+ * to a single entry.
+ */
+export function articleIdentityKeys(art: { pmid?: string; doi?: string; title?: string }): string[] {
+  const keys: string[] = [];
+  const doi = normalizeDoi(art.doi || "");
+  if (doi) keys.push(`doi:${doi}`);
+  const pmid = String(art.pmid || "").trim();
+  if (/^\d+$/.test(pmid)) keys.push(`pmid:${pmid}`);
+  else if (/^doi:/i.test(pmid)) {
+    const d = normalizeDoi(pmid.slice(4));
+    if (d) keys.push(`doi:${d}`);
+  } else if (pmid) keys.push(`id:${pmid.toLowerCase()}`);
+  const cleanTitle = String(art.title || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 60);
+  if (cleanTitle.length > 15) keys.push(`t:${cleanTitle}`);
+  return Array.from(new Set(keys));
+}
+
 /**
  * Deduplicates articles across different providers based on DOI, numerical PMID, or normalized title.
  */
-export function deduplicateArticles(articles: LiteratureArticle[]): LiteratureArticle[] {
-  const seenKeys = new Set<string>();
+export function deduplicateArticles(articles: LiteratureArticle[], alreadyUsed?: Set<string>): LiteratureArticle[] {
+  const seenKeys = alreadyUsed ?? new Set<string>();
   const output: LiteratureArticle[] = [];
 
   for (const art of articles) {
     if (!art.title || !art.title.trim()) continue;
-
-    const keys: string[] = [];
-    if (art.doi) {
-      keys.push(`doi:${art.doi.toLowerCase()}`);
-    }
-    if (art.pmid && /^\d+$/.test(art.pmid)) {
-      keys.push(`pmid:${art.pmid}`);
-    }
-    const cleanTitle = art.title.toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 50);
-    if (cleanTitle.length > 15) {
-      keys.push(`t:${cleanTitle}`);
-    }
-
-    const isDuplicate = keys.length > 0 && keys.some(k => seenKeys.has(k));
-    if (isDuplicate) continue;
-
+    const keys = articleIdentityKeys(art);
+    if (keys.length > 0 && keys.some(k => seenKeys.has(k))) continue;
     keys.forEach(k => seenKeys.add(k));
     output.push(art);
   }
@@ -708,82 +995,90 @@ export function deduplicateArticles(articles: LiteratureArticle[]): LiteratureAr
 }
 
 export interface MultiSourceSearchOptions {
-  sources: LiteratureSource[];
+  /** Ignored: every source is mandatory. Kept so older callers still compile. */
+  sources?: LiteratureSource[];
   query: string;
   maxResults?: number;
+  questionType?: string;
+  /**
+   * Identity keys (see articleIdentityKeys) of papers already shown elsewhere. Matching papers
+   * are skipped and the keys of returned papers are added, so a caller can pass one set across
+   * several searches and no paper is ever repeated.
+   */
+  excludeKeys?: Set<string>;
+}
+
+/** Runs one source's fetcher. */
+export function fetchFromSource(src: LiteratureSource, query: string, limit: number, questionType?: string): Promise<LiteratureArticle[]> {
+  switch (src) {
+    case "pubmed": return fetchPubMedArticles(query, limit, questionType);
+    case "pmc": return fetchPmcArticles(query, limit, questionType);
+    case "europepmc": return fetchEuropePmcArticles(query, limit, questionType);
+    case "googlescholar": return fetchGoogleScholarArticles(query, limit);
+    case "semanticscholar": return fetchSemanticScholarArticles(query, limit);
+    case "openalex": return fetchOpenAlexArticles(query, limit);
+    case "crossref": return fetchCrossrefArticles(query, limit);
+    case "doaj": return fetchDoajArticles(query, limit);
+    default: return Promise.resolve([]);
+  }
 }
 
 /**
- * Concurrently queries selected literature sources, providing error isolation,
- * deduplication, and balanced representation.
+ * Concurrently queries EVERY literature source, providing error isolation,
+ * cross-provider deduplication, and balanced representation.
  */
 export async function searchMultiSourceLiterature(options: MultiSourceSearchOptions): Promise<LiteratureArticle[]> {
-  const { sources, query, maxResults = 10 } = options;
-  const activeSources = Array.from(new Set(sources));
-  if (!activeSources.length || !query.trim()) return [];
+  const { query, maxResults = 10, questionType, excludeKeys } = options;
+  const activeSources = resolveMandatorySources();
+  if (!query.trim()) return [];
 
   const perSourceLimit = Math.max(Math.ceil(maxResults / activeSources.length) + 2, 4);
-  const fetchTasks: Array<Promise<{ source: LiteratureSource; articles: LiteratureArticle[] }>> = [];
+  const results = await Promise.allSettled(
+    activeSources.map(src =>
+      fetchFromSource(src, query, perSourceLimit, questionType).catch(() => [] as LiteratureArticle[])
+    )
+  );
 
-  for (const src of activeSources) {
-    if (src === "openalex") {
-      fetchTasks.push(
-        fetchOpenAlexArticles(query, perSourceLimit)
-          .then(articles => ({ source: "openalex" as LiteratureSource, articles }))
-          .catch(() => ({ source: "openalex" as LiteratureSource, articles: [] }))
-      );
-    } else if (src === "crossref") {
-      fetchTasks.push(
-        fetchCrossrefArticles(query, perSourceLimit)
-          .then(articles => ({ source: "crossref" as LiteratureSource, articles }))
-          .catch(() => ({ source: "crossref" as LiteratureSource, articles: [] }))
-      );
-    } else if (src === "semanticscholar") {
-      fetchTasks.push(
-        fetchSemanticScholarArticles(query, perSourceLimit)
-          .then(articles => ({ source: "semanticscholar" as LiteratureSource, articles }))
-          .catch(() => ({ source: "semanticscholar" as LiteratureSource, articles: [] }))
-      );
-    } else if (src === "pmc") {
-      fetchTasks.push(
-        fetchPmcArticles(query, perSourceLimit)
-          .then(articles => ({ source: "pmc" as LiteratureSource, articles }))
-          .catch(() => ({ source: "pmc" as LiteratureSource, articles: [] }))
-      );
-    } else if (src === "pubmed") {
-      fetchTasks.push(
-        fetchPubMedArticles(query, perSourceLimit)
-          .then(articles => ({ source: "pubmed" as LiteratureSource, articles }))
-          .catch(() => ({ source: "pubmed" as LiteratureSource, articles: [] }))
-      );
-    }
-  }
+  const buckets = activeSources.map((_, i) => {
+    const r = results[i];
+    return r.status === "fulfilled" ? r.value : [];
+  });
 
-  const results = await Promise.allSettled(fetchTasks);
-  const buckets: Record<LiteratureSource, LiteratureArticle[]> = {
-    pubmed: [],
-    pmc: [],
-    semanticscholar: [],
-    openalex: [],
-    crossref: []
-  };
-
-  for (const res of results) {
-    if (res.status === "fulfilled") {
-      buckets[res.value.source] = res.value.articles;
-    }
-  }
-
-  // Interleave results to guarantee representation across selected sources
+  // Interleave results to guarantee representation across all sources
   const interleaved: LiteratureArticle[] = [];
-  const maxBucketLen = Math.max(...activeSources.map(s => buckets[s]?.length || 0));
-
+  const maxBucketLen = Math.max(0, ...buckets.map(b => b.length));
   for (let i = 0; i < maxBucketLen; i++) {
-    for (const src of activeSources) {
-      const art = buckets[src]?.[i];
-      if (art) interleaved.push(art);
+    for (const b of buckets) {
+      if (b[i]) interleaved.push(b[i]);
     }
   }
 
-  return deduplicateArticles(interleaved).slice(0, maxResults);
+  // Dedupe against a scratch copy first so papers trimmed by the slice are not marked as used.
+  const fresh = deduplicateArticles(interleaved, excludeKeys ? new Set(excludeKeys) : undefined).slice(0, maxResults);
+  if (excludeKeys) {
+    for (const art of fresh) articleIdentityKeys(art).forEach(k => excludeKeys.add(k));
+  }
+  return fresh;
 }
+
+/** Display badge (label, icon, CSS class) for the provider that returned a record. */
+export function getSourceBadge(source?: string, pmid?: string): { label: string; icon: string; className: string } {
+  const s = (source || "").toLowerCase();
+  const id = pmid || "";
+  const pick = (sid: LiteratureSource) => {
+    const opt = SEARCH_SOURCE_OPTIONS.find(o => o.id === sid)!;
+    return { label: opt.id === "crossref" ? "CrossRef" : opt.id === "pmc" ? "PMC" : opt.name, icon: opt.icon, className: opt.badgeClass };
+  };
+  if (SEARCH_SOURCE_OPTIONS.some(o => o.id === s)) return pick(s as LiteratureSource);
+  if (id.startsWith("oax:")) return pick("openalex");
+  if (id.startsWith("cr:")) return pick("crossref");
+  if (id.startsWith("s2:")) return pick("semanticscholar");
+  if (id.startsWith("gs:")) return pick("googlescholar");
+  if (id.startsWith("doaj:")) return pick("doaj");
+  if (id.startsWith("epmc:")) return pick("europepmc");
+  if (/^(pmc:|PMC)/.test(id)) return pick("pmc");
+  return pick("pubmed");
+}
+
+/** "PubMed · PMC · Europe PMC · …" - every mandatory source, for labels and exports. */
+export const ALL_SOURCES_LABEL = SEARCH_SOURCE_OPTIONS.map(o => o.name.replace(/ \(PubMed Central\)$/, "")).join(" · ");

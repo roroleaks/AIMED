@@ -3,8 +3,8 @@
 import { useCallback, useMemo, useState, useSyncExternalStore, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { sset, sget, KEYS } from "@/lib/session";
-import { SEARCH_SOURCE_OPTIONS, DEFAULT_LITERATURE_SOURCES, type LiteratureSource } from "@/lib/literature-sources";
+import { sset, KEYS } from "@/lib/session";
+import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
 import {
   parseInput,
   toSessionInput,
@@ -209,30 +209,8 @@ export default function Home() {
   const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
   const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
 
-  // Literature search sources: PubMed, PMC, Semantic Scholar, OpenAlex, CrossRef
-  const [selectedSources, setSelectedSources] = useState<LiteratureSource[]>(() => {
-    if (typeof window === "undefined") return DEFAULT_LITERATURE_SOURCES;
-    try {
-      const stored = sget<LiteratureSource[]>(KEYS.sources);
-      if (Array.isArray(stored) && stored.length > 0) {
-        return stored;
-      }
-    } catch {
-      // sessionStorage unavailable
-    }
-    return DEFAULT_LITERATURE_SOURCES;
-  });
-
-  const toggleSource = (sourceId: LiteratureSource) => {
-    setSelectedSources(prev => {
-      if (prev.includes(sourceId)) {
-        if (prev.length <= 1) return prev; // At least one source must remain active
-        return prev.filter(s => s !== sourceId);
-      } else {
-        return [...prev, sourceId];
-      }
-    });
-  };
+  // Literature search sources are all mandatory - there is nothing to choose. Every search
+  // queries every database and duplicate papers across them are merged.
 
   const start = () => {
     const current = resolveCorrections(parseInput(input), decisions);
@@ -243,7 +221,6 @@ export default function Home() {
     sset(KEYS.input, toSessionInput(current, input));
     sset(KEYS.inputText, sessionSearchText(toSessionInput(current, input)));
     sset(KEYS.mode, mode);
-    sset(KEYS.sources, selectedSources);
     router.push("/gap");
   };
 
@@ -562,10 +539,10 @@ export default function Home() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
-                🌐 Literature Databases ({selectedSources.length} active):
+                🌐 Literature Databases (all {SEARCH_SOURCE_OPTIONS.length} searched · mandatory):
               </span>
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                {SEARCH_SOURCE_OPTIONS.filter(o => selectedSources.includes(o.id)).map(opt => (
+                {SEARCH_SOURCE_OPTIONS.map(opt => (
                   <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
                     {opt.icon} {opt.name}
                   </span>
@@ -589,7 +566,7 @@ export default function Home() {
                 gap: 5
               }}
             >
-              ⚙️ Choose Sources Choice Dialog ▾
+              ℹ️ About the Databases
             </button>
           </div>
 
@@ -637,12 +614,12 @@ export default function Home() {
         </div>
       )}
 
-      {/* Literature Sources Choice Dialog Modal */}
+      {/* Literature Sources Info Modal (read-only: all sources are mandatory) */}
       {isSourcesModalOpen && (
         <div className="aimed-modal-backdrop" onClick={() => setIsSourcesModalOpen(false)}>
           <div className="aimed-modal-content" style={{ maxWidth: 660 }} onClick={(e) => e.stopPropagation()}>
             <div className="aimed-modal-header">
-              <h3>🌐 Choose Literature Search Databases</h3>
+              <h3>🌐 Literature Search Databases (All Mandatory)</h3>
               <button
                 type="button"
                 className="aimed-modal-close"
@@ -654,91 +631,64 @@ export default function Home() {
             </div>
             <div className="aimed-modal-body">
               <p style={{ margin: "0 0 14px 0", fontSize: "0.85rem", color: "#64748b" }}>
-                Select scientific databases to search concurrently across the evidence synthesis pipeline. Results are automatically merged, deduplicated, and mapped with study design hierarchies.
+                Every search queries all of these databases concurrently. Results are merged and deduplicated by DOI, PMID and title, so the same paper is never listed twice.
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {SEARCH_SOURCE_OPTIONS.map(opt => {
-                  const active = selectedSources.includes(opt.id);
-                  return (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => toggleSource(opt.id)}
-                      className={`source-choice-card ${active ? "active" : "inactive"}`}
-                      aria-pressed={active}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 12,
-                        padding: "12px 14px",
-                        borderRadius: 10,
-                        border: active ? "2px solid #0f766e" : "1px solid var(--border)",
-                        background: active ? "#f0fdfa" : "#ffffff",
-                        cursor: "pointer",
-                        textAlign: "left",
-                        transition: "all 0.15s ease",
-                        width: "100%",
-                        boxShadow: active ? "0 2px 6px rgba(15, 118, 110, 0.08)" : "none"
-                      }}
-                    >
-                      <div style={{ fontSize: "1.5rem", lineHeight: 1 }}>{opt.icon}</div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
-                          <span style={{ fontSize: "0.95rem", fontWeight: 700, color: active ? "#0f766e" : "#334155" }}>
-                            {opt.name}
-                          </span>
-                          <span
-                            style={{
-                              fontSize: "0.72rem",
-                              fontWeight: 700,
-                              padding: "3px 8px",
-                              borderRadius: 4,
-                              background: active ? "#0f766e" : "#e2e8f0",
-                              color: active ? "#ffffff" : "#64748b"
-                            }}
-                          >
-                            {active ? "ACTIVE" : "OFF"}
-                          </span>
-                        </div>
-                        <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 2 }}>
-                          {opt.description}
-                        </div>
-                        <div style={{ fontSize: "0.70rem", color: "#94a3b8", marginTop: 2 }}>
-                          Provider: {opt.provider}
-                        </div>
+                {SEARCH_SOURCE_OPTIONS.map(opt => (
+                  <div
+                    key={opt.id}
+                    className="source-choice-card active"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 12,
+                      padding: "12px 14px",
+                      borderRadius: 10,
+                      border: "2px solid #0f766e",
+                      background: "#f0fdfa",
+                      textAlign: "left",
+                      width: "100%"
+                    }}
+                  >
+                    <div style={{ fontSize: "1.5rem", lineHeight: 1 }}>{opt.icon}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
+                        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#0f766e" }}>
+                          {opt.name}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: "0.72rem",
+                            fontWeight: 700,
+                            padding: "3px 8px",
+                            borderRadius: 4,
+                            background: "#0f766e",
+                            color: "#ffffff"
+                          }}
+                        >
+                          ALWAYS ON
+                        </span>
                       </div>
-                    </button>
-                  );
-                })}
+                      <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 2 }}>
+                        {opt.description}
+                      </div>
+                      <div style={{ fontSize: "0.70rem", color: "#94a3b8", marginTop: 2 }}>
+                        Provider: {opt.provider}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="aimed-modal-footer">
-              <div style={{ display: "flex", gap: 8, marginRight: "auto", flexWrap: "wrap" }}>
-                <button
-                  type="button"
-                  className="mini-btn"
-                  onClick={() => setSelectedSources(SEARCH_SOURCE_OPTIONS.map(o => o.id))}
-                  style={{ background: "#ffffff", border: "1px solid #cbd5e1" }}
-                >
-                  Select All
-                </button>
-                <button
-                  type="button"
-                  className="mini-btn"
-                  onClick={() => setSelectedSources(["pubmed", "pmc", "semanticscholar", "openalex", "crossref"])}
-                  style={{ background: "#ffffff", border: "1px solid #cbd5e1" }}
-                >
-                  Reset Defaults
-                </button>
-              </div>
               <button
                 type="button"
                 className="primary"
                 onClick={() => setIsSourcesModalOpen(false)}
                 style={{ padding: "8px 20px", fontSize: "0.9rem" }}
               >
-                ✓ Apply & Close ({selectedSources.length} Active)
+                ✓ Close
               </button>
             </div>
           </div>

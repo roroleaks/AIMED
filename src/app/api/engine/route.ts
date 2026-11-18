@@ -30,7 +30,7 @@ import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { decodeHtmlEntities, fetchSemanticScholarArticles, fetchPmcArticles, DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
+import { decodeHtmlEntities, fetchFromSource, articleIdentityKeys, ALL_LITERATURE_SOURCES, type LiteratureSource, type LiteratureArticle } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
@@ -203,13 +203,57 @@ interface ESummaryDoc {
   pubtype?: string[];
 }
 
+// Identity keys shared with the literature library: DOI, numeric PMID, provider id and folded
+// title. The same paper from two providers shares at least one key, so it is never listed twice.
 function refKeys(r: PubMedRef): string[] {
-  const keys: string[] = [];
-  if (r.pmid) keys.push("p:" + r.pmid);
-  if (r.doi) keys.push("d:" + r.doi.toLowerCase().replace(/^https?:\/\/doi\.org\//, ""));
-  const t = (r.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-  if (t.length > 12) keys.push("t:" + t.slice(0, 50));
-  return keys;
+  return articleIdentityKeys(r);
+}
+
+/** True when any identity key of this reference has already been used. */
+function isUsedRef(r: PubMedRef, used: Set<string>): boolean {
+  if (r.pmid && used.has(r.pmid)) return true;
+  return refKeys(r).some(k => used.has(k));
+}
+
+/** Records a reference as used so no later point, section or search can repeat it. */
+function markUsedRef(r: PubMedRef, used: Set<string>): void {
+  if (r.pmid) used.add(r.pmid);
+  refKeys(r).forEach(k => used.add(k));
+}
+
+function libToRef(a: LiteratureArticle): PubMedRef {
+  return {
+    pmid: a.pmid,
+    title: a.title,
+    authors: a.authors,
+    year: a.year,
+    journal: a.journal,
+    doi: a.doi,
+    url: a.url,
+    source: a.source,
+    pubType: a.pubType,
+    publicationTypes: a.publicationTypes,
+    context: a.context
+  };
+}
+
+/**
+ * One fetch per MANDATORY source. PubMed, OpenAlex and Crossref use the engine's own richer
+ * fetchers (PubMed adds abstracts and review/RCT boosting); every other source uses the library.
+ */
+function fetchAllSources(
+  query: string,
+  maxResults: number,
+  excluded: Set<string>,
+  questionType?: string,
+  interventionToken?: string
+): Promise<PubMedRef[]>[] {
+  return ALL_LITERATURE_SOURCES.map((src: LiteratureSource) => {
+    if (src === "pubmed") return fetchPubMedReferences(query, maxResults, excluded, questionType, interventionToken).catch(() => []);
+    if (src === "openalex") return fetchOpenAlex(query, maxResults).catch(() => []);
+    if (src === "crossref") return fetchCrossref(query, maxResults).catch(() => []);
+    return fetchFromSource(src, query, maxResults, questionType).then(arts => arts.map(libToRef)).catch(() => []);
+  });
 }
 
 // Only http(s) links are ever emitted, so a crafted javascript:/data: URL from a
@@ -496,68 +540,18 @@ async function fetchReferencesBroad(
   query: string,
   maxResults = 8,
   excluded: Set<string> = EMPTY_REF_SET,
-  activeSources: string[] = DEFAULT_LITERATURE_SOURCES,
   questionType?: string,
   interventionToken?: string
 ): Promise<PubMedRef[]> {
-  const allowed = new Set(activeSources.map(s => s.toLowerCase()));
-  const tasks: Promise<PubMedRef[]>[] = [];
-  if (allowed.has("pubmed")) {
-    tasks.push(fetchPubMedReferences(query, maxResults, excluded, questionType, interventionToken).catch(() => []));
-  }
-  if (allowed.has("openalex")) {
-    tasks.push(fetchOpenAlex(query, maxResults).catch(() => []));
-  }
-  if (allowed.has("crossref")) {
-    tasks.push(fetchCrossref(query, maxResults).catch(() => []));
-  }
-  if (allowed.has("semanticscholar") || allowed.has("s2")) {
-    tasks.push(
-      fetchSemanticScholarArticles(query, maxResults)
-        .then(arts => arts.map(a => ({
-          pmid: a.pmid,
-          title: a.title,
-          authors: a.authors,
-          year: a.year,
-          journal: a.journal,
-          doi: a.doi,
-          url: a.url,
-          source: "semanticscholar",
-          pubType: a.pubType,
-          publicationTypes: a.publicationTypes,
-          context: a.context
-        })))
-        .catch(() => [])
-    );
-  }
-  if (allowed.has("pmc") || allowed.has("europepmc")) {
-    tasks.push(
-      fetchPmcArticles(query, maxResults, questionType)
-        .then(arts => arts.map(a => ({
-          pmid: a.pmid,
-          title: a.title,
-          authors: a.authors,
-          year: a.year,
-          journal: a.journal,
-          doi: a.doi,
-          url: a.url,
-          source: "pmc",
-          pubType: a.pubType,
-          publicationTypes: a.publicationTypes,
-          context: a.context
-        })))
-        .catch(() => [])
-    );
-  }
-  const fetched = await Promise.allSettled(tasks);
+  // Every literature source is mandatory: all are queried on every call.
+  const fetched = await Promise.allSettled(fetchAllSources(query, maxResults, excluded, questionType, interventionToken));
   const pool: PubMedRef[] = [];
   for (const f of fetched) {
     if (f.status === "fulfilled") {
       pool.push(...f.value);
     }
   }
-  const notExcluded = (r: PubMedRef): boolean => !excluded.has(r.pmid);
-  const merged = dedupeRefs(pool.filter(notExcluded));
+  const merged = dedupeRefs(pool.filter(r => !isUsedRef(r, excluded)));
   const want = Math.max(maxResults, 6);
   const byScore = (r: PubMedRef): number => {
     let s = r.pmid && /^\d+$/.test(r.pmid) ? 2 : 0;
@@ -572,20 +566,28 @@ async function fetchReferencesBroad(
     if (/^s2:/i.test(r.pmid)) return "semanticscholar";
     if (/^oax:/i.test(r.pmid)) return "openalex";
     if (/^cr:/i.test(r.pmid)) return "crossref";
+    if (/^gs:/i.test(r.pmid)) return "googlescholar";
+    if (/^doaj:/i.test(r.pmid)) return "doaj";
     return "other";
   };
-  // Score all, but guarantee the non-PubMed sources (OpenAlex/Crossref) are
-  // represented in the final pool instead of being crowded out by PubMed records.
+  // Guarantee every mandatory non-PubMed source is represented: take the best record of each
+  // source in turn (round-robin, up to 3 each) before filling the rest by score, so PubMed
+  // volume cannot crowd the other databases out.
   const scored = merged
     .map(r => ({ r, s: byScore(r), src: bySource(r) }))
     .sort((a, b) => b.s - a.s);
-  const picked: PubMedRef[] = [];
-  const srcCount: Record<string, number> = {};
+  const bySrc = new Map<string, PubMedRef[]>();
   for (const it of scored) {
     if (it.src === "pubmed" || it.src === "other") continue;
-    if ((srcCount[it.src] || 0) >= 3 || picked.length >= want) continue;
-    picked.push(it.r);
-    srcCount[it.src] = (srcCount[it.src] || 0) + 1;
+    if (!bySrc.has(it.src)) bySrc.set(it.src, []);
+    bySrc.get(it.src)!.push(it.r);
+  }
+  const picked: PubMedRef[] = [];
+  for (let round = 0; round < 3 && picked.length < want; round++) {
+    for (const list of bySrc.values()) {
+      if (picked.length >= want) break;
+      if (list[round]) picked.push(list[round]);
+    }
   }
   for (const it of scored) {
     if (picked.length >= want) break;
@@ -642,89 +644,43 @@ function cleanTopicQuery(topic: string): string {
 async function fetchReferencesForPoints(
   points: Array<{ point: string; searchQuery?: string }>,
   topic: string,
-  excluded: Set<string>,
-  activeSources: string[] = DEFAULT_LITERATURE_SOURCES
+  excluded: Set<string>
 ): Promise<Array<{ point: string; references: PubMedRef[] }>> {
-  const allowed = new Set(activeSources.map(s => s.toLowerCase()));
+  // Every source is mandatory. `excluded` holds identity keys of papers already cited, so a
+  // paper attached to one point is never repeated on another, whichever provider returns it.
   const results: Array<{ point: string; references: PubMedRef[] }> = [];
 
   for (const p of points) {
     const query = p.searchQuery && p.searchQuery.length > 3 ? sanitizeQuery(p.searchQuery) : buildRefQuery(p.point, topic);
-    const fetchPromises: Promise<PubMedRef[]>[] = [];
 
-    if (allowed.has("pubmed")) {
-      fetchPromises.push(fetchPubMedReferences(query, 3, excluded).catch(() => []));
-    }
-    if (allowed.has("openalex")) {
-      fetchPromises.push(fetchOpenAlex(query, 3).catch(() => []));
-    }
-    if (allowed.has("crossref")) {
-      fetchPromises.push(fetchCrossref(query, 3).catch(() => []));
-    }
-    if (allowed.has("semanticscholar") || allowed.has("s2")) {
-      fetchPromises.push(
-        fetchSemanticScholarArticles(query, 3)
-          .then(arts => arts.map(a => ({
-            pmid: a.pmid,
-            title: a.title,
-            authors: a.authors,
-            year: a.year,
-            journal: a.journal,
-            doi: a.doi,
-            url: a.url,
-            source: "semanticscholar",
-            pubType: a.pubType,
-            publicationTypes: a.publicationTypes,
-            context: a.context
-          })))
-          .catch(() => [])
-      );
-    }
-    if (allowed.has("pmc") || allowed.has("europepmc")) {
-      fetchPromises.push(
-        fetchPmcArticles(query, 3)
-          .then(arts => arts.map(a => ({
-            pmid: a.pmid,
-            title: a.title,
-            authors: a.authors,
-            year: a.year,
-            journal: a.journal,
-            doi: a.doi,
-            url: a.url,
-            source: "pmc",
-            pubType: a.pubType,
-            publicationTypes: a.publicationTypes,
-            context: a.context
-          })))
-          .catch(() => [])
-      );
-    }
-
-    const fetched = await Promise.allSettled(fetchPromises);
+    const fetched = await Promise.allSettled(fetchAllSources(query, 3, excluded));
     const buckets: PubMedRef[][] = [];
     for (const f of fetched) {
       if (f.status === "fulfilled" && f.value.length) {
-        buckets.push(f.value.filter(r => !excluded.has(r.pmid)));
+        buckets.push(f.value.filter(r => !isUsedRef(r, excluded)));
       }
     }
 
-    // Interleave across active sources for fair representation
+    // Interleave across all sources for fair representation, skipping cross-provider duplicates.
     const refs: PubMedRef[] = [];
+    const local = new Set<string>();
     const maxLen = Math.max(...buckets.map(b => b.length), 0);
     for (let i = 0; i < maxLen && refs.length < 4; i++) {
       for (const b of buckets) {
-        if (i < b.length && refs.length < 4) {
+        if (i < b.length && refs.length < 4 && !isUsedRef(b[i], local)) {
           refs.push(b[i]);
+          markUsedRef(b[i], local);
         }
       }
     }
 
-    // Backstop fallback if under 2 and PubMed is allowed
-    if (refs.length < 2 && allowed.has("pubmed")) {
+    // Backstop fallback if under 2
+    if (refs.length < 2) {
       const fallback = await fetchPubMedReferences(sanitizeQuery(p.point), 3, excluded).catch(() => []);
       for (const r of fallback) {
-        if (!excluded.has(r.pmid) && !refs.some(x => x.pmid === r.pmid)) {
+        if (!isUsedRef(r, excluded) && !isUsedRef(r, local)) {
           refs.push(r);
+          markUsedRef(r, local);
           if (refs.length >= 4) break;
         }
       }
@@ -733,9 +689,7 @@ async function fetchReferencesForPoints(
     // Truncate BEFORE marking as used, otherwise references dropped by the slice
     // are permanently excluded from every later point.
     const finalRefs = dedupeRefs(refs).slice(0, 4);
-    for (const r of finalRefs) {
-      if (r.pmid) excluded.add(r.pmid);
-    }
+    for (const r of finalRefs) markUsedRef(r, excluded);
     results.push({ point: p.point, references: finalRefs });
     await new Promise(r => setTimeout(r, 40));
   }
@@ -982,10 +936,8 @@ export async function POST(req: NextRequest) {
       const outcomesText = outcomesArr.length
         ? outcomesArr.join("; ")
         : (String(outcome || "").trim() || "the primary outcome for this question");
-      const rawSources = (body as { sources?: string[] })?.sources;
-      const activeSources = Array.isArray(rawSources) && rawSources.length > 0
-        ? rawSources.map(s => String(s).toLowerCase().trim())
-        : DEFAULT_LITERATURE_SOURCES;
+      // Literature sources are mandatory: any client-sent `sources` selection is ignored and
+      // every database is searched (see fetchAllSources).
 
       const elements: PicoElement[] = Array.isArray(picoElements)
         ? picoElements
@@ -1019,9 +971,9 @@ export async function POST(req: NextRequest) {
 
       const commentaryMaxResults = 50;
       const primaryTopic = cleanTopicQuery(String(topic || "")) || [intervParam, condParam].filter(Boolean).join(" ") || inputParam || String(selectedQuestion || "");
-      let refPool = await fetchReferencesBroad(primaryTopic, commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
+      let refPool = await fetchReferencesBroad(primaryTopic, commentaryMaxResults, EMPTY_REF_SET, qTypeParam, interventionToken);
       if (refPool.length < 6 && selectedQuestion) {
-        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
+        const alt = await fetchReferencesBroad(sanitizeQuery(String(selectedQuestion)), commentaryMaxResults, EMPTY_REF_SET, qTypeParam, interventionToken);
         refPool.push(...alt);
       }
       const extra = Array.isArray(gapAnalysis?.known) ? gapAnalysis.known : [];
@@ -1086,7 +1038,7 @@ export async function POST(req: NextRequest) {
         );
 
         for (const query of queriesToTry) {
-          const additionalRefs = await fetchReferencesBroad(query, commentaryMaxResults, EMPTY_REF_SET, activeSources, qTypeParam, interventionToken);
+          const additionalRefs = await fetchReferencesBroad(query, commentaryMaxResults, EMPTY_REF_SET, qTypeParam, interventionToken);
           if (additionalRefs.length) {
             refPool = dedupeRefs([...refPool, ...additionalRefs]);
             const filtered = filterByClaim(refPool, elements);
@@ -1708,17 +1660,15 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       const knownPts = normPoints(gapAnalysis.known).slice(0, 4);
       const uncertainPts = normPoints(gapAnalysis.uncertain).slice(0, 4);
 
-      const rawSources = (body as { sources?: string[] })?.sources;
-      const activeSources = Array.isArray(rawSources) && rawSources.length > 0
-        ? rawSources.map(s => String(s).toLowerCase().trim())
-        : DEFAULT_LITERATURE_SOURCES;
+      // Literature sources are mandatory: any client-sent `sources` selection is ignored and
+      // every database is searched (see fetchAllSources).
 
       const usedPmids = new Set<string>();
       let knownWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       let uncertainWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       try {
-        knownWithRefs = await fetchReferencesForPoints(knownPts, topic, usedPmids, activeSources);
-        uncertainWithRefs = await fetchReferencesForPoints(uncertainPts, topic, usedPmids, activeSources);
+        knownWithRefs = await fetchReferencesForPoints(knownPts, topic, usedPmids);
+        uncertainWithRefs = await fetchReferencesForPoints(uncertainPts, topic, usedPmids);
       } catch (refErr) {
         console.warn("[engine] Reference fetching encountered an issue, returning points without external refs:", refErr);
         knownWithRefs = knownPts.map(p => ({ point: p.point, references: [] }));

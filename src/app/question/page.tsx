@@ -20,7 +20,7 @@ import {
   CITATION_STYLE_OPTIONS,
   type CitationStyle
 } from "@/lib/citation-styles";
-import { DEFAULT_LITERATURE_SOURCES } from "@/lib/literature-sources";
+import { ALL_LITERATURE_SOURCES, getSourceBadge } from "@/lib/literature-sources";
 
 interface RawRef {
   pmid?: string;
@@ -59,22 +59,6 @@ export interface SupportingPaper {
   point: string;
 }
 
-function getSourceBadge(source?: string, pmid?: string) {
-  const s = (source || "").toLowerCase();
-  if (s === "openalex" || (pmid && pmid.startsWith("oax:"))) {
-    return { label: "OpenAlex", icon: "🟢", className: "source-badge-openalex" };
-  }
-  if (s === "crossref" || (pmid && pmid.startsWith("cr:"))) {
-    return { label: "CrossRef", icon: "🟣", className: "source-badge-crossref" };
-  }
-  if (s === "semanticscholar" || (pmid && pmid.startsWith("s2:"))) {
-    return { label: "Semantic Scholar", icon: "🟠", className: "source-badge-semanticscholar" };
-  }
-  if (s === "pmc" || (pmid && /^(pmc:|PMC)/.test(pmid))) {
-    return { label: "PMC", icon: "🟡", className: "source-badge-pmc" };
-  }
-  return { label: "PubMed", icon: "🔵", className: "source-badge-pubmed" };
-}
 
 interface RenderedOutcome {
   id: string;
@@ -411,7 +395,7 @@ export default function QuestionPage() {
           setSupportingPapers(papers);
         } else {
           // If no papers in gapSnapshot, query multi-source literature to ensure literature presence
-          const activeSources = sget<string[]>(KEYS.sources) || DEFAULT_LITERATURE_SOURCES;
+          const activeSources = ALL_LITERATURE_SOURCES;
           fetch("/api/literature", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
