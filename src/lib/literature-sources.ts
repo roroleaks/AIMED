@@ -419,6 +419,7 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
     });
 
     if (!res.ok) {
+      if (res.status === 429) noteSourceFailure("crossref", new Error("CrossRef 429"));
       throw new Error(`CrossRef HTTP ${res.status}`);
     }
 
@@ -646,6 +647,7 @@ export async function fetchPmcArticles(query: string, maxResults = 6, questionTy
     });
 
     if (!res.ok) {
+      if (res.status === 429 || res.status >= 500) noteSourceFailure("pmc", new Error(`PMC ${res.status}`));
       throw new Error(`Europe PMC HTTP ${res.status}`);
     }
 
@@ -818,7 +820,10 @@ export async function fetchEuropePmcArticles(query: string, maxResults = 6, ques
       headers: { Accept: "application/json", "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
     });
-    if (!res.ok) throw new Error(`Europe PMC HTTP ${res.status}`);
+    if (!res.ok) {
+      if (res.status === 429 || res.status >= 500) noteSourceFailure("europepmc", new Error(`Europe PMC ${res.status}`));
+      throw new Error(`Europe PMC HTTP ${res.status}`);
+    }
 
     const data = await res.json();
     const hits = (data?.resultList?.result || []) as EuropePmcCoreItem[];
@@ -899,7 +904,10 @@ export async function fetchDoajArticles(query: string, maxResults = 6): Promise<
       headers: { Accept: "application/json", "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
     });
-    if (!res.ok) throw new Error(`DOAJ HTTP ${res.status}`);
+    if (!res.ok) {
+      if (res.status === 429 || res.status >= 500) noteSourceFailure("doaj", new Error(`DOAJ ${res.status}`));
+      throw new Error(`DOAJ HTTP ${res.status}`);
+    }
 
     const data = await res.json();
     const hits = (data?.results || []) as DoajItem[];

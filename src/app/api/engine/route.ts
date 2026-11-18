@@ -608,30 +608,34 @@ async function fetchReferencesForPoints(
   excluded: Set<string>,
   elements: PicoElement[] = []
 ): Promise<Array<{ point: string; references: PubMedRef[] }>> {
-  // Every source is mandatory. Candidates for all points are fetched concurrently (bounded, and
-  // PubMed is paced by ncbiSlot), then allocated point by point in order. `excluded` holds identity
-  // keys of papers already cited, so a paper attached to one point is never repeated on another,
-  // whichever provider returns it.
   const queries = points.map(p => (p.searchQuery && p.searchQuery.length > 3 ? sanitizeQuery(p.searchQuery, 10) : buildRefQuery(p.point, topic)));
 
-  const queryPool = new Map<string, Promise<PubMedRef[]>>();
-  const getPoolForQuery = (q: string) => {
-    if (!queryPool.has(q)) {
-      queryPool.set(q, (async () => {
-        const fetched = await Promise.allSettled(fetchAllSources(q, 5, EMPTY_REF_SET, undefined, undefined, true));
-        const pool: PubMedRef[] = [];
-        for (const f of fetched) if (f.status === "fulfilled") pool.push(...f.value);
-        return dedupeRefs(pool);
-      })());
-    }
-    return queryPool.get(q)!;
-  };
+  // Bounded, fast retrieval: query across all mandatory literature databases for the clinical topic
+  // and distinct point keywords without overwhelming external providers or triggering 429 bursts.
+  const topicQuery = sanitizeQuery(topic, 10);
+  const searchQueries = Array.from(new Set([
+    topicQuery,
+    ...queries
+  ])).filter(q => q && q.length > 2).slice(0, 2);
 
-  const candidates = await Promise.all(queries.map(q => getPoolForQuery(q)));
+  const candidatePool: PubMedRef[] = [];
+  const fetchedBatches = await Promise.allSettled(
+    searchQueries.map(q => Promise.allSettled(fetchAllSources(q, 6, EMPTY_REF_SET, undefined, undefined, true)))
+  );
+
+  for (const b of fetchedBatches) {
+    if (b.status === "fulfilled") {
+      for (const res of b.value) {
+        if (res.status === "fulfilled") candidatePool.push(...res.value);
+      }
+    }
+  }
+
+  const pool = dedupeRefs(candidatePool);
 
   const results: Array<{ point: string; references: PubMedRef[] }> = [];
   for (let i = 0; i < points.length; i++) {
-    const ranked = candidates[i]
+    const ranked = pool
       .filter(r => !isUsedRef(r, excluded))
       .map(r => ({ r, score: elements.length ? pointRelevance(r, elements, queries[i]) : 1 }))
       .filter(x => x.score >= 0)
@@ -659,10 +663,9 @@ async function fetchReferencesForPoints(
   // A point whose own search found nothing new borrows relevant, still-unused papers retrieved
   // for the other points (ranked for this point), so no evidence point is left empty while
   // relevant papers sit unused. Repetition is still impossible: `excluded` is checked first.
-  const shared = dedupeRefs(candidates.flat());
   for (let i = 0; i < results.length; i++) {
     if (results[i].references.length >= 2) continue;
-    const extra = shared
+    const extra = pool
       .filter(r => !isUsedRef(r, excluded))
       .map(r => ({ r, score: elements.length ? pointRelevance(r, elements, queries[i]) : 1 }))
       .filter(x => x.score >= 0)
@@ -1657,9 +1660,9 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
         const fetchPromise = fetchReferencesForPoints([...knownPts, ...uncertainPts], topic, usedPmids, tagElements);
         const timeoutPromise = new Promise<Array<{ point: string; references: PubMedRef[] }>>((resolve) =>
           setTimeout(() => {
-            console.warn("[engine] Reference fetching reached 15s budget, returning partial points");
+            console.warn("[engine] Reference fetching reached 8s budget, returning partial points");
             resolve([...knownPts, ...uncertainPts].map(p => ({ point: p.point, references: [] })));
-          }, 15_000)
+          }, 8_000)
         );
         const all = await Promise.race([fetchPromise, timeoutPromise]);
         knownWithRefs = all.slice(0, knownPts.length);
