@@ -49,7 +49,7 @@ const MODEL = process.env.LLM_MODEL || "gemini-2.0-flash";
 
 // Bounded timeouts so dependencies degrade gracefully within request budget
 const LLM_TIMEOUT_MS = 25_000;
-const API_TIMEOUT_MS = 10_000;
+const API_TIMEOUT_MS = 4_000;
 
 class LlmFatal extends Error {}
 class LlmTransient extends Error {
@@ -410,7 +410,7 @@ async function fetchPubMedReferences(
         .filter(id => !excluded.has(id))
         .slice(0, maxResults);
       const result = await esummaryForIds(ids);
-      const abstracts = await efetchAbstracts(ids);
+      const abstracts = lite ? new Map<string, string>() : await efetchAbstracts(ids);
       const refs = ids
         .map((id) => {
           const doc = result?.[id];
@@ -440,8 +440,14 @@ async function fetchPubMedReferences(
         .filter(r => r.title.length > 0 && !isNonEvidenceTitle(r.title));
       return dedupeRefs(refs);
     } catch (err) {
-      if (attempt === 2) {
-        if (!/\b429\b/.test(err instanceof Error ? err.message : String(err))) noteSourceFailure("pubmed", err);
+      const is429 = /\b429\b/.test(err instanceof Error ? err.message : String(err));
+      if (is429) {
+        noteNcbiThrottle();
+        noteSourceFailure("pubmed", err);
+        return [];
+      }
+      if (lite || attempt === 2) {
+        noteSourceFailure("pubmed", err);
         return [];
       }
       await new Promise(r => setTimeout(r, 800 * (attempt + 1)));
@@ -608,12 +614,20 @@ async function fetchReferencesForPoints(
   // whichever provider returns it.
   const queries = points.map(p => (p.searchQuery && p.searchQuery.length > 3 ? sanitizeQuery(p.searchQuery, 10) : buildRefQuery(p.point, topic)));
 
-  const candidates = await mapLimit(points, 4, async (_p, i) => {
-    const fetched = await Promise.allSettled(fetchAllSources(queries[i], 5, EMPTY_REF_SET, undefined, undefined, true));
-    const pool: PubMedRef[] = [];
-    for (const f of fetched) if (f.status === "fulfilled") pool.push(...f.value);
-    return dedupeRefs(pool);
-  });
+  const queryPool = new Map<string, Promise<PubMedRef[]>>();
+  const getPoolForQuery = (q: string) => {
+    if (!queryPool.has(q)) {
+      queryPool.set(q, (async () => {
+        const fetched = await Promise.allSettled(fetchAllSources(q, 5, EMPTY_REF_SET, undefined, undefined, true));
+        const pool: PubMedRef[] = [];
+        for (const f of fetched) if (f.status === "fulfilled") pool.push(...f.value);
+        return dedupeRefs(pool);
+      })());
+    }
+    return queryPool.get(q)!;
+  };
+
+  const candidates = await Promise.all(queries.map(q => getPoolForQuery(q)));
 
   const results: Array<{ point: string; references: PubMedRef[] }> = [];
   for (let i = 0; i < points.length; i++) {
@@ -1640,7 +1654,14 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
       let knownWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       let uncertainWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
       try {
-        const all = await fetchReferencesForPoints([...knownPts, ...uncertainPts], topic, usedPmids, tagElements);
+        const fetchPromise = fetchReferencesForPoints([...knownPts, ...uncertainPts], topic, usedPmids, tagElements);
+        const timeoutPromise = new Promise<Array<{ point: string; references: PubMedRef[] }>>((resolve) =>
+          setTimeout(() => {
+            console.warn("[engine] Reference fetching reached 15s budget, returning partial points");
+            resolve([...knownPts, ...uncertainPts].map(p => ({ point: p.point, references: [] })));
+          }, 15_000)
+        );
+        const all = await Promise.race([fetchPromise, timeoutPromise]);
         knownWithRefs = all.slice(0, knownPts.length);
         uncertainWithRefs = all.slice(knownPts.length);
       } catch (refErr) {

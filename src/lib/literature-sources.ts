@@ -136,7 +136,7 @@ export function resolveMandatorySources(): LiteratureSource[] {
   return [...ALL_LITERATURE_SOURCES];
 }
 
-const API_TIMEOUT_MS = 12_000;
+const API_TIMEOUT_MS = 4_000;
 const OPENALEX_MAILTO = process.env.OPENALEX_MAILTO || "raouf.roshdy@gmail.com";
 const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
@@ -324,6 +324,7 @@ export async function fetchOpenAlexArticles(query: string, maxResults = 6): Prom
     });
 
     if (!res.ok) {
+      if (res.status === 429) noteSourceFailure("openalex", new Error("OpenAlex 429"));
       throw new Error(`OpenAlex HTTP ${res.status}`);
     }
 
@@ -495,21 +496,14 @@ interface S2PaperItem {
   };
 }
 
-async function fetchS2WithRetry(url: string, headers: Record<string, string>, attempts = 2): Promise<Response> {
-  let lastStatus = 0;
-  for (let attempt = 0; attempt < attempts; attempt++) {
-    await rateSlot("semanticscholar", S2_API_KEY ? 350 : 1100);
-    const res = await fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
-    if (res.status !== 429 && res.status !== 503) return res;
-    lastStatus = res.status;
-    if (attempt < attempts - 1) {
-      const ra = Number(res.headers.get("retry-after"));
-      const backoff = 1500 * Math.pow(2, attempt) + Math.floor(Math.random() * 500);
-      const delay = Number.isFinite(ra) && ra > 0 ? Math.min(ra * 1000, 3_000) : Math.min(backoff, 3_000);
-      await new Promise(r => setTimeout(r, delay));
-    }
+async function fetchS2WithRetry(url: string, headers: Record<string, string>): Promise<Response> {
+  await rateSlot("semanticscholar", S2_API_KEY ? 350 : 1100);
+  const res = await fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
+  if (res.status === 429 || res.status === 503) {
+    noteSourceFailure("semanticscholar", new Error(`HTTP ${res.status}`));
+    throw new Error(`Semantic Scholar throttled (${res.status})`);
   }
-  throw new Error(`Semantic Scholar throttled (${lastStatus})`);
+  return res;
 }
 
 /**
@@ -543,7 +537,8 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
         if (res.status === 401 || res.status === 403) {
           res = await fetchS2WithRetry(url, getHeaders(false));
         }
-      } catch {
+      } catch (keyErr) {
+        if (isSourceCoolingDown("semanticscholar")) throw keyErr;
         res = await fetchS2WithRetry(url, getHeaders(false));
       }
     } else {
