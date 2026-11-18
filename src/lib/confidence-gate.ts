@@ -241,19 +241,4 @@ export function createTelemetryEvent(
   };
 }
 
-/**
- * Get the appropriate configuration based on environment.
- * 
- * @param env Environment name ("production" | "development" | "test")
- * @returns Appropriate ConfidenceGateConfig
- */
-export function getConfidenceConfig(env: "production" | "development" | "test" = "production"): ConfidenceGateConfig {
-  switch (env) {
-    case "development":
-    case "test":
-      return RELAXED_CONFIDENCE_CONFIG;
-    default:
-      return DEFAULT_CONFIDENCE_CONFIG;
-  }
-}
 

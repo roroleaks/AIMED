@@ -27,8 +27,8 @@ if (fs.existsSync(tempStageDir)) {
 fs.mkdirSync(tempStageDir, { recursive: true });
 
 // Copy all files and folders excluding node_modules, .next, .git, .vercel, dist
-const EXCLUDE_DIRS = new Set(['node_modules', '.next', '.git', '.vercel', 'dist']);
-const EXCLUDE_FILES = new Set(['aimed-snapshot.zip', '_aimed_snapshot_staging']);
+const EXCLUDE_DIRS = new Set(['node_modules', '.next', '.git', '.vercel', 'dist', '_aimed_snapshot_staging']);
+const EXCLUDE_FILES = new Set(['aimed-snapshot.zip', '.env', '.env.local', 'tsconfig.tsbuildinfo']);
 
 function copyDirRecursive(src, dest) {
   const entries = fs.readdirSync(src, { withFileTypes: true });
@@ -51,9 +51,14 @@ try {
   copyDirRecursive(projectRoot, tempStageDir);
   console.log('✅ Staged files copied successfully.');
 
-  // Compress using PowerShell Compress-Archive
-  const psCmd = `powershell -NoProfile -Command "Compress-Archive -Path '${tempStageDir}\\*' -DestinationPath '${distZip}' -Force"`;
-  execSync(psCmd, { stdio: 'inherit' });
+  // Compress: PowerShell on Windows, `zip` on macOS / Linux.
+  if (fs.existsSync(distZip)) fs.rmSync(distZip);
+  if (process.platform === 'win32') {
+    const psCmd = `powershell -NoProfile -Command "Compress-Archive -Path '${tempStageDir}\\*' -DestinationPath '${distZip}' -Force"`;
+    execSync(psCmd, { stdio: 'inherit' });
+  } else {
+    execSync(`zip -qr "${distZip}" .`, { cwd: tempStageDir, stdio: 'inherit' });
+  }
 
   // Copy to parent/scratch dir if configured and distinct
   if (snapshotZip !== distZip) {

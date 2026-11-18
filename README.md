@@ -78,13 +78,15 @@ The platform operates through a rigorous 7-step evidence-based pipeline:
 
 ```
 [4 to 12 Tag Words]
+ └── Each tag resolved to P / I / C / O (drug names never become outcomes,
+     placebo/standard care is always C, typed order and wording kept)
        │
        ▼
-[Stage: Gap Analysis & Mapping]
- ├── 4 Established Knowledge Points
- ├── 4 Conflicting Evidence Points
+[Stage: Gap Analysis & Mapping]  — all 8 literature databases, ~15-25 s
+ ├── 4 Established Knowledge Points   ┐ each with up to 4 papers that match the
+ ├── 4 Conflicting Evidence Points    ┘ typed population and intervention; no paper repeated
  ├── 4 Research Gaps
- └── 4 Candidate PICO Questions (P, I, C, O separated)
+ └── 4 Candidate PICO Questions (P, I, C, O separated; "do"/"does", "reduce"/"improve" by context)
        │
        ▼
 [PICO Selection & Outcome Ranking]
@@ -96,18 +98,18 @@ The platform operates through a rigorous 7-step evidence-based pipeline:
        │
        ▼
 [Stage: Scientific Commentary Generation]
- ├── Structured Title & Abstract (Background, Methods, Results, Discussion)
- ├── Introduction & Thematic Discussion
- ├── Evidence-grounded Conclusion
- └── ICMJE/NLM Vancouver Reference List ([1], [2], [3]...)
+ ├── Structured Abstract (Background, Objective, Methods, Results, Conclusions)
+ ├── Study-by-study appraisal quoting each paper's own abstract conclusion, cited
+ ├── Consistency (favourable / no difference / not stated), Certainty, Applicability, Gaps
+ └── ICMJE/NLM Vancouver Reference List (NLM author form, et al., NLM journal abbreviations)
        │
        ▼
 [Deliverable Parity & Integrity Gate]
  └── Validates 100% citation backing, checks zero orphan/unsupported citations
        │
        ▼
-[Dual PDF Export]
- ├── Full Scientific Commentary PDF (publication-grade, formatted blocks)
+[PDF & Word Export]
+ ├── Full Scientific Commentary PDF / DOCX (PICO table, sub-headings, bullets, hanging-indent references)
  └── Vancouver Reference List PDF (verified DOI/PMID audit trail)
 ```
 
@@ -143,10 +145,11 @@ Aimed retains 100% of the deterministic integrity pipeline guarding clinical out
 | Stage | Module | Guarantee |
 |---|---|---|
 | **Canonical Identity** | `src/lib/evidence-set.ts` | One record per paper. DOI is canonical key (with full parenthesis preservation for Elsevier/Lancet DOIs); PMID, Crossref, and OpenAlex serve as verified fallbacks. |
-| **Claim Filtering** | `src/lib/relevance.ts` | A record is retained as direct support ONLY if it carries a verified DOI or PMID, passes the confidence gate, and deterministically satisfies every required PICO element. |
-| **Claim Finalization** | `src/lib/claim-finalization.ts` | Every narrative sentence in the generated commentary is audited. Unsupported assertive claims are rewritten into explicit uncertainty caveats rather than fabricated findings. |
+| **Claim Filtering** | `src/lib/relevance.ts` | A record is retained as direct support ONLY if it carries a verified DOI or PMID, passes the confidence gate, and deterministically satisfies every required PICO element. Records about a contradicting population subtype (e.g. HFpEF / DELIVER for an HFrEF question, type 1 vs type 2 diabetes, small-cell vs non-small-cell) are rejected (`populationConflict`). Protocols, trial registrations, errata and conference abstracts are never evidence. |
+| **Claim Finalization** | `src/lib/claim-finalization.ts` | Every narrative sentence in the generated commentary is audited. Unsupported assertive claims are removed and an explicit uncertainty caveat is added (at most once per section). Paragraphs, sub-headings and bullets are preserved. Disease descriptors such as "reduced ejection fraction" are not mistaken for claims. |
 | **Narrative Reconciliation** | `src/lib/relevance.ts` | Fixpoint reconciliation drives in-text numerical citations and the Vancouver reference list into mutual agreement across abstract, introduction, discussion, and conclusion. |
 | **Parity Deliverable Gate** | `src/lib/deliverable-integrity.ts` | Refuses PDF, Word, or clipboard exports if the published bibliography disagrees with the retained evidence set or carries orphan/unsupported numeric citations. |
+| **Deterministic Commentary** | `src/lib/deterministic-commentary.ts` | Without an AI key the paper is written from the retained abstracts: each study's labelled conclusion is quoted and cited, directions of effect are counted only from conclusions about the selected outcome, and no effect estimate is ever invented. |
 | **Deterministic Fallback** | `src/app/api/engine/route.ts` | Automatically heals narrative citations and ensures 100% integrity validation before returning responses. |
 
 ---
@@ -172,15 +175,35 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 
 ```bash
 npm test                              # 421 tests (413 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm run validate                      # 4-step pipeline validation (tag words -> gap -> PICO -> commentary)
 npm run test:live                     # Live multi-source queries (all 8 mandatory sources)
 npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
-npm run build                         # Production Next.js build (17 routes, 0 errors)
+npm run build                         # Production Next.js build (12 routes, 0 errors)
 AIMED_OFFLINE_LITERATURE=1 npm start &   # offline server: literature APIs are not called
 node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 90s)
 node scripts/test-all-specialties.mjs --offline --specialty <id> # Single specialty offline run
-node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases
+node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases (15/15, ~6-7 min)
 ```
+
+### 4. Configuration (environment variables)
+
+| Variable | Purpose |
+|---|---|
+| `GEMINI_API_KEY` / `OPENAI_API_KEY` / `GROQ_API_KEY` / `OPENROUTER_API_KEY` | Optional AI provider for gap maps and commentary; without one the deterministic engine is used |
+| `NCBI_API_KEY` | PubMed rate limit 10/s instead of 3/s (recommended) |
+| `OPENALEX_API_KEY`, `S2_API_KEY` | Higher OpenAlex / Semantic Scholar quotas (recommended) |
+| `SERPAPI_API_KEY` | Enables the Google Scholar source |
+| `AIMED_OFFLINE_LITERATURE=1` | Server-side switch for CI / air-gapped runs: no literature API is called |
+
+### 5. Snapshot Archive
+
+```bash
+npm run snapshot                      # zips the project to dist/aimed-snapshot.zip (no node_modules/.next/.git/.env)
+AIMED_SNAPSHOT_DIR="C:\path\to\folder" npm run snapshot   # also copy it to another folder
+```
+
+Works on Windows (PowerShell) and macOS / Linux (`zip`).
 
 ---
 

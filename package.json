@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --test src/lib/*.test.ts",
     "test:live": "node scripts/test-live.mjs",
+    "validate": "node scripts/validate-steps.mjs",
     "icons": "node scripts/build-icons.mjs",
     "snapshot": "node scripts/create-snapshot.mjs"
   },

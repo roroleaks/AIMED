@@ -13,7 +13,7 @@ import {
 } from "../src/lib/citation-styles.ts";
 import { generateDeterministicCommentary } from "../src/lib/deterministic-commentary.ts";
 import { validateDeliverableIntegrity } from "../src/lib/deliverable-integrity.ts";
-import { DEFAULT_LITERATURE_SOURCES, SEARCH_SOURCE_OPTIONS } from "../src/lib/literature-sources.ts";
+import { ALL_LITERATURE_SOURCES, SEARCH_SOURCE_OPTIONS } from "../src/lib/literature-sources.ts";
 
 console.log("================================================================================");
 console.log("🚀 AIMed End-to-End Multi-Specialty Step-by-Step Validation");
@@ -24,9 +24,8 @@ console.log("===================================================================
 // -----------------------------------------------------------------------------
 console.log("▶ Step 1: Validating Clinical Input, Specialties & Multi-Database Search Sources...");
 assert.equal(Object.keys(SPECIALTIES).length >= 15, true, "Must have at least 15 medical specialties");
-assert.equal(DEFAULT_LITERATURE_SOURCES.length, 5, "Must have 5 default literature sources");
-assert.deepEqual(DEFAULT_LITERATURE_SOURCES, ["pubmed", "pmc", "semanticscholar", "openalex", "crossref"]);
-assert.equal(SEARCH_SOURCE_OPTIONS.length, 5, "Search source options must list all 5 databases");
+assert.deepEqual(ALL_LITERATURE_SOURCES, ["pubmed", "pmc", "europepmc", "googlescholar", "semanticscholar", "openalex", "crossref", "doaj"], "All 8 literature sources are mandatory");
+assert.equal(SEARCH_SOURCE_OPTIONS.length, ALL_LITERATURE_SOURCES.length, "Every source has a display option");
 
 const testInput = "heart failure, sacubitril valsartan, enalapril, cardiovascular mortality";
 const parsedKeywords = parseInput(testInput);
@@ -39,7 +38,7 @@ assert.ok(scenario.intervention.length > 0, "Must detect intervention");
 assert.ok(scenario.comparator.length > 0, "Must detect comparator");
 console.log(`  ✓ Keywords parsed: "${testInput}"`);
 console.log(`  ✓ Specialty detected: Cardiology (P: "${scenario.population}", I: "${scenario.intervention}", C: "${scenario.comparator}")`);
-console.log(`  ✓ Sources configured: ${DEFAULT_LITERATURE_SOURCES.join(", ")}`);
+console.log(`  ✓ Sources configured: ${ALL_LITERATURE_SOURCES.join(", ")}`);
 console.log("  [Step 1 PASS]\n");
 
 // -----------------------------------------------------------------------------

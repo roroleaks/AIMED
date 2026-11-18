@@ -128,9 +128,6 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
 /** Every literature source. All of them are searched on every request - none is optional. */
 export const ALL_LITERATURE_SOURCES: LiteratureSource[] = SEARCH_SOURCE_OPTIONS.map(o => o.id);
 
-/** Kept for existing imports; identical to ALL_LITERATURE_SOURCES because every source is mandatory. */
-export const DEFAULT_LITERATURE_SOURCES: LiteratureSource[] = ALL_LITERATURE_SOURCES;
-
 /**
  * Sources are mandatory, so whatever a client sends (an old saved selection, a subset, junk)
  * the search always runs against every source.
@@ -169,11 +166,6 @@ export function noteSourceFailure(src: LiteratureSource, err: unknown): void {
   if (/\b(?:429|5\d\d)\b|throttl|timeout|timed out|abort|fetch failed|ECONN|ENOTFOUND/i.test(msg)) {
     sourceDownUntil.set(src, Date.now() + SOURCE_COOLDOWN_MS);
   }
-}
-
-/** Test hook: forget every cooldown. */
-export function resetSourceCooldowns(): void {
-  sourceDownUntil.clear();
 }
 
 /**

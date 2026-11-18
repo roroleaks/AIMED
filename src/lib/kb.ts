@@ -457,20 +457,6 @@ function toOutcomeRule(selection: OutcomeSelectionResponse): OutcomeRule {
   };
 }
 
-/**
- * Deterministic outcome logic for a full PICO question.
- *
- * The question text used to be routed into three hardcoded canonical lists here, which is the same
- * ranking the ontology already performs with declared conditions, interventions and keywords. The
- * question is now passed through as context so one implementation serves every caller.
- */
-export function picoOutcomes(question: string, condition: string, specialty: SpecialtyKey | null): OutcomeRule {
-  return toOutcomeRule(selectOutcomes(buildOutcomeContext(
-    { specialty, condition },
-    {},
-    { originalInput: question, population: condition }
-  )));
-}
 
 export interface Analysis {
   specialty: SpecialtyKey | null;
