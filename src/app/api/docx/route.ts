@@ -1,3 +1,4 @@
+import { ALL_SOURCES_LABEL } from "@/lib/literature-sources";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
@@ -40,7 +41,8 @@ const auditableRefSchema = z.object({
   journal: z.string().max(500).optional().nullable(),
   doi: z.string().max(500).optional().nullable(),
   url: z.string().max(1000).optional().nullable(),
-  context: z.string().max(20000).optional().nullable(),
+  // An abstract is only needed for the integrity check; a very long one is truncated, not refused.
+  context: z.string().max(200000).transform(v => v.slice(0, 20000)).optional().nullable(),
   source: z.string().max(100).optional().nullable(),
   crossrefId: z.string().max(100).optional().nullable(),
   openAlexId: z.string().max(100).optional().nullable(),
@@ -229,7 +231,7 @@ export async function POST(req: Request) {
       ["Authority Guidelines", authorityGuidelines],
       ["Synthesis Date", new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })],
       ["Citation & Style Protocol", styleLabel],
-      ["Evidence Base Indexing", "PubMed/MEDLINE, Europe PMC, Semantic Scholar, OpenAlex, CrossRef"]
+      ["Evidence Base Indexing", ALL_SOURCES_LABEL]
     ];
 
     docChildren.push(
@@ -497,8 +499,10 @@ export async function POST(req: Request) {
         docChildren.push(
           new Paragraph({
             spacing: { after: 100, line: 260 },
-            alignment: AlignmentType.JUSTIFIED,
-            indent: style !== "vancouver" ? { left: 720, hanging: 720 } : undefined,
+            // Left-aligned: justifying a reference that ends in a long DOI and URL stretched the
+            // spaces between the other words into wide gaps.
+            alignment: AlignmentType.LEFT,
+            indent: { left: 360, hanging: 360 },
             children: [
               new TextRun({
                 text: formattedEntry,

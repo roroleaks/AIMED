@@ -1,5 +1,6 @@
 import { type SpecialtyKey } from "./kb.ts";
-import { parseClinicalScenario } from "./clinical-semantics.ts";
+import { parseClinicalScenario, formulatePopulationPhrase } from "./clinical-semantics.ts";
+import { getSpecialtyDefinition } from "./specialties.ts";
 
 export interface DeterministicGapPoint {
   point: string;
@@ -29,64 +30,79 @@ export function generateDeterministicGapAnalysis(rawTopic: string, explicitSpeci
   const condition = scenario.population;
   const intervention = scenario.intervention;
   const comparator = scenario.comparator;
+  const [o1 = "the primary clinical outcome", o2 = o1, o3 = o2] = scenario.outcomes;
+  const def = getSpecialtyDefinition(specialty);
+  const guidelines = def?.authorityGuidelines || "major specialty societies";
+  const field = (def?.label || "clinical").toLowerCase();
+  const people = formulatePopulationPhrase(condition, specialty);
+  // Search terms are the clinician's own PICO words, so every point retrieves papers about the
+  // topic that was typed rather than about generic screening or monitoring.
+  // The point-specific words go first: search queries are truncated, and a long population name
+  // must not push out the words that make each point's search different from the others.
+  const q = (...parts: string[]) => parts.join(" ").replace(/\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
+  const core = (...extra: string[]) => q(...extra, intervention, condition);
+  const comparatorIsActive = !/placebo|standard care|usual care|no treatment|expectant/i.test(comparator);
 
-  // Build 4 established knowledge points
+  // Build 4 established knowledge points. Every point is about the typed P, I, C or O, and
+  // is worded at the strength an evidence map can support (trials exist, guidelines address it).
   const known: DeterministicGapPoint[] = [
     {
-      point: `Standardized clinical screening and risk-factor assessment in patients presenting with ${condition} improves timely identification of at-risk individuals.`,
-      searchQuery: `${condition} screening risk assessment`
+      point: `Randomized controlled trials have evaluated ${intervention} against ${comparator} in ${people}, with ${o1} as a principal endpoint.`,
+      searchQuery: core("randomized trial", comparatorIsActive ? comparator : "")
     },
     {
-      point: `The therapeutic efficacy of ${intervention} for ${condition} depends critically on patient selection, gestational or clinical staging, and baseline risk.`,
-      searchQuery: `${condition} ${intervention} efficacy clinical trial`
+      point: `Systematic reviews and meta-analyses have pooled the trial evidence on ${intervention} for ${condition}, including its effect on ${o2}.`,
+      searchQuery: core("meta-analysis")
     },
     {
-      point: `Clinical practice guidelines emphasize individualized multidisciplinary evaluation before initiating ${intervention} in patients with ${condition}.`,
-      searchQuery: `${condition} ${intervention} guideline practice recommendation`
+      point: `Clinical practice guidelines (${guidelines}) address the place of ${intervention} in the management of ${condition}.`,
+      searchQuery: core("guideline")
     },
     {
-      point: `Implementation of structured monitoring protocols for ${condition} is associated with reduced diagnostic delay and improved patient surveillance.`,
-      searchQuery: `${condition} surveillance outcomes prospective study`
+      point: `The safety profile of ${intervention} in ${condition}, including adverse events and treatment discontinuation, has been reported in controlled studies.`,
+      searchQuery: core("safety adverse")
     }
   ];
 
   // Build 4 conflicting / uncertain evidence points
   const uncertain: DeterministicGapPoint[] = [
     {
-      point: `The comparative effectiveness of ${intervention} versus ${comparator} for ${condition} remains contested due to heterogeneous inclusion criteria across trials.`,
-      searchQuery: `${condition} ${intervention} versus ${comparator} randomized trial`
+      point: `The size of the effect of ${intervention} compared with ${comparator} on ${o1} varies between studies, reflecting differences in patient selection, dosing and follow-up.`,
+      searchQuery: core(o1.split(/\s+/).slice(0, 3).join(" "), comparatorIsActive ? comparator : "")
     },
     {
-      point: `Optimal intervention thresholds and timing for ${intervention} in ${condition} show conflicting findings across multicenter cohort studies.`,
-      searchQuery: `${condition} ${intervention} threshold timing observational cohort`
+      point: `Whether the benefit of ${intervention} on ${o2} is consistent across subgroups defined by age, disease severity and comorbidity is not settled.`,
+      searchQuery: core("subgroup")
     },
     {
-      point: `The incremental clinical benefit of combining ${intervention} with adjuvant pharmacotherapy for ${condition} is uncertain due to limited powered trials.`,
-      searchQuery: `${condition} ${intervention} combination therapy trial`
+      point: `Evidence on the durability of the effect of ${intervention} on ${o3} beyond the follow-up of the pivotal trials is limited and partly observational.`,
+      searchQuery: core("long-term follow-up")
     },
     {
-      point: `Long-term functional, reproductive, and pediatric outcomes associated with ${intervention} for ${condition} remain under-characterized relative to short-term endpoints.`,
-      searchQuery: `${condition} ${intervention} long-term outcomes follow-up`
+      point: `Real-world effectiveness and adherence to ${intervention} in routine ${field} practice may differ from efficacy observed in trial populations.`,
+      searchQuery: core("real-world")
     }
   ];
 
   // Build 4 evidence gaps
   const gaps: Array<{ gap: string; why: string }> = [
     {
-      gap: `Lack of adequately powered multicenter randomized trials directly comparing ${intervention} against active modern comparators in well-defined phenotypes of ${condition}.`,
-      why: "Definitive comparative trials are required to establish evidence-based hierarchy of interventions and avoid suboptimal care."
+      gap: comparatorIsActive
+        ? `Adequately powered head-to-head randomized trials of ${intervention} versus ${comparator} on ${o1} in ${people} are scarce.`
+        : `Randomized evidence comparing ${intervention} with active alternative treatments, rather than ${comparator}, on ${o1} in ${people} is limited.`,
+      why: `Direct comparisons are needed to rank treatment options for ${condition} instead of inferring them across separate trials.`
     },
     {
-      gap: `Absence of validated predictive biomarkers or molecular profiles to distinguish disease subtypes and predict therapeutic responsiveness to ${intervention}.`,
-      why: "Biomarker-guided stratification would prevent unnecessary invasive procedures and enable targeted precision medicine."
+      gap: `Clinical or biomarker predictors of who benefits most from ${intervention} in ${condition} have not been validated prospectively.`,
+      why: "Validated predictors would allow treatment to be targeted to patients most likely to benefit and spare others avoidable harm."
     },
     {
-      gap: `Scarcity of prospectively tracked long-term functional, patient-reported, and quality-of-life endpoints beyond immediate clinical outcomes.`,
-      why: "Patients and clinicians require comprehensive health-span data to weigh lasting benefits against potential cumulative harms."
+      gap: `Patient-reported outcomes and quality of life are reported less consistently than ${o1} in trials of ${intervention}.`,
+      why: "Decisions shared with patients require evidence on how treatment changes symptoms, function and daily life, not only on clinical endpoints."
     },
     {
-      gap: `Heterogeneity in outcome definitions, threshold cutoffs, and reporting standards across clinical studies investigating ${condition}.`,
-      why: "Core outcome sets are urgently required to allow reliable meta-analytic evidence synthesis and clinical practice translation."
+      gap: `Older, multimorbid and under-represented populations with ${condition} are sparsely included in trials of ${intervention}.`,
+      why: "Trial results may not transfer to the patients most often treated in routine care, so effectiveness and safety in these groups remain uncertain."
     }
   ];
 

@@ -130,6 +130,8 @@ Every search queries **all** of these free scholarly databases concurrently. The
 
 Google Scholar has no official API and blocks direct scraping, so it is reached via SerpApi. Without `SERPAPI_API_KEY` that one source is skipped silently and the other seven still run.
 
+**Recommended for production (all free):** `NCBI_API_KEY` (PubMed allows 10 requests/s instead of 3, and serverless hosts share IPs that hit the 3/s limit), `OPENALEX_API_KEY` (the keyless daily budget is shared per IP and runs out), and `S2_API_KEY`. Each request paces calls per provider, and a provider that is throttling, down or timing out is skipped for 90 s (`isSourceCoolingDown`), so one slow database cannot push a gap map past the 60 s function limit.
+
 **No paper is ever repeated.** Each record gets identity keys (normalized DOI, numeric PMID, provider id, folded title — `articleIdentityKeys`). A paper returned by several databases is listed once, and in the gap map every reference used on one evidence point is excluded from all later points, whichever database returns it again.
 
 ---
@@ -169,11 +171,12 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 409 tests (401 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm test                              # 421 tests (413 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
 npm run test:live                     # Live multi-source queries (all 8 mandatory sources)
 npm run lint                          # ESLint + Secret Scan guard
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
 npm run build                         # Production Next.js build (17 routes, 0 errors)
+AIMED_OFFLINE_LITERATURE=1 npm start &   # offline server: literature APIs are not called
 node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 90s)
 node scripts/test-all-specialties.mjs --offline --specialty <id> # Single specialty offline run
 node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases

@@ -41,7 +41,8 @@ if (specialtyFilter && targetSpecialties.length === 0) {
 
 async function runTest() {
   if (isOffline) {
-    console.log(`[offline] running against deterministic engine; live literature is skipped\n`);
+    console.log(`[offline] running against deterministic engine; live literature is skipped.`);
+    console.log(`[offline] Literature sources are mandatory and cannot be disabled per request: start the server with AIMED_OFFLINE_LITERATURE=1 for an offline run.\n`);
   }
   console.log(`======================================================================`);
   console.log(`🔬 AIMed Multi-Specialty Localhost Stress-Test Suite (${targetSpecialties.length} Specialties)`);
@@ -80,7 +81,6 @@ async function runTest() {
           stage: "gap",
           input: tagWords,
           specialty: spec.id,
-          ...(isOffline ? { sources: ["none"] } : {})
         })
       });
       assert.equal(gapRes.status, 200, `Stage gap returned status ${gapRes.status}`);
@@ -238,8 +238,7 @@ async function runTest() {
           gapAnalysis: gapData,
           selectedQuestion: formulateData.finalQuestion,
           outcome: chosenOutcome,
-          picoElements: formulateData.elements,
-          ...(isOffline ? { sources: ["none"] } : {})
+          picoElements: formulateData.elements
         })
       });
       if (commRes.status !== 200) {
@@ -293,6 +292,7 @@ async function runTest() {
           retainedReferences: commData.fetchedReferences || []
         })
       });
+      if (pdfCommRes.status !== 200) console.error(`    ❌ PDF error response (${pdfCommRes.status}):`, (await pdfCommRes.clone().text()).slice(0, 1500));
       assert.equal(pdfCommRes.status, 200, `Commentary PDF export returned status ${pdfCommRes.status}`);
       const pdfCommBlob = await pdfCommRes.arrayBuffer();
       assert.ok(pdfCommBlob.byteLength > 1000, `Commentary PDF size must be > 1000 bytes, got ${pdfCommBlob.byteLength}`);

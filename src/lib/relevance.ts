@@ -10,6 +10,8 @@
  * tested behaviour and the shipped behaviour cannot drift apart.
  */
 
+import { formatVancouverAuthors } from "./citation-styles.ts";
+
 export interface PicoElement { label: string; value: string }
 
 export interface AuditableRef {
@@ -133,6 +135,7 @@ export function elementByType(
 
 export function designOf(title: string, journal = "", pubType = ""): string {
   const combined = `${title} ${journal} ${pubType}`;
+  if (/meta-analys|systematic review/i.test(combined) && /randomi[sz]ed (?:clinical |controlled )?trial/i.test(title) && !/systematic review/i.test(title)) return "randomized trial";
   if (/meta-analys|systematic review/i.test(combined)) return "systematic review / meta-analysis";
   if (/randomi[sz]ed/i.test(combined)) return "randomized trial";
   if (/\btrials?\b/i.test(combined)) return "clinical trial";
@@ -198,6 +201,33 @@ function hasUnnegatedMention(normCtx: string, token: string): boolean {
  * passed and unrelated records reached the reference list. Single-token elements (a drug name
  * such as "progesterone") are unaffected, since one token is all they have.
  */
+/**
+ * Population subtypes that exclude each other. "Heart failure" alone satisfies a population of
+ * "heart failure with reduced ejection fraction", so without this check DELIVER (HFpEF) and other
+ * preserved-EF trials were retained as direct evidence for an HFrEF question. A record is in
+ * conflict when its title names the opposite subtype and does not also name the requested one.
+ */
+const POPULATION_SUBTYPES: Array<{ want: RegExp; reject: RegExp }> = [
+  { want: /reduced ejection fraction|\bhfref\b|systolic heart failure/i, reject: /preserved ejection fraction|\bhfpef\b|mildly reduced|\bhfmref\b|improved ejection fraction|\bhfimpef\b|\bdeliver\s+trial|emperor-preserved|preserved-hf|diastolic heart failure|(?:lv)?ef\s*(?:≥|>=|>|of at least)\s*4\d|ef\s*>\s*40/i },
+  { want: /preserved ejection fraction|\bhfpef\b/i, reject: /reduced ejection fraction|\bhfref\b/i },
+  { want: /type 2 diabetes|\bt2dm?\b/i, reject: /type 1 diabetes|\bt1dm?\b/i },
+  { want: /type 1 diabetes|\bt1dm?\b/i, reject: /type 2 diabetes|\bt2dm?\b/i },
+  { want: /non-?small[- ]cell/i, reject: /(?<!non-?)\bsmall[- ]cell/i },
+  { want: /ischa?emic stroke/i, reject: /ha?emorrhagic stroke|intracerebral ha?emorrhage/i },
+  { want: /ulcerative colitis/i, reject: /crohn/i },
+  { want: /crohn/i, reject: /ulcerative colitis/i },
+  { want: /\b(?:infants?|neonat\w*|newborns?|preterm infants?)\b/i, reject: /\badults?\b(?! respiratory distress)/i },
+  { want: /\b(?:children|pediatric|paediatric)\b/i, reject: /\badults?\b/i },
+  { want: /singleton/i, reject: /\btwins?\b|multiple pregnanc/i },
+  { want: /\btwins?\b/i, reject: /singleton/i }
+];
+
+export function populationConflict(population: string, title: string): boolean {
+  const pop = String(population || "");
+  const t = String(title || "");
+  return POPULATION_SUBTYPES.some(r => r.want.test(pop) && r.reject.test(t) && !r.want.test(t));
+}
+
 export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
   const ctx = `${ref.title} ${ref.journal || ""} ${ref.authors || ""} ${ref.year || ""} ${ref.context || ""}`;
   const byType = elementByType(elements);
@@ -221,7 +251,7 @@ export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
     return false;
   };
 
-  const population = matchFor("population");
+  const population = matchFor("population") && !populationConflict(byType.population?.value || "", ref.title || "");
   const intervention = matchFor("intervention");
   const comparator = matchFor("comparator");
   let outcome = matchFor("outcome");
@@ -743,7 +773,9 @@ export function formatReference(ref: AuditableRef, style: "vancouver" | "chicago
   }
 
   // Vancouver style (NLM / ICMJE convention)
-  const authors = ref.authors ? `${ref.authors.trim().replace(/\.$/, "")}.` : "";
+  // NLM author form ("Zannad F, Ferreira J, Pocock S"), up to six then "et al.", whatever format
+  // the provider used ("F. Zannad", "Faiez Zannad", "Zannad F").
+  const authors = ref.authors ? formatVancouverAuthors(ref.authors) : "";
   const title = ref.title ? `${ref.title.trim().replace(/\.$/, "")}.` : "";
   const journal = ref.journal ? `${ref.journal.trim().replace(/\.$/, "")}.` : "";
   const year = ref.year ? `${String(ref.year).trim()}.` : "";

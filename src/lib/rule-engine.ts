@@ -1,6 +1,6 @@
 import { KB, QUESTION_TYPES, SYNONYMS, rationalOutcomes, type Analysis, type Clarification, type Formulation, type SpecialtyKey } from "./kb.ts";
 import { buildOutcomeContext, selectOutcomes } from "./outcome-selection.ts";
-import { formulatePopulationPhrase } from "./clinical-semantics.ts";
+import { formulatePopulationPhrase, auxVerbFor, outcomeVerbFor } from "./clinical-semantics.ts";
 
 function normalize(s: string): string {
   return s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
@@ -223,7 +223,7 @@ export function ruleFormulate(analysis: Analysis, answered: Record<string, strin
   const popCap = popPhrase.charAt(0).toUpperCase() + popPhrase.slice(1);
   switch (a.framework) {
     case "PICO":
-      finalQuestion = `In ${popPhrase}, does ${iv} compared with ${comp} improve ${out}?`;
+      finalQuestion = `In ${popPhrase}, ${auxVerbFor(iv)} ${iv} compared with ${comp} ${outcomeVerbFor(out)} ${out}?`;
       elements = [
         { label: "P — Population", value: popCap },
         { label: "I — Intervention", value: iv },

@@ -53,7 +53,27 @@ const ASSERTION = new RegExp(
 );
 
 /** Direction an assertion claims, used to detect a source that reports the opposite. */
-function assertedDirection(sentence: string): "reduction" | "increase" | "no-difference" | null {
+/**
+ * Disease and population descriptors that contain claim verbs. "Heart failure with reduced
+ * ejection fraction" asserts nothing, but "reduced" made every sentence naming that population
+ * read as a finding (and every HFrEF abstract read as reporting a reduction).
+ */
+const DESCRIPTOR = /\b(?:reduced|preserved|improved|mildly reduced|recovered)\s+(?:left\s+ventricular\s+)?ejection\s+fraction|\b(?:reduced|decreased|impaired)\s+(?:renal|kidney)\s+function|\b(?:reduced|diminished|decreased|low)\s+ovarian\s+reserve|\bincreased\s+risk\s+(?:population|patients|group)|\bhigh(?:er)?[- ]risk\s+(?:patients|population|group)|\b(?:improved|increased)\s+access\b/gi;
+
+/** The sentence with descriptor phrases and the question's own PICO wording masked out. */
+export function claimText(sentence: string, elements: PicoElement[] = []): string {
+  let t = String(sentence || "").replace(DESCRIPTOR, " ");
+  for (const e of elements) {
+    if (!/population|outcome/i.test(e.label)) continue;
+    const v = String(e.value || "").trim();
+    if (v.length >= 6) t = t.split(new RegExp(v.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi")).join(" ");
+  }
+  return t;
+}
+
+export function assertedDirection(sentence: string): "reduction" | "increase" | "no-difference" | null {
+  sentence = claimText(sentence);
+  if (/\b(?:did\s+not|does\s+not|do\s+not|failed\s+to|was\s+not|were\s+not)\s+(?:\w+\s+){0,2}(?:reduc|decreas|lower|improv|increas|affect|change|differ)\w*|\bnot\s+(?:statistically\s+)?significant(?:ly)?\b|\bno\s+(?:statistically\s+)?significant\s+(?:difference|effect|reduction|increase|benefit|change)|\bdid\s+not\s+see\s+(?:a\s+)?significant/i.test(sentence)) return "no-difference";
   if (/\bno\s+(?:statistically\s+)?significant\s+difference\b/i.test(sentence)) return "no-difference";
   if (/\b(reduc\w*|decreas\w*|lower(?:ed|s)?|shorten\w*|delay\w*|prevent\w*)\b/i.test(sentence)) return "reduction";
   if (/\b(increas\w*|rais(?:e|es|ed)|higher|greater|longer)\b/i.test(sentence)) return "increase";
@@ -61,8 +81,11 @@ function assertedDirection(sentence: string): "reduction" | "increase" | "no-dif
 }
 
 /** Direction the source itself reports, read from its title and abstract text. */
-function reportedDirection(rec: AuditableRef): "reduction" | "increase" | "no-difference" | null {
-  const text = `${rec.title || ""} ${rec.context || ""}`;
+export function reportedDirection(rec: AuditableRef): "reduction" | "increase" | "no-difference" | null {
+  const text = claimText(`${rec.title || ""} ${rec.context || ""}`);
+  if (/\b(?:did\s+not|failed\s+to)\s+(?:\w+\s+){0,2}(?:reduc|decreas|lower)\w*|\bdid\s+not\s+see\s+(?:a\s+)?significant|\bno\s+(?:statistically\s+)?significant\s+(?:reduction|benefit)/i.test(text)) {
+    return "no-difference";
+  }
   if (/\bno\s+(?:statistically\s+)?significant\s+(?:difference|effect)\b/i.test(text)) return "no-difference";
   if (/\b(did\s+not\s+(?:reduce|decrease)|failed\s+to\s+(?:reduce|decrease)|no\s+(?:reduction|benefit))\b/i.test(text)) {
     return "no-difference";
@@ -72,19 +95,21 @@ function reportedDirection(rec: AuditableRef): "reduction" | "increase" | "no-di
   return null;
 }
 
+// Anchored: unanchored, "a" and "or" matched inside every content word ("cardiovascular"), so
+// nearly all outcome words were discarded as stopwords (and the old /g flag made it erratic).
 const STOPWORDS = new RegExp(
-  [
+  "^(?:" + [
     "a|an|the|and|or|of|to|in|for|with|without|by|on|at|from|is|are|was|were|be|been|being|it|its",
     "this|that|these|those|there|their|they|we|our|us|you|your|he|she|his|her|not|no|than|then",
     "as|but|however|although|while|when|where|which|who|whom|whose|what|both|either|neither",
     "each|any|all|some|more|most|other|such|only|very|can|could|may|might|must|shall|should|will|would",
     "have|has|had|do|does|did|between|during|after|before|over|under|about|into|per|via|among",
-  ].join("|"),
-  "gi"
+  ].join("|") + ")$",
+  "i"
 );
 
 /** Words that describe the comparison rather than the finding. */
-const COMPARISON = /\b(?:versus|vs|compared?|relative|than|group|groups|arm|arms|cohort|trial|study|studies|patients?|women|analysis|results?|data|evidence|review|meta|report)\w*/gi;
+const COMPARISON = /\b(?:versus|vs|compared?|relative|than|group|groups|arm|arms|cohort|trial|study|studies|patients?|women|analysis|results?|data|evidence|review|meta|report)\w*/i;
 
 /**
  * Content words of a claim that are not part of the population, intervention or comparator.
@@ -99,13 +124,21 @@ function claimOutcomeTokens(sentence: string, elements: PicoElement[]): string[]
     .flatMap(e => String(e.value || "").toLowerCase().split(/[^a-z]+/))
     .filter(t => t.length >= 4);
 
-  return (sentence.toLowerCase().match(/[a-z][a-z-]{3,}/g) || [])
+  const tokens = (sentence.toLowerCase().match(/[a-z][a-z-]{3,}/g) || [])
     .map(t => t.replace(/-/g, ""))
     .filter(t => !STOPWORDS.test(t) && !pico.includes(t) && !COMPARISON.test(t))
     .filter(t => !ASSERTION.test(t))
     .filter(t => t.length >= 4)
     // A repeated `RegExp` with `g` keeps `lastIndex`, so a fresh test is used per token.
     .filter(t => !/^(?:reduc|decreas|increas|prevent|improv|associat|linked|predict|shorten|delay|lower|higher|greater|longer|effect|efficac|superior|inferior|benefi|significant|difference|safe)/.test(t));
+  // When the sentence names the selected outcome, the outcome's own words are what a source has to
+  // report; framing words around them ("treatment decisions depend on") are not part of the claim.
+  const outcomeWords = elements
+    .filter(e => /outcome|endpoint/i.test(e.label))
+    .flatMap(e => String(e.value || "").toLowerCase().split(/[^a-z]+/))
+    .filter(t => t.length >= 4);
+  const named = tokens.filter(t => outcomeWords.includes(t));
+  return named.length ? named : tokens;
 }
 
 /** Loose stem overlap, so "preterm" matches "preterm" and "bleeding" matches "bleed". */
@@ -119,7 +152,10 @@ function reportsAny(text: string, tokens: string[]): boolean {
 
 /** A claim the sources contradict is not supported by them, so it is not retained. */
 function directionSupportsClaim(sentence: string, rec: AuditableRef): boolean {
-  const claimed = assertedDirection(sentence);
+  // A quoted conclusion is judged on what it states; the narrative frame around the quote
+  // ("the authors concluded") asserts nothing of its own.
+  const quoted = /"([^"]{20,})"/.exec(sentence);
+  const claimed = assertedDirection(quoted ? quoted[1] : sentence);
   if (!claimed) return true;
   const reported = reportedDirection(rec);
   if (!reported) return true;
@@ -196,7 +232,25 @@ export function finalizeClaims(input: ClaimFinalizationInput): ClaimFinalization
 
   for (const [field, raw] of Object.entries(input.fields)) {
     const kept: string[] = [];
-    for (const sentence of splitSentences(String(raw ?? ""))) {
+    // Paragraphs, sub-headings ("#### ...") and bullet items are judged separately and keep their
+    // line breaks: joining a whole field with spaces flattened the discussion's headings into
+    // running text and merged bold abstract labels into the previous sentence.
+    const PARA = "\u0001P\u0001";
+    const LINE = "\u0001L\u0001";
+    const units = String(raw ?? "").replace(/\r\n/g, "\n").split(/\n{2,}/).map(u => u.trim()).filter(Boolean);
+    const sentencesOf = (unit: string): string[] => {
+      if (/^#{1,6}\s/.test(unit)) return [unit];
+      if (/^(?:[-*•]\s|\d+\.\s)/m.test(unit) && unit.includes("\n")) {
+        return unit.split("\n").flatMap((line, i) => (i ? [LINE, line] : [line]));
+      }
+      return splitSentences(unit.replace(/\n/g, " "));
+    };
+    const stream = units.flatMap((u, i) => (i ? [PARA, ...sentencesOf(u)] : sentencesOf(u)));
+    for (const sentence of stream) {
+      if (sentence === PARA || sentence === LINE || /^#{1,6}\s/.test(sentence)) {
+        kept.push(sentence);
+        continue;
+      }
       const cites = extractInTextCites(sentence);
       const { citedNumbers } = extractNumericCites(sentence);
       const citationKeys: string[] = [];
@@ -234,7 +288,7 @@ export function finalizeClaims(input: ClaimFinalizationInput): ClaimFinalization
         }
       }
 
-      if (!ASSERTION.test(sentence)) {
+      if (!ASSERTION.test(claimText(sentence, elements))) {
         // Background and method prose is not a finding, so it is retained as written.
         claims.push({ field, text: sentence, citationKeys, supported: false, reason: "not-an-assertion" });
         kept.push(sentence);
@@ -275,12 +329,18 @@ export function finalizeClaims(input: ClaimFinalizationInput): ClaimFinalization
       // sentence up to seven times, which reads as a rendering fault and buries the surviving
       // content. The claims and warnings still record every removal; only the duplicated prose is
       // collapsed, and only when it is directly adjacent.
-      if (kept[kept.length - 1] !== LIMITATION) {
+      // At most once per field: the same caveat repeated after every removed sentence read as a
+      // rendering fault and buried the surviving content.
+      if (!kept.includes(LIMITATION)) {
         kept.push(LIMITATION);
         limitations.push(LIMITATION);
       }
     }
-    fields[field] = kept.join(" ").replace(/\s{2,}/g, " ").trim();
+    fields[field] = kept
+      .join(" ")
+      .split(PARA).map(p => p.split(LINE).map(l => l.replace(/[ \t]{2,}/g, " ").trim()).filter(Boolean).join("\n")).filter(Boolean)
+      .join("\n\n")
+      .trim();
   }
 
   return { fields, claims, removedClaims, limitations, warnings };

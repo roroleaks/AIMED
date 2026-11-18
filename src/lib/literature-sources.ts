@@ -147,6 +147,67 @@ const S2_API_KEY = process.env.S2_API_KEY || "";
 const serpApiKey = (): string => process.env.SERPAPI_API_KEY || process.env.SERPAPI_KEY || "";
 
 /**
+ * Source cooldown. A provider that is rate-limiting us (HTTP 429), down (5xx) or timing out will
+ * fail the same way for every other query in the same request, and each failure costs up to the
+ * full timeout. After one such failure the source is skipped for a short window, so one slow
+ * provider cannot push a whole gap map past the serverless time limit. The other sources still run.
+ */
+const SOURCE_COOLDOWN_MS = 90_000;
+const sourceDownUntil = new Map<LiteratureSource, number>();
+
+export function isSourceCoolingDown(src: LiteratureSource): boolean {
+  // Offline mode for CI and air-gapped installs: set on the server, never by a client request,
+  // so users still cannot switch any source off.
+  if (process.env.AIMED_OFFLINE_LITERATURE === "1") return true;
+  const until = sourceDownUntil.get(src);
+  return !!until && until > Date.now();
+}
+
+/** Marks a source as unavailable when the error is one that will repeat (throttle, outage, timeout). */
+export function noteSourceFailure(src: LiteratureSource, err: unknown): void {
+  const msg = err instanceof Error ? `${err.name} ${err.message}` : String(err);
+  if (/\b(?:429|5\d\d)\b|throttl|timeout|timed out|abort|fetch failed|ECONN|ENOTFOUND/i.test(msg)) {
+    sourceDownUntil.set(src, Date.now() + SOURCE_COOLDOWN_MS);
+  }
+}
+
+/** Test hook: forget every cooldown. */
+export function resetSourceCooldowns(): void {
+  sourceDownUntil.clear();
+}
+
+/**
+ * NCBI E-utilities allow 3 requests/second without an API key and 10 with one. Firing a gap map's
+ * PubMed searches in parallel exceeds that and earns HTTP 429s, so every E-utilities call waits
+ * for its slot here.
+ */
+const rateChains = new Map<string, Promise<void>>();
+
+/**
+ * Spaces calls to one provider at least `spacingMs` apart across the whole process. Gap maps
+ * fetch several evidence points concurrently; without pacing, Crossref, Semantic Scholar and
+ * NCBI answer the burst with HTTP 429 and the cooldown then drops them for the whole request.
+ */
+export function rateSlot(key: string, spacingMs: number): Promise<void> {
+  const prev = rateChains.get(key) || Promise.resolve();
+  const slot = prev.then(() => new Promise<void>(r => setTimeout(r, spacingMs)));
+  rateChains.set(key, slot.catch(() => undefined));
+  return prev;
+}
+
+let ncbiPenaltyUntil = 0;
+
+/** After an NCBI 429, slow every E-utilities call down for a while instead of hammering on. */
+export function noteNcbiThrottle(): void {
+  ncbiPenaltyUntil = Date.now() + 15_000;
+}
+
+export function ncbiSlot(): Promise<void> {
+  const base = (process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY) ? 110 : 360;
+  return rateSlot("ncbi", Date.now() < ncbiPenaltyUntil ? Math.max(base * 3, 1000) : base);
+}
+
+/**
  * Strips HTML tags (including JATS XML tags from CrossRef) and decodes standard entities.
  */
 export function decodeHtmlEntities(raw: string): string {
@@ -160,11 +221,23 @@ export function decodeHtmlEntities(raw: string): string {
     .replace(/&#39;/g, "'")
     .replace(/&#x27;/g, "'")
     .replace(/&nbsp;/g, " ")
+    .replace(/&#x([0-9a-f]+);/gi, (_, h: string) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d: string) => String.fromCodePoint(Number(d)))
     .replace(/&ndash;/g, "–")
     .replace(/&mdash;/g, "—")
     .replace(/\s+/g, " ")
     .trim();
   return clean;
+}
+
+/**
+ * Titles that are not evidence of a clinical effect: trial protocols and registrations, and
+ * conference abstracts ("Abstract TP29: ...", "P-123 ..."), which carry no peer-reviewed results.
+ */
+export function isNonEvidenceTitle(title: string): boolean {
+  return /\bprotocol\b|trial registration/i.test(title) ||
+    /^(?:abstract\s+[a-z]*\s*\d+|[a-z]{1,3}-?\d{1,4})\s*[:.]/i.test(title.trim()) ||
+    /^(?:erratum|correction|retraction)\b/i.test(title.trim());
 }
 
 const STOPWORDS = new Set([
@@ -245,6 +318,7 @@ export async function fetchOpenAlexArticles(query: string, maxResults = 6): Prom
   }
 
   try {
+    await rateSlot("openalex", 120);
     const headers: Record<string, string> = {
       Accept: "application/json",
       "User-Agent": USER_AGENT
@@ -267,7 +341,7 @@ export async function fetchOpenAlexArticles(query: string, maxResults = 6): Prom
 
     for (const item of hits) {
       const rawTitle = decodeHtmlEntities(item.title || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const pmidNum = item.ids?.pmid ? String(item.ids.pmid).replace(/\D/g, "") : "";
       const rawDoi = item.doi || item.ids?.doi || "";
@@ -314,6 +388,7 @@ export async function fetchOpenAlexArticles(query: string, maxResults = 6): Prom
 
     return articles;
   } catch (err) {
+    noteSourceFailure("openalex", err);
     console.warn("[OpenAlex] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -341,6 +416,7 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
   const url = `https://api.crossref.org/works?query.bibliographic=${encodeURIComponent(sanitized)}&filter=type:journal-article&rows=${rows}&select=${select}`;
 
   try {
+    await rateSlot("crossref", 250);
     const res = await fetch(url, {
       headers: {
         Accept: "application/json",
@@ -359,7 +435,7 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
 
     for (const item of items) {
       const rawTitle = decodeHtmlEntities(item.title?.[0] || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const rawDoi = item.DOI || "";
       const doi = normalizeDoi(rawDoi);
@@ -406,6 +482,7 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
 
     return articles;
   } catch (err) {
+    noteSourceFailure("crossref", err);
     console.warn("[CrossRef] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -426,16 +503,17 @@ interface S2PaperItem {
   };
 }
 
-async function fetchS2WithRetry(url: string, headers: Record<string, string>, attempts = 3): Promise<Response> {
+async function fetchS2WithRetry(url: string, headers: Record<string, string>, attempts = 2): Promise<Response> {
   let lastStatus = 0;
   for (let attempt = 0; attempt < attempts; attempt++) {
+    await rateSlot("semanticscholar", S2_API_KEY ? 350 : 1100);
     const res = await fetch(url, { headers, signal: AbortSignal.timeout(API_TIMEOUT_MS) });
     if (res.status !== 429 && res.status !== 503) return res;
     lastStatus = res.status;
     if (attempt < attempts - 1) {
       const ra = Number(res.headers.get("retry-after"));
       const backoff = 1500 * Math.pow(2, attempt) + Math.floor(Math.random() * 500);
-      const delay = Number.isFinite(ra) && ra > 0 ? Math.min(ra * 1000, 10_000) : backoff;
+      const delay = Number.isFinite(ra) && ra > 0 ? Math.min(ra * 1000, 3_000) : Math.min(backoff, 3_000);
       await new Promise(r => setTimeout(r, delay));
     }
   }
@@ -490,7 +568,7 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
 
     for (const item of hits) {
       const rawTitle = decodeHtmlEntities(item.title || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const rawDoi = item.externalIds?.DOI || "";
       const doi = normalizeDoi(rawDoi);
@@ -535,6 +613,7 @@ export async function fetchSemanticScholarArticles(query: string, maxResults = 6
 
     return articles;
   } catch (err) {
+    noteSourceFailure("semanticscholar", err);
     console.warn("[Semantic Scholar] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -570,6 +649,7 @@ export async function fetchPmcArticles(query: string, maxResults = 6, questionTy
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(pmcFilterQuery)}&pageSize=${pageSize}&format=json&resultType=core`;
 
   try {
+    await rateSlot("ebi", 120);
     const res = await fetch(url, {
       headers: {
         Accept: "application/json",
@@ -588,7 +668,7 @@ export async function fetchPmcArticles(query: string, maxResults = 6, questionTy
 
     for (const item of hits) {
       const rawTitle = decodeHtmlEntities(item.title || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const pmcid = item.pmcid ? item.pmcid.replace(/^PMC/i, "PMC") : "";
       const pmidNum = item.pmid ? String(item.pmid).replace(/\D/g, "") : "";
@@ -636,6 +716,7 @@ export async function fetchPmcArticles(query: string, maxResults = 6, questionTy
 
     return articles;
   } catch (err) {
+    noteSourceFailure("pmc", err);
     console.warn("[PMC] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -665,6 +746,7 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
   const esearchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=${maxResults * 2}&sort=relevance&term=${encodeURIComponent(term)}${apiKeyParam}`;
 
   try {
+    await ncbiSlot();
     const searchRes = await fetch(esearchUrl, {
       headers: { "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -676,6 +758,7 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
     if (!ids.length) return [];
 
     const summaryUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=${ids.join(",")}${apiKeyParam}`;
+    await ncbiSlot();
     const sumRes = await fetch(summaryUrl, {
       headers: { "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -693,7 +776,7 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
       if (!title) continue;
 
       const pubtypes = Array.isArray(doc.pubtype) ? doc.pubtype : [];
-      const doi = normalizeDoi(doc.elocationid?.replace(/^doi:\s*/i, "") || "");
+      const doi = normalizeDoi(/\b10\.\d{4,9}\/[^\s"<>]+/.exec(doc.elocationid || "")?.[0] || "");
       const pubType = pubtypes.length ? pubtypes.join(", ") : "Journal Article";
       const studyType = classifyPaperType({
         title,
@@ -718,6 +801,7 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
 
     return articles;
   } catch (err) {
+    noteSourceFailure("pubmed", err);
     console.warn("[PubMed] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -742,6 +826,7 @@ export async function fetchEuropePmcArticles(query: string, maxResults = 6, ques
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&pageSize=${pageSize}&format=json&resultType=core&sort=RELEVANCE`;
 
   try {
+    await rateSlot("ebi", 120);
     const res = await fetch(url, {
       headers: { Accept: "application/json", "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -754,7 +839,7 @@ export async function fetchEuropePmcArticles(query: string, maxResults = 6, ques
 
     for (const item of hits) {
       const rawTitle = decodeHtmlEntities(item.title || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const pmcid = item.pmcid || "";
       const pmidNum = item.pmid ? String(item.pmid).replace(/\D/g, "") : "";
@@ -791,6 +876,7 @@ export async function fetchEuropePmcArticles(query: string, maxResults = 6, ques
     }
     return articles;
   } catch (err) {
+    noteSourceFailure("europepmc", err);
     console.warn("[Europe PMC] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -821,6 +907,7 @@ export async function fetchDoajArticles(query: string, maxResults = 6): Promise<
   const url = `https://doaj.org/api/search/articles/${encodeURIComponent(sanitized)}?page=1&pageSize=${pageSize}`;
 
   try {
+    await rateSlot("doaj", 400);
     const res = await fetch(url, {
       headers: { Accept: "application/json", "User-Agent": USER_AGENT },
       signal: AbortSignal.timeout(API_TIMEOUT_MS)
@@ -834,7 +921,7 @@ export async function fetchDoajArticles(query: string, maxResults = 6): Promise<
     for (const item of hits) {
       const b = item.bibjson || {};
       const rawTitle = decodeHtmlEntities(b.title || "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const doi = normalizeDoi((b.identifier || []).find(i => (i.type || "").toLowerCase() === "doi")?.id || "");
       const fullText = (b.link || []).find(l => (l.type || "").toLowerCase() === "fulltext")?.url || "";
@@ -864,6 +951,7 @@ export async function fetchDoajArticles(query: string, maxResults = 6): Promise<
     }
     return articles;
   } catch (err) {
+    noteSourceFailure("doaj", err);
     console.warn("[DOAJ] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -918,7 +1006,7 @@ export async function fetchGoogleScholarArticles(query: string, maxResults = 6):
 
     for (const item of hits) {
       const rawTitle = decodeHtmlEntities(item.title || "").replace(/^\[(?:PDF|HTML|CITATION|BOOK)\]\s*/i, "");
-      if (!rawTitle || /protocol|trial registration/i.test(rawTitle)) continue;
+      if (!rawTitle || isNonEvidenceTitle(rawTitle)) continue;
 
       const link = typeof item.link === "string" && /^https?:\/\//i.test(item.link) ? item.link : "";
       const doiMatch = DOI_IN_TEXT.exec(link);
@@ -951,6 +1039,7 @@ export async function fetchGoogleScholarArticles(query: string, maxResults = 6):
     }
     return articles;
   } catch (err) {
+    noteSourceFailure("googlescholar", err);
     console.warn("[Google Scholar] search error:", err instanceof Error ? err.message : err);
     return [];
   }
@@ -1010,6 +1099,7 @@ export interface MultiSourceSearchOptions {
 
 /** Runs one source's fetcher. */
 export function fetchFromSource(src: LiteratureSource, query: string, limit: number, questionType?: string): Promise<LiteratureArticle[]> {
+  if (isSourceCoolingDown(src)) return Promise.resolve([]);
   switch (src) {
     case "pubmed": return fetchPubMedArticles(query, limit, questionType);
     case "pmc": return fetchPmcArticles(query, limit, questionType);

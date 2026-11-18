@@ -74,7 +74,7 @@ export function detectSpecialty(text: string, fallback?: SpecialtyKey | null): S
 function cleanPicoToken(s: string): string {
   return s
     .replace(/\s*\([PICO]\)\s*/gi, " ")
-    .replace(/^(?:in|for|among)?\s*(?:women|patients|individuals|pregnant individuals|persons)\s+(?:with|undergoing|diagnosed with)?\s+/i, "")
+    .replace(/^(?:in|for|among)?\s*(?:high-risk\s+subgroups\s+of\s+)?(?:pregnant\s+|adult\s+|pediatric\s+|older\s+)?(?:women|patients|individuals|persons|people|adults)\s+(?:diagnosed\s+with|presenting\s+with|with|undergoing)?\s*/i, "")
     .replace(/^.*?\b(?:does|is|do|what is the effect of)\s+/i, "")
     .replace(/^.*?\b(?:compared with|versus|vs\.?)\s+/i, "")
     .replace(/^.*?\b(?:improve|reduce|increase|prevent|lower|decrease|affect|impact|lead to|change)\s+/i, "")
@@ -101,10 +101,24 @@ export function extractPicoFromQuestion(
 
   // Strategy 1: Check for explicit (P), (I), (C), (O) markers
   // e.g. "In women with preterm birth risk (P), does vaginal progesterone (I) compared with cervical cerclage (C) improve primary patient-centered clinical outcomes (O)?"
-  const explicitPMatch = q.match(/([^(]+?)\s*\(P\)/i);
-  const explicitIMatch = q.match(/([^(]+?)\s*\(I\)/i);
-  const explicitCMatch = q.match(/([^(]+?)\s*\(C\)/i);
-  const explicitOMatch = q.match(/([^(]+?)\s*\(O\)/i);
+  // Each element is the text between the previous marker and its own, so an element that carries
+  // its own parentheses ("triple inhaled therapy (ICS/LABA/LAMA) (I)") is kept whole instead of
+  // being cut at its first "(".
+  const markerSegment = (letter: string): RegExpMatchArray | null => {
+    const at = q.search(new RegExp(`\\(${letter}\\)`, "i"));
+    if (at < 0) return null;
+    let start = 0;
+    for (const prev of ["P", "I", "C", "O"]) {
+      const m = new RegExp(`\\(${prev}\\)`, "i").exec(q);
+      if (m && m.index < at) start = Math.max(start, m.index + m[0].length);
+    }
+    const seg = q.slice(start, at).trim();
+    return seg ? ([seg, seg] as unknown as RegExpMatchArray) : null;
+  };
+  const explicitPMatch = markerSegment("P");
+  const explicitIMatch = markerSegment("I");
+  const explicitCMatch = markerSegment("C");
+  const explicitOMatch = markerSegment("O");
 
   if (explicitPMatch && explicitPMatch[1]) {
     condition = cleanPicoToken(explicitPMatch[1]);
@@ -245,7 +259,9 @@ export function extractPicoFromQuestion(
   }
 
   // Guarantee condition does not contain comma-separated lists or mixed interventions
-  if (condition.includes(",") || condition.split(/\s+/).length > 5) {
+  // A long but well-formed population ("acute ischemic stroke with large vessel occlusion") is kept;
+  // only a tag list or a run-on phrase is re-parsed.
+  if (condition.includes(",") || condition.split(/\s+/).length > 9) {
     const scenario = parseClinicalScenario(`${condition} ${topic}`);
     condition = scenario.population;
     if (!intervention || intervention === "evaluated clinical intervention") {

@@ -29,7 +29,8 @@ const auditableRefSchema = z.object({
   journal: z.string().max(500).optional().nullable(),
   doi: z.string().max(500).optional().nullable(),
   url: z.string().max(1000).optional().nullable(),
-  context: z.string().max(20000).optional().nullable(),
+  // An abstract is only needed for the integrity check; a very long one is truncated, not refused.
+  context: z.string().max(200000).transform(v => v.slice(0, 20000)).optional().nullable(),
   source: z.string().max(100).optional().nullable(),
   crossrefId: z.string().max(100).optional().nullable(),
   openAlexId: z.string().max(100).optional().nullable(),
@@ -152,18 +153,32 @@ export async function POST(req: Request) {
     const ink = "#1c2430";
     const muted = "#8a95a0";
 
-    const wrap = (text: string, width: number): string[] => {
-      const out: string[] = [];
-      for (const hard of text.split("\n")) {
-        let line = "";
-        for (const word of hard.split(/\s+/).filter(Boolean)) {
-          const cand = line ? `${line} ${word}` : word;
-          if (!line || doc.widthOfString(cand, { font: FONT, size: 11 } as never) <= width) line = cand;
-          else { out.push(line); line = word; }
-        }
-        if (line) out.push(line);
+    const LEFT = doc.page.margins.left;
+    const FULL_W = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+
+    /**
+     * Writes a paragraph, rendering a leading "**Label:**" run-in in bold. Text is handed to PDFKit
+     * unwrapped: pre-wrapping it with hard line breaks and letting PDFKit wrap again left single
+     * words stranded on their own lines throughout the justified body text.
+     */
+    const paragraph = (raw: string, opts: { x?: number; width?: number; size?: number; align?: "justify" | "left"; lineGap?: number } = {}) => {
+      const x = opts.x ?? LEFT;
+      const width = opts.width ?? FULL_W;
+      const size = opts.size ?? 10.5;
+      const lineGap = opts.lineGap ?? 3.5;
+      const m = /^\*\*([^*]{1,80}?)\*\*\s*([\s\S]*)$/.exec(raw.trim());
+      const label = m ? m[1].trim() : "";
+      const rest = (m ? m[2] : raw).replace(/\*\*/g, "").replace(/[*_`~]/g, "").trim();
+      const h = doc.font(FONT).fontSize(size).heightOfString(`${label} ${rest}`, { width, lineGap });
+      ensure(Math.min(h, 60));
+      doc.x = x;
+      if (label) {
+        doc.font(FONT_B).fontSize(size).fillColor(ink).text(`${label} `, x, doc.y, { width, continued: true, lineGap, align: opts.align ?? "justify" });
+        doc.font(FONT).fontSize(size).fillColor(ink).text(rest, { width, lineGap, align: opts.align ?? "justify" });
+      } else {
+        doc.font(FONT).fontSize(size).fillColor(ink).text(rest, x, doc.y, { width, lineGap, align: opts.align ?? "justify" });
       }
-      return out;
+      doc.x = LEFT;
     };
 
     const ensure = (needed: number) => {
@@ -182,28 +197,30 @@ export async function POST(req: Request) {
       ensure(60);
       doc.font(FONT_B).fontSize(13).fillColor(teal).text("Clinical Question (PICO)");
       doc.moveDown(0.4);
-      const half = doc.page.width - doc.page.margins.left - doc.page.margins.right - 6;
+      // Fixed label column so every row lines up; row height measured from the wrapped value.
+      const labels = body.pico.filter(r => r && r.label).map(r => String(r.label));
+      doc.font(FONT_B).fontSize(10);
+      const labelW = Math.min(150, Math.max(...labels.map(l => doc.widthOfString(l))) + 16);
+      const valueW = FULL_W - labelW - 16;
       for (const row of body.pico.filter(r => r && r.label)) {
-        ensure(40);
-        const label = String(row.label);
         const value = String(row.value || "");
-        const labelW = doc.widthOfString(label, { font: FONT_B, size: 10 } as never) + 12;
+        doc.font(FONT).fontSize(10.5);
+        const rowH = Math.max(22, doc.heightOfString(value || " ", { width: valueW, lineGap: 2 }) + 10);
+        ensure(rowH + 4);
         const top = doc.y;
-        const labelH = 22;
-        doc.rect(doc.page.margins.left, top, labelW, labelH).fill("#e3f2f2");
-        doc.font(FONT_B).fontSize(10).fillColor(teal).text(label, doc.page.margins.left + 6, top + 3);
-        doc.fillColor(ink).font(FONT).fontSize(10.5);
-        const vLines = wrap(value, half - labelW);
-        doc.text(vLines.join("\n") || "", doc.page.margins.left + labelW + 8, top + 3, { width: half - labelW, lineGap: 3 });
-        doc.rect(doc.page.margins.left, top, half, Math.max(labelH, vLines.length * 16)).stroke("#b9c2cc");
-        doc.moveDown(Math.max(labelH, vLines.length * 16) / 12 + 0.3);
+        doc.rect(LEFT, top, labelW, rowH).fill("#e3f2f2");
+        doc.rect(LEFT, top, FULL_W, rowH).lineWidth(0.8).stroke("#b9c2cc");
+        doc.font(FONT_B).fontSize(10).fillColor(teal).text(String(row.label), LEFT + 8, top + 5, { width: labelW - 12 });
+        doc.font(FONT).fontSize(10.5).fillColor(ink).text(value, LEFT + labelW + 8, top + 5, { width: valueW, lineGap: 2 });
+        doc.x = LEFT;
+        doc.y = top + rowH + 4;
       }
       doc.moveDown(0.6);
     }
 
     if (Array.isArray(body.outcomes) && body.outcomes.length) {
       ensure(40);
-      doc.font(FONT_B).fontSize(13).fillColor(teal).text("Selected Outcomes");
+      doc.font(FONT_B).fontSize(13).fillColor(teal).text("Selected Outcomes", LEFT, doc.y, { width: FULL_W });
       doc.moveDown(0.35);
       doc.font(FONT).fontSize(10.5).fillColor(ink);
       body.outcomes.forEach((o, i) => {
@@ -216,7 +233,9 @@ export async function POST(req: Request) {
 
     if (Array.isArray(body.keywords) && body.keywords.length) {
       ensure(20);
-      doc.font(FONT_O).fontSize(10).fillColor("#444d58").text(`Keywords: ${body.keywords.join("; ")}`, { width: doc.page.width - doc.page.margins.left - doc.page.margins.right, lineGap: 3 });
+      doc.font(FONT_B).fontSize(10).fillColor("#444d58").text("Keywords: ", LEFT, doc.y, { width: FULL_W, continued: true, lineGap: 3 });
+      doc.font(FONT_O).fontSize(10).fillColor("#444d58").text(body.keywords.join("; "), { width: FULL_W, lineGap: 3 });
+      doc.x = LEFT;
       doc.moveDown(0.6);
     }
 
@@ -225,7 +244,7 @@ export async function POST(req: Request) {
         if (!section || !Array.isArray(section.blocks) || !section.blocks.length) continue;
         if (section.heading) {
           ensure(46);
-          doc.font(FONT_B).fontSize(13).fillColor(teal).text(String(section.heading));
+          doc.font(FONT_B).fontSize(13).fillColor(teal).text(String(section.heading), LEFT, doc.y, { width: FULL_W });
           doc.moveDown(0.15);
           doc.moveTo(doc.page.margins.left, doc.y).lineTo(doc.page.width - doc.page.margins.right, doc.y).strokeColor(teal).lineWidth(1.2).stroke();
           doc.moveDown(0.4);
@@ -244,8 +263,9 @@ export async function POST(req: Request) {
               let headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
               headTitle = normalizeVancouver(headTitle, body.citationStyle);
               ensure(32);
-              doc.font(FONT_B).fontSize(11.5).fillColor("#14535a").text(headTitle, {
-                width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+              doc.moveDown(0.2);
+              doc.font(FONT_B).fontSize(11.5).fillColor("#14535a").text(headTitle, LEFT, doc.y, {
+                width: FULL_W,
                 lineGap: 2
               });
               doc.moveDown(0.35);
@@ -256,45 +276,39 @@ export async function POST(req: Request) {
             if (rawSub.startsWith("- ") || rawSub.startsWith("• ") || rawSub.startsWith("* ")) {
               const items = rawSub
                 .split(/\n(?=[-•*]\s+)/)
-                .map(it => it.replace(/^[-•*]\s+/, "").replace(/\*\*/g, "").trim())
+                .map(it => it.replace(/^[-•*]\s+/, "").trim())
                 .filter(Boolean);
               for (const it of items) {
                 const cleanIt = normalizeVancouver(it, body.citationStyle);
-                const bulletLines = wrap(cleanIt, doc.page.width - doc.page.margins.left - doc.page.margins.right - 18);
-                ensure(bulletLines.length * 15 + 8);
+                doc.font(FONT).fontSize(10.5);
+                ensure(Math.min(doc.heightOfString(cleanIt.replace(/\*\*/g, ""), { width: FULL_W - 18 }), 48) + 6);
                 const bulletY = doc.y;
-                doc.font(FONT_B).fontSize(10).fillColor(teal).text("•", doc.page.margins.left + 4, bulletY);
-                doc.font(FONT).fontSize(10.5).fillColor(ink).text(
-                  bulletLines.join("\n"),
-                  doc.page.margins.left + 16,
-                  bulletY,
-                  { width: doc.page.width - doc.page.margins.left - doc.page.margins.right - 18, lineGap: 3 }
-                );
+                doc.font(FONT_B).fontSize(10).fillColor(teal).text("•", LEFT + 4, bulletY, { lineBreak: false });
+                doc.y = bulletY;
+                paragraph(cleanIt, { x: LEFT + 16, width: FULL_W - 18, align: "left", lineGap: 3 });
                 doc.moveDown(0.3);
               }
               doc.moveDown(0.2);
               continue;
             }
 
-            // Normal paragraph
-            let text = rawSub.replace(/\*\*/g, "").replace(/[*_#`~]/g, "").trim();
-            if (!text) continue;
+            // Normal paragraph (a leading "**Label:**" is rendered as a bold run-in)
+            let text = rawSub.replace(/[_#`~]/g, "").trim();
+            if (!text.replace(/\*/g, "").trim()) continue;
             // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
             text = normalizeVancouver(text, body.citationStyle);
-            const shortHead = text.length < 70 && !/[.!?]\s*$/.test(text);
+            const plain = text.replace(/\*\*/g, "");
+            const shortHead = plain.length < 70 && !/[.!?:]\s*$/.test(plain) && !/^\*\*/.test(text);
             if (shortHead) {
               ensure(26);
-              doc.font(FONT_B).fontSize(11).fillColor("#14535a").text(text, {
-                width: doc.page.width - doc.page.margins.left - doc.page.margins.right,
+              doc.font(FONT_B).fontSize(11).fillColor("#14535a").text(plain, LEFT, doc.y, {
+                width: FULL_W,
                 lineGap: 3
               });
               doc.moveDown(0.3);
               continue;
             }
-            ensure(24);
-            doc.font(FONT).fontSize(10.5).fillColor(ink);
-            const lines = wrap(text, doc.page.width - doc.page.margins.left - doc.page.margins.right);
-            doc.text(lines.join("\n"), { align: "justify", lineGap: 3.5 });
+            paragraph(text);
             doc.moveDown(0.45);
           }
         }
@@ -308,7 +322,7 @@ export async function POST(req: Request) {
         : body.citationStyle === "harvard"
           ? "References (Harvard Style)"
           : "References (Vancouver Style · Without Brackets)";
-      doc.font(FONT_B).fontSize(13).fillColor(teal).text(refTitle);
+      doc.font(FONT_B).fontSize(13).fillColor(teal).text(refTitle, LEFT, doc.y, { width: FULL_W });
       doc.moveDown(0.15);
       doc.moveTo(doc.page.margins.left, doc.y).lineTo(doc.page.width - doc.page.margins.right, doc.y).strokeColor(teal).lineWidth(1.2).stroke();
       doc.moveDown(0.4);
@@ -316,12 +330,14 @@ export async function POST(req: Request) {
       const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
       body.references.forEach((r, i) => {
         const text = String(r || "").replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-        const formattedEntry = body.citationStyle === "apa" || body.citationStyle === "harvard"
-          ? text
-          : `${i + 1}.  ${text}`;
-        const lines = wrap(formattedEntry, width - 10);
-        ensure(lines.length * 15 + 8);
-        doc.text(lines.join("\n"), doc.page.margins.left, doc.y, { width: width - 10, lineGap: 3 });
+        const numbered = !(body.citationStyle === "apa" || body.citationStyle === "harvard");
+        doc.font(FONT).fontSize(10);
+        const h = doc.heightOfString(text, { width: width - 22, lineGap: 2.5 });
+        ensure(Math.min(h, 80) + 6);
+        const y = doc.y;
+        if (numbered) doc.font(FONT_B).fontSize(10).fillColor(teal).text(`${i + 1}.`, LEFT, y, { width: 20, lineBreak: false });
+        doc.font(FONT).fontSize(10).fillColor(ink).text(text, numbered ? LEFT + 22 : LEFT, y, { width: numbered ? width - 22 : width, lineGap: 2.5 });
+        doc.x = LEFT;
         doc.moveDown(0.4);
       });
     }
