@@ -190,3 +190,43 @@ test("parseClinicalScenario accurately differentiates poor responders, IVF, grow
   assert.equal(extracted.intervention, "growth hormone");
   assert.equal(extracted.comparator, "coenzyme Q10");
 });
+
+test("R1. parseClinicalScenario canonical condition precedence over KB default (HFpEF vs HFrEF)", () => {
+  // Test 1: natural language with abbreviation "hfpef"
+  const q1 = "does dapagliflozin compared with placebo reduce hospitalization in patients with hfpef";
+  const s1 = parseClinicalScenario(q1, "cardiology");
+  assert.ok(
+    s1.population.toLowerCase().includes("preserved ejection fraction"),
+    `Expected population to contain 'preserved ejection fraction', got '${s1.population}'`
+  );
+  assert.ok(!s1.population.toLowerCase().includes("reduced ejection fraction"), "Must not default to HFrEF");
+
+  // Test 2: natural language with full condition name
+  const q2 = "does dapagliflozin compared with placebo reduce hospitalization in patients with heart failure with preserved ejection fraction";
+  const s2 = parseClinicalScenario(q2, "cardiology");
+  assert.ok(
+    s2.population.toLowerCase().includes("preserved ejection fraction"),
+    `Expected population to contain 'preserved ejection fraction', got '${s2.population}'`
+  );
+
+  // Test 3: natural language with "hfref"
+  const q3 = "In patients with hfref does dapagliflozin compared with placebo reduce hospitalization";
+  const s3 = parseClinicalScenario(q3, "cardiology");
+  assert.ok(
+    s3.population.toLowerCase().includes("reduced ejection fraction"),
+    `Expected population to contain 'reduced ejection fraction', got '${s3.population}'`
+  );
+
+  // Test 4: bare "hfpef" tag
+  const s4 = parseClinicalScenario("hfpef");
+  assert.ok(
+    s4.population.toLowerCase().includes("preserved ejection fraction"),
+    `Bare 'hfpef' must resolve to preserved ejection fraction, got '${s4.population}'`
+  );
+
+  // Test 5: multi-specialty control: psychiatry sentence with word "stress" does not leak to cardiology
+  const q5 = "In patients with major depressive disorder experiencing severe stress, does sertraline compared with placebo improve clinical remission?";
+  const s5 = parseClinicalScenario(q5);
+  assert.equal(s5.specialty, "psychiatry", "Must resolve to psychiatry");
+  assert.ok(s5.population.toLowerCase().includes("major depressive disorder"), "Must resolve to depression, not cardiology");
+});

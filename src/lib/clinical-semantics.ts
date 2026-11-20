@@ -1216,7 +1216,9 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
       });
 
       if (isMatch) {
-        specialtyScores[entry.specialty] += 2;
+        if (!COMPARATOR_WORD.test(entry.canonical)) {
+          specialtyScores[entry.specialty] += 2;
+        }
         if (entry.category === "condition" && !matchedConditions.includes(entry.canonical)) {
           matchedConditions.push(entry.canonical);
           termMeta.set(entry.canonical, { pos: tokenPos, raw: token, specialty: entry.specialty });
@@ -1245,7 +1247,9 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
           return (lower.length > 5 && s.includes(lower)) || (s.length > 5 && lower.includes(s));
         });
         if (isSubstring) {
-          specialtyScores[entry.specialty] += 1;
+          if (!COMPARATOR_WORD.test(entry.canonical)) {
+            specialtyScores[entry.specialty] += 1;
+          }
           // A loose substring hit must not turn a typed drug or procedure into an outcome
           // ("antibiotics" inside an antibiotic-related endpoint name).
           if (entry.category === "outcome" && INTERVENTION_WORD.test(lower) && !OUTCOME_WORD.test(lower)) continue;
@@ -1380,6 +1384,90 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
   // belongs to P, not to O.
   const populationQualifiers = matchedOutcomes.filter(o => /occlusion|stenosis|lesion|phenotype|subtype|mutation|positive|negative\b/i.test(o) && !OUTCOME_WORD.test(o));
   for (const q of populationQualifiers) matchedOutcomes.splice(matchedOutcomes.indexOf(q), 1);
+
+  // Canonical condition pass over full raw scenario text when segment-level tags yielded no condition
+  // (e.g. natural language sentence without commas). Ensures canonical condition beats specialty default.
+  if (matchedConditions.length === 0) {
+    const rawLower = cleanInput.toLowerCase();
+    interface RawConditionHit {
+      canonical: string;
+      specialty: SpecialtyKey;
+      synonym: string;
+      index: number;
+      length: number;
+    }
+    const hits: RawConditionHit[] = [];
+
+    const conditionEntries = MEDICAL_TAXONOMY.filter(e => e.category === "condition");
+    for (const entry of conditionEntries) {
+      for (const syn of entry.synonyms) {
+        const s = syn.toLowerCase().trim();
+        if (s.length < 2) continue;
+        const esc = s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        const rx = new RegExp(`\\b${esc}\\b`, "i");
+        const m = rx.exec(rawLower);
+        if (m) {
+          hits.push({
+            canonical: entry.canonical,
+            specialty: entry.specialty,
+            synonym: s,
+            index: m.index,
+            length: s.length
+          });
+        }
+      }
+    }
+
+    if (hits.length > 0) {
+      // Subsumption: drop matches strictly contained inside a longer matching span
+      // e.g. "heart failure" inside "heart failure with preserved ejection fraction"
+      const nonSubsumed = hits.filter(h1 => {
+        const h1End = h1.index + h1.length;
+        return !hits.some(h2 => {
+          if (h1 === h2) return false;
+          const h2End = h2.index + h2.length;
+          return h2.index <= h1.index && h2End >= h1End && h2.length > h1.length;
+        });
+      });
+
+      // Subtype discipline: when both a generic and a specific synonym of the same family match
+      // ("heart failure" + "hfpef"), the most specific exact word-boundary hit wins.
+      // A whole-word match on "hfpef" must never yield the HFrEF canonical.
+      let distinctCanons = Array.from(new Set(nonSubsumed.map(h => h.canonical)));
+      if (distinctCanons.length > 1) {
+        const hasSpecificHfpef = nonSubsumed.some(h =>
+          h.canonical === "heart failure with preserved ejection fraction" &&
+          /hfpef|preserved ejection fraction|diastolic heart failure/i.test(h.synonym)
+        );
+        const hasSpecificHfref = nonSubsumed.some(h =>
+          h.canonical === "heart failure with reduced ejection fraction" &&
+          /hfref|reduced ejection fraction/i.test(h.synonym)
+        );
+        if (hasSpecificHfpef && !hasSpecificHfref) {
+          distinctCanons = distinctCanons.filter(c => c !== "heart failure with reduced ejection fraction");
+        } else if (hasSpecificHfref && !hasSpecificHfpef) {
+          distinctCanons = distinctCanons.filter(c => c !== "heart failure with preserved ejection fraction");
+        }
+      }
+
+      // If specialty is already scored/identified, prefer matching that specialty
+      if (distinctCanons.length > 1 && specialty) {
+        const matchingSpec = nonSubsumed.filter(h => h.specialty === specialty).map(h => h.canonical);
+        const uniqueMatchingSpec = Array.from(new Set(matchingSpec));
+        if (uniqueMatchingSpec.length === 1) {
+          distinctCanons = uniqueMatchingSpec;
+        }
+      }
+
+      if (distinctCanons.length === 1) {
+        matchedConditions.push(distinctCanons[0]);
+        const matchingHit = nonSubsumed.find(h => h.canonical === distinctCanons[0]);
+        if (matchingHit && (!explicitSpecialty || explicitSpecialty === matchingHit.specialty)) {
+          specialty = matchingHit.specialty;
+        }
+      }
+    }
+  }
 
   // Determine clean, non-overlapping P, I, C using dynamic knowledge base definitions
   const basePopulation = matchedConditions[0] || (KB[specialty]?.conditions?.[0] || "target clinical condition");
