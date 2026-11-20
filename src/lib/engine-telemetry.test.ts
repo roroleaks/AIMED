@@ -2,7 +2,8 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 test("commentary response surfaces telemetry with positive processingTimeMs (live network)", { skip: !process.env.AIMED_LIVE_NETWORK }, async () => {
-  const res = await fetch("http://localhost:3000/api/engine", {
+  const baseUrl = process.env.AIMED_BASE_URL || "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api/engine`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
