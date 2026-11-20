@@ -522,7 +522,7 @@ export default function Home() {
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                 {SEARCH_SOURCE_OPTIONS.map(opt => (
                   <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
-                    {opt.icon} {opt.name}
+                    {opt.icon} {opt.name}{opt.id === "googlescholar" ? " (key-gated)" : ""}
                   </span>
                 ))}
               </div>
@@ -641,11 +641,11 @@ export default function Home() {
                             fontWeight: 700,
                             padding: "3px 8px",
                             borderRadius: 4,
-                            background: "#0f766e",
+                            background: opt.id === "googlescholar" ? "#f59e0b" : "#0f766e",
                             color: "#ffffff"
                           }}
                         >
-                          ALWAYS ON
+                          {opt.id === "googlescholar" ? "KEY-GATED" : "ALWAYS ON"}
                         </span>
                       </div>
                       <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 2 }}>

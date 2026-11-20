@@ -94,7 +94,7 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
     name: "Google Scholar",
     icon: "🎓",
     badgeClass: "source-badge-googlescholar",
-    description: "Broad scholarly index incl. grey literature & theses (via SerpApi)",
+    description: "Broad scholarly index incl. grey literature & theses · key-gated (SERPAPI_API_KEY)",
     provider: "Google · SerpApi"
   },
   {

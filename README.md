@@ -124,7 +124,7 @@ Every search queries **all** of these free scholarly databases concurrently. The
 | 🔵 PubMed (MEDLINE) | NCBI E-utilities | optional `NCBI_API_KEY` (higher rate limit) |
 | 🟡 PMC (PubMed Central, open-access full text) | Europe PMC REST | none |
 | 🇪🇺 Europe PMC (MEDLINE + preprints + Agricola + patents) | Europe PMC REST | none |
-| 🎓 Google Scholar | SerpApi `google_scholar` engine | **`SERPAPI_API_KEY` required** (free plan available) |
+| 🎓 Google Scholar | SerpApi `google_scholar` engine | **key-gated (`SERPAPI_API_KEY` required)** (free plan available) |
 | 🟠 Semantic Scholar | S2 Graph API | optional `S2_API_KEY` |
 | 🟢 OpenAlex | OpenAlex API | optional `OPENALEX_API_KEY` |
 | 🟣 CrossRef | Crossref REST | none |
