@@ -295,6 +295,14 @@ export function buildCandidates(input: ClinicalSearchInput): string[] {
 }
 
 /**
+ * High-recall clinical PubMed query using MeSH headings and title/abstract terms.
+ */
+export function buildPubMedQuery(input: ClinicalSearchInput): string {
+  const candidates = buildCandidates(input);
+  return candidates[0] || "";
+}
+
+/**
  * Stable cache key for a request, independent of which candidate ladder rung eventually matched.
  *
  * Built from the sanitized input only: the NCBI API key must never reach a cache key, because

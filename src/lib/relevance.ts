@@ -27,6 +27,7 @@ export interface AuditableRef {
   source?: string;
   pubType?: string;
   publicationTypes?: string[];
+  studyType?: string;
   /** Provider identifiers, kept so cross-provider deduplication can compare provenance. */
   crossrefId?: string;
   openAlexId?: string;
@@ -222,10 +223,10 @@ const POPULATION_SUBTYPES: Array<{ want: RegExp; reject: RegExp }> = [
   { want: /\btwins?\b/i, reject: /singleton/i }
 ];
 
-export function populationConflict(population: string, title: string): boolean {
+export function populationConflict(population: string, title: string, context = ""): boolean {
   const pop = String(population || "");
-  const t = String(title || "");
-  return POPULATION_SUBTYPES.some(r => r.want.test(pop) && r.reject.test(t) && !r.want.test(t));
+  const text = context ? `${title} ${context}` : String(title || "");
+  return POPULATION_SUBTYPES.some(r => r.want.test(pop) && r.reject.test(text) && !r.want.test(text));
 }
 
 export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
@@ -251,23 +252,28 @@ export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
     return false;
   };
 
-  const population = matchFor("population") && !populationConflict(byType.population?.value || "", ref.title || "");
+  const population = matchFor("population") && !populationConflict(byType.population?.value || "", ref.title || "", ref.context || "");
   const intervention = matchFor("intervention");
   const comparator = matchFor("comparator");
   let outcome = matchFor("outcome");
 
-  // FIX 6: Design-aware outcome matching for landmark trials and systematic reviews:
+  // Outcome matching for landmark trials and systematic reviews:
   // When a verified head-to-head trial or systematic review tests the intervention against comparator
-  // in the exact target population, its primary reported endpoint directly addresses the PICO inquiry.
-  // Relaxing the verbatim outcome-token requirement prevents landmark trials (e.g. DAPA-HF, PARADIGM-HF)
-  // from being excluded when titles or brief metadata lack the user's specific outcome phrase.
+  // in the exact target population, verify that it actually assessed clinical endpoints.
   if (
     !outcome &&
-    (design === "randomized trial" || design === "clinical trial" || design === "systematic review / meta-analysis") &&
     population &&
     (intervention || comparator)
   ) {
-    outcome = true;
+    const normCtx = synonymize(ctx);
+    const hasEndpointToken = /\b(?:death|mortality|survival|events?|rate|incidence|efficacy|safety|score|endpoints?|hospitali[sz]ation|readmission|outcomes?|recurrence|failure|remission|response|bleeding|infection|complications?|pain|quality of life|qol|adverse|function|decline|progression|loss)\b/i.test(normCtx);
+
+    if (design === "systematic review / meta-analysis") {
+      const hasOutcomeToken = hasEndpointToken || /\b(?:meta-analysis|systematic review|pooled analysis|cochrane)\b/i.test(normCtx);
+      if (hasOutcomeToken) outcome = true;
+    } else if (design === "randomized trial" || design === "clinical trial") {
+      if (hasEndpointToken) outcome = true;
+    }
   }
 
   const score = [population, intervention, comparator, outcome].filter(Boolean).length;
@@ -374,6 +380,26 @@ export function isDirectSupportEligible(
 ): { eligible: boolean; confidence: "high" | "moderate" | "low"; reason?: string } {
   const audit = auditRef(ref, elements);
   const confidence = audit.metadataCompleteness?.confidence ?? "low";
+
+  // ClinicalTrials.gov and Preprints are strictly gap-mapping / background / contextual;
+  // they are NOT peer-reviewed evidence of clinical effect and cannot directly support findings.
+  if (
+    ref.source === "clinicaltrials" ||
+    ref.pubType === "Trial Registration" ||
+    ref.studyType === "Clinical Trial (Registered)" ||
+    (ref.pmid && ref.pmid.startsWith("nct:"))
+  ) {
+    return { eligible: false, confidence, reason: "no direct support: trial registration is not peer-reviewed evidence" };
+  }
+  if (
+    ref.source === "preprints" ||
+    ref.pubType === "Preprint" ||
+    ref.studyType === "Preprint" ||
+    (ref.pmid && ref.pmid.startsWith("ppr:"))
+  ) {
+    return { eligible: false, confidence, reason: "no direct support: preprint is not peer-reviewed evidence" };
+  }
+
   // A published reference has to be checkable by the reader. A record with neither a DOI nor a
   // PMID cannot be resolved to a paper, so matching wording is not enough to publish it, however
   // long its title is and however well the text fits the claim.
@@ -510,7 +536,7 @@ export function parseCitationSlots(inner: string): { names: string[]; years: str
   const slots: { names: string[]; years: string[] }[] = [];
   for (const chunk of inner.split(/[;,]|\band\b/i)) {
     const names = (chunk.match(NAME_TOKEN) || []).filter(n => n.length >= 2 && !NON_NAMES.test(n));
-    const years = chunk.match(/(?:19|20)\d{2}/g) || [];
+    const years = chunk.match(/\b(?:19|20)\d{2}\b/g) || [];
     // A chunk that carries a year but no author belongs to the citation before it, as in
     // "(Gen 2012, 2014)" and "(Gen., 2012)", where the separator sits between the author and
     // its years rather than between two citations.
@@ -891,17 +917,50 @@ export function stripOrphanCitations(text: string, orphans: string[]): { text: s
   const removed: string[] = [];
   let out = text || "";
 
-  // Strip numeric orphans like [5]
-  for (const no of numericOrphans) {
-    const num = no.replace(/[\[\]]/g, "").trim();
-    out = out.replace(new RegExp(`\\[\\s*${num}\\s*\\]`, "g"), () => {
-      if (!removed.includes(no)) removed.push(no);
-      return "";
-    });
-    out = out.replace(new RegExp(`\\[([^\\]]*)\\b${num}\\b([^\\]]*)\\]`, "g"), (match, pre, post) => {
-      const remaining = `${pre},${post}`.split(",").map(s => s.trim()).filter(s => s && s !== num);
-      if (!removed.includes(no)) removed.push(no);
-      return remaining.length ? `[${remaining.join(", ")}]` : "";
+  // Strip numeric orphans like [5], including within comma lists or ranges like [1-3]
+  if (numericOrphans.length > 0) {
+    const orphanNums = new Set(
+      numericOrphans.map(no => parseInt(no.replace(/\D/g, ""), 10)).filter(n => !isNaN(n) && n > 0)
+    );
+
+    const bracketRegex = /(?:\[|<sup>)([\d\s,\-–]+)(?:\]|<\/sup>)/gi;
+    out = out.replace(bracketRegex, (match, inner) => {
+      const parts = String(inner).split(/\s*,\s*/);
+      const allNums: number[] = [];
+      for (const part of parts) {
+        const trimmed = part.trim();
+        if (/^\d+$/.test(trimmed)) {
+          const n = parseInt(trimmed, 10);
+          if (n > 0) allNums.push(n);
+        } else {
+          const rangeMatch = trimmed.match(/^(\d+)\s*[-–]\s*(\d+)$/);
+          if (rangeMatch) {
+            const start = parseInt(rangeMatch[1], 10);
+            const end = parseInt(rangeMatch[2], 10);
+            if (start > 0 && end >= start && end - start < 100) {
+              for (let i = start; i <= end; i++) allNums.push(i);
+            }
+          }
+        }
+      }
+      if (!allNums.length) return match;
+
+      const hasOrphan = allNums.some(n => orphanNums.has(n));
+      if (!hasOrphan) return match;
+
+      for (const n of allNums) {
+        if (orphanNums.has(n)) {
+          const label = `[${n}]`;
+          if (!removed.includes(label)) removed.push(label);
+        }
+      }
+
+      const surviving = [...new Set(allNums.filter(n => !orphanNums.has(n)))].sort((a, b) => a - b);
+      if (!surviving.length) return "";
+
+      const isSup = match.startsWith("<sup>");
+      const listStr = surviving.join(", ");
+      return isSup ? `<sup>${listStr}</sup>` : `[${listStr}]`;
     });
   }
 

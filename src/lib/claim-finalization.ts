@@ -22,6 +22,7 @@ export interface ClaimFinalizationInput {
   fields: Record<string, string>;
   evidenceSet: EvidenceSet;
   elements?: PicoElement[];
+  citationIndexMap?: Map<number, AuditableRef>;
 }
 
 export interface ClaimFinalizationResult {
@@ -80,19 +81,34 @@ export function assertedDirection(sentence: string): "reduction" | "increase" | 
   return null;
 }
 
-/** Direction the source itself reports, read from its title and abstract text. */
-export function reportedDirection(rec: AuditableRef): "reduction" | "increase" | "no-difference" | null {
-  const text = claimText(`${rec.title || ""} ${rec.context || ""}`);
-  if (/\b(?:did\s+not|failed\s+to)\s+(?:\w+\s+){0,2}(?:reduc|decreas|lower)\w*|\bdid\s+not\s+see\s+(?:a\s+)?significant|\bno\s+(?:statistically\s+)?significant\s+(?:reduction|benefit)/i.test(text)) {
+function parseTextDirection(text: string): "reduction" | "increase" | "no-difference" | null {
+  const norm = claimText(text);
+  if (/\b(?:did\s+not|failed\s+to)\s+(?:\w+\s+){0,2}(?:reduc|decreas|lower)\w*|\bdid\s+not\s+see\s+(?:a\s+)?significant|\bno\s+(?:statistically\s+)?significant\s+(?:reduction|benefit)/i.test(norm)) {
     return "no-difference";
   }
-  if (/\bno\s+(?:statistically\s+)?significant\s+(?:difference|effect)\b/i.test(text)) return "no-difference";
-  if (/\b(did\s+not\s+(?:reduce|decrease)|failed\s+to\s+(?:reduce|decrease)|no\s+(?:reduction|benefit))\b/i.test(text)) {
+  if (/\bno\s+(?:statistically\s+)?significant\s+(?:difference|effect)\b/i.test(norm)) return "no-difference";
+  if (/\b(did\s+not\s+(?:reduce|decrease)|failed\s+to\s+(?:reduce|decrease)|no\s+(?:reduction|benefit))\b/i.test(norm)) {
     return "no-difference";
   }
-  if (/\b(reduc\w*|decreas\w*|lower(?:ed|s)?|shorten\w*|delay\w*)\b/i.test(text)) return "reduction";
-  if (/\b(increas\w*|rais(?:e|es|ed)|higher|greater)\b/i.test(text)) return "increase";
+  if (/\b(reduc\w*|decreas\w*|lower(?:ed|s)?|shorten\w*|delay\w*)\b/i.test(norm)) return "reduction";
+  if (/\b(increas\w*|rais(?:e|es|ed)|higher|greater)\b/i.test(norm)) return "increase";
   return null;
+}
+
+/** Direction the source itself reports, read from its title and abstract text with outcome scoping when available. */
+export function reportedDirection(rec: AuditableRef, outcomeTokens?: string[]): "reduction" | "increase" | "no-difference" | null {
+  const fullText = `${rec.title || ""} ${rec.context || ""}`;
+  if (outcomeTokens && outcomeTokens.length > 0) {
+    // Sentence-level outcome-scoped detection first
+    const sents = splitSentences(fullText);
+    for (const sent of sents) {
+      if (reportsAny(sent, outcomeTokens)) {
+        const dir = parseTextDirection(sent);
+        if (dir) return dir;
+      }
+    }
+  }
+  return parseTextDirection(fullText);
 }
 
 // Anchored: unanchored, "a" and "or" matched inside every content word ("cardiovascular"), so
@@ -141,23 +157,32 @@ function claimOutcomeTokens(sentence: string, elements: PicoElement[]): string[]
   return named.length ? named : tokens;
 }
 
-/** Loose stem overlap, so "preterm" matches "preterm" and "bleeding" matches "bleed". */
+/** Whole-word token and stem matching. */
 function reportsAny(text: string, tokens: string[]): boolean {
-  const hay = text.toLowerCase().replace(/[^a-z]/g, "");
+  const normText = ` ${text.toLowerCase().replace(/[^a-z0-9]/g, " ")} `;
   return tokens.some(t => {
-    const stem = t.replace(/(?:ing|ed|es|s)$/, "");
-    return hay.includes(t) || (stem.length >= 5 && hay.includes(stem));
+    const cleanT = t.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (!cleanT || cleanT.length < 3) return false;
+    const stem = cleanT.replace(/(?:ing|ed|es|s)$/, "");
+    const reWord = new RegExp(`\\b${cleanT}\\b`, "i");
+    if (reWord.test(normText)) return true;
+    if (stem.length >= 4) {
+      const reStem = new RegExp(`\\b${stem}\\w*\\b`, "i");
+      if (reStem.test(normText)) return true;
+    }
+    return false;
   });
 }
 
 /** A claim the sources contradict is not supported by them, so it is not retained. */
-function directionSupportsClaim(sentence: string, rec: AuditableRef): boolean {
+function directionSupportsClaim(sentence: string, rec: AuditableRef, elements?: PicoElement[]): boolean {
   // A quoted conclusion is judged on what it states; the narrative frame around the quote
   // ("the authors concluded") asserts nothing of its own.
   const quoted = /"([^"]{20,})"/.exec(sentence);
   const claimed = assertedDirection(quoted ? quoted[1] : sentence);
   if (!claimed) return true;
-  const reported = reportedDirection(rec);
+  const tokens = elements ? claimOutcomeTokens(sentence, elements) : [];
+  const reported = reportedDirection(rec, tokens);
   if (!reported) return true;
   // A source that reports no difference cannot support a sentence asserting a difference.
   if (claimed === "no-difference") return reported === "no-difference";
@@ -270,7 +295,7 @@ export function finalizeClaims(input: ClaimFinalizationInput): ClaimFinalization
 
       for (const num of citedNumbers) {
         const idx = num - 1;
-        const rec = input.evidenceSet.retainedRecords[idx];
+        const rec = input.citationIndexMap?.get(num) ?? input.evidenceSet.retainedRecords[idx];
         if (rec) {
           const rawKey = rec.doi ? `doi:${rec.doi.toLowerCase()}` : rec.pmid ? `pmid:${rec.pmid}` : "";
           const foundKey = (rawKey && input.evidenceSet.allowedCitationKeys.has(rawKey))
@@ -305,7 +330,7 @@ export function finalizeClaims(input: ClaimFinalizationInput): ClaimFinalization
       const reportsOutcome = (r: AuditableRef) =>
         !tokens.length || reportsAny(`${r.title || ""} ${r.context || ""}`, tokens);
       const onTopic = addressed.filter(r => reportsOutcome(r));
-      const consistent = onTopic.filter(r => directionSupportsClaim(sentence, r));
+      const consistent = onTopic.filter(r => directionSupportsClaim(sentence, r, elements));
 
       let reason: FinalClaim["reason"];
       if (!cites.length && !citedNumbers.size) reason = "no-citation";

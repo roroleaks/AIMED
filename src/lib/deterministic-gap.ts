@@ -121,12 +121,16 @@ export function generateDeterministicGapAnalysis(rawTopic: string, explicitSpeci
       rationale: "Addresses risk-stratified timing and threshold for proactive clinical intervention."
     },
     {
-      question: `In ${popTarget} (P), does ${intervention} combined with adjuvant therapy (I) compared with ${intervention} monotherapy (C) improve cumulative therapeutic success (O)?`,
-      rationale: "Tests potential synergistic or additive benefit of combination regimens."
+      question: comparatorIsActive
+        ? `In ${popTarget} (P), does ${intervention} combined with ${comparator} (I) compared with ${comparator} monotherapy (C) improve cumulative therapeutic response (O)?`
+        : `In ${popTarget} (P), does optimized or higher-intensity ${intervention} (I) compared with standard ${intervention} (C) improve cumulative therapeutic response (O)?`,
+      rationale: comparatorIsActive
+        ? "Tests potential synergistic or additive benefit of combination regimens against single-agent therapy."
+        : "Evaluates dose-response and intensity optimization for therapeutic efficacy."
     },
     {
-      question: `In patients undergoing ${intervention} for ${condition} (P), does structured protocolized follow-up (I) compared with routine clinical monitoring (C) decrease long-term morbidity and treatment-related complications (O)?`,
-      rationale: "Focuses on surveillance safety, adverse event mitigation, and quality assurance."
+      question: `In ${popTarget} (P), does ${intervention} (I) compared with ${comparator} (C) reduce long-term morbidity and treatment-related complications (O)?`,
+      rationale: "Focuses on surveillance safety, adverse event mitigation, and quality assurance with strict PICO separation."
     }
   ];
 

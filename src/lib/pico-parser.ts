@@ -72,17 +72,22 @@ export function detectSpecialty(text: string, fallback?: SpecialtyKey | null): S
 }
 
 function cleanPicoToken(s: string): string {
-  return s
+  const cleaned = (s || "")
     .replace(/\s*\([PICO]\)\s*/gi, " ")
+    .trim()
+    .replace(/^[,;:.\s]+/, "")
     .replace(/^(?:in|for|among)?\s*(?:high-risk\s+subgroups\s+of\s+)?(?:pregnant\s+|adult\s+|pediatric\s+|older\s+)?(?:women|patients|individuals|persons|people|adults)\s+(?:diagnosed\s+with|presenting\s+with|with|undergoing)?\s*/i, "")
-    .replace(/^.*?\b(?:does|is|do|what is the effect of)\s+/i, "")
-    .replace(/^.*?\b(?:compared with|versus|vs\.?)\s+/i, "")
-    .replace(/^.*?\b(?:improve|reduce|increase|prevent|lower|decrease|affect|impact|lead to|change)\s+/i, "")
+    .replace(/^[,;:.\s]+/, "")
+    .replace(/^(?:does|is|do|what is the effect of|can|will|should)\s+/i, "")
+    .replace(/^(?:compared\s+(?:with|to)|versus|vs\.?)\s+/i, "")
+    .replace(/^(?:improve|reduce|increase|prevent|decrease|affect|impact|lead to|change)\s+/i, "")
+    .replace(/^lower\s+than\s+/i, "")
     .replace(/^(?:in|for|among)\s+/i, "")
-    .replace(/^[,;:]\s*/, "")
+    .replace(/^[,;:.\s]+/, "")
     .replace(/\?+$/, "")
     .replace(/\s+/g, " ")
     .trim();
+  return cleaned;
 }
 
 export function extractPicoFromQuestion(

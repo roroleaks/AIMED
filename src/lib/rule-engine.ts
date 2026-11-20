@@ -81,6 +81,15 @@ export function ruleAnalyze(input: string): Analysis {
   const spec = KB[specKey];
   const conds = matchIn(lower, spec.conditions);
   const ivs = matchIn(lower, spec.interventions);
+
+  // Preserve arm order from input text: sort by first-occurrence position in input
+  const posInInput = (term: string) => {
+    const idx = lower.indexOf(term.toLowerCase());
+    return idx >= 0 ? idx : 999999;
+  };
+  conds.sort((a, b) => posInInput(a) - posInInput(b));
+  ivs.sort((a, b) => posInInput(a) - posInInput(b));
+
   const preventionWords = ["prevent", "prevention", "prophylaxis", "treatment", "therapy", "therapeutic"];
   const diagWords = ["diagnos", "ultrasound", "mri", "accuracy", "test"];
   const progWords = ["prognos", "predict", "risk of", "likelihood"];
@@ -99,9 +108,9 @@ export function ruleAnalyze(input: string): Analysis {
   return {
     specialty: specKey,
     specialtyLabel: spec.label,
-    condition: conds[conds.length - 1] || "",
-    intervention: ivs[ivs.length - 1] || "",
-    comparator: ivs.length > 1 ? ivs[ivs.length - 2] : "",
+    condition: conds[0] || "",
+    intervention: ivs[0] || "",
+    comparator: ivs.length > 1 ? ivs[1] : "",
     questionType: qt.type,
     framework: qt.framework,
     missing,

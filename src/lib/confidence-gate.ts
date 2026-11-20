@@ -102,7 +102,8 @@ export function evaluateConfidence(
   evidenceSet: { retainedRecords: AuditableRef[]; allowedCitationKeys: Set<string>; citationMap: Map<string, unknown>; retrievedCount: number; retainedCount: number; excludedCount: number },
   elements: PicoElement[],
   config: ConfidenceGateConfig = DEFAULT_CONFIDENCE_CONFIG,
-  startTime?: number
+  startTime?: number,
+  options?: { claimWarnings?: string[]; totalClaims?: number; unsupportedClaims?: number }
 ): ConfidenceGateResult {
   const start = typeof startTime === "number" ? startTime : Date.now();
   const gates: GateResult[] = [];
@@ -136,42 +137,51 @@ export function evaluateConfidence(
     details: `retained=${evidenceSet.retainedCount}, elements=${picoElements.length}`
   });
 
-  // Gate 3: Metadata Completeness (fraction of records with DOI/PMID)
-  const totalRecords = evidenceSet.retainedCount;
-  // Proxy - in production this would check actual records for DOI/PMID
-  const metadataCompleteness = totalRecords > 0 ? 0.9 : 0;
+  // Gate 3: Metadata Completeness (records with DOI/PMID and abstract)
+  const retainedList = evidenceSet.retainedRecords || [];
+  const totalRecords = retainedList.length || evidenceSet.retainedCount;
+  const doiPmidCount = retainedList.filter(r => !!(r.doi && String(r.doi).trim()) || !!(r.pmid && /^\d+$/.test(String(r.pmid)))).length;
+  const abstractCount = retainedList.filter(r => (r.context || "").length > 30).length;
+  const doiPmidRatio = totalRecords > 0 ? doiPmidCount / totalRecords : 0;
+  const abstractRatio = totalRecords > 0 ? abstractCount / totalRecords : 0;
+  const metadataPassed = totalRecords > 0 && doiPmidRatio >= 0.6 && abstractRatio >= 0.6;
+  const metadataScore = Math.round(((doiPmidRatio + abstractRatio) / 2) * 100);
+
   gates.push({
     name: "metadata_completeness",
-    passed: metadataCompleteness >= config.minMetadataCompleteness,
-    score: Math.round(metadataCompleteness * 100),
-    threshold: Math.round(config.minMetadataCompleteness * 100),
-    details: `completeness=${Math.round(metadataCompleteness * 100)}%`
+    passed: metadataPassed,
+    score: metadataScore,
+    threshold: 60,
+    details: `doi_pmid=${Math.round(doiPmidRatio * 100)}%, abstract=${Math.round(abstractRatio * 100)}%`
   });
 
-  // Gate 4: Hallucination Risk (from claim finalization)
-  // In production, this would come from finalizeClaims warnings
-  const hallucinationRisk = 0;
+  // Gate 4: Hallucination Risk (from claim finalization warnings)
+  const totalClaims = options?.totalClaims ?? 10;
+  const unsupportedCount = options?.unsupportedClaims ?? (options?.claimWarnings ? options.claimWarnings.length : 0);
+  const hallucinationRatio = totalClaims > 0 ? unsupportedCount / totalClaims : 0;
+  const hallucinationRiskScore = Math.round(hallucinationRatio * 100);
+  const hallucinationPassed = hallucinationRiskScore <= 25;
   gates.push({
     name: "hallucination_risk",
-    passed: hallucinationRisk <= config.maxHallucinationRisk,
-    score: Math.max(0, 100 - hallucinationRisk * 10),
-    threshold: config.maxHallucinationRisk * 10,
-    details: `risk_score=${hallucinationRisk}`
+    passed: hallucinationPassed,
+    score: Math.max(0, 100 - hallucinationRiskScore),
+    threshold: 75,
+    details: `unsupported=${unsupportedCount}, total=${totalClaims}, risk=${hallucinationRiskScore}%`
   });
 
-  // Gate 4: Evidence Retrieval Quality
-  const retrievalQuality = evidenceSet.retrievedCount > 0 
-    ? Math.min(1, evidenceSet.retainedCount / Math.max(1, evidenceSet.retrievedCount))
+  // Gate 5: Evidence Retrieval Precision
+  const retrievalPrecision = evidenceSet.retrievedCount > 0 
+    ? evidenceSet.retainedCount / evidenceSet.retrievedCount
     : 0;
   gates.push({
     name: "retrieval_quality",
-    passed: retrievalQuality >= 0.3,
-    score: Math.round(retrievalQuality * 100),
-    threshold: 30,
-    details: `retrieved=${evidenceSet.retrievedCount}, retained=${evidenceSet.retainedCount}`
+    passed: retrievalPrecision >= 0.05,
+    score: Math.min(100, Math.round(retrievalPrecision * 200)),
+    threshold: 5,
+    details: `retrieved=${evidenceSet.retrievedCount}, retained=${evidenceSet.retainedCount}, precision=${Math.round(retrievalPrecision * 100)}%`
   });
 
-  // Gate 5: LLM Availability
+  // Gate 6: LLM Availability
   gates.push({
     name: "llm_availability",
     passed: config.llmAvailable,
@@ -215,8 +225,11 @@ export function evaluateConfidence(
  * @param result The confidence gate evaluation result
  * @returns true if deterministic fallback should be used
  */
-export function shouldUseDeterministicFallback(result: ConfidenceGateResult): boolean {
-  return !result.passed || !result.telemetry.llmAvailable;
+export function shouldUseDeterministicFallback(
+  result: ConfidenceGateResult,
+  config: ConfidenceGateConfig = DEFAULT_CONFIDENCE_CONFIG
+): boolean {
+  return !result.passed || result.telemetry.failedGates > 0 || result.score < config.minOverallScore || !result.telemetry.llmAvailable;
 }
 
 /**

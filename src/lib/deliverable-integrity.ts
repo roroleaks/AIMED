@@ -47,6 +47,7 @@ export interface DeliverableIntegrityResult {
    * produced and it receives an untrusted request body verbatim.
    */
   malformedReferences: string[];
+  misanchoredCitations: string[];
   warnings: EvidenceWarning[];
 }
 
@@ -105,10 +106,20 @@ function referenceIsBackedBy(ref: string, retained: AuditableRef[]): boolean {
     const recDoi = normalizeDoi(rec.doi);
     if (refDoi && recDoi) return refDoi === recDoi;
     const recPmid = String(rec.pmid || "").trim();
-    if (refPmid && recPmid) return refPmid === recPmid;
-    // Only fall back to text similarity when neither side carries a usable identifier, so a
-    // DOI-bearing reference can never be "backed" by an unrelated record with a similar title.
-    if (recDoi || recPmid) return false;
+    if (refPmid && recPmid && /^\d+$/.test(recPmid)) return refPmid === recPmid;
+
+    // Check URL or provider identifiers
+    const targetLower = target.toLowerCase();
+    if (rec.url && targetLower.includes(rec.url.toLowerCase())) return true;
+    if (rec.openAlexId && targetLower.includes(rec.openAlexId.toLowerCase())) return true;
+    if (rec.crossrefId && targetLower.includes(rec.crossrefId.toLowerCase())) return true;
+    if (rec.pmid && targetLower.includes(rec.pmid.toLowerCase())) return true;
+
+    // Conflicting identifiers: if both sides carry usable DOIs or numeric PMIDs and they differ, do not match by title
+    if ((refDoi && recDoi && refDoi !== recDoi) || (refPmid && /^\d+$/.test(recPmid) && refPmid !== recPmid)) {
+      return false;
+    }
+
     const canonical = foldName(formatReference(rec));
     return (canonical.length > 40 && refFolded.includes(canonical.slice(0, 60)))
       || (Boolean(rec.title) && refFolded.includes(foldName(String(rec.title)).slice(0, 60)));
@@ -189,6 +200,42 @@ export function validateDeliverableIntegrity(input: DeliverableIntegrityInput): 
     }
   }
 
+  // Part 4.14: Citation target consistency check: for each numeric cite [n], verify correspondence
+  // between the citation context and the resolved record from references[n-1].
+  const misanchoredCitations: string[] = [];
+  const sentences = narrative.split(/(?<=[.!?])\s+/);
+  for (const sentence of sentences) {
+    const { citedNumbers: sentenceNums } = extractNumericCites(sentence);
+    const authorCites = extractInTextCites(sentence);
+
+    for (const num of sentenceNums) {
+      const idx = num - 1;
+      if (idx < 0 || idx >= references.length) continue;
+      const refStr = references[idx];
+      const backingRec = retained.find(r => referenceIsBackedBy(refStr, [r]));
+      if (!backingRec) {
+        misanchoredCitations.push(`[${num}] resolves to no retained evidence record`);
+        continue;
+      }
+
+      for (const ac of authorCites) {
+        if (ac.author && ac.author.length >= 2) {
+          const matchesThis = citationMatchesRecord(ac.author, ac.year || "", backingRec);
+          if (!matchesThis) {
+            const matchesOther = retained.some(otherRec =>
+              otherRec !== backingRec && citationMatchesRecord(ac.author, ac.year || "", otherRec)
+            );
+            if (matchesOther) {
+              misanchoredCitations.push(
+                `[${num}] sentence cites author "${ac.author}" but points to reference ${num} (${backingRec.authors || backingRec.title})`
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
   // Orphan and uncited detection is delegated to the same checker the pipeline reconciles with,
   // so the gate reports exactly the defects that survived reconciliation rather than a second,
   // divergent opinion about them.
@@ -218,7 +265,8 @@ export function validateDeliverableIntegrity(input: DeliverableIntegrityInput): 
     unresolvedReferences.length === 0 &&
     extraExportReferences.length === 0 &&
     duplicateCitationKeys.length === 0 &&
-    malformedReferences.length === 0;
+    malformedReferences.length === 0 &&
+    misanchoredCitations.length === 0;
 
   return {
     ok,
@@ -229,6 +277,11 @@ export function validateDeliverableIntegrity(input: DeliverableIntegrityInput): 
     extraExportReferences,
     duplicateCitationKeys,
     malformedReferences,
+    misanchoredCitations,
     warnings: []
   };
+}
+
+export function guardDeliverable(input: DeliverableIntegrityInput): DeliverableIntegrityResult {
+  return validateDeliverableIntegrity(input);
 }

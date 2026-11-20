@@ -1076,19 +1076,55 @@ export function parseOutcomeSelectionResponse(
 
   // Salvage pass: an LLM payload usually has the right shape with stray or missing fields, so
   // rebuild each option from the fields we recognise rather than discarding a usable list.
+  // Part 4.9: In the salvage pass, accept an option only when its label fuzzy-matches (>=0.75
+  // normalized similarity) an existing deterministic option; otherwise drop it.
   if (input && typeof input === "object" && !Array.isArray(input)) {
     const raw = input as Record<string, unknown>;
     const rawOptions = Array.isArray(raw.options) ? raw.options : [];
+
+    const matchOntology = (candId: unknown, candLabel: string): OutcomeCandidate | undefined => {
+      if (typeof candId === "string" && candId) {
+        const byId = OUTCOME_ONTOLOGY.find(c => c.id === candId);
+        if (byId) return byId;
+      }
+      const normCand = normalizeCached(candLabel);
+      const candSet = new Set(normCand.tokens.map(canonicalToken));
+      if (!candSet.size) return undefined;
+
+      for (const entry of OUTCOME_ONTOLOGY) {
+        if (candLabel.toLowerCase() === entry.label.toLowerCase()) return entry;
+        if (outcomeSemanticKey(candLabel) === outcomeSemanticKey(entry.label)) return entry;
+        const normEnt = normalizeCached(entry.label);
+        if (normCand.weeks !== normEnt.weeks) continue;
+        const entSet = new Set(normEnt.tokens.map(canonicalToken));
+        if (!entSet.size) continue;
+
+        let shared = 0;
+        for (const t of candSet) {
+          if (entSet.has(t)) shared++;
+        }
+        const jaccardSim = shared / (candSet.size + entSet.size - shared);
+        const diceSim = (2 * shared) / (candSet.size + entSet.size);
+        if (Math.max(jaccardSim, diceSim) >= 0.75 || areNearDuplicates(candLabel, entry.label)) {
+          return entry;
+        }
+      }
+      return undefined;
+    };
+
     const salvaged: unknown[] = [];
     for (const entry of rawOptions) {
       if (!entry || typeof entry !== "object" || Array.isArray(entry)) continue;
       const o = entry as Record<string, unknown>;
       const label = typeof o.label === "string" ? o.label.trim() : "";
       if (!label || label.length > 200) continue;
-      const base = OUTCOME_ONTOLOGY.find(c => c.id === o.id);
+
+      const base = matchOntology(o.id, label);
+      if (!base) continue;
+
       salvaged.push({
-        ...(base ?? {}),
-        id: typeof o.id === "string" && o.id ? o.id : `llm:${outcomeSemanticKey(label)}`,
+        ...base,
+        id: base.id || (typeof o.id === "string" && o.id ? o.id : `llm:${outcomeSemanticKey(label)}`),
         label: stripUnsafeContent(label).slice(0, 200),
         shortLabel: typeof o.shortLabel === "string" && o.shortLabel
           ? o.shortLabel.slice(0, 120)
@@ -1111,6 +1147,9 @@ export function parseOutcomeSelectionResponse(
           ? o.preferredForPrimaryOutcome
           : (base?.preferredForPrimaryOutcome ?? false)
       });
+    }
+    if (salvaged.length === 0) {
+      return fallback();
     }
     const recommendedRaw = raw.recommendedOutcome;
     const recommendedId = recommendedRaw && typeof recommendedRaw === "object"

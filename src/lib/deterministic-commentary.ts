@@ -6,7 +6,7 @@ import { parseAuthorNames } from "./citation-styles.ts";
 import { designOf } from "./relevance.ts";
 import { assertedDirection, reportedDirection, splitSentences } from "./claim-finalization.ts";
 import { auxVerbFor, outcomeVerbFor } from "./clinical-semantics.ts";
-import { SEARCH_SOURCE_OPTIONS } from "./literature-sources.ts";
+import { SEARCH_SOURCE_OPTIONS, sourceStatusSnapshot } from "./literature-sources.ts";
 
 export interface DeterministicCommentaryInput {
   selectedQuestion: string;
@@ -92,8 +92,8 @@ const DESIGN_LABEL: Record<string, string> = {
   unclassified: "clinical study"
 };
 
-/** Phrases the commentary must never put in a quoted finding (estimates or overclaiming wording). */
-const UNQUOTABLE = /95\s*%|\bci\b|confidence interval|p\s*[<=>]\s*0?\.|risk ratio|hazard ratio|odds ratio|\b(?:hr|rr|or)\s*[=,:]|demonstrates that|confirms that|proves that|is effective|should be recommended|the evidence supports/i;
+/** Phrases the commentary must never put in a quoted finding (estimates, overclaiming, or publisher copyright/licensing wording). */
+const UNQUOTABLE = /95\s*%|\bci\b|confidence interval|p\s*[<=>]\s*0?\.|risk ratio|hazard ratio|odds ratio|\b(?:hr|rr|or)\s*[=,:]|demonstrates that|confirms that|proves that|is effective|should be recommended|the evidence supports|©|\bcopyright\b|\bcreative commons\b|\ball rights reserved\b|\blicense[d\.]?|\bthis article is distributed\b|\bopen access\b/i;
 
 /**
  * The sentence of an abstract that states its finding: the labelled conclusion when there is
@@ -101,14 +101,13 @@ const UNQUOTABLE = /95\s*%|\bci\b|confidence interval|p\s*[<=>]\s*0?\.|risk rati
  * carrying an effect estimate, and only when its direction agrees with the record overall, so
  * the quote survives claim finalization as supported by the record it cites.
  */
-/** Whether a sentence is about the outcome: any substantive outcome word (or its stem) appears. */
+/** Whether a sentence is about the outcome: any substantive outcome word (or its stem) appears as a whole word. */
 function mentionsOutcome(sentence: string, outcome: string, population = ""): boolean {
-  const hay = sentence.toLowerCase();
   // Words shared with the population ("heart failure" in "heart failure hospitalization" for an
   // HFrEF question) say nothing about the outcome, so they do not count.
   const popWords = new Set(population.toLowerCase().split(/[^a-z0-9]+/));
   const toks = outcome.toLowerCase().replace(/\([^)]*\)/g, " ").split(/[^a-z0-9]+/).filter(t => t.length >= 4 && !popWords.has(t) && !/^(?:with|from|rate|risk|time|the|and|score|change|composite|endpoint|outcome|primary|total)$/.test(t));
-  return toks.some(t => hay.includes(t.length > 6 ? t.slice(0, 6) : t));
+  return toks.some(t => new RegExp(`\\b${t}\\w*\\b`, "i").test(sentence));
 }
 
 export function extractFinding(rec: AuditableRef, outcome = "", population = ""): string {
@@ -119,7 +118,9 @@ export function extractFinding(rec: AuditableRef, outcome = "", population = "")
   const recDir = reportedDirection(rec);
   let fallback = "";
   for (const raw of pool) {
-    const sent = raw.replace(/^(?:In conclusion|To conclude|Overall|Conclusions?)[,:]\s*/i, "").trim();
+    let sent = raw.replace(/^(?:In conclusion|To conclude|Overall|Conclusions?)[,:]\s*/i, "").trim();
+    // Strip trailing license or copyright sentences from candidate finding
+    sent = sent.replace(/(?:\.?\s*(?:©|\bcopyright\b|\bcreative commons\b|\ball rights reserved\b|\blicensed under\b|\bthis article is distributed\b|\bopen access\b).*)$/i, "").trim();
     // A sentence that leans on the previous one ("However, the reductions were larger...") is
     // not a self-contained finding.
     if (/^(?:however|moreover|furthermore|additionally|in addition|in contrast|conversely|similarly|also|thus|therefore|this|these|it|they)\b/i.test(sent)) continue;
@@ -139,6 +140,40 @@ export function extractFinding(rec: AuditableRef, outcome = "", population = "")
     if (!fallback) fallback = clean;
   }
   return fallback;
+}
+
+export function buildTruthfulMethodsText(outcome: string): string {
+  const status = sourceStatusSnapshot();
+  const successful: string[] = [];
+  const skippedNotes: string[] = [];
+
+  for (const opt of SEARCH_SOURCE_OPTIONS) {
+    const s = status[opt.id];
+    const name = opt.name.replace(/ \(PubMed Central\)$/, "");
+    if (s && s.attempted && s.ok) {
+      successful.push(name);
+    } else if (s && s.skipped === "no_key") {
+      skippedNotes.push(`${name} skipped: no API key configured`);
+    } else if (s && s.skipped === "cooldown") {
+      skippedNotes.push(`${name} unavailable due to rate limits`);
+    } else if (s && s.skipped === "offline") {
+      skippedNotes.push(`${name} skipped: offline mode`);
+    } else if (s && s.attempted && !s.ok) {
+      skippedNotes.push(`${name} unavailable due to provider error`);
+    }
+  }
+
+  const sourcesQueried = successful.length > 0
+    ? (successful.length > 1
+        ? `${successful.slice(0, -1).join(", ")} and ${successful[successful.length - 1]}`
+        : successful[0])
+    : "Biomedical literature databases";
+
+  let sentence = `${sourcesQueried} were searched for ${outcome}; records were retained only when they addressed the population, the intervention or comparator, and the outcome.`;
+  if (skippedNotes.length > 0) {
+    sentence += ` (${skippedNotes.join("; ")}).`;
+  }
+  return sentence;
 }
 
 /**
@@ -272,14 +307,14 @@ export function generateDeterministicCommentary(
     title = `Evidence Synthesis: ${cleanQ.length > 110 ? cleanQ.slice(0, 107).replace(/\s+\S*$/, "") + "…" : cleanQ}`;
   }
 
-  const sourceList = SEARCH_SOURCE_OPTIONS.map(o => o.name.replace(/ \(PubMed Central\)$/, "")).join(", ").replace(/, ([^,]+)$/, " and $1");
+  const truthfulMethods = buildTruthfulMethodsText(outcome);
 
   if (n === 0) {
     return {
       title,
       abstract:
         `**Background:** The clinical question addressed is ${whether}. ` +
-        `\n\n**Methods:** ${sourceList} were searched for ${outcome}; records were retained only when they addressed the population, the intervention or comparator, and the outcome. ` +
+        `\n\n**Methods:** ${truthfulMethods} ` +
         `\n\n**Results:** No directly supporting clinical records meeting the claim verification filter were retained. ` +
         `\n\n**Conclusion:** Direct comparative evidence for this specific clinical configuration remains sparse in current indexed literature.`,
       keywords: keywordList,
@@ -340,7 +375,7 @@ export function generateDeterministicCommentary(
   const abstract = [
     `**Background:** Treatment decisions for ${population} depend on whether ${intervention}, compared with ${comparator}, ${verbs} ${outcome} ${allCiteToken}.`,
     `**Objective:** To appraise the published evidence on ${whether} ${allCiteToken}.`,
-    `**Methods:** ${sourceList} were searched concurrently. Records were de-duplicated across databases and retained only when they addressed the population, the intervention or comparator, and the outcome. ${n} record${plural ? " was" : "s were"} retained, published ${yearSpanText} ${allCiteToken}.`,
+    `**Methods:** ${truthfulMethods} Records were de-duplicated across databases and retained only when they addressed the population, the intervention or comparator, and the outcome. ${n} record${plural ? " was" : "s were"} retained, published ${yearSpanText} ${allCiteToken}.`,
     `**Results:** The retained evidence comprises ${designSentence}.` +
       highlights.map(h => ` In the ${h.designLabel} by ${who(h)} (${h.year}), the authors concluded: "${h.finding}" ${h.numToken}.`).join(""),
     `**Conclusions:** ` + (favourable.length
@@ -353,7 +388,7 @@ export function generateDeterministicCommentary(
   // Introduction: the clinical question and why it is being appraised, without unreferenced claims.
   const introduction = [
     `This commentary appraises the evidence comparing ${intervention} with ${comparator} for ${outcome} in ${population} ${allCiteToken}. ${outcome.charAt(0).toUpperCase() + outcome.slice(1)} is the endpoint against which the two strategies are judged, and the question is framed in PICO form so that each retained record can be checked against the population, the intervention or comparator, and the outcome.`,
-    `The literature was searched across ${sourceList}, so that both MEDLINE-indexed trials and records indexed only in open-access, preprint or citation databases were considered. Records describing other populations or other subtypes of ${condition} were excluded, as were study protocols, trial registrations and conference abstracts, which do not report peer-reviewed results.`,
+    `The literature was searched across databases: ${truthfulMethods} Records describing other populations or other subtypes of ${condition} were excluded, as were study protocols, trial registrations and conference abstracts, which do not report peer-reviewed results.`,
     `The ${n} retained record${plural ? "" : "s"} ${allCiteToken} are appraised below, study by study, before their consistency, certainty and applicability are considered.`
   ].join("\n\n");
 
@@ -371,6 +406,13 @@ export function generateDeterministicCommentary(
     `${n} record${plural ? "" : "s"} address${plural ? "es" : ""} ` +
     `the selected population, intervention and outcome, and ${plural ? "is" : "are"} ` +
     `evaluated in this synthesis in Vancouver style: ${allCiteToken}.`;
+
+  const distinctSources = Array.from(new Set(entries.map(e => e.record.source).filter(Boolean)));
+  const sourceList = distinctSources.length > 0
+    ? (distinctSources.length > 1
+        ? `${distinctSources.slice(0, -1).join(", ")} and ${distinctSources[distinctSources.length - 1]}`
+        : distinctSources[0])
+    : "the queried biomedical literature databases";
 
   const discScope =
     `#### Evidence Base\n\n` +

@@ -43,20 +43,42 @@ export interface ParsedAuthor {
   initials: string;
 }
 
+function isInitials(token: string): boolean {
+  const clean = token.trim();
+  if (/^[A-Z]{1,3}$/.test(clean)) return true;
+  if (/^(?:[A-Z]\.?){1,3}$/i.test(clean) && clean.includes(".")) return true;
+  return false;
+}
+
 /**
  * Extracts author surnames and initials from various source formats.
  */
 export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
   if (!authorStr || !authorStr.trim()) return [];
-  // Split on commas, semicolons, or " and "
-  const rawSegments = authorStr
-    .split(/[,;]|\sand\s/i)
-    .map(s => s.trim().replace(/\.$/, ""))
-    .filter(Boolean);
+  // Split on semicolons or " and " first, and only split on comma if the next token is not initials
+  const majorParts = authorStr.split(/;|\sand\s/i).map(s => s.trim()).filter(Boolean);
+  const rawSegments: string[] = [];
+
+  for (const part of majorParts) {
+    const commaParts = part.split(/\s*,\s*/);
+    for (let i = 0; i < commaParts.length; i++) {
+      const cur = commaParts[i].trim();
+      if (!cur) continue;
+      const next = commaParts[i + 1]?.trim();
+      // If next token is initials (e.g. "Smith, JA" or "Smith, J.A." or "Smith, J"),
+      // this comma is between surname and initials, not between different authors.
+      if (next && isInitials(next)) {
+        rawSegments.push(`${cur} ${next}`);
+        i++; // skip next
+      } else {
+        rawSegments.push(cur);
+      }
+    }
+  }
 
   const authors: ParsedAuthor[] = [];
 
-  for (const seg of rawSegments) {
+  for (const seg of rawSegments.map(s => s.trim().replace(/\.$/, "")).filter(Boolean)) {
     const tokens = seg.split(/\s+/).filter(Boolean);
     if (tokens.length === 0) continue;
     if (tokens.length === 1) {
@@ -67,17 +89,17 @@ export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
     const first = tokens[0];
     const last = tokens[tokens.length - 1];
 
-    if (/^[A-Z]{1,3}$/.test(last)) {
+    if (isInitials(last)) {
       // e.g. "Smith JA"
       authors.push({
         surname: tokens.slice(0, tokens.length - 1).join(" "),
-        initials: last.split("").join(".") + "."
+        initials: last.replace(/\./g, "").split("").join(".") + "."
       });
-    } else if (/^[A-Z]{1,3}$/.test(first)) {
+    } else if (isInitials(first)) {
       // e.g. "JA Smith"
       authors.push({
         surname: tokens.slice(1).join(" "),
-        initials: first.split("").join(".") + "."
+        initials: first.replace(/\./g, "").split("").join(".") + "."
       });
     } else {
       // e.g. "John Smith" or "John A. Smith"

@@ -519,7 +519,13 @@ const MEDICAL_TAXONOMY: MedicalTermEntry[] = [
     canonical: "heart failure with reduced ejection fraction",
     category: "condition",
     specialty: "cardiology",
-    synonyms: ["heart failure", "hfref", "hfpef", "reduced ejection fraction", "heart failure reduced ejection fraction", "congestive heart failure"]
+    synonyms: ["heart failure", "hfref", "reduced ejection fraction", "heart failure reduced ejection fraction", "congestive heart failure"]
+  },
+  {
+    canonical: "heart failure with preserved ejection fraction",
+    category: "condition",
+    specialty: "cardiology",
+    synonyms: ["hfpef", "heart failure with preserved ejection fraction", "diastolic heart failure", "preserved ejection fraction"]
   },
   {
     canonical: "atrial fibrillation",
@@ -950,12 +956,17 @@ export function getOutcomeDirection(outcomeText: string): OutcomeDirection {
   if (found?.direction) return found.direction;
 
   if (
-    /mortality|morbidity|loss|miscarriage|preterm birth|complication|recurrence|adverse|admission|failure|death|bleeding|pain|cesarean|nicu|hospitali[sz]ation|readmission|exacerbation|relapse|events?\b|infection|stroke|infarction|thrombo|embolism|fracture|amputation|toxicity|hypoglyc|rejection|progression|incidence|injury|delirium|sepsis|mace\b|harm|decline|deterioration|worsening|risk\b/i.test(lower) &&
-    !/relief|reduction|cessation|preservation|maintenance|quality|survival|free\b|remission|response|cure|healing|clearance|success|weight loss|body weight|independence|favou?rable/i.test(lower)
+    /relief|reduction|cessation|preservation|maintenance|quality(?:\s+of\s+life)?|survival|free\b|remission|response|cure|healing|clearance|success|weight loss|body weight|independence|favou?rable|recovery|adherence|tolerance/i.test(lower)
+  ) {
+    return "desirable";
+  }
+
+  if (
+    /mortality|morbidity|loss|miscarriage|preterm birth|complication|recurrence|adverse(?:[\s\-_]event)?|admission|failure|death|bleeding|pain|cesarean|nicu|hospitali[sz]ation|readmission|exacerbation|relapse|events?\b|infection|stroke|infarction|thrombo|embolism|fracture|amputation|toxicity|hypoglyc|rejection|progression|incidence|injury|delirium|sepsis|mace\b|harm|decline|deterioration|worsening|risk\b|anxiety|depression|stress|nausea|vomiting|incontinence|weight gain|\bbmi\b|fatigue|insomnia/i.test(lower)
   ) {
     return "adverse";
   }
-  return "desirable";
+  return "neutral";
 }
 
 /**
@@ -1063,6 +1074,15 @@ function formulateOutcomeVerbPhrase(verbType: "primary" | "secondary" | "subgrou
         return `decrease the incidence of ${cleanOutcome}`;
       case "subgroup":
         return `prevent ${cleanOutcome}`;
+    }
+  } else if (dir === "neutral") {
+    switch (verbType) {
+      case "primary":
+        return `change ${cleanOutcome}`;
+      case "secondary":
+        return `affect ${cleanOutcome}`;
+      case "subgroup":
+        return `modify ${cleanOutcome}`;
     }
   } else {
     switch (verbType) {
