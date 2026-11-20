@@ -15,7 +15,7 @@ import {
   convertNarrativeToStyle,
   type CitationStyle
 } from "@/lib/citation-styles";
-import { ALL_LITERATURE_SOURCES, ALL_SOURCES_LABEL } from "@/lib/literature-sources";
+import { ALL_LITERATURE_SOURCES, ALL_SOURCES_LABEL, getSourceBadge } from "@/lib/literature-sources";
 
 interface ReferenceItem { pmid: string; title: string; authors: string; year: string; journal: string; doi?: string; url: string; studyType?: string; pubType?: string }
 type PubMedResult = ReferenceItem;
@@ -50,6 +50,7 @@ interface CommentaryPaper {
   synthesisGenerated?: boolean;
   /** Server-supplied explanation shown to the user when no synthesis was produced. */
   notice?: string;
+  sourceStatus?: Record<string, { attempted: boolean; ok: boolean; skipped: string; hits: number; ms: number; error?: string }>;
 }
 interface RefAudit {
   pmid: string; title: string; url: string;
@@ -518,6 +519,14 @@ export default function PaperPage() {
     }
   };
 
+  const copyQuestion = async () => {
+    try {
+      await navigator.clipboard.writeText(activeQuestion);
+    } catch {
+      setExportError("⚠️ Could not access the clipboard.");
+    }
+  };
+
   const picoPayload = () =>
     (formulation?.elements || []).map(e => ({ label: e.label, value: e.value }));
 
@@ -950,6 +959,40 @@ export default function PaperPage() {
               <span className="pill">📚 Evidence Sources ({ALL_SOURCES_LABEL})</span>
               <button className="secondary" disabled={!!exporting} onClick={() => exportRefsPDF(commentary.fetchedReferences || [], commentary.title, "Evidence Sources", "sources")}>{exporting === "sources" ? "⏳ Generating PDF…" : "📄 References PDF"}</button>
             </div>
+            {commentary.sourceStatus && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "8px 0 16px" }}>
+                <span style={{ fontSize: "0.8rem", color: "var(--muted)", alignSelf: "center", marginRight: 4 }}>Sources:</span>
+                {Object.entries(commentary.sourceStatus).map(([src, s]) => {
+                  const badge = getSourceBadge(src);
+                  const isOk = s.attempted && s.ok;
+                  const isSkipped = !s.attempted || s.skipped !== "none";
+                  const statusLabel = isOk ? `${s.hits} hits (${s.ms}ms)` : s.skipped === "cooldown" ? "rate-limited" : s.skipped === "no_key" ? "no key" : s.skipped === "offline" ? "offline" : "error";
+                  const bg = isOk ? "#f0fdf4" : isSkipped ? "#f8fafc" : "#fef2f2";
+                  const color = isOk ? "#166534" : isSkipped ? "#64748b" : "#991b1b";
+                  const border = isOk ? "#bbf7d0" : isSkipped ? "#e2e8f0" : "#fecaca";
+                  return (
+                    <span
+                      key={src}
+                      style={{
+                        fontSize: "0.75rem",
+                        padding: "2px 8px",
+                        borderRadius: 12,
+                        background: bg,
+                        color: color,
+                        border: `1px solid ${border}`,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4
+                      }}
+                      title={s.error || `${src}: ${statusLabel}`}
+                    >
+                      <span>{badge.icon}</span>
+                      <strong>{badge.label}</strong>: {statusLabel}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
             {commentary.fetchedReferences.map(r => {
               const audit = commentary.refAudit?.find(x => x.pmid === r.pmid);
               return (
@@ -1011,7 +1054,7 @@ export default function PaperPage() {
             </button>
             <button className="secondary" disabled={!!exporting} onClick={exportQuestionPDF}>{exporting === "question" ? "⏳ Generating PDF…" : "🖨️ Question as PDF"}</button>
             <button className="secondary" onClick={exportWord}>📄 Word</button>
-            <button className="secondary" onClick={() => navigator.clipboard.writeText(activeQuestion)}>📋 Copy</button>
+            <button className="secondary" onClick={copyQuestion}>📋 Copy</button>
           </div>
         </section>
 

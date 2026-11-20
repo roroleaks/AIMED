@@ -21,12 +21,13 @@ interface Reference {
   pubType?: string;
   publicationTypes?: string[];
 }
-interface PointWithRefs { point: string; references: Reference[] }
+interface PointWithRefs { point: string; references: Reference[]; searchIncomplete?: boolean }
 interface GapResult {
   topic: string; specialty?: string;
   known: PointWithRefs[]; uncertain: PointWithRefs[];
   gaps: { gap: string; why: string }[];
   suggestedQuestions: { question: string; rationale: string }[];
+  sourceStatus?: Record<string, { attempted: boolean; ok: boolean; skipped: string; hits: number; ms: number; error?: string }>;
   note?: string;
 }
 
@@ -60,7 +61,8 @@ export default function GapPage() {
       try {
         const res = await fetch("/api/engine", {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ stage: "gap", input, specialty, sources })
+          body: JSON.stringify({ stage: "gap", input, specialty, sources }),
+          signal: AbortSignal.timeout(90_000)
         });
         if (!isMounted) return;
         // Surface the server's own diagnostic instead of replacing it with a generic string.
@@ -79,8 +81,14 @@ export default function GapPage() {
             setSelected(data.suggestedQuestions[0].question);
           }
         }
-      } catch {
-        if (isMounted) setError("The evidence mapping service did not respond. Please go back and retry.");
+      } catch (err) {
+        if (!isMounted) return;
+        const isTimeout = err instanceof Error && (err.name === "TimeoutError" || /timeout/i.test(err.message));
+        if (isTimeout) {
+          setError("The evidence mapping request timed out after 90 seconds. Please try again with a more focused query.");
+        } else {
+          setError("The evidence mapping service did not respond. Please go back and retry.");
+        }
       }
     })();
     return () => {
@@ -207,6 +215,40 @@ export default function GapPage() {
                 <button className="secondary" disabled={!!exporting || !gap.uncertain?.length} title={!gap.uncertain?.length ? "No conflicting-evidence records to export" : undefined} onClick={() => exportEvidencePDF("uncertain")}>{exporting === "uncertain" ? "⏳ Generating PDF…" : "📄 Conflicting Evidence (PDF)"}</button>
               </div>
             </div>
+            {gap.sourceStatus && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "8px 0 16px" }}>
+                <span style={{ fontSize: "0.8rem", color: "var(--muted)", alignSelf: "center", marginRight: 4 }}>Sources:</span>
+                {Object.entries(gap.sourceStatus).map(([src, s]) => {
+                  const badge = getSourceBadge(src);
+                  const isOk = s.attempted && s.ok;
+                  const isSkipped = !s.attempted || s.skipped !== "none";
+                  const statusLabel = isOk ? `${s.hits} hits (${s.ms}ms)` : s.skipped === "cooldown" ? "rate-limited" : s.skipped === "no_key" ? "no key" : s.skipped === "offline" ? "offline" : "error";
+                  const bg = isOk ? "#f0fdf4" : isSkipped ? "#f8fafc" : "#fef2f2";
+                  const color = isOk ? "#166534" : isSkipped ? "#64748b" : "#991b1b";
+                  const border = isOk ? "#bbf7d0" : isSkipped ? "#e2e8f0" : "#fecaca";
+                  return (
+                    <span
+                      key={src}
+                      style={{
+                        fontSize: "0.75rem",
+                        padding: "2px 8px",
+                        borderRadius: 12,
+                        background: bg,
+                        color: color,
+                        border: `1px solid ${border}`,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4
+                      }}
+                      title={s.error || `${src}: ${statusLabel}`}
+                    >
+                      <span>{badge.icon}</span>
+                      <strong>{badge.label}</strong>: {statusLabel}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
             {gap.note && <div className="advisory">⚠️ {gap.note}</div>}
 
             {!!gap.known?.length && (
@@ -216,6 +258,11 @@ export default function GapPage() {
                   {gap.known.map((k, i) => (
                     <li key={`k${i}`}>
                       {k.point}
+                      {k.searchIncomplete && (
+                        <span style={{ fontSize: "0.8rem", color: "var(--muted)", marginLeft: 8, fontStyle: "italic" }}>
+                          (Search incomplete / 0 references)
+                        </span>
+                      )}
                       {!!k.references?.length && (
                         <div className="refs">{k.references.map((r, j) => {
                           const st = classifyPaperType(r);
@@ -245,6 +292,11 @@ export default function GapPage() {
                   {gap.uncertain.map((u, i) => (
                     <li key={`u${i}`}>
                       {u.point}
+                      {u.searchIncomplete && (
+                        <span style={{ fontSize: "0.8rem", color: "var(--muted)", marginLeft: 8, fontStyle: "italic" }}>
+                          (Search incomplete / 0 references)
+                        </span>
+                      )}
                       {!!u.references?.length && (
                         <div className="refs">{u.references.map((r, j) => {
                           const st = classifyPaperType(r);

@@ -46,26 +46,8 @@ function sessionInputSnapshot(): ClinicalInput | null {
   return cachedValue;
 }
 const serverSnapshot = (): null => null;
-const serverModeSnapshot = (): "gap" => "gap";
 const subscribeToNothing = () => () => {};
 const EMPTY_DECISIONS: CorrectionRecord[] = [];
-
-let cachedModeRaw: string | null = null;
-let cachedModeValue: "formulate" | "gap" = "gap";
-function sessionModeSnapshot(): "formulate" | "gap" {
-  if (typeof window === "undefined") return "gap";
-  let raw: string | null = null;
-  try {
-    raw = window.sessionStorage.getItem(KEYS.mode);
-  } catch {
-    raw = null;
-  }
-  if (raw !== cachedModeRaw) {
-    cachedModeRaw = raw;
-    cachedModeValue = raw === "formulate" ? "formulate" : "gap";
-  }
-  return cachedModeValue;
-}
 
 export default function Home() {
   const router = useRouter();
@@ -73,13 +55,10 @@ export default function Home() {
   const workspaceRef = useRef<HTMLDivElement>(null);
 
   const restored = useSyncExternalStore(subscribeToNothing, sessionInputSnapshot, serverSnapshot);
-  const restoredMode = useSyncExternalStore(subscribeToNothing, sessionModeSnapshot, serverModeSnapshot);
 
   const [draft, setDraft] = useState<string | null>(null);
   const input = draft ?? restored?.rawInput ?? "";
   const setInput = useCallback((v: string) => setDraft(v), []);
-  const [modeDraft] = useState<"formulate" | "gap" | null>(null);
-  const mode = modeDraft ?? restoredMode;
   const [tagError, setTagError] = useState<string | null>(null);
 
   // Input style: Quick tag words (free-text) vs Structured labeled fields (P, I, C, O)
@@ -220,7 +199,6 @@ export default function Home() {
     sset(KEYS.specialty, specialty);
     sset(KEYS.input, toSessionInput(current, input));
     sset(KEYS.inputText, sessionSearchText(toSessionInput(current, input)));
-    sset(KEYS.mode, mode);
     router.push("/gap");
   };
 

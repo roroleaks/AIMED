@@ -155,8 +155,16 @@ export async function POST(req: Request) {
 
     // Parity gate: refuse deliverable if bibliography does not match retained evidence
     if (Array.isArray(body.references) && body.references.length > 0) {
+      const narrativeFields: Record<string, string> = {};
+      if (Array.isArray(body.sections)) {
+        for (const s of body.sections) {
+          if (s && s.heading && Array.isArray(s.blocks)) {
+            narrativeFields[s.heading.toLowerCase()] = s.blocks.join(" ");
+          }
+        }
+      }
       const integrity = validateDeliverableIntegrity({
-        fields: {},
+        fields: narrativeFields,
         references: body.references,
         retainedRecords: Array.isArray(body.retainedReferences)
           ? (body.retainedReferences as unknown as AuditableRef[])
@@ -168,6 +176,8 @@ export async function POST(req: Request) {
           {
             error: integrity.malformedReferences.length
               ? "Export refused: the reference list contained malformed entries."
+              : integrity.misanchoredCitations && integrity.misanchoredCitations.length > 0
+              ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
               : "Export refused: references did not match the validated evidence set.",
             integrity
           },
@@ -187,7 +197,7 @@ export async function POST(req: Request) {
 
     const specDef = body.specialty ? getSpecialtyDefinition(body.specialty) : undefined;
     const specialtyName = specDef?.label || "Clinical Medicine";
-    const authorityGuidelines = specDef?.authorityGuidelines || "ACOG, NICE, RCOG, SOGC, WHO International Guidelines";
+    const authorityGuidelines = specDef?.authorityGuidelines || "International Clinical Practice Guidelines & Consensus Statements";
 
     const docChildren: (Paragraph | Table)[] = [];
 
@@ -611,10 +621,11 @@ export async function POST(req: Request) {
         .replace(/^-+|-+$/g, "")
         .slice(0, 80) || "document";
 
+    const suffix = body.docType && String(body.docType).toLowerCase().includes("question") ? "-question.docx" : "-manuscript.docx";
     return new NextResponse(new Uint8Array(docxBuffer), {
       headers: {
         "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-        "Content-Disposition": `attachment; filename="${safe}-manuscript.docx"`,
+        "Content-Disposition": `attachment; filename="${safe}${suffix}"`,
         "Cache-Control": "no-store"
       }
     });

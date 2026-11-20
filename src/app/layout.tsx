@@ -1,17 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AimedProvider } from "@/context/AimedContext";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -22,7 +11,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aimed-pico.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://aimed-pico.vercel.app"),
   title: "AIMed — Multi-Specialty Medical Intelligence Platform",
   description:
     "AI-assisted clinical question formulation, multi-database evidence mapping, and publication-grade commentary synthesis across medical specialties.",
@@ -39,7 +28,7 @@ export const metadata: Metadata = {
   authors: [{ name: "AIMed Medical Intelligence Team" }],
   creator: "AIMed",
   publisher: "AIMed",
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -58,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aimed-pico.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://aimed-pico.vercel.app",
     siteName: "AIMed",
     title: "AIMed — Multi-Specialty Medical Intelligence Platform",
     description:
@@ -93,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en">
       <body>
         <AimedProvider>{children}</AimedProvider>
       </body>

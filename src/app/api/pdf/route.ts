@@ -104,8 +104,16 @@ export async function POST(req: Request) {
     // durable and most citable artifact this app produces. Every reference emitted must be
     // accountable to a retained record the claim filter approved.
     if (Array.isArray(body.references) && body.references.length > 0) {
+      const narrativeFields: Record<string, string> = {};
+      if (Array.isArray(body.sections)) {
+        for (const s of body.sections) {
+          if (s && s.heading && Array.isArray(s.blocks)) {
+            narrativeFields[s.heading.toLowerCase()] = s.blocks.join(" ");
+          }
+        }
+      }
       const integrity = validateDeliverableIntegrity({
-        fields: {},
+        fields: narrativeFields,
         references: body.references,
         retainedRecords: Array.isArray(body.retainedReferences) ? (body.retainedReferences as unknown as AuditableRef[]) : [],
         exportReferences: body.references
@@ -115,6 +123,8 @@ export async function POST(req: Request) {
           {
             error: integrity.malformedReferences.length
               ? "Export refused: the reference list contained malformed entries."
+              : integrity.misanchoredCitations && integrity.misanchoredCitations.length > 0
+              ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
               : "Export refused: references did not match the validated evidence set.",
             integrity
           },

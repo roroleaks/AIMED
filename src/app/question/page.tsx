@@ -665,7 +665,7 @@ export default function QuestionPage() {
                 <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#0f766e", display: "inline-flex", alignItems: "center", gap: 6 }}>
                   📚 Reference Citation Style for PDF Deliverable:
                 </span>
-                <span className="source-badge-mini source-badge-pubmed" style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
+                <span className={`source-badge-mini source-badge-${citationStyle}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
                   Selected: {citationStyle === "vancouver" ? "Vancouver (Without Brackets)" : citationStyle === "apa" ? "APA 7th Edition" : "Harvard Style"}
                 </span>
               </div>
