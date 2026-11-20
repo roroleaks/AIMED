@@ -82,7 +82,7 @@ The platform operates through a rigorous 7-step evidence-based pipeline:
      placebo/standard care is always C, typed order and wording kept)
        │
        ▼
-[Stage: Gap Analysis & Mapping]  — all 8 literature databases, ~15-25 s
+[Stage: Gap Analysis & Mapping]  — all 11 literature databases, ~15-25 s
  ├── 4 Established Knowledge Points   ┐ each with up to 4 papers that match the
  ├── 4 Conflicting Evidence Points    ┘ typed population and intervention; no paper repeated
  ├── 4 Research Gaps
@@ -129,12 +129,17 @@ Every search queries **all** of these free scholarly databases concurrently. The
 | 🟢 OpenAlex | OpenAlex API | optional `OPENALEX_API_KEY` |
 | 🟣 CrossRef | Crossref REST | none |
 | 🔓 DOAJ (Directory of Open Access Journals) | DOAJ API | none |
+| 📋 ClinicalTrials.gov | NIH ClinicalTrials.gov API v2 | none |
+| 📚 Cochrane Library | Cochrane Search + Europe PMC CDSR slice | none |
+| 📄 Preprints | Europe PMC REST (`SRC:PPR` / medRxiv, bioRxiv) | none |
 
-Google Scholar has no official API and blocks direct scraping, so it is reached via SerpApi. Without `SERPAPI_API_KEY` that one source is skipped silently and the other seven still run.
+Google Scholar has no official API and blocks direct scraping, so it is reached via SerpApi. Without `SERPAPI_API_KEY` that one source is noted as unavailable and the other ten still run.
 
 **Recommended for production (all free):** `NCBI_API_KEY` (PubMed allows 10 requests/s instead of 3, and serverless hosts share IPs that hit the 3/s limit), `OPENALEX_API_KEY` (the keyless daily budget is shared per IP and runs out), and `S2_API_KEY`. Each request paces calls per provider, and a provider that is throttling, down or timing out is skipped for 90 s (`isSourceCoolingDown`), so one slow database cannot push a gap map past the 60 s function limit.
 
-**No paper is ever repeated.** Each record gets identity keys (normalized DOI, numeric PMID, provider id, folded title — `articleIdentityKeys`). A paper returned by several databases is listed once, and in the gap map every reference used on one evidence point is excluded from all later points, whichever database returns it again.
+**Per-Source Status & Truthful Methods Reporting:** Every search tracks per-source execution via `sourceStatusSnapshot()`. The API responses (`/api/engine` gap and commentary stages) include `sourceStatus` reporting attempted status, hits, response latency, and failure/throttle reason. Generated commentaries state truthful Methods lines naming only databases that responded with evidence, explicitly noting any rate-limited, offline, or keyless providers.
+
+**No paper is ever repeated.** Each record gets identity keys (normalized DOI, numeric PMID, provider id, folded title — `articleIdentityKeys`). A paper returned by several databases is listed once, and in the gap map every reference used on one evidence point is excluded from all later points, whichever database returns it again. Multi-source round-robin representation ensures PubMed volume cannot crowd out other databases from bibliographies.
 
 ---
 

@@ -7,8 +7,8 @@ This reference guide provides formatting standards and examples according to the
 ## 1. General Principles
 
 1. **Sequential Numbering:** Citations are numbered consecutively in the order in which they are first mentioned in the text.
-2. **In-Text Marker:** Arabic numerals in square brackets, e.g., `[1]`, `[1, 2]`, or `[1-4]`.
-3. **Reference List Order:** The reference list at the end of the paper is arranged in numerical order corresponding to the in-text numbers.
+2. **In-Text Marker:** Arabic superscript numerals without brackets (e.g., `¹`, `¹, ²`, or `¹⁻⁴`) or sequential numerals without brackets (e.g., `1`, `1, 2`, `1-4`).
+3. **Reference List Order:** The reference list at the end of the paper is arranged in numerical order corresponding to the in-text numbers (`1. Author...`).
 4. **Author Names:**
    - List the author's surname followed by initials without periods between initials (e.g., `Owen DD`, `Smith AB`).
    - If there are 1 to 6 authors, list all authors separated by commas.
@@ -47,10 +47,10 @@ This reference guide provides formatting standards and examples according to the
 ## 3. In-Text Citation Patterns
 
 - **Single source assertion:**
-  `Transvaginal ultrasound measurement of cervical length is the most predictive screening modality for preterm birth [1].`
+  `Transvaginal ultrasound measurement of cervical length is the most predictive screening modality for preterm birth.¹` (or unbracketed `1`)
 - **Multiple source corroboration:**
-  `Randomized trials have demonstrated a significant reduction in preterm birth before 34 weeks [1, 3].`
+  `Randomized trials have demonstrated a significant reduction in preterm birth before 34 weeks.¹,³` (or unbracketed `1, 3`)
 - **Range of consecutive sources:**
-  `Several international trials corroborate these findings [1-4].`
+  `Several international trials corroborate these findings.¹⁻⁴` (or unbracketed `1-4`)
 - **Narrative attribution:**
-  `Conde-Agudelo and Romero [3] confirmed that vaginal progesterone reduced composite neonatal morbidity by 35%.`
+  `Conde-Agudelo and Romero³ confirmed that vaginal progesterone reduced composite neonatal morbidity by 35%.`

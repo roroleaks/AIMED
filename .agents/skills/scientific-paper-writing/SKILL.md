@@ -20,7 +20,7 @@ The purpose of Step 4 is to translate the formulated clinical question (PICO) an
 
 ### Guiding Principles:
 1. **Absolute Evidence Grounding (Zero Hallucination):** Every single statement asserting an effect size, safety profile, clinical mechanism, or treatment recommendation MUST be anchored directly to verified literature from the filtered direct evidence pool.
-2. **Vancouver Citation Standard (ICMJE / NLM):** The paper uses sequential numerical brackets (`[1]`, `[2]`, `[1-3]`) and an ordered numerical bibliography. Chicago author-date style is strictly avoided.
+2. **Vancouver Citation Standard (ICMJE / NLM):** The paper uses sequential unbracketed numerical markers (superscripts `¹`, `²`, `¹⁻³` or plain numerals `1`, `2`, `1-3`) matching an ordered numerical bibliography (`1. Author...`). Chicago author-date style is strictly avoided.
 3. **Thematic Clinical Synthesis:** Evidence is not merely summarized study-by-study; it is synthesized thematically by clinical outcomes, subgroup nuances, methodological certainty, and practice implications.
 4. **Deliverable Parity:** The on-screen text, generated Commentary PDF, References PDF, and Word export must maintain 100% citation and bibliographic parity.
 
@@ -79,12 +79,12 @@ Organize the discussion into distinct thematic sections using concise Markdown s
 ## 4. Vancouver Citation Style (ICMJE / NLM) Specification
 
 ### 4.1 In-Text Citation Rules
-- In-text citations MUST use numbers in square brackets: `[1]`, `[2]`, `[1-3]`, `[1, 4]`.
+- In-text citations follow the unbracketed Vancouver convention (superscript numerals `¹`, `²`, `¹⁻³` or sequential numerals `1`, `2`, `1-3`).
 - Numbering follows the **order of first appearance** in the text.
 - Do NOT use author-year parenthetical citations like `(Owen 2020)`.
-- If an author's name is mentioned in the narrative prose, place the bracket immediately after the name or clause:
-  - *Correct:* *"Owen et al. [1] demonstrated that vaginal progesterone reduces preterm birth..."*
-  - *Correct:* *"In singleton pregnancies with a short cervix, progesterone significantly reduces early preterm birth [1, 2]."*
+- If an author's name is mentioned in the narrative prose, place the numeral immediately after the name or clause:
+  - *Correct:* *"Owen et al.¹ demonstrated that vaginal progesterone reduces preterm birth..."*
+  - *Correct:* *"In singleton pregnancies with a short cervix, progesterone significantly reduces early preterm birth.¹,²"*
   - *Incorrect:* *"Progesterone reduces preterm birth (Owen 2020)."*
 
 ### 4.2 Bibliography Formatting Rules
@@ -103,7 +103,7 @@ Organize the discussion into distinct thematic sections using concise Markdown s
 #### Comparison: Vancouver vs. Chicago Style:
 | Feature | Vancouver Style (Required) | Chicago Author-Date Style (Forbidden) |
 | :--- | :--- | :--- |
-| **In-text citation** | Numbered brackets `[1]` or `[1, 2]` | Parenthetical `(Author 2020)` |
+| **In-text citation** | Unbracketed numerals / superscripts `¹` or `1, 2` | Parenthetical `(Author 2020)` |
 | **Bibliography ordering** | Sequential order of appearance (`1, 2, 3...`) | Alphabetical by author surname |
 | **Article title** | Plain text, no quotation marks | Enclosed in double quotes `"Title."` |
 | **Year location** | After the journal title (`Obstet Gynecol. 2020.`) | Immediately after author (`Owen. 2020.`) |
@@ -116,9 +116,9 @@ Organize the discussion into distinct thematic sections using concise Markdown s
 Before publishing or exporting any commentary deliverable (PDF, Word, or Clipboard):
 
 - [ ] **No Hallucinated Citations:** Every cited record originates from the verified direct evidence pool.
-- [ ] **No Orphan Citations:** Every bracketed citation (e.g. `[1]`, `[2]`) maps to an existing entry in the reference list. No out-of-range citations (e.g. `[7]` when only 4 references exist).
+- [ ] **No Orphan Citations:** Every in-text citation maps to an existing entry in the reference list. No out-of-range citations (e.g. `7` when only 4 references exist).
 - [ ] **No Uncited References:** Every reference in the bibliography is cited at least once in the narrative.
-- [ ] **Sequential Ordering:** Reference `[1]` is cited before `[2]`, which is cited before `[3]`.
+- [ ] **Sequential Ordering:** Reference `1` is cited before `2`, which is cited before `3`.
 - [ ] **Title Quote Elimination:** No double quotes around article titles in the reference list.
 - [ ] **Quantitative Precision:** Reported relative risks, odds ratios, and confidence intervals match the underlying source abstract verbatim.
 

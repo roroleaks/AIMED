@@ -62,8 +62,9 @@ Following the remediation audit of commit `430a415`, all identified defects have
 | **Secret Scan CI Guard** | `npm run secret-scan` | **PASS**, 0 secret patterns found in `src/` |
 | **TypeScript Strict Check** | `npm run typecheck` | **PASS**, 0 type errors |
 | **Linting & Code Style** | `npm run lint` | **PASS**, 0 errors, 0 warnings |
-| **Production Build** | `npm run build` | **PASS**, 17 routes compiled (5 pages + 7 API + _not-found + 2 icon generators + manifest + root) |
-| **Multi-Specialty E2E** | `node scripts/test-all-specialties.mjs` | **15/15 PASS**, domain-specific outcomes verified |
+| **Production Build** | `npm run build` | **PASS**, 12 routes generated (4 pages + 3 API + icon routes + manifest + root) |
+| **Multi-Specialty E2E** | `node scripts/test-all-specialties.mjs --offline` | **15/15 PASS**, domain-specific outcomes verified |
+| **Audit Remediation (v4.1.0)** | Full Verification Gauntlet | **PASS**, 11 literature sources, sourceStatus snapshot, round-robin multi-source representation, 14 integrity logic fixes |
 
 ---
 
