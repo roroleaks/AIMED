@@ -154,12 +154,20 @@ export function buildTruthfulMethodsText(outcome: string): string {
       successful.push(name);
     } else if (s && s.skipped === "no_key") {
       skippedNotes.push(`${name} skipped: no API key configured`);
-    } else if (s && s.skipped === "cooldown") {
-      skippedNotes.push(`${name} unavailable due to rate limits`);
     } else if (s && s.skipped === "offline") {
       skippedNotes.push(`${name} skipped: offline mode`);
+    } else if (s && s.skipped === "cooldown") {
+      if (s.error) {
+        skippedNotes.push(`${name} unavailable (${s.error})`);
+      } else {
+        skippedNotes.push(`${name} unavailable due to rate limits`);
+      }
     } else if (s && s.attempted && !s.ok) {
-      skippedNotes.push(`${name} unavailable due to provider error`);
+      if (s.error) {
+        skippedNotes.push(`${name} unavailable (${s.error})`);
+      } else {
+        skippedNotes.push(`${name} unavailable due to provider error`);
+      }
     }
   }
 

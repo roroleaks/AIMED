@@ -966,7 +966,23 @@ export default function PaperPage() {
                   const badge = getSourceBadge(src);
                   const isOk = s.attempted && s.ok;
                   const isSkipped = !s.attempted || s.skipped !== "none";
-                  const statusLabel = isOk ? `${s.hits} hits (${s.ms}ms)` : s.skipped === "cooldown" ? "rate-limited" : s.skipped === "no_key" ? "no key" : s.skipped === "offline" ? "offline" : "error";
+                  const statusLabel = isOk
+                    ? `${s.hits} hits (${s.ms}ms)`
+                    : s.skipped === "no_key"
+                    ? "no key"
+                    : s.skipped === "offline"
+                    ? "offline"
+                    : s.error
+                    ? (/429/i.test(s.error)
+                        ? "HTTP 429"
+                        : /timed? ?out|abort/i.test(s.error)
+                        ? "timeout"
+                        : /http 5\d\d/i.test(s.error)
+                        ? "HTTP 5xx"
+                        : s.error.slice(0, 24))
+                    : s.skipped === "cooldown"
+                    ? "rate-limited"
+                    : "error";
                   const bg = isOk ? "#f0fdf4" : isSkipped ? "#f8fafc" : "#fef2f2";
                   const color = isOk ? "#166534" : isSkipped ? "#64748b" : "#991b1b";
                   const border = isOk ? "#bbf7d0" : isSkipped ? "#e2e8f0" : "#fecaca";

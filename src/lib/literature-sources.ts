@@ -195,9 +195,11 @@ export interface SourceStatusItem {
 export type SourceStatusMap = Record<LiteratureSource, SourceStatusItem>;
 
 const sourceStatusMap = new Map<LiteratureSource, SourceStatusItem>();
+const sourceLastErrors = new Map<LiteratureSource, string>();
 
 export function resetSourceStatus(): void {
   sourceStatusMap.clear();
+  sourceLastErrors.clear();
   for (const src of ALL_LITERATURE_SOURCES) {
     sourceStatusMap.set(src, {
       id: src,
@@ -212,6 +214,7 @@ export function resetSourceStatus(): void {
 
 export function resetSourceCooldownsForTests(): void {
   sourceDownUntil.clear();
+  sourceLastErrors.clear();
   ncbiPenaltyUntil = 0;
 }
 
@@ -261,6 +264,8 @@ export function isSourceCoolingDown(src: LiteratureSource): boolean {
 /** Marks a source as unavailable when the error is one that will repeat (throttle, outage, timeout). */
 export function noteSourceFailure(src: LiteratureSource, err: unknown): void {
   const msg = err instanceof Error ? `${err.name} ${err.message}` : String(err);
+  const cleanMsg = (err instanceof Error ? err.message : String(err)).slice(0, 120);
+  sourceLastErrors.set(src, cleanMsg);
   if (/\b(?:429|5\d\d)\b|throttl|timeout|timed out|abort|fetch failed|ECONN|ENOTFOUND/i.test(msg)) {
     sourceDownUntil.set(src, Date.now() + SOURCE_COOLDOWN_MS);
   }
@@ -1206,7 +1211,15 @@ export async function fetchFromSource(
     return [];
   }
   if (isSourceCoolingDown(src)) {
-    recordSourceStatus(src, { attempted: false, ok: false, skipped: "cooldown", hits: 0, ms: 0 });
+    const lastErr = sourceLastErrors.get(src);
+    recordSourceStatus(src, {
+      attempted: false,
+      ok: false,
+      skipped: "cooldown",
+      hits: 0,
+      ms: 0,
+      error: lastErr
+    });
     return [];
   }
 
@@ -1228,17 +1241,29 @@ export async function fetchFromSource(
       default: res = [];
     }
     const elapsed = Math.round(performance.now() - start);
-    recordSourceStatus(src, {
-      attempted: true,
-      ok: true,
-      skipped: "none",
-      hits: res.length,
-      ms: elapsed
-    });
+    const lastErr = sourceLastErrors.get(src);
+    if (res.length === 0 && lastErr && isSourceCoolingDown(src)) {
+      recordSourceStatus(src, {
+        attempted: true,
+        ok: false,
+        skipped: "none",
+        hits: 0,
+        ms: elapsed,
+        error: lastErr
+      });
+    } else {
+      recordSourceStatus(src, {
+        attempted: true,
+        ok: true,
+        skipped: "none",
+        hits: res.length,
+        ms: elapsed
+      });
+    }
     return res;
   } catch (err: unknown) {
     const elapsed = Math.round(performance.now() - start);
-    const errMsg = err instanceof Error ? err.message : String(err);
+    const errMsg = (err instanceof Error ? err.message : String(err)).slice(0, 120);
     noteSourceFailure(src, err);
     recordSourceStatus(src, {
       attempted: true,

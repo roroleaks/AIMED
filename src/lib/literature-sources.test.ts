@@ -27,6 +27,7 @@ import {
 import { fetchClinicalTrialsArticles } from "./source-clinicaltrials.ts";
 import { fetchCochraneArticles } from "./source-cochrane.ts";
 import { fetchPreprintArticles } from "./source-preprints.ts";
+import { buildTruthfulMethodsText } from "./deterministic-commentary.ts";
 
 test("LS1. SEARCH_SOURCE_OPTIONS defines all 11 mandatory literature sources", () => {
   const ids = SEARCH_SOURCE_OPTIONS.map(o => o.id);
@@ -534,3 +535,44 @@ test("LS21. sourceStatusSnapshot accurately tracks per-source execution details"
     m.restore();
   }
 });
+
+test("LS22. sourceStatus records concrete error and buildTruthfulMethodsText attributes causes truthfully", async () => {
+  resetSourceStatus();
+  resetSourceCooldownsForTests();
+
+  const originalFetch = globalThis.fetch;
+  try {
+    globalThis.fetch = (async (input: string | URL | Request) => {
+      const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+      if (url.includes("europepmc") || url.includes("ebi.ac.uk")) {
+        throw new Error("The operation was aborted due to timeout");
+      }
+      if (url.includes("doaj.org")) {
+        return new Response("Service Unavailable", { status: 503 });
+      }
+      const host = new URL(url).hostname;
+      const key = Object.keys(CANNED).find(h => host.endsWith(h));
+      const body = key ? (CANNED as Record<string, unknown>)[key] : {};
+      return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json" } });
+    }) as FetchFn;
+
+    await searchMultiSourceLiterature({ query: "dapagliflozin heart failure", maxResults: 10 });
+    const snap = sourceStatusSnapshot();
+
+    // (a) Error is populated with concrete message
+    assert.ok(snap.europepmc.error, "Europe PMC must record error");
+    assert.ok(snap.europepmc.error.includes("timeout"), `Expected error to contain timeout, got '${snap.europepmc.error}'`);
+    assert.ok(snap.doaj.error, "DOAJ must record error");
+    assert.ok(snap.doaj.error.includes("503"), `Expected error to contain 503, got '${snap.doaj.error}'`);
+
+    // (b) buildTruthfulMethodsText output contains concrete cause
+    const methodsText = buildTruthfulMethodsText("cardiovascular death");
+    assert.ok(methodsText.includes("timeout"), "Methods text must contain 'timeout'");
+    assert.ok(!methodsText.includes("Europe PMC unavailable due to rate limits"), "Methods text must NOT say 'due to rate limits' for timeout");
+  } finally {
+    globalThis.fetch = originalFetch;
+    resetSourceStatus();
+    resetSourceCooldownsForTests();
+  }
+});
+
