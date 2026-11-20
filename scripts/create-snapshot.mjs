@@ -11,7 +11,7 @@ if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true });
 const distZip = path.join(distDir, 'aimed-snapshot.zip');
 const scratchDir = process.env.AIMED_SNAPSHOT_DIR || path.resolve(projectRoot, '..');
 const snapshotZip = path.join(scratchDir, 'aimed-snapshot.zip');
-const tempStageDir = path.join(scratchDir, '_aimed_snapshot_staging');
+const tempStageDir = path.join(distDir, '_aimed_snapshot_staging');
 
 console.log('📦 Creating AIMed clean snapshot archive...');
 console.log(`Source: ${projectRoot}`);
@@ -26,14 +26,21 @@ if (fs.existsSync(tempStageDir)) {
 }
 fs.mkdirSync(tempStageDir, { recursive: true });
 
-// Copy all files and folders excluding node_modules, .next, .git, .vercel, dist
+// Copy all files and folders excluding node_modules, .next, .git, .vercel, dist, .env*, *.tsbuildinfo
 const EXCLUDE_DIRS = new Set(['node_modules', '.next', '.git', '.vercel', 'dist', '_aimed_snapshot_staging']);
-const EXCLUDE_FILES = new Set(['aimed-snapshot.zip', '.env', '.env.local', 'tsconfig.tsbuildinfo']);
+const EXCLUDE_FILES = new Set(['aimed-snapshot.zip']);
+
+function shouldExclude(name) {
+  if (EXCLUDE_DIRS.has(name) || EXCLUDE_FILES.has(name)) return true;
+  if (name.startsWith('.env')) return true;
+  if (name.endsWith('.tsbuildinfo')) return true;
+  return false;
+}
 
 function copyDirRecursive(src, dest) {
   const entries = fs.readdirSync(src, { withFileTypes: true });
   for (const entry of entries) {
-    if (EXCLUDE_DIRS.has(entry.name) || EXCLUDE_FILES.has(entry.name)) {
+    if (shouldExclude(entry.name)) {
       continue;
     }
     const srcPath = path.join(src, entry.name);
@@ -62,12 +69,17 @@ try {
 
   // Copy to parent/scratch dir if configured and distinct
   if (snapshotZip !== distZip) {
-    fs.copyFileSync(distZip, snapshotZip);
+    try {
+      fs.copyFileSync(distZip, snapshotZip);
+      console.log(`✅ Copied to scratch/PC snapshot: ${snapshotZip}`);
+    } catch (copyErr) {
+      console.warn(`⚠️ Could not copy snapshot to ${snapshotZip}: ${copyErr.message}`);
+    }
   }
 
   const stats = fs.statSync(distZip);
   const sizeMB = (stats.size / (1024 * 1024)).toFixed(2);
-  console.log(`🎉 Snapshot created successfully at: ${distZip} and ${snapshotZip} (${sizeMB} MB)`);
+  console.log(`🎉 Snapshot created successfully at: ${distZip} (${sizeMB} MB)`);
 } finally {
   if (fs.existsSync(tempStageDir)) {
     fs.rmSync(tempStageDir, { recursive: true, force: true });

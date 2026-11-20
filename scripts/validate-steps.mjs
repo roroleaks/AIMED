@@ -24,7 +24,11 @@ console.log("===================================================================
 // -----------------------------------------------------------------------------
 console.log("▶ Step 1: Validating Clinical Input, Specialties & Multi-Database Search Sources...");
 assert.equal(Object.keys(SPECIALTIES).length >= 15, true, "Must have at least 15 medical specialties");
-assert.deepEqual(ALL_LITERATURE_SOURCES, ["pubmed", "pmc", "europepmc", "googlescholar", "semanticscholar", "openalex", "crossref", "doaj"], "All 8 literature sources are mandatory");
+assert.deepEqual(
+  ALL_LITERATURE_SOURCES,
+  ["pubmed", "pmc", "europepmc", "googlescholar", "semanticscholar", "openalex", "crossref", "doaj", "clinicaltrials", "cochrane", "preprints"],
+  "All 11 literature sources are mandatory"
+);
 assert.equal(SEARCH_SOURCE_OPTIONS.length, ALL_LITERATURE_SOURCES.length, "Every source has a display option");
 
 const testInput = "heart failure, sacubitril valsartan, enalapril, cardiovascular mortality";

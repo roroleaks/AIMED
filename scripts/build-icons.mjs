@@ -2,16 +2,26 @@ import sharp from "sharp";
 import fs from "fs";
 import path from "path";
 
-const srcPath = "C:/Users/raouf.RAOUFDESKTOP/.gemini/antigravity/brain/2bba9978-4d71-4a44-b2ed-701bf3c27e5c/.user_uploaded/media_1792520195344_d923aec9.jpg";
 const publicDir = path.resolve("public");
 const appDir = path.resolve("src/app");
+
+const defaultSrc = path.join(publicDir, "app-icon-source.jpg");
+const fallbackSrc = "C:/Users/raouf.RAOUFDESKTOP/.gemini/antigravity/brain/2bba9978-4d71-4a44-b2ed-701bf3c27e5c/.user_uploaded/media_1792520195344_d923aec9.jpg";
+const srcPath = process.env.AIMED_ICON_SOURCE || (fs.existsSync(fallbackSrc) ? fallbackSrc : defaultSrc);
+
+if (!fs.existsSync(srcPath)) {
+  console.error("❌ Icon source image not found. Set AIMED_ICON_SOURCE to a valid image path.");
+  process.exit(1);
+}
 
 if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
 
-// First, copy the source image into public for reproducibility
-fs.copyFileSync(srcPath, path.join(publicDir, "app-icon-source.jpg"));
+// First, copy the source image into public for reproducibility if distinct
+if (path.resolve(srcPath) !== path.resolve(path.join(publicDir, "app-icon-source.jpg"))) {
+  fs.copyFileSync(srcPath, path.join(publicDir, "app-icon-source.jpg"));
+}
 
 async function generateAllIcons() {
   console.log("🎨 Extracting and preparing AIMed app icons...");

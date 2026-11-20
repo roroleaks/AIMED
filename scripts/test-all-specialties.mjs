@@ -5,7 +5,7 @@ import { extractPicoFromQuestion } from "../src/lib/pico-parser.ts";
 import { buildOutcomeContext, selectOutcomes } from "../src/lib/outcome-selection.ts";
 import { validateDeliverableIntegrity } from "../src/lib/deliverable-integrity.ts";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = process.env.AIMED_BASE_URL || "http://localhost:3000";
 
 const SPECIALTY_ORDER = [
   { id: "obgyn", name: "Obstetrics & Gynecology", guidelines: "ACOG · RCOG · FIGO · SMFM" },
@@ -316,10 +316,10 @@ async function runTest() {
       assert.ok(pdfRefsBlob.byteLength > 500, `References PDF size must be > 500 bytes, got ${pdfRefsBlob.byteLength}`);
       console.log(`    ✓ Vancouver References PDF Generated (${pdfRefsBlob.byteLength} bytes, application/pdf)`);
 
-      console.log(`>>> RESULT [${num}/15] ${spec.name}: ✅ PASSED ALL CHECKS`);
+      console.log(`>>> RESULT [${num}/${targetSpecialties.length}] ${spec.name}: ✅ PASSED ALL CHECKS`);
       passed++;
     } catch (err) {
-      console.error(`>>> RESULT [${num}/15] ${spec.name}: ❌ FAILED`);
+      console.error(`>>> RESULT [${num}/${targetSpecialties.length}] ${spec.name}: ❌ FAILED`);
       console.error(`Error details:`, err);
       failed++;
     }
