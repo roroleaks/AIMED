@@ -20,7 +20,7 @@ import {
 // The no-key / provider-failure fallback lives in a module rather than inline in this route so it
 // can be unit tested: the previous inline version shipped unverified, which is how it kept
 // emitting hardcoded keywords and a fabricated "supports the evaluated comparison" claim.
-import { generateDeterministicCommentary } from "@/lib/deterministic-commentary";
+import { generateDeterministicCommentary, buildTruthfulMethodsText } from "@/lib/deterministic-commentary";
 // Confidence gate for LLM output evaluation and deterministic fallback telemetry
 import { evaluateConfidence, shouldUseDeterministicFallback, createTelemetryEvent, DEFAULT_CONFIDENCE_CONFIG } from "@/lib/confidence-gate";
 import { buildEvidenceSet } from "@/lib/evidence-set";
@@ -31,7 +31,23 @@ import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { decodeHtmlEntities, fetchFromSource, isNonEvidenceTitle, articleIdentityKeys, ncbiSlot, noteNcbiThrottle, isSourceCoolingDown, noteSourceFailure, ALL_LITERATURE_SOURCES, type LiteratureSource, type LiteratureArticle } from "@/lib/literature-sources";
+import { buildPubMedQuery } from "@/lib/pubmed-query";
+import {
+  decodeHtmlEntities,
+  fetchFromSource,
+  isNonEvidenceTitle,
+  articleIdentityKeys,
+  ncbiSlot,
+  noteNcbiThrottle,
+  isSourceCoolingDown,
+  noteSourceFailure,
+  ALL_LITERATURE_SOURCES,
+  type LiteratureSource,
+  type LiteratureArticle,
+  resetSourceStatus,
+  sourceStatusSnapshot,
+  recordSourceStatus
+} from "@/lib/literature-sources";
 
 export const maxDuration = 60;
 
@@ -378,8 +394,19 @@ async function fetchPubMedReferences(
   const term = `${query}${rctFilter} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
   const extra = Math.min(excluded.size, 25);
   const want = Math.max(maxResults, 6);
+  const t0 = Date.now();
   for (let attempt = 0; attempt < 3; attempt++) {
-    if (isSourceCoolingDown("pubmed")) return [];
+    if (isSourceCoolingDown("pubmed")) {
+      const isOffline = process.env.AIMED_OFFLINE_LITERATURE === "1";
+      recordSourceStatus("pubmed", {
+        attempted: false,
+        ok: false,
+        skipped: isOffline ? "offline" : "cooldown",
+        hits: 0,
+        ms: 0
+      });
+      return [];
+    }
     try {
       const reviewIds = lite ? [] : await esearchIds(term, want + extra, "&filter=pubt.review");
       const generalIds = await esearchIds(term, want + extra);
@@ -387,7 +414,10 @@ async function fetchPubMedReferences(
       let secondaryIds: string[] = [];
       const cleanInterv = interventionToken ? interventionToken.replace(/["()]/g, "").trim() : "";
       if (cleanInterv && isTherapy && !lite) {
-          const secondaryTerm = `(${cleanInterv}[tiab]) AND ("randomized controlled trial"[pt]) NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
+        const meshTerm = buildPubMedQuery({ intervention: cleanInterv, questionType });
+        const secondaryTerm = meshTerm
+          ? `(${meshTerm}) NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`
+          : `(${cleanInterv}[tiab]) AND ("randomized controlled trial"[pt]) NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
         try {
           secondaryIds = await esearchIds(secondaryTerm, Math.min(want, 20));
         } catch {
@@ -403,7 +433,16 @@ async function fetchPubMedReferences(
             generalIds.push(...fallbackIds);
           }
         }
-        if (!reviewIds.length && !generalIds.length && !secondaryIds.length) return [];
+        if (!reviewIds.length && !generalIds.length && !secondaryIds.length) {
+          recordSourceStatus("pubmed", {
+            attempted: true,
+            ok: true,
+            skipped: "none",
+            hits: 0,
+            ms: Date.now() - t0
+          });
+          return [];
+        }
       }
 
       const ids = Array.from(new Set([...generalIds, ...secondaryIds, ...reviewIds]))
@@ -438,21 +477,52 @@ async function fetchPubMedReferences(
         // Some ESummary records carry no title at all; never emit a placeholder reference.
         // Protocols, errata and meeting abstracts are not evidence of an effect.
         .filter(r => r.title.length > 0 && !isNonEvidenceTitle(r.title));
-      return dedupeRefs(refs);
+      const deduped = dedupeRefs(refs);
+      recordSourceStatus("pubmed", {
+        attempted: true,
+        ok: true,
+        skipped: "none",
+        hits: deduped.length,
+        ms: Date.now() - t0
+      });
+      return deduped;
     } catch (err) {
       const is429 = /\b429\b/.test(err instanceof Error ? err.message : String(err));
       if (is429) {
         noteNcbiThrottle();
         noteSourceFailure("pubmed", err);
+        recordSourceStatus("pubmed", {
+          attempted: true,
+          ok: false,
+          skipped: "cooldown",
+          hits: 0,
+          ms: Date.now() - t0,
+          error: err instanceof Error ? err.message : String(err)
+        });
         return [];
       }
       if (lite || attempt === 2) {
         noteSourceFailure("pubmed", err);
+        recordSourceStatus("pubmed", {
+          attempted: true,
+          ok: false,
+          skipped: "none",
+          hits: 0,
+          ms: Date.now() - t0,
+          error: err instanceof Error ? err.message : String(err)
+        });
         return [];
       }
       await new Promise(r => setTimeout(r, 800 * (attempt + 1)));
     }
   }
+  recordSourceStatus("pubmed", {
+    attempted: true,
+    ok: true,
+    skipped: "none",
+    hits: 0,
+    ms: Date.now() - t0
+  });
   return [];
 }
 
@@ -488,33 +558,70 @@ async function fetchReferencesBroad(
     if (/^cr:/i.test(r.pmid)) return "crossref";
     if (/^gs:/i.test(r.pmid)) return "googlescholar";
     if (/^doaj:/i.test(r.pmid)) return "doaj";
+    if (/^nct:/i.test(r.pmid)) return "clinicaltrials";
+    if (/^cochrane:/i.test(r.pmid)) return "cochrane";
+    if (/^ppr:/i.test(r.pmid)) return "preprints";
     return "other";
   };
-  // Guarantee every mandatory non-PubMed source is represented: take the best record of each
-  // source in turn (round-robin, up to 3 each) before filling the rest by score, so PubMed
-  // volume cannot crowd the other databases out.
-  const scored = merged
-    .map(r => ({ r, s: byScore(r), src: bySource(r) }))
-    .sort((a, b) => b.s - a.s);
+  // Multi-source bibliography representation: interleave sources round-robin without global
+  // re-sort so PubMed cannot crowd out other sources. PubMed is capped at Math.ceil(want / 2)
+  // whenever 2 or more sources return records.
   const bySrc = new Map<string, PubMedRef[]>();
-  for (const it of scored) {
-    if (it.src === "pubmed" || it.src === "other") continue;
-    if (!bySrc.has(it.src)) bySrc.set(it.src, []);
-    bySrc.get(it.src)!.push(it.r);
+  for (const r of merged) {
+    const src = bySource(r);
+    if (!bySrc.has(src)) bySrc.set(src, []);
+    bySrc.get(src)!.push(r);
   }
+  for (const list of bySrc.values()) {
+    list.sort((a, b) => byScore(b) - byScore(a));
+  }
+
+  const distinctSources = bySrc.size;
+  const maxPubMed = distinctSources >= 2 ? Math.ceil(want / 2) : want;
   const picked: PubMedRef[] = [];
-  for (let round = 0; round < 3 && picked.length < want; round++) {
-    for (const list of bySrc.values()) {
+  const pickedKeys = new Set<string>();
+
+  const tryAdd = (r: PubMedRef): boolean => {
+    const key = r.doi || r.pmid || r.title.toLowerCase();
+    if (!pickedKeys.has(key)) {
+      pickedKeys.add(key);
+      picked.push(r);
+      return true;
+    }
+    return false;
+  };
+
+  let pubMedCount = 0;
+  let maxLen = 0;
+  for (const list of bySrc.values()) {
+    if (list.length > maxLen) maxLen = list.length;
+  }
+
+  for (let idx = 0; idx < maxLen && picked.length < want; idx++) {
+    for (const [src, list] of bySrc.entries()) {
       if (picked.length >= want) break;
-      if (list[round]) picked.push(list[round]);
+      if (idx < list.length) {
+        if (src === "pubmed" && pubMedCount >= maxPubMed) {
+          continue;
+        }
+        const candidate = list[idx];
+        if (tryAdd(candidate)) {
+          if (src === "pubmed") pubMedCount++;
+        }
+      }
     }
   }
-  for (const it of scored) {
-    if (picked.length >= want) break;
-    if (picked.includes(it.r)) continue;
-    picked.push(it.r);
+
+  if (picked.length < want) {
+    for (const list of bySrc.values()) {
+      for (const r of list) {
+        if (picked.length >= want) break;
+        tryAdd(r);
+      }
+    }
   }
-  return picked.sort((a, b) => byScore(b) - byScore(a)).slice(0, want);
+
+  return picked.slice(0, want);
 }
 
 const STOPWORDS = new Set(["and", "or", "not", "the", "a", "an", "of", "in", "on", "with", "for", "to", "is", "are", "as", "by", "at", "from"]);
@@ -559,20 +666,6 @@ function buildRefQuery(point: string, topic: string): string {
 
 function cleanTopicQuery(topic: string): string {
   return sanitizeQuery(topic);
-}
-
-/** Runs `fn` over `items` with at most `limit` in flight, preserving result order. */
-async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T, i: number) => Promise<R>): Promise<R[]> {
-  const out = new Array<R>(items.length);
-  let next = 0;
-  const workers = Array.from({ length: Math.min(limit, items.length) }, async () => {
-    while (next < items.length) {
-      const i = next++;
-      out[i] = await fn(items[i], i);
-    }
-  });
-  await Promise.all(workers);
-  return out;
 }
 
 /**
@@ -896,6 +989,7 @@ export async function POST(req: NextRequest) {
 
   try {
     if (stage === "commentary") {
+      resetSourceStatus();
       const commentaryStartTime = Date.now();
       const { topic, gapAnalysis, selectedQuestion, outcome, outcomes, picoElements } = body as {
         topic?: string; gapAnalysis?: { known?: unknown[]; uncertain?: unknown[] };
@@ -1032,24 +1126,6 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      // If directPool is still empty, rescue high-quality records from excludedByClaim
-      // that address treatment or clinical context rather than failing with "no literature"
-      if (directPool.length === 0 && excludedByClaim.length > 0) {
-        const salvagable = excludedByClaim
-          .filter(e => {
-            const aud = e.audit;
-            const resolvable = !!aud.pmid || !!aud.doiOk;
-            return resolvable && (
-              ((aud.intervention || aud.comparator) && (aud.population || aud.outcome)) ||
-              aud.score >= 2
-            );
-          })
-          .map(e => e.ref);
-        if (salvagable.length > 0) {
-          directPool = salvagable.slice(0, 6);
-        }
-      }
-
       // Build canonical evidence set from retained records to serve as the single source of truth
       // for allowed citations, deduplication and revalidation.
       const evidenceSet = await buildEvidenceSet(directPool as AuditableRef[]);
@@ -1087,6 +1163,8 @@ export async function POST(req: NextRequest) {
           })),
           droppedReferences: [],
           noDirectEvidence: true,
+          salvageAvailable: excludedByClaim.length > 0,
+          sourceStatus: sourceStatusSnapshot(),
           refAudit: [],
           paperRefAudit: [],
           citationChecks: { totalRefs: 0, citedRefs: 0, uncited: [], orphans: [], consistent: true },
@@ -1106,6 +1184,7 @@ export async function POST(req: NextRequest) {
       const activeSpecKey = isSpecialty(passedCommentarySpec) ? passedCommentarySpec : null;
       const activeSpecDef = activeSpecKey ? getSpecialtyDefinition(activeSpecKey) : null;
       const promptRole = activeSpecDef?.systemPromptRole || "You are an expert physician, clinical investigator, and academic medical writer across evidence-based clinical medicine.";
+      const methodsGuidance = buildTruthfulMethodsText(outcomesText);
 
       const basePrompt = `${promptRole}
 
@@ -1120,7 +1199,7 @@ CRITICAL RULES:
 2. Structured Abstract (280–350 words): Must include bold labeled sections:
    - **Background:** High-level epidemiological context, disease burden, and clinical dilemma.
    - **Objective:** Explicit formulation of the clinical PICO question and comparative objective.
-   - **Methods & Evidence Scope:** Multi-database retrieval filtered against PICO claim criteria; specify number of verified records retained.
+   - **Methods & Evidence Scope:** Truthfully describe search scope (${methodsGuidance}). Multi-database retrieval filtered against PICO claim criteria; specify number of verified records retained.
    - **Results & Synthesis:** Grounded synthesis of findings citing records with Vancouver brackets [1], [2], etc., detailing trial methodologies, reported clinical parameters, and direction of response without fabricating numbers.
    - **Clinical Interpretation:** Translation into real-world practice boundaries, distinguishing established applications from unverified claims.
    - **Conclusion:** Decisive, balanced clinical bottom line and GRADE evidence certainty.
@@ -1196,12 +1275,35 @@ let commentary: Record<string, unknown>;
       // Evaluate LLM output through confidence gate when AI path was attempted
       // If confidence gates fail, gracefully fall back to deterministic output
       if (commentarySource === "ai") {
+        const initialCurated = curateModelRefs(commentary, evidenceSet, commentarySource);
+        const draftCitationIndexMap = new Map<number, AuditableRef>();
+        initialCurated.references.forEach((refStr, idx) => {
+          const resolved = initialCurated.resolved.get(refStr);
+          if (resolved) draftCitationIndexMap.set(idx + 1, resolved);
+        });
+        const preliminaryFinalized = finalizeClaims({
+          fields: {
+            abstract: String(commentary.abstract || ""),
+            introduction: String(commentary.introduction || ""),
+            discussion: String(commentary.discussion || ""),
+            conclusion: String(commentary.conclusion || "")
+          },
+          evidenceSet,
+          elements,
+          citationIndexMap: draftCitationIndexMap
+        });
+
         const confidenceResult = evaluateConfidence(
           commentary,
           evidenceSet,
           elements,
           { ...DEFAULT_CONFIDENCE_CONFIG, llmAvailable: !!KEY },
-          commentaryStartTime
+          commentaryStartTime,
+          {
+            claimWarnings: preliminaryFinalized.warnings,
+            totalClaims: preliminaryFinalized.claims.length,
+            unsupportedClaims: preliminaryFinalized.warnings.length
+          }
         );
         confidenceSummary = confidenceResult.fallbackReason;
         
@@ -1304,11 +1406,17 @@ ${responseShape}`,
         citationChecks = checkCitations(String(commentary.discussion || ""), curated.references);
       }
 
-// Claim-level finalization runs on every narrative field, before references are curated. A
+      // Claim-level finalization runs on every narrative field, before references are curated. A
       // citation proves a paper exists, not that it supports the sentence citing it, so each
       // assertive sentence is judged against the retained sources it points at. An assertive
       // sentence with no surviving support is replaced by an explicit statement of uncertainty
       // rather than left standing as a finding with its attribution removed.
+      const citationIndexMap = new Map<number, AuditableRef>();
+      curated.references.forEach((refStr, idx) => {
+        const resolved = curated.resolved.get(refStr);
+        if (resolved) citationIndexMap.set(idx + 1, resolved);
+      });
+
       const finalized = finalizeClaims({
         fields: {
           abstract: String(commentary.abstract || ""),
@@ -1317,7 +1425,8 @@ ${responseShape}`,
           conclusion: String(commentary.conclusion || "")
         },
         evidenceSet,
-        elements
+        elements,
+        citationIndexMap
       });
       commentary.abstract = finalized.fields.abstract;
       commentary.introduction = finalized.fields.introduction;
@@ -1465,6 +1574,7 @@ const noDirectEvidence = directPool.length === 0;
         return NextResponse.json({
           error: "Commentary failed citation integrity validation and was not published.",
           integrity,
+          sourceStatus: sourceStatusSnapshot(),
           telemetry: activeTelemetry ? {
             ...activeTelemetry,
             processingTimeMs: Math.max(1, Date.now() - commentaryStartTime)
@@ -1475,6 +1585,7 @@ const noDirectEvidence = directPool.length === 0;
         ...commentary,
         source: commentarySource,
         synthesisGenerated: true,
+        sourceStatus: sourceStatusSnapshot(),
         telemetry: activeTelemetry ? {
           ...activeTelemetry,
           processingTimeMs: Math.max(1, Date.now() - commentaryStartTime)
@@ -1517,6 +1628,7 @@ refAudit: directPool.map(r => auditRef(r, elements)),
     }
 
     if (stage === "gap") {
+      resetSourceStatus();
       const parsedTopic = readFreeText(body.input, "input");
       if (!parsedTopic.ok) return parsedTopic.response;
       const topic = parsedTopic.text;
@@ -1654,23 +1766,36 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
         ...(/placebo|standard care|usual care|no treatment/i.test(scenario.comparator) ? [] : [{ label: "Comparator", value: scenario.comparator }]),
         { label: "Outcome", value: scenario.outcomes.slice(0, 3).join("; ") }
       ].filter(e => e.value && e.value.trim());
-      let knownWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
-      let uncertainWithRefs: Array<{ point: string; references: PubMedRef[] }> = [];
+      let knownWithRefs: Array<{ point: string; references: PubMedRef[]; searchIncomplete?: boolean }> = [];
+      let uncertainWithRefs: Array<{ point: string; references: PubMedRef[]; searchIncomplete?: boolean }> = [];
       try {
+        let timedOut = false;
+        let timeoutHandle: NodeJS.Timeout | undefined;
         const fetchPromise = fetchReferencesForPoints([...knownPts, ...uncertainPts], topic, usedPmids, tagElements);
-        const timeoutPromise = new Promise<Array<{ point: string; references: PubMedRef[] }>>((resolve) =>
-          setTimeout(() => {
-            console.warn("[engine] Reference fetching reached 8s budget, returning partial points");
+        const timeoutPromise = new Promise<Array<{ point: string; references: PubMedRef[] }>>((resolve) => {
+          timeoutHandle = setTimeout(() => {
+            timedOut = true;
+            console.warn("[engine] Reference fetching reached 12s budget, returning partial points");
             resolve([...knownPts, ...uncertainPts].map(p => ({ point: p.point, references: [] })));
-          }, 8_000)
-        );
-        const all = await Promise.race([fetchPromise, timeoutPromise]);
-        knownWithRefs = all.slice(0, knownPts.length);
-        uncertainWithRefs = all.slice(knownPts.length);
+          }, 12_000);
+        });
+        const all = await Promise.race([
+          fetchPromise.then(res => {
+            if (timeoutHandle) clearTimeout(timeoutHandle);
+            return res;
+          }),
+          timeoutPromise
+        ]);
+        const allMapped = all.map(p => ({
+          ...p,
+          searchIncomplete: timedOut || !p.references || p.references.length === 0
+        }));
+        knownWithRefs = allMapped.slice(0, knownPts.length);
+        uncertainWithRefs = allMapped.slice(knownPts.length);
       } catch (refErr) {
         console.warn("[engine] Reference fetching encountered an issue, returning points without external refs:", refErr);
-        knownWithRefs = knownPts.map(p => ({ point: p.point, references: [] }));
-        uncertainWithRefs = uncertainPts.map(p => ({ point: p.point, references: [] }));
+        knownWithRefs = knownPts.map(p => ({ point: p.point, references: [], searchIncomplete: true }));
+        uncertainWithRefs = uncertainPts.map(p => ({ point: p.point, references: [], searchIncomplete: true }));
       }
       
       return NextResponse.json({ 
@@ -1678,7 +1803,8 @@ Respond ONLY with valid JSON, no preamble or commentary.`,
         topic,
         source: gapSource,
         known: knownWithRefs,
-        uncertain: uncertainWithRefs
+        uncertain: uncertainWithRefs,
+        sourceStatus: sourceStatusSnapshot()
       });
     }
 
