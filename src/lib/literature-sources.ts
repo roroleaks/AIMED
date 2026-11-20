@@ -23,6 +23,9 @@
 
 import { normalizeDoi } from "./evidence-set.ts";
 import { classifyPaperType } from "./study-design.ts";
+import { fetchClinicalTrialsArticles } from "./source-clinicaltrials.ts";
+import { fetchCochraneArticles } from "./source-cochrane.ts";
+import { fetchPreprintArticles } from "./source-preprints.ts";
 
 export type LiteratureSource =
   | "pubmed"
@@ -32,7 +35,10 @@ export type LiteratureSource =
   | "semanticscholar"
   | "openalex"
   | "crossref"
-  | "doaj";
+  | "doaj"
+  | "clinicaltrials"
+  | "cochrane"
+  | "preprints";
 
 export interface LiteratureArticle {
   pmid: string; // Canonical identifier (e.g. numeric "12345678", "pmc:PMC1234", "s2:abc", "oax:W12345", or "cr:10.1000/xyz")
@@ -122,6 +128,30 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
     badgeClass: "source-badge-doaj",
     description: "Directory of Open Access Journals · peer-reviewed OA articles",
     provider: "DOAJ / IS4OA"
+  },
+  {
+    id: "clinicaltrials",
+    name: "ClinicalTrials.gov",
+    icon: "📋",
+    badgeClass: "source-badge-clinicaltrials",
+    description: "NIH registry · 450,000+ registered clinical trials & protocols worldwide",
+    provider: "NIH / NLM"
+  },
+  {
+    id: "cochrane",
+    name: "Cochrane Library",
+    icon: "📚",
+    badgeClass: "source-badge-cochrane",
+    description: "Cochrane Database of Systematic Reviews & CENTRAL clinical trials",
+    provider: "Cochrane / Wiley"
+  },
+  {
+    id: "preprints",
+    name: "Preprints",
+    icon: "📄",
+    badgeClass: "source-badge-preprints",
+    description: "Early life-science preprints via Europe PMC (medRxiv, bioRxiv)",
+    provider: "Europe PMC / Preprints"
   }
 ];
 
@@ -151,6 +181,74 @@ const serpApiKey = (): string => process.env.SERPAPI_API_KEY || process.env.SERP
  */
 const SOURCE_COOLDOWN_MS = 90_000;
 const sourceDownUntil = new Map<LiteratureSource, number>();
+
+export interface SourceStatusItem {
+  id: LiteratureSource;
+  attempted: boolean;
+  ok: boolean;
+  skipped: "none" | "cooldown" | "no_key" | "offline";
+  hits: number;
+  ms: number;
+  error?: string;
+}
+
+export type SourceStatusMap = Record<LiteratureSource, SourceStatusItem>;
+
+const sourceStatusMap = new Map<LiteratureSource, SourceStatusItem>();
+
+export function resetSourceStatus(): void {
+  sourceStatusMap.clear();
+  for (const src of ALL_LITERATURE_SOURCES) {
+    sourceStatusMap.set(src, {
+      id: src,
+      attempted: false,
+      ok: false,
+      skipped: "none",
+      hits: 0,
+      ms: 0
+    });
+  }
+}
+
+export function resetSourceCooldownsForTests(): void {
+  sourceDownUntil.clear();
+  ncbiPenaltyUntil = 0;
+}
+
+export function sourceStatusSnapshot(): SourceStatusMap {
+  const snap: Partial<SourceStatusMap> = {};
+  for (const src of ALL_LITERATURE_SOURCES) {
+    const cur = sourceStatusMap.get(src);
+    if (cur) {
+      snap[src] = { ...cur };
+    } else {
+      snap[src] = {
+        id: src,
+        attempted: false,
+        ok: false,
+        skipped: "none",
+        hits: 0,
+        ms: 0
+      };
+    }
+  }
+  return snap as SourceStatusMap;
+}
+
+export function recordSourceStatus(
+  src: LiteratureSource,
+  status: Partial<SourceStatusItem>
+): void {
+  const cur = sourceStatusMap.get(src) || {
+    id: src,
+    attempted: false,
+    ok: false,
+    skipped: "none",
+    hits: 0,
+    ms: 0
+  };
+  sourceStatusMap.set(src, { ...cur, ...status });
+}
 
 export function isSourceCoolingDown(src: LiteratureSource): boolean {
   // Offline mode for CI and air-gapped installs: set on the server, never by a client request,
@@ -1092,19 +1190,65 @@ export interface MultiSourceSearchOptions {
   excludeKeys?: Set<string>;
 }
 
-/** Runs one source's fetcher. */
-export function fetchFromSource(src: LiteratureSource, query: string, limit: number, questionType?: string): Promise<LiteratureArticle[]> {
-  if (isSourceCoolingDown(src)) return Promise.resolve([]);
-  switch (src) {
-    case "pubmed": return fetchPubMedArticles(query, limit, questionType);
-    case "pmc": return fetchPmcArticles(query, limit, questionType);
-    case "europepmc": return fetchEuropePmcArticles(query, limit, questionType);
-    case "googlescholar": return fetchGoogleScholarArticles(query, limit);
-    case "semanticscholar": return fetchSemanticScholarArticles(query, limit);
-    case "openalex": return fetchOpenAlexArticles(query, limit);
-    case "crossref": return fetchCrossrefArticles(query, limit);
-    case "doaj": return fetchDoajArticles(query, limit);
-    default: return Promise.resolve([]);
+/** Runs one source's fetcher with status tracking, timing and graceful error isolation. */
+export async function fetchFromSource(
+  src: LiteratureSource,
+  query: string,
+  limit: number,
+  questionType?: string
+): Promise<LiteratureArticle[]> {
+  if (process.env.AIMED_OFFLINE_LITERATURE === "1") {
+    recordSourceStatus(src, { attempted: false, ok: false, skipped: "offline", hits: 0, ms: 0 });
+    return [];
+  }
+  if (src === "googlescholar" && !serpApiKey()) {
+    recordSourceStatus(src, { attempted: false, ok: false, skipped: "no_key", hits: 0, ms: 0 });
+    return [];
+  }
+  if (isSourceCoolingDown(src)) {
+    recordSourceStatus(src, { attempted: false, ok: false, skipped: "cooldown", hits: 0, ms: 0 });
+    return [];
+  }
+
+  const start = performance.now();
+  try {
+    let res: LiteratureArticle[] = [];
+    switch (src) {
+      case "pubmed": res = await fetchPubMedArticles(query, limit, questionType); break;
+      case "pmc": res = await fetchPmcArticles(query, limit, questionType); break;
+      case "europepmc": res = await fetchEuropePmcArticles(query, limit, questionType); break;
+      case "googlescholar": res = await fetchGoogleScholarArticles(query, limit); break;
+      case "semanticscholar": res = await fetchSemanticScholarArticles(query, limit); break;
+      case "openalex": res = await fetchOpenAlexArticles(query, limit); break;
+      case "crossref": res = await fetchCrossrefArticles(query, limit); break;
+      case "doaj": res = await fetchDoajArticles(query, limit); break;
+      case "clinicaltrials": res = await fetchClinicalTrialsArticles(query, limit); break;
+      case "cochrane": res = await fetchCochraneArticles(query, limit); break;
+      case "preprints": res = await fetchPreprintArticles(query, limit); break;
+      default: res = [];
+    }
+    const elapsed = Math.round(performance.now() - start);
+    recordSourceStatus(src, {
+      attempted: true,
+      ok: true,
+      skipped: "none",
+      hits: res.length,
+      ms: elapsed
+    });
+    return res;
+  } catch (err: unknown) {
+    const elapsed = Math.round(performance.now() - start);
+    const errMsg = err instanceof Error ? err.message : String(err);
+    noteSourceFailure(src, err);
+    recordSourceStatus(src, {
+      attempted: true,
+      ok: false,
+      skipped: "none",
+      hits: 0,
+      ms: elapsed,
+      error: errMsg
+    });
+    return [];
   }
 }
 
@@ -1152,9 +1296,16 @@ export function getSourceBadge(source?: string, pmid?: string): { label: string;
   const id = pmid || "";
   const pick = (sid: LiteratureSource) => {
     const opt = SEARCH_SOURCE_OPTIONS.find(o => o.id === sid)!;
-    return { label: opt.id === "crossref" ? "CrossRef" : opt.id === "pmc" ? "PMC" : opt.name, icon: opt.icon, className: opt.badgeClass };
+    return {
+      label: opt.id === "crossref" ? "CrossRef" : opt.id === "pmc" ? "PMC" : opt.id === "clinicaltrials" ? "ClinicalTrials.gov" : opt.id === "cochrane" ? "Cochrane" : opt.name,
+      icon: opt.icon,
+      className: opt.badgeClass
+    };
   };
   if (SEARCH_SOURCE_OPTIONS.some(o => o.id === s)) return pick(s as LiteratureSource);
+  if (id.startsWith("nct:")) return pick("clinicaltrials");
+  if (id.startsWith("cochrane:")) return pick("cochrane");
+  if (id.startsWith("ppr:")) return pick("preprints");
   if (id.startsWith("oax:")) return pick("openalex");
   if (id.startsWith("cr:")) return pick("crossref");
   if (id.startsWith("s2:")) return pick("semanticscholar");
