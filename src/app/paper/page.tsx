@@ -26,8 +26,18 @@ interface GapSnapshot {
 }
 interface CommentaryPaper {
   title: string; abstract: string; keywords: string[];
-  introduction: string; discussion: string; conclusion: string;
+  introduction: string;
+  methods?: string;
+  results?: string;
+  discussion: string; conclusion: string;
   references: string[];
+  sections?: Array<{ heading?: string; blocks: string[]; table?: { headers: string[]; rows: string[][] } }>;
+  tables?: {
+    informationSources?: { headers: string[]; rows: string[][] };
+    studyCharacteristics?: { headers: string[]; rows: string[][] };
+    searchStrategy?: { headers: string[]; rows: string[][] };
+    fullCharacteristics?: { headers: string[]; rows: string[][] };
+  };
   /** Exactly the records behind `references`: this is the exported/rendered reference list. */
   fetchedReferences?: ReferenceItem[];
   /** Retained as direct evidence but not cited in the bibliography. */
@@ -157,6 +167,42 @@ function FormattedPaperSection({
                 </li>
               ))}
             </ul>
+          );
+        }
+        if (block.trim().startsWith("|") && block.includes("---")) {
+          const lines = block.trim().split("\n").map(l => l.trim()).filter(Boolean);
+          const headerLine = lines[0];
+          const rowLines = lines.slice(2);
+          const headers = headerLine.split("|").map(c => c.trim()).filter(Boolean);
+          const rows = rowLines.map(r => {
+            const rawCells = r.split("|").map(c => c.trim());
+            return rawCells.filter((_, i) => i > 0 && i < rawCells.length - 1);
+          });
+          return (
+            <div key={idx} style={{ overflowX: "auto", margin: "18px 0" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.88rem" }}>
+                <thead>
+                  <tr style={{ background: "#0f766e", color: "#ffffff" }}>
+                    {headers.map((h, hIdx) => (
+                      <th key={hIdx} style={{ padding: "8px 12px", textAlign: "left", fontWeight: 700, border: "1px solid #0d9488" }}>
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row, rIdx) => (
+                    <tr key={rIdx} style={{ background: rIdx % 2 === 0 ? "#ffffff" : "#f8fafc" }}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} style={{ padding: "8px 12px", border: "1px solid #e2e8f0" }}>
+                          {renderFormattedText(cell, `td-${idx}-${rIdx}-${cIdx}`, style)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           );
         }
         return (
@@ -481,6 +527,8 @@ export default function PaperPage() {
       fields: {
         abstract: commentary.abstract || "",
         introduction: commentary.introduction || "",
+        methods: commentary.methods || "",
+        results: commentary.results || "",
         discussion: commentary.discussion || "",
         conclusion: commentary.conclusion || ""
       },
@@ -561,6 +609,21 @@ export default function PaperPage() {
     const convert = (t: string) => convertNarrativeToStyle(t, citationStyle, retained);
     const styleLabel = citationStyle === "apa" ? "APA 7th" : citationStyle === "harvard" ? "Harvard" : "Vancouver";
 
+    const exportSections = commentary.sections && commentary.sections.length > 0
+      ? commentary.sections.map(s => ({
+          heading: s.heading,
+          blocks: s.blocks.map(convert),
+          table: s.table
+        }))
+      : [
+          { heading: "Abstract", blocks: paras(commentary.abstract).map(convert) },
+          { heading: "Introduction", blocks: paras(commentary.introduction).map(convert) },
+          ...(commentary.methods ? [{ heading: "Methods", blocks: paras(commentary.methods).map(convert), table: commentary.tables?.informationSources }] : []),
+          ...(commentary.results ? [{ heading: "Results", blocks: paras(commentary.results).map(convert), table: commentary.tables?.studyCharacteristics }] : []),
+          { heading: "Discussion", blocks: (discussionBlocks.length ? discussionBlocks : [commentary.discussion]).map(convert) },
+          { heading: "Conclusion", blocks: paras(commentary.conclusion).map(convert) }
+        ];
+
     await dlDocx(
       {
         docType: `Scientific Commentary · ${styleLabel}`,
@@ -571,12 +634,7 @@ export default function PaperPage() {
         outcomes: outcomes.length ? outcomes : undefined,
         keywords: Array.isArray(commentary.keywords) ? commentary.keywords : undefined,
         citationStyle,
-        sections: [
-          { heading: "Abstract", blocks: paras(commentary.abstract).map(convert) },
-          { heading: "Introduction", blocks: paras(commentary.introduction).map(convert) },
-          { heading: "Discussion", blocks: (discussionBlocks.length ? discussionBlocks : [commentary.discussion]).map(convert) },
-          { heading: "Conclusion", blocks: paras(commentary.conclusion).map(convert) }
-        ],
+        sections: exportSections,
         references: formattedRefs.length ? formattedRefs : undefined,
         retainedReferences: formattedRefs.length ? retainedPayload() : undefined
       },
@@ -675,6 +733,21 @@ export default function PaperPage() {
     const convert = (t: string) => convertNarrativeToStyle(t, citationStyle, retained);
     const styleLabel = citationStyle === "apa" ? "APA 7th" : citationStyle === "harvard" ? "Harvard" : "Vancouver";
 
+    const exportSections = commentary.sections && commentary.sections.length > 0
+      ? commentary.sections.map(s => ({
+          heading: s.heading,
+          blocks: s.blocks.map(convert),
+          table: s.table
+        }))
+      : [
+          { heading: "Abstract", blocks: paras(commentary.abstract).map(convert) },
+          { heading: "Introduction", blocks: paras(commentary.introduction).map(convert) },
+          ...(commentary.methods ? [{ heading: "Methods", blocks: paras(commentary.methods).map(convert), table: commentary.tables?.informationSources }] : []),
+          ...(commentary.results ? [{ heading: "Results", blocks: paras(commentary.results).map(convert), table: commentary.tables?.studyCharacteristics }] : []),
+          { heading: "Discussion", blocks: (discussionBlocks.length ? discussionBlocks : [commentary.discussion]).map(convert) },
+          { heading: "Conclusion", blocks: paras(commentary.conclusion).map(convert) }
+        ];
+
     dlPdf({
       docType: `Scientific Commentary · ${styleLabel}`,
       title: commentary.title,
@@ -683,12 +756,7 @@ export default function PaperPage() {
       outcomes: outcomes.length ? outcomes : undefined,
       keywords: Array.isArray(commentary.keywords) ? commentary.keywords : undefined,
       citationStyle,
-      sections: [
-        { heading: "Abstract", blocks: paras(commentary.abstract).map(convert) },
-        { heading: "Introduction", blocks: paras(commentary.introduction).map(convert) },
-        { heading: "Discussion", blocks: (discussionBlocks.length ? discussionBlocks : [commentary.discussion]).map(convert) },
-        { heading: "Conclusion", blocks: paras(commentary.conclusion).map(convert) }
-      ],
+      sections: exportSections,
       references: formattedRefs.length ? formattedRefs : undefined,
       retainedReferences: formattedRefs.length ? retainedPayload() : undefined
     }, slug(commentary.title) + "-commentary.pdf", "commentary");
@@ -777,6 +845,18 @@ export default function PaperPage() {
                 <p style={{ fontSize: "1rem", color: "var(--muted)", marginBottom: 18 }}>Keywords: {commentary.keywords.join(", ")}</p>
                 <h3 className="sec-h">Abstract</h3><FormattedPaperSection content={commentary.abstract} style={citationStyle} retained={commentary.fetchedReferences} />
                 <h3 className="sec-h">Introduction</h3><FormattedPaperSection content={commentary.introduction} style={citationStyle} retained={commentary.fetchedReferences} />
+                {commentary.methods && (
+                  <>
+                    <h3 className="sec-h">Methods</h3>
+                    <FormattedPaperSection content={commentary.methods} style={citationStyle} retained={commentary.fetchedReferences} />
+                  </>
+                )}
+                {commentary.results && (
+                  <>
+                    <h3 className="sec-h">Results</h3>
+                    <FormattedPaperSection content={commentary.results} style={citationStyle} retained={commentary.fetchedReferences} />
+                  </>
+                )}
                 <h3 className="sec-h">Discussion</h3><FormattedPaperSection content={commentary.discussion} style={citationStyle} retained={commentary.fetchedReferences} />
                 <h3 className="sec-h">Conclusion</h3><FormattedPaperSection content={commentary.conclusion} style={citationStyle} retained={commentary.fetchedReferences} />
                 {!!commentary.references.length && (

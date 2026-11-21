@@ -41,7 +41,7 @@ export interface ClaimFinalizationResult {
  * lacking a citation. A sentence is a claim when it asserts that something happened, differed or
  * should be done, which is exactly the kind of sentence a reader treats as a finding.
  */
-const ASSERTION = new RegExp(
+export const ASSERTION = new RegExp(
   "\\b(?:" +
     "reduc\\w*|decreas\\w*|lower(?:ed|s|ing)?|shorten\\w*|delay\\w*|" +
     "increas\\w*|rais(?:e|es|ed|ing)|higher|greater|longer|" +

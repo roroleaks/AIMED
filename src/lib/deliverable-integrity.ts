@@ -7,7 +7,7 @@ import { normalizeDoi, type EvidenceWarning } from "./evidence-set.ts";
  * citation stranded in the conclusion is the same defect as one stranded in the discussion,
  * because the reader still meets an attribution the bibliography does not support.
  */
-export const NARRATIVE_FIELDS = ["abstract", "introduction", "discussion", "conclusion"] as const;
+export const NARRATIVE_FIELDS = ["abstract", "introduction", "methods", "results", "discussion", "conclusion"] as const;
 export type NarrativeField = (typeof NARRATIVE_FIELDS)[number];
 
 export interface DeliverableIntegrityInput {

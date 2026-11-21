@@ -330,7 +330,8 @@ test("the reference pool is capped so a large pool cannot flood the paper", () =
     elements: CERVIX
   });
 
-  assert.equal((out.references as string[]).length, 8);
+  // In v4.2.0, synthesis pool cap was raised from 8 to 16
+  assert.equal((out.references as string[]).length, 16);
   const checks = checkCitations(String(out.discussion), out.references as string[]);
   assert.deepEqual(checks.uncited, []);
   assert.deepEqual(checks.orphans, []);
@@ -374,4 +375,29 @@ test("FIX 1: deterministic commentary does NOT leak OB/GYN vocabulary into non-O
       `Specialty ${spec} leaked 'gynecological' in discussion: ${disc}`
     );
   }
+});
+
+test("deterministic commentary produces byte-identical sections across repeated runs", () => {
+  const input = {
+    selectedQuestion: "In patients with heart failure, does dapagliflozin compared with placebo improve cardiovascular death?",
+    outcomesText: "cardiovascular death",
+    reason: "determinism test",
+    pool: CERVIX_RECORDS,
+    elements: CERVIX,
+    specialty: "cardiology"
+  };
+
+  const c1 = generateDeterministicCommentary(input);
+  const c2 = generateDeterministicCommentary(input);
+
+  assert.equal(
+    JSON.stringify(c1.sections),
+    JSON.stringify(c2.sections),
+    "Sections must be byte-identical across separate runs"
+  );
+  assert.equal(
+    JSON.stringify(c1.tables),
+    JSON.stringify(c2.tables),
+    "Tables must be byte-identical across separate runs"
+  );
 });
