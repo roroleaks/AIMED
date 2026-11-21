@@ -191,6 +191,21 @@ export function generateDeterministicScreen(
   const C = cList[0];   // may be undefined
   const O = oList[0];   // may be undefined
 
+  const effectiveI = I2 ? `${I1} or ${I2}` : I1;
+
+  // Placed words: P, I1, I2, C, O
+  // Compute leftovers from full submitted word list minus the words already placed (P, I1, I2, C, O)
+  const placedWords = new Set<string>();
+  if (pList[0]) placedWords.add(pList[0].trim().toLowerCase());
+  if (iList[0]) placedWords.add(iList[0].trim().toLowerCase());
+  if (iList[1]) placedWords.add(iList[1].trim().toLowerCase());
+  if (cList[0]) placedWords.add(cList[0].trim().toLowerCase());
+  if (oList[0]) placedWords.add(oList[0].trim().toLowerCase());
+
+  const leftovers = words
+    .filter(w => !placedWords.has(w.word.trim().toLowerCase()))
+    .map(w => w.word.trim());
+
   // Compute per-word corpus coverage:
   // Derived as the count of records whose title + context match that word's sigTokens.
   const recordTokenSets = corpus.map(r => new Set(sigTokens(`${r.title} ${r.journal || ""} ${r.context || ""}`)));
@@ -215,12 +230,10 @@ export function generateDeterministicScreen(
   ).length;
 
   // 1. Established phrase: the single best-supported efficacy claim
-  // In [P] (P), does [I1] (I) compared with [C if present, else "usual care"] (C) improve [O if present, else "clinical outcomes"] (O)?
-  // When an explicit O word was submitted but has 0 coverage in the corpus, the established efficacy claim
-  // uses "clinical outcomes" so the unstudied term is not stated as established.
+  // In [P] (P), does [effectiveI] (I) compared with [C if present, else "usual care"] (C) improve [O if present, else "clinical outcomes"] (O)?
   const estC = C ? C : "usual care";
-  const estO = O && (wordCoverage.get(O) ?? 0) > 0 ? O : (O && totalScreened === 0 ? O : "clinical outcomes");
-  const establishedPhrase = `In ${P} (P), does ${I1} (I) compared with ${estC} (C) improve ${estO} (O)?`;
+  const estO = O ? O : "clinical outcomes";
+  let establishedPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) improve ${estO} (O)?`;
 
   let establishedBasis = "";
   if (metaReviewCount > 0) {
@@ -234,17 +247,17 @@ export function generateDeterministicScreen(
   }
 
   // 2. Conflicting phrase: head-to-head comparison whose evidence disagrees
-  // - If C is present: In [P] (P), is [I1] (I) superior to [C] (C) for [O] (O)?
-  // - Else if I2 is present: In [P] (P), does [I1] (I) compared with [I2] (C) improve [O] (O)?
-  // - Else (single I only): In [P] (P), does [I1] (I) compared with [C-default "usual care"] (C) consistently improve [O] (O) across study designs?
+  // - If C is present: In [P] (P), is [effectiveI] (I) superior to [C] (C) for [O] (O)?
+  // - Else if I2 is present: In [P] (P), does [effectiveI] (I) compared with [I2] (C) improve [O] (O)?
+  // - Else (single I only): In [P] (P), does [effectiveI] (I) compared with [C-default "usual care"] (C) consistently improve [O] (O) across study designs?
   const confO = O ? O : "clinical outcomes";
   let conflictingPhrase = "";
   if (C) {
-    conflictingPhrase = `In ${P} (P), is ${I1} (I) superior to ${C} (C) for ${confO} (O)?`;
+    conflictingPhrase = `In ${P} (P), is ${effectiveI} (I) superior to ${C} (C) for ${confO} (O)?`;
   } else if (I2) {
-    conflictingPhrase = `In ${P} (P), does ${I1} (I) compared with ${I2} (C) improve ${confO} (O)?`;
+    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${I2} (C) improve ${confO} (O)?`;
   } else {
-    conflictingPhrase = `In ${P} (P), does ${I1} (I) compared with usual care (C) consistently improve ${confO} (O) across study designs?`;
+    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with usual care (C) consistently improve ${confO} (O)?`;
   }
 
   let conflictingBasis = "";
@@ -259,12 +272,14 @@ export function generateDeterministicScreen(
   // 3. Gap phrase: built around the LEAST-covered role word
   // - If some role word has ZERO coverage -> put that word in its PICO slot and center the phrase on it.
   // - Else if all words are covered but O is covered only weakly (<= 1 matching record) -> targets patient-important endpoints:
-  //   In [P] (P), does [I1] (I) compared with [C-or-I2-or-default] (C) improve long-term safety and quality-of-life outcomes (O)?
+  //   In [P] (P), does [effectiveI] (I) compared with [C-or-I2-or-default] (C) improve long-term safety and quality-of-life outcomes (O)?
   // - Else (everything well covered) -> subgroup/long-horizon variant:
-  //   In high-risk subgroups of [P] (P), does [I1] (I) compared with [C-or-I2-or-default] (C) improve [O] (O) without additional adverse events (O)?
+  //   In high-risk subgroups of [P] (P), does [effectiveI] (I) compared with [C-or-I2-or-default] (C) improve [O] (O) without additional adverse events (O)?
   const cOrI2OrDefault = C ? C : (I2 ? I2 : "usual care");
   let gapPhrase = "";
   let gapBasis = "";
+
+  const gapO = O ? `${O} and long-term quality-of-life outcomes` : "long-term safety and quality-of-life outcomes";
 
   if (zeroCoverageWords.length > 0 && totalScreened > 0) {
     // Prioritize uncovered outcome, then comparator, then intervention, then population
@@ -274,10 +289,10 @@ export function generateDeterministicScreen(
     const zeroPopulation = zeroCoverageWords.find(w => w.role === "population");
 
     if (zeroOutcome) {
-      gapPhrase = `In ${P} (P), does ${I1} (I) compared with ${cOrI2OrDefault} (C) improve ${zeroOutcome.word} (O)?`;
+      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${zeroOutcome.word} (O)?`;
       gapBasis = `No screened record addresses '${zeroOutcome.word}' — comparative evidence for this element is missing.`;
     } else if (zeroComparator) {
-      gapPhrase = `In ${P} (P), does ${I1} (I) compared with ${zeroComparator.word} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${zeroComparator.word} (C) improve ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${zeroComparator.word}' — comparative evidence for this element is missing.`;
     } else if (zeroIntervention) {
       const targetI = zeroIntervention.word;
@@ -285,19 +300,19 @@ export function generateDeterministicScreen(
       gapPhrase = `In ${P} (P), does ${targetI} (I) compared with ${comp} (C) improve ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${targetI}' — comparative evidence for this element is missing.`;
     } else if (zeroPopulation) {
-      gapPhrase = `In unstudied cohorts of ${zeroPopulation.word} (P), does ${I1} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapPhrase = `In unstudied cohorts of ${zeroPopulation.word} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${zeroPopulation.word}' — comparative evidence for this element is missing.`;
     }
   } else if (totalScreened > 0 && oCoverage <= 1) {
-    gapPhrase = `In ${P} (P), does ${I1} (I) compared with ${cOrI2OrDefault} (C) improve long-term safety and quality-of-life outcomes (O)?`;
+    gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${gapO} (O)?`;
     gapBasis = `Screened literature provides sparse coverage (${oCoverage} record(s)) for clinical outcomes, leaving long-term safety and patient-reported endpoints unaddressed.`;
   } else if (totalScreened > 0) {
-    gapPhrase = `In high-risk subgroups of ${P} (P), does ${I1} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O) without additional adverse events (O)?`;
+    gapPhrase = `In high-risk subgroups of ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O) without additional adverse events (O)?`;
     gapBasis = `While overall efficacy has ${oCoverage} matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.`;
   } else {
     // Zero-corpus edge case
     const zeroC = C ? C : (I2 ? I2 : "an optimal control regimen");
-    gapPhrase = `In ${P} (P), does ${I1} (I) compared with ${zeroC} (C) improve long-term safety and quality-of-life outcomes (O)?`;
+    gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${zeroC} (C) improve ${gapO} (O)?`;
     gapBasis = `Uncovered research territory with no indexed records matching all submitted parameters simultaneously.`;
   }
 
@@ -310,22 +325,26 @@ export function generateDeterministicScreen(
     }
   }
   if (conflictingPhrase === establishedPhrase) {
-    conflictingPhrase = `In ${P} (P), does ${I1} (I) compared with ${estC} (C) consistently improve ${confO} (O) across study designs?`;
+    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently improve ${confO} (O) across study designs?`;
   }
 
-  // Word coverage check across phrases and bases:
-  // Every submitted word must appear in at least one of the three phrases.
-  // Exception: For 5-word inputs where all standard PICO slots are full, any extra submitted
-  // word not appearing in the phrases is named verbatim in the basis text.
-  const allPhrasesText = `${establishedPhrase} ${conflictingPhrase} ${gapPhrase}`.toLowerCase();
-  for (const w of words) {
-    if (!allPhrasesText.includes(w.word.toLowerCase())) {
-      const allBasesText = `${establishedBasis} ${conflictingBasis} ${gapBasis}`.toLowerCase();
-      if (!allBasesText.includes(w.word.toLowerCase())) {
-        gapBasis += ` Additional evaluation warranted for submitted parameter '${w.word}'.`;
-      }
+  // Leftover words deterministic trailing clause appended before '?'
+  const appendLeftovers = (phrase: string): string => {
+    if (leftovers.length === 0) return phrase;
+    const clause = `, with attention to ${leftovers.join(" and ")}`;
+    if (phrase.endsWith("?")) {
+      return phrase.slice(0, -1) + clause + "?";
     }
-  }
+    return phrase + clause;
+  };
+
+  establishedPhrase = appendLeftovers(establishedPhrase);
+  conflictingPhrase = appendLeftovers(conflictingPhrase);
+  gapPhrase = appendLeftovers(gapPhrase);
+
+  // Invariant: Every submitted word must appear verbatim in every phrase.
+  // P, I1, I2, C, O are placed in their respective PICO slots (with I2 in the intervention slot when present),
+  // and any remaining leftover words appear in the trailing clause before '?'.
 
   return {
     inputWords: words.map(w => w.word),

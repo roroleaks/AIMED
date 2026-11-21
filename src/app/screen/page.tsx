@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AnimatedProcessingIndicator } from "@/components/AnimatedProcessingIndicator";
-import { sget, sset, KEYS, isMatchingScreenCache } from "@/lib/session";
+import { sget, sset, sdel, KEYS, isMatchingScreenCache } from "@/lib/session";
 import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { useAimedContext } from "@/context/AimedContext";
 import type { PicoWord } from "@/lib/pico-roles";
@@ -83,6 +83,10 @@ export default function ScreenPage() {
         specialty: activeSpecialty,
         sources: data.sources
       };
+      if (typeof window !== "undefined") {
+        sessionStorage.removeItem(KEYS.choice);
+      }
+      sdel(KEYS.choice);
       setScreenData(payload);
       sset(KEYS.screen, payload);
 

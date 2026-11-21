@@ -66,14 +66,14 @@ test("SCR-2. Smoke fixture: 2 interventions assign I2 to conflicting comparator 
 
   const res = generateDeterministicScreen(words, smallCorpus, 0, 1);
 
-  // Established keeps usual care in (C)
+  // Established keeps usual care in (C) and includes both interventions in (I)
   assert.ok(res.phrases.established.phrase.includes("usual care (C)"));
-  assert.ok(res.phrases.established.phrase.includes("ivf (I)"));
+  assert.ok(res.phrases.established.phrase.includes("ivf or growth hormone (I)"));
   assert.ok(res.phrases.established.phrase.includes("poor responders (P)"));
 
-  // Conflicting uses I2 (growth hormone) in (C) slot
+  // Conflicting includes both interventions in (I) and I2 in (C)
   assert.ok(res.phrases.conflicting.phrase.includes("growth hormone (C)"));
-  assert.ok(res.phrases.conflicting.phrase.includes("ivf (I)"));
+  assert.ok(res.phrases.conflicting.phrase.includes("ivf or growth hormone (I)"));
 
   // All 3 phrases must be pairwise distinct
   assert.notEqual(res.phrases.established.phrase, res.phrases.conflicting.phrase);
@@ -271,5 +271,95 @@ test("SCR-8. AIMED preset case 2 (Cardiology): generates 3 distinct PICO phrases
     assert.ok(p.includes("(O)"), `${cat} phrase must contain (O)`);
     assert.ok(p.includes("heart failure"));
     assert.ok(p.includes("sglt2 inhibitors"));
+  }
+});
+
+test("HOTFIX-2. Regression (a) & (d): CASE A word set has dienogest in all 3 phrases and phrases are pairwise distinct", () => {
+  const words: PicoWord[] = [
+    { word: "endometriosis", role: "population" },
+    { word: "progesterone", role: "intervention" },
+    { word: "dienogest", role: "intervention" },
+    { word: "pain", role: "outcome" }
+  ];
+
+  const corpus: AuditableRef[] = [
+    {
+      title: "Dienogest versus progesterone in endometriosis for pelvic pain: randomized trial",
+      journal: "Hum Reprod",
+      context: "Both dienogest and progesterone reduce pelvic pain in endometriosis patients."
+    }
+  ];
+
+  const res = generateDeterministicScreen(words, corpus, 0, 1);
+
+  // (a) assert dienogest appears in ALL THREE phrases
+  assert.ok(res.phrases.established.phrase.includes("dienogest"), "dienogest in established");
+  assert.ok(res.phrases.conflicting.phrase.includes("dienogest"), "dienogest in conflicting");
+  assert.ok(res.phrases.gap.phrase.includes("dienogest"), "dienogest in gap");
+
+  // Every submitted word appears in all 3 phrases verbatim
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase.toLowerCase();
+    for (const w of words) {
+      assert.ok(p.includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
+  }
+
+  // (d) pairwise phrase distinctness still holds for the CASE A set
+  assert.notEqual(res.phrases.established.phrase, res.phrases.conflicting.phrase);
+  assert.notEqual(res.phrases.established.phrase, res.phrases.gap.phrase);
+  assert.notEqual(res.phrases.conflicting.phrase, res.phrases.gap.phrase);
+});
+
+test("HOTFIX-2. Regression (b): outcome word with zero corpus coverage appears verbatim in every phrase", () => {
+  const words: PicoWord[] = [
+    { word: "endometriosis", role: "population" },
+    { word: "dienogest", role: "intervention" },
+    { word: "usual care", role: "comparator" },
+    { word: "chronic fatigue", role: "outcome" }
+  ];
+
+  // Corpus where 'chronic fatigue' has 0 matches
+  const corpus: AuditableRef[] = [
+    {
+      title: "Dienogest in endometriosis: systematic review and meta-analysis",
+      journal: "Fertil Steril",
+      context: "Dienogest improves clinical symptoms and pelvic pain compared with usual care."
+    }
+  ];
+
+  const res = generateDeterministicScreen(words, corpus, 0, 1);
+
+  // Outcome word must appear verbatim in all three phrases (no "clinical outcomes" replacement)
+  assert.ok(res.phrases.established.phrase.includes("chronic fatigue"), "Established must include chronic fatigue verbatim");
+  assert.ok(res.phrases.conflicting.phrase.includes("chronic fatigue"), "Conflicting must include chronic fatigue verbatim");
+  assert.ok(res.phrases.gap.phrase.includes("chronic fatigue"), "Gap must include chronic fatigue verbatim");
+
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase.toLowerCase();
+    for (const w of words) {
+      assert.ok(p.includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
+  }
+});
+
+test("HOTFIX-2. Regression (c): 5-word input with leftovers has every word in every phrase and trailing clause renders", () => {
+  const words: PicoWord[] = [
+    { word: "PCOS", role: "population" },
+    { word: "letrozole", role: "intervention" },
+    { word: "clomiphene citrate", role: "intervention" },
+    { word: "live birth rate", role: "outcome" },
+    { word: "ovulation induction", role: "intervention" }
+  ];
+
+  const res = generateDeterministicScreen(words, [], 0, 0);
+
+  // Trailing clause with leftover word appears in every phrase
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase;
+    assert.ok(p.includes(", with attention to ovulation induction?"), `${cat} phrase must contain trailing clause with leftover`);
+    for (const w of words) {
+      assert.ok(p.toLowerCase().includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
   }
 });

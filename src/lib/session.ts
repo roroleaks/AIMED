@@ -16,6 +16,12 @@ export function sset(key: string, value: unknown) {
   } catch {}
 }
 
+export function sdel(key: string) {
+  try {
+    getStorage()?.removeItem(key);
+  } catch {}
+}
+
 export function sget<T>(key: string): T | null {
   try {
     const raw = getStorage()?.getItem(key);
