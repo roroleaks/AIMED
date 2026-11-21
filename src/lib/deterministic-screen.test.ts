@@ -363,3 +363,69 @@ test("HOTFIX-2. Regression (c): 5-word input with leftovers has every word in ev
     }
   }
 });
+
+test("HOTFIX-3. internal_med CKD preset: gap phrase is non-empty and contains every submitted word", () => {
+  const ckdPresetRaw = "chronic kidney disease, dapagliflozin, placebo, eGFR decline, end stage renal disease";
+  const words = assignPicoRoles(ckdPresetRaw.split(",").map(s => s.trim()));
+  const res = generateDeterministicScreen(words, [], 0, 0);
+
+  assert.ok(res.phrases.gap.phrase.length > 0, "Gap phrase must not be empty");
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase.toLowerCase();
+    for (const w of words) {
+      assert.ok(p.includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
+  }
+});
+
+test("HOTFIX-3. slot-filler uses other words when population or intervention is missing, no generic placeholders", () => {
+  const words: PicoWord[] = [
+    { word: "novel biomarker", role: "other" },
+    { word: "experimental compound", role: "other" },
+    { word: "standard therapy", role: "comparator" },
+    { word: "all-cause mortality", role: "outcome" }
+  ];
+
+  const res = generateDeterministicScreen(words, [], 0, 0);
+
+  // Phrases must use 'novel biomarker' in P and 'experimental compound' in I, NOT generic placeholders
+  assert.ok(!res.phrases.established.phrase.includes("target clinical population"), "Must not contain generic population placeholder");
+  assert.ok(!res.phrases.established.phrase.includes("clinical intervention"), "Must not contain generic intervention placeholder");
+  assert.ok(res.phrases.established.phrase.includes("novel biomarker (P)"), "Must place other word in (P)");
+  assert.ok(res.phrases.established.phrase.includes("experimental compound (I)"), "Must place other word in (I)");
+
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase.toLowerCase();
+    for (const w of words) {
+      assert.ok(p.includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
+  }
+});
+
+test("HOTFIX-3. gap builder fallback centers on first zero-coverage word when no role-specific zero branch matches", () => {
+  const words: PicoWord[] = [
+    { word: "heart failure", role: "population" },
+    { word: "dapagliflozin", role: "intervention" },
+    { word: "cardiovascular death", role: "outcome" },
+    { word: "unrecognized term", role: "other" }
+  ];
+
+  // Corpus covering population, intervention, outcome, but NOT the other word
+  const corpus: AuditableRef[] = [
+    {
+      title: "Dapagliflozin in heart failure with reduced ejection fraction",
+      journal: "N Engl J Med",
+      context: "Dapagliflozin reduces cardiovascular death and hospitalizations in heart failure."
+    }
+  ];
+
+  const res = generateDeterministicScreen(words, corpus, 0, 1);
+  assert.ok(res.phrases.gap.phrase.length > 0, "Gap phrase must not be empty");
+  assert.ok(res.phrases.gap.basis.includes("unrecognized term"), "Gap basis must mention zero coverage word");
+  for (const cat of ["established", "conflicting", "gap"] as const) {
+    const p = res.phrases[cat].phrase.toLowerCase();
+    for (const w of words) {
+      assert.ok(p.includes(w.word.toLowerCase()), `${cat} phrase must contain '${w.word}'`);
+    }
+  }
+});

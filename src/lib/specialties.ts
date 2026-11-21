@@ -221,7 +221,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "coronary artery bypass grafting (CABG)",
         c: "percutaneous coronary intervention (PCI)",
         o: "major adverse cardiovascular and cerebrovascular events (MACCE)",
-        raw: "multivessel coronary artery disease, CABG, PCI, diabetes, all-cause mortality, repeat revascularization"
+        raw: "multivessel coronary artery disease, CABG, PCI, all-cause mortality, repeat revascularization"
       },
       {
         id: "aortic-stenosis-tavr",
@@ -1077,7 +1077,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "single-inhaler triple therapy (ICS/LABA/LAMA)",
         c: "dual bronchodilator therapy (LABA/LAMA)",
         o: "annualized rate of moderate or severe COPD exacerbations",
-        raw: "COPD, triple therapy, LABA LAMA, exacerbation rate, all-cause mortality, FEV1"
+        raw: "COPD, triple therapy, LABA LAMA, exacerbation rate, all-cause mortality"
       },
       {
         id: "ipf-antifibrotic",
@@ -1188,7 +1188,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "early preemptive TIPS within 72 hours",
         c: "standard medical therapy (vasoactive drugs) plus endoscopic band ligation",
         o: "treatment failure and 6-week all-cause mortality",
-        raw: "cirrhosis, acute variceal bleeding, early TIPS, endoscopic band ligation, 6-week mortality, rebleeding"
+        raw: "cirrhosis, acute variceal bleeding, early TIPS, endoscopic band ligation, 6-week mortality"
       }
     ],
     outcomeRules: [
@@ -1278,7 +1278,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "high-dose daptomycin plus ceftaroline combination",
         c: "standard vancomycin monotherapy",
         o: "time to bacteremia clearance and 30-day mortality",
-        raw: "MRSA bacteremia, daptomycin, ceftaroline, vancomycin, blood culture clearance, mortality"
+        raw: "MRSA bacteremia, daptomycin, ceftaroline, vancomycin, blood culture clearance"
       }
     ],
     outcomeRules: [
@@ -1348,7 +1348,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "risankizumab (IL-23 p19 inhibitor)",
         c: "secukinumab (IL-17A inhibitor)",
         o: "PASI 90 and PASI 100 clear skin response at 52 weeks",
-        raw: "plaque psoriasis, risankizumab, secukinumab, PASI 90, PASI 100, durable skin clearance"
+        raw: "plaque psoriasis, risankizumab, secukinumab, PASI 90, durable skin clearance"
       },
       {
         id: "atopic-derm-jak-biologic",
@@ -1358,7 +1358,7 @@ export const SPECIALTIES: Record<string, SpecialtyDefinition> = {
         i: "oral upadacitinib 30 mg daily",
         c: "subcutaneous dupilumab 300 mg every 2 weeks",
         o: "EASI 75 and PP-NRS itch reduction at week 16",
-        raw: "atopic dermatitis, upadacitinib, dupilumab, EASI 75, pruritus score, skin clearance"
+        raw: "atopic dermatitis, upadacitinib, dupilumab, EASI 75, skin clearance"
       },
       {
         id: "hidradenitis-biologics",

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { parseClinicalScenario } from "./clinical-semantics.ts";
 import { KB, type SpecialtyKey } from "./kb.ts";
 import { SPECIALTIES, getSpecialtyDefinition } from "./specialties.ts";
+import { assignPicoRoles } from "./pico-roles.ts";
 
 test("KB contains all major medical specialties with comprehensive data", () => {
   const expectedSpecialties: SpecialtyKey[] = [
@@ -138,6 +139,33 @@ test("getSpecialtyDefinition returns rich presets and guidelines for every speci
     assert.ok(def.presets.length >= 2, `Presets missing for ${key}`);
     for (const preset of def.presets) {
       assert.ok(preset.p && preset.i && preset.c && preset.o && preset.raw, `Malformed preset in ${key}`);
+    }
+  }
+});
+
+test("HOTFIX-3. All presets across all 15 specialties parse to 3-5 words, have 0 other roles, and have >=1 population and >=1 intervention", () => {
+  for (const [key, spec] of Object.entries(SPECIALTIES)) {
+    assert.ok(spec.presets.length >= 2, `Specialty ${key} must have at least 2 presets`);
+    for (const preset of spec.presets) {
+      const words = preset.raw.split(",").map(w => w.trim()).filter(Boolean);
+      assert.ok(
+        words.length >= 3 && words.length <= 5,
+        `Preset ${preset.id} in ${key} must have 3-5 words, got ${words.length}: "${preset.raw}"`
+      );
+
+      const assigned = assignPicoRoles(words);
+      const otherRoles = assigned.filter(w => w.role === "other");
+      assert.equal(
+        otherRoles.length,
+        0,
+        `Preset ${preset.id} in ${key} must have zero 'other' roles, found: ${otherRoles.map(w => w.word).join(", ")}`
+      );
+
+      const hasPop = assigned.some(w => w.role === "population");
+      assert.ok(hasPop, `Preset ${preset.id} in ${key} must have >= 1 population word`);
+
+      const hasInt = assigned.some(w => w.role === "intervention");
+      assert.ok(hasInt, `Preset ${preset.id} in ${key} must have >= 1 intervention word`);
     }
   }
 });

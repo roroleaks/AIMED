@@ -184,9 +184,26 @@ export function generateDeterministicScreen(
   const iList = words.filter(w => w.role === "intervention").map(w => w.word);
   const cList = words.filter(w => w.role === "comparator").map(w => w.word);
   const oList = words.filter(w => w.role === "outcome").map(w => w.word);
+  const otherList = words.filter(w => w.role === "other").map(w => w.word);
 
-  const P = pList[0] || "target clinical population";
-  const I1 = iList[0] || "clinical intervention";
+  const unusedOthers = [...otherList];
+
+  let P = pList[0];
+  if (!P && unusedOthers.length > 0) {
+    P = unusedOthers.shift()!;
+  }
+  if (!P) {
+    P = "target clinical population";
+  }
+
+  let I1 = iList[0];
+  if (!I1 && unusedOthers.length > 0) {
+    I1 = unusedOthers.shift()!;
+  }
+  if (!I1) {
+    I1 = "clinical intervention";
+  }
+
   const I2 = iList[1]; // may be undefined
   const C = cList[0];   // may be undefined
   const O = oList[0];   // may be undefined
@@ -196,8 +213,8 @@ export function generateDeterministicScreen(
   // Placed words: P, I1, I2, C, O
   // Compute leftovers from full submitted word list minus the words already placed (P, I1, I2, C, O)
   const placedWords = new Set<string>();
-  if (pList[0]) placedWords.add(pList[0].trim().toLowerCase());
-  if (iList[0]) placedWords.add(iList[0].trim().toLowerCase());
+  if (P && P !== "target clinical population") placedWords.add(P.trim().toLowerCase());
+  if (I1 && I1 !== "clinical intervention") placedWords.add(I1.trim().toLowerCase());
   if (iList[1]) placedWords.add(iList[1].trim().toLowerCase());
   if (cList[0]) placedWords.add(cList[0].trim().toLowerCase());
   if (oList[0]) placedWords.add(oList[0].trim().toLowerCase());
@@ -302,6 +319,10 @@ export function generateDeterministicScreen(
     } else if (zeroPopulation) {
       gapPhrase = `In unstudied cohorts of ${zeroPopulation.word} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${zeroPopulation.word}' — comparative evidence for this element is missing.`;
+    } else {
+      const firstZero = zeroCoverageWords[0];
+      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapBasis = `No screened record addresses '${firstZero.word}' — comparative evidence for this element is missing.`;
     }
   } else if (totalScreened > 0 && oCoverage <= 1) {
     gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${gapO} (O)?`;

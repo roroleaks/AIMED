@@ -631,20 +631,37 @@ export async function POST(req: NextRequest) {
       // 2. Retrieval: build queries conditioned with specialty context and retrieve through multi-source machinery
       let corpus: AuditableRef[] = [];
       let totalRetrieved = 0;
+      let relaxationLevel: 0 | 1 | 2 = 0;
       try {
         const queryTerms = words.map(w => w.word.trim()).filter(Boolean);
         const query = queryTerms.join(" ");
         const primaryI = words.find(w => w.role === "intervention")?.word || "";
+        console.log(`[engine] screen retrieval attempt (level 0): "${query}" (intervention: "${primaryI}")`);
         const fetched = await fetchReferencesBroad(query, 25, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
         corpus = fetched.slice(0, 30);
         totalRetrieved = fetched.length;
+
+        // Task 5: retrieval relaxation when query yields 0 records
+        if (corpus.length === 0) {
+          relaxationLevel = 1;
+          const popWord = words.find(w => w.role === "population")?.word || queryTerms[0] || "";
+          const intWord = words.find(w => w.role === "intervention")?.word || queryTerms[1] || "";
+          const cleanTerm = (t: string) => t.replace(/['’]s\b/gi, "").replace(/['’]/g, "").trim();
+          const cleanPop = cleanTerm(popWord);
+          const cleanInt = cleanTerm(intWord);
+          const relaxedQuery = [cleanPop, cleanInt].filter(Boolean).join(" ");
+          console.log(`[engine] screen retrieval zero hits, retrying relaxed (level 1): "${relaxedQuery}"`);
+          const relaxedFetched = await fetchReferencesBroad(relaxedQuery, 25, EMPTY_REF_SET, "Therapy / Prevention", cleanInt);
+          corpus = relaxedFetched.slice(0, 30);
+          totalRetrieved = relaxedFetched.length;
+        }
       } catch (fetchErr) {
         console.warn("[engine] screen literature retrieval failed:", fetchErr);
       }
 
       // Compute deterministic screen grounded in retrieved corpus if available
       if (corpus.length > 0) {
-        screenPayload = generateDeterministicScreen(words, corpus, 0, totalRetrieved);
+        screenPayload = generateDeterministicScreen(words, corpus, relaxationLevel, totalRetrieved);
       }
       let aiRefined = false;
 
@@ -773,11 +790,17 @@ HARD RULES:
       let scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
       let surviving = scoredResult.scored.filter(r => r.relevancePct >= 15);
 
-      // Relaxation level 1: if fewer than 10 records survive, broaden with specialty conditions
-      if (surviving.length < 10 && specDef.conditions.length > 0) {
+      // Relaxation level 1: if fewer than 10 records survive, broaden with specialty conditions or core terms
+      if (surviving.length < 10) {
         relaxationLevel = 1;
         try {
-          const relaxTerms = [...queryTerms, specDef.conditions[0]];
+          const popWord = words.find(w => w.role === "population")?.word || queryTerms[0] || "";
+          const cleanTerm = (t: string) => t.replace(/['’]s\b/gi, "").replace(/['’]/g, "").trim();
+          const cleanPop = cleanTerm(popWord);
+          const cleanInt = cleanTerm(primaryI || queryTerms[1] || "");
+          const relaxTerms = corpus.length === 0
+            ? [cleanPop, cleanInt].filter(Boolean)
+            : (specDef.conditions.length > 0 ? [...queryTerms, specDef.conditions[0]] : [cleanPop, cleanInt].filter(Boolean));
           const relaxQuery = relaxTerms.join(" ");
           const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
           const merged = dedupeRefs([...(corpus as PubMedRef[]), ...relaxFetched]);
