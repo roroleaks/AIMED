@@ -29,6 +29,8 @@ import { finalizeClaims } from "@/lib/claim-finalization";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
+import { generateDeterministicScreen, validateScreenRequest } from "@/lib/deterministic-screen";
+import type { PicoWord } from "@/lib/pico-roles";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
 import { getSpecialtyDefinition } from "@/lib/specialties";
@@ -96,6 +98,56 @@ function cleanJsonResponse(raw: string): Record<string, unknown> {
     }
     throw new Error("Unable to parse JSON from LLM response");
   }
+}
+
+function validateScreenLlmResponse(
+  data: unknown,
+  words: PicoWord[]
+): {
+  established: { phrase: string; basis: string };
+  conflicting: { phrase: string; basis: string };
+  gap: { phrase: string; basis: string };
+} | null {
+  if (!data || typeof data !== "object") return null;
+  const obj = data as Record<string, unknown>;
+  const categories: Array<"established" | "conflicting" | "gap"> = ["established", "conflicting", "gap"];
+  const out: Partial<Record<"established" | "conflicting" | "gap", { phrase: string; basis: string }>> = {};
+
+  for (const cat of categories) {
+    const item = obj[cat] as Record<string, unknown> | undefined;
+    if (!item || typeof item !== "object") return null;
+    const phrase = typeof item.phrase === "string" ? item.phrase.trim() : "";
+    const basis = typeof item.basis === "string" ? item.basis.trim() : "";
+
+    if (!phrase || !basis) return null;
+    if (basis.length > 400) return null;
+    if (!phrase.includes("(P)") || !phrase.includes("(I)") || !phrase.includes("(C)") || !phrase.includes("(O)")) {
+      return null;
+    }
+    out[cat] = { phrase, basis };
+  }
+
+  const established = out.established;
+  const conflicting = out.conflicting;
+  const gap = out.gap;
+  if (!established || !conflicting || !gap) return null;
+
+  if (
+    established.phrase === conflicting.phrase ||
+    established.phrase === gap.phrase ||
+    conflicting.phrase === gap.phrase
+  ) {
+    return null;
+  }
+
+  const allText = `${established.phrase} ${conflicting.phrase} ${gap.phrase} ${established.basis} ${conflicting.basis} ${gap.basis}`.toLowerCase();
+  for (const w of words) {
+    if (!allText.includes(w.word.toLowerCase())) {
+      return null;
+    }
+  }
+
+  return { established, conflicting, gap };
 }
 
 async function callGemini(modelName: string, apiKey: string, system: string, payload: unknown): Promise<Record<string, unknown>> {
@@ -959,7 +1011,7 @@ export async function POST(req: NextRequest) {
   }
 
   const stageSchema = z.object({
-    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary"]),
+    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary", "screen"]),
   });
 
   const baseResult = stageSchema.safeParse(body);
@@ -986,9 +1038,134 @@ export async function POST(req: NextRequest) {
     if (!res.success) {
       return NextResponse.json({ error: "Invalid parameters: " + res.error.issues.map(e => e.message).join(", ") }, { status: 400 });
     }
+  } else if (stage === "screen") {
+    const val = validateScreenRequest(body);
+    if (!val.ok) {
+      return NextResponse.json({ error: val.error }, { status: val.status });
+    }
   }
 
   try {
+    if (stage === "screen") {
+      resetSourceStatus();
+      const { words, specialty } = body as { words: PicoWord[]; specialty: string };
+      const specDef = getSpecialtyDefinition(specialty)!;
+
+      // 1. Deterministic base computed first
+      let screenPayload = generateDeterministicScreen(words);
+
+      // 2. Retrieval: build queries conditioned with specialty context and retrieve through multi-source machinery
+      let corpus: AuditableRef[] = [];
+      let totalRetrieved = 0;
+      try {
+        const queryTerms = words.map(w => w.word.trim()).filter(Boolean);
+        const query = queryTerms.join(" ");
+        const primaryI = words.find(w => w.role === "intervention")?.word || "";
+        const fetched = await fetchReferencesBroad(query, 25, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+        corpus = fetched.slice(0, 30);
+        totalRetrieved = fetched.length;
+      } catch (fetchErr) {
+        console.warn("[engine] screen literature retrieval failed:", fetchErr);
+      }
+
+      // Compute deterministic screen grounded in retrieved corpus if available
+      if (corpus.length > 0) {
+        screenPayload = generateDeterministicScreen(words, corpus, 0, totalRetrieved);
+      }
+      let aiRefined = false;
+
+      // 3. Optional AI refinement
+      if (hasAnyLlmKey()) {
+        try {
+          const corpusDigest = corpus
+            .slice(0, 15)
+            .map((r, i) => `[${i + 1}] ${r.title}\n${(r.context || "").slice(0, 300)}`)
+            .join("\n\n");
+
+          const systemPrompt = `You are a clinical literature screening engine for Evidence-Based Medicine specializing in ${specDef.label}. ${specDef.systemPromptRole}
+
+TASK: Based on the screened literature digest and clinical PICO words, refine the 3 main PICO phrases (one established knowledge, one conflicting evidence, one research gap) for clinical naturalness.
+
+CLINICAL PICO WORDS:
+${words.map(w => `- ${w.role.toUpperCase()}: ${w.word}`).join("\n")}
+
+SCREENED LITERATURE DIGEST (${corpus.length} records):
+${corpusDigest || "(No records retrieved matching exact query)"}
+
+HARD RULES:
+1. Standard medical spelling and terminology ONLY.
+2. EXACTLY 3 phrases — one "established", one "conflicting", one "gap".
+3. Each phrase MUST be a single question sentence in strict PICO format with literal (P), (I), (C), and (O) markers:
+   "In [Population] (P), does [Intervention] (I) compared with [Comparator] (C) affect [Outcome] (O)?"
+   - (P) must contain the population parameter.
+   - (I) must contain the evaluated intervention.
+   - (C) must contain the comparator (e.g. usual care, placebo, or specified control).
+   - (O) must contain the clinical endpoint or outcome.
+4. Each phrase MUST have a 1-2 sentence "basis" that ONLY references findings or evidence patterns present in the provided corpus digest (or explicitly notes absence/scarcity of evidence for the gap). Maximum 400 characters per basis.
+5. All 3 phrases MUST be pairwise distinct.
+6. Word coverage: Every submitted PICO word must appear in the phrases or bases. Do not invent ungrounded clinical terms.
+7. Respond ONLY with valid JSON, no markdown formatting, no preamble:
+{
+  "established": { "phrase": "...", "basis": "..." },
+  "conflicting": { "phrase": "...", "basis": "..." },
+  "gap": { "phrase": "...", "basis": "..." }
+}`;
+
+          const rawLlm = await callLLM(systemPrompt, { words, specialty }, 1);
+          const validated = validateScreenLlmResponse(rawLlm, words);
+          if (validated) {
+            screenPayload = {
+              inputWords: words.map(w => w.word),
+              source: "ai",
+              phrases: {
+                established: {
+                  category: "established",
+                  phrase: validated.established.phrase,
+                  basis: validated.established.basis
+                },
+                conflicting: {
+                  category: "conflicting",
+                  phrase: validated.conflicting.phrase,
+                  basis: validated.conflicting.basis
+                },
+                gap: {
+                  category: "gap",
+                  phrase: validated.gap.phrase,
+                  basis: validated.gap.basis
+                }
+              },
+              corpusStats: {
+                retrieved: totalRetrieved,
+                screened: corpus.length,
+                relaxationLevel: 0
+              }
+            };
+            aiRefined = true;
+          }
+        } catch (llmErr) {
+          console.warn("[engine] LLM screen analysis failed, using deterministic fallback:", llmErr);
+        }
+      }
+
+      const snap = sourceStatusSnapshot();
+      const sources = ALL_LITERATURE_SOURCES.map(src => {
+        const st = snap[src];
+        return {
+          id: src,
+          ok: Boolean(st?.ok),
+          count: Number(st?.hits || 0)
+        };
+      });
+
+      return NextResponse.json({
+        phrases: screenPayload.phrases,
+        corpusStats: screenPayload.corpusStats,
+        aiRefined,
+        sources
+      }, {
+        headers: { "x-aimed-source": aiRefined ? "ai" : "deterministic" }
+      });
+    }
     if (stage === "commentary") {
       resetSourceStatus();
       const commentaryStartTime = Date.now();
@@ -2082,6 +2259,22 @@ Respond ONLY with JSON.`,
     // user and nothing for alerting to read. Each fallback is now guarded on its own and
     // degrades to the same structured 503, so a double failure is reported honestly instead of
     // crashing the request.
+    if (stage === "screen") {
+      try {
+        const words = Array.isArray(body.words) ? (body.words as PicoWord[]) : [];
+        if (words.length >= 3 && words.length <= 5) {
+          const fallback = generateDeterministicScreen(words);
+          return NextResponse.json({
+            phrases: fallback.phrases,
+            corpusStats: fallback.corpusStats,
+            aiRefined: false,
+            sources: ALL_LITERATURE_SOURCES.map(src => ({ id: src, ok: false, count: 0 }))
+          });
+        }
+      } catch (fallbackError) {
+        console.error(`[engine] fallback for "screen" also failed:`, fallbackError);
+      }
+    }
     if (stage === "intent") {
       try {
         return NextResponse.json(ruleAnalyze(typeof body.input === "string" ? body.input : ""));
