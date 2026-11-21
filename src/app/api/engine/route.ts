@@ -27,6 +27,7 @@ import { buildEvidenceSet } from "@/lib/evidence-set";
 import type { AuditableRef } from "@/lib/relevance";
 import { finalizeClaims } from "@/lib/claim-finalization";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
+import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
@@ -1195,37 +1196,52 @@ RESEARCH QUESTION: ${String(selectedQuestion || topic || "")}
 SELECTED OUTCOMES: ${outcomesText}
 
 CRITICAL RULES:
-1. Title: Create a precise, academic, clinically meaningful title. Format: "[Intervention] versus [Comparator] for [Outcome] in [Population]: A Critical Clinical Commentary and Evidence Appraisal" (or "[Intervention] for Optimizing [Outcome] in [Population]: A Systematic Clinical Commentary").
-2. Structured Abstract (280–350 words): Must include bold labeled sections:
+1. Title: Create a precise, academic, clinically meaningful title. Format: "[Intervention] versus [Comparator] for [Outcome] in [Population]: A Critical Clinical Commentary and Evidence Appraisal".
+2. Structured Abstract (250–350 words): Must include bold labeled sections:
    - **Background:** High-level epidemiological context, disease burden, and clinical dilemma.
    - **Objective:** Explicit formulation of the clinical PICO question and comparative objective.
-   - **Methods & Evidence Scope:** Truthfully describe search scope (${methodsGuidance}). Multi-database retrieval filtered against PICO claim criteria; specify number of verified records retained.
-   - **Results & Synthesis:** Grounded synthesis of findings citing records with Vancouver brackets [1], [2], etc., detailing trial methodologies, reported clinical parameters, and direction of response without fabricating numbers.
-   - **Clinical Interpretation:** Translation into real-world practice boundaries, distinguishing established applications from unverified claims.
-   - **Conclusion:** Decisive, balanced clinical bottom line and GRADE evidence certainty.
-3. Introduction (3 rich paragraphs):
-   - Paragraph 1: Disease burden, epidemiology, and pathophysiological substrate of the clinical condition. Explain the biological mechanisms at play and why standard protocols frequently leave clinical gaps regarding ${outcomesText}.
-   - Paragraph 2: Biological plausibility and pharmacological/procedural mechanisms of action of the intervention versus comparator. Contrast how each acts at the tissue/cellular/molecular level.
-   - Paragraph 3: Clinical dilemma, reason for lingering clinical equipoise across current literature, and the precise objective of this commentary.
-4. Discussion (The strongest section — organized with concise Markdown subheadings):
-   - #### Evidence Base Scope & Methodological Characteristics: Overview of the retained records, study designs (RCTs, prospective/retrospective cohorts, systematic reviews), and publication span.
-   - #### Study-by-Study Critical Appraisal & Reported Findings: Analyze each retained record study-by-study with its in-text bracket citation [1], [2], etc. Discuss investigator cohort, treatment protocol, reported clinical parameters, and methodological strengths and constraints.
-   - #### Comparative Synthesis & Clinical Concordance: Compare findings across studies; explain concordance, discordance, and clinical/methodological factors explaining variations (patient age, baseline disease severity, dosing, timing).
-   - #### Methodological Quality, Risk of Bias & Evidence Certainty: Critical appraisal under GRADE principles (selection bias, allocation concealment, blinding feasibility, sample size limitations, and overall certainty).
-   - #### Clinical Interpretation & Practice Translation: What this evidence means for real clinical care. Which patient phenotypes may benefit, what requires cautious patient selection, and what claims CANNOT be concluded from current data.
-   - #### Research Gaps & Unanswered Questions: Identify specific unanswered questions (need for powered multicenter RCTs, predictive biomarkers, optimal dosing/timing, long-term health and safety endpoints, core outcome sets).
-5. Conclusion (2 balanced paragraphs):
+   - **Methods:** Truthfully describe search scope (${methodsGuidance}). Multi-database retrieval filtered against PICO claim criteria; specify number of verified records retained.
+   - **Results:** Grounded synthesis citing records with Vancouver brackets [1], [2], etc., detailing trial methodologies, reported clinical parameters, and direction of response without fabricating numbers.
+   - **Conclusions:** Decisive, balanced clinical bottom line and GRADE evidence certainty.
+3. Introduction (≥250 words, 2–3 rich paragraphs):
+   - Paragraph 1: Disease burden, epidemiology, and pathophysiological substrate of the clinical condition. Explain biological mechanisms at play and clinical dilemmas regarding ${outcomesText}.
+   - Paragraph 2: Biological plausibility and pharmacological/procedural mechanisms of action of the intervention versus comparator. Contrast mechanisms across patient subgroups.
+   - Paragraph 3: Clinical dilemma, reason for lingering equipoise across published trials, and precise appraisal objective.
+4. Methods (≥400 words):
+   - Paragraph 1: Search strategy across biomedical repositories (PubMed, Europe PMC, Google Scholar, Semantic Scholar, Cochrane, etc.).
+   - Paragraph 2: Query formulation and Boolean logic for population, intervention, comparator, and outcome.
+   - Paragraph 3: Multi-stage screening, eligibility criteria, and deduplication process.
+   - Paragraph 4: Study design classification and extraction of reported directions of effect.
+5. Results (≥400 words):
+   - Paragraph 1: Literature search yield, retained records count, and publication date range.
+   - Paragraph 2: Methodological architecture (RCTs, observational cohorts, systematic reviews).
+   - Paragraph 3: Direction-of-effect synthesis across primary and secondary outcomes, citing retained records [1], [2], etc.
+   - Paragraph 4: Study-by-study outcome reporting and adherence to published abstract parameters without statistical extrapolation.
+6. Discussion (≥400 words — organized with concise Markdown subheadings):
+   - #### Evidence Base Scope: Overview of retained records, study designs, and publication span.
+   - #### Study-by-Study Critical Appraisal: Analyze each retained record study-by-study with its in-text bracket citation [1], [2], etc.
+   - #### Comparative Synthesis & Clinical Concordance: Compare findings across studies; explain concordance, discordance, and clinical/methodological factors explaining variations.
+   - #### Methodological Quality, Risk of Bias & Evidence Certainty: Critical appraisal under GRADE principles.
+   - #### Clinical Interpretation & Practice Translation: Real clinical implications and patient phenotypes.
+   - #### Research Gaps: Key unanswered questions for future trials.
+   - #### Limitations of this Evidence Appraisal: Transparently state abstract-level constraints, absence of formal RoB scoring, and single-query boundaries.
+7. Conclusion (100–200 words, 2 balanced paragraphs):
    - Paragraph 1: Decisive, evidence-grounded summary answering the PICO question.
-   - Paragraph 2: Practice pearls for individualized risk counseling, shared decision-making, and priorities for forthcoming clinical trials.
-6. References & In-Text Citations:
+   - Paragraph 2: Practice considerations for individualized risk counseling and future trial priorities.
+8. References & In-Text Citations:
    - In-text citations MUST use Vancouver numbered square brackets matching the reference list sequentially: [1], [2], [1-3].
-   - References array: AT LEAST 4 strings in pure Vancouver style (ICMJE/NLM) built ONLY from the provided referencePool in exact sequential order of citation: "1. Author(s). Title. Journal. Year;Volume(Issue):Pages. doi:... URL".
+   - References array: Strings in pure Vancouver style (ICMJE/NLM) built ONLY from the provided referencePool in exact sequential order of citation: "1. Author(s). Title. Journal. Year;Volume(Issue):Pages. doi:... URL".
    - Zero hallucination: cite and list references ONLY from referencePool. Never invent studies, statistics, sample sizes, or p-values not in the records.
-7. Mandatory Citation on Assertive Sentences: Every factual or assertive sentence discussing biological mechanisms, clinical burden, outcomes, trial observations, or clinical recommendations MUST carry an in-text numerical bracket citation (e.g. [1], [2], or [1-3]). The automated claim validation gate checks each sentence individually, and any assertive sentence without a citation bracket will be flagged. Ensure comprehensive in-text citation coverage across all sections.`;
+9. Scientific Honesty & Quality Rules:
+   - No Duplicated Boilerplate: Every section must contain unique narrative; do not duplicate sentences or phrases >8 words across sections.
+   - Word Floors: Strictly respect word minimums (Abstract 250-350w, Intro ≥250w, Methods ≥400w, Results ≥400w, Discussion ≥400w, Conclusion 100-200w).
+   - Honesty Scan: Do not report numerical statistics (percentages, risk ratios, odds ratios, hazard ratios) unless explicitly quoted from the reference pool.
+   - Mandatory Citation on Assertions: Every assertive sentence discussing clinical findings, mechanisms, or outcomes MUST carry an in-text bracket citation (e.g. [1]).
+   - Hedging Calibration: Calibrate conclusions to evidence depth (use cautious hedging when records are sparse; avoid "definitive", "proves", or "settles").`;
       const promptPayload = {
         topic, gapAnalysis, selectedQuestion, outcome: outcomesText, referencePool: poolForPrompt
       };
-      const responseShape = `Respond ONLY with JSON: {title, abstract, keywords, introduction, discussion, conclusion, references}.`;
+      const responseShape = `Respond ONLY with JSON: {title, abstract, keywords, introduction, methods, results, discussion, conclusion, references}.`;
 
       // The model is asked for a self-consistent draft: every listed reference cited, every
       // citation resolvable. When it is not, a bounded corrective retry names the offending
@@ -1421,6 +1437,8 @@ ${responseShape}`,
         fields: {
           abstract: String(commentary.abstract || ""),
           introduction: String(commentary.introduction || ""),
+          methods: String(commentary.methods || ""),
+          results: String(commentary.results || ""),
           discussion: String(commentary.discussion || ""),
           conclusion: String(commentary.conclusion || "")
         },
@@ -1430,12 +1448,14 @@ ${responseShape}`,
       });
       commentary.abstract = finalized.fields.abstract;
       commentary.introduction = finalized.fields.introduction;
+      if (finalized.fields.methods) commentary.methods = finalized.fields.methods;
+      if (finalized.fields.results) commentary.results = finalized.fields.results;
       commentary.discussion = finalized.fields.discussion;
       commentary.conclusion = finalized.fields.conclusion;
       const claimWarnings = finalized.warnings;
 
       const narrativeOf = () =>
-        [commentary.abstract, commentary.introduction, commentary.discussion, commentary.conclusion]
+        [commentary.abstract, commentary.introduction, commentary.methods, commentary.results, commentary.discussion, commentary.conclusion]
           .map(v => String(v || ""))
           .join(" ");
 
@@ -1450,6 +1470,8 @@ ${responseShape}`,
         {
           abstract: String(commentary.abstract || ""),
           introduction: String(commentary.introduction || ""),
+          methods: String(commentary.methods || ""),
+          results: String(commentary.results || ""),
           discussion: String(commentary.discussion || ""),
           conclusion: String(commentary.conclusion || "")
         },
@@ -1460,6 +1482,8 @@ ${responseShape}`,
       const evidenceWarnings: string[] = [];
       commentary.abstract = reconciled.fields.abstract;
       commentary.introduction = reconciled.fields.introduction;
+      if (reconciled.fields.methods) commentary.methods = reconciled.fields.methods;
+      if (reconciled.fields.results) commentary.results = reconciled.fields.results;
       commentary.discussion = reconciled.fields.discussion;
       commentary.conclusion = reconciled.fields.conclusion;
       const finalRefs = [...reconciled.references];
@@ -1504,6 +1528,8 @@ const noDirectEvidence = directPool.length === 0;
         fields: {
           abstract: String(commentary.abstract || ""),
           introduction: String(commentary.introduction || ""),
+          methods: String(commentary.methods || ""),
+          results: String(commentary.results || ""),
           discussion: String(commentary.discussion || ""),
           conclusion: String(commentary.conclusion || "")
         },
@@ -1535,6 +1561,8 @@ const noDirectEvidence = directPool.length === 0;
           {
             abstract: String(commentary.abstract || ""),
             introduction: String(commentary.introduction || ""),
+            methods: String(commentary.methods || ""),
+            results: String(commentary.results || ""),
             discussion: String(commentary.discussion || ""),
             conclusion: String(commentary.conclusion || "")
           },
@@ -1544,6 +1572,8 @@ const noDirectEvidence = directPool.length === 0;
         );
         commentary.abstract = fallbackReconciled.fields.abstract;
         commentary.introduction = fallbackReconciled.fields.introduction;
+        if (fallbackReconciled.fields.methods) commentary.methods = fallbackReconciled.fields.methods;
+        if (fallbackReconciled.fields.results) commentary.results = fallbackReconciled.fields.results;
         commentary.discussion = fallbackReconciled.fields.discussion;
         commentary.conclusion = fallbackReconciled.fields.conclusion;
         const fallbackFinalRefs = [...fallbackReconciled.references];
@@ -1561,6 +1591,8 @@ const noDirectEvidence = directPool.length === 0;
           fields: {
             abstract: String(commentary.abstract || ""),
             introduction: String(commentary.introduction || ""),
+            methods: String(commentary.methods || ""),
+            results: String(commentary.results || ""),
             discussion: String(commentary.discussion || ""),
             conclusion: String(commentary.conclusion || "")
           },
@@ -1574,6 +1606,109 @@ const noDirectEvidence = directPool.length === 0;
         return NextResponse.json({
           error: "Commentary failed citation integrity validation and was not published.",
           integrity,
+          sourceStatus: sourceStatusSnapshot(),
+          telemetry: activeTelemetry ? {
+            ...activeTelemetry,
+            processingTimeMs: Math.max(1, Date.now() - commentaryStartTime)
+          } : undefined
+        }, { status: 500 });
+      }
+
+      // Sync sections blocks if commentary was modified
+      if (commentary.sections && Array.isArray(commentary.sections)) {
+        for (const sec of commentary.sections as Array<{ heading?: string; blocks?: string[] }>) {
+          if (sec.heading === "Abstract" && commentary.abstract) sec.blocks = [String(commentary.abstract)];
+          if (sec.heading === "Introduction" && commentary.introduction) sec.blocks = [String(commentary.introduction)];
+          if (sec.heading === "Conclusion" && commentary.conclusion) sec.blocks = [String(commentary.conclusion)];
+        }
+      }
+
+      // Quality linter gate
+      let quality = lintManuscriptQuality({
+        title: String(commentary.title || ""),
+        abstract: String(commentary.abstract || ""),
+        introduction: String(commentary.introduction || ""),
+        methods: String(commentary.methods || ""),
+        results: String(commentary.results || ""),
+        discussion: String(commentary.discussion || ""),
+        conclusion: String(commentary.conclusion || ""),
+        sections: (commentary.sections as unknown as ManuscriptSection[]) || undefined,
+        references: finalRefs,
+        retainedRecords: curatedRecords,
+        elements,
+        isSparse: noDirectEvidence
+      });
+
+      if (!quality.passed && commentarySource === "ai") {
+        console.warn("[engine] AI commentary failed manuscript quality check. Falling back to deterministic synthesis.", quality.rules.filter(r => !r.passed));
+        commentarySource = "deterministic";
+        activeTelemetry = {
+          pathUsed: "deterministic",
+          fallbackTriggered: true,
+          failedGates: 1,
+          processingTimeMs: Math.max(1, Date.now() - commentaryStartTime),
+          llmAvailable: !!KEY,
+          fallbackReason: "Manuscript quality linter failure"
+        };
+        commentary = generateDeterministicCommentary({
+          selectedQuestion: String(selectedQuestion || topic || ""),
+          outcomesText,
+          reason: "Manuscript quality linter failure",
+          pool: evidenceSet.retainedRecords as AuditableRef[],
+          elements
+        });
+        curated = curateModelRefs(commentary, evidenceSet, commentarySource);
+        const fallbackReconciled = reconcileNarrative(
+          {
+            abstract: String(commentary.abstract || ""),
+            introduction: String(commentary.introduction || ""),
+            methods: String(commentary.methods || ""),
+            results: String(commentary.results || ""),
+            discussion: String(commentary.discussion || ""),
+            conclusion: String(commentary.conclusion || "")
+          },
+          curated.references,
+          evidenceSet.allowedCitationKeys,
+          evidenceSet.citationMap
+        );
+        commentary.abstract = fallbackReconciled.fields.abstract;
+        commentary.introduction = fallbackReconciled.fields.introduction;
+        if (fallbackReconciled.fields.methods) commentary.methods = fallbackReconciled.fields.methods;
+        if (fallbackReconciled.fields.results) commentary.results = fallbackReconciled.fields.results;
+        commentary.discussion = fallbackReconciled.fields.discussion;
+        commentary.conclusion = fallbackReconciled.fields.conclusion;
+        const fallbackFinalRefs = [...fallbackReconciled.references];
+        commentary.references = fallbackFinalRefs;
+        const fallbackCuratedRecords: AuditableRef[] = [];
+        for (const raw of fallbackFinalRefs) {
+          const rec = curated.resolved.get(raw) ?? resolveReference(raw, evidenceSet.retainedRecords as AuditableRef[]);
+          if (rec) fallbackCuratedRecords.push(rec);
+        }
+        curatedRecords.length = 0;
+        curatedRecords.push(...fallbackCuratedRecords);
+        finalRefs.length = 0;
+        finalRefs.push(...fallbackFinalRefs);
+
+        quality = lintManuscriptQuality({
+          title: String(commentary.title || ""),
+          abstract: String(commentary.abstract || ""),
+          introduction: String(commentary.introduction || ""),
+          methods: String(commentary.methods || ""),
+          results: String(commentary.results || ""),
+          discussion: String(commentary.discussion || ""),
+          conclusion: String(commentary.conclusion || ""),
+          sections: (commentary.sections as unknown as ManuscriptSection[]) || undefined,
+          references: finalRefs,
+          retainedRecords: curatedRecords,
+          elements,
+          isSparse: noDirectEvidence
+        });
+      }
+
+      if (!quality.passed) {
+        return NextResponse.json({
+          error: "Commentary failed manuscript quality validation and was not published.",
+          quality,
           sourceStatus: sourceStatusSnapshot(),
           telemetry: activeTelemetry ? {
             ...activeTelemetry,
@@ -1623,7 +1758,8 @@ droppedReferences: droppedRefs,
 refAudit: directPool.map(r => auditRef(r, elements)),
         paperRefAudit,
         citationChecks,
-        integrity
+        integrity,
+        quality
       });
     }
 

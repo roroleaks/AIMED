@@ -13,6 +13,7 @@ import {
 } from "../src/lib/citation-styles.ts";
 import { generateDeterministicCommentary } from "../src/lib/deterministic-commentary.ts";
 import { validateDeliverableIntegrity } from "../src/lib/deliverable-integrity.ts";
+import { lintManuscriptQuality } from "../src/lib/manuscript-quality.ts";
 import { ALL_LITERATURE_SOURCES, SEARCH_SOURCE_OPTIONS } from "../src/lib/literature-sources.ts";
 
 console.log("================================================================================");
@@ -138,8 +139,19 @@ const commentary = generateDeterministicCommentary({
 assert.ok(commentary.title.length > 0, "Commentary must have a title");
 assert.ok(commentary.abstract.length > 0, "Commentary must have an abstract");
 assert.ok(commentary.introduction.length > 0, "Commentary must have an introduction");
+assert.ok(commentary.methods.length > 0, "Commentary must have methods");
+assert.ok(commentary.results.length > 0, "Commentary must have results");
 assert.ok(commentary.discussion.length > 0, "Commentary must have a discussion");
+assert.ok(commentary.conclusion.length > 0, "Commentary must have a conclusion");
 assert.ok(commentary.references.length > 0, "Commentary must have references");
+assert.ok(Array.isArray(commentary.sections) && commentary.sections.length >= 6, "Commentary must have IMRaD sections");
+
+const quality = lintManuscriptQuality({
+  ...commentary,
+  retainedRecords: testRefs,
+  isSparse: false
+});
+assert.equal(quality.passed, true, `Commentary must pass quality linter: ${quality.rules.filter(r => !r.passed).map(r => r.message).join("; ")}`);
 
 // Test Vancouver unbracketed formatting:
 const vancouverRefs = testRefs.map((r, i) => formatReferenceInStyle(r, "vancouver", i + 1));

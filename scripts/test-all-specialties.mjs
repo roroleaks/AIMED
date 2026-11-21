@@ -250,6 +250,8 @@ async function runTest() {
       assert.ok(commData.title && commData.title.length > 5, "Commentary must return title");
       assert.ok(commData.abstract && commData.abstract.length > 20, "Commentary must return abstract");
       assert.ok(commData.introduction && commData.introduction.length > 20, "Commentary must return introduction");
+      assert.ok(commData.methods && commData.methods.length > 20, "Commentary must return methods");
+      assert.ok(commData.results && commData.results.length > 20, "Commentary must return results");
       assert.ok(commData.discussion && commData.discussion.length > 20, "Commentary must return discussion");
       assert.ok(commData.conclusion && commData.conclusion.length > 20, "Commentary must return conclusion");
       assert.ok(Array.isArray(commData.references), "Commentary must return references array");
@@ -262,6 +264,8 @@ async function runTest() {
         fields: {
           abstract: commData.abstract,
           introduction: commData.introduction,
+          methods: commData.methods,
+          results: commData.results,
           discussion: commData.discussion,
           conclusion: commData.conclusion
         },
@@ -282,9 +286,11 @@ async function runTest() {
           meta: `Aimed · ${spec.name} · ${spec.guidelines}`,
           pico: formulateData.elements,
           outcomes: [chosenOutcome],
-          sections: [
+          sections: commData.sections && commData.sections.length > 0 ? commData.sections : [
             { heading: "Abstract", blocks: [commData.abstract] },
             { heading: "Introduction", blocks: [commData.introduction] },
+            { heading: "Methods", blocks: [commData.methods] },
+            { heading: "Results", blocks: [commData.results] },
             { heading: "Discussion", blocks: [commData.discussion] },
             { heading: "Conclusion", blocks: [commData.conclusion] }
           ],
