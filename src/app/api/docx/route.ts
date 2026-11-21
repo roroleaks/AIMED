@@ -17,6 +17,7 @@ import {
   PageNumber
 } from "docx";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
+import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
 import { getSpecialtyDefinition } from "@/lib/specialties";
 
@@ -28,9 +29,15 @@ const picoRowSchema = z.object({
   value: z.string().max(1000),
 });
 
+const docxTableSchema = z.object({
+  headers: z.array(z.string().max(500)),
+  rows: z.array(z.array(z.string().max(2000)))
+});
+
 const docxSectionSchema = z.object({
   heading: z.string().max(200).optional().nullable(),
   blocks: z.array(z.string().max(10000)),
+  table: docxTableSchema.optional().nullable()
 });
 
 const auditableRefSchema = z.object({
@@ -180,6 +187,40 @@ export async function POST(req: Request) {
               ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
               : "Export refused: references did not match the validated evidence set.",
             integrity
+          },
+          { status: 422 }
+        );
+      }
+    }
+
+    // Manuscript Quality Linter gate for working draft exports
+    if (hasSections) {
+      const narrativeFields: Record<string, string> = {};
+      if (Array.isArray(body.sections)) {
+        for (const s of body.sections) {
+          if (s && s.heading && Array.isArray(s.blocks)) {
+            narrativeFields[s.heading.toLowerCase()] = s.blocks.join(" ");
+          }
+        }
+      }
+      const quality = lintManuscriptQuality({
+        title: body.title,
+        abstract: narrativeFields.abstract,
+        introduction: narrativeFields.introduction,
+        methods: narrativeFields.methods,
+        results: narrativeFields.results,
+        discussion: narrativeFields.discussion,
+        conclusion: narrativeFields.conclusion,
+        sections: (body.sections || undefined) as unknown as ManuscriptSection[] | undefined,
+        references: body.references || [],
+        retainedRecords: Array.isArray(body.retainedReferences) ? (body.retainedReferences as unknown as AuditableRef[]) : [],
+        isSparse: !hasReferences
+      });
+      if (!quality.passed) {
+        return NextResponse.json(
+          {
+            error: "Export refused: manuscript failed quality checks",
+            quality
           },
           { status: 422 }
         );
@@ -403,7 +444,67 @@ export async function POST(req: Request) {
     }
 
     // Narrative Sections (Abstract, Introduction, Discussion, Conclusion)
+    const createDocxTable = (headers: string[], rows: string[][]): Table => {
+      const numCols = headers.length || 1;
+      const colWidthPercent = Math.floor(100 / numCols);
+
+      const headerRow = new TableRow({
+        tableHeader: true,
+        children: headers.map(h =>
+          new TableCell({
+            width: { size: colWidthPercent, type: WidthType.PERCENTAGE },
+            shading: { fill: "0F172A" },
+            margins: { top: 120, bottom: 120, left: 140, right: 140 },
+            children: [
+              new Paragraph({
+                alignment: AlignmentType.LEFT,
+                children: [
+                  new TextRun({
+                    text: h,
+                    bold: true,
+                    color: "FFFFFF",
+                    font: "Arial",
+                    size: 18
+                  })
+                ]
+              })
+            ]
+          })
+        )
+      });
+
+      const bodyRows = rows.map((row, rIdx) =>
+        new TableRow({
+          children: row.map(cell =>
+            new TableCell({
+              width: { size: colWidthPercent, type: WidthType.PERCENTAGE },
+              shading: { fill: rIdx % 2 === 0 ? "FFFFFF" : "F8FAFC" },
+              margins: { top: 90, bottom: 90, left: 140, right: 140 },
+              borders: {
+                top: { style: BorderStyle.SINGLE, size: 4, color: "E2E8F0" },
+                bottom: { style: BorderStyle.SINGLE, size: 4, color: "E2E8F0" },
+                left: { style: BorderStyle.SINGLE, size: 4, color: "E2E8F0" },
+                right: { style: BorderStyle.SINGLE, size: 4, color: "E2E8F0" }
+              },
+              children: [
+                new Paragraph({
+                  alignment: AlignmentType.LEFT,
+                  children: parseFormattedRuns(cell, style)
+                })
+              ]
+            })
+          )
+        })
+      );
+
+      return new Table({
+        width: { size: 100, type: WidthType.PERCENTAGE },
+        rows: [headerRow, ...bodyRows]
+      });
+    };
+
     if (Array.isArray(body.sections)) {
+      const renderedTablesInBlocks = new Set<string>();
       for (const section of body.sections) {
         if (!section || !Array.isArray(section.blocks) || !section.blocks.length) continue;
 
@@ -432,6 +533,24 @@ export async function POST(req: Request) {
             .filter(Boolean);
 
           for (const rawSub of rawSubBlocks) {
+            // Check if subBlock is a markdown table
+            if (rawSub.trim().startsWith("|") && rawSub.includes("---")) {
+              const lines = rawSub.trim().split("\n").map(l => l.trim()).filter(Boolean);
+              if (lines.length >= 3) {
+                const headerLine = lines[0];
+                const rowLines = lines.slice(2);
+                const headers = headerLine.split("|").map(c => c.trim()).filter(Boolean);
+                const rows = rowLines.map(r => {
+                  const rawCells = r.split("|").map(c => c.trim());
+                  return rawCells.filter((_, i) => i > 0 && i < rawCells.length - 1);
+                });
+                docChildren.push(createDocxTable(headers, rows));
+                docChildren.push(new Paragraph({ spacing: { after: 180 } }));
+                renderedTablesInBlocks.add(section.heading || "");
+                continue;
+              }
+            }
+
             // Check heading
             if (/^#{1,4}\s+/.test(rawSub)) {
               const headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
@@ -480,6 +599,11 @@ export async function POST(req: Request) {
               })
             );
           }
+        }
+
+        if (section.table && Array.isArray(section.table.headers) && section.table.headers.length > 0 && !renderedTablesInBlocks.has(section.heading || "")) {
+          docChildren.push(createDocxTable(section.table.headers, section.table.rows));
+          docChildren.push(new Paragraph({ spacing: { after: 180 } }));
         }
       }
     }
@@ -543,6 +667,10 @@ export async function POST(req: Request) {
     );
 
     const doc = new Document({
+      creator: "Dr. Raouf Roshdy, MD / Aimed Medical Intelligence",
+      title: title,
+      description: `Scientific Commentary Working Draft: ${title}`,
+      keywords: body.keywords?.join(", "),
       sections: [
         {
           properties: {

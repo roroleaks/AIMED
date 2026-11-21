@@ -4,21 +4,26 @@ import PDFDocument from "pdfkit";
 import fs from "node:fs";
 import path from "node:path";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
+import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
-
-
 
 const picoRowSchema = z.object({
   label: z.string().max(200),
   value: z.string().max(1000),
 });
 
+const pdfTableSchema = z.object({
+  headers: z.array(z.string().max(500)),
+  rows: z.array(z.array(z.string().max(2000)))
+});
+
 const pdfSectionSchema = z.object({
   heading: z.string().max(200).optional().nullable(),
   blocks: z.array(z.string().max(10000)),
+  table: pdfTableSchema.optional().nullable()
 });
 
 const auditableRefSchema = z.object({
@@ -127,6 +132,40 @@ export async function POST(req: Request) {
               ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
               : "Export refused: references did not match the validated evidence set.",
             integrity
+          },
+          { status: 422 }
+        );
+      }
+    }
+
+    // Manuscript Quality Linter gate for working draft exports
+    if (hasSections) {
+      const narrativeFields: Record<string, string> = {};
+      if (Array.isArray(body.sections)) {
+        for (const s of body.sections) {
+          if (s && s.heading && Array.isArray(s.blocks)) {
+            narrativeFields[s.heading.toLowerCase()] = s.blocks.join(" ");
+          }
+        }
+      }
+      const quality = lintManuscriptQuality({
+        title: body.title,
+        abstract: narrativeFields.abstract,
+        introduction: narrativeFields.introduction,
+        methods: narrativeFields.methods,
+        results: narrativeFields.results,
+        discussion: narrativeFields.discussion,
+        conclusion: narrativeFields.conclusion,
+        sections: (body.sections || undefined) as unknown as ManuscriptSection[] | undefined,
+        references: body.references || [],
+        retainedRecords: Array.isArray(body.retainedReferences) ? (body.retainedReferences as unknown as AuditableRef[]) : [],
+        isSparse: !hasReferences
+      });
+      if (!quality.passed) {
+        return NextResponse.json(
+          {
+            error: "Export refused: manuscript failed quality checks",
+            quality
           },
           { status: 422 }
         );
@@ -249,7 +288,59 @@ export async function POST(req: Request) {
       doc.moveDown(0.6);
     }
 
+    const renderPdfTable = (headers: string[], rows: string[][]) => {
+      if (!headers.length || !rows.length) return;
+      const numCols = headers.length;
+      const colW = FULL_W / numCols;
+      const cellPad = 4;
+      const fontSize = numCols > 6 ? 7 : numCols > 5 ? 7.5 : numCols > 4 ? 8 : 8.5;
+      const headerH = 22;
+
+      ensure(headerH + 20);
+      const startY = doc.y;
+      doc.rect(LEFT, startY, FULL_W, headerH).fill(teal);
+      headers.forEach((h, i) => {
+        const x = LEFT + i * colW;
+        doc.font(FONT_B).fontSize(fontSize).fillColor("#ffffff").text(h, x + cellPad, startY + 5, {
+          width: colW - cellPad * 2,
+          lineBreak: true,
+          align: "left"
+        });
+      });
+      doc.y = startY + headerH;
+
+      rows.forEach((row, rIdx) => {
+        doc.font(FONT).fontSize(fontSize);
+        let maxH = 18;
+        row.forEach(cell => {
+          const w = colW - cellPad * 2;
+          const h = doc.heightOfString(String(cell || ""), { width: w, lineGap: 1.5 });
+          if (h + 8 > maxH) maxH = h + 8;
+        });
+
+        ensure(maxH);
+        const rowY = doc.y;
+        const fill = rIdx % 2 === 0 ? "#ffffff" : "#f8fafc";
+        doc.rect(LEFT, rowY, FULL_W, maxH).fill(fill);
+        doc.rect(LEFT, rowY, FULL_W, maxH).lineWidth(0.5).stroke("#cbd5e1");
+
+        row.forEach((cell, i) => {
+          const x = LEFT + i * colW;
+          doc.rect(x, rowY, colW, maxH).lineWidth(0.5).stroke("#cbd5e1");
+          const cleanCell = normalizeVancouver(String(cell || ""), body.citationStyle);
+          doc.font(FONT).fontSize(fontSize).fillColor(ink).text(cleanCell, x + cellPad, rowY + 4, {
+            width: colW - cellPad * 2,
+            lineGap: 1.5,
+            align: "left"
+          });
+        });
+        doc.y = rowY + maxH;
+      });
+      doc.moveDown(0.6);
+    };
+
     if (Array.isArray(body.sections)) {
+      const renderedTablesInBlocks = new Set<string>();
       for (const section of body.sections) {
         if (!section || !Array.isArray(section.blocks) || !section.blocks.length) continue;
         if (section.heading) {
@@ -268,6 +359,23 @@ export async function POST(req: Request) {
             .filter(Boolean);
 
           for (const rawSub of rawSubBlocks) {
+            // Check if subBlock is a markdown table
+            if (rawSub.trim().startsWith("|") && rawSub.includes("---")) {
+              const lines = rawSub.trim().split("\n").map(l => l.trim()).filter(Boolean);
+              if (lines.length >= 3) {
+                const headerLine = lines[0];
+                const rowLines = lines.slice(2);
+                const headers = headerLine.split("|").map(c => c.trim()).filter(Boolean);
+                const rows = rowLines.map(r => {
+                  const rawCells = r.split("|").map(c => c.trim());
+                  return rawCells.filter((_, i) => i > 0 && i < rawCells.length - 1);
+                });
+                renderPdfTable(headers, rows);
+                renderedTablesInBlocks.add(section.heading || "");
+                continue;
+              }
+            }
+
             // Check if subBlock is a markdown heading
             if (/^#{1,4}\s+/.test(rawSub)) {
               let headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
@@ -321,6 +429,9 @@ export async function POST(req: Request) {
             paragraph(text);
             doc.moveDown(0.45);
           }
+        }
+        if (section.table && Array.isArray(section.table.headers) && section.table.headers.length > 0 && !renderedTablesInBlocks.has(section.heading || "")) {
+          renderPdfTable(section.table.headers, section.table.rows);
         }
       }
     }
