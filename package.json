@@ -10,7 +10,7 @@
     "lint": "eslint && node scripts/secret-scan.mjs",
     "secret-scan": "node scripts/secret-scan.mjs",
     "typecheck": "tsc --noEmit",
-    "test": "node --test src/lib/*.test.ts",
+    "test": "node --test src/lib/*.test.ts src/app/api/*.test.ts",
     "test:live": "node scripts/test-live.mjs",
     "validate": "node scripts/validate-steps.mjs",
     "icons": "node scripts/build-icons.mjs",

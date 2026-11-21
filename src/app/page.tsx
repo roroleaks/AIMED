@@ -1,135 +1,144 @@
 "use client";
 
-import { useCallback, useMemo, useState, useSyncExternalStore, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useMemo, useCallback, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { sset, KEYS } from "@/lib/session";
-import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
-import {
-  parseInput,
-  toSessionInput,
-  sessionSearchText,
-  validateKeywords,
-  keywordCountHint,
-  resolveCorrections,
-  correctionKey,
-  readSessionInput,
-  MAX_KEYWORDS
-} from "@/lib/clinical-input";
-import type { KeywordCorrection, CorrectionRecord } from "@/lib/clinical-input";
-import type { ClinicalInput } from "@/lib/clinical-input";
-import { parseClinicalScenario } from "@/lib/clinical-semantics";
+import { assignPicoRoles, type PicoRole, type PicoWord } from "@/lib/pico-roles";
 import { useAimedContext } from "@/context/AimedContext";
 import { SpecialtySelector } from "@/components/SpecialtySelector";
+import { WorkflowStepper } from "@/components/WorkflowStepper";
+import { PhiNotice } from "@/components/PhiNotice";
 import type { PicoPreset } from "@/lib/specialties";
-import type { SpecialtyKey } from "@/lib/kb";
+import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
 
-// sessionStorage is browser-only, so it cannot be read while rendering on the server.
-let cachedRaw: string | null = null;
-let cachedValue: ClinicalInput | null = null;
-function sessionInputSnapshot(): ClinicalInput | null {
-  if (typeof window === "undefined") return null;
-  let raw: string | null = null;
+// sessionStorage is browser-only: useSyncExternalStore provides safe hydration without cascading renders
+function sessionPicoSnapshot(): string {
+  if (typeof window === "undefined") return "";
   try {
-    raw = window.sessionStorage.getItem(KEYS.input);
-  } catch {
-    raw = null;
-  }
-  if (raw !== cachedRaw) {
-    cachedRaw = raw;
-    try {
-      cachedValue = raw ? readSessionInput(JSON.parse(raw)) : null;
-    } catch {
-      cachedValue = raw ? readSessionInput(raw) : null;
+    const savedPico = window.sessionStorage.getItem(KEYS.picoWords);
+    if (savedPico) {
+      const parsed = JSON.parse(savedPico);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed
+          .map((p: { word?: string } | string) => (typeof p === "string" ? p : p.word ?? ""))
+          .filter(Boolean)
+          .join(", ");
+      }
     }
-  }
-  return cachedValue;
+    const savedText = window.sessionStorage.getItem(KEYS.inputText);
+    if (savedText) {
+      return JSON.parse(savedText);
+    }
+  } catch {}
+  return "";
 }
-const serverSnapshot = (): null => null;
+
+const serverSnapshot = () => "";
 const subscribeToNothing = () => () => {};
-const EMPTY_DECISIONS: CorrectionRecord[] = [];
+
+const ROLE_CONFIG: Record<
+  PicoRole,
+  { label: string; badge: string; bg: string; border: string; text: string; badgeBg: string }
+> = {
+  population: {
+    label: "Population",
+    badge: "P",
+    bg: "#eff6ff",
+    border: "#bfdbfe",
+    text: "#1e40af",
+    badgeBg: "#3b82f6"
+  },
+  intervention: {
+    label: "Intervention",
+    badge: "I",
+    bg: "#f0fdf4",
+    border: "#bbf7d0",
+    text: "#166534",
+    badgeBg: "#22c55e"
+  },
+  comparator: {
+    label: "Comparator",
+    badge: "C",
+    bg: "#fffbeb",
+    border: "#fde68a",
+    text: "#92400e",
+    badgeBg: "#f59e0b"
+  },
+  outcome: {
+    label: "Outcome",
+    badge: "O",
+    bg: "#faf5ff",
+    border: "#e9d5ff",
+    text: "#6b21a8",
+    badgeBg: "#a855f7"
+  },
+  other: {
+    label: "Other",
+    badge: "X",
+    bg: "#f8fafc",
+    border: "#cbd5e1",
+    text: "#475569",
+    badgeBg: "#64748b"
+  }
+};
 
 export default function Home() {
-  const router = useRouter();
   const { specialty, setSpecialty, currentSpecialty, activePresets } = useAimedContext();
   const workspaceRef = useRef<HTMLDivElement>(null);
 
-  const restored = useSyncExternalStore(subscribeToNothing, sessionInputSnapshot, serverSnapshot);
-
+  const restoredInput = useSyncExternalStore(subscribeToNothing, sessionPicoSnapshot, serverSnapshot);
   const [draft, setDraft] = useState<string | null>(null);
-  const input = draft ?? restored?.rawInput ?? "";
-  const setInput = useCallback((v: string) => setDraft(v), []);
-  const [tagError, setTagError] = useState<string | null>(null);
+  const rawInput = draft ?? restoredInput;
+  const setRawInput = useCallback((v: string) => setDraft(v), []);
+  const [savedNotice, setSavedNotice] = useState<string | null>(null);
 
-  // Input style: Quick tag words (free-text) vs Structured labeled fields (P, I, C, O)
-  const [entryStyle, setEntryStyle] = useState<"tags" | "structured">("tags");
+  // Modal dialog states
+  const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
+  const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
 
-  // Structured fields state
-  const [structP, setStructP] = useState("");
-  const [structI, setStructI] = useState("");
-  const [structC, setStructC] = useState("");
-  const [structO, setStructO] = useState("");
+  // Split input into clinical keywords on commas, semicolons, or newlines
+  const words = useMemo(() => {
+    return rawInput
+      .split(/[,;\n]/)
+      .map(w => w.trim())
+      .filter(w => w.length > 0);
+  }, [rawInput]);
 
-  const [decided, setDecided] = useState<CorrectionRecord[] | null>(null);
-  const decisions = useMemo(
-    () => decided ?? restored?.corrections ?? EMPTY_DECISIONS,
-    [decided, restored]
-  );
+  // Deterministically assign PICO roles to all keywords
+  const picoWords: PicoWord[] = useMemo(() => {
+    if (words.length === 0) return [];
+    return assignPicoRoles(words);
+  }, [words]);
 
-  // Validate as the user types
-  const parsed = useMemo(
-    () => resolveCorrections(parseInput(input), decisions),
-    [input, decisions]
-  );
+  // Role-strip action: delete word from list and update input string
+  const handleRemoveWord = useCallback((indexToRemove: number) => {
+    const nextWords = words.filter((_, idx) => idx !== indexToRemove);
+    setRawInput(nextWords.join(", "));
+    setSavedNotice(null);
+  }, [words, setRawInput]);
 
-  const structuredValidationError = useMemo(() => {
-    if (entryStyle !== "structured") return null;
-    if (!structP.trim()) return "Please enter the Population / Clinical Problem (P).";
-    if (!structI.trim()) return "Please enter the Intervention / Therapy (I).";
-    if (!structC.trim() && !structO.trim()) {
-      return "Please specify a Comparator / Control (C) or a Target Outcome (O) (or both).";
-    }
-    if (parsed.logicalCount > MAX_KEYWORDS) {
-      return `${parsed.logicalCount} keywords detected — maximum is ${MAX_KEYWORDS}.`;
-    }
-    return null;
-  }, [entryStyle, structP, structI, structC, structO, parsed.logicalCount]);
+  // Validation: 3 to 5 non-empty clinical keywords required
+  const canSubmit = words.length >= 3 && words.length <= 5;
 
   const countHint = useMemo(() => {
-    if (entryStyle === "structured") {
-      const filled = [structP, structI, structC, structO].filter(s => s.trim().length > 0).length;
-      if (filled === 0) return "";
-      if (!structP.trim() || !structI.trim()) {
-        return `${filled} structured field${filled === 1 ? "" : "s"} entered — Population (P) and Intervention (I) are required.`;
-      }
-      return `${filled} structured PICO field${filled === 1 ? "" : "s"} entered.`;
+    if (words.length === 0) {
+      return "Enter 3 to 5 comma-separated clinical keywords.";
     }
-    return keywordCountHint(parsed);
-  }, [entryStyle, structP, structI, structC, structO, parsed]);
-
-  const validationMessage = entryStyle === "structured" ? structuredValidationError : validateKeywords(parsed);
-  const canSubmit = validationMessage === null;
-
-  const liveMessage = input.trim() ? validationMessage : null;
-  const alertMessage = tagError || liveMessage;
-
-  // Real-time clinical semantic parsing contextualized with active specialty
-  const liveScenario = useMemo(() => {
-    if (!input.trim() || input.trim().length < 4) return null;
-    try {
-      return parseClinicalScenario(input, specialty as SpecialtyKey);
-    } catch {
-      return null;
+    if (words.length < 3) {
+      const needed = 3 - words.length;
+      return `${words.length} keyword${words.length === 1 ? "" : "s"} entered — add ${needed} more keyword${needed > 1 ? "s" : ""} (3 required minimum).`;
     }
-  }, [input, specialty]);
+    if (words.length > 5) {
+      const excess = words.length - 5;
+      return `${words.length} keywords entered — maximum is 5. Remove ${excess} term${excess > 1 ? "s" : ""} using the chip remove buttons.`;
+    }
+    return `${words.length} clinical keywords entered — ready to save.`;
+  }, [words.length]);
 
+  // "Try an example" preset handler
   const applyPreset = (preset: PicoPreset) => {
-    setStructP(preset.p);
-    setStructI(preset.i);
-    setStructC(preset.c);
-    setStructO(preset.o);
-    setInput(preset.raw);
-    setTagError(null);
+    setRawInput(preset.raw);
+    setSavedNotice(null);
     if (workspaceRef.current) {
       workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -137,69 +146,20 @@ export default function Home() {
 
   const handleSelectSpecialtyFromCard = (id: string) => {
     setSpecialty(id);
+    setSavedNotice(null);
     if (workspaceRef.current) {
       workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-  const handleSelectPresetFromCard = (preset: PicoPreset) => {
-    applyPreset(preset);
-  };
-
-  const handleStructuredChange = (field: "p" | "i" | "c" | "o", val: string) => {
-    const nextP = field === "p" ? val : structP;
-    const nextI = field === "i" ? val : structI;
-    const nextC = field === "c" ? val : structC;
-    const nextO = field === "o" ? val : structO;
-
-    if (field === "p") setStructP(val);
-    if (field === "i") setStructI(val);
-    if (field === "c") setStructC(val);
-    if (field === "o") setStructO(val);
-
-    const parts = [nextP, nextI, nextC, nextO].map(s => s.trim()).filter(Boolean);
-    setInput(parts.join(", "));
-    setTagError(null);
-  };
-
-  const switchToStructured = () => {
-    if (liveScenario && (!structP && !structI)) {
-      setStructP(liveScenario.population);
-      setStructI(liveScenario.intervention);
-      setStructC(liveScenario.comparator);
-      setStructO(liveScenario.outcomes[0] || "");
-    }
-    setEntryStyle("structured");
-  };
-
-  const decide = (c: KeywordCorrection, decision: CorrectionRecord["decision"]) => {
-    const key = correctionKey(c);
-    const record: CorrectionRecord = { ...c, decision };
-    const at = decisions.findIndex(p => correctionKey(p) === key);
-    const next = at >= 0 ? decisions.map(p => (correctionKey(p) === key ? record : p)) : [...decisions, record];
-    setDecided(next);
-    const current = resolveCorrections(parseInput(input), next);
-    sset(KEYS.input, toSessionInput(current, input));
-    sset(KEYS.inputText, sessionSearchText(toSessionInput(current, input)));
-    setTagError(null);
-  };
-
-  // Modal dialog states
-  const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
-  const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
-
-  // Literature search sources are all mandatory - there is nothing to choose. Every search
-  // queries every database and duplicate papers across them are merged.
-
-  const start = () => {
-    const current = resolveCorrections(parseInput(input), decisions);
-    const err = entryStyle === "structured" ? structuredValidationError : validateKeywords(current);
-    if (err) { setTagError(err); return; }
-    setTagError(null);
+  // Submit ("Save words") — persists specialty and words, shows inline confirmation without navigating
+  const start = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!canSubmit) return;
     sset(KEYS.specialty, specialty);
-    sset(KEYS.input, toSessionInput(current, input));
-    sset(KEYS.inputText, sessionSearchText(toSessionInput(current, input)));
-    router.push("/gap");
+    sset(KEYS.picoWords, picoWords);
+    sset(KEYS.inputText, words.join(", "));
+    setSavedNotice("Words saved — screening arrives in Step 2");
   };
 
   return (
@@ -248,7 +208,7 @@ export default function Home() {
       {/* Core Clinical Workspace Section */}
       <main className="solo" ref={workspaceRef}>
         <section className="card">
-          {/* Active Domain Status Banner with Dropdown Modal Button */}
+          {/* Active Domain Status Banner with Modal Trigger */}
           <div className="aimed-active-banner" style={{ marginBottom: 18 }}>
             <div className="aimed-banner-left">
               <span className="aimed-banner-icon">{currentSpecialty.icon}</span>
@@ -285,274 +245,243 @@ export default function Home() {
             </button>
           </div>
 
-          {/* 4-Step Pipeline Workflow Indicator */}
-          <div className="pipeline-stepper">
-            <div className="pipeline-step-item active">
-              <span className="pipeline-step-tag active">Step 1 · Active</span>
-              <div className="pipeline-step-title active">Domain & 4–12 Tag Words</div>
-            </div>
-            <div className="pipeline-step-item">
-              <span className="pipeline-step-tag muted">Step 2</span>
-              <div className="pipeline-step-title">Evidence Map & 4 PICOs</div>
-            </div>
-            <div className="pipeline-step-item">
-              <span className="pipeline-step-tag muted">Step 3</span>
-              <div className="pipeline-step-title">Select 1 of 4–6 Outcomes</div>
-            </div>
-            <div className="pipeline-step-item">
-              <span className="pipeline-step-tag muted">Step 4</span>
-              <div className="pipeline-step-title">Commentary & Dual PDFs</div>
-            </div>
-          </div>
+          {/* Workflow Stepper: Step 1 Active, Steps 2-4 Dimmed */}
+          <WorkflowStepper currentStep={1} />
 
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, flexWrap: "wrap", gap: 10 }}>
-            <span className="pill">📝 Step 1 · Clinical Keywords ({currentSpecialty.shortName})</span>
-            <div style={{ display: "flex", gap: 6, background: "#f1f5f9", padding: 3, borderRadius: 8, flexWrap: "wrap" }}>
-              <button
-                type="button"
-                onClick={() => setEntryStyle("tags")}
-                style={{
-                  border: "none",
-                  padding: "5px 12px",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  borderRadius: 6,
-                  cursor: "pointer",
-                  background: entryStyle === "tags" ? "var(--accent)" : "transparent",
-                  color: entryStyle === "tags" ? "#fff" : "var(--muted)"
-                }}
-              >
-                ⚡ Quick Tag Words
-              </button>
-              <button
-                type="button"
-                onClick={switchToStructured}
-                style={{
-                  border: "none",
-                  padding: "5px 12px",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  borderRadius: 6,
-                  cursor: "pointer",
-                  background: entryStyle === "structured" ? "var(--accent)" : "transparent",
-                  color: entryStyle === "structured" ? "#fff" : "var(--muted)"
-                }}
-              >
-                🏷️ Structured PICO Fields
-              </button>
-            </div>
-          </div>
-
-          {entryStyle === "tags" ? (
-            <>
-              <p className="hint">
-                Enter 4–12 clinically meaningful keywords or phrases for <b>{currentSpecialty.label}</b>. Separate terms with commas, semicolons, or new lines.
-              </p>
-              <textarea
-                aria-label="Clinical keywords"
-                value={input}
-                onChange={(e) => { setInput(e.target.value); setTagError(null); }}
-                placeholder={
-                  activePresets.length > 0
-                    ? `e.g., ${activePresets[0].raw}`
-                    : "e.g., population, intervention, comparator, clinical outcome"
-                }
-                rows={4}
-              />
-            </>
-          ) : (
-            <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 12 }}>
-              <p className="hint" style={{ marginBottom: 4 }}>
-                Enter explicit clinical terms for each PICO element in <b>{currentSpecialty.label}</b>. The system maps literature across PubMed and medical databases.
-              </p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
-                <div>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "block", marginBottom: 4 }}>
-                    👥 Population / Clinical Problem (P):
-                  </label>
-                  <input
-                    type="text"
-                    className="free-input"
-                    value={structP}
-                    onChange={(e) => handleStructuredChange("p", e.target.value)}
-                    placeholder={activePresets[0]?.p || "e.g., patients with clinical condition"}
-                    style={{ width: "100%" }}
-                  />
-                </div>
-                <div>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "block", marginBottom: 4 }}>
-                    💊 Intervention / Therapy (I):
-                  </label>
-                  <input
-                    type="text"
-                    className="free-input"
-                    value={structI}
-                    onChange={(e) => handleStructuredChange("i", e.target.value)}
-                    placeholder={activePresets[0]?.i || "e.g., evaluated intervention or therapy"}
-                    style={{ width: "100%" }}
-                  />
-                </div>
-                <div>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "block", marginBottom: 4 }}>
-                    ⚖️ Comparator / Control (C):
-                  </label>
-                  <input
-                    type="text"
-                    className="free-input"
-                    value={structC}
-                    onChange={(e) => handleStructuredChange("c", e.target.value)}
-                    placeholder={activePresets[0]?.c || "e.g., active comparator or standard care"}
-                    style={{ width: "100%" }}
-                  />
-                </div>
-                <div>
-                  <label style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "block", marginBottom: 4 }}>
-                    🎯 Target Outcome (O):
-                  </label>
-                  <input
-                    type="text"
-                    className="free-input"
-                    value={structO}
-                    onChange={(e) => handleStructuredChange("o", e.target.value)}
-                    placeholder={activePresets[0]?.o || "e.g., primary clinical endpoint"}
-                    style={{ width: "100%" }}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Quick Presets tailored to active specialty */}
-          {activePresets.length > 0 && (
-            <div style={{ marginTop: 8, marginBottom: 12 }}>
-              <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--muted)", textTransform: "uppercase" }}>
-                💡 Quick Presets for {currentSpecialty.shortName}:
+          <form onSubmit={start}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 10 }}>
+              <span className="pill">📝 Step 1 · Clinical Words Intake ({currentSpecialty.shortName})</span>
+              <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
+                3–5 clinical words or short phrases required
               </span>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
-                {activePresets.map((preset) => (
-                  <button
-                    key={preset.id}
-                    type="button"
-                    className="mini-btn"
-                    style={{ background: "#f8fafc", color: "var(--ink)", border: "1px solid var(--border)" }}
-                    onClick={() => applyPreset(preset)}
-                    title={preset.description}
-                  >
-                    {preset.name}
-                  </button>
-                ))}
-              </div>
             </div>
-          )}
 
-          {/* Real-time PICO Classification Badge Card */}
-          {liveScenario && (
-            <div style={{ marginTop: 12, padding: "12px 14px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 8 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                <span style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-                  ✓ Live PICO Classification Detected
-                </span>
-                <span style={{ fontSize: "0.78rem", color: "var(--muted)" }}>
-                  Domain: <b style={{ textTransform: "capitalize" }}>{currentSpecialty.label}</b>
-                </span>
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 8 }}>
-                <div style={{ background: "#fff", padding: "8px 10px", borderRadius: 6, border: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#1e293b", display: "block" }}>👥 Population (P):</span>
-                  <span style={{ fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>{liveScenario.population}</span>
-                </div>
-                <div style={{ background: "#fff", padding: "8px 10px", borderRadius: 6, border: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#1e293b", display: "block" }}>💊 Intervention (I):</span>
-                  <span style={{ fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>{liveScenario.intervention}</span>
-                </div>
-                <div style={{ background: "#fff", padding: "8px 10px", borderRadius: 6, border: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#1e293b", display: "block" }}>⚖️ Comparator (C):</span>
-                  <span style={{ fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>{liveScenario.comparator}</span>
-                </div>
-                <div style={{ background: "#fff", padding: "8px 10px", borderRadius: 6, border: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#1e293b", display: "block" }}>🎯 Target Outcome (O):</span>
-                  <span style={{ fontSize: "0.85rem", color: "#0f766e", fontWeight: 600 }}>{liveScenario.outcomes[0] || "clinical outcome"}</span>
-                </div>
-              </div>
-            </div>
-          )}
+            <p className="hint">
+              Enter 3–5 clinically meaningful keywords or short phrases for <b>{currentSpecialty.label}</b>, separated by commas (e.g. population, intervention, comparator, outcome).
+            </p>
 
-          {countHint && (
-            <p className={`count-hint${!canSubmit ? " count-bad" : " count-ok"}`} aria-live="polite">{countHint}</p>
-          )}
-
-          {parsed.corrections.length > 0 && (
-            <div className="advisory" role="status" aria-live="polite" style={{ marginTop: 10 }}>
-              {parsed.corrections.map(c => (
-                <div key={`${c.from}-${c.to}`} className="correction-row">
-                  <span>Suggested correction: “{c.from}” → “{c.to}”. Apply correction?</span>
-                  <span className="row" style={{ marginTop: 6 }}>
-                    <button className="mini-btn" onClick={() => decide(c, "applied")}>Apply</button>
-                    <button className="mini-btn" onClick={() => decide(c, "kept")}>Keep “{c.from}”</button>
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {alertMessage && (
-            <div className="advisory" role="alert" aria-live="polite" style={{ marginTop: 10 }}>⚠️ {alertMessage}</div>
-          )}
-
-          {/* Compact Literature Search Sources Bar */}
-          <div
-            style={{
-              marginTop: 18,
-              marginBottom: 8,
-              padding: "10px 14px",
-              background: "#f8fafc",
-              borderRadius: 8,
-              border: "1px solid #e2e8f0",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: 10
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-              <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
-                🌐 Literature Databases (all {SEARCH_SOURCE_OPTIONS.length} searched · mandatory):
-              </span>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                {SEARCH_SOURCE_OPTIONS.map(opt => (
-                  <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
-                    {opt.icon} {opt.name}{opt.id === "googlescholar" ? " (key-gated)" : ""}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setIsSourcesModalOpen(true)}
-              className="mini-btn"
+            <label htmlFor="clinicalWordsInput" className="sr-only">Clinical keywords</label>
+            <textarea
+              id="clinicalWordsInput"
+              aria-label="Clinical keywords"
+              value={rawInput}
+              onChange={(e) => {
+                setRawInput(e.target.value);
+                setSavedNotice(null);
+              }}
+              rows={3}
               style={{
-                background: "#ffffff",
-                border: "1px solid #0f766e",
-                color: "#0f766e",
-                fontWeight: 700,
-                padding: "6px 14px",
-                borderRadius: 6,
-                cursor: "pointer",
-                display: "inline-flex",
+                width: "100%",
+                padding: "10px 12px",
+                borderRadius: 8,
+                border: "1px solid #cbd5e1",
+                fontSize: "0.95rem",
+                lineHeight: 1.5,
+                fontFamily: "inherit"
+              }}
+            />
+
+            {/* "Try an example" chips from specialty presets */}
+            {activePresets.length > 0 && (
+              <div style={{ marginTop: 10, marginBottom: 14 }}>
+                <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.03em" }}>
+                  💡 Try an example for {currentSpecialty.shortName}:
+                </span>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
+                  {activePresets.map((preset) => (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      className="mini-btn"
+                      style={{
+                        background: "#f8fafc",
+                        color: "#0f172a",
+                        border: "1px solid #cbd5e1",
+                        borderRadius: 6,
+                        padding: "4px 10px",
+                        fontSize: "0.80rem",
+                        cursor: "pointer"
+                      }}
+                      onClick={() => applyPreset(preset)}
+                      title={preset.description}
+                    >
+                      {preset.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Live Role Chips under the input with role-strip remove actions */}
+            {picoWords.length > 0 && (
+              <fieldset
+                aria-label="PICO role assignments"
+                style={{
+                  marginTop: 10,
+                  marginBottom: 12,
+                  padding: "12px 14px",
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: 8
+                }}
+              >
+                <legend className="sr-only">PICO role assignments</legend>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
+                  <span style={{ fontSize: "0.80rem", fontWeight: 700, color: "#0f766e", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                    🏷️ PICO Roles (Population / Intervention / Comparator / Outcome / Other)
+                  </span>
+                  <span style={{ fontSize: "0.75rem", color: "#64748b" }}>
+                    {picoWords.length} keyword{picoWords.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                  {picoWords.map((item, idx) => {
+                    const conf = ROLE_CONFIG[item.role];
+                    return (
+                      <div
+                        key={`${item.word}-${idx}`}
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: 6,
+                          background: conf.bg,
+                          border: `1px solid ${conf.border}`,
+                          padding: "4px 8px",
+                          borderRadius: 6,
+                          fontSize: "0.82rem"
+                        }}
+                      >
+                        <span
+                          style={{
+                            background: conf.badgeBg,
+                            color: "#ffffff",
+                            fontWeight: 700,
+                            fontSize: "0.7rem",
+                            padding: "2px 6px",
+                            borderRadius: 4
+                          }}
+                        >
+                          {conf.badge}
+                        </span>
+                        <span style={{ fontWeight: 600, color: conf.text }}>{item.word}</span>
+                        <span style={{ fontSize: "0.72rem", color: "#64748b", fontWeight: 500 }}>
+                          ({conf.label})
+                        </span>
+                        <button
+                          type="button"
+                          aria-label={`Remove keyword ${item.word}`}
+                          onClick={() => handleRemoveWord(idx)}
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            color: "#94a3b8",
+                            cursor: "pointer",
+                            fontSize: "0.95rem",
+                            lineHeight: 1,
+                            padding: "0 2px",
+                            marginLeft: 2
+                          }}
+                          title={`Remove ${item.word}`}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            )}
+
+            {countHint && (
+              <p className={`count-hint${!canSubmit ? " count-bad" : " count-ok"}`} aria-live="polite">
+                {countHint}
+              </p>
+            )}
+
+            {/* Inline confirmation when words are saved */}
+            {savedNotice && (
+              <div
+                role="status"
+                aria-live="polite"
+                style={{
+                  marginTop: 12,
+                  marginBottom: 12,
+                  padding: "10px 14px",
+                  borderRadius: 8,
+                  background: "#f0fdf4",
+                  border: "1px solid #86efac",
+                  color: "#166534",
+                  fontSize: "0.88rem",
+                  fontWeight: 600,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8
+                }}
+              >
+                <span>✓</span>
+                <span>{savedNotice}</span>
+              </div>
+            )}
+
+            {/* Literature Search Databases Bar */}
+            <div
+              style={{
+                marginTop: 16,
+                marginBottom: 8,
+                padding: "10px 14px",
+                background: "#f8fafc",
+                borderRadius: 8,
+                border: "1px solid #e2e8f0",
+                display: "flex",
                 alignItems: "center",
-                gap: 5
+                justifyContent: "space-between",
+                flexWrap: "wrap",
+                gap: 10
               }}
             >
-              ℹ️ About the Databases
-            </button>
-          </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
+                  🌐 Literature Databases (all {SEARCH_SOURCE_OPTIONS.length} searched · mandatory):
+                </span>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {SEARCH_SOURCE_OPTIONS.map(opt => (
+                    <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
+                      {opt.icon} {opt.name}{opt.id === "googlescholar" ? " (key-gated)" : ""}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsSourcesModalOpen(true)}
+                className="mini-btn"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #0f766e",
+                  color: "#0f766e",
+                  fontWeight: 700,
+                  padding: "6px 14px",
+                  borderRadius: 6,
+                  cursor: "pointer",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 5
+                }}
+              >
+                ℹ️ About the Databases
+              </button>
+            </div>
 
-          <div className="row" style={{ marginTop: 16 }}>
-            <button className="primary" onClick={start} disabled={!input.trim() || !canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>
-              🔍 Search Literature & Map Evidence (Step 2) ➜
-            </button>
-          </div>
+            {/* Patient Privacy Notice */}
+            <PhiNotice />
+
+            <div className="row" style={{ marginTop: 16 }}>
+              <button className="primary" onClick={start} type="submit" disabled={!canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>
+                Save words
+              </button>
+            </div>
+          </form>
         </section>
       </main>
 
@@ -583,7 +512,7 @@ export default function Home() {
                   setIsSpecialtyModalOpen(false);
                 }}
                 onSelectPreset={(preset) => {
-                  handleSelectPresetFromCard(preset);
+                  applyPreset(preset);
                   setIsSpecialtyModalOpen(false);
                 }}
               />
