@@ -92,15 +92,17 @@ export function isMatchingScreenCache(
  * Validates whether a cached explore snapshot matches the current choice selection.
  */
 export function isMatchingExploreCache(
-  cached: { phrase?: string; category?: string; records?: unknown[] } | null | undefined,
+  cached: { phrase?: string; category?: string; records?: unknown[]; specialty?: string } | null | undefined,
   choice: { phrase?: string; category?: string } | null | undefined,
-  excludedState?: ExcludedState | null | undefined
+  excludedState?: ExcludedState | null | undefined,
+  currentSpecialty?: string | null | undefined
 ): boolean {
   if (!cached || !choice) return false;
   if (!cached.phrase || !cached.category || !choice.phrase || !choice.category) return false;
   if (cached.phrase !== choice.phrase) return false;
   if (cached.category !== choice.category) return false;
   if (!Array.isArray(cached.records)) return false;
+  if (currentSpecialty !== undefined && cached.specialty !== currentSpecialty) return false;
   if (excludedState && (excludedState.phrase !== choice.phrase || excludedState.category !== choice.category)) {
     return false;
   }

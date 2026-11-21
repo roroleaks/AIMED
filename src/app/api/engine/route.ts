@@ -30,6 +30,7 @@ import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { generateDeterministicScreen, validateScreenRequest } from "@/lib/deterministic-screen";
+import { validateExploreRequest, scoreRecords } from "@/lib/explore-scoring";
 import type { PicoWord } from "@/lib/pico-roles";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
@@ -1011,7 +1012,7 @@ export async function POST(req: NextRequest) {
   }
 
   const stageSchema = z.object({
-    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary", "screen"]),
+    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary", "screen", "explore"]),
   });
 
   const baseResult = stageSchema.safeParse(body);
@@ -1040,6 +1041,11 @@ export async function POST(req: NextRequest) {
     }
   } else if (stage === "screen") {
     const val = validateScreenRequest(body);
+    if (!val.ok) {
+      return NextResponse.json({ error: val.error }, { status: val.status });
+    }
+  } else if (stage === "explore") {
+    const val = validateExploreRequest(body);
     if (!val.ok) {
       return NextResponse.json({ error: val.error }, { status: val.status });
     }
@@ -1166,6 +1172,103 @@ HARD RULES:
         headers: { "x-aimed-source": aiRefined ? "ai" : "deterministic" }
       });
     }
+
+    if (stage === "explore") {
+      resetSourceStatus();
+      const { choice, words, specialty, excluded } = body as {
+        choice: { category: "established" | "conflicting" | "gap"; phrase: string };
+        words: PicoWord[];
+        specialty: string;
+        excluded?: { userExcluded?: string[]; seen?: string[] };
+      };
+      const specDef = getSpecialtyDefinition(specialty)!;
+      const userExcluded = Array.isArray(excluded?.userExcluded) ? excluded!.userExcluded! : [];
+      const seen = Array.isArray(excluded?.seen) ? excluded!.seen! : [];
+      const blockedKeys = [...userExcluded, ...seen];
+
+      let corpus: AuditableRef[] = [];
+      let totalRetrieved = 0;
+      let relaxationLevel: 0 | 1 | 2 = 0;
+
+      const primaryI = words.find(w => w.role === "intervention")?.word || "";
+      const queryTerms = words.map(w => w.word.trim()).filter(Boolean);
+      const mainQuery = queryTerms.join(" ");
+
+      try {
+        const fetched = await fetchReferencesBroad(mainQuery, 30, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+        corpus = fetched;
+        totalRetrieved = fetched.length;
+      } catch (fetchErr) {
+        console.warn("[engine] explore primary literature retrieval failed:", fetchErr);
+      }
+
+      let scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
+      let surviving = scoredResult.scored.filter(r => r.relevancePct >= 15);
+
+      // Relaxation level 1: if fewer than 10 records survive, broaden with specialty conditions
+      if (surviving.length < 10 && specDef.conditions.length > 0) {
+        relaxationLevel = 1;
+        try {
+          const relaxTerms = [...queryTerms, specDef.conditions[0]];
+          const relaxQuery = relaxTerms.join(" ");
+          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+          const merged = dedupeRefs([...(corpus as PubMedRef[]), ...relaxFetched]);
+          corpus = merged;
+          totalRetrieved = merged.length;
+          scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
+          surviving = scoredResult.scored.filter(r => r.relevancePct >= 15);
+        } catch (relaxErr) {
+          console.warn("[engine] explore relaxation level 1 failed:", relaxErr);
+        }
+      }
+
+      // Relaxation level 2: if still fewer than 10, broaden with terminology or interventions
+      if (surviving.length < 10 && (specDef.terminology.length > 0 || specDef.interventions.length > 0)) {
+        relaxationLevel = 2;
+        try {
+          const extra = specDef.terminology[0] || specDef.interventions[0] || "";
+          const relaxTerms = [primaryI || queryTerms[0], extra].filter(Boolean);
+          const relaxQuery = relaxTerms.join(" ");
+          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+          const merged = dedupeRefs([...(corpus as PubMedRef[]), ...relaxFetched]);
+          corpus = merged;
+          totalRetrieved = merged.length;
+          scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
+          surviving = scoredResult.scored.filter(r => r.relevancePct >= 10);
+        } catch (relaxErr) {
+          console.warn("[engine] explore relaxation level 2 failed:", relaxErr);
+        }
+      }
+
+      const returnedRecords = surviving.slice(0, 20);
+      const hasMore = surviving.length > 20 || scoredResult.removedByBlock > 0 || relaxationLevel > 0;
+
+      const snap = sourceStatusSnapshot();
+      const sources = ALL_LITERATURE_SOURCES.map(src => {
+        const st = snap[src];
+        return {
+          id: src,
+          ok: Boolean(st?.ok),
+          count: Number(st?.hits || 0)
+        };
+      });
+
+      return NextResponse.json({
+        records: returnedRecords,
+        corpusStats: {
+          retrieved: totalRetrieved,
+          screened: scoredResult.scored.length + scoredResult.removedByBlock,
+          blocked: scoredResult.removedByBlock,
+          returned: returnedRecords.length,
+          relaxationLevel
+        },
+        sources,
+        hasMore
+      }, {
+        headers: { "x-aimed-source": "deterministic" }
+      });
+    }
+
     if (stage === "commentary") {
       resetSourceStatus();
       const commentaryStartTime = Date.now();
@@ -2273,6 +2376,24 @@ Respond ONLY with JSON.`,
         }
       } catch (fallbackError) {
         console.error(`[engine] fallback for "screen" also failed:`, fallbackError);
+      }
+    }
+    if (stage === "explore") {
+      try {
+        return NextResponse.json({
+          records: [],
+          corpusStats: {
+            retrieved: 0,
+            screened: 0,
+            blocked: 0,
+            returned: 0,
+            relaxationLevel: 0
+          },
+          sources: ALL_LITERATURE_SOURCES.map(src => ({ id: src, ok: false, count: 0 })),
+          hasMore: false
+        });
+      } catch (fallbackError) {
+        console.error(`[engine] fallback for "explore" also failed:`, fallbackError);
       }
     }
     if (stage === "intent") {

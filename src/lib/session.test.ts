@@ -169,6 +169,14 @@ test("SES-3. isMatchingExploreCache validates matching phrase, category, and rec
   // Nulls
   assert.equal(isMatchingExploreCache(null, choice), false);
   assert.equal(isMatchingExploreCache(cached, null), false);
+
+  // With specialty matching (AIMED delta)
+  const cachedWithSpecialty = {
+    ...cached,
+    specialty: "obgyn"
+  };
+  assert.equal(isMatchingExploreCache(cachedWithSpecialty, choice, undefined, "obgyn"), true);
+  assert.equal(isMatchingExploreCache(cachedWithSpecialty, choice, undefined, "cardiology"), false);
 });
 
 test("SES-4. resetSession clears active and legacy keys but preserves aimed_specialty", () => {

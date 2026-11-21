@@ -273,11 +273,23 @@ export default function ScreenPage() {
                   marginBottom: 16,
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "space-between",
+                  flexWrap: "wrap",
                   gap: 8
                 }}
               >
-                <span>✓</span>
-                <span>Focus saved — explorer arrives in Step 3</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span>✓</span>
+                  <span>Focus saved — ready for Explorer</span>
+                </div>
+                <button
+                  type="button"
+                  className="primary"
+                  style={{ fontSize: "0.85rem", padding: "6px 16px" }}
+                  onClick={() => router.push("/explore")}
+                >
+                  Continue to Explorer →
+                </button>
               </div>
             )}
 
