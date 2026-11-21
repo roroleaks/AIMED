@@ -488,9 +488,8 @@ export default function ExplorePage() {
                 <button
                   type="button"
                   className="secondary"
-                  disabled
-                  style={{ opacity: 0.6, cursor: "not-allowed" }}
-                  title="summary arrives in Step 4"
+                  onClick={() => router.push("/summary")}
+                  title="Proceed to Step 4: Workflow summary"
                 >
                   Next: Workflow summary →
                 </button>
@@ -637,9 +636,8 @@ export default function ExplorePage() {
               <button
                 type="button"
                 className="primary"
-                disabled
-                style={{ opacity: 0.6, cursor: "not-allowed" }}
-                title="summary arrives in Step 4"
+                onClick={() => router.push("/summary")}
+                title="Proceed to Step 4: Workflow summary"
               >
                 Next: Workflow summary →
               </button>

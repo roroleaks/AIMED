@@ -20,6 +20,7 @@ import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
 import { getSpecialtyDefinition } from "@/lib/specialties";
+import { buildWorkflowDocx } from "@/lib/docx-generator";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
@@ -55,9 +56,51 @@ const auditableRefSchema = z.object({
   openAlexId: z.string().max(100).optional().nullable(),
 });
 
+const workflowWordSchema = z.object({
+  word: z.string().min(1).max(80),
+  role: z.string().min(1).max(40)
+});
+
+const workflowScreeningStatsSchema = z.object({
+  retrieved: z.number().int().nonnegative(),
+  screened: z.number().int().nonnegative(),
+  relaxationLevel: z.number().int().min(0).max(2),
+  excludedCount: z.number().int().nonnegative()
+});
+
+const workflowPaperSchema = z.object({
+  rank: z.number().int().positive(),
+  relevancePct: z.number().int().min(0).max(100),
+  title: z.string(),
+  authors: z.string().optional().default(""),
+  journal: z.string().optional().default(""),
+  year: z.string().optional().default(""),
+  design: z.string().optional().default("Observational study"),
+  matchedElements: z.array(z.string()).optional().default([])
+});
+
+const workflowSchema = z.object({
+  words: z.array(workflowWordSchema).min(3).max(5),
+  category: z.enum(["established", "conflicting", "gap"]),
+  phrase: z.string().min(1).max(240),
+  specialty: z.string().max(60).optional(),
+  specialtyLabel: z.string().max(100).optional(),
+  screeningStats: workflowScreeningStatsSchema,
+  papers: z.array(workflowPaperSchema).max(50),
+  title: z.string().max(240).optional(),
+  abstract: z.array(z.string()).max(8).optional(),
+  sections: z.array(z.object({
+    heading: z.string().max(120),
+    paragraphs: z.array(z.string()).min(1)
+  })).max(10).optional(),
+  references: z.array(z.string().max(2000)).max(50).optional(),
+  citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional(),
+  aiEnriched: z.boolean().optional()
+});
+
 const docxPayloadSchema = z.object({
   docType: z.string().max(100).optional().nullable(),
-  title: z.string().min(1).max(500),
+  title: z.string().min(1).max(500).optional().nullable(),
   meta: z.string().max(500).optional().nullable(),
   specialty: z.string().max(100).optional().nullable(),
   pico: z.array(picoRowSchema).optional().nullable(),
@@ -66,7 +109,8 @@ const docxPayloadSchema = z.object({
   sections: z.array(docxSectionSchema).optional().nullable(),
   references: z.array(z.string().max(2000)).optional().nullable(),
   retainedReferences: z.array(auditableRefSchema).optional().nullable(),
-  citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional().nullable()
+  citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional().nullable(),
+  workflow: workflowSchema.optional().nullable()
 });
 
 const BODY_MAX = 400_000;
@@ -151,6 +195,18 @@ export async function POST(req: Request) {
     }
     const body = parseResult.data;
 
+    if (body.workflow) {
+      const buffer = await buildWorkflowDocx(body.workflow);
+      const style = body.workflow.citationStyle || "vancouver";
+      return new NextResponse(new Uint8Array(buffer), {
+        headers: {
+          "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "Content-Disposition": `attachment; filename="aimed-evidence-summary-${style}.docx"`,
+          "Cache-Control": "no-store"
+        }
+      });
+    }
+
     const hasReferences = Array.isArray(body.references) && body.references.length > 0;
     const hasSections = Array.isArray(body.sections) && body.sections.length > 0;
     if (!hasReferences && !hasSections) {
@@ -204,7 +260,7 @@ export async function POST(req: Request) {
         }
       }
       const quality = lintManuscriptQuality({
-        title: body.title,
+        title: body.title || undefined,
         abstract: narrativeFields.abstract,
         introduction: narrativeFields.introduction,
         methods: narrativeFields.methods,

@@ -30,7 +30,13 @@ import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import { generateDeterministicGapAnalysis } from "@/lib/deterministic-gap.ts";
 import { generateDeterministicScreen, validateScreenRequest } from "@/lib/deterministic-screen";
-import { validateExploreRequest, scoreRecords } from "@/lib/explore-scoring";
+import { validateExploreRequest, scoreRecords, type ExploreRecord } from "@/lib/explore-scoring";
+import {
+  composeManuscript,
+  validateEnrichedManuscript,
+  validateComposeRequest,
+  type ComposeStageInput
+} from "@/lib/manuscript-composer";
 import type { PicoWord } from "@/lib/pico-roles";
 import { extractPicoFromQuestion } from "@/lib/pico-parser";
 import { parseClinicalScenario } from "@/lib/clinical-semantics";
@@ -1012,7 +1018,7 @@ export async function POST(req: NextRequest) {
   }
 
   const stageSchema = z.object({
-    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary", "screen", "explore"]),
+    stage: z.enum(["intent", "clarify", "formulate", "gap", "commentary", "screen", "explore", "compose"]),
   });
 
   const baseResult = stageSchema.safeParse(body);
@@ -1046,6 +1052,11 @@ export async function POST(req: NextRequest) {
     }
   } else if (stage === "explore") {
     const val = validateExploreRequest(body);
+    if (!val.ok) {
+      return NextResponse.json({ error: val.error }, { status: val.status });
+    }
+  } else if (stage === "compose") {
+    const val = validateComposeRequest(body);
     if (!val.ok) {
       return NextResponse.json({ error: val.error }, { status: val.status });
     }
@@ -1266,6 +1277,104 @@ HARD RULES:
         hasMore
       }, {
         headers: { "x-aimed-source": "deterministic" }
+      });
+    }
+
+    if (stage === "compose") {
+      const {
+        words,
+        specialty,
+        choice,
+        screeningStats,
+        records,
+        userExcluded,
+        style
+      } = body as ComposeStageInput;
+
+      const stats = {
+        retrieved: screeningStats?.retrieved ?? 0,
+        screened: screeningStats?.screened ?? 0,
+        relaxationLevel: screeningStats?.relaxationLevel ?? 0,
+        excludedCount: screeningStats?.excludedCount ?? (userExcluded?.length ?? 0)
+      };
+
+      const deterministicManuscript = composeManuscript({
+        words,
+        category: choice.category,
+        phrase: choice.phrase,
+        screeningStats: stats,
+        records: (records || []) as unknown as ExploreRecord[],
+        userExcluded: userExcluded || [],
+        specialty,
+        style: style || "vancouver"
+      });
+
+      let finalManuscript = deterministicManuscript;
+
+      if (hasAnyLlmKey()) {
+        try {
+          const specDef = getSpecialtyDefinition(specialty);
+          const excludedSet = new Set((userExcluded || []).map(k => k.trim().toLowerCase()));
+          const retained = (records as unknown as ExploreRecord[]).filter(r => {
+            const pmidKey = (r.pmid || "").trim().toLowerCase();
+            const doiKey = (r.doi || "").trim().toLowerCase();
+            const titleKey = (r.title || "").trim().toLowerCase();
+            return !excludedSet.has(pmidKey) && !excludedSet.has(doiKey) && !excludedSet.has(titleKey);
+          });
+
+          const prompt = `You are an expert scientific manuscript editor specialized in ${specDef.label}.
+ROLE: ${specDef.systemPromptRole || "Academic medical editor"}
+TASK: Improve the narrative prose flow, scholarly transitions, and clinical precision of the provided evidence synthesis draft.
+
+STRICT EDITORIAL RULES:
+1. Do NOT invent or fabricate any facts, findings, clinical outcomes, authors, years, journals, DOIs, numbers, or study sources.
+2. Keep the EXACT section headings in this order:
+   - "Background"
+   - "Search strategy and screening"
+   - "Evidence synthesis"
+   - "Limitations"
+   - "Conclusion"
+3. In-text citation markers must be preserved and must point ONLY to the provided retained records.
+4. Output zero hyperlinks, zero URLs, and zero "http" or "https" occurrences.
+5. Keep total length within 0.5x to 1.75x of the input word count.
+6. Return valid JSON only with this schema:
+{
+  "title": "...",
+  "abstract": ["sentence 1", "sentence 2", "sentence 3", "sentence 4"],
+  "sections": [
+    { "heading": "Background", "paragraphs": ["..."] },
+    { "heading": "Search strategy and screening", "paragraphs": ["..."] },
+    { "heading": "Evidence synthesis", "paragraphs": ["..."] },
+    { "heading": "Limitations", "paragraphs": ["..."] },
+    { "heading": "Conclusion", "paragraphs": ["..."] }
+  ]
+}`;
+
+          const userPayload = {
+            manuscript: deterministicManuscript,
+            retainedRecords: retained.map((r, idx) => ({
+              index: idx + 1,
+              title: r.title,
+              authors: r.authors,
+              year: r.year,
+              journal: r.journal,
+              doi: r.doi,
+              pmid: r.pmid
+            }))
+          };
+
+          const rawLlm = await callLLM(prompt, userPayload, 1);
+          const validated = validateEnrichedManuscript(rawLlm, deterministicManuscript, retained, style || "vancouver");
+          if (validated) {
+            finalManuscript = validated;
+          }
+        } catch (llmErr) {
+          console.warn("[engine] LLM compose enrichment failed, using deterministic fallback:", llmErr);
+        }
+      }
+
+      return NextResponse.json(finalManuscript, {
+        headers: { "x-aimed-source": finalManuscript.aiEnriched ? "ai" : "deterministic" }
       });
     }
 
@@ -1611,7 +1720,7 @@ let commentary: Record<string, unknown>;
           fallbackTriggered: false,
           processingTimeMs: Date.now() - commentaryStartTime
         });
-        console.log("[engine] [telemetry]", JSON.stringify(telemetry));
+        console.info("[engine] [telemetry]", JSON.stringify(telemetry));
         activeTelemetry = {
           pathUsed: confidenceResult.telemetry.pathUsed,
           fallbackTriggered: confidenceResult.telemetry.fallbackTriggered,
@@ -1644,7 +1753,7 @@ let commentary: Record<string, unknown>;
             fallbackReason: confidenceResult.fallbackReason,
             processingTimeMs: Date.now() - commentaryStartTime
           });
-          console.log("[engine] [telemetry] [fallback]", JSON.stringify(fallbackTelemetry));
+          console.info("[engine] [telemetry] [fallback]", JSON.stringify(fallbackTelemetry));
           activeTelemetry = {
             pathUsed: "deterministic",
             fallbackTriggered: true,
@@ -1669,7 +1778,7 @@ let commentary: Record<string, unknown>;
           fallbackReason,
           processingTimeMs: Date.now() - commentaryStartTime
         });
-        console.log("[engine] [telemetry]", JSON.stringify(telemetry));
+        console.info("[engine] [telemetry]", JSON.stringify(telemetry));
         activeTelemetry = {
           pathUsed: "deterministic",
           fallbackTriggered: !KEY ? false : true,
@@ -2417,6 +2526,32 @@ Respond ONLY with JSON.`,
         });
       } catch (fallbackError) {
         console.error(`[engine] rule fallback for "gap" also failed:`, fallbackError);
+      }
+    }
+    if (stage === "compose") {
+      try {
+        const { words, specialty, choice, screeningStats, records, userExcluded, style } = body as ComposeStageInput;
+        const stats = {
+          retrieved: screeningStats?.retrieved ?? 0,
+          screened: screeningStats?.screened ?? 0,
+          relaxationLevel: screeningStats?.relaxationLevel ?? 0,
+          excludedCount: screeningStats?.excludedCount ?? 0
+        };
+        const fallback = composeManuscript({
+          words: words || [],
+          category: choice?.category || "established",
+          phrase: choice?.phrase || "",
+          screeningStats: stats,
+          records: (records || []) as unknown as ExploreRecord[],
+          userExcluded: userExcluded || [],
+          specialty: specialty || "obgyn",
+          style: style || "vancouver"
+        });
+        return NextResponse.json(fallback, {
+          headers: { "x-aimed-source": "deterministic" }
+        });
+      } catch (composeFallbackErr) {
+        console.error(`[engine] fallback for compose also failed:`, composeFallbackErr);
       }
     }
     if (stage === "clarify" || stage === "formulate") {
