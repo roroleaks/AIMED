@@ -125,16 +125,19 @@ test("MC3. Excluded records are NEVER cited in synthesis or reference list", () 
 test("MC4. Category framing switches properly across established, conflicting, and gap", () => {
   const est = composeManuscript({ ...baseInput, category: "established" });
   assert.ok(est.title.includes("Established Clinical Knowledge"));
+  assert.ok(!est.title.includes("(P)") && !est.title.includes("(I)") && !est.title.includes("(C)") && !est.title.includes("(O)"), "Title must not embed raw role markers");
   assert.ok(est.sections[0].paragraphs[0].includes("reinforce evidence-based guidelines"));
   assert.ok(est.abstract[3].includes("established clinical alignment"));
 
   const conf = composeManuscript({ ...baseInput, category: "conflicting" });
   assert.ok(conf.title.includes("Conflicting Clinical Findings"));
+  assert.ok(!conf.title.includes("(P)") && !conf.title.includes("(I)") && !conf.title.includes("(C)") && !conf.title.includes("(O)"), "Title must not embed raw role markers");
   assert.ok(conf.sections[0].paragraphs[0].includes("heterogeneous and discordant"));
   assert.ok(conf.abstract[3].includes("conflicting clinical results"));
 
   const gap = composeManuscript({ ...baseInput, category: "gap" });
   assert.ok(gap.title.includes("Identified Clinical Literature Gaps"));
+  assert.ok(!gap.title.includes("(P)") && !gap.title.includes("(I)") && !gap.title.includes("(C)") && !gap.title.includes("(O)"), "Title must not embed raw role markers");
   assert.ok(gap.sections[0].paragraphs[0].includes("Significant uncertainty persists"));
   assert.ok(gap.abstract[3].includes("literature gap exists"));
 });

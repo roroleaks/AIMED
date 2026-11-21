@@ -2,7 +2,6 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { parseClinicalScenario, auxVerbFor, outcomeVerbFor } from "./clinical-semantics.ts";
 import { extractPicoFromQuestion } from "./pico-parser.ts";
-import { generateDeterministicGapAnalysis } from "./deterministic-gap.ts";
 import { generateDeterministicCommentary, extractFinding } from "./deterministic-commentary.ts";
 import { populationConflict, auditRef, formatReference, type AuditableRef } from "./relevance.ts";
 import { finalizeClaims, reportedDirection, assertedDirection } from "./claim-finalization.ts";
@@ -61,18 +60,7 @@ test("RT5. an intervention with its own parentheses survives question parsing", 
   assert.equal(extractPicoFromQuestion(p, p, "neurology").condition, "acute ischemic stroke with large vessel occlusion");
 });
 
-test("RT6. deterministic gap points are about the typed PICO, without obstetric boilerplate", () => {
-  const g = generateDeterministicGapAnalysis(HFREF, "cardiology");
-  const text = JSON.stringify(g).toLowerCase();
-  assert.ok(!/gestational|reproductive|pediatric outcomes/.test(text), "obstetric phrases leaked into cardiology");
-  for (const p of [...g.known, ...g.uncertain]) {
-    assert.ok(p.point.includes("SGLT2 inhibitors"), p.point);
-    assert.ok(/^\S+/.test(p.searchQuery || ""), "search query present");
-  }
-  // Point-specific words lead the query so truncation cannot make every point search the same thing.
-  const leads = new Set([...g.known, ...g.uncertain].map(p => (p.searchQuery || "").split(" ")[0]));
-  assert.ok(leads.size >= 5, `queries too similar: ${[...leads].join(", ")}`);
-});
+
 
 test("RT7. HFpEF / DELIVER records do not count as the HFrEF population", () => {
   const pop = "heart failure with reduced ejection fraction";

@@ -72,45 +72,37 @@ Aimed features a modular specialty configuration architecture (`src/config/speci
 
 ---
 
-## 🔄 Core Clinical Workflow
+## 🔄 Core Clinical Workflow (v4)
 
-The platform operates through a rigorous 7-step evidence-based pipeline:
+The platform operates through a streamlined 4-step evidence-based pipeline:
 
 ```
-[4 to 12 Tag Words]
- └── Each tag resolved to P / I / C / O (drug names never become outcomes,
-     placebo/standard care is always C, typed order and wording kept)
+[Specialty & PICO Words Intake] (Step 1: /)
+ └── Clinician selects clinical specialty and enters 3 to 5 clinical terms with P / I / C / O roles
+     (drug names never become outcomes, standard care/placebo is always C, typed order and wording kept)
        │
        ▼
-[Stage: Gap Analysis & Mapping]  — all 11 literature databases, ~15-25 s
- ├── 4 Established Knowledge Points   ┐ each with up to 4 papers that match the
- ├── 4 Conflicting Evidence Points    ┘ typed population and intervention; no paper repeated
- ├── 4 Research Gaps
- └── 4 Candidate PICO Questions (P, I, C, O separated; "do"/"does", "reduce"/"improve" by context)
+[Literature Screening] (Step 2: /screen) — all 11 literature databases queried concurrently
+ ├── Formulates 3 distinct PICO inquiry focus categories:
+ │   ├── 1 Established Knowledge focus question + evidence basis
+ │   ├── 1 Conflicting Evidence focus question + evidence basis
+ │   └── 1 Research Gap focus question + evidence basis
+ └── Clinician selects 1 clinical focus category to pursue
        │
        ▼
-[PICO Selection & Outcome Ranking]
- └── Clinician chooses 1 PICO -> System generates 4 to 6 Domain-Ranked Outcomes
+[Evidence Explorer] (Step 3: /explore)
+ ├── Multi-source retrieval & deterministic relevance scoring against selected PICO
+ ├── Category-specific bonuses, study design classification, and element matching (P, I, C, O)
+ ├── Clinician reviews ranked cards, audits findings, and can exclude non-contributory papers
+ └── Excluded papers are permanently filtered out with 0-overlap guarantee
        │
        ▼
-[Outcome Choice & Neutral Formulation]
- └── Clinician picks 1 Outcome -> Question formulated with universal population phrasing ("In patients with...")
-       │
-       ▼
-[Stage: Scientific Commentary Generation]
- ├── Structured Abstract (Background, Objective, Methods, Results, Conclusions)
- ├── Study-by-study appraisal quoting each paper's own abstract conclusion, cited
- ├── Consistency (favourable / no difference / not stated), Certainty, Applicability, Gaps
- └── ICMJE/NLM Vancouver Reference List (NLM author form, et al., NLM journal abbreviations)
-       │
-       ▼
-[Deliverable Parity & Integrity Gate]
- └── Validates 100% citation backing, checks zero orphan/unsupported citations
-       │
-       ▼
-[PDF & Word Export]
- ├── Full Scientific Commentary PDF / DOCX (PICO table, sub-headings, bullets, hanging-indent references)
- └── Vancouver Reference List PDF (verified DOI/PMID audit trail)
+[Workflow Summary & Narrative Manuscript] (Step 4: /summary)
+ ├── Deterministic 5-section narrative manuscript (Background, Search strategy and screening,
+ │   Evidence synthesis with truthful findings, Limitations, and Conclusion)
+ ├── Dynamic citation style selector: Vancouver (ICMJE/NLM numerical), APA (7th ed.), or Harvard
+ ├── Optional AI prose enrichment preserving headings, numbers, and references with hard validation
+ └── Publication-grade DOCX and TrueType PDF exports with verified plain-text DOIs and zero hyperlinks
 ```
 
 ---
@@ -137,7 +129,7 @@ Google Scholar has no official API and blocks direct scraping, so it is reached 
 
 **Recommended for production (all free):** `NCBI_API_KEY` (PubMed allows 10 requests/s instead of 3, and serverless hosts share IPs that hit the 3/s limit), `OPENALEX_API_KEY` (the keyless daily budget is shared per IP and runs out), and `S2_API_KEY`. Each request paces calls per provider, and a provider that is throttling, down or timing out is skipped for 90 s (`isSourceCoolingDown`), so one slow database cannot push a gap map past the 60 s function limit.
 
-**Per-Source Status & Truthful Methods Reporting:** Every search tracks per-source execution via `sourceStatusSnapshot()`. The API responses (`/api/engine` gap and commentary stages) include `sourceStatus` reporting attempted status, hits, response latency, and failure/throttle reason. Generated commentaries state truthful Methods lines naming only databases that responded with evidence, explicitly noting any rate-limited, offline, or keyless providers.
+**Per-Source Status & Truthful Methods Reporting:** Every search tracks per-source execution via `sourceStatusSnapshot()`. The API responses (`/api/engine` screen and explore stages) include source status reporting attempted status, hits, and response details. Generated narrative manuscripts state truthful Methods lines naming only databases that responded with evidence, explicitly noting any rate-limited, offline, or keyless providers.
 
 **No paper is ever repeated.** Each record gets identity keys (normalized DOI, numeric PMID, provider id, folded title — `articleIdentityKeys`). A paper returned by several databases is listed once, and in the gap map every reference used on one evidence point is excluded from all later points, whichever database returns it again. Multi-source round-robin representation ensures PubMed volume cannot crowd out other databases from bibliographies.
 

@@ -1,4 +1,3 @@
-import { buildOutcomeContext, selectOutcomes, type OutcomeSelectionResponse } from "./outcome-selection.ts";
 import { SPECIALTIES } from "./specialties.ts";
 
 export type SpecialtyKey =
@@ -435,27 +434,7 @@ export const QUESTION_TYPES = [
   { type: "Harm", framework: "PECO harm" }
 ];
 
-/**
- * Deterministic outcome logic for a condition.
- *
- * Delegates to the shared selector rather than keeping a second ranking here, so the deterministic
- * fallback, the API response and the browser all produce the same recommendation. The
- * `OutcomeRule` shape is preserved because callers still read `primary`/`alternatives`.
- */
-export function rationalOutcomes(condition: string, specialty: SpecialtyKey | null): OutcomeRule {
-  return toOutcomeRule(selectOutcomes(buildOutcomeContext({ specialty, condition }, {}, {})));
-}
 
-function toOutcomeRule(selection: OutcomeSelectionResponse): OutcomeRule {
-  const primary = selection.recommendedOutcome;
-  const keywords = [...new Set(selection.options.flatMap(o => o.keywords))].slice(0, 12);
-  return {
-    keywords,
-    primary: primary.label,
-    alternatives: selection.options.filter(o => o.id !== primary.id).map(o => o.label),
-    rationale: primary.rationale
-  };
-}
 
 
 export interface Analysis {
@@ -486,7 +465,7 @@ export interface Clarification {
    * field for categories, per-option rationales and the recommended primary. It is produced by the
    * shared selector rather than assembled per caller, so the two cannot drift.
    */
-  outcomeSelection?: OutcomeSelectionResponse;
+  outcomeSelection?: unknown;
 }
 
 export interface Formulation {

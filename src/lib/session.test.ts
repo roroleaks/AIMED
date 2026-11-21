@@ -9,15 +9,14 @@ import {
   type ExcludedState
 } from "./session.ts";
 
-test("SES-1. KEYS catalog contains active session keys and legacy keys for intermediate compatibility", () => {
+test("SES-1. KEYS catalog contains only active v4 session keys and inputText fallback", () => {
   // Specialty key must be aimed_specialty
   assert.equal(KEYS.specialty, "aimed_specialty");
 
-  // Live input keys
-  assert.equal(KEYS.input, "cq_input");
+  // Live input text fallback read on mount by intake
   assert.equal(KEYS.inputText, "cq_input_text");
 
-  // v4 session additions
+  // v4 active session keys
   assert.equal(KEYS.picoWords, "cq_pico_words");
   assert.equal(KEYS.screen, "cq_screen");
   assert.equal(KEYS.choice, "cq_choice");
@@ -25,16 +24,10 @@ test("SES-1. KEYS catalog contains active session keys and legacy keys for inter
   assert.equal(KEYS.excluded, "cq_excluded");
   assert.equal(KEYS.style, "cq_style");
 
-  // Preserved legacy keys for intermediate prompt compatibility
-  assert.equal(KEYS.mode, "cq_mode");
-  assert.equal(KEYS.gap, "cq_gap");
-  assert.equal(KEYS.question, "cq_question");
-  assert.equal(KEYS.formulation, "cq_formulation");
-  assert.equal(KEYS.commentary, "cq_commentary");
-  assert.equal(KEYS.outcomes, "cq_outcomes");
-  assert.equal(KEYS.citationStyle, "aimed_citation_style");
+  // Exact number of active keys
+  assert.equal(Object.keys(KEYS).length, 8);
 
-  // LEGACY_PURGE_KEYS list contains retired storage keys
+  // LEGACY_PURGE_KEYS list contains retired storage keys including real aimed_citation_style
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_input"), true);
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_input_text"), true);
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_mode"), true);
@@ -45,6 +38,7 @@ test("SES-1. KEYS catalog contains active session keys and legacy keys for inter
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_outcomes"), true);
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_outcome"), true);
   assert.equal(LEGACY_PURGE_KEYS.includes("cq_citation_style"), true);
+  assert.equal(LEGACY_PURGE_KEYS.includes("aimed_citation_style"), true);
 
   // aimed_specialty must NEVER be in LEGACY_PURGE_KEYS
   assert.equal((LEGACY_PURGE_KEYS as readonly string[]).includes("aimed_specialty"), false);
@@ -205,8 +199,9 @@ test("SES-4. resetSession clears active and legacy keys but preserves aimed_spec
   store.set("cq_commentary", "test commentary");
   store.set("cq_outcome", "test outcome");
   store.set("cq_citation_style", "vancouver");
+  store.set("aimed_citation_style", "vancouver");
 
-  assert.equal(store.size, 12);
+  assert.equal(store.size, 13);
   assert.equal(store.get(KEYS.specialty), JSON.stringify("obgyn"));
 
   resetSession();
@@ -223,6 +218,7 @@ test("SES-4. resetSession clears active and legacy keys but preserves aimed_spec
   assert.equal(store.get("cq_commentary"), undefined, "Legacy cq_commentary must be purged");
   assert.equal(store.get("cq_outcome"), undefined, "Legacy cq_outcome must be purged");
   assert.equal(store.get("cq_citation_style"), undefined, "Legacy cq_citation_style must be purged");
+  assert.equal(store.get("aimed_citation_style"), undefined, "Real legacy aimed_citation_style must be purged");
 
   // ONLY aimed_specialty survives!
   assert.equal(store.size, 1, "Only aimed_specialty must survive in storage");

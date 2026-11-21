@@ -28,20 +28,9 @@ export function sget<T>(key: string): T | null {
 export const KEYS = {
   // Currently active clinical specialty key (e.g. "obgyn", "cardiology", "oncology", etc.)
   specialty: "aimed_specialty",
-  // Stores the structured ClinicalInput payload (rawInput/keywords/normalizedKeywords).
-  input: "cq_input",
-  // Canonical comma-joined normalized keywords, the single string downstream stages read.
+  // Canonical comma-joined normalized keywords read on mount by intake if savedPico is absent.
   inputText: "cq_input_text",
-  mode: "cq_mode",
-  gap: "cq_gap",
-  question: "cq_question",
-  formulation: "cq_formulation",
-  commentary: "cq_commentary",
-  outcomes: "cq_outcomes",
-  // Selected citation style for deliverable & PDF: "vancouver" | "apa" | "harvard"
-  citationStyle: "aimed_citation_style",
-
-  // v4 session additions
+  // Active v4 session keys
   picoWords: "cq_pico_words",
   screen: "cq_screen",
   choice: "cq_choice",
@@ -119,7 +108,8 @@ export const LEGACY_PURGE_KEYS = [
   "cq_commentary",
   "cq_outcomes",
   "cq_outcome",
-  "cq_citation_style"
+  "cq_citation_style",
+  "aimed_citation_style"
 ] as const;
 
 /**

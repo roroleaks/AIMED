@@ -208,8 +208,50 @@ async function runSmoke() {
   const pdfApaText = extractPdfText(pdfApaBuf);
   console.log("PDF APA size:", pdfApaBuf.length, "bytes, %PDF Sig:", pdfApaBuf.subarray(0, 4).toString("utf8"), "contains title:", pdfApaText.includes("Cervical cerclage"), "contains citation:", pdfApaText.includes("Berghella & Odibo, 2021"), "http occurrences:", (pdfApaBuf.toString("latin1").match(/https?:/g) || []).length);
 
-  console.log("\n--- COMPOSE STAGE WITHOUT KEY ---");
+  console.log("\n--- COMPOSE STAGE WITHOUT KEY & MARKER-FREE TITLE ---");
   console.log("aiEnriched:", vancouverDoc.aiEnriched, "deterministic draft intact:", vancouverDoc.sections.length === 5);
+  console.log("Title verbatim:", vancouverDoc.title);
+  console.log("Title marker-free check (has (P)/(I)/(C)/(O)?):", /\([PICO]\)/.test(vancouverDoc.title));
+
+  // 7. Start Over (resetSession) verification
+  console.log("\n--- START OVER (RESETSESSION) VERIFICATION ---");
+  const { resetSession, KEYS } = await import("../src/lib/session.ts");
+  const store = new Map();
+  const mockStorage = {
+    getItem: (k) => store.get(k) || null,
+    setItem: (k, v) => store.set(k, String(v)),
+    removeItem: (k) => store.delete(k),
+    clear: () => store.clear()
+  };
+  globalThis.window = { sessionStorage: mockStorage };
+
+  // Plant active v4 keys, specialty, and legacy keys including aimed_citation_style
+  store.set(KEYS.specialty, JSON.stringify("obgyn"));
+  store.set(KEYS.picoWords, JSON.stringify(words));
+  store.set(KEYS.choice, JSON.stringify(choice));
+  store.set(KEYS.screen, JSON.stringify(screen));
+  store.set(KEYS.explore, JSON.stringify(retained));
+  store.set(KEYS.excluded, JSON.stringify({ userExcluded }));
+  store.set(KEYS.style, JSON.stringify("vancouver"));
+  store.set("cq_mode", "pubmed");
+  store.set("cq_gap", "{}");
+  store.set("cq_commentary", "{}");
+  store.set("aimed_citation_style", "vancouver");
+
+  console.log("Pre-reset storage items count:", store.size);
+  resetSession();
+  console.log("Post-reset storage items count:", store.size);
+  console.log("aimed_specialty preserved:", store.get(KEYS.specialty) === JSON.stringify("obgyn"));
+  console.log("cq_pico_words cleared:", store.get(KEYS.picoWords) === undefined);
+  console.log("cq_choice cleared:", store.get(KEYS.choice) === undefined);
+  console.log("cq_screen cleared:", store.get(KEYS.screen) === undefined);
+  console.log("cq_explore cleared:", store.get(KEYS.explore) === undefined);
+  console.log("cq_excluded cleared:", store.get(KEYS.excluded) === undefined);
+  console.log("cq_style cleared:", store.get(KEYS.style) === undefined);
+  console.log("Planted legacy aimed_citation_style purged:", store.get("aimed_citation_style") === undefined);
+  console.log("Planted legacy cq_mode purged:", store.get("cq_mode") === undefined);
+
+  delete globalThis.window;
   console.log("=== SMOKE WALKTHROUGH END ===");
 }
 

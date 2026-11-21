@@ -1,27 +1,29 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-test("cardiology PICO retrieves the DAPA-HF landmark trial", { skip: !process.env.AIMED_LIVE_NETWORK }, async () => {
+test("cardiology PICO retrieves the DAPA-HF landmark trial (explore stage)", { skip: !process.env.AIMED_LIVE_NETWORK }, async () => {
   const baseUrl = process.env.AIMED_BASE_URL || "http://localhost:3000";
   const res = await fetch(`${baseUrl}/api/engine`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      stage: "commentary",
+      stage: "explore",
       specialty: "cardiology",
-      input: "In patients with HFrEF, does dapagliflozin vs placebo reduce cardiovascular mortality?",
-      condition: "heart failure with reduced ejection fraction",
-      intervention: "dapagliflozin",
-      comparator: "placebo",
-      outcome: "cardiovascular mortality",
-      age: "60",
-      sex: "Male",
+      words: [
+        { word: "heart failure", role: "population" },
+        { word: "dapagliflozin", role: "intervention" },
+        { word: "placebo", role: "comparator" },
+        { word: "cardiovascular mortality", role: "outcome" }
+      ],
+      choice: {
+        category: "established",
+        phrase: "In heart failure (P), is dapagliflozin (I) superior to placebo (C) for cardiovascular mortality (O)?"
+      }
     }),
   });
   const body = await res.json();
-  assert.ok((body.retrievedCount || 0) >= 20, `retrievedCount should be >= 20, got ${body.retrievedCount}`);
-  assert.ok((body.retainedCount || 0) >= 4, `retainedCount should be >= 4, got ${body.retainedCount}`);
-  const refs = (body.references || []).map((r: unknown) => typeof r === "string" ? r : ((r as { title?: string }).title || "")).map((s: string) => s.toLowerCase());
-  const hasDapaHF = refs.some((t: string) => t.includes("dapagliflozin") && t.includes("heart failure"));
-  assert.ok(hasDapaHF, "expected at least one reference with 'dapagliflozin' and 'heart failure' in title");
+  assert.ok((body.corpusStats?.retrieved || 0) >= 10, `retrieved should be >= 10, got ${body.corpusStats?.retrieved}`);
+  const records = (body.records || []) as Array<{ title?: string }>;
+  const hasDapaHF = records.some(r => (r.title || "").toLowerCase().includes("dapagliflozin") && (r.title || "").toLowerCase().includes("heart failure"));
+  assert.ok(hasDapaHF, "expected at least one record with 'dapagliflozin' and 'heart failure' in title");
 });

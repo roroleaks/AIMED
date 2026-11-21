@@ -196,14 +196,15 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   // Specialty Definition
   const specDef = getSpecialtyDefinition(specialty);
 
-  // Deterministic title template
+  // Deterministic title template (plain clinical wording without P/I/C/O role markers)
   const cleanPhrase = phrase.replace(/\s+/g, " ").trim();
+  const titlePhrase = cleanPhrase.replace(/\s*\([PICO]\)/g, "").replace(/\s+/g, " ").trim();
   const titleCategorySuffix: Record<string, string> = {
     established: "A Rapid Evidence Summary of Established Clinical Knowledge",
     conflicting: "A Rapid Evidence Summary of Conflicting Clinical Findings",
     gap: "A Rapid Evidence Summary of Identified Clinical Literature Gaps"
   };
-  const title = `${cleanPhrase}: ${titleCategorySuffix[category] || titleCategorySuffix.established}`;
+  const title = `${titlePhrase}: ${titleCategorySuffix[category] || titleCategorySuffix.established}`;
 
   // Partition retained records into relevance tiers
   const tier90 = retained.filter(r => (r.relevancePct ?? 0) >= 90);
@@ -561,7 +562,7 @@ export function validateEnrichedManuscript(
   }
 
   const title = typeof candidate.title === "string" && candidate.title.trim()
-    ? candidate.title.trim()
+    ? candidate.title.replace(/\s*\([PICO]\)/g, "").replace(/\s+/g, " ").trim()
     : deterministic.title;
 
   return {
