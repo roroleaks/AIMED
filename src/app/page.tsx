@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useRef, useSyncExternalStore } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { sset, KEYS } from "@/lib/session";
 import { assignPicoRoles, type PicoRole, type PicoWord } from "@/lib/pico-roles";
@@ -83,6 +84,7 @@ const ROLE_CONFIG: Record<
 };
 
 export default function Home() {
+  const router = useRouter();
   const { specialty, setSpecialty, currentSpecialty, activePresets } = useAimedContext();
   const workspaceRef = useRef<HTMLDivElement>(null);
 
@@ -416,11 +418,23 @@ export default function Home() {
                   fontWeight: 600,
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "space-between",
+                  flexWrap: "wrap",
                   gap: 8
                 }}
               >
-                <span>✓</span>
-                <span>{savedNotice}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <span>✓</span>
+                  <span>{savedNotice}</span>
+                </div>
+                <button
+                  type="button"
+                  className="primary"
+                  style={{ fontSize: "0.85rem", padding: "6px 16px" }}
+                  onClick={() => router.push("/screen")}
+                >
+                  Continue to Screening →
+                </button>
               </div>
             )}
 
