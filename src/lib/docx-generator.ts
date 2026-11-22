@@ -11,6 +11,7 @@ import {
   BorderStyle
 } from "docx";
 import type { WorkflowExportData } from "./summary-payload.ts";
+import { getFooterText, DRAFT_DISCLAIMER } from "./version.ts";
 
 export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<Buffer> {
   const docChildren: (Paragraph | Table)[] = [];
@@ -58,7 +59,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     })
   );
 
-  // Clinical Disclaimer Banner
+  // Automated Draft Disclaimer Banner
   docChildren.push(
     new Table({
       width: { size: 9360, type: WidthType.DXA },
@@ -66,7 +67,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
         top: { style: BorderStyle.NONE },
         bottom: { style: BorderStyle.NONE },
         right: { style: BorderStyle.NONE },
-        left: { style: BorderStyle.SINGLE, size: 24, color: "0F766E" },
+        left: { style: BorderStyle.SINGLE, size: 24, color: "F59E0B" },
         insideHorizontal: { style: BorderStyle.NONE },
         insideVertical: { style: BorderStyle.NONE }
       },
@@ -75,23 +76,23 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
           children: [
             new TableCell({
               width: { size: 9360, type: WidthType.DXA },
-              shading: { fill: "F0FDFA" },
+              shading: { fill: "FEF3C7" },
               margins: { top: 120, bottom: 120, left: 200, right: 160 },
               children: [
                 new Paragraph({
                   children: [
                     new TextRun({
-                      text: "EDUCATIONAL & CLINICAL DECISION-SUPPORT DISCLAIMER: ",
+                      text: "AUTOMATED DRAFT NOTICE: ",
                       font: "Arial",
                       size: 18,
                       bold: true,
-                      color: "0F766E"
+                      color: "92400E"
                     }),
                     new TextRun({
-                      text: "AIMed is an assistive clinical intelligence platform designed for evidence inquiry formulation. Synthesized claims, outcomes, and proposed questions require independent clinician verification against original peer-reviewed primary literature.",
+                      text: DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, ""),
                       font: "Arial",
                       size: 18,
-                      color: "334155"
+                      color: "92400E"
                     })
                   ]
                 })
@@ -271,7 +272,24 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     docChildren.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: wordsRows }));
   }
 
+  // Footer notice
+  docChildren.push(
+    new Paragraph({
+      alignment: AlignmentType.CENTER,
+      spacing: { before: 360, after: 120 },
+      children: [
+        new TextRun({
+          text: getFooterText(),
+          font: "Arial",
+          size: 17,
+          color: "64748B"
+        })
+      ]
+    })
+  );
+
   const doc = new Document({
+    creator: workflow.author ? `${workflow.author} / AIMED` : "AIMED",
     sections: [
       {
         properties: {},

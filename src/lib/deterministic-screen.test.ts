@@ -66,8 +66,8 @@ test("SCR-2. Smoke fixture: 2 interventions assign I2 to conflicting comparator 
 
   const res = generateDeterministicScreen(words, smallCorpus, 0, 1);
 
-  // Established keeps usual care in (C) and includes both interventions in (I)
-  assert.ok(res.phrases.established.phrase.includes("usual care (C)"));
+  // Established keeps [comparator not specified] in (C) and includes both interventions in (I)
+  assert.ok(res.phrases.established.phrase.includes("[comparator not specified] (C)"));
   assert.ok(res.phrases.established.phrase.includes("ivf or growth hormone (I)"));
   assert.ok(res.phrases.established.phrase.includes("poor responders (P)"));
 

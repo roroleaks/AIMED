@@ -176,9 +176,9 @@ test("ESC-7. Pure-logic cache hit and specialty validation (Flag B)", () => {
     source: "deterministic",
     corpusStats: { retrieved: 10, screened: 8, relaxationLevel: 0 },
     phrases: {
-      established: { category: "established", phrase: "P1", basis: "B1" },
-      conflicting: { category: "conflicting", phrase: "P2", basis: "B2" },
-      gap: { category: "gap", phrase: "P3", basis: "B3" }
+      established: { category: "established", phrase: "P1", basis: "B1", supported: true },
+      conflicting: { category: "conflicting", phrase: "P2", basis: "B2", supported: true },
+      gap: { category: "gap", phrase: "P3", basis: "B3", supported: true }
     }
   };
 

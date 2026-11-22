@@ -86,7 +86,7 @@ test("parseClinicalScenario handles preeclampsia example with single interventio
   assert.equal(scenario.specialty, "obstetrics");
   assert.equal(scenario.population, "preeclampsia");
   assert.equal(scenario.intervention, "low-dose aspirin");
-  assert.ok(scenario.comparator.includes("standard care") || scenario.comparator.includes("expectant"));
+  assert.equal(scenario.comparator, "[comparator not specified]");
 
   for (const q of scenario.suggestedQuestions) {
     assert.ok(q.question.includes("preeclampsia (P)"));

@@ -6,10 +6,13 @@
  */
 
 import { z } from "zod";
-import { designOf, sigTokens } from "./relevance.ts";
+import { designOf, sigTokens, isNonEvidenceItem, auditRef } from "./relevance.ts";
 import type { AuditableRef } from "./relevance.ts";
 import type { PicoWord } from "./pico-roles.ts";
 import { SPECIALTIES } from "./specialties.ts";
+import { outcomeActionVerb } from "./outcome-polarity.ts";
+import { extractFinding } from "./deterministic-commentary.ts";
+import { assertedDirection } from "./claim-finalization.ts";
 
 export type ScreenCategory = "established" | "conflicting" | "gap";
 
@@ -57,6 +60,8 @@ export interface ScreenPhrase {
   category: ScreenCategory;
   phrase: string;
   basis: string;
+  supported: boolean;
+  unavailableReason?: string;
 }
 
 export interface ScreenCorpusStats {
@@ -172,7 +177,6 @@ export function generateDeterministicScreen(
   relaxationLevel: 0 | 1 | 2 = 0,
   retrievedCount?: number
 ): ScreenPayload {
-  const counts = classifyCorpus(corpus, words);
   const totalRetrieved = retrievedCount !== undefined ? retrievedCount : corpus.length;
   const totalScreened = corpus.length;
 
@@ -241,62 +245,105 @@ export function generateDeterministicScreen(
   const zeroCoverageWords = words.filter(w => (wordCoverage.get(w.word) ?? 0) === 0);
   const oCoverage = O ? (wordCoverage.get(O) ?? 0) : 0;
 
-  // Systematic review count for established basis
-  const metaReviewCount = corpus.filter(
-    r => designOf(r.title, r.journal || "") === "systematic review / meta-analysis"
-  ).length;
+  // Outcome verb: "reduce" for harms/events, "improve" for benefits/general
+  const outcomeVerb = outcomeActionVerb(O || "clinical outcomes");
+  const isPredictionModel = /\b(prediction model|predictive model|risk calculator|clinical prediction rule|prognostic model)\b/i.test(effectiveI) ||
+    (/\b(machine learning|artificial intelligence)\b/i.test(effectiveI) && !/\bembryo\b/i.test(effectiveI));
+
+  // Evaluate evidence grounding across screened records
+  const validRecords = corpus.filter(r => !isNonEvidenceItem(r).isNonEvidence);
+  const elements = [
+    { label: "P", value: P },
+    { label: "I", value: I1 },
+    ...(C ? [{ label: "C", value: C }] : []),
+    ...(O ? [{ label: "O", value: O }] : [])
+  ];
+
+  const matchingPio = validRecords.filter(r => {
+    const audit = auditRef(r, elements);
+    return audit.population && (audit.intervention || audit.comparator) && audit.outcome;
+  });
+
+  const srMatching = matchingPio.filter(r => {
+    const pubTypes = (r.publicationTypes || []).map(p => p.toLowerCase());
+    return pubTypes.some(p => p.includes("systematic review") || p.includes("meta-analysis")) ||
+      /systematic review|meta-analysis/i.test(r.title);
+  });
+
+  const rctMatching = matchingPio.filter(r => {
+    const pubTypes = (r.publicationTypes || []).map(p => p.toLowerCase());
+    return pubTypes.some(p => p === "randomized controlled trial" || p.includes("randomized controlled trial")) ||
+      /\brandomi[zs]ed\b/i.test(r.title);
+  });
+
+  let favourableCount = 0;
+  let neutralCount = 0;
+  let adverseCount = 0;
+
+  for (const r of matchingPio) {
+    const finding = extractFinding(r, O || "", P);
+    if (finding) {
+      const dir = assertedDirection(finding);
+      if (dir === (outcomeVerb === "reduce" ? "reduction" : "increase")) favourableCount++;
+      else if (dir === "no-difference") neutralCount++;
+      else if (dir) adverseCount++;
+    }
+  }
+
+  // P0-1 Evidence-derived category rules:
+  // - established: >= 1 SR/MA or >= 2 RCTs matching P+I(+C)+O with concordant direction
+  const isEstablished = srMatching.length >= 1 || (rctMatching.length >= 2 && (favourableCount >= 2 || neutralCount >= 2));
+  // - conflicting: >= 2 matching studies whose extracted conclusions differ in direction
+  const isConflicting = matchingPio.length >= 2 && ((favourableCount > 0 && neutralCount > 0) || (favourableCount > 0 && adverseCount > 0));
+  // - gap: no matching RCT/SR, or a PICO element with zero coverage
+  const isGap = (srMatching.length === 0 && rctMatching.length < 2) || zeroCoverageWords.length > 0;
 
   // 1. Established phrase: the single best-supported efficacy claim
-  // In [P] (P), does [effectiveI] (I) compared with [C if present, else "usual care"] (C) improve [O if present, else "clinical outcomes"] (O)?
-  const estC = C ? C : "usual care";
+  // In [P] (P), does [effectiveI] (I) compared with [C if present, else "[comparator not specified]"] (C) [verb] [O if present, else "clinical outcomes"] (O)?
+  const estC = C ? C : "[comparator not specified]";
   const estO = O ? O : "clinical outcomes";
-  let establishedPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) improve ${estO} (O)?`;
+  let establishedPhrase = isPredictionModel
+    ? `In ${P} (P), does ${effectiveI} (I) accurately predict ${estO} (O)?`
+    : `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) ${outcomeVerb} ${estO} (O)?`;
 
   let establishedBasis = "";
-  if (metaReviewCount > 0) {
-    establishedBasis = `Screened literature contains ${metaReviewCount} systematic review / meta-analysis publication(s) and consensus data evaluating this comparison.`;
-  } else if (counts.established > 0) {
-    establishedBasis = `Synthesized from ${counts.established} established clinical effectiveness signal(s) identified across screened records.`;
-  } else if (totalScreened > 0) {
-    establishedBasis = `Derived from baseline clinical guidance across ${totalScreened} retrieved and screened records.`;
+  if (isEstablished) {
+    establishedBasis = `Screened literature contains ${srMatching.length > 0 ? `${srMatching.length} systematic review / meta-analysis publication(s)` : `${rctMatching.length} randomized controlled trial(s)`} matching P, I, and O with concordant direction of effect.`;
   } else {
-    establishedBasis = `Baseline clinical formulation derived from input parameters (no records retrieved during exact literature query).`;
+    establishedBasis = `Unavailable: No systematic review or concordant RCT evidence was retrieved for this specific PICO comparison.`;
   }
 
   // 2. Conflicting phrase: head-to-head comparison whose evidence disagrees
-  // - If C is present: In [P] (P), is [effectiveI] (I) superior to [C] (C) for [O] (O)?
-  // - Else if I2 is present: In [P] (P), does [effectiveI] (I) compared with [I2] (C) improve [O] (O)?
-  // - Else (single I only): In [P] (P), does [effectiveI] (I) compared with [C-default "usual care"] (C) consistently improve [O] (O) across study designs?
   const confO = O ? O : "clinical outcomes";
   let conflictingPhrase = "";
   if (C) {
-    conflictingPhrase = `In ${P} (P), is ${effectiveI} (I) superior to ${C} (C) for ${confO} (O)?`;
+    conflictingPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) demonstrate superior predictive accuracy compared with ${C} (C) for ${confO} (O)?`
+      : `In ${P} (P), is ${effectiveI} (I) superior to ${C} (C) for ${confO} (O)?`;
   } else if (I2) {
-    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${I2} (C) improve ${confO} (O)?`;
+    conflictingPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${I2} (C) more accurately predict ${confO} (O)?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${I2} (C) ${outcomeVerb} ${confO} (O)?`;
   } else {
-    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with usual care (C) consistently improve ${confO} (O)?`;
+    conflictingPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently predict ${confO} (O) across study cohorts?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently ${outcomeVerb} ${confO} (O) across study designs?`;
   }
 
   let conflictingBasis = "";
-  if (counts.conflicting > 0) {
-    conflictingBasis = `Screened records demonstrate conflicting clinical evidence, heterogeneous outcomes, or neutral findings ('no significant difference') across trials.`;
-  } else if (totalScreened > 0) {
-    conflictingBasis = `Evidence across ${totalScreened} screened studies exhibits protocol variability and heterogeneous patient response.`;
+  if (isConflicting) {
+    conflictingBasis = `Screened records demonstrate discordant clinical findings across trials evaluating this comparison.`;
   } else {
-    conflictingBasis = `Comparative trial literature lacks conclusive consensus across evaluated clinical parameters.`;
+    conflictingBasis = `Unavailable: Screened studies do not exhibit conflicting directional findings.`;
   }
 
   // 3. Gap phrase: built around the LEAST-covered role word
-  // - If some role word has ZERO coverage -> put that word in its PICO slot and center the phrase on it.
-  // - Else if all words are covered but O is covered only weakly (<= 1 matching record) -> targets patient-important endpoints:
-  //   In [P] (P), does [effectiveI] (I) compared with [C-or-I2-or-default] (C) improve long-term safety and quality-of-life outcomes (O)?
-  // - Else (everything well covered) -> subgroup/long-horizon variant:
-  //   In high-risk subgroups of [P] (P), does [effectiveI] (I) compared with [C-or-I2-or-default] (C) improve [O] (O) without additional adverse events (O)?
-  const cOrI2OrDefault = C ? C : (I2 ? I2 : "usual care");
+  const cOrI2OrDefault = C ? C : (I2 ? I2 : "[comparator not specified]");
   let gapPhrase = "";
   let gapBasis = "";
 
   const gapO = O ? `${O} and long-term quality-of-life outcomes` : "long-term safety and quality-of-life outcomes";
+  const gapVerb = outcomeActionVerb(gapO);
 
   if (zeroCoverageWords.length > 0 && totalScreened > 0) {
     // Prioritize uncovered outcome, then comparator, then intervention, then population
@@ -306,47 +353,68 @@ export function generateDeterministicScreen(
     const zeroPopulation = zeroCoverageWords.find(w => w.role === "population");
 
     if (zeroOutcome) {
-      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${zeroOutcome.word} (O)?`;
+      const zVerb = outcomeActionVerb(zeroOutcome.word);
+      gapPhrase = isPredictionModel
+        ? `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${zeroOutcome.word} (O)?`
+        : `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${zVerb} ${zeroOutcome.word} (O)?`;
       gapBasis = `No screened record addresses '${zeroOutcome.word}' — comparative evidence for this element is missing.`;
     } else if (zeroComparator) {
-      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${zeroComparator.word} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapPhrase = isPredictionModel
+        ? `In ${P} (P), does ${effectiveI} (I) compared with ${zeroComparator.word} (C) predict ${O || "clinical outcomes"} (O)?`
+        : `In ${P} (P), does ${effectiveI} (I) compared with ${zeroComparator.word} (C) ${outcomeVerb} ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${zeroComparator.word}' — comparative evidence for this element is missing.`;
     } else if (zeroIntervention) {
       const targetI = zeroIntervention.word;
-      const comp = targetI === I1 ? (I2 ? I2 : "usual care") : (I1 ? I1 : "usual care");
-      gapPhrase = `In ${P} (P), does ${targetI} (I) compared with ${comp} (C) improve ${O || "clinical outcomes"} (O)?`;
+      const comp = targetI === I1 ? (I2 ? I2 : "[comparator not specified]") : (I1 ? I1 : "[comparator not specified]");
+      gapPhrase = isPredictionModel
+        ? `In ${P} (P), does ${targetI} (I) compared with ${comp} (C) predict ${O || "clinical outcomes"} (O)?`
+        : `In ${P} (P), does ${targetI} (I) compared with ${comp} (C) ${outcomeVerb} ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${targetI}' — comparative evidence for this element is missing.`;
     } else if (zeroPopulation) {
-      gapPhrase = `In unstudied cohorts of ${zeroPopulation.word} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapPhrase = isPredictionModel
+        ? `In unstudied cohorts of ${zeroPopulation.word} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${O || "clinical outcomes"} (O)?`
+        : `In unstudied cohorts of ${zeroPopulation.word} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${outcomeVerb} ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${zeroPopulation.word}' — comparative evidence for this element is missing.`;
     } else {
       const firstZero = zeroCoverageWords[0];
-      gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O)?`;
+      gapPhrase = isPredictionModel
+        ? `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${O || "clinical outcomes"} (O)?`
+        : `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${outcomeVerb} ${O || "clinical outcomes"} (O)?`;
       gapBasis = `No screened record addresses '${firstZero.word}' — comparative evidence for this element is missing.`;
     }
   } else if (totalScreened > 0 && oCoverage <= 1) {
-    gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${gapO} (O)?`;
+    gapPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${gapO} (O)?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${gapVerb} ${gapO} (O)?`;
     gapBasis = `Screened literature provides sparse coverage (${oCoverage} record(s)) for clinical outcomes, leaving long-term safety and patient-reported endpoints unaddressed.`;
   } else if (totalScreened > 0) {
-    gapPhrase = `In high-risk subgroups of ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) improve ${O || "clinical outcomes"} (O) without additional adverse events (O)?`;
-    gapBasis = `While overall efficacy has ${oCoverage} matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.`;
+    gapPhrase = isPredictionModel
+      ? `In high-risk subgroups of ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${O || "clinical outcomes"} (O) without adverse events (O)?`
+      : `In high-risk subgroups of ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${outcomeVerb} ${O || "clinical outcomes"} (O) without additional adverse events (O)?`;
+    gapBasis = isGap
+      ? `While overall efficacy has ${oCoverage} matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.`
+      : `Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.`;
   } else {
     // Zero-corpus edge case
-    const zeroC = C ? C : (I2 ? I2 : "an optimal control regimen");
-    gapPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${zeroC} (C) improve ${gapO} (O)?`;
-    gapBasis = `Uncovered research territory with no indexed records matching all submitted parameters simultaneously.`;
+    const zeroC = C ? C : (I2 ? I2 : "[comparator not specified]");
+    gapPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${zeroC} (C) predict ${gapO} (O)?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${zeroC} (C) ${gapVerb} ${gapO} (O)?`;
+    gapBasis = `No indexed records matched all submitted parameters simultaneously — unaddressed research territory.`;
   }
 
   // Safety differentiation check to ensure pairwise distinctness
   if (gapPhrase === establishedPhrase) {
     if (!C) {
-      gapPhrase = gapPhrase.replace("compared with usual care (C)", "compared with an optimal control regimen (C)");
+      gapPhrase = gapPhrase.replace("compared with [comparator not specified] (C)", "compared with an active alternative (C)");
     } else {
       gapPhrase = gapPhrase.replace(`In ${P} (P)`, `In high-risk subgroups of ${P} (P)`);
     }
   }
   if (conflictingPhrase === establishedPhrase) {
-    conflictingPhrase = `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently improve ${confO} (O) across study designs?`;
+    conflictingPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently predict ${confO} (O) across diverse patient cohorts?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${estC} (C) consistently ${outcomeVerb} ${confO} (O) across study designs?`;
   }
 
   // Leftover words deterministic trailing clause appended before '?'
@@ -374,17 +442,23 @@ export function generateDeterministicScreen(
       established: {
         category: "established",
         phrase: establishedPhrase,
-        basis: establishedBasis
+        basis: establishedBasis,
+        supported: isEstablished,
+        unavailableReason: isEstablished ? undefined : "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
       conflicting: {
         category: "conflicting",
         phrase: conflictingPhrase,
-        basis: conflictingBasis
+        basis: conflictingBasis,
+        supported: isConflicting,
+        unavailableReason: isConflicting ? undefined : "Unavailable: Screened studies do not exhibit conflicting directional findings."
       },
       gap: {
         category: "gap",
         phrase: gapPhrase,
-        basis: gapBasis
+        basis: gapBasis,
+        supported: isGap,
+        unavailableReason: isGap ? undefined : "Unavailable: Well-powered trial literature exists for this comparison."
       }
     },
     corpusStats: {

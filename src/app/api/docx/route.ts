@@ -21,6 +21,7 @@ import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-
 import type { AuditableRef } from "@/lib/relevance";
 import { getSpecialtyDefinition } from "@/lib/specialties";
 import { buildWorkflowDocx } from "@/lib/docx-generator";
+import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
@@ -95,13 +96,15 @@ const workflowSchema = z.object({
   })).max(10).optional(),
   references: z.array(z.string().max(2000)).max(50).optional(),
   citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional(),
-  aiEnriched: z.boolean().optional()
+  aiEnriched: z.boolean().optional(),
+  author: z.string().max(200).optional().nullable()
 });
 
 const docxPayloadSchema = z.object({
   docType: z.string().max(100).optional().nullable(),
   title: z.string().min(1).max(500).optional().nullable(),
   meta: z.string().max(500).optional().nullable(),
+  author: z.string().max(200).optional().nullable(),
   specialty: z.string().max(100).optional().nullable(),
   pico: z.array(picoRowSchema).optional().nullable(),
   outcomes: z.array(z.string().max(500)).optional().nullable(),
@@ -196,6 +199,35 @@ export async function POST(req: Request) {
     const body = parseResult.data;
 
     if (body.workflow) {
+      if (body.workflow.references && body.workflow.references.length > 0) {
+        const narrativeFields: Record<string, string> = {};
+        if (Array.isArray(body.workflow.sections)) {
+          for (const s of body.workflow.sections) {
+            if (s && s.heading && Array.isArray(s.paragraphs)) {
+              narrativeFields[s.heading.toLowerCase()] = s.paragraphs.join(" ");
+            }
+          }
+        }
+        const integrity = validateDeliverableIntegrity({
+          fields: narrativeFields,
+          references: body.workflow.references,
+          retainedRecords: (body.workflow.papers || []) as unknown as AuditableRef[],
+          exportReferences: body.workflow.references
+        });
+        if (!integrity.ok) {
+          return NextResponse.json(
+            {
+              error: integrity.malformedReferences.length
+                ? "Export refused: the reference list contained malformed entries."
+                : integrity.misanchoredCitations && integrity.misanchoredCitations.length > 0
+                ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
+                : "Export refused: references did not match the validated evidence set.",
+              integrity
+            },
+            { status: 422 }
+          );
+        }
+      }
       const buffer = await buildWorkflowDocx(body.workflow);
       const style = body.workflow.citationStyle || "vancouver";
       return new NextResponse(new Uint8Array(buffer), {
@@ -331,9 +363,47 @@ export async function POST(req: Request) {
       })
     );
 
+    // Draft Notice Callout
+    docChildren.push(
+      new Table({
+        width: { size: 100, type: WidthType.PERCENTAGE },
+        borders: {
+          top: { style: BorderStyle.NONE },
+          bottom: { style: BorderStyle.NONE },
+          right: { style: BorderStyle.NONE },
+          left: { style: BorderStyle.SINGLE, size: 24, color: "F59E0B" },
+          insideHorizontal: { style: BorderStyle.NONE },
+          insideVertical: { style: BorderStyle.NONE }
+        },
+        rows: [
+          new TableRow({
+            children: [
+              new TableCell({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                shading: { fill: "FEF3C7" },
+                children: [
+                  new Paragraph({
+                    children: [
+                      new TextRun({
+                        text: DRAFT_DISCLAIMER,
+                        font: "Arial",
+                        size: 18,
+                        italics: true,
+                        color: "92400E"
+                      })
+                    ]
+                  })
+                ]
+              })
+            ]
+          })
+        ]
+      })
+    );
+
     // Metadata Table Box
     const metaRows: [string, string][] = [
-      ["Lead Clinical Investigator", "Dr. Raouf Roshdy, MD"],
+      ...(body.author ? [["Author", String(body.author)] as [string, string]] : []),
       ["Clinical Specialty Domain", specialtyName],
       ["Authority Guidelines", authorityGuidelines],
       ["Synthesis Date", new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })],
@@ -713,7 +783,7 @@ export async function POST(req: Request) {
         spacing: { before: 360, after: 120 },
         children: [
           new TextRun({
-            text: "Aimed — Multi-Specialty Medical Intelligence Platform · Copyright © Raouf Roshdy 2026 · All Rights Reserved",
+            text: getFooterText(),
             font: "Arial",
             size: 17,
             color: "64748B"
@@ -723,7 +793,7 @@ export async function POST(req: Request) {
     );
 
     const doc = new Document({
-      creator: "Dr. Raouf Roshdy, MD / Aimed Medical Intelligence",
+      creator: body.author ? `${body.author} / AIMED` : "AIMED",
       title: title,
       description: `Scientific Commentary Working Draft: ${title}`,
       keywords: body.keywords?.join(", "),

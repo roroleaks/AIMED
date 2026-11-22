@@ -11,6 +11,7 @@ import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
 import type { PicoPreset } from "@/lib/specialties";
 import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
+import { APP_VERSION, getCommitSha, getFooterText } from "@/lib/version";
 
 // sessionStorage is browser-only: useSyncExternalStore provides safe hydration without cascading renders
 function sessionPicoSnapshot(): string {
@@ -178,7 +179,7 @@ export default function Home() {
               priority
             />
             <span className="title-main">
-              Aimed <span className="version-badge">v4.0 Multi-Specialty</span>
+              Aimed <span className="version-badge">v{APP_VERSION}</span>
             </span>
           </div>
           <div className="hdr-center">
@@ -186,9 +187,8 @@ export default function Home() {
             <p>AI Medical Intelligence · Multi-Specialty Clinical Evidence Platform</p>
           </div>
           <div className="hdr-right">
-            <span className="author-name">
-              <Image src="/dr-raouf.jpg" alt="Dr Raouf Roshdy" className="author-photo" width={72} height={72} />
-              Dr Raouf Roshdy
+            <span className="version-tag" style={{ fontSize: "0.82rem", color: "#64748b", fontWeight: 600 }}>
+              v{APP_VERSION} ({getCommitSha()}) — draft
             </span>
           </div>
         </div>
@@ -500,8 +500,7 @@ export default function Home() {
       </main>
 
       <footer>
-        Aimed v4.0 — Multi-Specialty Clinical Intelligence Platform · Educational & Research Decision Support: always verify formulated questions clinically.<br />
-        Copyright©RaoufRoshdy2026
+        {getFooterText()} · Educational & Research Decision Support: always verify formulated questions clinically.
       </footer>
 
       {/* Specialty Drop Menu Dialog Choice Modal */}

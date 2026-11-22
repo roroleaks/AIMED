@@ -45,8 +45,8 @@ export interface ParsedAuthor {
 
 function isInitials(token: string): boolean {
   const clean = token.trim();
-  if (/^[A-Z]{1,3}$/.test(clean)) return true;
-  if (/^(?:[A-Z]\.?){1,3}$/i.test(clean) && clean.includes(".")) return true;
+  if (/^[A-Z]{1,5}$/.test(clean)) return true;
+  if (/^(?:[A-Z]\.?){1,5}$/i.test(clean) && clean.includes(".")) return true;
   return false;
 }
 
@@ -90,7 +90,7 @@ export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
     const last = tokens[tokens.length - 1];
 
     if (isInitials(last)) {
-      // e.g. "Smith JA"
+      // e.g. "Smith JA" or "Braga DPAF"
       authors.push({
         surname: tokens.slice(0, tokens.length - 1).join(" "),
         initials: last.replace(/\./g, "").split("").join(".") + "."
@@ -122,7 +122,7 @@ export function formatVancouverAuthors(authorStr?: string): string {
   const parsed = parseAuthorNames(authorStr);
   if (!parsed.length) return authorStr.trim();
   const formatted = parsed.slice(0, 6).map(a => {
-    const init = a.initials.replace(/\./g, "").trim();
+    const init = a.initials.replace(/[\.\s]/g, "").trim();
     return init ? `${a.surname} ${init}` : a.surname;
   });
   if (parsed.length > 6) {
@@ -141,7 +141,13 @@ export function formatApaAuthors(authorStr?: string): string {
   if (!parsed.length) return authorStr.trim();
 
   const formatted = parsed.slice(0, 20).map(a => {
-    const inits = a.initials ? (a.initials.endsWith(".") ? a.initials : a.initials + ".") : "";
+    const rawInit = a.initials.replace(/[\.\s]/g, "");
+    let inits = "";
+    if (rawInit.length >= 3) {
+      inits = rawInit.split("").join(". ") + ".";
+    } else if (rawInit.length > 0) {
+      inits = rawInit.split("").join(".") + ".";
+    }
     return inits ? `${a.surname}, ${inits}` : a.surname;
   });
 

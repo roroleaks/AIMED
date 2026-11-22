@@ -608,6 +608,11 @@ export function refSurnameYear(s: string): { surname: string; year: string } | n
  * so it is left alone.
  */
 export function parseCitationSlots(inner: string): { names: string[]; years: string[] }[] {
+  // If parenthetical is a journal title reference like "(Frontiers in endocrinology, 2026)" or "(BMJ, 2024)",
+  // it is not an author citation
+  if (/\b(?:frontiers|journal|lancet|bmj|jama)\b/i.test(inner) || /\b(?:in|of)\s+[a-z]+/i.test(inner)) {
+    return [];
+  }
   const slots: { names: string[]; years: string[] }[] = [];
   for (const chunk of inner.split(/[;,]|\band\b/i)) {
     const names = (chunk.match(NAME_TOKEN) || []).filter(n => n.length >= 2 && !NON_NAMES.test(n));

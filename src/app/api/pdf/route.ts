@@ -7,6 +7,7 @@ import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
 import { buildWorkflowPdf } from "@/lib/pdf-generator";
+import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
@@ -81,13 +82,15 @@ const workflowSchema = z.object({
   })).max(10).optional(),
   references: z.array(z.string().max(2000)).max(50).optional(),
   citationStyle: z.enum(["vancouver", "apa", "harvard"]).optional(),
-  aiEnriched: z.boolean().optional()
+  aiEnriched: z.boolean().optional(),
+  author: z.string().max(200).optional().nullable()
 });
 
 const pdfPayloadSchema = z.object({
   docType: z.string().max(100).optional().nullable(),
   title: z.string().min(1).max(500).optional().nullable(),
   meta: z.string().max(500).optional().nullable(),
+  author: z.string().max(200).optional().nullable(),
   pico: z.array(picoRowSchema).optional().nullable(),
   outcomes: z.array(z.string().max(500)).optional().nullable(),
   keywords: z.array(z.string().max(100)).optional().nullable(),
@@ -136,6 +139,35 @@ export async function POST(req: Request) {
     const body = parseResult.data;
 
     if (body.workflow) {
+      if (body.workflow.references && body.workflow.references.length > 0) {
+        const narrativeFields: Record<string, string> = {};
+        if (Array.isArray(body.workflow.sections)) {
+          for (const s of body.workflow.sections) {
+            if (s && s.heading && Array.isArray(s.paragraphs)) {
+              narrativeFields[s.heading.toLowerCase()] = s.paragraphs.join(" ");
+            }
+          }
+        }
+        const integrity = validateDeliverableIntegrity({
+          fields: narrativeFields,
+          references: body.workflow.references,
+          retainedRecords: (body.workflow.papers || []) as unknown as AuditableRef[],
+          exportReferences: body.workflow.references
+        });
+        if (!integrity.ok) {
+          return NextResponse.json(
+            {
+              error: integrity.malformedReferences.length
+                ? "Export refused: the reference list contained malformed entries."
+                : integrity.misanchoredCitations && integrity.misanchoredCitations.length > 0
+                ? `Export refused: citations misanchored: ${integrity.misanchoredCitations.join("; ")}`
+                : "Export refused: references did not match the validated evidence set.",
+              integrity
+            },
+            { status: 422 }
+          );
+        }
+      }
       const buffer = await buildWorkflowPdf(body.workflow);
       const style = body.workflow.citationStyle || "vancouver";
       return new NextResponse(new Uint8Array(buffer), {
@@ -296,7 +328,21 @@ export async function POST(req: Request) {
     doc.font(FONT_B).fontSize(19).fillColor(ink).text(title, { align: "center" });
     doc.moveDown(0.5);
     doc.font(FONT_O).fontSize(9.5).fillColor(muted).text(String(body.meta || ""), { align: "center" });
-    doc.moveDown(1.2);
+    if (body.author) {
+      doc.moveDown(0.3);
+      doc.font(FONT_B).fontSize(9.5).fillColor(ink).text(`Author: ${body.author}`, { align: "center" });
+    }
+    doc.moveDown(0.5);
+
+    // Persistent Draft Notice Banner on Page 1
+    const bannerH = doc.heightOfString(DRAFT_DISCLAIMER, { width: FULL_W - 24, lineGap: 2 }) + 14;
+    ensure(bannerH + 10);
+    const bannerY = doc.y;
+    doc.rect(LEFT, bannerY, FULL_W, bannerH).fill("#fef3c7");
+    doc.rect(LEFT, bannerY, FULL_W, bannerH).lineWidth(1).stroke("#f59e0b");
+    doc.font(FONT_B).fontSize(8.5).fillColor("#92400e").text("AUTOMATED DRAFT: ", LEFT + 12, bannerY + 7, { continued: true });
+    doc.font(FONT).fontSize(8.5).fillColor("#92400e").text(DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, ""), { width: FULL_W - 24, lineGap: 2 });
+    doc.y = bannerY + bannerH + 12;
 
     if (Array.isArray(body.pico) && body.pico.length) {
       ensure(60);
@@ -545,7 +591,7 @@ export async function POST(req: Request) {
       doc.moveTo(fLeft, footerY - 6).lineTo(fRight, footerY - 6).strokeColor("#e2e8f0").lineWidth(0.5).stroke();
       doc.font(FONT_O).fontSize(8.5).fillColor(muted);
       doc.text(
-        "Aimed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026",
+        getFooterText(),
         fLeft,
         footerY,
         { width: fWidth - 110, lineBreak: false }

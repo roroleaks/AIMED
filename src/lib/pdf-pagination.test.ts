@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import path from "node:path";
 import fs from "node:fs";
 import PDFDocument from "pdfkit";
+import { getFooterText } from "./version.ts";
 
 test("PDF1. Pagination loop does NOT spawn phantom pages when writing header and footer", async () => {
   const doc = new PDFDocument({ size: "A4", margin: 56, compress: false, bufferPages: true });
@@ -41,7 +42,7 @@ test("PDF1. Pagination loop does NOT spawn phantom pages when writing header and
 
     const footerY = doc.page.height - 38;
     doc.fontSize(8.5).text(
-      "Aimed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026",
+      getFooterText(),
       fLeft,
       footerY,
       { width: fWidth - 110, lineBreak: false }

@@ -12,7 +12,7 @@ import {
   singleRecordInText,
   parseAuthorNames
 } from "./citation-styles.ts";
-import { designOf, type AuditableRef } from "./relevance.ts";
+import { designOf, isNonEvidenceItem, auditRef, type AuditableRef } from "./relevance.ts";
 import { classifyPaperType } from "./study-design.ts";
 import { getSpecialtyDefinition } from "./specialties.ts";
 import { screenWordSchema, isValidSpecialty } from "./deterministic-screen.ts";
@@ -20,6 +20,8 @@ import {
   extractFinding,
   buildTruthfulMethodsText
 } from "./deterministic-commentary.ts";
+import { outcomeActionVerb } from "./outcome-polarity.ts";
+import { assertedDirection } from "./claim-finalization.ts";
 
 export const composeStageSchema = z.object({
   stage: z.literal("compose"),
@@ -246,15 +248,11 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   const compWord = words.find(w => w.role === "comparator")?.word || "standard comparator";
   const outWord = words.find(w => w.role === "outcome")?.word || "target clinical endpoint";
 
-  // Section 1: Background
-  const backgroundP1: Record<string, string> = {
-    established: `In clinical decision-making within ${specDef.label}, evaluating the efficacy and safety of ${intWord} in ${popWord} is essential to reinforce evidence-based guidelines. When compared with ${compWord}, therapeutic choices directly govern key patient-centered outcomes, notably ${outWord}. Synthesizing current consensus provides an objective benchmark for clinical practice.`,
-    conflicting: `Clinical investigations addressing ${intWord} versus ${compWord} in ${popWord} within ${specDef.label} have yielded heterogeneous and discordant findings. While selected trials report measurable improvements in ${outWord}, parallel studies observe neutral or contradictory results. Clarifying this conflicting body of literature is critical to mitigate practice variation and guide therapeutic selection.`,
-    gap: `Significant uncertainty persists regarding the role of ${intWord} relative to ${compWord} in ${popWord} within ${specDef.label}, specifically with respect to ${outWord}. Despite growing clinical interest, rigorously controlled studies remain sparse, leaving an evident gap in the clinical literature that complicates guideline formulation.`
-  };
+  // Section 1: Background (Honest, evidence-derived, non-templated)
+  const backgroundP1 = `In clinical decision-making within ${specDef.label}, evaluating the comparative effect of ${intWord} versus ${compWord} on ${outWord} in ${popWord} is essential to inform evidence-based practice. This rapid evidence summary characterizes the available literature base to address the clinical question.`;
 
   const backgroundP2Parts: string[] = [
-    `This structured inquiry was parameterized into distinct clinical domains: Population (P): "${popWord}"; Intervention (I): "${intWord}"; Comparator (C): "${compWord}"; and Outcome (O): "${outWord}". By contextualizing these four facets within current literature indexes, this report characterizes the distribution, methodological consistency, and clinical readiness of available evidence.`
+    `This structured inquiry was parameterized into distinct clinical domains: Population (P): "${popWord}"; Intervention (I): "${intWord}"; Comparator (C): "${compWord}"; and Outcome (O): "${outWord}". Formal risk-of-bias and GRADE assessments were not performed.`
   ];
 
   if (specDef.authorityGuidelines) {
@@ -275,7 +273,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   }
 
   const backgroundParagraphs = [
-    backgroundP1[category] || backgroundP1.established,
+    backgroundP1,
     backgroundP2Parts.join(" ")
   ];
 
@@ -285,7 +283,50 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   const searchP2 = `The initial query ladder retrieved ${screeningStats.retrieved} records. Automated title/abstract relevance screening evaluated ${screeningStats.screened} records at search relaxation level ${screeningStats.relaxationLevel}. During exploratory screening, ${screeningStats.excludedCount} record(s) were excluded based on study design or tangential relevance criteria, leaving ${retained.length} prioritized record(s) retained for formal synthesis.`;
   const searchParagraphs = [searchP1, searchP2, truthfulMethods];
 
-  // Section 3: Evidence synthesis
+  // Evidence grounding calculation across retained records
+  const validRetained = retained.filter(r => !isNonEvidenceItem(r).isNonEvidence);
+  const elements = [
+    { label: "P", value: popWord },
+    { label: "I", value: intWord },
+    ...(compWord ? [{ label: "C", value: compWord }] : []),
+    ...(outWord ? [{ label: "O", value: outWord }] : [])
+  ];
+
+  const matchingRetained = validRetained.filter(r => {
+    const audit = auditRef(r, elements);
+    return audit.population && (audit.intervention || audit.comparator) && audit.outcome;
+  });
+
+  const actionVerb = outcomeActionVerb(outWord);
+  let favourable = 0;
+  let neutral = 0;
+  let adverse = 0;
+
+  for (const r of matchingRetained) {
+    const finding = extractFinding(r, outWord, popWord);
+    if (finding) {
+      const dir = assertedDirection(finding);
+      if (dir === (actionVerb === "reduce" ? "reduction" : "increase")) favourable++;
+      else if (dir === "no-difference") neutral++;
+      else if (dir) adverse++;
+    }
+  }
+
+  // P0-2 Evidence-derived conclusion sentence: identical regardless of chosen category button
+  let evidenceConclusion = "";
+  if (retained.length === 0 || matchingRetained.length === 0) {
+    evidenceConclusion = `Insufficient direct evidence was identified to determine the comparative effect of ${intWord} versus ${compWord} on ${outWord} in ${popWord}.`;
+  } else if (favourable > 0 && neutral === 0 && adverse === 0) {
+    evidenceConclusion = `Synthesized evidence from ${retained.length} retained study record(s) (${designSummary}) demonstrates consistent direct support for ${intWord} regarding ${outWord} in ${popWord}.`;
+  } else if ((favourable > 0 && neutral > 0) || (favourable > 0 && adverse > 0)) {
+    evidenceConclusion = `Synthesized evidence from ${retained.length} retained study record(s) (${designSummary}) reveals conflicting directional findings regarding ${intWord} versus ${compWord} for ${outWord} in ${popWord}.`;
+  } else if (neutral > 0 && favourable === 0 && adverse === 0) {
+    evidenceConclusion = `Synthesized evidence from ${retained.length} retained study record(s) (${designSummary}) indicates no significant difference between ${intWord} and ${compWord} on ${outWord} in ${popWord}.`;
+  } else {
+    evidenceConclusion = `Available evidence from ${retained.length} retained study record(s) (${designSummary}) addresses this comparison, but abstracts provide insufficient direct effect estimates to establish definitive clinical consensus for ${outWord} in ${popWord}.`;
+  }
+
+  // Section 3: Evidence synthesis (Study extraction table and factual extraction)
   const synthesisParagraphs: string[] = [];
   if (retained.length === 0) {
     synthesisParagraphs.push(
@@ -300,55 +341,39 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     const journalCount = journalSet.size;
 
     synthesisParagraphs.push(
-      `The prioritized evidence base comprises ${retained.length} retained study record(s) ${yearRangeStr} across ${journalCount} peer-reviewed journal venue(s). Methodological design mix comprises ${designSummary}. Records were stratified into three relevance tiers based on calculated term-density and semantic alignment with the clinical PICO parameters.`
+      `The prioritized evidence base comprises ${retained.length} retained study record(s) ${yearRangeStr} across ${journalCount} peer-reviewed journal venue(s). Methodological design mix comprises ${designSummary}. Records were evaluated against the clinical PICO parameters.`
     );
 
-    // Tier 1 (>=90%)
-    if (tier90.length > 0) {
-      const cite = buildInTextCitation(tier90, style, vancouverIndexMap);
-      const studySentences = tier90.map(r => {
-        const finding = extractFinding(r, outWord, popWord);
-        const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
-        if (finding) {
-          return `"${r.title}" (${r.journal || "Journal"}, ${r.year || "n.d."}) ${itemCite} reported: "${finding}"`;
-        }
-        return `"${r.title}" (${r.journal || "Journal"}, ${r.year || "n.d."}) ${itemCite}`;
-      }).join("; ");
+    // Study extraction summary sentences
+    const studySentences = retained.map(r => {
+      const finding = extractFinding(r, outWord, popWord);
+      const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
+      const parsedAuthors = parseAuthorNames(r.authors || "");
+      const authorText = parsedAuthors[0]?.surname ? `${parsedAuthors[0].surname} et al.` : "Authors";
+      if (finding) {
+        return `"${r.title}" (${authorText}, ${r.year || "n.d."}) ${itemCite} reported: "${finding}"`;
+      }
+      return `"${r.title}" (${authorText}, ${r.year || "n.d."}) ${itemCite} (no direct outcome sentence extractable from abstract)`;
+    });
 
-      synthesisParagraphs.push(
-        `High-relevance evidence (≥90% alignment, n = ${tier90.length}) directly addresses the clinical query with explicit co-occurrence of the evaluated intervention and primary endpoints ${cite}. Key investigations in this tier include ${studySentences}. These studies offer direct comparative observations concerning ${outWord} in ${popWord}.`
-      );
-    }
+    synthesisParagraphs.push(`Study extractions: ${studySentences.join("; ")}.`);
 
-    // Tier 2 (70-89%)
-    if (tier70.length > 0) {
-      const cite = buildInTextCitation(tier70, style, vancouverIndexMap);
-      const studySentences = tier70.map(r => {
-        const finding = extractFinding(r, outWord, popWord);
-        const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
-        if (finding) {
-          return `"${r.title}" (${r.year || "n.d."}) ${itemCite} noted that "${finding}"`;
-        }
-        return `"${r.title}" (${r.year || "n.d."}) ${itemCite}`;
-      }).join("; ");
-
-      synthesisParagraphs.push(
-        `Moderate-relevance evidence (70–89% alignment, n = ${tier70.length}) provides supportive context, contributing comparative or observational perspectives across related populations ${cite}. Contributing records include ${studySentences}, providing supplementary insights into treatment safety and secondary endpoints.`
-      );
-    }
-
-    // Tier 3 (<70%)
-    if (tierLow.length > 0) {
-      const cite = buildInTextCitation(tierLow, style, vancouverIndexMap);
-      synthesisParagraphs.push(
-        `Exploratory and peripheral citations (<70% alignment, n = ${tierLow.length}) reflect broader investigative settings or preliminary cohorts ${cite}. While less directly aligned with all four PICO facets, these records provide valuable contextual grounding for physiological mechanisms and potential confounders.`
-      );
-    }
+    // Per-study extraction table (P0-3)
+    const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction | Risk of Bias |";
+    const tableSep = "| --- | --- | --- | --- | --- | --- |";
+    const tableRows = retained.map(r => {
+      const d = classifyPaperType({ title: r.title, abstract: r.context, journal: r.journal }) || "Observational study";
+      const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
+      const finding = extractFinding(r, outWord, popWord) || "Not stated in abstract";
+      const cleanFinding = finding.length > 80 ? finding.slice(0, 77) + "…" : finding;
+      return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popWord.slice(0, 25)} | ${compWord.slice(0, 20)} | ${cleanFinding.replace(/\|/g, "\\|")} | Risk of bias: not assessed |`;
+    });
+    synthesisParagraphs.push([tableHeader, tableSep, ...tableRows].join("\n"));
   }
 
   // Section 4: Limitations
   const limitationsParagraphs: string[] = [
-    `This evidence synthesis is subject to specific methodological boundaries. First, the scope is strictly constrained to the four defined PICO parameters, potentially omitting adjacent clinical variations. Second, initial screening was conducted at the title and abstract metadata level, which may overlook detailed subgroup findings documented only within full-text reports. Third, this synthesis is deliberately bounded by the clinical framework of ${specDef.label}; generalizability to multi-disciplinary or broader health domains should be verified independently.`
+    `This evidence synthesis is subject to specific methodological boundaries. Formal risk-of-bias and GRADE assessments were not performed; appraisal is based on available indexing metadata and abstracts. First, the scope is strictly constrained to the four defined PICO parameters, potentially omitting adjacent clinical variations. Second, initial screening was conducted at the title and abstract metadata level, which may overlook detailed subgroup findings documented only within full-text reports. Third, this synthesis is deliberately bounded by the clinical framework of ${specDef.label}; generalizability to multi-disciplinary or broader health domains should be verified independently.`
   ];
   const limP2Parts = [
     `${screeningStats.excludedCount} record(s) were excluded during exploration based on metadata screening.`
@@ -364,12 +389,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   limitationsParagraphs.push(limP2Parts.join(" "));
 
   // Section 5: Conclusion
-  const conclusionP1: Record<string, string> = {
-    established: `In conclusion, the synthesized evidence demonstrates consistent clinical backing for the defined PICO question. The prioritized studies corroborate established standards regarding ${intWord} in ${popWord}, indicating that anticipated outcomes for ${outWord} remain clinically reproducible when compared against ${compWord}.`,
-    conflicting: `In conclusion, current evidence addressing ${intWord} in ${popWord} remains conflicting and heterogeneous. While favorable signals for ${outWord} are observed in selected cohorts, contradictory results underline the necessity of cautious, individualized patient assessment until definitive multi-center trials resolve the discordant findings.`,
-    gap: `In conclusion, a discernible evidence gap characterizes the clinical question of ${intWord} versus ${compWord} in ${popWord}. The scarcity of sufficiently powered prospective data on ${outWord} underscores the urgent need for dedicated primary clinical trials to substantiate therapeutic decisions.`
-  };
-
+  const conclusionP1 = `In conclusion, ${evidenceConclusion}`;
   const conclusionP2 = `Recommended clinical research workup: Investigators should conduct full-text appraisal of all prioritized citations, execute standardized risk-of-bias evaluation (e.g., Cochrane RoB 2 or ROBINS-I), register prospective systematic reviews with PROSPERO, and establish defined cohort monitoring protocols.\n\n[Author note: Insert specific institutional clinical rationale, patient subgroup considerations, or departmental audit targets here.]`;
 
   const sections: ManuscriptSection[] = [
@@ -391,7 +411,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     },
     {
       heading: "Conclusion",
-      paragraphs: [conclusionP1[category] || conclusionP1.established, conclusionP2]
+      paragraphs: [conclusionP1, conclusionP2]
     }
   ];
 
@@ -401,17 +421,13 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   const absResults = retained.length > 0
     ? `Results: A total of ${retained.length} prioritized record(s) met inclusion criteria across ${designSummary}, with ${tier90.length} study record(s) demonstrating ≥90% alignment with the clinical PICO parameters.`
     : `Results: Zero records met final eligibility criteria for formal synthesis following screening and exclusion filters.`;
-  const absConclusion: Record<string, string> = {
-    established: `Conclusion: Prioritized evidence demonstrates established clinical alignment with the investigated endpoints, supporting consistent clinical practice.`,
-    conflicting: `Conclusion: Current findings reveal conflicting clinical results, underscoring the need for individualized clinical judgment and rigorous confirmatory trials.`,
-    gap: `Conclusion: A substantial literature gap exists for this clinical question, warranting prospective randomized controlled trials to guide evidence-based practice.`
-  };
+  const absConclusion = `Conclusion: ${evidenceConclusion}`;
 
   const abstract = [
     absObjective,
     absMethods,
     absResults,
-    absConclusion[category] || absConclusion.established
+    absConclusion
   ];
 
   // Build references list formatted according to selected style

@@ -712,17 +712,23 @@ HARD RULES:
                 established: {
                   category: "established",
                   phrase: validated.established.phrase,
-                  basis: validated.established.basis
+                  basis: validated.established.basis,
+                  supported: screenPayload.phrases.established.supported,
+                  unavailableReason: screenPayload.phrases.established.unavailableReason
                 },
                 conflicting: {
                   category: "conflicting",
                   phrase: validated.conflicting.phrase,
-                  basis: validated.conflicting.basis
+                  basis: validated.conflicting.basis,
+                  supported: screenPayload.phrases.conflicting.supported,
+                  unavailableReason: screenPayload.phrases.conflicting.unavailableReason
                 },
                 gap: {
                   category: "gap",
                   phrase: validated.gap.phrase,
-                  basis: validated.gap.basis
+                  basis: validated.gap.basis,
+                  supported: screenPayload.phrases.gap.supported,
+                  unavailableReason: screenPayload.phrases.gap.unavailableReason
                 }
               },
               corpusStats: {

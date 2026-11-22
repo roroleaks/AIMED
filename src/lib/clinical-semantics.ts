@@ -1,4 +1,5 @@
 import { KB, type SpecialtyKey } from "./kb.ts";
+import { getOutcomePolarity, outcomeActionVerb } from "./outcome-polarity.ts";
 
 export interface ParsedClinicalScenario {
   specialty: SpecialtyKey;
@@ -665,10 +666,16 @@ const MEDICAL_TAXONOMY: MedicalTermEntry[] = [
     synonyms: ["acute cholecystitis", "cholecystitis", "cholelithiasis", "gallstone disease"]
   },
   {
+    canonical: "appendectomy",
+    category: "comparator",
+    specialty: "surgery",
+    synonyms: ["appendectomy", "open appendectomy", "laparoscopic appendectomy"]
+  },
+  {
     canonical: "laparoscopic surgery",
     category: "intervention",
     specialty: "surgery",
-    synonyms: ["laparoscopic appendectomy", "laparoscopic cholecystectomy", "minimally invasive surgery", "laparoscopy"]
+    synonyms: ["laparoscopic cholecystectomy", "minimally invasive surgery", "laparoscopy"]
   },
   {
     canonical: "surgical site infection",
@@ -949,6 +956,10 @@ function cleanTokenString(s: string): string {
  * or a desirable outcome (to improve/increase/preserve).
  */
 export function getOutcomeDirection(outcomeText: string): OutcomeDirection {
+  const pol = getOutcomePolarity(outcomeText);
+  if (pol === "harm") return "adverse";
+  if (pol === "benefit") return "desirable";
+
   const lower = outcomeText.toLowerCase();
   const found = MEDICAL_TAXONOMY.find(
     m => m.category === "outcome" && (m.canonical.toLowerCase() === lower || m.synonyms.some(s => s.toLowerCase() === lower))
@@ -962,7 +973,7 @@ export function getOutcomeDirection(outcomeText: string): OutcomeDirection {
   }
 
   if (
-    /mortality|morbidity|loss|miscarriage|preterm birth|complication|recurrence|adverse(?:[\s\-_]event)?|admission|failure|death|bleeding|pain|cesarean|nicu|hospitali[sz]ation|readmission|exacerbation|relapse|events?\b|infection|stroke|infarction|thrombo|embolism|fracture|amputation|toxicity|hypoglyc|rejection|progression|incidence|injury|delirium|sepsis|mace\b|harm|decline|deterioration|worsening|risk\b|anxiety|depression|stress|nausea|vomiting|incontinence|weight gain|\bbmi\b|fatigue|insomnia/i.test(lower)
+    /mortality|morbidity|loss|miscarriage|preterm birth|preeclampsia|pre-eclampsia|eclampsia|complication|recurrence|adverse(?:[\s\-_]event)?|admission|failure|death|bleeding|pain|cesarean|nicu|hospitali[sz]ation|readmission|exacerbation|relapse|events?\b|infection|stroke|infarction|thrombo|embolism|fracture|amputation|toxicity|hypoglyc|rejection|progression|incidence|injury|delirium|sepsis|mace\b|harm|decline|deterioration|worsening|risk\b|anxiety|depression|stress|nausea|vomiting|incontinence|weight gain|\bbmi\b|fatigue|insomnia/i.test(lower)
   ) {
     return "adverse";
   }
@@ -983,9 +994,9 @@ export function auxVerbFor(intervention: string): "does" | "do" {
   return "does";
 }
 
-/** "reduce" for an adverse outcome (death, hospitalization), "improve" for a desirable one. */
+/** "reduce" for an adverse outcome (death, hospitalization, preeclampsia), "improve" for a desirable one. */
 export function outcomeVerbFor(outcome: string): "reduce" | "improve" {
-  return getOutcomeDirection(outcome) === "adverse" ? "reduce" : "improve";
+  return outcomeActionVerb(outcome);
 }
 
 /** Drug-name endings and treatment words that mark a tag as an intervention, never an outcome. */
@@ -1103,7 +1114,7 @@ export function formulatePopulationPhrase(population: string, specialty?: Specia
   const p = (population || "").trim();
   const lower = p.toLowerCase();
 
-  if (/^(women|patients|adults|individuals|pregnant individuals|pregnant women|couples|infants|children)/i.test(lower)) {
+  if (/^(women|patients|adults|individuals|pregnant individuals|pregnant women|couples|infants|children|high-risk pregnancy)/i.test(lower)) {
     return p;
   }
   // The population already names people ("preterm infants", "older adults"): do not wrap it in
@@ -1111,16 +1122,19 @@ export function formulatePopulationPhrase(population: string, specialty?: Specia
   if (/\b(infants?|neonates?|newborns?|children|adolescents|women|men|adults|patients|individuals|people|survivors|recipients|smokers|athletes)\b/i.test(lower)) {
     return p;
   }
-  if (/undergoing\s+(ivf|icsi|art|assisted reproductive|iui)/i.test(lower)) {
-    if (/^poor\s+(ovarian\s+)?responders?/i.test(p)) {
+  if (/\bundergoing\b/i.test(lower)) {
+    if (/\b(women|patients|individuals|couples|people)\b/i.test(lower) || /^poor\s+(ovarian\s+)?(response|responders?)/i.test(lower)) {
       return p;
     }
-    return `women with ${p}`;
+    return `patients ${p}`;
   }
   if (/^poor\s+(ovarian\s+)?responders?$/i.test(lower)) {
     return `poor responders undergoing IVF`;
   }
   if (specialty === "obstetrics") {
+    if (/high-risk pregnancy/i.test(lower)) {
+      return p;
+    }
     if (/pregnancy|twin|gestation|gravida|labor|labour/i.test(lower)) {
       return `pregnant women with ${p}`;
     }
@@ -1491,17 +1505,17 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     comparator = distinctArms[1];
   } else if (distinctArms.length === 1 && compIdx < 0 && matchedInterventions.length >= 1) {
     intervention = distinctArms[0];
-    comparator = specialty === "obstetrics" ? "standard care or expectant management" : "placebo or standard care";
+    comparator = "[comparator not specified]";
   } else if (matchedInterventions.length >= 2) {
     intervention = matchedInterventions[0];
     comparator = matchedInterventions[1];
   } else if (matchedInterventions.length === 1) {
     intervention = matchedInterventions[0];
-    comparator = specialty === "obstetrics" ? "standard care or expectant management" : "placebo or standard care";
+    comparator = "[comparator not specified]";
   } else {
     const specDefault = KB[specialty] || KB.internal_med;
     intervention = specDefault.interventions[0] || "first-line therapy";
-    comparator = specDefault.interventions[1] || "standard care";
+    comparator = "[comparator not specified]";
   }
 
   // Candidate outcomes
@@ -1554,4 +1568,59 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     outcomes,
     suggestedQuestions
   };
+}
+
+/**
+ * Validates generated PICO and flags nonsensical combinations (P0-5).
+ * Rejects:
+ * - Outcome equal to population
+ * - Intervention equal to comparator
+ * - Outcome that is an intervention/procedure name (e.g. "increase pgt-a (O)")
+ * - Intervention that the user did not enter (e.g. injecting "laparoscopic surgery")
+ */
+export function isNonsensicalPico(
+  pico: {
+    population?: string;
+    intervention?: string;
+    comparator?: string;
+    outcome?: string;
+  },
+  userTokens?: string[]
+): { nonsensical: boolean; reason?: string } {
+  const norm = (s?: string) => (s || "").trim().toLowerCase();
+  const p = norm(pico.population);
+  const i = norm(pico.intervention);
+  const c = norm(pico.comparator);
+  const o = norm(pico.outcome);
+
+  if (!p || !i) {
+    return { nonsensical: true, reason: "Missing population or intervention" };
+  }
+
+  // Outcome equal to population
+  if (o && (p === o || p.includes(o) || o.includes(p))) {
+    return { nonsensical: true, reason: "Outcome cannot be identical to population" };
+  }
+
+  // Intervention equal to comparator (unless comparator is not specified)
+  if (c && c !== "[comparator not specified]" && (i === c || i.includes(c) || c.includes(i))) {
+    return { nonsensical: true, reason: "Intervention cannot be identical to comparator" };
+  }
+
+  // Outcome that is an intervention or procedure name
+  if (o && (INTERVENTION_WORD.test(o) || /\b(pgt-a|pgta|aspirin|antibiotics?|surgery|ivf|icsi)\b/i.test(o))) {
+    return { nonsensical: true, reason: `Outcome '${pico.outcome}' is an intervention or procedure name` };
+  }
+
+  // Intervention that the user did not enter (if userTokens provided)
+  if (userTokens && userTokens.length > 0 && i) {
+    const rawJoined = userTokens.join(" ").toLowerCase();
+    const wordsInI = i.split(/\s+/).filter(w => w.length > 3);
+    const hasAnyUserOverlap = wordsInI.some(w => rawJoined.includes(w));
+    if (!hasAnyUserOverlap && !rawJoined.includes(i)) {
+      return { nonsensical: true, reason: `Intervention '${pico.intervention}' was not entered by the user` };
+    }
+  }
+
+  return { nonsensical: false };
 }

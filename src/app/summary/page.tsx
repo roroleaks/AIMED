@@ -19,6 +19,7 @@ import {
   type ExploreSnapshot,
   type ChoiceState
 } from "@/lib/summary-payload";
+import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 const CATEGORY_META = {
   established: {
@@ -229,7 +230,7 @@ export default function SummaryPage() {
             <p className="hint">Loading manuscript draft…</p>
           </section>
         </main>
-        <footer>AIMed v4.0 — Multi-Specialty Clinical Intelligence Platform · Copyright©RaoufRoshdy2026</footer>
+        <footer>{getFooterText()} · Step 4 Manuscript Summary</footer>
       </div>
     );
   }
@@ -296,6 +297,20 @@ export default function SummaryPage() {
       <WorkflowStepper currentStep={4} />
 
       <main id="main" className="solo">
+        {/* Persistent Draft Notice Banner */}
+        <div style={{
+          background: "#fef3c7",
+          border: "1px solid #f59e0b",
+          borderRadius: 8,
+          padding: "10px 14px",
+          marginBottom: 16,
+          fontSize: "0.85rem",
+          color: "#92400e",
+          lineHeight: 1.45
+        }}>
+          ⚠️ <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+        </div>
+
         {/* Compact Workflow Summary Strip */}
         <section className="card" style={{ marginBottom: 16 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
@@ -661,8 +676,7 @@ export default function SummaryPage() {
       </main>
 
       <footer>
-        AIMed v4.0 — Multi-Specialty Clinical Intelligence Platform · Step 4 Manuscript Summary<br />
-        Copyright©RaoufRoshdy2026
+        {getFooterText()} · Step 4 Manuscript Summary
       </footer>
     </div>
   );

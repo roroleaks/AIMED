@@ -1,5 +1,6 @@
 import { KB, type SpecialtyKey } from "./kb.ts";
 import { parseClinicalScenario, formulatePopulationPhrase } from "./clinical-semantics.ts";
+import { outcomeActionVerb } from "./outcome-polarity.ts";
 
 export interface ExtractedPico {
   condition: string;
@@ -76,7 +77,7 @@ function cleanPicoToken(s: string): string {
     .replace(/\s*\([PICO]\)\s*/gi, " ")
     .trim()
     .replace(/^[,;:.\s]+/, "")
-    .replace(/^(?:in|for|among)?\s*(?:high-risk\s+subgroups\s+of\s+)?(?:pregnant\s+|adult\s+|pediatric\s+|older\s+)?(?:women|patients|individuals|persons|people|adults)\s+(?:diagnosed\s+with|presenting\s+with|with|undergoing)?\s*/i, "")
+    .replace(/^(?:in|for|among)?\s*(?:high-risk\s+subgroups\s+of\s+)?(?:pregnant\s+|adult\s+|pediatric\s+|older\s+)?(?:women|patients|individuals|persons|people|adults)\s+(?:diagnosed\s+with|presenting\s+with|with)?\s*/i, "")
     .replace(/^[,;:.\s]+/, "")
     .replace(/^(?:does|is|do|what is the effect of|can|will|should)\s+/i, "")
     .replace(/^(?:compared\s+(?:with|to)|versus|vs\.?)\s+/i, "")
@@ -247,20 +248,20 @@ export function extractPicoFromQuestion(
         const scenario = parseClinicalScenario(topic);
         comparator = scenario.comparator;
       } catch {
-        comparator = "placebo or standard care";
+        comparator = "[comparator not specified]";
       }
     } else {
-      comparator = "placebo or standard care";
+      comparator = "[comparator not specified]";
     }
   }
   if (!comparator || comparator.length < 2) {
-    comparator = "standard care / placebo";
+    comparator = "[comparator not specified]";
   }
 
   // Fallback 4: Outcome
   if (!outcome || outcome.length < 2) {
     const specKB = KB[specialty];
-    outcome = specKB.outcomesRanked[0] || "primary clinical outcome";
+    outcome = specKB?.outcomesRanked?.[0] || "primary clinical outcome";
   }
 
   // Guarantee condition does not contain comma-separated lists or mixed interventions
@@ -272,13 +273,14 @@ export function extractPicoFromQuestion(
     if (!intervention || intervention === "evaluated clinical intervention") {
       intervention = scenario.intervention;
     }
-    if (!comparator || comparator === "standard care / placebo") {
+    if (!comparator || comparator === "[comparator not specified]") {
       comparator = scenario.comparator;
     }
   }
 
   // Clean formatted question
   const cleanQ = q.replace(/\s*\([PICO]\)/gi, "").trim();
+  const verb = outcomeActionVerb(outcome);
 
   return {
     condition: condition.trim(),
@@ -286,6 +288,6 @@ export function extractPicoFromQuestion(
     comparator: comparator.trim(),
     outcome: outcome.trim(),
     specialty,
-    cleanQuestion: cleanQ || `In ${formulatePopulationPhrase(condition, specialty)}, does ${intervention} compared with ${comparator} improve ${outcome}?`
+    cleanQuestion: cleanQ || `In ${formulatePopulationPhrase(condition, specialty)}, does ${intervention} compared with ${comparator} ${verb} ${outcome}?`
   };
 }

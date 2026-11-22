@@ -57,6 +57,7 @@ export interface WorkflowExportData {
   references?: string[];
   citationStyle?: "vancouver" | "apa" | "harvard";
   aiEnriched?: boolean;
+  author?: string | null;
 }
 
 export const ELEMENT_LABELS: Record<string, string> = {

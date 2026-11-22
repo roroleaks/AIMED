@@ -1,5 +1,5 @@
 import type { AuditableRef } from "./relevance.ts";
-import { checkCitations, extractInTextCites, extractNumericCites, formatReference, foldName } from "./relevance.ts";
+import { checkCitations, extractInTextCites, extractNumericCites, formatReference, foldName, surnamesOf } from "./relevance.ts";
 import { normalizeDoi, type EvidenceWarning } from "./evidence-set.ts";
 
 /**
@@ -81,8 +81,8 @@ function citingSurnames(rec: AuditableRef): string[] {
     .split(/[,;\s]+/)
     .filter(Boolean)
     .map(a => foldName(a));
-  const fromFormatted = formatReference(rec).split(/[,;]/).map(s => foldName(s)).filter(Boolean);
-  return [...new Set([...fromAuthors, ...fromFormatted])].filter(s => s.length > 1);
+  const fromRefAuthors = surnamesOf(formatReference(rec)).map(s => foldName(s));
+  return [...new Set([...fromAuthors, ...fromRefAuthors])].filter(s => s.length > 1);
 }
 
 function citationMatchesRecord(author: string, year: string, rec: AuditableRef): boolean {

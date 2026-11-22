@@ -2,6 +2,7 @@ import PDFDocument from "pdfkit";
 import fs from "node:fs";
 import path from "node:path";
 import type { WorkflowExportData } from "./summary-payload.ts";
+import { getFooterText, DRAFT_DISCLAIMER } from "./version.ts";
 
 export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Buffer> {
   const PAGE_MARGIN = 54;
@@ -53,14 +54,14 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
   );
   doc.moveDown(0.8);
 
-  // Educational Disclaimer Callout Banner
+  // Automated Draft Disclaimer Callout Banner
   reserveSpace(46);
   const discTop = doc.y;
   const discWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
-  doc.rect(doc.page.margins.left, discTop, discWidth, 38).fillColor("#f1f5f9").strokeColor("#cbd5e1").lineWidth(0.75).fillAndStroke();
-  doc.font(FONT_B).fontSize(8.5).fillColor(teal).text("EDUCATIONAL DISCLAIMER:", doc.page.margins.left + 12, discTop + 5);
-  doc.font(FONT_O).fontSize(8).fillColor("#334155").text(
-    "AIMed is an assistive clinical intelligence platform for educational and inquiry formulation only. Synthesized claims, outcomes, and proposed questions require independent clinical verification against original peer-reviewed literature.",
+  doc.rect(doc.page.margins.left, discTop, discWidth, 38).fillColor("#fef3c7").strokeColor("#f59e0b").lineWidth(0.75).fillAndStroke();
+  doc.font(FONT_B).fontSize(8.5).fillColor("#92400e").text("AUTOMATED DRAFT:", doc.page.margins.left + 12, discTop + 5);
+  doc.font(FONT_O).fontSize(8).fillColor("#92400e").text(
+    DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, ""),
     doc.page.margins.left + 12,
     discTop + 16,
     { width: discWidth - 24, lineGap: 1.5 }
@@ -147,7 +148,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
     const bottomY = doc.page.height - 38;
     doc.moveTo(fLeft, bottomY - 6).lineTo(fRight, bottomY - 6).strokeColor("#cbd5e1").lineWidth(0.5).stroke();
     doc.font(FONT_O).fontSize(8.5).fillColor(muted).text(
-      "AIMed — Medical Intelligence Platform · Copyright©RaoufRoshdy2026",
+      getFooterText(),
       fLeft,
       bottomY,
       { width: fWidth - 110, lineBreak: false }

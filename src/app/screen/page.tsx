@@ -8,6 +8,7 @@ import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { useAimedContext } from "@/context/AimedContext";
 import type { PicoWord } from "@/lib/pico-roles";
 import type { ScreenCategory, ScreenPhrase, ScreenPayload } from "@/lib/deterministic-screen";
+import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 function formatSourceName(id: string): string {
   const map: Record<string, string> = {
@@ -176,7 +177,7 @@ export default function ScreenPage() {
         <div className="hdr-inner">
           <div className="hdr-left">
             <span className="title-main">
-              AIMed <span className="version-badge">v4.0 Multi-Specialty</span>
+              AIMed <span className="version-badge">v4.2.0</span>
             </span>
           </div>
           <div className="hdr-center">
@@ -189,6 +190,19 @@ export default function ScreenPage() {
       <WorkflowStepper currentStep={2} />
 
       <main id="main" className="solo">
+        {/* Persistent Draft Notice Banner */}
+        <div style={{
+          background: "#fef3c7",
+          border: "1px solid #f59e0b",
+          borderRadius: 8,
+          padding: "10px 14px",
+          marginBottom: 16,
+          fontSize: "0.85rem",
+          color: "#92400e",
+          lineHeight: 1.45
+        }}>
+          ⚠️ <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+        </div>
         {(!screenData || loading) && !error && (
           <section className="card">
             <AnimatedProcessingIndicator
@@ -402,8 +416,7 @@ export default function ScreenPage() {
       </main>
 
       <footer>
-        Aimed v4.0 — Multi-Specialty Clinical Intelligence Platform · Step 2 Deterministic Screening<br />
-        Copyright©RaoufRoshdy2026
+        {getFooterText()} · Step 2 Deterministic Screening
       </footer>
     </div>
   );
