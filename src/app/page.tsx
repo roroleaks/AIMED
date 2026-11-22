@@ -11,7 +11,9 @@ import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
 import type { PicoPreset } from "@/lib/specialties";
 import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
-import { APP_VERSION, getCommitSha, getFooterText } from "@/lib/version";
+import { APP_VERSION } from "@/lib/version";
+import { AppFooter } from "@/components/AppFooter";
+import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
 // sessionStorage is browser-only: useSyncExternalStore provides safe hydration without cascading renders
 function sessionPicoSnapshot(): string {
@@ -186,11 +188,7 @@ export default function Home() {
             <h1>From Clinical Uncertainty to Answerable Questions</h1>
             <p>AI Medical Intelligence · Multi-Specialty Clinical Evidence Platform</p>
           </div>
-          <div className="hdr-right">
-            <span className="version-tag" style={{ fontSize: "0.82rem", color: "#64748b", fontWeight: 600 }}>
-              v{APP_VERSION} ({getCommitSha()}) — draft
-            </span>
-          </div>
+          <AuthorHeaderRight />
         </div>
       </header>
 
@@ -514,9 +512,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
-        {getFooterText()} · Educational & Research Decision Support: always verify formulated questions clinically.
-      </footer>
+      <AppFooter />
 
       {/* Specialty Drop Menu Dialog Choice Modal */}
       {isSpecialtyModalOpen && (

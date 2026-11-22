@@ -8,7 +8,9 @@ import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { useAimedContext } from "@/context/AimedContext";
 import type { PicoWord } from "@/lib/pico-roles";
 import type { ScreenCategory, ScreenPhrase, ScreenPayload } from "@/lib/deterministic-screen";
-import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
+import { DRAFT_DISCLAIMER } from "@/lib/version";
+import { AppFooter } from "@/components/AppFooter";
+import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
 function formatSourceName(id: string): string {
   const map: Record<string, string> = {
@@ -184,6 +186,7 @@ export default function ScreenPage() {
             <h1>Step 2 · Deterministic Screening</h1>
             <p>Three PICO phrases evaluated across authoritative multi-source literature</p>
           </div>
+          <AuthorHeaderRight />
         </div>
       </header>
 
@@ -415,9 +418,7 @@ export default function ScreenPage() {
         )}
       </main>
 
-      <footer>
-        {getFooterText()} · Step 2 Deterministic Screening
-      </footer>
+      <AppFooter stepText="Step 2 Deterministic Screening" />
     </div>
   );
 }

@@ -19,7 +19,9 @@ import {
   type ExploreSnapshot,
   type ChoiceState
 } from "@/lib/summary-payload";
-import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
+import { DRAFT_DISCLAIMER, APP_VERSION } from "@/lib/version";
+import { AppFooter } from "@/components/AppFooter";
+import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
 const CATEGORY_META = {
   established: {
@@ -223,8 +225,18 @@ export default function SummaryPage() {
     return (
       <div className="wrap">
         <header className="hdr">
-          <h1>🧾 Step 4 · Scientific Manuscript</h1>
-          <p>Publication-grade narrative evidence synthesis draft with multi-style citations</p>
+          <div className="hdr-inner">
+            <div className="hdr-left">
+              <span className="title-main">
+                AIMed <span className="version-badge">v{APP_VERSION}</span>
+              </span>
+            </div>
+            <div className="hdr-center">
+              <h1>🧾 Step 4 · Scientific Manuscript</h1>
+              <p>Publication-grade narrative evidence synthesis draft with multi-style citations</p>
+            </div>
+            <AuthorHeaderRight />
+          </div>
         </header>
         <WorkflowStepper currentStep={4} />
         <main id="main" className="solo">
@@ -232,7 +244,7 @@ export default function SummaryPage() {
             <p className="hint">Loading manuscript draft…</p>
           </section>
         </main>
-        <footer>{getFooterText()} · Step 4 Manuscript Summary</footer>
+        <AppFooter stepText="Step 4 Manuscript Summary" />
       </div>
     );
   }
@@ -292,8 +304,18 @@ export default function SummaryPage() {
   return (
     <div className="wrap">
       <header className="hdr">
-        <h1>🧾 Step 4 · Scientific Manuscript</h1>
-        <p>Publication-grade narrative evidence synthesis draft with multi-style citations</p>
+        <div className="hdr-inner">
+          <div className="hdr-left">
+            <span className="title-main">
+              AIMed <span className="version-badge">v{APP_VERSION}</span>
+            </span>
+          </div>
+          <div className="hdr-center">
+            <h1>🧾 Step 4 · Scientific Manuscript</h1>
+            <p>Publication-grade narrative evidence synthesis draft with multi-style citations</p>
+          </div>
+          <AuthorHeaderRight />
+        </div>
       </header>
 
       <WorkflowStepper currentStep={4} />
@@ -715,9 +737,7 @@ export default function SummaryPage() {
         </article>
       </main>
 
-      <footer>
-        {getFooterText()} · Step 4 Manuscript Summary
-      </footer>
+      <AppFooter stepText="Step 4 Manuscript Summary" />
     </div>
   );
 }

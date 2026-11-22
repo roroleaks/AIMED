@@ -19,7 +19,9 @@ import {
   normalizeTitle,
   refCanonicalKeys
 } from "@/lib/explore-scoring";
-import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
+import { DRAFT_DISCLAIMER } from "@/lib/version";
+import { AppFooter } from "@/components/AppFooter";
+import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
 interface ChoiceSession {
   category: "established" | "conflicting" | "gap";
@@ -310,6 +312,7 @@ export default function ExplorePage() {
               <h1>Step 3 · Evidence Explorer</h1>
               <p>Explore literature records ranked by relevance for your selected PICO phrase</p>
             </div>
+            <AuthorHeaderRight />
           </div>
         </header>
         <WorkflowStepper currentStep={3} />
@@ -318,9 +321,7 @@ export default function ExplorePage() {
             <p className="hint">Loading evidence explorer…</p>
           </section>
         </main>
-        <footer>
-          {getFooterText()} · Step 3 Evidence Explorer
-        </footer>
+        <AppFooter stepText="Step 3 Evidence Explorer" />
       </div>
     );
   }
@@ -343,6 +344,7 @@ export default function ExplorePage() {
             <h1>Step 3 · Evidence Explorer</h1>
             <p>Explore literature records ranked by relevance for your selected PICO phrase</p>
           </div>
+          <AuthorHeaderRight />
         </div>
       </header>
 
@@ -670,9 +672,7 @@ export default function ExplorePage() {
         )}
       </main>
 
-      <footer>
-        {getFooterText()} · Step 3 Evidence Explorer
-      </footer>
+      <AppFooter stepText="Step 3 Evidence Explorer" />
     </div>
   );
 }
