@@ -1,8 +1,9 @@
 # Aimed — Multi-Specialty Medical Intelligence Platform
 
-A comprehensive clinical intelligence and evidence synthesis platform designed to transition clinicians and researchers **from clinical uncertainty to answerable PICO questions, literature gap mapping, and publication-grade Vancouver commentary papers across all major medical specialties**.
+A clinical literature exploration and inquiry structuring platform designed to assist clinicians and researchers **transition from clinical questions to structured PICO formulations, literature exploration, and draft academic commentary skeletons across 15 medical specialties**.
 
-Built upon the deterministic evidence integrity architecture of AIPICO and expanded to universal medicine with domain-calibrated taxonomies, international practice guideline authorities, and prompt engineering without specialty bias.
+> **Important Clinical Scope & Methodology Notice:**  
+> AIMed is an automated research exploration tool generating preliminary draft manuscripts. It **does not** conduct formal systematic reviews, does **not** perform risk-of-bias assessments (such as Cochrane RoB 2 or ROBINS-I), does **not** perform GRADE certainty evaluations, and does **not** provide definitive clinical practice advice or treatment recommendations. The application assists users by formulating structured PICO questions, querying open scholarly literature databases, identifying candidate study records, and synthesizing an academic commentary skeleton derived strictly from retrieved abstracts. Clinicians and investigators must independently verify all citations, full texts, and clinical claims.
 
 ---
 
@@ -171,16 +172,13 @@ Visit [http://localhost:3000](http://localhost:3000) to access the landing page 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 421 tests (413 deterministic PASS, 8 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
-npm run validate                      # 4-step pipeline validation (tag words -> gap -> PICO -> commentary)
-npm run test:live                     # Live multi-source queries (all 8 mandatory sources)
-npm run lint                          # ESLint + Secret Scan guard
+npm test                              # 404 tests (397 deterministic PASS, 7 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm run lint                          # ESLint + Secret Scan guard (0 errors, 0 warnings)
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
-npm run build                         # Production Next.js build (12 routes, 0 errors)
-AIMED_OFFLINE_LITERATURE=1 npm start &   # offline server: literature APIs are not called
-node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 90s)
+npm run build                         # Production Next.js build (13 routes, 0 errors)
+node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 60s)
 node scripts/test-all-specialties.mjs --offline --specialty <id> # Single specialty offline run
-node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases (15/15, ~6-7 min)
+node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases (15/15)
 ```
 
 ### 4. Configuration (environment variables)
@@ -217,6 +215,20 @@ git remote add origin https://github.com/<your-username>/Aimed.git
 # Push to GitHub
 git branch -M main
 git push -u origin main
+```
+
+---
+
+## 🚀 Vercel Production Deployment
+
+AIMed is deployed on Vercel (`aimed-pico.vercel.app`):
+- **Production Branch:** `main` (builds automatically on push or PR merge to `main`).
+- **Environment Variables:** Set optional `NCBI_API_KEY`, `OPENALEX_API_KEY`, `S2_API_KEY`, `SERPAPI_API_KEY` in the Vercel Project Settings.
+- **Commit Transparency:** `NEXT_PUBLIC_COMMIT_SHA` is injected at build time from `VERCEL_GIT_COMMIT_SHA` (or fallback git short hash) and displayed directly in the UI footer and in document export footers.
+
+To deploy via Vercel CLI:
+```bash
+vercel --prod
 ```
 
 ---
