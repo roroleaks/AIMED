@@ -1,8 +1,12 @@
 import assert from "node:assert/strict";
 import { SPECIALTIES } from "../src/lib/specialties.ts";
-import { KB } from "../src/lib/kb.ts";
-import { extractPicoFromQuestion } from "../src/lib/pico-parser.ts";
-import { buildOutcomeContext, selectOutcomes } from "../src/lib/outcome-selection.ts";
+import { generateDeterministicScreen } from "../src/lib/deterministic-screen.ts";
+import { assignPicoRoles } from "../src/lib/pico-roles.ts";
+import { scoreRecords } from "../src/lib/explore-scoring.ts";
+import { composeManuscript } from "../src/lib/manuscript-composer.ts";
+import { buildSummaryPayload } from "../src/lib/summary-payload.ts";
+import { buildWorkflowDocx } from "../src/lib/docx-generator.ts";
+import { buildWorkflowPdf } from "../src/lib/pdf-generator.ts";
 import { validateDeliverableIntegrity } from "../src/lib/deliverable-integrity.ts";
 
 const BASE_URL = process.env.AIMED_BASE_URL || "http://localhost:3000";
@@ -40,13 +44,9 @@ if (specialtyFilter && targetSpecialties.length === 0) {
 }
 
 async function runTest() {
-  if (isOffline) {
-    console.log(`[offline] running against deterministic engine; live literature is skipped.`);
-    console.log(`[offline] Literature sources are mandatory and cannot be disabled per request: start the server with AIMED_OFFLINE_LITERATURE=1 for an offline run.\n`);
-  }
   console.log(`======================================================================`);
-  console.log(`🔬 AIMed Multi-Specialty Localhost Stress-Test Suite (${targetSpecialties.length} Specialties)`);
-  console.log(`Target Host: ${BASE_URL}`);
+  console.log(`🔬 AIMed Multi-Specialty Verification Suite (${targetSpecialties.length} Specialties)`);
+  console.log(`Mode: ${isOffline ? "Offline (Deterministic Pipeline Verification)" : `Live (${BASE_URL})`}`);
   console.log(`======================================================================\n`);
 
   let passed = 0;
@@ -61,266 +61,141 @@ async function runTest() {
     console.log(`----------------------------------------------------------------------`);
 
     try {
+      // 1. Definition and Preset Verification
       const def = SPECIALTIES[spec.id];
       assert.ok(def, `Specialty definition for ${spec.id} must exist`);
       assert.equal(def.authorityGuidelines, spec.guidelines, `Guidelines must match exact specification`);
 
       const preset = def.presets[0];
       assert.ok(preset, `At least 1 preset must exist for ${spec.id}`);
-      const tagWords = preset.raw;
-      const tagCount = tagWords.split(",").length;
-      console.log(`  Step 1: Tag Words [Count: ${tagCount}] -> "${tagWords}"`);
-      assert.ok(tagCount >= 4 && tagCount <= 12, `Tag words count must be 4–12`);
+      const rawWords = preset.raw.split(",").map(w => w.trim()).filter(Boolean);
+      assert.ok(rawWords.length >= 3 && rawWords.length <= 5, `Preset raw keywords must be 3-5, got ${rawWords.length}`);
+      const picoWords = assignPicoRoles(rawWords, spec.id);
+      console.log(`  Step 1: Intake & Roles -> ${picoWords.map(w => `${w.role}:"${w.word}"`).join(", ")}`);
 
-      // 1. Test POST /api/engine stage: gap on localhost
-      console.log(`  Step 2: Calling localhost /api/engine stage: "gap"...`);
-      const gapRes = await fetch(`${BASE_URL}/api/engine`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          stage: "gap",
-          input: tagWords,
-          specialty: spec.id,
-        })
-      });
-      assert.equal(gapRes.status, 200, `Stage gap returned status ${gapRes.status}`);
-      const gapData = await gapRes.json();
+      const popWord = picoWords.find(w => w.role === "population")?.word || "";
+      const intWord = picoWords.find(w => w.role === "intervention")?.word || "";
+      const compWord = picoWords.find(w => w.role === "comparator")?.word || "";
+      const outWord = picoWords.find(w => w.role === "outcome")?.word || "";
 
-      assert.ok(Array.isArray(gapData.known), "gapData.known must be an array");
-      assert.equal(gapData.known.length, 4, `Must return exactly 4 established knowledge points, got ${gapData.known.length}`);
-      assert.ok(Array.isArray(gapData.uncertain), "gapData.uncertain must be an array");
-      assert.equal(gapData.uncertain.length, 4, `Must return exactly 4 conflicting evidence points, got ${gapData.uncertain.length}`);
-      assert.ok(Array.isArray(gapData.gaps), "gapData.gaps must be an array");
-      assert.equal(gapData.gaps.length, 4, `Must return exactly 4 research gaps, got ${gapData.gaps.length}`);
-      assert.ok(Array.isArray(gapData.suggestedQuestions), "gapData.suggestedQuestions must be an array");
-      assert.equal(gapData.suggestedQuestions.length, 4, `Must return exactly 4 PICO questions, got ${gapData.suggestedQuestions.length}`);
-
-      console.log(`    ✓ 4 Established Knowledge points verified`);
-      console.log(`    ✓ 4 Conflicting Evidence points verified`);
-      console.log(`    ✓ 4 Research Gaps verified`);
-      console.log(`    ✓ 4 Suggested PICO questions verified`);
-
-      // 2. Step 3: Choose 1 of the 4 PICO questions
-      const selectedPico = gapData.suggestedQuestions[0].question;
-      console.log(`  Step 3: Selected PICO question: "${selectedPico.slice(0, 90)}..."`);
-      assert.ok(selectedPico.includes("(P)") && selectedPico.includes("(I)") && selectedPico.includes("(C)"), "PICO must format P, I, C explicitly");
-
-      const picoParsed = extractPicoFromQuestion(selectedPico, gapData.topic || tagWords, spec.id);
-      assert.ok(picoParsed.condition.length > 0, "Extracted condition (P) must not be empty");
-      assert.ok(picoParsed.intervention.length > 0, "Extracted intervention (I) must not be empty");
-      assert.ok(picoParsed.comparator.length > 0, "Extracted comparator (C) must not be empty");
-      console.log(`    ✓ PICO parsed: P="${picoParsed.condition}", I="${picoParsed.intervention}", C="${picoParsed.comparator}"`);
-
-      // Outcomes Generation
-      const outcomeContext = buildOutcomeContext(
+      const fixtureRecords = [
         {
-          specialty: picoParsed.specialty,
-          condition: picoParsed.condition,
-          intervention: picoParsed.intervention,
-          comparator: picoParsed.comparator,
-          questionType: "Therapy / Prevention"
+          pmid: `31000${String(num).padStart(3, "0")}1`,
+          title: `Randomized trial of ${intWord} versus ${compWord || "standard"} in ${popWord}`,
+          authors: "Smith J, Anderson K, Miller P",
+          year: "2023",
+          journal: "N Engl J Med",
+          doi: `10.1056/nejmoa2300${String(num).padStart(3, "0")}1`,
+          pubType: "Randomized Controlled Trial",
+          context: `In patients with ${popWord}, ${intWord} significantly improved ${outWord} compared to ${compWord || "control"}. Conclusion: ${intWord} is effective for ${outWord}.`
         },
-        {},
         {
-          originalInput: tagWords,
-          population: picoParsed.condition,
-          keywords: [gapData.topic, ...gapData.known.map(k => k.point)]
+          pmid: `31000${String(num).padStart(3, "0")}2`,
+          title: `Prospective cohort study of ${intWord} on ${outWord} in ${popWord}`,
+          authors: "Johnson AB, Davis CL",
+          year: "2022",
+          journal: "Lancet",
+          doi: `10.1016/s0140-6736(22)00${String(num).padStart(3, "0")}2`,
+          pubType: "Comparative Study",
+          context: `This prospective investigation evaluated ${intWord} and observed favorable associations with ${outWord} among ${popWord}.`
         }
-      );
-      const outcomeSelection = selectOutcomes(outcomeContext);
-      let outcomeOptions = outcomeSelection.options;
-      if (outcomeOptions.length < 4) {
-        const ranked = KB[picoParsed.specialty]?.outcomesRanked || [];
-        for (const r of ranked) {
-          if (!outcomeOptions.some(o => o.label.toLowerCase() === r.toLowerCase())) {
-            outcomeOptions.push({
-              id: r.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-              label: r,
-              category: "clinical",
-              rationale: `Standard outcome for ${spec.name}`
-            });
-          }
-          if (outcomeOptions.length >= 6) break;
-        }
-      }
-      outcomeOptions = outcomeOptions.slice(0, 6);
-      assert.ok(outcomeOptions.length >= 4 && outcomeOptions.length <= 6, `Must generate 4–6 outcome options, got ${outcomeOptions.length}`);
-      console.log(`    ✓ Generated ${outcomeOptions.length} clinical outcome options: [${outcomeOptions.map(o => o.label).join(", ")}]`);
+      ];
 
-      // Assert at least one specialty-specific outcome is generated (R1 compliance)
-      const specialtyKeywordsMap = {
-        obgyn: ["preterm", "birth", "pregnancy", "neonatal", "maternal", "preeclampsia"],
-        cardiology: ["cardiovascular", "mortality", "mace", "heart failure", "stroke", "bleeding", "kccq"],
-        oncology: ["survival", "os", "pfs", "orr", "response", "adverse"],
-        pediatrics: ["bpd", "mortality", "picu", "pediatric", "neonatal", "growth"],
-        surgery: ["complication", "surgical", "recurrence", "ssi", "postoperative", "bleeding"],
-        internal_med: ["egfr", "kidney", "mortality", "mace", "cardiovascular", "remission"],
-        neurology: ["mrs", "rankin", "stroke", "hemorrhage", "mortality", "relapse", "recanalization", "independence"],
-        endocrinology: ["hba1c", "weight", "mace", "glucose", "hypoglycemia"],
-        emergency_med: ["mortality", "cpc", "neurological", "icu", "survival", "shock"],
-        psychiatry: ["remission", "relapse", "response", "madrs", "ham-d", "discontinuation"],
-        orthopedics: ["koos", "womac", "function", "survivorship", "pain", "revision"],
-        pulmonology: ["exacerbation", "fev1", "fvc", "mortality", "sgrq", "dyspnea"],
-        gastroenterology: ["mucosal", "remission", "mash", "fibrosis", "healing", "recurrence"],
-        infectious_disease: ["mortality", "cure", "clearance", "eradication", "bacteremia"],
-        dermatology: ["pasi", "easi", "viga", "pruritus", "skin", "clearance", "dlqi"]
+      // 2. Step 2 Screening
+      const screenResult = generateDeterministicScreen(picoWords, fixtureRecords);
+      assert.ok(screenResult.phrases.established, "Must return established evidence category");
+      assert.ok(screenResult.phrases.conflicting, "Must return conflicting evidence category");
+      assert.ok(screenResult.phrases.gap, "Must return gap evidence category");
+      assert.ok(!screenResult.phrases.established.phrase.includes("[comparator not specified]") || !picoWords.some(w => w.role === "comparator"), "Comparator must not be default bracketed when present");
+      console.log(`  Step 2: Screening -> established, conflicting, and gap categories verified`);
+
+      // 3. Step 3 Explore (Scoring with fixture records)
+      const chosenCategory = "established";
+      const chosenPhrase = screenResult.phrases[chosenCategory].phrase;
+
+      const scored = scoreRecords(fixtureRecords, chosenPhrase, chosenCategory, []);
+      assert.ok(scored.scored.length >= 1, "At least 1 record scored");
+      assert.ok(scored.scored[0].relevancePct >= 15, "Top record meets relevance threshold");
+      console.log(`  Step 3: Explore -> Scored ${scored.scored.length} records (Top: ${scored.scored[0].relevancePct}%)`);
+
+      // 4. Step 4 Manuscript Composition
+      const choice = {
+        category: chosenCategory,
+        phrase: chosenPhrase
       };
-      const expectedKeywords = specialtyKeywordsMap[spec.id] || [];
-      const hasDomainOutcome = outcomeOptions.some(o =>
-        expectedKeywords.some(kw => o.label.toLowerCase().includes(kw))
-      );
-      assert.ok(
-        hasDomainOutcome,
-        `Outcome options for ${spec.name} must include at least one domain-specific clinical endpoint (expected one of: ${expectedKeywords.join(", ")})`
-      );
-      console.log(`    ✓ Domain-specific clinical outcome verified for ${spec.name}`);
+      const screeningStats = {
+        retrieved: 2,
+        screened: 2,
+        relaxationLevel: 0,
+        excludedCount: 0
+      };
 
-      // Pick 1 outcome
-      const chosenOutcome = outcomeOptions[0].label;
-      console.log(`  Step 4: Chosen Outcome: "${chosenOutcome}"`);
-
-      // 3. Formulate Question API on localhost
-      console.log(`  Step 5: Calling localhost /api/engine stage: "formulate"...`);
-      const formulateRes = await fetch(`${BASE_URL}/api/engine`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          stage: "formulate",
-          analysis: {
-            specialty: spec.id,
-            specialtyLabel: spec.name,
-            condition: picoParsed.condition,
-            intervention: picoParsed.intervention,
-            comparator: picoParsed.comparator,
-            questionType: "Therapy / Prevention",
-            framework: "PICO",
-            missing: [],
-            interpretation: `PICO targeting ${picoParsed.condition}`
-          },
-          answered: {
-            condition: picoParsed.condition,
-            intervention: picoParsed.intervention,
-            comparator: picoParsed.comparator,
-            outcome: chosenOutcome
-          },
-          selectedQuestion: selectedPico
-        })
+      const manuscript = composeManuscript({
+        words: picoWords,
+        category: chosenCategory,
+        phrase: chosenPhrase,
+        screeningStats,
+        records: scored.scored,
+        specialty: spec.id,
+        style: "vancouver"
       });
-      assert.equal(formulateRes.status, 200, `Stage formulate returned status ${formulateRes.status}`);
-      const formulateData = await formulateRes.json();
-      assert.ok(formulateData.finalQuestion, "Formulation must produce finalQuestion");
-      assert.ok(Array.isArray(formulateData.elements), "Formulation must produce elements");
-      console.log(`    ✓ Formulated Question: "${formulateData.finalQuestion.slice(0, 90)}..."`);
 
-      // 4. Generate Commentary on localhost
-      console.log(`  Step 6: Calling localhost /api/engine stage: "commentary"...`);
-      if (isOffline && gapData.known && gapData.known[0]) {
-        gapData.known[0].references = [
-          {
-            pmid: `31000${String(num).padStart(3, "0")}`,
-            title: `Evaluation of ${picoParsed.intervention} in patients with ${picoParsed.condition}`,
-            authors: "Smith J, Anderson K, Miller P",
-            year: "2023",
-            journal: "N Engl J Med",
-            doi: `10.1056/nejmoa2300${String(num).padStart(3, "0")}`,
-            pubType: "Randomized Controlled Trial",
-            context: `In patients with ${picoParsed.condition}, treatment with ${picoParsed.intervention} compared to ${picoParsed.comparator} improved ${chosenOutcome}.`
-          }
-        ];
-      }
-      const commRes = await fetch(`${BASE_URL}/api/engine`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          stage: "commentary",
-          topic: tagWords,
-          specialty: spec.id,
-          gapAnalysis: gapData,
-          selectedQuestion: formulateData.finalQuestion,
-          outcome: chosenOutcome,
-          picoElements: formulateData.elements
-        })
-      });
-      if (commRes.status !== 200) {
-        const errText = await commRes.text();
-        console.error(`    ❌ Commentary error response (${commRes.status}):`, errText);
-      }
-      assert.equal(commRes.status, 200, `Stage commentary returned status ${commRes.status}`);
-      const commData = await commRes.json();
-      assert.ok(commData.title && commData.title.length > 5, "Commentary must return title");
-      assert.ok(commData.abstract && commData.abstract.length > 20, "Commentary must return abstract");
-      assert.ok(commData.introduction && commData.introduction.length > 20, "Commentary must return introduction");
-      assert.ok(commData.methods && commData.methods.length > 20, "Commentary must return methods");
-      assert.ok(commData.results && commData.results.length > 20, "Commentary must return results");
-      assert.ok(commData.discussion && commData.discussion.length > 20, "Commentary must return discussion");
-      assert.ok(commData.conclusion && commData.conclusion.length > 20, "Commentary must return conclusion");
-      assert.ok(Array.isArray(commData.references), "Commentary must return references array");
-      assert.ok(commData.references.length >= 1, `Commentary references must be >= 1, got ${commData.references.length}`);
-      console.log(`    ✓ Commentary Paper: "${commData.title}"`);
-      console.log(`    ✓ References Count: ${commData.references.length} (Vancouver style)`);
+      assert.equal(manuscript.sections.length, 5, "Manuscript must have 5 structured sections");
+      assert.ok(manuscript.abstract.length >= 2, "Abstract must have at least 2 sentences");
+      assert.ok(manuscript.references.length >= 1, "Must have references");
+      const conclusionSec = manuscript.sections.find(s => s.heading === "Conclusion");
+      assert.ok(conclusionSec && conclusionSec.paragraphs.length >= 1, "Must have conclusion section");
+      assert.ok(conclusionSec.paragraphs[0].length > 10, "Conclusion paragraph must be derived and non-empty");
+      console.log(`  Step 4: Compose -> 5 IMRaD sections, ${manuscript.references.length} references, evidence derived`);
 
-      // Deliverable Integrity Gate
+      // 5. Deliverable Integrity Gate
+      const narrativeFields = {
+        abstract: manuscript.abstract.join(" "),
+        ...Object.fromEntries(manuscript.sections.map(s => [s.heading.toLowerCase(), s.paragraphs.join(" ")]))
+      };
       const integrity = validateDeliverableIntegrity({
-        fields: {
-          abstract: commData.abstract,
-          introduction: commData.introduction,
-          methods: commData.methods,
-          results: commData.results,
-          discussion: commData.discussion,
-          conclusion: commData.conclusion
-        },
-        references: commData.references,
-        retainedRecords: commData.fetchedReferences || []
+        fields: narrativeFields,
+        references: manuscript.references,
+        retainedRecords: scored.scored,
+        exportReferences: manuscript.references
       });
-      assert.ok(integrity.ok, `Deliverable integrity check failed: ${JSON.stringify(integrity)}`);
+      assert.ok(integrity.ok, `Integrity gate failed: ${JSON.stringify(integrity)}`);
       console.log(`    ✓ Deliverable Integrity Gate: PASSED (zero orphan or unverified citations)`);
 
-      // 5. Test PDF Exports on localhost
-      console.log(`  Step 7: Testing PDF exports via localhost /api/pdf...`);
-      const pdfCommRes = await fetch(`${BASE_URL}/api/pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          docType: "Scientific Commentary",
-          title: commData.title,
-          meta: `Aimed · ${spec.name} · ${spec.guidelines}`,
-          pico: formulateData.elements,
-          outcomes: [chosenOutcome],
-          sections: commData.sections && commData.sections.length > 0 ? commData.sections : [
-            { heading: "Abstract", blocks: [commData.abstract] },
-            { heading: "Introduction", blocks: [commData.introduction] },
-            { heading: "Methods", blocks: [commData.methods] },
-            { heading: "Results", blocks: [commData.results] },
-            { heading: "Discussion", blocks: [commData.discussion] },
-            { heading: "Conclusion", blocks: [commData.conclusion] }
-          ],
-          references: commData.references,
-          retainedReferences: commData.fetchedReferences || []
-        })
-      });
-      if (pdfCommRes.status !== 200) console.error(`    ❌ PDF error response (${pdfCommRes.status}):`, (await pdfCommRes.clone().text()).slice(0, 1500));
-      assert.equal(pdfCommRes.status, 200, `Commentary PDF export returned status ${pdfCommRes.status}`);
-      const pdfCommBlob = await pdfCommRes.arrayBuffer();
-      assert.ok(pdfCommBlob.byteLength > 1000, `Commentary PDF size must be > 1000 bytes, got ${pdfCommBlob.byteLength}`);
-      console.log(`    ✓ Commentary PDF Generated (${pdfCommBlob.byteLength} bytes, application/pdf)`);
+      // 6. Exports Generation (DOCX and PDF)
+      const summaryPayload = buildSummaryPayload(
+        picoWords,
+        choice,
+        { phrases: screenResult.phrases },
+        { records: scored.scored },
+        { userExcluded: [], seen: [] },
+        manuscript,
+        spec.id
+      );
 
-      const pdfRefsRes = await fetch(`${BASE_URL}/api/pdf`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          docType: "Reference List · Vancouver Style",
-          title: commData.title,
-          meta: `Aimed Medical Intelligence · ${spec.name}`,
-          pico: formulateData.elements,
-          outcomes: [chosenOutcome],
-          references: commData.references,
-          retainedReferences: commData.fetchedReferences || []
-        })
-      });
-      assert.equal(pdfRefsRes.status, 200, `References PDF export returned status ${pdfRefsRes.status}`);
-      const pdfRefsBlob = await pdfRefsRes.arrayBuffer();
-      assert.ok(pdfRefsBlob.byteLength > 500, `References PDF size must be > 500 bytes, got ${pdfRefsBlob.byteLength}`);
-      console.log(`    ✓ Vancouver References PDF Generated (${pdfRefsBlob.byteLength} bytes, application/pdf)`);
+      const docxBuffer = await buildWorkflowDocx(summaryPayload);
+      assert.ok(docxBuffer.byteLength > 1000, `DOCX buffer must be > 1000 bytes, got ${docxBuffer.byteLength}`);
+      console.log(`    ✓ Workflow DOCX Generated (${docxBuffer.byteLength} bytes)`);
+
+      const pdfBuffer = await buildWorkflowPdf(summaryPayload);
+      assert.ok(pdfBuffer.byteLength > 1000, `PDF buffer must be > 1000 bytes, got ${pdfBuffer.byteLength}`);
+      console.log(`    ✓ Workflow PDF Generated (${pdfBuffer.byteLength} bytes)`);
+
+      // 7. Live mode API test if not offline
+      if (!isOffline) {
+        console.log(`  Step 7: Verifying live localhost API endpoints...`);
+        const screenRes = await fetch(`${BASE_URL}/api/engine`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            stage: "screen",
+            words: picoWords,
+            specialty: spec.id
+          })
+        });
+        assert.equal(screenRes.status, 200, `Live screen status ${screenRes.status}`);
+        console.log(`    ✓ Live API screen stage passed`);
+      }
 
       console.log(`>>> RESULT [${num}/${targetSpecialties.length}] ${spec.name}: ✅ PASSED ALL CHECKS`);
       passed++;
@@ -332,7 +207,7 @@ async function runTest() {
   }
 
   console.log(`\n======================================================================`);
-  console.log(`🏁 Multi-Specialty Localhost Test Suite Completed`);
+  console.log(`🏁 Multi-Specialty Test Suite Completed`);
   console.log(`Total Specialties: ${targetSpecialties.length}`);
   console.log(`Passed: ${passed}`);
   console.log(`Failed: ${failed}`);

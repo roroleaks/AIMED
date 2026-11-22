@@ -3,7 +3,7 @@
 import { useState, useMemo, useCallback, useRef, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { sset, KEYS } from "@/lib/session";
+import { sset, resetSession, KEYS } from "@/lib/session";
 import { assignPicoRoles, type PicoRole, type PicoWord } from "@/lib/pico-roles";
 import { useAimedContext } from "@/context/AimedContext";
 import { SpecialtySelector } from "@/components/SpecialtySelector";
@@ -118,7 +118,7 @@ export default function Home() {
     const nextWords = words.filter((_, idx) => idx !== indexToRemove);
     setRawInput(nextWords.join(", "));
     setSavedNotice(null);
-  }, [words, setRawInput]);
+  }, [words, setRawInput, setSavedNotice]);
 
   // Validation: 3 to 5 non-empty clinical keywords required
   const canSubmit = words.length >= 3 && words.length <= 5;
@@ -490,10 +490,25 @@ export default function Home() {
             {/* Patient Privacy Notice */}
             <PhiNotice />
 
-            <div className="row" style={{ marginTop: 16 }}>
+            <div className="row" style={{ marginTop: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
               <button className="primary" onClick={start} type="submit" disabled={!canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>
                 Save words
               </button>
+              {(rawInput || picoWords.length > 0) && (
+                <button
+                  type="button"
+                  className="secondary"
+                  onClick={() => {
+                    resetSession();
+                    setRawInput("");
+                    setSavedNotice(null);
+                  }}
+                  style={{ padding: "12px 20px", fontSize: "0.95rem" }}
+                  title="Clear all inputs and reset session state"
+                >
+                  ↺ Start a new question
+                </button>
+              )}
             </div>
           </form>
         </section>

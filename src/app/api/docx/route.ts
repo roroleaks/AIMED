@@ -14,13 +14,14 @@ import {
   BorderStyle,
   Header,
   Footer,
-  PageNumber
+  PageNumber,
+  HeadingLevel
 } from "docx";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { buildWorkflowDocx } from "@/lib/docx-generator";
+import { buildWorkflowDocx, parseFormattedDocxRuns } from "@/lib/docx-generator";
 import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 export const runtime = "nodejs";
@@ -119,56 +120,7 @@ const docxPayloadSchema = z.object({
 const BODY_MAX = 400_000;
 
 function parseFormattedRuns(text: string, style: "vancouver" | "apa" | "harvard" = "vancouver"): TextRun[] {
-  const runs: TextRun[] = [];
-  // Split by markdown bold **...**
-  const boldParts = text.split(/\*\*(.*?)\*\*/);
-
-  for (let bIdx = 0; bIdx < boldParts.length; bIdx++) {
-    const isBold = bIdx % 2 === 1;
-    const part = boldParts[bIdx];
-    if (!part) continue;
-
-    if (style === "vancouver") {
-      // Numerical citations: [1], [1, 2], [1-3]
-      const citeParts = part.split(/(\[[\d\s,\-]+\])/);
-      for (const cp of citeParts) {
-        if (/^\[([\d\s,\-]+)\]$/.test(cp)) {
-          const num = cp.replace(/[\[\]]/g, "");
-          runs.push(
-            new TextRun({
-              text: num,
-              superScript: true,
-              bold: true,
-              color: "0F766E",
-              font: "Arial"
-            })
-          );
-        } else if (cp) {
-          runs.push(
-            new TextRun({
-              text: cp,
-              bold: isBold,
-              color: isBold ? "0F172A" : "1E293B",
-              font: "Arial",
-              size: 22
-            })
-          );
-        }
-      }
-    } else {
-      runs.push(
-        new TextRun({
-          text: part,
-          bold: isBold,
-          color: isBold ? "0F172A" : "1E293B",
-          font: "Arial",
-          size: 22
-        })
-      );
-    }
-  }
-
-  return runs.length ? runs : [new TextRun({ text, font: "Arial", size: 22 })];
+  return parseFormattedDocxRuns(text, style);
 }
 
 export async function POST(req: Request) {
@@ -347,13 +299,14 @@ export async function POST(req: Request) {
       })
     );
 
-    // Document Title (Heading 1)
+    // Document Title (Title)
     docChildren.push(
       new Paragraph({
+        heading: HeadingLevel.TITLE,
         spacing: { before: 120, after: 240 },
         children: [
           new TextRun({
-            text: title,
+            text: title.replace(/<[^>]*>/g, ""),
             font: "Arial",
             size: 38,
             bold: true,
@@ -491,6 +444,7 @@ export async function POST(req: Request) {
     if (Array.isArray(body.pico) && body.pico.length) {
       docChildren.push(
         new Paragraph({
+          heading: HeadingLevel.HEADING_1,
           spacing: { before: 200, after: 120 },
           children: [
             new TextRun({
@@ -562,7 +516,7 @@ export async function POST(req: Request) {
         new Paragraph({
           spacing: { after: 180 },
           children: [
-            new TextRun({ text: "Keywords (MeSH): ", bold: true, font: "Arial", size: 21, color: "0F172A" }),
+            new TextRun({ text: "Keywords: ", bold: true, font: "Arial", size: 21, color: "0F172A" }),
             new TextRun({ text: body.keywords.join("; "), italics: true, font: "Arial", size: 21, color: "475569" })
           ]
         })
@@ -637,6 +591,7 @@ export async function POST(req: Request) {
         if (section.heading) {
           docChildren.push(
             new Paragraph({
+              heading: HeadingLevel.HEADING_1,
               spacing: { before: 280, after: 140 },
               children: [
                 new TextRun({
@@ -679,9 +634,10 @@ export async function POST(req: Request) {
 
             // Check heading
             if (/^#{1,4}\s+/.test(rawSub)) {
-              const headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
+              const headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").replace(/<[^>]*>/g, "").trim();
               docChildren.push(
                 new Paragraph({
+                  heading: HeadingLevel.HEADING_2,
                   spacing: { before: 200, after: 100 },
                   children: [
                     new TextRun({
@@ -738,6 +694,7 @@ export async function POST(req: Request) {
     if (Array.isArray(body.references) && body.references.length) {
       docChildren.push(
         new Paragraph({
+          heading: HeadingLevel.HEADING_1,
           spacing: { before: 320, after: 140 },
           children: [
             new TextRun({
@@ -762,15 +719,8 @@ export async function POST(req: Request) {
             // Left-aligned: justifying a reference that ends in a long DOI and URL stretched the
             // spaces between the other words into wide gaps.
             alignment: AlignmentType.LEFT,
-            indent: { left: 360, hanging: 360 },
-            children: [
-              new TextRun({
-                text: formattedEntry,
-                font: "Arial",
-                size: 20,
-                color: "1E293B"
-              })
-            ]
+            indent: { left: 720, hanging: 720 },
+            children: parseFormattedRuns(formattedEntry, style)
           })
         );
       });

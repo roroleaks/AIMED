@@ -2,7 +2,17 @@ import PDFDocument from "pdfkit";
 import fs from "node:fs";
 import path from "node:path";
 import type { WorkflowExportData } from "./summary-payload.ts";
-import { getFooterText, DRAFT_DISCLAIMER } from "./version.ts";
+import { getFooterText, DRAFT_DISCLAIMER, APP_VERSION } from "./version.ts";
+
+export function sanitizePdfText(text: string): string {
+  return text
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/<[^>]*>/g, "");
+}
 
 export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Buffer> {
   const PAGE_MARGIN = 54;
@@ -44,12 +54,12 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
   const titleText = workflow.title || workflow.phrase;
   doc.font(FONT_B).fontSize(8).fillColor(muted).text("WORKFLOW SUMMARY", { align: "center" });
   doc.moveDown(0.4);
-  doc.font(FONT_B).fontSize(16).fillColor(ink).text(titleText, { align: "center" });
+  doc.font(FONT_B).fontSize(16).fillColor(ink).text(sanitizePdfText(titleText), { align: "center" });
   doc.moveDown(0.4);
   const categoryLabel = workflow.category;
   const specialtySuffix = workflow.specialtyLabel ? ` · ${workflow.specialtyLabel}` : "";
   doc.font(FONT_O).fontSize(9.5).fillColor(muted).text(
-    `AIMed workflow summary — ${categoryLabel} evidence focus${specialtySuffix}`,
+    sanitizePdfText(`AIMed workflow summary — ${categoryLabel} evidence focus${specialtySuffix}`),
     { align: "center" }
   );
   doc.moveDown(0.8);
@@ -61,7 +71,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
   doc.rect(doc.page.margins.left, discTop, discWidth, 38).fillColor("#fef3c7").strokeColor("#f59e0b").lineWidth(0.75).fillAndStroke();
   doc.font(FONT_B).fontSize(8.5).fillColor("#92400e").text("AUTOMATED DRAFT:", doc.page.margins.left + 12, discTop + 5);
   doc.font(FONT_O).fontSize(8).fillColor("#92400e").text(
-    DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, ""),
+    sanitizePdfText(DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")),
     doc.page.margins.left + 12,
     discTop + 16,
     { width: discWidth - 24, lineGap: 1.5 }
@@ -76,7 +86,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
       doc.moveDown(0.3);
       for (const sent of workflow.abstract) {
         reserveSpace(20);
-        doc.font(FONT).fontSize(9.5).fillColor(ink).text(sent, { lineGap: 2.5 });
+        doc.font(FONT).fontSize(9.5).fillColor(ink).text(sanitizePdfText(sent), { lineGap: 2.5 });
         doc.moveDown(0.2);
       }
       doc.moveDown(0.5);
@@ -85,12 +95,19 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
     // Manuscript Sections
     for (const sec of workflow.sections) {
       reserveSpace(36);
-      doc.font(FONT_B).fontSize(12).fillColor(teal).text(sec.heading);
+      doc.font(FONT_B).fontSize(12).fillColor(teal).text(sanitizePdfText(sec.heading));
       doc.moveDown(0.3);
       for (const p of sec.paragraphs) {
-        reserveSpace(28);
-        doc.font(FONT).fontSize(9.5).fillColor(ink).text(p, { lineGap: 2.5 });
-        doc.moveDown(0.3);
+        if (/^#{2,4}\s+/.test(p)) {
+          const subHeading = sanitizePdfText(p.replace(/^#{2,4}\s+/, "").replace(/\*\*/g, "").trim());
+          reserveSpace(28);
+          doc.font(FONT_B).fontSize(10.5).fillColor("#134e4a").text(subHeading);
+          doc.moveDown(0.2);
+        } else {
+          reserveSpace(28);
+          doc.font(FONT).fontSize(9.5).fillColor(ink).text(sanitizePdfText(p), { lineGap: 2.5 });
+          doc.moveDown(0.3);
+        }
       }
       doc.moveDown(0.4);
     }
@@ -104,7 +121,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
     if (workflow.references && workflow.references.length > 0) {
       for (const refLine of workflow.references) {
         reserveSpace(24);
-        doc.font(FONT).fontSize(8.5).fillColor(ink).text(refLine, { lineGap: 2 });
+        doc.font(FONT).fontSize(8.5).fillColor(ink).text(sanitizePdfText(refLine), { lineGap: 2 });
         doc.moveDown(0.2);
       }
     } else {
@@ -137,7 +154,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
 
     if (i > range.start) {
       doc.font(FONT_O).fontSize(8).fillColor(muted).text(
-        "AIMed v4.0 · Workflow Summary · Evidence-Based Medicine",
+        `AIMed v${APP_VERSION} · Workflow Summary · Evidence-Based Medicine`,
         fLeft,
         24,
         { width: fWidth, align: "right", lineBreak: false }

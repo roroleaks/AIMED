@@ -388,7 +388,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
       return `"${r.title}" (${authorText}, ${r.year || "n.d."}) ${itemCite} (no direct outcome sentence extractable from abstract)`;
     });
 
-    synthesisParagraphs.push(`Study extractions: ${studySentences.join("; ")}.`);
+    synthesisParagraphs.push(`Study extractions: ${studySentences.join(". ")}.`);
 
     // Per-study extraction table (P0-3)
     const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction | Risk of Bias |";

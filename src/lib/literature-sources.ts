@@ -1155,11 +1155,17 @@ export function articleIdentityKeys(art: { pmid?: string; doi?: string; title?: 
   const doi = normalizeDoi(art.doi || "");
   if (doi) keys.push(`doi:${doi}`);
   const pmid = String(art.pmid || "").trim();
-  if (/^\d+$/.test(pmid)) keys.push(`pmid:${pmid}`);
-  else if (/^doi:/i.test(pmid)) {
+  if (/^\d+$/.test(pmid)) {
+    keys.push(`pmid:${pmid}`);
+  } else if (/^doi:/i.test(pmid)) {
     const d = normalizeDoi(pmid.slice(4));
     if (d) keys.push(`doi:${d}`);
-  } else if (pmid) keys.push(`id:${pmid.toLowerCase()}`);
+  } else if (/^(?:pmcid:)?pmc\d+$/i.test(pmid)) {
+    const cleanPmc = pmid.replace(/^pmcid:/i, "").toLowerCase();
+    keys.push(`pmcid:${cleanPmc}`);
+  } else if (pmid) {
+    keys.push(`id:${pmid.toLowerCase()}`);
+  }
   const cleanTitle = String(art.title || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 60);
   if (cleanTitle.length > 15) keys.push(`t:${cleanTitle}`);
   return Array.from(new Set(keys));

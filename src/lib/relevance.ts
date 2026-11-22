@@ -322,16 +322,20 @@ export function auditRef(ref: AuditableRef, elements: PicoElement[]): RefAudit {
   const matchFor = (type: "population" | "intervention" | "comparator" | "outcome"): boolean => {
     const el = byType[type];
     if (!el || !el.value || el.value.replace(/[^a-zA-Z]/g, "").length < 2) return false;
-    const toks = sigTokens(el.value);
-    if (!toks.length) return false;
     const normCtx = synonymize(ctx).replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
-    const phrase = synonymize(el.value).replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
-    if (phrase.length >= 6 && hasUnnegatedPhrase(normCtx, phrase)) return true;
-    const needed = toks.length === 1 ? 1 : 2;
-    let hits = 0;
-    for (const t of toks) {
-      if (!hasUnnegatedMention(normCtx, t)) continue;
-      if (++hits >= needed) return true;
+    const alternatives = el.value.split(/\s+or\s+/i).map(s => s.trim()).filter(Boolean);
+
+    for (const alt of alternatives) {
+      const toks = sigTokens(alt);
+      if (!toks.length) continue;
+      const phrase = synonymize(alt).replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+      if (phrase.length >= 6 && hasUnnegatedPhrase(normCtx, phrase)) return true;
+      const needed = toks.length === 1 ? 1 : 2;
+      let hits = 0;
+      for (const t of toks) {
+        if (!hasUnnegatedMention(normCtx, t)) continue;
+        if (++hits >= needed) return true;
+      }
     }
     return false;
   };

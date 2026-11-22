@@ -6,7 +6,7 @@ import path from "node:path";
 import { validateDeliverableIntegrity } from "@/lib/deliverable-integrity";
 import { lintManuscriptQuality, type ManuscriptSection } from "@/lib/manuscript-quality";
 import type { AuditableRef } from "@/lib/relevance";
-import { buildWorkflowPdf } from "@/lib/pdf-generator";
+import { buildWorkflowPdf, sanitizePdfText } from "@/lib/pdf-generator";
 import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
 
 export const runtime = "nodejs";
@@ -304,8 +304,8 @@ export async function POST(req: Request) {
       const size = opts.size ?? 10.5;
       const lineGap = opts.lineGap ?? 3.5;
       const m = /^\*\*([^*]{1,80}?)\*\*\s*([\s\S]*)$/.exec(raw.trim());
-      const label = m ? m[1].trim() : "";
-      const rest = (m ? m[2] : raw).replace(/\*\*/g, "").replace(/[*_`~]/g, "").trim();
+      const label = m ? sanitizePdfText(m[1].trim()) : "";
+      const rest = sanitizePdfText((m ? m[2] : raw).replace(/\*\*/g, "").replace(/[*_`~]/g, "").trim());
       const h = doc.font(FONT).fontSize(size).heightOfString(`${label} ${rest}`, { width, lineGap });
       ensure(Math.min(h, 60));
       doc.x = x;
@@ -322,7 +322,7 @@ export async function POST(req: Request) {
       if (doc.y + needed > doc.page.height - doc.page.margins.bottom) doc.addPage();
     };
 
-    const title = String(body.title).trim();
+    const title = sanitizePdfText(String(body.title).trim());
     doc.font(FONT_B).fontSize(8).fillColor(muted).text(String(body.docType || "Document").toUpperCase(), { align: "center" });
     doc.moveDown(0.5);
     doc.font(FONT_B).fontSize(19).fillColor(ink).text(title, { align: "center" });
@@ -447,7 +447,7 @@ export async function POST(req: Request) {
         if (!section || !Array.isArray(section.blocks) || !section.blocks.length) continue;
         if (section.heading) {
           ensure(46);
-          doc.font(FONT_B).fontSize(13).fillColor(teal).text(String(section.heading), LEFT, doc.y, { width: FULL_W });
+          doc.font(FONT_B).fontSize(13).fillColor(teal).text(sanitizePdfText(String(section.heading)), LEFT, doc.y, { width: FULL_W });
           doc.moveDown(0.15);
           doc.moveTo(doc.page.margins.left, doc.y).lineTo(doc.page.width - doc.page.margins.right, doc.y).strokeColor(teal).lineWidth(1.2).stroke();
           doc.moveDown(0.4);
@@ -481,7 +481,7 @@ export async function POST(req: Request) {
             // Check if subBlock is a markdown heading
             if (/^#{1,4}\s+/.test(rawSub)) {
               let headTitle = rawSub.replace(/^#{1,4}\s+/, "").replace(/\*\*/g, "").trim();
-              headTitle = normalizeVancouver(headTitle, body.citationStyle);
+              headTitle = sanitizePdfText(normalizeVancouver(headTitle, body.citationStyle));
               ensure(32);
               doc.moveDown(0.2);
               doc.font(FONT_B).fontSize(11.5).fillColor("#14535a").text(headTitle, LEFT, doc.y, {
@@ -499,7 +499,7 @@ export async function POST(req: Request) {
                 .map(it => it.replace(/^[-•*]\s+/, "").trim())
                 .filter(Boolean);
               for (const it of items) {
-                const cleanIt = normalizeVancouver(it, body.citationStyle);
+                const cleanIt = sanitizePdfText(normalizeVancouver(it, body.citationStyle));
                 doc.font(FONT).fontSize(10.5);
                 ensure(Math.min(doc.heightOfString(cleanIt.replace(/\*\*/g, ""), { width: FULL_W - 18 }), 48) + 6);
                 const bulletY = doc.y;
@@ -513,10 +513,8 @@ export async function POST(req: Request) {
             }
 
             // Normal paragraph (a leading "**Label:**" is rendered as a bold run-in)
-            let text = rawSub.replace(/[_#`~]/g, "").trim();
+            const text = sanitizePdfText(normalizeVancouver(rawSub.replace(/[_#`~]/g, "").trim(), body.citationStyle));
             if (!text.replace(/\*/g, "").trim()) continue;
-            // In Vancouver style, numerical citations must be unbracketed: e.g. [1] -> 1, [1, 2] -> 1, 2, [1-3] -> 1-3
-            text = normalizeVancouver(text, body.citationStyle);
             const plain = text.replace(/\*\*/g, "");
             const shortHead = plain.length < 70 && !/[.!?:]\s*$/.test(plain) && !/^\*\*/.test(text);
             if (shortHead) {
@@ -552,7 +550,7 @@ export async function POST(req: Request) {
       doc.font(FONT).fontSize(10).fillColor(ink);
       const width = doc.page.width - doc.page.margins.left - doc.page.margins.right;
       body.references.forEach((r, i) => {
-        const text = String(r || "").replace(/^\[?\d+\]?[\.\)]?\s*/, "");
+        const text = sanitizePdfText(String(r || "").replace(/^\[?\d+\]?[\.\)]?\s*/, ""));
         const numbered = !(body.citationStyle === "apa" || body.citationStyle === "harvard");
         doc.font(FONT).fontSize(10);
         const h = doc.heightOfString(text, { width: width - 22, lineGap: 2.5 });

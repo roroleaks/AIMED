@@ -8,10 +8,94 @@ import {
   TableCell,
   WidthType,
   AlignmentType,
-  BorderStyle
+  BorderStyle,
+  HeadingLevel
 } from "docx";
 import type { WorkflowExportData } from "./summary-payload.ts";
 import { getFooterText, DRAFT_DISCLAIMER } from "./version.ts";
+
+export function decodeEntities(str: string): string {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+export function parseFormattedDocxRuns(text: string, style = "vancouver"): TextRun[] {
+  const cleaned = decodeEntities(text);
+  const runs: TextRun[] = [];
+
+  // Match markdown bold **...** and html italics <i>...</i> or <em>...</em>
+  // Strip any remaining html tags
+  const tokens = cleaned.split(/(\*\*.*?\*\*|<(?:i|em)>.*?<\/(?:i|em)>)/);
+
+  for (const token of tokens) {
+    if (!token) continue;
+    if (token.startsWith("**") && token.endsWith("**")) {
+      const inner = token.slice(2, -2).replace(/<[^>]*>/g, "");
+      runs.push(
+        new TextRun({
+          text: inner,
+          bold: true,
+          font: "Arial",
+          size: 20,
+          color: "0F172A"
+        })
+      );
+    } else if (/^<(?:i|em)>(.*?)<\/(?:i|em)>$/.test(token)) {
+      const inner = token.replace(/^<(?:i|em)>|<\/(?:i|em)>$/g, "").replace(/<[^>]*>/g, "");
+      runs.push(
+        new TextRun({
+          text: inner,
+          italics: true,
+          font: "Arial",
+          size: 20,
+          color: "334155"
+        })
+      );
+    } else {
+      const stripped = token.replace(/<[^>]*>/g, "");
+      if (style === "vancouver") {
+        const citeParts = stripped.split(/(\[[\d\s,\-]+\])/);
+        for (const cp of citeParts) {
+          if (/^\[([\d\s,\-]+)\]$/.test(cp)) {
+            runs.push(
+              new TextRun({
+                text: cp,
+                superScript: true,
+                bold: true,
+                color: "0F766E",
+                font: "Arial"
+              })
+            );
+          } else if (cp) {
+            runs.push(
+              new TextRun({
+                text: cp,
+                font: "Arial",
+                size: 20,
+                color: "334155"
+              })
+            );
+          }
+        }
+      } else {
+        runs.push(
+          new TextRun({
+            text: stripped,
+            font: "Arial",
+            size: 20,
+            color: "334155"
+          })
+        );
+      }
+    }
+  }
+
+  return runs.length ? runs : [new TextRun({ text: cleaned.replace(/<[^>]*>/g, ""), font: "Arial", size: 20 })];
+}
 
 export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<Buffer> {
   const docChildren: (Paragraph | Table)[] = [];
@@ -20,11 +104,12 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
   const titleText = workflow.title || workflow.phrase;
   docChildren.push(
     new Paragraph({
+      heading: HeadingLevel.TITLE,
       alignment: AlignmentType.CENTER,
       spacing: { before: 200, after: 100 },
       children: [
         new TextRun({
-          text: titleText,
+          text: titleText.replace(/<[^>]*>/g, ""),
           font: "Arial",
           size: 36,
           bold: true,
@@ -109,6 +194,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     if (workflow.abstract && workflow.abstract.length > 0) {
       docChildren.push(
         new Paragraph({
+          heading: HeadingLevel.HEADING_1,
           spacing: { before: 280, after: 120 },
           children: [
             new TextRun({
@@ -125,14 +211,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
         docChildren.push(
           new Paragraph({
             spacing: { after: 100 },
-            children: [
-              new TextRun({
-                text: absSent,
-                font: "Arial",
-                size: 20,
-                color: "334155"
-              })
-            ]
+            children: parseFormattedDocxRuns(absSent, workflow.citationStyle)
           })
         );
       }
@@ -142,6 +221,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     for (const sec of workflow.sections) {
       docChildren.push(
         new Paragraph({
+          heading: HeadingLevel.HEADING_1,
           spacing: { before: 280, after: 120 },
           children: [
             new TextRun({
@@ -155,19 +235,23 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
         })
       );
       for (const p of sec.paragraphs) {
-        docChildren.push(
-          new Paragraph({
-            spacing: { after: 160 },
-            children: [
-              new TextRun({
-                text: p,
-                font: "Arial",
-                size: 20,
-                color: "334155"
-              })
-            ]
-          })
-        );
+        if (/^#{2,4}\s+/.test(p)) {
+          const subHeading = p.replace(/^#{2,4}\s+/, "").trim();
+          docChildren.push(
+            new Paragraph({
+              heading: HeadingLevel.HEADING_2,
+              spacing: { before: 200, after: 100 },
+              children: parseFormattedDocxRuns(subHeading, workflow.citationStyle)
+            })
+          );
+        } else {
+          docChildren.push(
+            new Paragraph({
+              spacing: { after: 160 },
+              children: parseFormattedDocxRuns(p, workflow.citationStyle)
+            })
+          );
+        }
       }
     }
 
@@ -175,6 +259,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     const styleLabel = (workflow.citationStyle || "vancouver").toUpperCase();
     docChildren.push(
       new Paragraph({
+        heading: HeadingLevel.HEADING_1,
         spacing: { before: 320, after: 140 },
         children: [
           new TextRun({
@@ -192,15 +277,9 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
       for (const refLine of workflow.references) {
         docChildren.push(
           new Paragraph({
+            indent: { left: 720, hanging: 720 },
             spacing: { after: 120 },
-            children: [
-              new TextRun({
-                text: refLine,
-                font: "Arial",
-                size: 18,
-                color: "1E293B"
-              })
-            ]
+            children: parseFormattedDocxRuns(refLine, workflow.citationStyle)
           })
         );
       }
