@@ -148,6 +148,7 @@ export const MESH_DESCRIPTORS: Readonly<Record<string, readonly string[]>> = {
   cohort: ["Cohort Studies"],
   "clinical trial": ["Clinical Trials as Topic"],
   "live birth rate": ["Live Birth"],
+  "live birth": ["Live Birth"],
   "cumulative live birth": ["Live Birth", "Reproductive Technology, Assisted"],
   "clinical pregnancy rate": ["Pregnancy Rate", "Pregnancy, Ectopic"],
   "ongoing pregnancy rate": ["Pregnancy Outcome", "Pregnancy Maintenance"],
@@ -158,7 +159,117 @@ export const MESH_DESCRIPTORS: Readonly<Record<string, readonly string[]>> = {
   "neonatal outcomes": ["Infant, Newborn"],
   "perinatal mortality": ["Perinatal Mortality", "Stillbirth"],
   "patient satisfaction": ["Patient Satisfaction"],
-  "quality of life": ["Quality of Life"]
+  "quality of life": ["Quality of Life"],
+
+  // Reproductive Medicine & Assisted Reproduction (Expanded)
+  "artificial intelligence embryo selection": ["Artificial Intelligence", "Embryo Transfer"],
+  "ai embryo selection": ["Artificial Intelligence", "Embryo Transfer"],
+  "embryo selection": ["Artificial Intelligence", "Embryo Transfer", "Time-Lapse Imaging"],
+  "artificial intelligence": ["Artificial Intelligence"],
+  "ai": ["Artificial Intelligence"],
+  "time-lapse imaging": ["Time-Lapse Imaging"],
+  "time-lapse": ["Time-Lapse Imaging"],
+  "embryologist morphological assessment": ["Embryo Transfer"],
+  "blastocyst morphology": ["Blastocyst"],
+  "pgt-a": ["Preimplantation Diagnosis", "Aneuploidy"],
+  "preimplantation genetic testing for aneuploidy": ["Preimplantation Diagnosis", "Aneuploidy"],
+  "preimplantation genetic testing": ["Preimplantation Diagnosis"],
+  "aneuploidy": ["Aneuploidy"],
+  "endometrial receptivity analysis": ["Endometrium", "Embryo Implantation"],
+  "rif": ["Embryo Implantation", "Infertility, Female"],
+
+  // Oncology (All 15 Specialties preset coverage)
+  "non-small cell lung cancer": ["Carcinoma, Non-Small-Cell Lung"],
+  "non-small-cell lung cancer": ["Carcinoma, Non-Small-Cell Lung"],
+  "nsclc": ["Carcinoma, Non-Small-Cell Lung"],
+  "pembrolizumab": ["Pembrolizumab"],
+  "nivolumab": ["Nivolumab"],
+  "immune checkpoint inhibitors": ["Immune Checkpoint Inhibitors"],
+  "immunotherapy": ["Immunotherapy", "Immune Checkpoint Inhibitors"],
+  "chemotherapy": ["Antineoplastic Agents", "Antineoplastic Combined Chemotherapy Protocols"],
+  "her2-positive breast cancer": ["Breast Neoplasms", "Receptor, ErbB-2"],
+  "trastuzumab deruxtecan": ["Trastuzumab", "Antibody-Drug Conjugates"],
+  "parp inhibitors": ["Poly(ADP-ribose) Polymerase Inhibitors"],
+  "overall survival": ["Survival Rate", "Mortality"],
+  "progression-free survival": ["Progression-Free Survival"],
+
+  // Critical Care & Internal Medicine
+  "septic shock": ["Shock, Septic", "Sepsis"],
+  "sepsis": ["Sepsis"],
+  "balanced crystalloids": ["Crystalloid Solutions"],
+  "saline": ["Saline Solution"],
+  "normal saline": ["Saline Solution"],
+  "saline solution": ["Saline Solution"],
+  "fluid resuscitation": ["Fluid Therapy", "Resuscitation"],
+
+  // General Surgery
+  "acute appendicitis": ["Appendicitis"],
+  "appendicitis": ["Appendicitis"],
+  "appendectomy": ["Appendectomy"],
+  "laparoscopic appendectomy": ["Appendectomy", "Laparoscopy"],
+  "antibiotics": ["Anti-Bacterial Agents"],
+  "treatment failure": ["Treatment Failure"],
+
+  // Cardiology
+  "heart failure": ["Heart Failure"],
+  "hfref": ["Heart Failure, Systolic"],
+  "hfpef": ["Heart Failure, Diastolic"],
+  "atrial fibrillation": ["Atrial Fibrillation"],
+  "sglt2 inhibitors": ["Sodium-Glucose Transporter 2 Inhibitors"],
+  "sglt2i": ["Sodium-Glucose Transporter 2 Inhibitors"],
+  "dapagliflozin": ["Dapagliflozin"],
+  "empagliflozin": ["Empagliflozin"],
+  "direct oral anticoagulants": ["Anticoagulants"],
+  "doac": ["Anticoagulants"],
+  "doacs": ["Anticoagulants"],
+  "warfarin": ["Warfarin"],
+  "coronary artery disease": ["Coronary Artery Disease"],
+  "percutaneous coronary intervention": ["Percutaneous Coronary Intervention"],
+  "pci": ["Percutaneous Coronary Intervention"],
+  "coronary artery bypass": ["Coronary Artery Bypass"],
+  "cabg": ["Coronary Artery Bypass"],
+  "aortic valve stenosis": ["Aortic Valve Stenosis"],
+  "aortic stenosis": ["Aortic Valve Stenosis"],
+  "transcatheter aortic valve replacement": ["Transcatheter Aortic Valve Replacement"],
+  "tavr": ["Transcatheter Aortic Valve Replacement"],
+
+  // Obstetrics & Gynecology additions
+  "aspirin": ["Aspirin"],
+  "low-dose aspirin": ["Aspirin"],
+  "high-risk pregnancy": ["Pregnancy, High-Risk"],
+  "preterm preeclampsia": ["Pre-Eclampsia", "Premature Birth"],
+
+  // Pulmonology
+  "copd": ["Pulmonary Disease, Chronic Obstructive"],
+  "chronic obstructive pulmonary disease": ["Pulmonary Disease, Chronic Obstructive"],
+  "idiopathic pulmonary fibrosis": ["Idiopathic Pulmonary Fibrosis"],
+  "asthma": ["Asthma"],
+  "dupilumab": ["Antibodies, Monoclonal"],
+
+  // Gastroenterology
+  "crohn disease": ["Crohn Disease"],
+  "crohns disease": ["Crohn Disease"],
+  "ulcerative colitis": ["Colitis, Ulcerative"],
+  "inflammatory bowel disease": ["Inflammatory Bowel Diseases"],
+
+  // Infectious Disease
+  "clostridioides difficile": ["Clostridioides difficile"],
+  "c difficile": ["Clostridioides difficile"],
+  "fidaxomicin": ["Fidaxomicin"],
+  "vancomycin": ["Vancomycin"],
+  "methicillin-resistant staphylococcus aureus": ["Methicillin-Resistant Staphylococcus aureus"],
+  "mrsa": ["Methicillin-Resistant Staphylococcus aureus"],
+
+  // Endocrinology
+  "type 2 diabetes": ["Diabetes Mellitus, Type 2"],
+  "glp-1 receptor agonists": ["Glucagon-Like Peptide-1 Receptor Agonists"],
+  "semaglutide": ["Semaglutide"],
+  "metformin": ["Metformin"],
+
+  // General Outcomes
+  "mortality": ["Mortality"],
+  "all-cause mortality": ["Mortality"],
+  "hospitalization": ["Hospitalization"]
 };
 
 function escapeRegExp(value: string): string {
@@ -240,9 +351,15 @@ function buildBroadClause(value: string | null | undefined): string {
   return phrase ? `(${quotePhrase(phrase)})` : "";
 }
 
+export const PUBMED_SEARCH_ARMS = {
+  srMa: '("systematic review"[pt] OR "meta-analysis"[pt] OR "practice guideline"[pt])',
+  rct: '("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])',
+  unfiltered: 'NOT ("study protocol"[Publication Type] OR "clinical trial protocol"[Publication Type] OR "editorial"[Publication Type] OR "letter"[Publication Type] OR "news"[Publication Type])'
+} as const;
+
 export function getPublicationTypeFilter(questionType?: string | null): string {
   if (questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention") {
-    return '("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])';
+    return '("systematic review"[pt] OR "meta-analysis"[pt] OR "practice guideline"[pt] OR "randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])';
   }
   return "";
 }
@@ -285,7 +402,8 @@ export function buildCandidates(input: ClinicalSearchInput): string[] {
   const candidates: string[] = [];
   for (const candidate of ordered) {
     if (!candidate) continue;
-    const fullCandidate = ptFilter ? `${candidate} AND ${ptFilter}` : candidate;
+    const isBroad = !candidate.includes("[tiab]");
+    const fullCandidate = (ptFilter && !isBroad) ? `${candidate} AND ${ptFilter}` : candidate;
     if (seen.has(fullCandidate)) continue;
     seen.add(fullCandidate);
     candidates.push(fullCandidate);

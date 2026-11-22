@@ -26,13 +26,51 @@ export const screenWordSchema = z.object({
 export const screenStageSchema = z.object({
   stage: z.literal("screen"),
   words: z.array(screenWordSchema).min(3, "At least 3 words required").max(5, "At most 5 words allowed"),
-  specialty: z.string().trim().min(1, "Specialty is required")
+  specialty: z.string().trim().min(1, "Specialty is required"),
+  sources: z.array(z.string()).min(1, "Sources list cannot be empty").optional()
 });
 
 export type ScreenStageInput = z.infer<typeof screenStageSchema>;
 
 export function isValidSpecialty(id: string): boolean {
   return id in SPECIALTIES || id === "infertility" || id === "gynecology" || id === "obstetrics";
+}
+
+const GENERIC_NON_SPECIFIC_WORDS = new Set([
+  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+  "pain", "drug", "drugs", "better", "patient", "patients", "people",
+  "test", "tests", "treatment", "treatments", "therapy", "therapies",
+  "good", "bad", "cure", "help", "doctor", "medicine", "medicines",
+  "disease", "diseases", "condition", "conditions", "outcome", "outcomes",
+  "effect", "effects", "result", "results", "care", "standard"
+]);
+
+export function isAmbiguousOrNonClinicalInput(words: PicoWord[]): { ambiguous: boolean; reason?: string } {
+  if (!words || words.length === 0) return { ambiguous: true, reason: "No words provided" };
+
+  // Single-letter or placeholder characters (e.g. 'a', 'b', 'c', 'd')
+  const shortTokens = words.filter(w => w.word.trim().length <= 1);
+  if (shortTokens.length >= words.length - 1) {
+    return {
+      ambiguous: true,
+      reason: "Input consists of single-character placeholders. Please enter specific clinical entities."
+    };
+  }
+
+  // Check if ALL words are generic non-specific placeholders
+  const allGeneric = words.every(w => {
+    const clean = w.word.trim().toLowerCase();
+    return clean.length <= 1 || GENERIC_NON_SPECIFIC_WORDS.has(clean);
+  });
+
+  if (allGeneric) {
+    return {
+      ambiguous: true,
+      reason: "Input contains only generic clinical terms ('pain, drug, better, patients'). Please specify a concrete patient population, named intervention, and measurable clinical endpoint."
+    };
+  }
+
+  return { ambiguous: false };
 }
 
 export function validateScreenRequest(body: unknown):

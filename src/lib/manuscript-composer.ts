@@ -23,6 +23,18 @@ import {
 import { outcomeActionVerb } from "./outcome-polarity.ts";
 import { assertedDirection } from "./claim-finalization.ts";
 
+export const searchLogEntrySchema = z.object({
+  id: z.string(),
+  name: z.string().optional(),
+  ok: z.boolean().optional(),
+  count: z.number().int().nonnegative().optional(),
+  query: z.string().optional(),
+  date: z.string().optional(),
+  error: z.string().optional()
+});
+
+export type SearchLogEntry = z.infer<typeof searchLogEntrySchema>;
+
 export const composeStageSchema = z.object({
   stage: z.literal("compose"),
   words: z.array(screenWordSchema).min(3, "At least 3 words required").max(5, "At most 5 words allowed"),
@@ -44,8 +56,11 @@ export const composeStageSchema = z.object({
     journal: z.string().optional(),
     doi: z.string().optional(),
     pmid: z.string().optional(),
-    relevancePct: z.number().optional()
+    relevancePct: z.number().optional(),
+    _sig: z.string().optional()
   })).max(50),
+  searchLog: z.array(searchLogEntrySchema).optional(),
+  sources: z.array(z.string()).min(1, "Sources list cannot be empty").optional(),
   userExcluded: z.array(z.string()).optional(),
   style: z.enum(["vancouver", "apa", "harvard"]).default("vancouver")
 });
@@ -103,6 +118,7 @@ export interface ComposeManuscriptInput {
   userExcluded?: string[];
   specialty?: string;
   style?: CitationStyle;
+  searchLog?: SearchLogEntry[];
 }
 
 export const EXPECTED_HEADINGS = [
@@ -278,8 +294,24 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   ];
 
   // Section 2: Search strategy and screening
-  const truthfulMethods = buildTruthfulMethodsText(outWord);
-  const searchP1 = `A structured multi-database evidence retrieval protocol was conducted across indexed biomedical repositories including PubMed/MEDLINE, Europe PMC, OpenAlex, and Cochrane Central. The search architecture utilized normalized PICO keywords: ${words.map(w => `${w.role.toUpperCase()} "${w.word}"`).join(", ")}.`;
+  const truthfulMethods = buildTruthfulMethodsText(outWord, input.searchLog);
+
+  let searchP1: string;
+  if (input.searchLog && input.searchLog.length > 0) {
+    const queriedNames = input.searchLog.filter(s => s.ok || s.count !== undefined || s.query).map(s => s.name || s.id);
+    const dbList = queriedNames.length > 0
+      ? (queriedNames.length > 1 ? `${queriedNames.slice(0, -1).join(", ")} and ${queriedNames[queriedNames.length - 1]}` : queriedNames[0])
+      : "indexed biomedical databases";
+    const searchDate = input.searchLog[0]?.date || new Date().toISOString().slice(0, 10);
+    const queryDetails = input.searchLog
+      .filter(s => s.query)
+      .map(s => `${s.name || s.id}: "${s.query}" (${s.count ?? 0} hits)`)
+      .join("; ");
+    searchP1 = `A structured evidence retrieval was conducted on ${searchDate} across ${dbList}. The search strategy mapped clinical concepts: ${words.map(w => `${w.role.toUpperCase()} "${w.word}"`).join(", ")}.${queryDetails ? ` Exact queries executed: ${queryDetails}.` : ""}`;
+  } else {
+    searchP1 = `A structured multi-database evidence retrieval protocol was conducted across indexed biomedical repositories. The search architecture utilized normalized PICO keywords: ${words.map(w => `${w.role.toUpperCase()} "${w.word}"`).join(", ")}.`;
+  }
+
   const searchP2 = `The initial query ladder retrieved ${screeningStats.retrieved} records. Automated title/abstract relevance screening evaluated ${screeningStats.screened} records at search relaxation level ${screeningStats.relaxationLevel}. During exploratory screening, ${screeningStats.excludedCount} record(s) were excluded based on study design or tangential relevance criteria, leaving ${retained.length} prioritized record(s) retained for formal synthesis.`;
   const searchParagraphs = [searchP1, searchP2, truthfulMethods];
 

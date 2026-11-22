@@ -81,7 +81,21 @@ const SYNONYM_FIXES: Array<[RegExp, string]> = [
   [/\bintrauterine\b/g, "intrauterine"],
   [/\blevonorgestrel.?releasing intrauterine system\b/gi, "lng ius"],
   [/\btranexamic\b/g, "tranexamic"],
-  [/\bantifibrinolytic\b/g, "tranexamic"]
+  [/\bantifibrinolytic\b/g, "tranexamic"],
+  [/\b(?:overall survival|os|all[- ]cause mortality|survival rate|mortality rate)\b/gi, "overall survival"],
+  [/\b(?:progression[- ]free survival|pfs|disease[- ]free survival|dfs)\b/gi, "progression free survival"],
+  [/\b(?:pgt[- ]?a|preimplantation genetic (?:testing|diagnosis) for aneuploid(?:y|ies)|preimplantation genetic screening|pgs)\b/gi, "pgta"],
+  [/\b(?:live[- ]births?|live[- ]birth rate|cumulative live[- ]birth(?: rate)?|ongoing pregnanc(?:y|ies))\b/gi, "live birth"],
+  [/\b(?:artificial intelligence|deep learning|neural networks?|machine learning)\b/gi, "artificial intelligence"],
+  [/\b(?:time[- ]lapse(?: imaging| microscopy| systems?)?|tli)\b/gi, "time lapse"],
+  [/\b(?:embryologist morphological assessment|blastocyst morphology|morphological assessment|morphology[- ]based|gardner criteria)\b/gi, "morphology"],
+  [/\b(?:non[- ]small[- ]cell lung (?:cancer|carcinoma)|nsclc)\b/gi, "non small cell lung cancer"],
+  [/\b(?:balanced crystalloids?|lactated ringer'?s?|ringer'?s? lactate|plasmalyte)\b/gi, "balanced crystalloids"],
+  [/\b(?:normal saline|0\.9% (?:saline|sodium chloride)|saline solution)\b/gi, "saline"],
+  [/\b(?:acute appendicitis)\b/gi, "appendicitis"],
+  [/\b(?:appendicectomy)\b/gi, "appendectomy"],
+  [/\b(?:treatment failure|treatment unsuccessful|failure of therapy)\b/gi, "treatment failure"],
+  [/\b(?:preterm preeclampsia|early[- ]onset preeclampsia)\b/gi, "preterm preeclampsia"]
 ];
 
 export function synonymize(s: string): string {
@@ -288,6 +302,7 @@ const POPULATION_SUBTYPES: Array<{ want: RegExp; reject: RegExp }> = [
   { want: /crohn/i, reject: /ulcerative colitis/i },
   { want: /\b(?:infants?|neonat\w*|newborns?|preterm infants?)\b/i, reject: /\badults?\b(?! respiratory distress)/i },
   { want: /\b(?:children|pediatric|paediatric)\b/i, reject: /\badults?\b/i },
+  { want: /\b(?:advanced|metastatic|unresectable|stage iv|stage 4)\b/i, reject: /\b(?:early[- ]stage|resectable|stage i\b|stage ii\b|curative|perioperative|neoadjuvant)\b/i },
   { want: /singleton/i, reject: /\btwins?\b|multiple pregnanc/i },
   { want: /\btwins?\b/i, reject: /singleton/i }
 ];
@@ -426,7 +441,7 @@ export function selectedElements(
  * that the sources do not reliably expose.
  */
 export function isDirectSupport(audit: RefAudit, elements: PicoElement[] = []): boolean {
-  if (audit.design === "protocol" || audit.design === "editorial") return false;
+  if (audit.design === "protocol" || audit.design === "editorial" || audit.design === "narrative review") return false;
   const sel = selectedElements(elements);
   const needTreatment = sel.intervention || sel.comparator;
   if (needTreatment) return audit.population && (audit.intervention || audit.comparator) && audit.outcome;

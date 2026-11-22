@@ -155,8 +155,13 @@ export function extractFinding(rec: AuditableRef, outcome = "", population = "")
   return fallback;
 }
 
-export function buildTruthfulMethodsText(outcome: string): string {
-  const status = sourceStatusSnapshot();
+export function buildTruthfulMethodsText(
+  outcome: string,
+  searchLog?: Array<{ id: string; name?: string; attempted?: boolean; ok?: boolean; skipped?: string; error?: string }>
+): string {
+  const status = searchLog
+    ? Object.fromEntries(searchLog.map(s => [s.id, { attempted: s.attempted ?? true, ok: s.ok ?? true, skipped: (s.skipped || "none") as "none" | "cooldown" | "no_key" | "offline", error: s.error }]))
+    : sourceStatusSnapshot();
   const successful: string[] = [];
   const skippedNotes: string[] = [];
 

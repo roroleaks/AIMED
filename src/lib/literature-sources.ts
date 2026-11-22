@@ -190,6 +190,8 @@ export interface SourceStatusItem {
   hits: number;
   ms: number;
   error?: string;
+  query?: string;
+  date?: string;
 }
 
 export type SourceStatusMap = Record<LiteratureSource, SourceStatusItem>;
@@ -735,7 +737,7 @@ export async function fetchPmcArticles(query: string, maxResults = 6, questionTy
   const pageSize = Math.min(Math.max(maxResults + 4, 8), 50);
   // Focus query on PubMed Central and Open Access full text
   const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
-  const rctFilter = isTherapy ? ' AND PUB_TYPE:"randomized controlled trial"' : "";
+  const rctFilter = isTherapy ? ' AND (PUB_TYPE:"randomized controlled trial" OR PUB_TYPE:"systematic review" OR PUB_TYPE:"meta-analysis" OR SRC:MED)' : "";
   const pmcFilterQuery = `${sanitized} AND (SRC:PMC OR OPEN_ACCESS:y)${rctFilter}`;
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(pmcFilterQuery)}&pageSize=${pageSize}&format=json&resultType=core`;
 
@@ -833,7 +835,7 @@ export async function fetchPubMedArticles(query: string, maxResults = 6, questio
 
   const apiKeyParam = NCBI_API_KEY ? `&api_key=${encodeURIComponent(NCBI_API_KEY)}` : "";
   const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
-  const rctFilter = isTherapy ? ' AND ("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])' : "";
+  const rctFilter = isTherapy ? ' AND ("systematic review"[pt] OR "meta-analysis"[pt] OR "practice guideline"[pt] OR "randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])' : "";
   const term = `${sanitized}${rctFilter} NOT "study protocol"[Publication Type] NOT "clinical trial protocol"[Publication Type]`;
   const esearchUrl = `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&retmode=json&retmax=${maxResults * 2}&sort=relevance&term=${encodeURIComponent(term)}${apiKeyParam}`;
 
@@ -913,7 +915,7 @@ export async function fetchEuropePmcArticles(query: string, maxResults = 6, ques
 
   const pageSize = Math.min(Math.max(maxResults + 4, 8), 50);
   const isTherapy = questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention";
-  const rctFilter = isTherapy ? ' AND PUB_TYPE:"randomized controlled trial"' : "";
+  const rctFilter = isTherapy ? ' AND (PUB_TYPE:"randomized controlled trial" OR PUB_TYPE:"systematic review" OR PUB_TYPE:"meta-analysis" OR SRC:MED)' : "";
   const q = `${sanitized}${rctFilter}`;
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&pageSize=${pageSize}&format=json&resultType=core&sort=RELEVANCE`;
 
@@ -1242,6 +1244,7 @@ export async function fetchFromSource(
     }
     const elapsed = Math.round(performance.now() - start);
     const lastErr = sourceLastErrors.get(src);
+    const searchDate = new Date().toISOString().slice(0, 10);
     if (res.length === 0 && lastErr && isSourceCoolingDown(src)) {
       recordSourceStatus(src, {
         attempted: true,
@@ -1249,7 +1252,9 @@ export async function fetchFromSource(
         skipped: "none",
         hits: 0,
         ms: elapsed,
-        error: lastErr
+        error: lastErr,
+        query,
+        date: searchDate
       });
     } else {
       recordSourceStatus(src, {
@@ -1257,7 +1262,9 @@ export async function fetchFromSource(
         ok: true,
         skipped: "none",
         hits: res.length,
-        ms: elapsed
+        ms: elapsed,
+        query,
+        date: searchDate
       });
     }
     return res;
@@ -1271,7 +1278,9 @@ export async function fetchFromSource(
       skipped: "none",
       hits: 0,
       ms: elapsed,
-      error: errMsg
+      error: errMsg,
+      query,
+      date: new Date().toISOString().slice(0, 10)
     });
     return [];
   }

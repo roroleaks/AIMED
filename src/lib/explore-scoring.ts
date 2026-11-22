@@ -7,7 +7,7 @@
  */
 
 import { z } from "zod";
-import { auditRef, designOf } from "./relevance.ts";
+import { auditRef, designOf, isNonEvidenceItem } from "./relevance.ts";
 import type { AuditableRef, PicoElement } from "./relevance.ts";
 import { extractPicoFromQuestion } from "./pico-parser.ts";
 import { screenWordSchema, isValidSpecialty } from "./deterministic-screen.ts";
@@ -34,6 +34,7 @@ export const exploreStageSchema = z.object({
   choice: exploreChoiceSchema,
   words: z.array(screenWordSchema).min(3, "At least 3 words required").max(5, "At most 5 words allowed"),
   specialty: z.string().trim().min(1, "Specialty is required"),
+  sources: z.array(z.string()).min(1, "Sources list cannot be empty").optional(),
   excluded: z.object({
     userExcluded: z.array(z.string()).optional(),
     seen: z.array(z.string()).optional()
@@ -239,6 +240,10 @@ export function scoreRecords(
 
   // 2. Score each surviving record
   const scored: ExploreRecord[] = [];
+  const hasP = elements.some(e => e.label.startsWith("P"));
+  const hasI = elements.some(e => e.label.startsWith("I"));
+  const hasC = elements.some(e => e.label.startsWith("C"));
+  const hasTreatment = hasI || hasC;
 
   for (const item of audits) {
     const r = item.ref;
@@ -252,7 +257,46 @@ export function scoreRecords(
       if (audit.outcome) matchedElements.push("O");
     }
 
-    // Base score calculation (0–75 from matched elements, +15 from metadata completeness/design)
+    const pubTypes = r.pubType || (r.publicationTypes || []).join(" ");
+    const design = designOf(r.title || "", r.journal || "", pubTypes);
+    const lowMetadata = !r.title || !r.year;
+
+    // Strict clinical eligibility:
+    // Non-evidence items (protocols, errata, advertisements, editorials) are never eligible findings
+    const nonEv = isNonEvidenceItem(r);
+    const matchedP = matchedElements.includes("P");
+    const matchedTreatment = matchedElements.includes("I") || matchedElements.includes("C");
+    const matchedO = matchedElements.includes("O");
+
+    let isEligible = false;
+    if (!nonEv.isNonEvidence) {
+      if (hasP && hasTreatment) {
+        // Core comparative clinical question: must match Population AND (Intervention or Comparator)
+        isEligible = matchedP && matchedTreatment;
+      } else if (hasP && !hasTreatment) {
+        // Observational / natural history question: must match Population AND Outcome
+        isEligible = matchedP && matchedO;
+      } else if (!hasP && hasTreatment) {
+        // Intervention-defined question: must match Intervention AND Outcome
+        isEligible = matchedTreatment && matchedO;
+      } else {
+        isEligible = matchedElements.length >= 2;
+      }
+    }
+
+    // Ineligible records receive relevancePct = 0 and cannot pass through metadata or design bonuses
+    if (!isEligible) {
+      scored.push({
+        ...r,
+        relevancePct: 0,
+        matchedElements,
+        design,
+        lowMetadata
+      });
+      continue;
+    }
+
+    // Base score calculation for eligible records (0–75 from matched elements, +15 from metadata completeness/design)
     const elementRatio = elements.length > 0 ? matchedElements.length / elements.length : 0;
     let baseScore = Math.round(elementRatio * 75);
 
@@ -262,8 +306,6 @@ export function scoreRecords(
     if (audit?.doiOk || audit?.resolved || r.pmid) {
       baseScore += 5;
     }
-    const pubTypes = r.pubType || (r.publicationTypes || []).join(" ");
-    const design = designOf(r.title || "", r.journal || "", pubTypes);
     if (design !== "unclassified") {
       baseScore += 5;
     }
@@ -292,9 +334,8 @@ export function scoreRecords(
     }
 
     const categoryBonus = Math.min(10, Math.max(0, rawCategoryBonus));
-    const totalScore = Math.max(0, Math.min(100, Math.round(baseScore + categoryBonus)));
+    const totalScore = Math.max(15, Math.min(100, Math.round(baseScore + categoryBonus)));
     const relevancePct = Number.isFinite(totalScore) ? totalScore : 0;
-    const lowMetadata = !r.title || !r.year;
 
     scored.push({
       ...r,

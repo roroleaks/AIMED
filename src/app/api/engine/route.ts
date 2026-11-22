@@ -1,17 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import type { AuditableRef } from "@/lib/relevance";
-import { generateDeterministicScreen, validateScreenRequest } from "@/lib/deterministic-screen";
+import { generateDeterministicScreen, validateScreenRequest, isAmbiguousOrNonClinicalInput } from "@/lib/deterministic-screen";
 import { validateExploreRequest, scoreRecords, type ExploreRecord } from "@/lib/explore-scoring";
 import {
   composeManuscript,
   validateEnrichedManuscript,
   validateComposeRequest,
-  type ComposeStageInput
+  type ComposeStageInput,
+  type SearchLogEntry
 } from "@/lib/manuscript-composer";
 import type { PicoWord } from "@/lib/pico-roles";
 import { getSpecialtyDefinition } from "@/lib/specialties";
-import { buildPubMedQuery } from "@/lib/pubmed-query";
+import { buildCandidates, getPublicationTypeFilter } from "@/lib/pubmed-query";
+import { signRecord, verifyRecordSignature } from "@/lib/record-signature";
 import {
   decodeHtmlEntities,
   fetchFromSource,
@@ -284,11 +286,15 @@ function fetchAllSources(
   excluded: Set<string>,
   questionType?: string,
   interventionToken?: string,
-  lite = false
+  lite = false,
+  picoInput?: { population?: string; intervention?: string; comparator?: string; outcome?: string }
 ): Promise<PubMedRef[]>[] {
   return ALL_LITERATURE_SOURCES.map((src: LiteratureSource) => {
-    if (src === "pubmed") return fetchPubMedReferences(query, lite ? maxResults * 2 : maxResults, excluded, questionType, interventionToken, lite).catch(() => []);
-    return fetchFromSource(src, query, maxResults, questionType).then(arts => arts.map(libToRef)).catch(() => []);
+    if (src === "pubmed") return fetchPubMedReferences(query, lite ? maxResults * 2 : maxResults, excluded, questionType, interventionToken, lite, picoInput).catch(() => []);
+    const extQuery = picoInput
+      ? [picoInput.population, picoInput.intervention || picoInput.comparator, picoInput.outcome].filter(Boolean).join(" ")
+      : query;
+    return fetchFromSource(src, extQuery, maxResults, questionType).then(arts => arts.map(libToRef)).catch(() => []);
   });
 }
 
@@ -382,19 +388,67 @@ async function fetchPubMedReferences(
   excluded: Set<string> = EMPTY_REF_SET,
   questionType = "Therapy / Prevention",
   interventionToken = "",
-  lite = false
+  lite = false,
+  picoInput?: { population?: string; intervention?: string; comparator?: string; outcome?: string }
 ): Promise<PubMedRef[]> {
   const t0 = Date.now();
   if (isSourceCoolingDown("pubmed")) {
     recordSourceStatus("pubmed", { attempted: false, ok: false, skipped: "cooldown", hits: 0, ms: 0 });
     return [];
   }
-  const term = buildPubMedQuery({ population: topic, intervention: interventionToken, questionType }) || topic;
+
+  // Iterate the recall ladder with multi-arm search (SR/MA/Guidelines + RCTs + unfiltered)
+  const candidateLadder = buildCandidates({
+    population: picoInput?.population || topic,
+    intervention: picoInput?.intervention || interventionToken,
+    comparator: picoInput?.comparator,
+    outcome: picoInput?.outcome,
+    questionType: null
+  });
+
+  const candidatesToTry = candidateLadder.length > 0 ? candidateLadder : [topic];
+  const ptFilter = getPublicationTypeFilter(questionType);
+
+  let rawIds: string[] = [];
+  let termUsed = "";
+
   try {
-    const rawIds = await esearchIds(term, maxResults * 3);
+    for (const cand of candidatesToTry) {
+      if (!cand) continue;
+      // Arm 1: Evidence synthesis and trials (SR/MA/RCT)
+      const arm1Term = ptFilter ? `${cand} AND ${ptFilter}` : cand;
+      const arm1Ids = await esearchIds(arm1Term, maxResults * 3);
+      if (arm1Ids.length > 0) {
+        rawIds = arm1Ids;
+        termUsed = arm1Term;
+        break;
+      }
+      // Arm 2: Unfiltered clinical studies (observational/prognostic/emerging topics)
+      const arm2Term = `${cand} NOT ("study protocol"[Publication Type] OR "clinical trial protocol"[Publication Type] OR "editorial"[Publication Type] OR "letter"[Publication Type] OR "news"[Publication Type])`;
+      const arm2Ids = await esearchIds(arm2Term, maxResults * 3);
+      if (arm2Ids.length > 0) {
+        rawIds = arm2Ids;
+        termUsed = arm2Term;
+        break;
+      }
+    }
+
+    if (rawIds.length === 0 && topic && topic !== termUsed) {
+      rawIds = await esearchIds(topic, maxResults * 2);
+      termUsed = topic;
+    }
+
     const freshIds = rawIds.filter(id => !excluded.has(id));
     if (!freshIds.length) {
-      recordSourceStatus("pubmed", { attempted: true, ok: true, skipped: "none", hits: 0, ms: Date.now() - t0 });
+      recordSourceStatus("pubmed", {
+        attempted: true,
+        ok: true,
+        skipped: "none",
+        hits: 0,
+        ms: Date.now() - t0,
+        query: termUsed,
+        date: new Date().toISOString().slice(0, 10)
+      });
       return [];
     }
     const candidateIds = freshIds.slice(0, maxResults * 2);
@@ -467,7 +521,9 @@ async function fetchPubMedReferences(
       ok: true,
       skipped: "none",
       hits: filtered.length,
-      ms: Date.now() - t0
+      ms: Date.now() - t0,
+      query: termUsed,
+      date: new Date().toISOString().slice(0, 10)
     });
     return filtered;
   } catch (err) {
@@ -478,6 +534,8 @@ async function fetchPubMedReferences(
       skipped: "none",
       hits: 0,
       ms: Date.now() - t0,
+      query: termUsed,
+      date: new Date().toISOString().slice(0, 10),
       error: err instanceof Error ? err.message : String(err)
     });
     return [];
@@ -489,9 +547,10 @@ async function fetchReferencesBroad(
   maxResults = 8,
   excluded: Set<string> = EMPTY_REF_SET,
   questionType?: string,
-  interventionToken?: string
+  interventionToken?: string,
+  picoInput?: { population?: string; intervention?: string; comparator?: string; outcome?: string }
 ): Promise<PubMedRef[]> {
-  const fetched = await Promise.allSettled(fetchAllSources(query, maxResults, excluded, questionType, interventionToken));
+  const fetched = await Promise.allSettled(fetchAllSources(query, maxResults, excluded, questionType, interventionToken, false, picoInput));
   const pool: PubMedRef[] = [];
   for (const f of fetched) {
     if (f.status === "fulfilled") {
@@ -623,35 +682,50 @@ export async function POST(req: NextRequest) {
     if (stage === "screen") {
       resetSourceStatus();
       const { words, specialty } = body as { words: PicoWord[]; specialty: string };
+      const ambCheck = isAmbiguousOrNonClinicalInput(words);
+      if (ambCheck.ambiguous) {
+        return NextResponse.json({
+          needsClarification: true,
+          message: ambCheck.reason || "Input is ambiguous or non-clinical. Please specify the target population, intervention, and measurable clinical endpoint.",
+          phrases: null,
+          corpusStats: { retrieved: 0, screened: 0, relaxationLevel: 0 },
+          sources: []
+        }, { status: 200 });
+      }
+
       const specDef = getSpecialtyDefinition(specialty)!;
 
       // 1. Deterministic base computed first
       let screenPayload = generateDeterministicScreen(words);
 
-      // 2. Retrieval: build queries conditioned with specialty context and retrieve through multi-source machinery
+      // 2. Retrieval: build queries conditioned with structured PICO and retrieve through multi-source machinery
       let corpus: AuditableRef[] = [];
       let totalRetrieved = 0;
       let relaxationLevel: 0 | 1 | 2 = 0;
       try {
         const queryTerms = words.map(w => w.word.trim()).filter(Boolean);
         const query = queryTerms.join(" ");
+        const popWord = words.find(w => w.role === "population")?.word || "";
         const primaryI = words.find(w => w.role === "intervention")?.word || "";
+        const compWord = words.find(w => w.role === "comparator")?.word || "";
+        const outWord = words.find(w => w.role === "outcome")?.word || "";
+        const picoInput = { population: popWord, intervention: primaryI, comparator: compWord, outcome: outWord };
+
         console.log(`[engine] screen retrieval attempt (level 0): "${query}" (intervention: "${primaryI}")`);
-        const fetched = await fetchReferencesBroad(query, 25, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+        const fetched = await fetchReferencesBroad(query, 25, EMPTY_REF_SET, "Therapy / Prevention", primaryI, picoInput);
         corpus = fetched.slice(0, 30);
         totalRetrieved = fetched.length;
 
-        // Task 5: retrieval relaxation when query yields 0 records
+        // Task 5: retrieval relaxation when query yields 0 records - preserve population, never drop or substitute
         if (corpus.length === 0) {
           relaxationLevel = 1;
-          const popWord = words.find(w => w.role === "population")?.word || queryTerms[0] || "";
-          const intWord = words.find(w => w.role === "intervention")?.word || queryTerms[1] || "";
           const cleanTerm = (t: string) => t.replace(/['’]s\b/gi, "").replace(/['’]/g, "").trim();
-          const cleanPop = cleanTerm(popWord);
-          const cleanInt = cleanTerm(intWord);
+          const cleanPop = cleanTerm(popWord || queryTerms[0] || "");
+          const cleanInt = cleanTerm(primaryI || queryTerms[1] || "");
           const relaxedQuery = [cleanPop, cleanInt].filter(Boolean).join(" ");
+          const relaxedPico = { population: cleanPop, intervention: cleanInt };
           console.log(`[engine] screen retrieval zero hits, retrying relaxed (level 1): "${relaxedQuery}"`);
-          const relaxedFetched = await fetchReferencesBroad(relaxedQuery, 25, EMPTY_REF_SET, "Therapy / Prevention", cleanInt);
+          const relaxedFetched = await fetchReferencesBroad(relaxedQuery, 25, EMPTY_REF_SET, "Therapy / Prevention", cleanInt, relaxedPico);
           corpus = relaxedFetched.slice(0, 30);
           totalRetrieved = relaxedFetched.length;
         }
@@ -766,13 +840,12 @@ HARD RULES:
 
     if (stage === "explore") {
       resetSourceStatus();
-      const { choice, words, specialty, excluded } = body as {
+      const { choice, words, excluded } = body as {
         choice: { category: "established" | "conflicting" | "gap"; phrase: string };
         words: PicoWord[];
-        specialty: string;
+        specialty?: string;
         excluded?: { userExcluded?: string[]; seen?: string[] };
       };
-      const specDef = getSpecialtyDefinition(specialty)!;
       const userExcluded = Array.isArray(excluded?.userExcluded) ? excluded!.userExcluded! : [];
       const seen = Array.isArray(excluded?.seen) ? excluded!.seen! : [];
       const blockedKeys = [...userExcluded, ...seen];
@@ -781,12 +854,17 @@ HARD RULES:
       let totalRetrieved = 0;
       let relaxationLevel: 0 | 1 | 2 = 0;
 
+      const popWord = words.find(w => w.role === "population")?.word || "";
       const primaryI = words.find(w => w.role === "intervention")?.word || "";
+      const compWord = words.find(w => w.role === "comparator")?.word || "";
+      const outWord = words.find(w => w.role === "outcome")?.word || "";
+      const picoInput = { population: popWord, intervention: primaryI, comparator: compWord, outcome: outWord };
+
       const queryTerms = words.map(w => w.word.trim()).filter(Boolean);
       const mainQuery = queryTerms.join(" ");
 
       try {
-        const fetched = await fetchReferencesBroad(mainQuery, 30, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+        const fetched = await fetchReferencesBroad(mainQuery, 30, EMPTY_REF_SET, "Therapy / Prevention", primaryI, picoInput);
         corpus = fetched;
         totalRetrieved = fetched.length;
       } catch (fetchErr) {
@@ -796,19 +874,17 @@ HARD RULES:
       let scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
       let surviving = scoredResult.scored.filter(r => r.relevancePct >= 15);
 
-      // Relaxation level 1: if fewer than 10 records survive, broaden with specialty conditions or core terms
+      // Relaxation level 1: if fewer than 10 records survive, broaden with core terms preserving population
       if (surviving.length < 10) {
         relaxationLevel = 1;
         try {
-          const popWord = words.find(w => w.role === "population")?.word || queryTerms[0] || "";
           const cleanTerm = (t: string) => t.replace(/['’]s\b/gi, "").replace(/['’]/g, "").trim();
-          const cleanPop = cleanTerm(popWord);
+          const cleanPop = cleanTerm(popWord || queryTerms[0] || "");
           const cleanInt = cleanTerm(primaryI || queryTerms[1] || "");
-          const relaxTerms = corpus.length === 0
-            ? [cleanPop, cleanInt].filter(Boolean)
-            : (specDef.conditions.length > 0 ? [...queryTerms, specDef.conditions[0]] : [cleanPop, cleanInt].filter(Boolean));
+          const relaxPico = { population: cleanPop, intervention: cleanInt };
+          const relaxTerms = [cleanPop, cleanInt].filter(Boolean);
           const relaxQuery = relaxTerms.join(" ");
-          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI, relaxPico);
           const merged = dedupeRefs([...(corpus as PubMedRef[]), ...relaxFetched]);
           corpus = merged;
           totalRetrieved = merged.length;
@@ -819,25 +895,27 @@ HARD RULES:
         }
       }
 
-      // Relaxation level 2: if still fewer than 10, broaden with terminology or interventions
-      if (surviving.length < 10 && (specDef.terminology.length > 0 || specDef.interventions.length > 0)) {
+      // Relaxation level 2: if still fewer than 10, broaden with population and outcome
+      if (surviving.length < 10 && outWord) {
         relaxationLevel = 2;
         try {
-          const extra = specDef.terminology[0] || specDef.interventions[0] || "";
-          const relaxTerms = [primaryI || queryTerms[0], extra].filter(Boolean);
-          const relaxQuery = relaxTerms.join(" ");
-          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI);
+          const cleanTerm = (t: string) => t.replace(/['’]s\b/gi, "").replace(/['’]/g, "").trim();
+          const cleanPop = cleanTerm(popWord || queryTerms[0] || "");
+          const relaxPico = { population: cleanPop, outcome: outWord };
+          const relaxQuery = [cleanPop, outWord].filter(Boolean).join(" ");
+          const relaxFetched = await fetchReferencesBroad(relaxQuery, 20, EMPTY_REF_SET, "Therapy / Prevention", primaryI, relaxPico);
           const merged = dedupeRefs([...(corpus as PubMedRef[]), ...relaxFetched]);
           corpus = merged;
           totalRetrieved = merged.length;
           scoredResult = scoreRecords(corpus, choice.phrase, choice.category, blockedKeys);
-          surviving = scoredResult.scored.filter(r => r.relevancePct >= 10);
+          surviving = scoredResult.scored.filter(r => r.relevancePct >= 15);
         } catch (relaxErr) {
           console.warn("[engine] explore relaxation level 2 failed:", relaxErr);
         }
       }
 
-      const returnedRecords = surviving.slice(0, 20);
+      // Sign records before returning to establish server-side trust boundary
+      const returnedRecords = surviving.slice(0, 20).map(r => signRecord(r));
       const hasMore = surviving.length > 20 || scoredResult.removedByBlock > 0 || relaxationLevel > 0;
 
       const snap = sourceStatusSnapshot();
@@ -872,10 +950,28 @@ HARD RULES:
         specialty,
         choice,
         screeningStats,
-        records,
+        records = [],
         userExcluded,
-        style
+        style,
+        searchLog
       } = body as ComposeStageInput;
+
+      // Verify server-side trust boundary: reject fabricated or untrusted records
+      if (records && records.length > 0) {
+        for (const r of records as Array<Partial<ExploreRecord> & { _sig?: string }>) {
+          const verified = verifyRecordSignature(r);
+          if (!verified) {
+            const hasValidPmid = !!(r.pmid && /^\d+$/.test(String(r.pmid).trim()));
+            const hasValidDoi = !!(r.doi && /10\.\d{4,}\//.test(String(r.doi)));
+            if (!hasValidPmid && !hasValidDoi) {
+              return NextResponse.json(
+                { error: "Untrusted or fabricated record detected: record signature verification failed and no resolvable identifier exists" },
+                { status: 422 }
+              );
+            }
+          }
+        }
+      }
 
       const stats = {
         retrieved: screeningStats?.retrieved ?? 0,
@@ -892,7 +988,8 @@ HARD RULES:
         records: (records || []) as unknown as ExploreRecord[],
         userExcluded: userExcluded || [],
         specialty,
-        style: style || "vancouver"
+        style: style || "vancouver",
+        searchLog: searchLog || (Array.isArray((body as Record<string, unknown>).sources) ? ((body as Record<string, unknown>).sources as SearchLogEntry[]) : undefined)
       });
 
       let finalManuscript = deterministicManuscript;
