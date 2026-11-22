@@ -1,174 +1,38 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef, useSyncExternalStore } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { sset, resetSession, KEYS } from "@/lib/session";
-import { assignPicoRoles, type PicoRole, type PicoWord } from "@/lib/pico-roles";
 import { useAimedContext } from "@/context/AimedContext";
-import { SpecialtySelector } from "@/components/SpecialtySelector";
-import { WorkflowStepper } from "@/components/WorkflowStepper";
-import { PhiNotice } from "@/components/PhiNotice";
-import type { PicoPreset } from "@/lib/specialties";
-import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
+import { SPECIALTIES } from "@/lib/specialties";
 import { APP_VERSION } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
-
-// sessionStorage is browser-only: useSyncExternalStore provides safe hydration without cascading renders
-function sessionPicoSnapshot(): string {
-  if (typeof window === "undefined") return "";
-  try {
-    const savedPico = window.sessionStorage.getItem(KEYS.picoWords);
-    if (savedPico) {
-      const parsed = JSON.parse(savedPico);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed
-          .map((p: { word?: string } | string) => (typeof p === "string" ? p : p.word ?? ""))
-          .filter(Boolean)
-          .join(", ");
-      }
-    }
-    const savedText = window.sessionStorage.getItem(KEYS.inputText);
-    if (savedText) {
-      return JSON.parse(savedText);
-    }
-  } catch {}
-  return "";
-}
-
-const serverSnapshot = () => "";
-const subscribeToNothing = () => () => {};
-
-const ROLE_CONFIG: Record<
-  PicoRole,
-  { label: string; badge: string; bg: string; border: string; text: string; badgeBg: string }
-> = {
-  population: {
-    label: "Population",
-    badge: "P",
-    bg: "#eff6ff",
-    border: "#bfdbfe",
-    text: "#1e40af",
-    badgeBg: "#3b82f6"
-  },
-  intervention: {
-    label: "Intervention",
-    badge: "I",
-    bg: "#f0fdf4",
-    border: "#bbf7d0",
-    text: "#166534",
-    badgeBg: "#22c55e"
-  },
-  comparator: {
-    label: "Comparator",
-    badge: "C",
-    bg: "#fffbeb",
-    border: "#fde68a",
-    text: "#92400e",
-    badgeBg: "#f59e0b"
-  },
-  outcome: {
-    label: "Outcome",
-    badge: "O",
-    bg: "#faf5ff",
-    border: "#e9d5ff",
-    text: "#6b21a8",
-    badgeBg: "#a855f7"
-  },
-  other: {
-    label: "Other",
-    badge: "X",
-    bg: "#f8fafc",
-    border: "#cbd5e1",
-    text: "#475569",
-    badgeBg: "#64748b"
-  }
-};
+import { AppQrCode } from "@/components/AppQrCode";
 
 export default function Home() {
   const router = useRouter();
-  const { specialty, setSpecialty, currentSpecialty, activePresets } = useAimedContext();
-  const workspaceRef = useRef<HTMLDivElement>(null);
+  const { specialty, setSpecialty, currentSpecialty, allSpecialties, categories, selectedCategory, setSelectedCategory, searchQuery, setSearchQuery, filteredSpecialties } = useAimedContext();
+  const [selectedId, setSelectedId] = useState<string>(specialty || "obgyn");
 
-  const restoredInput = useSyncExternalStore(subscribeToNothing, sessionPicoSnapshot, serverSnapshot);
-  const [draft, setDraft] = useState<string | null>(null);
-  const rawInput = draft ?? restoredInput;
-  const setRawInput = useCallback((v: string) => setDraft(v), []);
-  const [savedNotice, setSavedNotice] = useState<string | null>(null);
+  const activeSpecialtyDef = useMemo(() => {
+    return SPECIALTIES[selectedId] || currentSpecialty;
+  }, [selectedId, currentSpecialty]);
 
-  // Modal dialog states
-  const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
-  const [isSourcesModalOpen, setIsSourcesModalOpen] = useState(false);
-
-  // Split input into clinical keywords on commas, semicolons, or newlines
-  const words = useMemo(() => {
-    return rawInput
-      .split(/[,;\n]/)
-      .map(w => w.trim())
-      .filter(w => w.length > 0);
-  }, [rawInput]);
-
-  // Deterministically assign PICO roles to all keywords
-  const picoWords: PicoWord[] = useMemo(() => {
-    if (words.length === 0) return [];
-    return assignPicoRoles(words);
-  }, [words]);
-
-  // Role-strip action: delete word from list and update input string
-  const handleRemoveWord = useCallback((indexToRemove: number) => {
-    const nextWords = words.filter((_, idx) => idx !== indexToRemove);
-    setRawInput(nextWords.join(", "));
-    setSavedNotice(null);
-  }, [words, setRawInput, setSavedNotice]);
-
-  // Validation: 3 to 5 non-empty clinical keywords required
-  const canSubmit = words.length >= 3 && words.length <= 5;
-
-  const countHint = useMemo(() => {
-    if (words.length === 0) {
-      return "Enter 3 to 5 comma-separated clinical keywords.";
-    }
-    if (words.length < 3) {
-      const needed = 3 - words.length;
-      return `${words.length} keyword${words.length === 1 ? "" : "s"} entered — add ${needed} more keyword${needed > 1 ? "s" : ""} (3 required minimum).`;
-    }
-    if (words.length > 5) {
-      const excess = words.length - 5;
-      return `${words.length} keywords entered — maximum is 5. Remove ${excess} term${excess > 1 ? "s" : ""} using the chip remove buttons.`;
-    }
-    return `${words.length} clinical keywords entered — ready to save.`;
-  }, [words.length]);
-
-  // "Try an example" preset handler
-  const applyPreset = (preset: PicoPreset) => {
-    setRawInput(preset.raw);
-    setSavedNotice(null);
-    if (workspaceRef.current) {
-      workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const handleDropdownChange = (newId: string) => {
+    setSelectedId(newId);
+    setSpecialty(newId);
   };
 
-  const handleSelectSpecialtyFromCard = (id: string) => {
+  const handleProceedToDashboard = (specialtyToUse?: string) => {
+    const id = specialtyToUse || selectedId;
     setSpecialty(id);
-    setSavedNotice(null);
-    if (workspaceRef.current) {
-      workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  // Submit ("Save words") — persists specialty and words, shows inline confirmation without navigating
-  const start = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    if (!canSubmit) return;
-    sset(KEYS.specialty, specialty);
-    sset(KEYS.picoWords, picoWords);
-    sset(KEYS.inputText, words.join(", "));
-    setSavedNotice("Words saved — screening arrives in Step 2");
+    router.push("/dashboard");
   };
 
   return (
     <div className="wrap">
+      {/* Header */}
       <header className="hdr">
         <div className="hdr-inner">
           <div className="hdr-left">
@@ -185,446 +49,340 @@ export default function Home() {
             </span>
           </div>
           <div className="hdr-center">
-            <h1>From Clinical Uncertainty to Answerable Questions</h1>
-            <p>AI Medical Intelligence · Multi-Specialty Clinical Evidence Platform</p>
+            <h1>Multi-Specialty Clinical Intelligence Portal</h1>
+            <p>From Clinical Uncertainty to Evidence-Grounded Answerable Questions</p>
           </div>
           <AuthorHeaderRight />
         </div>
       </header>
 
       {/* Hero Welcome Banner */}
-      <section className="aimed-hero">
-        <div className="aimed-badge">
-          <span>🩺 Multi-Specialty Evidence Engine</span>
+      <section className="aimed-hero" style={{ padding: "32px 20px 24px 20px", textAlign: "center" }}>
+        <div className="aimed-badge" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginBottom: 12 }}>
+          <span>🩺 15 Medical Disciplines · Zero-Hallucination Retrieval</span>
         </div>
-        <h2 className="aimed-hero-title">
-          Clinical Intelligence Tailored to Your <span>Specialty</span>
+        <h2 className="aimed-hero-title" style={{ fontSize: "2rem", fontWeight: 800, marginBottom: 10, color: "#0f172a" }}>
+          Select Your Clinical <span>Specialty Domain</span>
         </h2>
-        <p className="aimed-hero-subtitle">
-          Select your medical domain below to configure clinical taxonomies, authoritative practice guidelines, and evidence-gap retrieval protocols.
+        <p className="aimed-hero-subtitle" style={{ maxWidth: 780, margin: "0 auto", fontSize: "1.02rem", color: "#475569", lineHeight: 1.6 }}>
+          Calibrated PICO formulation, multi-source literature retrieval across 8 biomedical repositories, and publication-grade narrative evidence synthesis.
         </p>
       </section>
 
-      {/* Core Clinical Workspace Section */}
-      <main className="solo" ref={workspaceRef}>
-        <section className="card">
-          {/* Active Domain Status Banner with Modal Trigger */}
-          <div className="aimed-active-banner" style={{ marginBottom: 18 }}>
-            <div className="aimed-banner-left">
-              <span className="aimed-banner-icon">{currentSpecialty.icon}</span>
-              <div>
-                <div className="aimed-banner-title">
-                  Active Domain: {currentSpecialty.label} ({currentSpecialty.shortName})
-                </div>
-                <div className="aimed-banner-sub">
-                  Practice Guidelines: <b>{currentSpecialty.authorityGuidelines}</b> · Category: <b>{currentSpecialty.category}</b>
-                </div>
-              </div>
-            </div>
-            <button
-              type="button"
-              id="btn-choose-speciality"
-              className="primary"
-              onClick={() => setIsSpecialtyModalOpen(true)}
-              style={{
-                background: "#0f766e",
-                color: "#ffffff",
-                padding: "10px 20px",
-                fontSize: "0.9rem",
-                fontWeight: 600,
-                borderRadius: 8,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                boxShadow: "0 2px 8px rgba(15, 118, 110, 0.25)",
-                cursor: "pointer",
-                whiteSpace: "nowrap"
-              }}
-            >
-              🏥 Choose Speciality ▾
-            </button>
-          </div>
-
-          {/* Workflow Stepper: Step 1 Active, Steps 2-4 Dimmed */}
-          <WorkflowStepper currentStep={1} />
-
-          <form onSubmit={start}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, flexWrap: "wrap", gap: 10 }}>
-              <span className="pill">📝 Step 1 · Clinical Words Intake ({currentSpecialty.shortName})</span>
-              <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
-                3–5 clinical words or short phrases required
-              </span>
-            </div>
-
-            <p className="hint">
-              Enter 3–5 clinically meaningful keywords or short phrases for <b>{currentSpecialty.label}</b>, separated by commas (e.g. population, intervention, comparator, outcome).
-            </p>
-
-            <label htmlFor="clinicalWordsInput" className="sr-only">Clinical keywords</label>
-            <textarea
-              id="clinicalWordsInput"
-              aria-label="Clinical keywords"
-              value={rawInput}
-              onChange={(e) => {
-                setRawInput(e.target.value);
-                setSavedNotice(null);
-              }}
-              rows={3}
-              style={{
-                width: "100%",
-                padding: "10px 12px",
-                borderRadius: 8,
-                border: "1px solid #cbd5e1",
-                fontSize: "0.95rem",
-                lineHeight: 1.5,
-                fontFamily: "inherit"
-              }}
-            />
-
-            {/* "Try an example" chips from specialty presets */}
-            {activePresets.length > 0 && (
-              <div style={{ marginTop: 10, marginBottom: 14 }}>
-                <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.03em" }}>
-                  💡 Try an example for {currentSpecialty.shortName}:
-                </span>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
-                  {activePresets.map((preset) => (
-                    <button
-                      key={preset.id}
-                      type="button"
-                      className="mini-btn"
-                      style={{
-                        background: "#f8fafc",
-                        color: "#0f172a",
-                        border: "1px solid #cbd5e1",
-                        borderRadius: 6,
-                        padding: "4px 10px",
-                        fontSize: "0.80rem",
-                        cursor: "pointer"
-                      }}
-                      onClick={() => applyPreset(preset)}
-                      title={preset.description}
-                    >
-                      {preset.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Live Role Chips under the input with role-strip remove actions */}
-            {picoWords.length > 0 && (
-              <fieldset
-                aria-label="PICO role assignments"
-                style={{
-                  marginTop: 10,
-                  marginBottom: 12,
-                  padding: "12px 14px",
-                  background: "#f8fafc",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: 8
-                }}
-              >
-                <legend className="sr-only">PICO role assignments</legend>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
-                  <span style={{ fontSize: "0.80rem", fontWeight: 700, color: "#0f766e", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-                    🏷️ PICO Roles (Population / Intervention / Comparator / Outcome / Other)
-                  </span>
-                  <span style={{ fontSize: "0.75rem", color: "#64748b" }}>
-                    {picoWords.length} keyword{picoWords.length === 1 ? "" : "s"}
-                  </span>
-                </div>
-
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {picoWords.map((item, idx) => {
-                    const conf = ROLE_CONFIG[item.role];
-                    return (
-                      <div
-                        key={`${item.word}-${idx}`}
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 6,
-                          background: conf.bg,
-                          border: `1px solid ${conf.border}`,
-                          padding: "4px 8px",
-                          borderRadius: 6,
-                          fontSize: "0.82rem"
-                        }}
-                      >
-                        <span
-                          style={{
-                            background: conf.badgeBg,
-                            color: "#ffffff",
-                            fontWeight: 700,
-                            fontSize: "0.7rem",
-                            padding: "2px 6px",
-                            borderRadius: 4
-                          }}
-                        >
-                          {conf.badge}
-                        </span>
-                        <span style={{ fontWeight: 600, color: conf.text }}>{item.word}</span>
-                        <span style={{ fontSize: "0.72rem", color: "#64748b", fontWeight: 500 }}>
-                          ({conf.label})
-                        </span>
-                        <button
-                          type="button"
-                          aria-label={`Remove keyword ${item.word}`}
-                          onClick={() => handleRemoveWord(idx)}
-                          style={{
-                            background: "transparent",
-                            border: "none",
-                            color: "#94a3b8",
-                            cursor: "pointer",
-                            fontSize: "0.95rem",
-                            lineHeight: 1,
-                            padding: "0 2px",
-                            marginLeft: 2
-                          }}
-                          title={`Remove ${item.word}`}
-                        >
-                          ×
-                        </button>
-                      </div>
-                    );
-                  })}
-                </div>
-              </fieldset>
-            )}
-
-            {countHint && (
-              <p className={`count-hint${!canSubmit ? " count-bad" : " count-ok"}`} aria-live="polite">
-                {countHint}
-              </p>
-            )}
-
-            {/* Inline confirmation when words are saved */}
-            {savedNotice && (
-              <div
-                role="status"
-                aria-live="polite"
-                style={{
-                  marginTop: 12,
-                  marginBottom: 12,
-                  padding: "10px 14px",
-                  borderRadius: 8,
-                  background: "#f0fdf4",
-                  border: "1px solid #86efac",
-                  color: "#166534",
-                  fontSize: "0.88rem",
-                  fontWeight: 600,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  flexWrap: "wrap",
-                  gap: 8
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span>✓</span>
-                  <span>{savedNotice}</span>
-                </div>
-                <button
-                  type="button"
-                  className="primary"
-                  style={{ fontSize: "0.85rem", padding: "6px 16px" }}
-                  onClick={() => router.push("/screen")}
+      {/* Primary Selection Section: Dropdown Menu & QR Code */}
+      <main className="solo" style={{ maxWidth: 1280, margin: "0 auto 36px auto", padding: "0 20px" }}>
+        <section
+          className="card"
+          style={{
+            marginBottom: 24,
+            padding: "24px 28px",
+            background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+            border: "1px solid #e2e8f0",
+            borderRadius: 14,
+            boxShadow: "0 8px 30px rgba(15, 118, 110, 0.06)"
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: 28,
+              alignItems: "center"
+            }}
+          >
+            {/* Left Column: Dropdown Selection & Featured Domain Summary */}
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+                <span style={{ fontSize: "1.1rem" }}>🏥</span>
+                <label
+                  htmlFor="specialty-dropdown-select"
+                  style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0f172a" }}
                 >
-                  Continue to Screening →
-                </button>
+                  Choose Specialty from Menu:
+                </label>
               </div>
-            )}
 
-            {/* Literature Search Databases Bar */}
-            <div
-              style={{
-                marginTop: 16,
-                marginBottom: 8,
-                padding: "10px 14px",
-                background: "#f8fafc",
-                borderRadius: 8,
-                border: "1px solid #e2e8f0",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                flexWrap: "wrap",
-                gap: 10
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
-                  🌐 Literature Databases ({SEARCH_SOURCE_OPTIONS.length} available biomedical sources):
-                </span>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {SEARCH_SOURCE_OPTIONS.map(opt => (
-                    <span key={opt.id} className={`source-badge-mini ${opt.badgeClass}`} style={{ fontSize: "0.72rem", padding: "2px 8px" }}>
-                      {opt.icon} {opt.name}{opt.id === "googlescholar" ? " (key-gated)" : ""}
-                    </span>
+              {/* Styled Dropdown Menu */}
+              <div style={{ position: "relative", marginBottom: 18 }}>
+                <select
+                  id="specialty-dropdown-select"
+                  value={selectedId}
+                  onChange={(e) => handleDropdownChange(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "13px 18px",
+                    fontSize: "1.02rem",
+                    fontWeight: 600,
+                    color: "#0f172a",
+                    background: "#ffffff",
+                    border: "2px solid #0f766e",
+                    borderRadius: 10,
+                    cursor: "pointer",
+                    outline: "none",
+                    boxShadow: "0 2px 8px rgba(15, 118, 110, 0.12)",
+                    appearance: "auto"
+                  }}
+                >
+                  {allSpecialties.map((s) => (
+                    <option key={s.id} value={s.id}>
+                      {s.icon} {s.label} ({s.shortName}) — {s.category}
+                    </option>
                   ))}
-                </div>
+                </select>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsSourcesModalOpen(true)}
-                className="mini-btn"
+
+              {/* Active Specialty Detail Showcase Card */}
+              <div
                 style={{
                   background: "#ffffff",
-                  border: "1px solid #0f766e",
-                  color: "#0f766e",
-                  fontWeight: 700,
-                  padding: "6px 14px",
-                  borderRadius: 6,
-                  cursor: "pointer",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 5
+                  border: "1px solid #ccfbf1",
+                  borderRadius: 10,
+                  padding: "16px 18px",
+                  boxShadow: "0 2px 10px rgba(15, 118, 110, 0.05)",
+                  marginBottom: 18
                 }}
               >
-                ℹ️ About the Databases
-              </button>
-            </div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ fontSize: "1.8rem" }}>{activeSpecialtyDef.icon}</span>
+                    <div>
+                      <div style={{ fontSize: "1.12rem", fontWeight: 700, color: "#0f766e" }}>
+                        {activeSpecialtyDef.label}
+                      </div>
+                      <div style={{ fontSize: "0.78rem", color: "#64748b" }}>
+                        Category: <b>{activeSpecialtyDef.category}</b>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    className="pill"
+                    style={{
+                      background: "#f0fdfa",
+                      color: "#0d9488",
+                      border: "1px solid #99f6e4",
+                      fontSize: "0.8rem",
+                      fontWeight: 700,
+                      padding: "4px 10px"
+                    }}
+                  >
+                    🏛️ {activeSpecialtyDef.authorityGuidelines}
+                  </span>
+                </div>
 
-            {/* Patient Privacy Notice */}
-            <PhiNotice />
+                <p style={{ fontSize: "0.88rem", color: "#334155", margin: "6px 0 10px 0", lineHeight: 1.5 }}>
+                  {activeSpecialtyDef.description}
+                </p>
 
-            <div className="row" style={{ marginTop: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
-              <button className="primary" onClick={start} type="submit" disabled={!canSubmit} style={{ padding: "12px 28px", fontSize: "1rem" }}>
-                Save words
-              </button>
-              {(rawInput || picoWords.length > 0) && (
-                <button
-                  type="button"
-                  className="secondary"
-                  onClick={() => {
-                    resetSession();
-                    setRawInput("");
-                    setSavedNotice(null);
-                  }}
-                  style={{ padding: "12px 20px", fontSize: "0.95rem" }}
-                  title="Clear all inputs and reset session state"
-                >
-                  ↺ Start a new question
-                </button>
-              )}
-            </div>
-          </form>
-        </section>
-      </main>
+                <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: 6 }}>
+                  <b>Key Conditions:</b> {activeSpecialtyDef.conditions.slice(0, 4).join(", ")}
+                </div>
+                <div style={{ fontSize: "0.82rem", color: "#475569" }}>
+                  <b>Prioritized Outcomes:</b> {activeSpecialtyDef.outcomesRanked?.slice(0, 3).join(", ") || "Clinical endpoints"}
+                </div>
+              </div>
 
-      <AppFooter />
-
-      {/* Specialty Drop Menu Dialog Choice Modal */}
-      {isSpecialtyModalOpen && (
-        <div className="aimed-modal-backdrop" onClick={() => setIsSpecialtyModalOpen(false)}>
-          <div className="aimed-modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="aimed-modal-header">
-              <h3>🏥 Choose Clinical Specialty Domain</h3>
+              {/* Big CTA Button to Dashboard */}
               <button
                 type="button"
-                className="aimed-modal-close"
-                onClick={() => setIsSpecialtyModalOpen(false)}
-                title="Close"
+                id="btn-go-to-dashboard"
+                onClick={() => handleProceedToDashboard()}
+                style={{
+                  width: "100%",
+                  padding: "14px 24px",
+                  background: "linear-gradient(135deg, #0f766e 0%, #0d9488 100%)",
+                  color: "#ffffff",
+                  border: "none",
+                  borderRadius: 10,
+                  fontSize: "1.08rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 10,
+                  boxShadow: "0 4px 16px rgba(15, 118, 110, 0.35)",
+                  transition: "transform 0.15s ease, box-shadow 0.15s ease"
+                }}
               >
-                ✕
+                <span>Proceed to Clinical Dashboard ({activeSpecialtyDef.shortName})</span>
+                <span style={{ fontSize: "1.2rem" }}>→</span>
               </button>
             </div>
-            <div className="aimed-modal-body">
-              <SpecialtySelector
-                onSelectSpecialty={(id) => {
-                  handleSelectSpecialtyFromCard(id);
-                  setIsSpecialtyModalOpen(false);
-                }}
-                onSelectPreset={(preset) => {
-                  applyPreset(preset);
-                  setIsSpecialtyModalOpen(false);
+
+            {/* Right Column: QR Code Component & Mobile Access Card */}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "20px 24px",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: 12,
+                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.03)"
+              }}
+            >
+              <AppQrCode url="https://aimed-pico.vercel.app" size={145} />
+              <div style={{ marginTop: 14, textAlign: "center", maxWidth: 280 }}>
+                <div style={{ fontSize: "0.88rem", fontWeight: 700, color: "#1e293b", marginBottom: 4 }}>
+                  Cross-Device Synchronized
+                </div>
+                <p style={{ fontSize: "0.78rem", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
+                  Scan with your phone or tablet camera to access AIMed anywhere in your clinic or hospital network.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Visual Specialties Browser Section */}
+        <section className="card" style={{ padding: "24px 28px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: 18 }}>
+            <div>
+              <h3 style={{ fontSize: "1.18rem", fontWeight: 700, color: "#0f172a", margin: "0 0 4px 0" }}>
+                Browse All 15 Clinical Specialties
+              </h3>
+              <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
+                Click any specialty card below to set your clinical domain and enter the PICO workbench.
+              </p>
+            </div>
+
+            {/* Search Input Filter */}
+            <div style={{ minWidth: 260, maxWidth: 360, width: "100%" }}>
+              <input
+                type="text"
+                placeholder="Search specialty, guideline, or condition..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  border: "1px solid #cbd5e1",
+                  fontSize: "0.85rem"
                 }}
               />
             </div>
           </div>
-        </div>
-      )}
 
-      {/* Literature Sources Info Modal (read-only: all sources are mandatory) */}
-      {isSourcesModalOpen && (
-        <div className="aimed-modal-backdrop" onClick={() => setIsSourcesModalOpen(false)}>
-          <div className="aimed-modal-content" style={{ maxWidth: 660 }} onClick={(e) => e.stopPropagation()}>
-            <div className="aimed-modal-header">
-              <h3>🌐 Literature Search Databases ({SEARCH_SOURCE_OPTIONS.length} Biomedical Sources)</h3>
-              <button
-                type="button"
-                className="aimed-modal-close"
-                onClick={() => setIsSourcesModalOpen(false)}
-                title="Close"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="aimed-modal-body">
-              <p style={{ margin: "0 0 14px 0", fontSize: "0.85rem", color: "#64748b" }}>
-                Every search queries all of these databases concurrently. Results are merged and deduplicated by DOI, PMID and title, so the same paper is never listed twice.
-              </p>
+          {/* Category Tabs */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+            {categories.map((cat) => {
+              const isSelected = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat)}
+                  style={{
+                    padding: "5px 12px",
+                    borderRadius: 20,
+                    border: isSelected ? "1px solid #0f766e" : "1px solid #e2e8f0",
+                    background: isSelected ? "#0f766e" : "#f8fafc",
+                    color: isSelected ? "#ffffff" : "#475569",
+                    fontSize: "0.8rem",
+                    fontWeight: isSelected ? 700 : 500,
+                    cursor: "pointer",
+                    transition: "all 0.15s ease"
+                  }}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {SEARCH_SOURCE_OPTIONS.map(opt => (
-                  <div
-                    key={opt.id}
-                    className="source-choice-card active"
+          {/* Specialty Grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+              gap: 16
+            }}
+          >
+            {filteredSpecialties.map((s) => {
+              const isCurrent = selectedId === s.id;
+              return (
+                <div
+                  key={s.id}
+                  onClick={() => {
+                    handleDropdownChange(s.id);
+                  }}
+                  style={{
+                    padding: "16px 18px",
+                    background: isCurrent ? "#f0fdfa" : "#ffffff",
+                    border: isCurrent ? "2px solid #0f766e" : "1px solid #e2e8f0",
+                    borderRadius: 10,
+                    cursor: "pointer",
+                    boxShadow: isCurrent
+                      ? "0 4px 14px rgba(15, 118, 110, 0.15)"
+                      : "0 2px 6px rgba(0, 0, 0, 0.02)",
+                    transition: "all 0.15s ease",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
+                      <span style={{ fontSize: "1.6rem" }}>{s.icon}</span>
+                      <span
+                        className="pill"
+                        style={{
+                          fontSize: "0.72rem",
+                          background: isCurrent ? "#0f766e" : "#f1f5f9",
+                          color: isCurrent ? "#ffffff" : "#475569",
+                          fontWeight: 600
+                        }}
+                      >
+                        {s.category}
+                      </span>
+                    </div>
+                    <div style={{ fontSize: "1rem", fontWeight: 700, color: isCurrent ? "#0f766e" : "#1e293b", marginBottom: 4 }}>
+                      {s.label}
+                    </div>
+                    <div style={{ fontSize: "0.78rem", color: "#64748b", marginBottom: 8 }}>
+                      🏛️ {s.authorityGuidelines}
+                    </div>
+                    <p style={{ fontSize: "0.8rem", color: "#475569", margin: "0 0 12px 0", lineHeight: 1.45 }}>
+                      {s.description.slice(0, 95)}…
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleProceedToDashboard(s.id);
+                    }}
                     style={{
+                      width: "100%",
+                      padding: "8px 12px",
+                      background: isCurrent ? "#0f766e" : "#f8fafc",
+                      color: isCurrent ? "#ffffff" : "#0f766e",
+                      border: isCurrent ? "none" : "1px solid #ccfbf1",
+                      borderRadius: 6,
+                      fontSize: "0.82rem",
+                      fontWeight: 700,
+                      cursor: "pointer",
                       display: "flex",
                       alignItems: "center",
-                      gap: 12,
-                      padding: "12px 14px",
-                      borderRadius: 10,
-                      border: "2px solid #0f766e",
-                      background: "#f0fdfa",
-                      textAlign: "left",
-                      width: "100%"
+                      justifyContent: "center",
+                      gap: 6
                     }}
                   >
-                    <div style={{ fontSize: "1.5rem", lineHeight: 1 }}>{opt.icon}</div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
-                        <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#0f766e" }}>
-                          {opt.name}
-                        </span>
-                        <span
-                          style={{
-                            fontSize: "0.72rem",
-                            fontWeight: 700,
-                            padding: "3px 8px",
-                            borderRadius: 4,
-                            background: opt.id === "googlescholar" ? "#f59e0b" : "#0f766e",
-                            color: "#ffffff"
-                          }}
-                        >
-                          {opt.id === "googlescholar" ? "KEY-GATED" : "ALWAYS ON"}
-                        </span>
-                      </div>
-                      <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: 2 }}>
-                        {opt.description}
-                      </div>
-                      <div style={{ fontSize: "0.70rem", color: "#94a3b8", marginTop: 2 }}>
-                        Provider: {opt.provider}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="aimed-modal-footer">
-              <button
-                type="button"
-                className="primary"
-                onClick={() => setIsSourcesModalOpen(false)}
-                style={{ padding: "8px 20px", fontSize: "0.9rem" }}
-              >
-                ✓ Close
-              </button>
-            </div>
+                    <span>{isCurrent ? "Enter Dashboard" : "Select & Enter"}</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      )}
+        </section>
+      </main>
+
+      <AppFooter />
     </div>
   );
 }

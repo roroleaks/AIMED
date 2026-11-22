@@ -14,7 +14,7 @@ export interface CitationStyleOption {
 export const CITATION_STYLE_OPTIONS: CitationStyleOption[] = [
   {
     id: "vancouver",
-    name: "Vancouver (No Brackets)",
+    name: "VANCOUVER (No Brackets)",
     badge: "ICMJE / NLM",
     shortDescription: "Standard biomedical style. In-text citations are numbers without brackets; reference list is numbered.",
     inTextExample: "1 or 1, 2 or 1-3",

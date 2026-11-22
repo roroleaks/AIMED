@@ -160,7 +160,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
     // References Section
     const styleLabel = (workflow.citationStyle || "vancouver").toUpperCase();
     reserveSpace(36);
-    doc.font(FONT_B).fontSize(12).fillColor(teal).text(`References (${styleLabel})`);
+    doc.font(FONT_B).fontSize(12).fillColor(teal).text(`REFERENCES (${styleLabel})`);
     doc.moveDown(0.3);
 
     if (workflow.references && workflow.references.length > 0) {

@@ -40,7 +40,7 @@ export default function ScreenPage() {
   const fetchScreen = useCallback(async (force = false) => {
     const rawWords = sget<PicoWord[]>(KEYS.picoWords);
     if (!rawWords || !Array.isArray(rawWords) || rawWords.length < 3 || rawWords.length > 5) {
-      router.replace("/");
+      router.replace("/dashboard");
       return;
     }
 
@@ -232,7 +232,7 @@ export default function ScreenPage() {
               <button
                 type="button"
                 className="secondary"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/dashboard")}
               >
                 ← Change words
               </button>
@@ -401,7 +401,7 @@ export default function ScreenPage() {
               <button
                 type="button"
                 className="secondary"
-                onClick={() => router.push("/")}
+                onClick={() => router.push("/dashboard")}
               >
                 ← Change words
               </button>

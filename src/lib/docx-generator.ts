@@ -310,7 +310,7 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
         spacing: { before: 320, after: 140 },
         children: [
           new TextRun({
-            text: `References (${styleLabel})`,
+            text: `REFERENCES (${styleLabel})`,
             font: "Arial",
             size: 26,
             bold: true,

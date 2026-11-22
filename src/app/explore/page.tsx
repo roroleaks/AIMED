@@ -134,7 +134,7 @@ export default function ExplorePage() {
   ) => {
     const rawWords = sget<PicoWord[]>(KEYS.picoWords);
     if (!rawWords || !Array.isArray(rawWords) || rawWords.length < 3 || rawWords.length > 5) {
-      router.replace("/");
+      router.replace("/dashboard");
       return;
     }
 
@@ -216,7 +216,7 @@ export default function ExplorePage() {
       const storedChoice = sget<ChoiceSession>(KEYS.choice);
 
       if (!storedWords || !Array.isArray(storedWords) || storedWords.length < 3 || storedWords.length > 5) {
-        router.replace("/");
+        router.replace("/dashboard");
         return;
       }
       if (!storedChoice || !storedChoice.phrase || !storedChoice.category) {

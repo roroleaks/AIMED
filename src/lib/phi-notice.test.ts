@@ -18,14 +18,15 @@ test("PHI-2. Component uses accessible landmarks and attributes", () => {
 });
 
 test("PHI-3. Page renders PhiNotice before submission button", () => {
-  const pagePath = path.resolve(import.meta.dirname, "../app/page.tsx");
+  const dashboardPath = path.resolve(import.meta.dirname, "../app/dashboard/page.tsx");
+  const pagePath = fs.existsSync(dashboardPath) ? dashboardPath : path.resolve(import.meta.dirname, "../app/page.tsx");
   const src = fs.readFileSync(pagePath, "utf8");
-  assert.ok(src.includes("PhiNotice"), "page.tsx must import PhiNotice");
-  assert.ok(src.includes("<PhiNotice />"), "page.tsx must render <PhiNotice />");
+  assert.ok(src.includes("PhiNotice"), "Workspace must import PhiNotice");
+  assert.ok(src.includes("<PhiNotice />"), "Workspace must render <PhiNotice />");
 
   const noticeIndex = src.indexOf("<PhiNotice />");
-  const submitIndex = src.indexOf("<button className=\"primary\" onClick={start}");
-  assert.ok(noticeIndex !== -1, "PhiNotice must be present in page markup");
-  assert.ok(submitIndex !== -1, "Submit button must be present in page markup");
+  const submitIndex = src.indexOf("onClick={start}");
+  assert.ok(noticeIndex !== -1, "PhiNotice must be present in workspace markup");
+  assert.ok(submitIndex !== -1, "Submit button must be present in workspace markup");
   assert.ok(noticeIndex < submitIndex, "PhiNotice must appear before submission button");
 });

@@ -82,6 +82,32 @@ const ROLE_CONFIG: Record<string, { label: string; badge: string; bg: string; bo
   }
 };
 
+function renderFormattedParagraph(para: string, style: CitationStyle) {
+  if (style !== "vancouver") {
+    return para;
+  }
+  const parts = para.split(/(\[[\d\s,\-]+\])/);
+  if (parts.length === 1) return para;
+  return parts.map((part, idx) => {
+    if (/^\[([\d\s,\-]+)\]$/.test(part)) {
+      return (
+        <sup
+          key={idx}
+          style={{
+            color: "#0f766e",
+            fontWeight: 700,
+            fontSize: "0.78em",
+            padding: "0 1px"
+          }}
+        >
+          {part}
+        </sup>
+      );
+    }
+    return part;
+  });
+}
+
 export default function SummaryPage() {
   const router = useRouter();
   const [words, setWords] = useState<PicoWord[] | null>(null);
@@ -103,7 +129,7 @@ export default function SummaryPage() {
     const timer = setTimeout(() => {
       const rawWords = sget<PicoWord[]>(KEYS.picoWords);
       if (!rawWords || !Array.isArray(rawWords) || rawWords.length < 3) {
-        router.replace("/");
+        router.replace("/dashboard");
         return;
       }
 
@@ -687,7 +713,7 @@ export default function SummaryPage() {
                 }
                 return (
                   <p key={pIdx} style={{ fontSize: "0.93rem", margin: "0 0 10px 0", color: "#334155", lineHeight: 1.6 }}>
-                    {para}
+                    {renderFormattedParagraph(para, style)}
                   </p>
                 );
               })}
@@ -701,17 +727,18 @@ export default function SummaryPage() {
                 fontSize: "1.08rem",
                 fontWeight: 700,
                 color: "#0f766e",
-                margin: "0 0 12px 0"
+                margin: "0 0 12px 0",
+                textTransform: "uppercase"
               }}
             >
-              References ({style.toUpperCase()})
+              REFERENCES ({style.toUpperCase()})
             </h3>
             {manuscript.references && manuscript.references.length > 0 ? (
               <ol
                 style={{
                   margin: 0,
-                  paddingLeft: style === "vancouver" ? 22 : 0,
-                  listStyle: style === "vancouver" ? "decimal" : "none"
+                  paddingLeft: 0,
+                  listStyle: "none"
                 }}
               >
                 {manuscript.references.map((ref, idx) => (

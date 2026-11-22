@@ -420,10 +420,13 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
       const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
       const parsedAuthors = parseAuthorNames(r.authors || "");
       const authorText = parsedAuthors[0]?.surname ? `${parsedAuthors[0].surname} et al.` : "Authors";
+      const citationLead = style === "vancouver"
+        ? `(${authorText}, ${r.year || "n.d."}) ${itemCite}`
+        : itemCite;
       if (finding) {
-        return `"${r.title}" (${authorText}, ${r.year || "n.d."}) ${itemCite} reported: "${finding}"`;
+        return `"${r.title}" ${citationLead} reported: "${finding}"`;
       }
-      return `"${r.title}" (${authorText}, ${r.year || "n.d."}) ${itemCite} (no direct outcome sentence extractable from abstract)`;
+      return `"${r.title}" ${citationLead} (no direct outcome sentence extractable from abstract)`;
     });
 
     synthesisParagraphs.push(`Study extractions: ${studySentences.join(". ")}.`);
