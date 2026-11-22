@@ -1,9 +1,35 @@
 # Aimed — Multi-Specialty Medical Intelligence Platform
 
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-aimed--pico.vercel.app-0f766e?style=flat-square&logo=vercel)](https://aimed-pico.vercel.app)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24402747-0d9488?style=flat-square)](https://doi.org/10.5281/zenodo.24402747)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict%20Typecheck-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/Tests-401%20Passing-brightgreen?style=flat-square)](https://github.com/roroleaks/AIMED)
+
 A clinical literature exploration and inquiry structuring platform designed to assist clinicians and researchers **transition from clinical questions to structured PICO formulations, literature exploration, and draft academic commentary skeletons across 15 medical specialties**.
+
+🌐 **Live Production Application:** [https://aimed-pico.vercel.app](https://aimed-pico.vercel.app)  
+📑 **Permanent Scientific Archive:** [doi.org/10.5281/zenodo.24402747](https://doi.org/10.5281/zenodo.24402747)
 
 > **Important Clinical Scope & Methodology Notice:**  
 > AIMed is an automated research exploration tool generating preliminary draft manuscripts. It **does not** conduct formal systematic reviews, does **not** perform risk-of-bias assessments (such as Cochrane RoB 2 or ROBINS-I), does **not** perform GRADE certainty evaluations, and does **not** provide definitive clinical practice advice or treatment recommendations. The application assists users by formulating structured PICO questions, querying open scholarly literature databases, identifying candidate study records, and synthesizing an academic commentary skeleton derived strictly from retrieved abstracts. Clinicians and investigators must independently verify all citations, full texts, and clinical claims.
+
+---
+
+## 🏛️ Architecture & Dedicated Specialty Portal
+
+### 1. Dedicated Specialty Domain Selection Portal (`/`)
+The initial entry point (`/`) is dedicated **exclusively** to clinical specialty domain selection with an attractive and responsive layout:
+- **Responsive Dropdown Menu:** Quick selection across all 15 clinical specialties via a styled dropdown menu (`#specialty-dropdown-select`).
+- **Interactive Domain Showcase Card:** Displays the chosen specialty's authority practice guidelines (e.g., ACOG, RCOG, AHA, ACC, ASCO, NCCN), clinical scope, key conditions, and prioritized endpoints.
+- **Cross-Device Synchronized QR Code:** An interactive, branded QR code generated via `qrcode` allows clinicians to instantly transfer the session to their phone or tablet camera (`https://aimed-pico.vercel.app`).
+- **Visual Category Browser:** Filterable specialty grid with category pills (*Reproductive & Women's Health*, *Cardiovascular & Acute Care*, *Oncology & Systemic Medicine*, etc.) and 15 interactive cards.
+- **Direct Navigation:** Selecting any specialty navigates seamlessly to the dedicated Step 1 PICO workbench at `/dashboard`.
+
+### 2. Step 1: PICO Formulation Workbench (`/dashboard`)
+- **Automated PICO Word Formulation:** Clinicians enter 3 to 5 clinical terms, automatically categorized with color-coded role badges: **P** (Population), **I** (Intervention), **C** (Comparator), **O** (Outcome).
+- **Specialty-Tuned Presets:** One-click clinical chips tuned to guidelines and landmark questions.
+- **Patient Privacy Guard (`PhiNotice`):** Prominently warns clinicians not to enter Protected Health Information (PHI) before initiating any search query.
+- **Search Sources Configuration Modal:** Allows auditing and configuring the 11 integrated literature sources.
 
 ---
 
@@ -78,9 +104,12 @@ Aimed features a modular specialty configuration architecture (`src/config/speci
 The platform operates through a streamlined 4-step evidence-based pipeline:
 
 ```
-[Specialty & PICO Words Intake] (Step 1: /)
- └── Clinician selects clinical specialty and enters 3 to 5 clinical terms with P / I / C / O roles
-     (drug names never become outcomes, standard care/placebo is always C, typed order and wording kept)
+[Specialty Portal] (Entry: /)
+ └── Clinician selects clinical domain from dropdown menu or 15 specialty cards; QR code available for mobile access
+       │
+       ▼
+[PICO Intake & Formulation] (Step 1: /dashboard)
+ └── Clinician enters 3 to 5 terms with P / I / C / O roles; PHI notice displayed; sources configured
        │
        ▼
 [Literature Screening] (Step 2: /screen) — all 11 literature databases queried concurrently
@@ -93,18 +122,35 @@ The platform operates through a streamlined 4-step evidence-based pipeline:
        ▼
 [Evidence Explorer] (Step 3: /explore)
  ├── Multi-source retrieval & deterministic relevance scoring against selected PICO
- ├── Category-specific bonuses, study design classification, and element matching (P, I, C, O)
+ ├── Category-specific bonuses, 40-class study design taxonomy, and element matching (P, I, C, O)
+ ├── Cryptographic HMAC SHA-256 signatures (_sig) bound to canonical metadata
  ├── Clinician reviews ranked cards, audits findings, and can exclude non-contributory papers
  └── Excluded papers are permanently filtered out with 0-overlap guarantee
        │
        ▼
 [Workflow Summary & Narrative Manuscript] (Step 4: /summary)
  ├── Deterministic 5-section narrative manuscript (Background, Search strategy and screening,
- │   Evidence synthesis with truthful findings, Limitations, and Conclusion)
- ├── Dynamic citation style selector: Vancouver (ICMJE/NLM numerical), APA (7th ed.), or Harvard
- ├── Optional AI prose enrichment preserving headings, numbers, and references with hard validation
+ │   Evidence synthesis with truthful extraction table, Limitations, and Conclusion)
+ ├── Dynamic Multi-Style Citation Selector:
+ │   ├── VANCOUVER (No Brackets): Uppercase superscript numerals ([1]) with unbracketed numbered bibliography (1. Author AA...)
+ │   ├── APA 7th Edition: Author-date citations (Smith et al., 2023) and APA formatted bibliography
+ │   └── Harvard Style: Author-year citations (Smith et al. 2023) and Harvard formatted bibliography
+ ├── Clean bibliography rendering: Zero double numbering (1. 1.) and zero duplicate author-year leads
+ ├── Optional single-pass AI prose enrichment with strict validation gates
  └── Publication-grade DOCX and TrueType PDF exports with verified plain-text DOIs and zero hyperlinks
 ```
+
+---
+
+## 📑 Multi-Style Citation Architecture
+
+AIMed supports three major biomedical and scientific referencing formats, switchable with real-time reactive recalculation:
+
+| Citation Style | In-Text Citation Format | Bibliography Format | Heading Style |
+|---|---|---|---|
+| **VANCOUVER** | Uppercase superscript numeral: `[1]` (`<sup>[1]</sup>` in HTML, native superscript in DOCX) | Numbered list without brackets: `1. Smith JA, Brown K. Title. Journal. 2023; doi:10.xxxx` | `REFERENCES (VANCOUVER)` |
+| **APA 7th** | Parenthetical author-date: `(Smith et al., 2023)` or `(Smith & Brown, 2023)` | Hanging indent with `(Year)` and DOI URL: `Smith, J. A., & Brown, K. (2023). Title. Journal. https://doi.org/10.xxxx` | `REFERENCES (APA)` |
+| **Harvard** | Parenthetical author-year: `(Smith et al. 2023)` or `(Smith and Brown 2023)` | Author-year with single-quoted titles: `Smith, J.A. and Brown, K., 2023. 'Title'. Journal. doi:10.xxxx` | `REFERENCES (HARVARD)` |
 
 ---
 
@@ -142,11 +188,12 @@ Aimed retains 100% of the deterministic integrity pipeline guarding clinical out
 
 | Stage | Module | Guarantee |
 |---|---|---|
+| **Cryptographic Trust Boundary** | `src/lib/record-signature.ts` | Every paper surviving screening is signed with an HMAC SHA-256 token covering canonical title, PMID, DOI, and journal. Any unsigned or forged paper posted to `/api/pdf` or `/api/docx` is rejected with HTTP 422. |
 | **Canonical Identity** | `src/lib/evidence-set.ts` | One record per paper. DOI is canonical key (with full parenthesis preservation for Elsevier/Lancet DOIs); PMID, Crossref, and OpenAlex serve as verified fallbacks. |
-| **Claim Filtering** | `src/lib/relevance.ts` | A record is retained as direct support ONLY if it carries a verified DOI or PMID, passes the confidence gate, and deterministically satisfies every required PICO element. Records about a contradicting population subtype (e.g. HFpEF / DELIVER for an HFrEF question, type 1 vs type 2 diabetes, small-cell vs non-small-cell) are rejected (`populationConflict`). Protocols, trial registrations, errata and conference abstracts are never evidence. |
-| **Claim Finalization** | `src/lib/claim-finalization.ts` | Every narrative sentence in the generated commentary is audited. Unsupported assertive claims are removed and an explicit uncertainty caveat is added (at most once per section). Paragraphs, sub-headings and bullets are preserved. Disease descriptors such as "reduced ejection fraction" are not mistaken for claims. |
-| **Narrative Reconciliation** | `src/lib/relevance.ts` | Fixpoint reconciliation drives in-text numerical citations and the Vancouver reference list into mutual agreement across abstract, introduction, discussion, and conclusion. |
-| **Parity Deliverable Gate** | `src/lib/deliverable-integrity.ts` | Refuses PDF, Word, or clipboard exports if the published bibliography disagrees with the retained evidence set or carries orphan/unsupported numeric citations. |
+| **Claim Filtering** | `src/lib/relevance.ts` | A record is retained as direct support ONLY if it carries a verified DOI or PMID, passes the confidence gate, and deterministically satisfies every required PICO element. Protocols, trial registrations, errata and conference abstracts are excluded from direct synthesis. |
+| **Claim Finalization** | `src/lib/claim-finalization.ts` | Every narrative sentence in the generated commentary is audited. Unsupported assertive claims are removed and an explicit uncertainty caveat is added (at most once per section). Paragraphs, sub-headings and bullets are preserved. |
+| **Narrative Reconciliation** | `src/lib/relevance.ts` | Fixpoint reconciliation drives in-text citations and the reference list into mutual agreement across abstract, introduction, discussion, and conclusion. |
+| **Parity Deliverable Gate** | `src/lib/deliverable-integrity.ts` | Refuses PDF, Word, or clipboard exports if the published bibliography disagrees with the retained evidence set or carries orphan citations. |
 | **Deterministic Commentary** | `src/lib/deterministic-commentary.ts` | Without an AI key the paper is written from the retained abstracts: each study's labelled conclusion is quoted and cited, directions of effect are counted only from conclusions about the selected outcome, and no effect estimate is ever invented. |
 | **Deterministic Fallback** | `src/app/api/engine/route.ts` | Automatically heals narrative citations and ensures 100% integrity validation before returning responses. |
 
@@ -157,7 +204,8 @@ Aimed retains 100% of the deterministic integrity pipeline guarding clinical out
 ### 1. Installation
 
 ```bash
-cd AIMed
+git clone https://github.com/roroleaks/AIMED.git
+cd AIMED
 npm install
 ```
 
@@ -167,24 +215,22 @@ npm install
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to access the landing page and specialty selector.
+Visit [http://localhost:3000](http://localhost:3000) to access the specialty portal (`/`) and navigate to the clinical dashboard (`/dashboard`).
 
 ### 3. Run Test Suite & Typecheck
 
 ```bash
-npm test                              # 404 tests (397 deterministic PASS, 7 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
+npm test                              # 408 tests (401 deterministic PASS, 7 live-network SKIPPED unless AIMED_LIVE_NETWORK=1)
 npm run lint                          # ESLint + Secret Scan guard (0 errors, 0 warnings)
 npm run typecheck                     # tsc --noEmit (strict TypeScript check)
-npm run build                         # Production Next.js build (13 routes, 0 errors)
-node scripts/test-all-specialties.mjs --offline # End-to-end 15-specialty deterministic suite for CI (< 60s)
-node scripts/test-all-specialties.mjs --offline --specialty <id> # Single specialty offline run
-node scripts/test-all-specialties.mjs           # Full live-network E2E suite locally before releases (15/15)
+npm run build                         # Production Next.js build (14 routes, 0 errors)
 ```
 
 ### 4. Configuration (environment variables)
 
 | Variable | Purpose |
 |---|---|
+| `AIMED_RECORD_SECRET` | Secret key for HMAC SHA-256 record signatures (required in production; prevents cold-start signature rejection) |
 | `GEMINI_API_KEY` / `OPENAI_API_KEY` / `GROQ_API_KEY` / `OPENROUTER_API_KEY` | Optional AI provider for gap maps and commentary; without one the deterministic engine is used |
 | `NCBI_API_KEY` | PubMed rate limit 10/s instead of 3/s (recommended) |
 | `OPENALEX_API_KEY`, `S2_API_KEY` | Higher OpenAlex / Semantic Scholar quotas (recommended) |
@@ -194,37 +240,17 @@ node scripts/test-all-specialties.mjs           # Full live-network E2E suite lo
 ### 5. Snapshot Archive
 
 ```bash
-npm run snapshot                      # zips the project to dist/aimed-snapshot.zip (no node_modules/.next/.git/.env)
-AIMED_SNAPSHOT_DIR="C:\path\to\folder" npm run snapshot   # also copy it to another folder
-```
-
-Works on Windows (PowerShell) and macOS / Linux (`zip`).
-
----
-
-## 📤 Publishing to GitHub as a New Repository
-
-To initialize and push Aimed to GitHub:
-
-```bash
-cd /path/to/Aimed
-
-# Initialize Git repository and add remote
-git remote add origin https://github.com/<your-username>/Aimed.git
-
-# Push to GitHub
-git branch -M main
-git push -u origin main
+npm run snapshot                      # creates clean dist/aimed-snapshot.zip
 ```
 
 ---
 
 ## 🚀 Vercel Production Deployment
 
-AIMed is deployed on Vercel (`aimed-pico.vercel.app`):
-- **Production Branch:** `main` (builds automatically on push or PR merge to `main`).
-- **Environment Variables:** Set optional `NCBI_API_KEY`, `OPENALEX_API_KEY`, `S2_API_KEY`, `SERPAPI_API_KEY` in the Vercel Project Settings.
-- **Commit Transparency:** `NEXT_PUBLIC_COMMIT_SHA` is injected at build time from `VERCEL_GIT_COMMIT_SHA` (or fallback git short hash) and displayed directly in the UI footer and in document export footers.
+AIMed is deployed continuously on Vercel at [aimed-pico.vercel.app](https://aimed-pico.vercel.app):
+- **Production Branch:** `main` (auto-builds on push).
+- **Environment Variables:** `AIMED_RECORD_SECRET`, plus optional `NCBI_API_KEY`, `OPENALEX_API_KEY`, `S2_API_KEY`, `SERPAPI_API_KEY`.
+- **Commit Transparency:** `NEXT_PUBLIC_COMMIT_SHA` is injected at build time from `VERCEL_GIT_COMMIT_SHA` and displayed in the UI header/footer and exported document footers.
 
 To deploy via Vercel CLI:
 ```bash
@@ -233,8 +259,10 @@ vercel --prod
 
 ---
 
-## 👨‍⚕️ Author & Credits
+## 👨‍⚕️ Author & Scientific Copyright
 
-- **Creator & Lead Investigator:** Dr. Raouf Roshdy
-- **Architecture:** Next.js 16 (App Router), React 19, TypeScript, PDFKit, Zod
-- **Clinical Informatics:** Deterministic PICO Formulation, Vancouver ICMJE/NLM referencing, Evidence Gap Mapping, and Multi-Specialty Domain Ontology.
+- **Creator & Lead Investigator:** **Dr. Raouf Roshdy**
+- **Permanent Scientific Identifier (DOI):** [doi.org/10.5281/zenodo.24402747](https://doi.org/10.5281/zenodo.24402747)
+- **Copyright:** `Copyright doi.org/10.5281/zenodo.24402747`
+- **Architecture:** Next.js 16 (App Router), React 19, TypeScript, PDFKit, `docx`, `qrcode`, Zod
+- **Clinical Informatics:** Deterministic PICO Formulation, ICMJE/NLM Vancouver Referencing, APA/Harvard Multi-Style Support, Multi-Specialty Domain Ontology.
