@@ -107,6 +107,7 @@ export interface ManuscriptData {
   references: string[];
   citationStyle: CitationStyle;
   aiEnriched?: boolean;
+  evidenceConclusion?: string;
 }
 
 export interface ComposeManuscriptInput {
@@ -483,7 +484,8 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     sections,
     references,
     citationStyle: style,
-    aiEnriched: false
+    aiEnriched: false,
+    evidenceConclusion
   };
 }
 
