@@ -40,6 +40,17 @@ interface ExploreResponse {
     ok: boolean;
     count: number;
   }>;
+  searchLog?: Array<{
+    id: string;
+    name?: string;
+    query?: string;
+    count?: number;
+    attempted?: boolean;
+    ok?: boolean;
+    skipped?: string;
+    error?: string;
+    date?: string;
+  }>;
   hasMore: boolean;
 }
 

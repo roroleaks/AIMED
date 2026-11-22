@@ -28,7 +28,8 @@ import {
   type LiteratureArticle,
   resetSourceStatus,
   sourceStatusSnapshot,
-  recordSourceStatus
+  recordSourceStatus,
+  SEARCH_SOURCE_OPTIONS
 } from "@/lib/literature-sources";
 
 export const maxDuration = 60;
@@ -928,6 +929,22 @@ HARD RULES:
         };
       });
 
+      const todayDate = new Date().toISOString().slice(0, 10);
+      const searchLog = SEARCH_SOURCE_OPTIONS.map(opt => {
+        const st = (snap as Record<string, { attempted?: boolean; ok?: boolean; skipped?: string; error?: string; hits?: number }>)[opt.id];
+        return {
+          id: opt.id,
+          name: opt.name.replace(/ \(PubMed Central\)$/, ""),
+          query: mainQuery,
+          count: Number(st?.hits || 0),
+          date: todayDate,
+          attempted: Boolean(st?.attempted),
+          ok: Boolean(st?.ok),
+          skipped: st?.skipped || "none",
+          error: st?.error
+        };
+      });
+
       return NextResponse.json({
         records: returnedRecords,
         corpusStats: {
@@ -938,6 +955,7 @@ HARD RULES:
           relaxationLevel
         },
         sources,
+        searchLog,
         hasMore
       }, {
         headers: { "x-aimed-source": "deterministic" }
@@ -956,19 +974,15 @@ HARD RULES:
         searchLog
       } = body as ComposeStageInput;
 
-      // Verify server-side trust boundary: reject fabricated or untrusted records
+      // Verify server-side trust boundary: reject fabricated or untrusted records (R3)
       if (records && records.length > 0) {
         for (const r of records as Array<Partial<ExploreRecord> & { _sig?: string }>) {
           const verified = verifyRecordSignature(r);
           if (!verified) {
-            const hasValidPmid = !!(r.pmid && /^\d+$/.test(String(r.pmid).trim()));
-            const hasValidDoi = !!(r.doi && /10\.\d{4,}\//.test(String(r.doi)));
-            if (!hasValidPmid && !hasValidDoi) {
-              return NextResponse.json(
-                { error: "Untrusted or fabricated record detected: record signature verification failed and no resolvable identifier exists" },
-                { status: 422 }
-              );
-            }
+            return NextResponse.json(
+              { error: "Untrusted or fabricated record detected: record signature verification failed. Records must originate from verified Explore stage." },
+              { status: 422 }
+            );
           }
         }
       }

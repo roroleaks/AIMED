@@ -313,8 +313,12 @@ export function classifyPaperType(input: PaperMetadataInput | string): ClinicalS
     return "Case Report";
   }
 
-  // 33. In Vitro Study
-  if (/\bin\s+vitro\b|\bcell\s+culture\b|\bcell\s+line\b|\bmolecular\s+assay\b/i.test(fullText)) {
+  // 33. In Vitro Study (R11: Disambiguate clinical IVF - in vitro fertilization - from cell assays)
+  const isHumanClinical = /\b(patients?|women|men|couples|participants?|registry|cohort|retrospective\s+study|clinical\s+study)\b/i.test(fullText);
+  if (!isHumanClinical && (
+    /\bin\s+vitro\s+(?!fertili[zs]ation|maturation)/i.test(fullText) ||
+    /\b(cell\s+culture|cell\s+line|molecular\s+assay|in\s+vitro\s+assay)\b/i.test(fullText)
+  )) {
     return "In Vitro Study";
   }
 

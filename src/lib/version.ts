@@ -12,7 +12,7 @@ export function getCommitSha(): string {
     process.env.GIT_COMMIT_SHA ||
     "";
   if (envSha) return envSha.slice(0, 7);
-  return "4.2.0";
+  return "dev";
 }
 
 export function getFooterText(): string {

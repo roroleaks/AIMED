@@ -325,9 +325,10 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     ...(outWord ? [{ label: "O", value: outWord }] : [])
   ];
 
+  // R1: Require intervention match. Generic comparators never satisfy intervention eligibility.
   const matchingRetained = validRetained.filter(r => {
     const audit = auditRef(r, elements);
-    return audit.population && (audit.intervention || audit.comparator) && audit.outcome;
+    return Boolean(audit.population && audit.intervention && audit.outcome);
   });
 
   const actionVerb = outcomeActionVerb(outWord);
@@ -391,15 +392,23 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
     synthesisParagraphs.push(`Study extractions: ${studySentences.join(". ")}.`);
 
-    // Per-study extraction table (P0-3)
+    // Per-study extraction table (P0-3, R10)
     const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction | Risk of Bias |";
     const tableSep = "| --- | --- | --- | --- | --- | --- |";
     const tableRows = retained.map(r => {
-      const d = classifyPaperType({ title: r.title, abstract: r.context, journal: r.journal }) || "Observational study";
+      const d = classifyPaperType({ title: r.title, abstract: r.context, journal: r.journal }) || "Observational Study";
       const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
       const finding = extractFinding(r, outWord, popWord) || "Not stated in abstract";
       const cleanFinding = finding.length > 80 ? finding.slice(0, 77) + "…" : finding;
-      return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popWord.slice(0, 25)} | ${compWord.slice(0, 20)} | ${cleanFinding.replace(/\|/g, "\\|")} | Risk of bias: not assessed |`;
+
+      const rContext = (r.context || "").toLowerCase();
+      const popDisplay = rContext.includes(popWord.toLowerCase())
+        ? popWord
+        : (rContext.includes("patient") || rContext.includes("women") || rContext.includes("cohort") ? "Clinical cohort" : "Not extracted from abstract");
+      const compDisplay = compWord && rContext.includes(compWord.toLowerCase())
+        ? compWord
+        : (compWord ? "Active/control" : "Not specified");
+      return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popDisplay} | ${compDisplay} | ${cleanFinding.replace(/\|/g, "\\|")} | Risk of bias: not assessed |`;
     });
     synthesisParagraphs.push([tableHeader, tableSep, ...tableRows].join("\n"));
   }
@@ -423,7 +432,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
   // Section 5: Conclusion
   const conclusionP1 = `In conclusion, ${evidenceConclusion}`;
-  const conclusionP2 = `Recommended clinical research workup: Investigators should conduct full-text appraisal of all prioritized citations, execute standardized risk-of-bias evaluation (e.g., Cochrane RoB 2 or ROBINS-I), register prospective systematic reviews with PROSPERO, and establish defined cohort monitoring protocols.\n\n[Author note: Insert specific institutional clinical rationale, patient subgroup considerations, or departmental audit targets here.]`;
+  const conclusionP2 = "Recommended clinical research workup: Investigators should conduct full-text appraisal of all prioritized citations, execute standardized risk-of-bias evaluation (e.g., Cochrane RoB 2 or ROBINS-I), register prospective systematic reviews with PROSPERO, and establish defined cohort monitoring protocols.";
 
   const sections: ManuscriptSection[] = [
     {

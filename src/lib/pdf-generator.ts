@@ -11,7 +11,9 @@ export function sanitizePdfText(text: string): string {
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
-    .replace(/<[^>]*>/g, "");
+    .replace(/<[^>]*>/g, "")
+    .replace(/≥/g, ">=")
+    .replace(/≤/g, "<=");
 }
 
 export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Buffer> {
@@ -103,6 +105,49 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
           reserveSpace(28);
           doc.font(FONT_B).fontSize(10.5).fillColor("#134e4a").text(subHeading);
           doc.moveDown(0.2);
+        } else if (p.trim().startsWith("|") && p.includes("\n|")) {
+          const lines = p.trim().split("\n").map(l => l.trim()).filter(l => l.startsWith("|") && l.endsWith("|"));
+          if (lines.length >= 2) {
+            const headerLine = lines[0];
+            const dataLines = lines.slice(1).filter(l => !/^[|\s:-]+$/.test(l));
+            const headers = headerLine.slice(1, -1).split("|").map(c => sanitizePdfText(c.trim()));
+            const rows = dataLines.map(l => l.slice(1, -1).split("|").map(c => sanitizePdfText(c.trim())));
+
+            const tableWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
+            const colWidth = tableWidth / Math.max(1, headers.length);
+
+            reserveSpace(24 + (rows.length + 1) * 16);
+
+            const startX = doc.page.margins.left;
+            let currentY = doc.y;
+
+            doc.font(FONT_B).fontSize(8).fillColor(teal);
+            headers.forEach((h, idx) => {
+              doc.text(h, startX + idx * colWidth, currentY, { width: colWidth - 4, lineBreak: false, ellipsis: true });
+            });
+            doc.moveDown(0.8);
+
+            doc.strokeColor("#cbd5e1").lineWidth(0.5)
+              .moveTo(startX, doc.y)
+              .lineTo(startX + tableWidth, doc.y)
+              .stroke();
+            doc.moveDown(0.2);
+
+            doc.font(FONT).fontSize(7.5).fillColor(ink);
+            for (const row of rows) {
+              reserveSpace(16);
+              currentY = doc.y;
+              row.forEach((cell, idx) => {
+                doc.text(cell, startX + idx * colWidth, currentY, { width: colWidth - 4, lineBreak: false, ellipsis: true });
+              });
+              doc.moveDown(0.6);
+            }
+            doc.moveDown(0.4);
+          } else {
+            reserveSpace(28);
+            doc.font(FONT).fontSize(9.5).fillColor(ink).text(sanitizePdfText(p), { lineGap: 2.5 });
+            doc.moveDown(0.3);
+          }
         } else {
           reserveSpace(28);
           doc.font(FONT).fontSize(9.5).fillColor(ink).text(sanitizePdfText(p), { lineGap: 2.5 });

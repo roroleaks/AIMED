@@ -97,6 +97,41 @@ export function parseFormattedDocxRuns(text: string, style = "vancouver"): TextR
   return runs.length ? runs : [new TextRun({ text: cleaned.replace(/<[^>]*>/g, ""), font: "Arial", size: 20 })];
 }
 
+function parseMarkdownTableToDocx(md: string): Table | null {
+  const lines = md.trim().split("\n").map(l => l.trim()).filter(l => l.startsWith("|") && l.endsWith("|"));
+  if (lines.length < 2) return null;
+  const headerLine = lines[0];
+  const dataLines = lines.slice(1).filter(l => !/^[|\s:-]+$/.test(l));
+  const headers = headerLine.slice(1, -1).split("|").map(c => c.trim());
+  const rows = dataLines.map(l => l.slice(1, -1).split("|").map(c => c.trim()));
+
+  const colWidthPct = Math.floor(100 / Math.max(1, headers.length));
+
+  const tableRows = [
+    new TableRow({
+      children: headers.map(h => new TableCell({
+        width: { size: colWidthPct, type: WidthType.PERCENTAGE },
+        shading: { fill: "0F766E" },
+        margins: { top: 80, bottom: 80, left: 100, right: 100 },
+        children: [new Paragraph({ children: [new TextRun({ text: h, bold: true, color: "FFFFFF", font: "Arial", size: 18 })] })]
+      }))
+    }),
+    ...rows.map((row, rIdx) => new TableRow({
+      children: row.map(cell => new TableCell({
+        width: { size: colWidthPct, type: WidthType.PERCENTAGE },
+        shading: { fill: rIdx % 2 === 0 ? "FFFFFF" : "F8FAFC" },
+        margins: { top: 80, bottom: 80, left: 100, right: 100 },
+        children: [new Paragraph({ children: [new TextRun({ text: cell, font: "Arial", size: 18, color: "1E293B" })] })]
+      }))
+    }))
+  ];
+
+  return new Table({
+    width: { size: 100, type: WidthType.PERCENTAGE },
+    rows: tableRows
+  });
+}
+
 export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<Buffer> {
   const docChildren: (Paragraph | Table)[] = [];
 
@@ -244,6 +279,18 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
               children: parseFormattedDocxRuns(subHeading, workflow.citationStyle)
             })
           );
+        } else if (p.trim().startsWith("|") && p.includes("\n|")) {
+          const table = parseMarkdownTableToDocx(p);
+          if (table) {
+            docChildren.push(table);
+          } else {
+            docChildren.push(
+              new Paragraph({
+                spacing: { after: 160 },
+                children: parseFormattedDocxRuns(p, workflow.citationStyle)
+              })
+            );
+          }
         } else {
           docChildren.push(
             new Paragraph({

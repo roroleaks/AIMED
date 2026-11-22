@@ -7,10 +7,13 @@
  */
 
 import { z } from "zod";
-import { auditRef, designOf, isNonEvidenceItem } from "./relevance.ts";
+import { auditRef, isNonEvidenceItem } from "./relevance.ts";
 import type { AuditableRef, PicoElement } from "./relevance.ts";
 import { extractPicoFromQuestion } from "./pico-parser.ts";
 import { screenWordSchema, isValidSpecialty } from "./deterministic-screen.ts";
+import { classifyPaperType } from "./study-design.ts";
+
+const GENERIC_COMPARATOR_RE = /^(?:placebo|sham|control|controls|standard care|usual care|routine care|standard of care|no treatment|observation|conventional treatment|\[comparator not specified\])$/i;
 
 export interface ExploreRecord extends AuditableRef {
   relevancePct: number;
@@ -257,28 +260,42 @@ export function scoreRecords(
       if (audit.outcome) matchedElements.push("O");
     }
 
-    const pubTypes = r.pubType || (r.publicationTypes || []).join(" ");
-    const design = designOf(r.title || "", r.journal || "", pubTypes);
+    const design = classifyPaperType({
+      title: r.title,
+      journal: r.journal,
+      abstract: r.context,
+      pubType: r.pubType,
+      publicationTypes: r.publicationTypes
+    });
     const lowMetadata = !r.title || !r.year;
 
     // Strict clinical eligibility:
-    // Non-evidence items (protocols, errata, advertisements, editorials) are never eligible findings
+    // Non-evidence items (protocols, registrations, errata, advertisements, editorials) are never eligible findings
     const nonEv = isNonEvidenceItem(r);
     const matchedP = matchedElements.includes("P");
-    const matchedTreatment = matchedElements.includes("I") || matchedElements.includes("C");
+    const matchedI = matchedElements.includes("I");
+    const matchedC = matchedElements.includes("C");
     const matchedO = matchedElements.includes("O");
+
+    const compVal = elements.find(e => e.label.startsWith("C"))?.value || "";
+    const isCompGeneric = !compVal || GENERIC_COMPARATOR_RE.test(compVal.trim());
 
     let isEligible = false;
     if (!nonEv.isNonEvidence) {
       if (hasP && hasTreatment) {
-        // Core comparative clinical question: must match Population AND (Intervention or Comparator)
-        isEligible = matchedP && matchedTreatment;
+        // Core comparative clinical question:
+        // Must match Population AND either:
+        // 1) The Intervention (I), OR
+        // 2) An ACTIVE, SPECIFIC comparator (C) that is not a generic control (placebo/sham/usual care)
+        const matchedActiveTreatment = matchedI || (matchedC && !isCompGeneric);
+        isEligible = matchedP && matchedActiveTreatment;
       } else if (hasP && !hasTreatment) {
         // Observational / natural history question: must match Population AND Outcome
         isEligible = matchedP && matchedO;
       } else if (!hasP && hasTreatment) {
-        // Intervention-defined question: must match Intervention AND Outcome
-        isEligible = matchedTreatment && matchedO;
+        // Intervention-defined question: must match Intervention (or specific active comparator) AND Outcome
+        const matchedActiveTreatment = matchedI || (matchedC && !isCompGeneric);
+        isEligible = matchedActiveTreatment && matchedO;
       } else {
         isEligible = matchedElements.length >= 2;
       }
@@ -306,7 +323,20 @@ export function scoreRecords(
     if (audit?.doiOk || audit?.resolved || r.pmid) {
       baseScore += 5;
     }
-    if (design !== "unclassified") {
+    const isSr =
+      design === "Systematic Review and Meta-Analysis" ||
+      design === "Meta-Analysis" ||
+      design === "Systematic Review";
+
+    const isRct =
+      design === "Randomized Controlled Trial (RCT)" ||
+      design === "Randomized Clinical Trial";
+
+    if (isSr) {
+      baseScore += 10;
+    } else if (isRct) {
+      baseScore += 8;
+    } else if (design !== "Observational Study") {
       baseScore += 5;
     }
 
@@ -316,7 +346,7 @@ export function scoreRecords(
 
     if (category === "established") {
       // Systematic review / meta-analysis design: +5
-      if (design === "systematic review / meta-analysis") rawCategoryBonus += 5;
+      if (isSr) rawCategoryBonus += 5;
       // Consensus wording: +3
       if (ESTABLISHED_BONUS_WORDS.test(fullText)) rawCategoryBonus += 3;
     } else if (category === "conflicting") {

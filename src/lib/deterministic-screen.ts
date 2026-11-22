@@ -297,9 +297,10 @@ export function generateDeterministicScreen(
     ...(O ? [{ label: "O", value: O }] : [])
   ];
 
+  // R1: Require intervention match. Generic comparators ("placebo", "control") never satisfy intervention eligibility.
   const matchingPio = validRecords.filter(r => {
     const audit = auditRef(r, elements);
-    return audit.population && (audit.intervention || audit.comparator) && audit.outcome;
+    return Boolean(audit.population && audit.intervention && audit.outcome);
   });
 
   const srMatching = matchingPio.filter(r => {
@@ -317,22 +318,41 @@ export function generateDeterministicScreen(
   let favourableCount = 0;
   let neutralCount = 0;
   let adverseCount = 0;
+  let directionalCount = 0;
 
   for (const r of matchingPio) {
     const finding = extractFinding(r, O || "", P);
     if (finding) {
       const dir = assertedDirection(finding);
-      if (dir === (outcomeVerb === "reduce" ? "reduction" : "increase")) favourableCount++;
-      else if (dir === "no-difference") neutralCount++;
-      else if (dir) adverseCount++;
+      if (dir === (outcomeVerb === "reduce" ? "reduction" : "increase")) {
+        favourableCount++;
+        directionalCount++;
+      } else if (dir === "no-difference") {
+        neutralCount++;
+        directionalCount++;
+      } else if (dir) {
+        adverseCount++;
+        directionalCount++;
+      }
     }
   }
 
-  // P0-1 Evidence-derived category rules:
-  // - established: >= 1 SR/MA or >= 2 RCTs matching P+I(+C)+O with concordant direction
-  const isEstablished = srMatching.length >= 1 || (rctMatching.length >= 2 && (favourableCount >= 2 || neutralCount >= 2));
+  // R2 Evidence-derived category rules:
   // - conflicting: >= 2 matching studies whose extracted conclusions differ in direction
-  const isConflicting = matchingPio.length >= 2 && ((favourableCount > 0 && neutralCount > 0) || (favourableCount > 0 && adverseCount > 0));
+  const isConflicting = matchingPio.length >= 2 && (
+    (favourableCount > 0 && neutralCount > 0) ||
+    (favourableCount > 0 && adverseCount > 0) ||
+    (neutralCount > 0 && adverseCount > 0)
+  );
+
+  // - established: >= 1 SR/MA or >= 2 RCTs matching P+I(+C)+O with concordant direction AND zero conflicting findings
+  const hasConcordantSR = srMatching.length >= 1 && directionalCount >= 1 && !isConflicting;
+  const hasConcordantRCTs = rctMatching.length >= 2 && (
+    (favourableCount >= 2 && neutralCount === 0 && adverseCount === 0) ||
+    (neutralCount >= 2 && favourableCount === 0 && adverseCount === 0)
+  );
+  const isEstablished = !isConflicting && (hasConcordantSR || hasConcordantRCTs);
+
   // - gap: no matching RCT/SR, or a PICO element with zero coverage
   const isGap = (srMatching.length === 0 && rctMatching.length < 2) || zeroCoverageWords.length > 0;
 
@@ -347,8 +367,14 @@ export function generateDeterministicScreen(
   let establishedBasis = "";
   if (isEstablished) {
     establishedBasis = `Screened literature contains ${srMatching.length > 0 ? `${srMatching.length} systematic review / meta-analysis publication(s)` : `${rctMatching.length} randomized controlled trial(s)`} matching P, I, and O with concordant direction of effect.`;
+  } else if (matchingPio.length === 0) {
+    establishedBasis = "Unavailable: No systematic review or randomized trial in the screened literature directly addresses this comparison.";
+  } else if (isConflicting) {
+    establishedBasis = `Unavailable: Retrieved trials report conflicting directional findings (${favourableCount} favourable, ${neutralCount} no-difference, ${adverseCount} adverse).`;
+  } else if (directionalCount === 0) {
+    establishedBasis = "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.";
   } else {
-    establishedBasis = `Unavailable: No systematic review or concordant RCT evidence was retrieved for this specific PICO comparison.`;
+    establishedBasis = "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.";
   }
 
   // 2. Conflicting phrase: head-to-head comparison whose evidence disagrees
@@ -371,6 +397,8 @@ export function generateDeterministicScreen(
   let conflictingBasis = "";
   if (isConflicting) {
     conflictingBasis = `Screened records demonstrate discordant clinical findings across trials evaluating this comparison.`;
+  } else if (matchingPio.length === 0) {
+    conflictingBasis = "Unavailable: No conflicting trial literature identified in screened records for this comparison.";
   } else {
     conflictingBasis = `Unavailable: Screened studies do not exhibit conflicting directional findings.`;
   }
@@ -380,7 +408,7 @@ export function generateDeterministicScreen(
   let gapPhrase = "";
   let gapBasis = "";
 
-  const gapO = O ? `${O} and long-term quality-of-life outcomes` : "long-term safety and quality-of-life outcomes";
+  const gapO = O ? O : "target clinical outcomes";
   const gapVerb = outcomeActionVerb(gapO);
 
   if (zeroCoverageWords.length > 0 && totalScreened > 0) {
@@ -442,11 +470,13 @@ export function generateDeterministicScreen(
   }
 
   // Safety differentiation check to ensure pairwise distinctness
-  if (gapPhrase === establishedPhrase) {
-    if (!C) {
+  if (gapPhrase === establishedPhrase || gapPhrase === conflictingPhrase) {
+    if (!C && gapPhrase.includes("compared with [comparator not specified] (C)")) {
       gapPhrase = gapPhrase.replace("compared with [comparator not specified] (C)", "compared with an active alternative (C)");
-    } else {
+    } else if (!gapPhrase.includes("In high-risk subgroups of")) {
       gapPhrase = gapPhrase.replace(`In ${P} (P)`, `In high-risk subgroups of ${P} (P)`);
+    } else {
+      gapPhrase = gapPhrase.replace(`(O)?`, `(O) in extended evaluation?`);
     }
   }
   if (conflictingPhrase === establishedPhrase) {

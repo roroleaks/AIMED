@@ -145,6 +145,7 @@ export function extractFinding(rec: AuditableRef, outcome = "", population = "")
     if (UNQUOTABLE.test(sent)) continue;
     if (/\bNCT\d{6,}|clinicaltrials\.gov|\bISRCTN|\b(?:funded|supported) by\b|^\(|^\[|trial registration/i.test(sent)) continue;
     if (/^(?:we|this|these|our)\s+(?:aim|sought|hypothesi|investigat|evaluat|assess|conduct|perform)/i.test(sent)) continue;
+    if (/\b(?:allocation concealment|was achieved|were randomized to|were assigned to|were grouped by|the main outcomes? were|primary endpoint was defined|eligibility criteria)\b/i.test(sent)) continue;
     const dir = assertedDirection(sent);
     if (dir && recDir && dir !== recDir) continue;
     if (!dir && !/\b(?:found|showed|shown|was|were|is|are|had|did|may|might|suggest\w*|associated|resulted|achieved|remain\w*|appear\w*|support\w*|did not|no\s)\b/i.test(sent)) continue;
@@ -195,7 +196,7 @@ export function buildTruthfulMethodsText(
         : successful[0])
     : "Biomedical literature databases";
 
-  let sentence = `${sourcesQueried} were searched for ${outcome}; records were retained only when they addressed the population, the intervention or comparator, and the outcome.`;
+  let sentence = `${sourcesQueried} were searched for ${outcome}; records were screened against predefined eligibility criteria for the clinical population, intervention, and primary outcome.`;
   if (skippedNotes.length > 0) {
     sentence += ` (${skippedNotes.join("; ")}).`;
   }

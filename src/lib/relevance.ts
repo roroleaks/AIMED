@@ -95,7 +95,8 @@ const SYNONYM_FIXES: Array<[RegExp, string]> = [
   [/\b(?:acute appendicitis)\b/gi, "appendicitis"],
   [/\b(?:appendicectomy)\b/gi, "appendectomy"],
   [/\b(?:treatment failure|treatment unsuccessful|failure of therapy)\b/gi, "treatment failure"],
-  [/\b(?:preterm preeclampsia|early[- ]onset preeclampsia)\b/gi, "preterm preeclampsia"]
+  [/\b(?:preterm preeclampsia|early[- ]onset preeclampsia)\b/gi, "preterm preeclampsia"],
+  [/\b(?:sglt2[- ]?inhibitors?|sodium[- ]glucose co-transporter 2 inhibitors?|dapagliflozin|empagliflozin|canagliflozin)\b/gi, "sglt2 inhibitors"]
 ];
 
 export function synonymize(s: string): string {
@@ -174,6 +175,16 @@ export function isNonEvidenceItem(ref: AuditableRef): { isNonEvidence: boolean; 
   ].map(p => p.toLowerCase());
 
   // 1. Publication type exclusions
+  if (
+    ref.source === "clinicaltrials" ||
+    (ref.pmid && String(ref.pmid).toLowerCase().startsWith("nct:")) ||
+    pubTypes.some(p => p.includes("trial registration")) ||
+    (ref.journal && /clinicaltrials\.gov/i.test(ref.journal)) ||
+    (ref.authors && /clinicaltrials\.gov/i.test(ref.authors)) ||
+    (ref.studyType && ref.studyType.includes("Trial (Registered)"))
+  ) {
+    return { isNonEvidence: true, reason: "non-evidence item: trial registry registration (not peer-reviewed clinical evidence)" };
+  }
   if (pubTypes.some(p => p.includes("clinical trial protocol") || p === "protocol")) {
     return { isNonEvidence: true, reason: "non-evidence item: trial protocol" };
   }

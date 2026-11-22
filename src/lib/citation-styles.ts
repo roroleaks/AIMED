@@ -55,15 +55,19 @@ function isInitials(token: string): boolean {
  */
 export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
   if (!authorStr || !authorStr.trim()) return [];
+  // Strip trailing "et al." or "et al" before parsing so it is never treated as a person (e.g. "al E.")
+  const cleanedStr = authorStr.replace(/\s*,?\s*\bet\s+al\.?$/i, "").trim();
+  if (!cleanedStr) return [];
+
   // Split on semicolons or " and " first, and only split on comma if the next token is not initials
-  const majorParts = authorStr.split(/;|\sand\s/i).map(s => s.trim()).filter(Boolean);
+  const majorParts = cleanedStr.split(/;|\sand\s/i).map(s => s.trim()).filter(Boolean);
   const rawSegments: string[] = [];
 
   for (const part of majorParts) {
     const commaParts = part.split(/\s*,\s*/);
     for (let i = 0; i < commaParts.length; i++) {
       const cur = commaParts[i].trim();
-      if (!cur) continue;
+      if (!cur || /^et\s+al\.?$/i.test(cur)) continue;
       const next = commaParts[i + 1]?.trim();
       // If next token is initials (e.g. "Smith, JA" or "Smith, J.A." or "Smith, J"),
       // this comma is between surname and initials, not between different authors.
@@ -79,6 +83,7 @@ export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
   const authors: ParsedAuthor[] = [];
 
   for (const seg of rawSegments.map(s => s.trim().replace(/\.$/, "")).filter(Boolean)) {
+    if (/^et\s+al\.?$/i.test(seg)) continue;
     const tokens = seg.split(/\s+/).filter(Boolean);
     if (tokens.length === 0) continue;
     if (tokens.length === 1) {
@@ -119,13 +124,14 @@ export function parseAuthorNames(authorStr?: string): ParsedAuthor[] {
  */
 export function formatVancouverAuthors(authorStr?: string): string {
   if (!authorStr || !authorStr.trim()) return "Authors";
+  const hadEtAl = /\bet\s+al\b/i.test(authorStr);
   const parsed = parseAuthorNames(authorStr);
   if (!parsed.length) return authorStr.trim();
   const formatted = parsed.slice(0, 6).map(a => {
     const init = a.initials.replace(/[\.\s]/g, "").trim();
     return init ? `${a.surname} ${init}` : a.surname;
   });
-  if (parsed.length > 6) {
+  if (parsed.length > 6 || hadEtAl) {
     formatted.push("et al");
   }
   return formatted.join(", ") + ".";

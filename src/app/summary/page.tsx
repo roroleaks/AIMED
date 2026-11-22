@@ -130,9 +130,9 @@ export default function SummaryPage() {
   const deterministicManuscript = useMemo(() => {
     if (!words || !choice) return null;
     const stats = {
-      retrieved: screenSnapshot?.corpusStats?.retrieved ?? exploreSnapshot?.corpusStats?.retrieved ?? 0,
-      screened: screenSnapshot?.corpusStats?.screened ?? exploreSnapshot?.corpusStats?.screened ?? 0,
-      relaxationLevel: screenSnapshot?.corpusStats?.relaxationLevel ?? 0,
+      retrieved: exploreSnapshot?.corpusStats?.retrieved ?? screenSnapshot?.corpusStats?.retrieved ?? 0,
+      screened: exploreSnapshot?.corpusStats?.screened ?? screenSnapshot?.corpusStats?.screened ?? 0,
+      relaxationLevel: exploreSnapshot?.corpusStats?.relaxationLevel ?? screenSnapshot?.corpusStats?.relaxationLevel ?? 0,
       excludedCount: excludedState?.userExcluded?.length ?? 0
     };
     return composeManuscript({
@@ -142,6 +142,7 @@ export default function SummaryPage() {
       screeningStats: stats,
       records: exploreSnapshot?.records || [],
       userExcluded: excludedState?.userExcluded || [],
+      searchLog: exploreSnapshot?.searchLog,
       specialty,
       style
     });
@@ -165,9 +166,9 @@ export default function SummaryPage() {
 
     try {
       const stats = {
-        retrieved: screenSnapshot?.corpusStats?.retrieved ?? exploreSnapshot?.corpusStats?.retrieved ?? 0,
-        screened: screenSnapshot?.corpusStats?.screened ?? exploreSnapshot?.corpusStats?.screened ?? 0,
-        relaxationLevel: screenSnapshot?.corpusStats?.relaxationLevel ?? 0,
+        retrieved: exploreSnapshot?.corpusStats?.retrieved ?? screenSnapshot?.corpusStats?.retrieved ?? 0,
+        screened: exploreSnapshot?.corpusStats?.screened ?? screenSnapshot?.corpusStats?.screened ?? 0,
+        relaxationLevel: exploreSnapshot?.corpusStats?.relaxationLevel ?? screenSnapshot?.corpusStats?.relaxationLevel ?? 0,
         excludedCount: excludedState?.userExcluded?.length ?? 0
       };
 
@@ -182,6 +183,7 @@ export default function SummaryPage() {
           screeningStats: stats,
           records: exploreSnapshot?.records || [],
           userExcluded: excludedState?.userExcluded || [],
+          searchLog: exploreSnapshot?.searchLog,
           style
         })
       });
@@ -624,11 +626,49 @@ export default function SummaryPage() {
               >
                 {section.heading}
               </h3>
-              {section.paragraphs.map((para, pIdx) => (
-                <p key={pIdx} style={{ fontSize: "0.93rem", margin: "0 0 10px 0", color: "#334155" }}>
-                  {para}
-                </p>
-              ))}
+              {section.paragraphs.map((para, pIdx) => {
+                const trimmed = para.trim();
+                if (trimmed.startsWith("|") && trimmed.includes("\n|")) {
+                  const lines = trimmed.split("\n").map(l => l.trim()).filter(l => l.startsWith("|") && l.endsWith("|"));
+                  if (lines.length >= 2) {
+                    const headerLine = lines[0];
+                    const dataLines = lines.slice(1).filter(l => !/^[|\s:-]+$/.test(l));
+                    const headers = headerLine.slice(1, -1).split("|").map(c => c.trim());
+                    const rows = dataLines.map(l => l.slice(1, -1).split("|").map(c => c.trim()));
+                    return (
+                      <div key={pIdx} style={{ overflowX: "auto", margin: "14px 0" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem", border: "1px solid #e2e8f0" }}>
+                          <thead>
+                            <tr style={{ backgroundColor: "#f8fafc", borderBottom: "2px solid #cbd5e1" }}>
+                              {headers.map((h, i) => (
+                                <th key={i} style={{ padding: "8px 12px", textAlign: "left", fontWeight: 600, color: "#1e293b", borderRight: "1px solid #e2e8f0" }}>
+                                  {h}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {rows.map((row, rIdx) => (
+                              <tr key={rIdx} style={{ backgroundColor: rIdx % 2 === 0 ? "#ffffff" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
+                                {row.map((cell, cIdx) => (
+                                  <td key={cIdx} style={{ padding: "8px 12px", color: "#334155", borderRight: "1px solid #e2e8f0" }}>
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+                }
+                return (
+                  <p key={pIdx} style={{ fontSize: "0.93rem", margin: "0 0 10px 0", color: "#334155", lineHeight: 1.6 }}>
+                    {para}
+                  </p>
+                );
+              })}
             </section>
           ))}
 

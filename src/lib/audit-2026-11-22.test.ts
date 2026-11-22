@@ -7,11 +7,11 @@ import { scoreRecords, type ExploreRecord } from "./explore-scoring.ts";
 import { composeManuscript } from "./manuscript-composer.ts";
 import { buildWorkflowDocx } from "./docx-generator.ts";
 import { buildWorkflowPdf } from "./pdf-generator.ts";
-import { type AuditableRef } from "./relevance.ts";
+import { type AuditableRef, isNonEvidenceItem } from "./relevance.ts";
 import { deduplicateArticles } from "./literature-sources.ts";
 import { signRecord, verifyRecordSignature } from "./record-signature.ts";
 import { classifyPaperType } from "./study-design.ts";
-import { formatApaAuthors } from "./citation-styles.ts";
+import { formatApaAuthors, formatVancouverAuthors, parseAuthorNames } from "./citation-styles.ts";
 import { buildPubMedQuery } from "./pubmed-query.ts";
 
 function extractDocxText(buf: Buffer): string {
@@ -798,4 +798,135 @@ test("AUD-20. Methods: Lists only sources in request's log, with query strings a
   assert.ok(!methodsText.includes("OpenAlex"), "Methods must not falsely claim OpenAlex when not in searchLog");
   assert.ok(methodsText.includes("14 hits"), "Methods must list PubMed hit count");
   assert.ok(methodsText.includes("3 hits"), "Methods must list Cochrane hit count");
+});
+
+// ============================================================================
+// VERIF-01: R1 Homeopathy in IVF (Honest zero/insufficient evidence)
+// ============================================================================
+test("VERIF-01. Homeopathy in IVF: Zero relevance for placebo-only trials lacking homeopathy; honest insufficient evidence conclusion", () => {
+  const words = assignPicoRoles(["IVF", "homeopathy", "placebo", "live birth"]);
+  const phrase = "In IVF (P), does homeopathy (I) compared with placebo (C) improve live birth (O)?";
+
+  // Record that matches P (IVF), C (placebo), O (live birth) but NOT I (homeopathy)
+  const placeboIvfTrial: AuditableRef = {
+    pmid: "9000001",
+    title: "Double-blind randomized controlled trial of melatonin versus placebo in women undergoing IVF",
+    journal: "Fertil Steril",
+    year: "2024",
+    pubType: "Randomized Controlled Trial",
+    publicationTypes: ["Randomized Controlled Trial"],
+    context: "In infertile women undergoing IVF, melatonin compared to placebo significantly improved live birth rates.",
+    authors: "Smith J, Doe A"
+  };
+
+  const scored = scoreRecords([placeboIvfTrial], phrase, "established", []);
+  assert.equal(scored.scored[0].relevancePct, 0, "Placebo trial without intervention match must score 0% relevance");
+  assert.ok(!scored.scored[0].matchedElements.includes("I"), "Must NOT match 'I' element");
+
+  // Screen output must not claim established or concordant direction for homeopathy
+  const screen = generateDeterministicScreen(words, [placeboIvfTrial], 0, 1);
+  assert.ok(!screen.phrases.established.basis.toLowerCase().includes("consistent direct support"), "Screen must not claim consistent direct support");
+  assert.ok(
+    screen.phrases.established.basis.toLowerCase().includes("unavailable") ||
+    screen.phrases.established.basis.toLowerCase().includes("not determinable") ||
+    screen.phrases.established.basis.toLowerCase().includes("no systematic review") ||
+    screen.phrases.established.basis.toLowerCase().includes("insufficient"),
+    "Established base must state unavailable or direction not determinable"
+  );
+
+  // Compose manuscript must state insufficient direct evidence
+  const manuscript = composeManuscript({
+    words,
+    category: "gap",
+    phrase,
+    screeningStats: { retrieved: 10, screened: 10, relaxationLevel: 0, excludedCount: 10 },
+    records: [],
+    specialty: "obgyn"
+  });
+  const concSec = manuscript.sections.find(s => s.heading === "Conclusion");
+  assert.ok(concSec, "Must have Conclusion section");
+  const concText = concSec.paragraphs.join(" ");
+  assert.ok(concText.toLowerCase().includes("insufficient direct evidence") || concText.toLowerCase().includes("no direct clinical evidence"), "Conclusion must honestly state insufficient direct evidence");
+  assert.ok(!concText.toLowerCase().includes("consistent direct support for homeopathy"), "Conclusion must NEVER claim consistent direct support for homeopathy");
+});
+
+// ============================================================================
+// VERIF-02: R3 HMAC trust boundary & tamper resistance
+// ============================================================================
+test("VERIF-02. Record signatures: Full record signing covers canonical fields; tampering fails verification", () => {
+  const record: ExploreRecord = {
+    pmid: "12345678",
+    doi: "10.1016/j.fertnstert.2024.01.001",
+    title: "Randomized trial of embryo transfer techniques",
+    authors: "Smith J, Doe A",
+    year: "2024",
+    journal: "Fertil Steril",
+    pubType: "Randomized Controlled Trial",
+    context: "Live birth was significantly improved in the intervention group compared with control.",
+    relevancePct: 92,
+    matchedElements: ["P", "I", "O"]
+  };
+
+  const signed = signRecord(record);
+  assert.ok(signed._sig, "Signed record must have _sig property");
+  assert.ok(verifyRecordSignature(signed), "Original signed record must pass signature verification");
+
+  // Tampering with title must fail
+  const tamperedTitle = { ...signed, title: "Invented title claiming miracle cure" };
+  assert.equal(verifyRecordSignature(tamperedTitle), false, "Tampering with title must fail verification");
+
+  // Tampering with abstract context must fail
+  const tamperedContext = { ...signed, context: "Fabricated results claiming 100% efficacy." };
+  assert.equal(verifyRecordSignature(tamperedContext), false, "Tampering with context must fail verification");
+
+  // Tampering with relevancePct must fail
+  const tamperedRelevance = { ...signed, relevancePct: 100 };
+  assert.equal(verifyRecordSignature(tamperedRelevance), false, "Tampering with relevancePct must fail verification");
+
+  // Unsigned or bogus signature must fail
+  assert.equal(verifyRecordSignature(record), false, "Unsigned record must fail verification");
+  assert.equal(verifyRecordSignature({ ...record, _sig: "bogus-signature-hex" }), false, "Bogus signature must fail verification");
+});
+
+// ============================================================================
+// VERIF-03: R4 Clinical trial registrations excluded from evidence
+// ============================================================================
+test("VERIF-03. Trial registrations: NCT records and protocols excluded from direct synthesis", () => {
+  const nctRecord: AuditableRef = {
+    pmid: "nct:NCT04567890",
+    title: "A Phase 3 Study of Novel Compound in Advanced NSCLC",
+    journal: "ClinicalTrials.gov Registry",
+    pubType: "trial registration",
+    context: "Trial registration record for recruitment of participants with NSCLC.",
+    authors: "National Cancer Institute"
+  };
+
+  const isNonEv = isNonEvidenceItem(nctRecord);
+  assert.equal(isNonEv.isNonEvidence, true, "NCT record must be classified as non-evidence item");
+  assert.ok(
+    Boolean(isNonEv.reason && (isNonEv.reason.toLowerCase().includes("trial registr") || isNonEv.reason.toLowerCase().includes("clinicaltrials"))),
+    "Reason must mention trial registration"
+  );
+
+  const phrase = "In NSCLC (P), does pembrolizumab (I) compared with chemotherapy (C) improve overall survival (O)?";
+  const scored = scoreRecords([nctRecord], phrase, "established", []);
+  assert.equal(scored.scored[0].relevancePct, 0, "Trial registration must receive 0% relevance in scoreRecords");
+});
+
+// ============================================================================
+// VERIF-04: R9 Vancouver author parsing ('et al.' token handling)
+// ============================================================================
+test("VERIF-04. Vancouver author parsing: 'et al.' handled as token without creating 'al E.' author", () => {
+  const parsed = parseAuthorNames("Newnham A, et al.");
+  assert.equal(parsed.length, 1, "Must parse exactly 1 author name");
+  assert.equal(parsed[0].surname, "Newnham");
+  assert.ok(parsed[0].initials.startsWith("A"), "Initials must be 'A' or 'A.'");
+
+  const formatted = formatVancouverAuthors("Newnham A, et al.");
+  assert.equal(formatted, "Newnham A, et al.", "Must format as 'Newnham A, et al.'");
+  assert.ok(!formatted.includes("al E"), "Must NEVER format 'et al.' into an author named 'al E.'");
+
+  const multiWithEtAl = formatVancouverAuthors("Newnham A, Johnson B, et al.");
+  assert.equal(multiWithEtAl, "Newnham A, Johnson B, et al.");
+  assert.ok(!multiWithEtAl.includes("al E"), "Multi-author with et al. must never produce 'al E.'");
 });
