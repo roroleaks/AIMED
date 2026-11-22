@@ -136,6 +136,9 @@ export function elementByType(
 
 export function designOf(title: string, journal = "", pubType = ""): string {
   const combined = `${title} ${journal} ${pubType}`;
+  if (/protocol|rationale and design|planned enrollment/i.test(combined)) return "protocol";
+  if (/editorial|comment|letter/i.test(combined)) return "editorial";
+  if (/guideline/i.test(combined)) return "practice guideline";
   if (/meta-analys|systematic review/i.test(combined) && /randomi[sz]ed (?:clinical |controlled )?trial/i.test(title) && !/systematic review/i.test(title)) return "randomized trial";
   if (/meta-analys|systematic review/i.test(combined)) return "systematic review / meta-analysis";
   if (/randomi[sz]ed/i.test(combined)) return "randomized trial";
@@ -143,6 +146,72 @@ export function designOf(title: string, journal = "", pubType = ""): string {
   if (/cohort/i.test(combined)) return "cohort study";
   if (/review/i.test(combined)) return "narrative review";
   return "unclassified";
+}
+
+/**
+ * Identifies non-evidence items: protocols, ongoing trials, conference abstracts,
+ * job advertisements, errata, editorials, and items missing an abstract and pubType.
+ * These items must NEVER be treated as published clinical findings.
+ */
+export function isNonEvidenceItem(ref: AuditableRef): { isNonEvidence: boolean; reason?: string } {
+  const pubTypes = [
+    ...(ref.publicationTypes || []),
+    ...(ref.pubType ? [ref.pubType] : [])
+  ].map(p => p.toLowerCase());
+
+  // 1. Publication type exclusions
+  if (pubTypes.some(p => p.includes("clinical trial protocol") || p === "protocol")) {
+    return { isNonEvidence: true, reason: "non-evidence item: trial protocol" };
+  }
+  if (pubTypes.some(p => p.includes("editorial") || p.includes("comment") || p.includes("letter") || p.includes("news"))) {
+    return { isNonEvidence: true, reason: "non-evidence item: editorial/comment/letter/news" };
+  }
+  if (pubTypes.some(p => p.includes("erratum") || p.includes("published erratum") || p.includes("retraction"))) {
+    return { isNonEvidence: true, reason: "non-evidence item: erratum/retraction" };
+  }
+  if (pubTypes.some(p => p.includes("biography") || p.includes("historical article") || p.includes("obituary") || p.includes("address"))) {
+    return { isNonEvidence: true, reason: "non-evidence item: non-research publication type" };
+  }
+  if (pubTypes.some(p => p.includes("congress") || p.includes("conference abstract") || p.includes("meeting abstract"))) {
+    return { isNonEvidence: true, reason: "non-evidence item: conference/meeting abstract" };
+  }
+
+  // 2. Text heuristics in title and context/abstract
+  const title = (ref.title || "").toLowerCase();
+  const context = (ref.context || "").toLowerCase();
+  const text = `${title} ${context}`;
+
+  // Job advertisements and notices
+  if (/\b(position\s+available|job\s+opening|vacancy|postdoctoral\s+position|fellowship\s+opportunity|advertisement)\b/i.test(text)) {
+    return { isNonEvidence: true, reason: "non-evidence item: job advertisement or notice" };
+  }
+
+  // Errata, corrections, meeting abstracts
+  if (/\b(erratum|author\s+correction|corrigendum|retraction\s+note|conference\s+abstract|meeting\s+abstract|supplement\s+abstracts?)\b/i.test(text)) {
+    return { isNonEvidence: true, reason: "non-evidence item: erratum or meeting abstract" };
+  }
+
+  // Protocols and ongoing trials without completed findings
+  if (
+    /\b(clinical\s+trial|study|research)\s+protocol\b/i.test(title) ||
+    /\bprotocol\s+for\s+a\b/i.test(title) ||
+    /\brationale\s+and\s+design\b/i.test(text) ||
+    /\bstudy\s+design\s+and\s+rationale\b/i.test(text) ||
+    /\bplanned\s+enrollment\b/i.test(text) ||
+    /\bwill\s+be\s+randomi[zs]ed\b/i.test(text) ||
+    /\btrial\s+in\s+progress\b/i.test(text)
+  ) {
+    return { isNonEvidence: true, reason: "non-evidence item: trial protocol or ongoing study" };
+  }
+
+  // 3. Records with neither abstract/context nor publication type
+  const hasAbstract = (ref.context || "").trim().length > 0;
+  const hasPubType = pubTypes.length > 0;
+  if (!hasAbstract && !hasPubType) {
+    return { isNonEvidence: true, reason: "non-evidence item: missing both abstract and publication type" };
+  }
+
+  return { isNonEvidence: false };
 }
 
 /**
@@ -357,6 +426,7 @@ export function selectedElements(
  * that the sources do not reliably expose.
  */
 export function isDirectSupport(audit: RefAudit, elements: PicoElement[] = []): boolean {
+  if (audit.design === "protocol" || audit.design === "editorial") return false;
   const sel = selectedElements(elements);
   const needTreatment = sel.intervention || sel.comparator;
   if (needTreatment) return audit.population && (audit.intervention || audit.comparator) && audit.outcome;
@@ -380,6 +450,11 @@ export function isDirectSupportEligible(
 ): { eligible: boolean; confidence: "high" | "moderate" | "low"; reason?: string } {
   const audit = auditRef(ref, elements);
   const confidence = audit.metadataCompleteness?.confidence ?? "low";
+
+  const nonEv = isNonEvidenceItem(ref);
+  if (nonEv.isNonEvidence) {
+    return { eligible: false, confidence, reason: `no direct support: ${nonEv.reason}` };
+  }
 
   // ClinicalTrials.gov and Preprints are strictly gap-mapping / background / contextual;
   // they are NOT peer-reviewed evidence of clinical effect and cannot directly support findings.

@@ -49,7 +49,12 @@ export const CLINICAL_STUDY_TYPES = [
   "Animal Study"
 ] as const;
 
-export type ClinicalStudyType = typeof CLINICAL_STUDY_TYPES[number] | "Clinical Study";
+export type ClinicalStudyType =
+  | typeof CLINICAL_STUDY_TYPES[number]
+  | "Practice Guideline"
+  | "Editorial"
+  | "Review"
+  | "Clinical Study";
 
 export interface PaperMetadataInput {
   title?: string;
@@ -81,6 +86,57 @@ export function classifyPaperType(input: PaperMetadataInput | string): ClinicalS
   ].map(p => p.toLowerCase());
   const pubTypeStr = pubTypes.join(" ");
   const fullText = `${title} ${meta.journal || ""} ${meta.abstract || ""} ${meta.context || ""} ${pubTypeStr}`.toLowerCase();
+
+  // Primary source: PubMed publicationTypes
+  if (pubTypes.length > 0) {
+    if (pubTypes.some(p => p.includes("practice guideline") || p === "guideline")) {
+      return "Practice Guideline";
+    }
+    if (pubTypes.some(p => p.includes("editorial") || p.includes("letter") || p.includes("comment"))) {
+      return "Editorial";
+    }
+    if (pubTypes.some(p => p.includes("clinical trial protocol") || p === "protocol")) {
+      return "Protocol";
+    }
+    const hasSR = pubTypes.some(p => p.includes("systematic review"));
+    const hasMA = pubTypes.some(p => p.includes("meta-analysis"));
+    if (hasSR && hasMA) return "Systematic Review and Meta-Analysis";
+    if (hasMA) return "Meta-Analysis";
+    if (hasSR) return "Systematic Review";
+    if (pubTypes.some(p => p === "randomized controlled trial" || p.includes("randomized controlled trial"))) {
+      return "Randomized Controlled Trial (RCT)";
+    }
+    if (pubTypes.some(p => p === "review" || p.includes("review"))) {
+      if (/\bnarrative\s+review\b/i.test(fullText)) return "Narrative Review";
+      return "Review";
+    }
+    if (pubTypes.some(p => p.includes("case reports") || p === "case report")) {
+      return "Case Report";
+    }
+    if (pubTypes.some(p => p.includes("validation study"))) {
+      return "Validation Study";
+    }
+    if (pubTypes.some(p => p.includes("observational study"))) {
+      return "Observational Study";
+    }
+    if (pubTypes.some(p => p.includes("clinical trial"))) {
+      return "Clinical Trial";
+    }
+    if (pubTypes.some(p => p.includes("comparative study"))) {
+      return "Comparative Study";
+    }
+  }
+
+  // Fallback: title and abstract text cues
+  if (/\b(practice\s+guideline|clinical\s+guideline)\b|\bguideline\b/i.test(fullText)) {
+    return "Practice Guideline";
+  }
+  if (/\beditorial\b|\bletter\s+to\s+the\s+editor\b/i.test(fullText)) {
+    return "Editorial";
+  }
+  if (/\b(clinical\s+trial|study|research)\s+protocol\b|\bprotocol\s+for\s+a\b|\brationale\s+and\s+design\b|\bplanned\s+enrollment\b|\bwill\s+be\s+randomi[zs]ed\b|\btrial\s+in\s+progress\b/i.test(fullText)) {
+    return "Protocol";
+  }
 
   // 1. Systematic Review & Meta-Analysis combinations (Highest specificity)
   if (
@@ -369,6 +425,17 @@ export function getStudyTypeBadgeStyle(type: ClinicalStudyType): StudyDesignBadg
         category: "level-3"
       };
 
+    case "Practice Guideline":
+      return {
+        label: type,
+        bg: "#fef3c7",
+        color: "#92400e",
+        border: "#fde68a",
+        category: "level-1"
+      };
+
+    case "Review":
+    case "Narrative Review":
     case "Case Series":
     case "Case Report":
     case "Survey Study":
@@ -376,7 +443,6 @@ export function getStudyTypeBadgeStyle(type: ClinicalStudyType): StudyDesignBadg
     case "Mixed-Methods Study":
     case "Pilot Study":
     case "Feasibility Study":
-    case "Narrative Review":
       return {
         label: type,
         bg: "#fffbeb",
@@ -385,6 +451,7 @@ export function getStudyTypeBadgeStyle(type: ClinicalStudyType): StudyDesignBadg
         category: "level-4"
       };
 
+    case "Editorial":
     case "Protocol":
     case "In Vitro Study":
     case "Animal Study":
