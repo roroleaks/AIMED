@@ -179,7 +179,7 @@ export function classifyPaperType(input: PaperMetadataInput | string): ClinicalS
 
   // 8. Randomized Controlled Trial (RCT)
   if (
-    /\brandomi[zs]ed\s+controlled\s+(clinical\s+)?trial\b|\b\(?rct\)?\b/i.test(fullText) ||
+    /\brandomi[zs]ed\s+controlled\s+(clinical\s+)?trial\b|\b\(?rct\)?\b|\b(?:randomly\s+assigned|randomly\s+allocated|double-blind\s+phase\s+(?:3|iii)\b|phase\s+(?:3|iii)\s+randomi[zs]ed\b)/i.test(fullText) ||
     pubTypes.some(p => p === "randomized controlled trial")
   ) {
     return "Randomized Controlled Trial (RCT)";

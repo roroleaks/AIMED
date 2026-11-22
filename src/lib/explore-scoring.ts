@@ -365,7 +365,14 @@ export function scoreRecords(
     }
 
     const categoryBonus = Math.min(10, Math.max(0, rawCategoryBonus));
-    const totalScore = Math.max(15, Math.min(100, Math.round(baseScore + categoryBonus)));
+    let totalScore = Math.max(15, Math.min(100, Math.round(baseScore + categoryBonus)));
+
+    // Demote surrogate biomarker / prognostic ratio studies on therapeutic comparative questions
+    const isBiomarkerSurrogate = /\b(?:ft3|ft4|ratio|biomarker|predicting\s+the\s+efficacy|circulating\s+tumor\s+dna|ctdna|microbiome|radiomics)\b/i.test(r.title || "");
+    if (hasTreatment && isBiomarkerSurrogate && !isSr && !isRct) {
+      totalScore = Math.min(totalScore, 60);
+    }
+
     const relevancePct = Number.isFinite(totalScore) ? totalScore : 0;
 
     scored.push({

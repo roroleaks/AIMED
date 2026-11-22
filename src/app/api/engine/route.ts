@@ -318,7 +318,7 @@ async function esearchIds(term: string, retmax: number, filters = ""): Promise<s
   const apiKeyParam = NCBI_API_KEY ? `&api_key=${encodeURIComponent(NCBI_API_KEY)}` : "";
   await ncbiSlot();
   const res = await fetch(
-    `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(term + filters)}&retmax=${retmax}&retmode=json${apiKeyParam}`,
+    `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=${encodeURIComponent(term + filters)}&retmax=${retmax}&sort=relevance&retmode=json${apiKeyParam}`,
     { signal: AbortSignal.timeout(API_TIMEOUT_MS) }
   );
   if (!res.ok) {

@@ -212,8 +212,26 @@ async function runLiveVerification() {
       phrase: screenData?.phrases?.established?.phrase,
       specialty: "obgyn",
       specialtyLabel: "Obstetrics & Gynecology",
-      screeningStats: exploreData.corpusStats || { retrieved: 0, screened: 0, relaxationLevel: 0, excludedCount: 0 },
-      papers: records,
+      screeningStats: {
+        retrieved: exploreData.corpusStats?.retrieved ?? 0,
+        screened: exploreData.corpusStats?.screened ?? 0,
+        relaxationLevel: exploreData.corpusStats?.relaxationLevel ?? 0,
+        excludedCount: 0
+      },
+      papers: records.map((r, idx) => ({
+        rank: idx + 1,
+        relevancePct: r.relevancePct ?? 0,
+        title: r.title,
+        authors: r.authors || "",
+        journal: r.journal || "",
+        year: r.year || "",
+        design: r.design || "Observational study",
+        matchedElements: r.matchedElements || [],
+        pmid: r.pmid,
+        doi: r.doi,
+        context: r.context,
+        _sig: r._sig
+      })),
       title: manuscript.title,
       abstract: manuscript.abstract,
       sections: manuscript.sections,
@@ -293,6 +311,15 @@ async function runLiveVerification() {
       "3b. ONC-1 zero ClinicalTrials.gov NCT registrations in retained evidence",
       nctRecords.length === 0,
       `Found ${nctRecords.length} NCT records`
+    );
+
+    // Check KEYNOTE-189 ranks above unrelated FT3/FT4 paper
+    const ft3Paper = records.find(r => r.title && /ft3|ft4/i.test(r.title));
+    const ft3Rank = ft3Paper ? records.indexOf(ft3Paper) + 1 : 999;
+    report(
+      "3c. ONC-1 KEYNOTE-189 ranks above unrelated FT3/FT4 paper",
+      Boolean(keynote) && (!ft3Paper || keynoteRank < ft3Rank),
+      keynote ? `KEYNOTE-189 rank: ${keynoteRank}, FT3/FT4 rank: ${ft3Rank}` : "KEYNOTE-189 not found"
     );
   } catch (err) {
     report("3. ONC-1 pipeline", false, err.message);

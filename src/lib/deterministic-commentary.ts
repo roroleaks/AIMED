@@ -122,11 +122,19 @@ const DESIGN_LABEL: Record<string, string> = {
 /** Phrases the commentary must never put in a quoted finding (estimates, overclaiming, or publisher copyright/licensing wording). */
 const UNQUOTABLE = /95\s*%|\bci\b|confidence interval|p\s*[<=>]\s*0?\.|risk ratio|hazard ratio|odds ratio|\b(?:hr|rr|or)\s*[=,:]|demonstrates that|confirms that|proves that|is effective|should be recommended|the evidence supports|©|\bcopyright\b|\bcreative commons\b|\ball rights reserved\b|\blicense[d\.]?|\bthis article is distributed\b|\bopen access\b/i;
 
-/** Whether a sentence is about the outcome: any substantive outcome word (or its stem) appears as a whole word. */
+/** Whether a sentence is about the outcome: substantive outcome words or standard clinical acronyms. */
 function mentionsOutcome(sentence: string, outcome: string, population = ""): boolean {
+  const normSent = sentence.replace(/[\u2010-\u2015]/g, "-");
   const popWords = new Set(population.toLowerCase().split(/[^a-z0-9]+/));
   const toks = outcome.toLowerCase().replace(/\([^)]*\)/g, " ").split(/[^a-z0-9]+/).filter(t => t.length >= 4 && !popWords.has(t) && !/^(?:with|from|rate|risk|time|the|and|score|change|composite|endpoint|outcome|primary|total)$/.test(t));
-  return toks.some(t => new RegExp(`\\b${t}\\w*\\b`, "i").test(sentence));
+  if (toks.some(t => new RegExp(`\\b${t}\\w*\\b`, "i").test(normSent))) return true;
+
+  // Outcome acronyms
+  const outLower = outcome.toLowerCase();
+  if (/\b(?:live\s+birth|birth)\b/i.test(outLower) && /\b(?:clbr|lbr)\b/i.test(normSent)) return true;
+  if (/\b(?:survival|overall\s+survival)\b/i.test(outLower) && /\b(?:os|pfs)\b/i.test(normSent)) return true;
+  if (/\b(?:cardiovascular|mace)\b/i.test(outLower) && /\bmace\b/i.test(normSent)) return true;
+  return false;
 }
 
 export function extractFinding(rec: AuditableRef, outcome = "", population = ""): string {
@@ -145,7 +153,7 @@ export function extractFinding(rec: AuditableRef, outcome = "", population = "")
     if (UNQUOTABLE.test(sent)) continue;
     if (/\bNCT\d{6,}|clinicaltrials\.gov|\bISRCTN|\b(?:funded|supported) by\b|^\(|^\[|trial registration/i.test(sent)) continue;
     if (/^(?:we|this|these|our)\s+(?:aim|sought|hypothesi|investigat|evaluat|assess|conduct|perform)/i.test(sent)) continue;
-    if (/\b(?:allocation concealment|was achieved|were randomized to|were assigned to|were grouped by|women were grouped|patients were grouped|the main outcomes? were|primary endpoint was defined|eligibility criteria|a total of \d+ studies|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d+)\s+studies\s+(?:reporting|included|evaluating|identified|were))\b/i.test(sent)) continue;
+    if (/\b(?:allocation concealment|was achieved|were randomized to|were assigned to|were grouped by|women were grouped|patients were grouped|the main outcomes? were|primary endpoint was defined|eligibility criteria|a total of \d+ studies|(?:one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|\d+|several|most|few|multiple)\s+studies\s+(?:reporting|reported|included|evaluating|evaluated|identified|addressed|investigated|were))\b/i.test(sent)) continue;
     const dir = assertedDirection(sent);
     if (dir && recDir && dir !== recDir) continue;
     if (!dir && !/\b(?:found|showed|shown|was|were|is|are|had|did|may|might|suggest\w*|associated|resulted|achieved|remain\w*|appear\w*|support\w*|did not|no\s)\b/i.test(sent)) continue;
