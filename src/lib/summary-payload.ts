@@ -45,6 +45,10 @@ export interface WorkflowExportPaper {
   year: string;
   design: string;
   matchedElements: string[];
+  pmid?: string;
+  doi?: string;
+  context?: string;
+  _sig?: string;
 }
 
 export interface WorkflowExportData {
@@ -105,12 +109,16 @@ export function buildSummaryPayload(
     journal: r.journal || "",
     year: r.year || "",
     design: designOf(r.title || "", r.journal || "") || "Observational study",
-    matchedElements: (r.matchedElements || []).map(code => ELEMENT_LABELS[code] || code)
+    matchedElements: r.matchedElements || [],
+    pmid: r.pmid,
+    doi: r.doi,
+    context: r.context,
+    _sig: r._sig
   }));
 
-  const retrieved = screenSnapshot?.corpusStats?.retrieved ?? exploreSnapshot?.corpusStats?.retrieved ?? 0;
-  const screened = screenSnapshot?.corpusStats?.screened ?? exploreSnapshot?.corpusStats?.screened ?? 0;
-  const relaxationLevel = screenSnapshot?.corpusStats?.relaxationLevel ?? 0;
+  const retrieved = exploreSnapshot?.corpusStats?.retrieved ?? screenSnapshot?.corpusStats?.retrieved ?? 0;
+  const screened = exploreSnapshot?.corpusStats?.screened ?? screenSnapshot?.corpusStats?.screened ?? 0;
+  const relaxationLevel = exploreSnapshot?.corpusStats?.relaxationLevel ?? screenSnapshot?.corpusStats?.relaxationLevel ?? 0;
   const excludedCount = excludedState?.userExcluded?.length ?? 0;
 
   const specId = specialty || "obgyn";

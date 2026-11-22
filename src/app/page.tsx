@@ -456,7 +456,7 @@ export default function Home() {
             >
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                 <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#1e293b", display: "inline-flex", alignItems: "center", gap: 5 }}>
-                  🌐 Literature Databases (all {SEARCH_SOURCE_OPTIONS.length} searched · mandatory):
+                  🌐 Literature Databases ({SEARCH_SOURCE_OPTIONS.length} available biomedical sources):
                 </span>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {SEARCH_SOURCE_OPTIONS.map(opt => (
@@ -554,7 +554,7 @@ export default function Home() {
         <div className="aimed-modal-backdrop" onClick={() => setIsSourcesModalOpen(false)}>
           <div className="aimed-modal-content" style={{ maxWidth: 660 }} onClick={(e) => e.stopPropagation()}>
             <div className="aimed-modal-header">
-              <h3>🌐 Literature Search Databases (All Mandatory)</h3>
+              <h3>🌐 Literature Search Databases ({SEARCH_SOURCE_OPTIONS.length} Biomedical Sources)</h3>
               <button
                 type="button"
                 className="aimed-modal-close"

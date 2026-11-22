@@ -20,6 +20,7 @@ export interface ExploreRecord extends AuditableRef {
   matchedElements: string[];
   design?: string;
   lowMetadata?: boolean;
+  _sig?: string;
 }
 
 export interface ScoreRecordsResult {

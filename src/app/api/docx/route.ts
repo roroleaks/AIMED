@@ -23,6 +23,7 @@ import type { AuditableRef } from "@/lib/relevance";
 import { getSpecialtyDefinition } from "@/lib/specialties";
 import { buildWorkflowDocx, parseFormattedDocxRuns } from "@/lib/docx-generator";
 import { getFooterText, DRAFT_DISCLAIMER } from "@/lib/version";
+import { verifyRecordSignature } from "@/lib/record-signature";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
@@ -78,7 +79,11 @@ const workflowPaperSchema = z.object({
   journal: z.string().optional().default(""),
   year: z.string().optional().default(""),
   design: z.string().optional().default("Observational study"),
-  matchedElements: z.array(z.string()).optional().default([])
+  matchedElements: z.array(z.string()).optional().default([]),
+  pmid: z.string().optional(),
+  doi: z.string().optional(),
+  context: z.string().optional(),
+  _sig: z.string().optional()
 });
 
 const workflowSchema = z.object({
@@ -151,6 +156,17 @@ export async function POST(req: Request) {
     const body = parseResult.data;
 
     if (body.workflow) {
+      if (Array.isArray(body.workflow.papers) && body.workflow.papers.length > 0) {
+        for (const paper of body.workflow.papers) {
+          if (!verifyRecordSignature(paper as unknown as Parameters<typeof verifyRecordSignature>[0])) {
+            return NextResponse.json(
+              { error: `Untrusted or fabricated record detected: paper '${paper.title || paper.pmid}' signature verification failed. Records must originate from verified Explore stage.` },
+              { status: 422 }
+            );
+          }
+        }
+      }
+
       if (body.workflow.references && body.workflow.references.length > 0) {
         const narrativeFields: Record<string, string> = {};
         if (Array.isArray(body.workflow.sections)) {

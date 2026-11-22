@@ -12,7 +12,7 @@ import {
   singleRecordInText,
   parseAuthorNames
 } from "./citation-styles.ts";
-import { designOf, isNonEvidenceItem, auditRef, type AuditableRef } from "./relevance.ts";
+import { isNonEvidenceItem, auditRef, type AuditableRef } from "./relevance.ts";
 import { classifyPaperType } from "./study-design.ts";
 import { getSpecialtyDefinition } from "./specialties.ts";
 import { screenWordSchema, isValidSpecialty } from "./deterministic-screen.ts";
@@ -185,6 +185,31 @@ export function buildInTextCitation(
   return `(${parts.join(", ")})`;
 }
 
+function extractStudyPopulation(context: string, title: string): string {
+  const full = `${title}. ${context}`;
+  const m1 = /\b(?:in|among|of|included?|enrolled?)\s+(\d+[\w\s-]{4,35}?(?:women|patients|men|participants|infants|couples|adults|individuals|cases|embryos|blastocysts))\b/i.exec(full);
+  if (m1) return m1[1].trim();
+
+  const m2 = /\b(?:patients|women|adults|participants|couples)\s+(?:with|undergoing|presenting with|diagnosed with|aged)\s+([\w\s-]{4,35}?)(?=[,.;:]|\bwere\b|\bwas\b|\bto\b|\band\b)/i.exec(full);
+  if (m2) return `${m2[0].trim()}`.slice(0, 45);
+
+  const m3 = /\b(\d+\s+(?:women|patients|participants|couples|cases|infants))\b/i.exec(full);
+  if (m3) return m3[1].trim();
+
+  return "Not extracted";
+}
+
+function extractStudyComparator(context: string, title: string): string {
+  const full = `${title}. ${context}`;
+  const m1 = /\b(?:compared with|versus|vs\.?)\s+([\w\s-]{3,35}?)(?=[,.;:]|\bfor\b|\bon\b|\band\b|\bin\b|\bwere\b|\bwas\b)/i.exec(full);
+  if (m1) return m1[1].trim();
+
+  const m2 = /\b(?:control group|placebo group|sham group|standard care group)\b/i.exec(full);
+  if (m2) return m2[0].trim();
+
+  return "Not extracted";
+}
+
 /**
  * Pure, deterministic composer for publication-grade scientific manuscripts.
  */
@@ -215,15 +240,41 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   // Specialty Definition
   const specDef = getSpecialtyDefinition(specialty);
 
+  // Structured PICO roles
+  const popWord = words.find(w => w.role === "population")?.word || "specified clinical cohort";
+  const intWord = words.find(w => w.role === "intervention")?.word || "clinical intervention";
+  const compWord = words.find(w => w.role === "comparator")?.word || "standard comparator";
+  const outWord = words.find(w => w.role === "outcome")?.word || "target clinical endpoint";
+
+  // Evidence grounding calculation across retained records
+  const validRetained = retained.filter(r => !isNonEvidenceItem(r).isNonEvidence);
+  const elements = [
+    { label: "P", value: popWord },
+    { label: "I", value: intWord },
+    ...(compWord ? [{ label: "C", value: compWord }] : []),
+    ...(outWord ? [{ label: "O", value: outWord }] : [])
+  ];
+
+  // R1: Require intervention match. Generic comparators never satisfy intervention eligibility.
+  const matchingRetained = validRetained.filter(r => {
+    const audit = auditRef(r, elements);
+    return Boolean(audit.population && audit.intervention && audit.outcome);
+  });
+
   // Deterministic title template (plain clinical wording without P/I/C/O role markers)
   const cleanPhrase = phrase.replace(/\s+/g, " ").trim();
   const titlePhrase = cleanPhrase.replace(/\s*\([PICO]\)/g, "").replace(/\s+/g, " ").trim();
-  const titleCategorySuffix: Record<string, string> = {
-    established: "A Rapid Evidence Summary of Established Clinical Knowledge",
-    conflicting: "A Rapid Evidence Summary of Conflicting Clinical Findings",
-    gap: "A Rapid Evidence Summary of Identified Clinical Literature Gaps"
-  };
-  const title = `${titlePhrase}: ${titleCategorySuffix[category] || titleCategorySuffix.established}`;
+  let titleSuffix = "";
+  if (category === "established") {
+    titleSuffix = (retained.length === 0 || matchingRetained.length === 0)
+      ? "A Rapid Evidence Synthesis: Insufficient Direct Evidence"
+      : "A Rapid Evidence Summary of Established Clinical Knowledge";
+  } else if (category === "conflicting") {
+    titleSuffix = "A Rapid Evidence Summary of Conflicting Clinical Findings";
+  } else {
+    titleSuffix = "A Rapid Evidence Summary of Identified Clinical Literature Gaps";
+  }
+  const title = `${titlePhrase}: ${titleSuffix}`;
 
   // Partition retained records into relevance tiers
   const tier90 = retained.filter(r => (r.relevancePct ?? 0) >= 90);
@@ -250,7 +301,13 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   // Group designs and calculate design mix percentages across retained records
   const designCounts: Record<string, number> = {};
   for (const r of retained) {
-    const d = designOf(r.title, r.journal || "") || classifyPaperType({ title: r.title, abstract: r.context, journal: r.journal }) || "Observational study";
+    const d = classifyPaperType({
+      title: r.title,
+      abstract: r.context,
+      journal: r.journal,
+      pubType: (r as unknown as { pubType?: string }).pubType,
+      publicationTypes: (r as unknown as { publicationTypes?: string[] }).publicationTypes
+    }) || "Observational Study";
     designCounts[d] = (designCounts[d] || 0) + 1;
   }
   const designSummary = retained.length > 0
@@ -258,12 +315,6 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
         .map(([d, cnt]) => `${cnt} ${d.toLowerCase()} (${Math.round((cnt / retained.length) * 100)}%)`)
         .join(", ")
     : "no studies";
-
-  // Structured PICO roles
-  const popWord = words.find(w => w.role === "population")?.word || "specified clinical cohort";
-  const intWord = words.find(w => w.role === "intervention")?.word || "clinical intervention";
-  const compWord = words.find(w => w.role === "comparator")?.word || "standard comparator";
-  const outWord = words.find(w => w.role === "outcome")?.word || "target clinical endpoint";
 
   // Section 1: Background (Honest, evidence-derived, non-templated)
   const backgroundP1 = `In clinical decision-making within ${specDef.label}, evaluating the comparative effect of ${intWord} versus ${compWord} on ${outWord} in ${popWord} is essential to inform evidence-based practice. This rapid evidence summary characterizes the available literature base to address the clinical question.`;
@@ -315,21 +366,6 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
   const searchP2 = `The initial query ladder retrieved ${screeningStats.retrieved} records. Automated title/abstract relevance screening evaluated ${screeningStats.screened} records at search relaxation level ${screeningStats.relaxationLevel}. During exploratory screening, ${screeningStats.excludedCount} record(s) were excluded based on study design or tangential relevance criteria, leaving ${retained.length} prioritized record(s) retained for formal synthesis.`;
   const searchParagraphs = [searchP1, searchP2, truthfulMethods];
-
-  // Evidence grounding calculation across retained records
-  const validRetained = retained.filter(r => !isNonEvidenceItem(r).isNonEvidence);
-  const elements = [
-    { label: "P", value: popWord },
-    { label: "I", value: intWord },
-    ...(compWord ? [{ label: "C", value: compWord }] : []),
-    ...(outWord ? [{ label: "O", value: outWord }] : [])
-  ];
-
-  // R1: Require intervention match. Generic comparators never satisfy intervention eligibility.
-  const matchingRetained = validRetained.filter(r => {
-    const audit = auditRef(r, elements);
-    return Boolean(audit.population && audit.intervention && audit.outcome);
-  });
 
   const actionVerb = outcomeActionVerb(outWord);
   let favourable = 0;
@@ -396,18 +432,19 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction | Risk of Bias |";
     const tableSep = "| --- | --- | --- | --- | --- | --- |";
     const tableRows = retained.map(r => {
-      const d = classifyPaperType({ title: r.title, abstract: r.context, journal: r.journal }) || "Observational Study";
+      const d = classifyPaperType({
+        title: r.title,
+        abstract: r.context,
+        journal: r.journal,
+        pubType: (r as unknown as { pubType?: string }).pubType,
+        publicationTypes: (r as unknown as { publicationTypes?: string[] }).publicationTypes
+      }) || "Observational Study";
       const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
       const finding = extractFinding(r, outWord, popWord) || "Not stated in abstract";
       const cleanFinding = finding.length > 80 ? finding.slice(0, 77) + "…" : finding;
 
-      const rContext = (r.context || "").toLowerCase();
-      const popDisplay = rContext.includes(popWord.toLowerCase())
-        ? popWord
-        : (rContext.includes("patient") || rContext.includes("women") || rContext.includes("cohort") ? "Clinical cohort" : "Not extracted from abstract");
-      const compDisplay = compWord && rContext.includes(compWord.toLowerCase())
-        ? compWord
-        : (compWord ? "Active/control" : "Not specified");
+      const popDisplay = extractStudyPopulation(r.context || "", r.title);
+      const compDisplay = extractStudyComparator(r.context || "", r.title);
       return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popDisplay} | ${compDisplay} | ${cleanFinding.replace(/\|/g, "\\|")} | Risk of bias: not assessed |`;
     });
     synthesisParagraphs.push([tableHeader, tableSep, ...tableRows].join("\n"));

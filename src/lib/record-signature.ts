@@ -6,7 +6,18 @@ import type { ExploreRecord } from "./explore-scoring.ts";
 const RUNTIME_KEY = crypto.randomBytes(32).toString("hex");
 
 function getSecret(): string {
-  return process.env.AIMED_RECORD_SECRET || RUNTIME_KEY;
+  const secret = process.env.AIMED_RECORD_SECRET;
+  if (!secret) {
+    if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
+      console.error(
+        "[CRITICAL SECURITY] AIMED_RECORD_SECRET environment variable is missing in production. " +
+        "Failing closed to prevent signature forgery and cross-instance verification mismatches."
+      );
+      throw new Error("AIMED_RECORD_SECRET environment variable is required in production.");
+    }
+    return RUNTIME_KEY;
+  }
+  return secret;
 }
 
 /**

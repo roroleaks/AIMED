@@ -166,7 +166,7 @@ export function resolveMandatorySources(): LiteratureSource[] {
   return [...ALL_LITERATURE_SOURCES];
 }
 
-const API_TIMEOUT_MS = 4_000;
+const API_TIMEOUT_MS = 7_500;
 const OPENALEX_MAILTO = process.env.OPENALEX_MAILTO || "raouf.roshdy@gmail.com";
 const USER_AGENT = "aimed/4.0 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 const NCBI_API_KEY = process.env.NCBI_API_KEY || process.env.PUBMED_API_KEY || "";
@@ -179,7 +179,7 @@ const serpApiKey = (): string => process.env.SERPAPI_API_KEY || process.env.SERP
  * full timeout. After one such failure the source is skipped for a short window, so one slow
  * provider cannot push a whole gap map past the serverless time limit. The other sources still run.
  */
-const SOURCE_COOLDOWN_MS = 90_000;
+const SOURCE_COOLDOWN_MS = 15_000;
 const sourceDownUntil = new Map<LiteratureSource, number>();
 
 export interface SourceStatusItem {
@@ -511,7 +511,7 @@ export async function fetchCrossrefArticles(query: string, maxResults = 6): Prom
 
   const rows = Math.min(Math.max(maxResults + 4, 8), 25);
   const select = "title,issued,DOI,author,container-title,type,abstract";
-  const url = `https://api.crossref.org/works?query.bibliographic=${encodeURIComponent(sanitized)}&filter=type:journal-article&rows=${rows}&select=${select}`;
+  const url = `https://api.crossref.org/works?query=${encodeURIComponent(sanitized)}&filter=type:journal-article&rows=${rows}&select=${select}`;
 
   try {
     await rateSlot("crossref", 250);

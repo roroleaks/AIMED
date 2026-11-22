@@ -16,7 +16,9 @@ const sampleRecords: ExploreRecord[] = [
     relevancePct: 95,
     matchedElements: ["P", "I", "C", "O"],
     pmid: "31000001",
-    doi: "10.1093/humrep/dead012"
+    doi: "10.1093/humrep/dead012",
+    pubType: "Systematic Review",
+    context: "In poor responders undergoing IVF, adjuvant growth hormone improved clinical pregnancy rate compared with standard protocol."
   },
   {
     title: "Clinical pregnancy outcomes with adjuvant growth hormone therapy",
@@ -26,7 +28,9 @@ const sampleRecords: ExploreRecord[] = [
     relevancePct: 78,
     matchedElements: ["P", "I", "O"],
     pmid: "31000002",
-    doi: "10.1016/j.fertnstert.2022.01.005"
+    doi: "10.1016/j.fertnstert.2022.01.005",
+    pubType: "Clinical Trial",
+    context: "Patients undergoing IVF with growth hormone demonstrated clinical pregnancy rates consistent with expectations."
   },
   {
     title: "Investigating ovarian response markers in assisted reproduction",
@@ -35,7 +39,9 @@ const sampleRecords: ExploreRecord[] = [
     year: "2021",
     relevancePct: 62,
     matchedElements: ["P", "O"],
-    pmid: "31000003"
+    pmid: "31000003",
+    pubType: "Observational Study",
+    context: "Ovarian response markers were evaluated in a cohort of poor responders."
   }
 ];
 

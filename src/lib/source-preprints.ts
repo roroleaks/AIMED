@@ -21,7 +21,7 @@ import {
 } from "./literature-sources.ts";
 import { normalizeDoi } from "./evidence-set.ts";
 
-const API_TIMEOUT_MS = 4_000;
+const API_TIMEOUT_MS = 7_500;
 const USER_AGENT = "aimed/4.1 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 
 interface EuropePmcPreprintItem {

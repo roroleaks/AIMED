@@ -17,7 +17,7 @@ import {
 import { normalizeDoi } from "./evidence-set.ts";
 import { classifyPaperType } from "./study-design.ts";
 
-const API_TIMEOUT_MS = 4_000;
+const API_TIMEOUT_MS = 7_500;
 const USER_AGENT = "aimed/4.1 (https://aimed-pico.vercel.app; mailto:raouf.roshdy@gmail.com)";
 
 interface EuropePmcCochraneItem {
@@ -36,7 +36,7 @@ interface EuropePmcCochraneItem {
 
 async function fetchFromEuropePmcCochrane(query: string, maxResults: number): Promise<LiteratureArticle[]> {
   const pageSize = Math.min(Math.max(maxResults + 4, 8), 25);
-  const q = `${query} AND ("Cochrane Database of Systematic Reviews" OR "Cochrane Database Syst Rev" OR SRC:CDSR)`;
+  const q = `${query} cochrane`;
   const url = `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${encodeURIComponent(q)}&pageSize=${pageSize}&format=json&resultType=core&sort=RELEVANCE`;
 
   await rateSlot("ebi", 120);
