@@ -375,6 +375,8 @@ const MAX_CANDIDATES = 8;
 export function buildCandidates(input: ClinicalSearchInput): string[] {
   const population = buildConceptClause(input.population);
   const outcome = buildConceptClause(input.outcome);
+  const primaryI = buildConceptClause(input.intervention);
+  const compClause = buildConceptClause(input.comparator);
   const intervention = buildInterventionClause(input.intervention, input.comparator);
 
   const broadPopulation = buildBroadClause(input.population);
@@ -386,6 +388,10 @@ export function buildCandidates(input: ClinicalSearchInput): string[] {
   const ptFilter = getPublicationTypeFilter(input.questionType);
 
   const ordered = [
+    ...(primaryI && compClause ? [
+      [population, primaryI, compClause, outcome].filter(Boolean).join(" AND "),
+      [population, primaryI, outcome].filter(Boolean).join(" AND ")
+    ] : []),
     [population, intervention, outcome].filter(Boolean).join(" AND "),
     [population, intervention].filter(Boolean).join(" AND "),
     [intervention, outcome].filter(Boolean).join(" AND "),
