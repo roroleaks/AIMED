@@ -463,8 +463,7 @@ async function fetchPubMedReferences(
         const doc = summaries[id]!;
         const types = (doc.pubtype || []).map(t => t.toLowerCase());
         let boost = 0;
-        if (types.some(t => t.includes("systematic review") || t.includes("meta-analysis"))) boost += 4;
-        else if (types.some(t => t.includes("randomized controlled trial"))) boost += 3;
+        if (types.some(t => t.includes("systematic review") || t.includes("meta-analysis") || t.includes("randomized controlled trial") || t.includes("phase iii"))) boost += 4;
         else if (types.some(t => t.includes("clinical trial"))) boost += 2;
         else if (types.some(t => t.includes("review"))) boost += 1;
         return { id, boost };
