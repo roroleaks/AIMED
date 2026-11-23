@@ -20,6 +20,7 @@ import {
   type ChoiceState
 } from "@/lib/summary-payload";
 import { DRAFT_DISCLAIMER, APP_VERSION } from "@/lib/version";
+import { getSourceLabel } from "@/lib/literature-sources";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
@@ -94,7 +95,7 @@ function renderFormattedParagraph(para: string, style: CitationStyle) {
         <sup
           key={idx}
           style={{
-            color: "#0f766e",
+            color: "var(--accent)",
             fontWeight: 700,
             fontSize: "0.78em",
             padding: "0 1px"
@@ -106,6 +107,201 @@ function renderFormattedParagraph(para: string, style: CitationStyle) {
     }
     return part;
   });
+}
+
+function ExtractionTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+
+  const toggleRow = (idx: number) => {
+    setExpanded(prev => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
+  return (
+    <div style={{ margin: "var(--space-4) 0" }}>
+      {/* Desktop & Tablet Table */}
+      <div className="extraction-table-wrapper" style={{ overflowX: "auto", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--fs-body-sm)" }}>
+          <thead>
+            <tr style={{ backgroundColor: "var(--canvas)", borderBottom: "2px solid var(--border-strong)" }}>
+              {headers.map((h, i) => {
+                let width = "auto";
+                if (i === 0) width = "12%";
+                else if (i === 1) width = "15%";
+                else if (i === 2) width = "15%";
+                else if (i === 3) width = "15%";
+                else if (i === 4) width = "43%";
+                return (
+                  <th
+                    key={i}
+                    style={{
+                      padding: "var(--space-2) var(--space-3)",
+                      textAlign: "left",
+                      fontWeight: 600,
+                      color: "var(--ink)",
+                      borderRight: "1px solid var(--border)",
+                      position: "sticky",
+                      top: 0,
+                      background: "var(--canvas)",
+                      zIndex: 1,
+                      width
+                    }}
+                  >
+                    {h}
+                  </th>
+                );
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, rIdx) => {
+              const isExp = Boolean(expanded[rIdx]);
+              return (
+                <tr key={rIdx} style={{ backgroundColor: rIdx % 2 === 0 ? "var(--surface)" : "var(--canvas)", borderBottom: "1px solid var(--border)" }}>
+                  {row.map((cell, cIdx) => {
+                    const isFinding = cIdx === 4 || cIdx === row.length - 1;
+                    const isLong = cell.length > 90;
+                    return (
+                      <td
+                        key={cIdx}
+                        style={{
+                          padding: "var(--space-2) var(--space-3)",
+                          color: "var(--ink-2)",
+                          borderRight: "1px solid var(--border)",
+                          verticalAlign: "top"
+                        }}
+                      >
+                        <div
+                          style={
+                            isFinding && isLong && !isExp
+                              ? {
+                                  display: "-webkit-box",
+                                  WebkitLineClamp: 4,
+                                  WebkitBoxOrient: "vertical",
+                                  overflow: "hidden"
+                                }
+                              : undefined
+                          }
+                        >
+                          {cell}
+                        </div>
+                        {isFinding && isLong && (
+                          <button
+                            type="button"
+                            className="btn btn--ghost btn--sm"
+                            onClick={() => toggleRow(rIdx)}
+                            style={{
+                              padding: 0,
+                              height: "auto",
+                              fontSize: "var(--fs-caption)",
+                              color: "var(--accent)",
+                              marginTop: "var(--space-1)"
+                            }}
+                          >
+                            {isExp ? "Show less" : "Show more"}
+                          </button>
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile Card View (<640px) */}
+      <div className="extraction-table-cards">
+        {rows.map((row, rIdx) => (
+          <div key={rIdx} className="card extraction-card" style={{ marginBottom: "var(--space-3)", padding: "var(--space-3)" }}>
+            <div style={{ fontWeight: 700, fontSize: "var(--fs-body)", color: "var(--ink)", marginBottom: "var(--space-1)" }}>
+              {row[0]}
+            </div>
+            {headers.slice(1).map((h, hIdx) => {
+              const val = row[hIdx + 1];
+              if (!val) return null;
+              return (
+                <div key={hIdx} style={{ fontSize: "var(--fs-caption)", marginTop: "var(--space-1)" }}>
+                  <strong style={{ color: "var(--muted)" }}>{h}: </strong>
+                  <span style={{ color: "var(--ink-2)" }}>{val}</span>
+                </div>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function FormattedMethodsParagraph({ para }: { para: string }) {
+  if (!para.includes("Exact queries executed: ")) {
+    return <>{para}</>;
+  }
+
+  const [lead, queryLog] = para.split("Exact queries executed: ");
+  const queryEntries = queryLog
+    ? queryLog.split("; ").map(item => {
+        const m = item.match(/^([^:]+):\s*"([^"]+)"\s*\(([^)]+)\)/);
+        if (m) {
+          return { source: m[1], query: m[2], hits: m[3] };
+        }
+        return { source: item, query: "", hits: "" };
+      })
+    : [];
+
+  return (
+    <>
+      <span>{lead}</span>
+      <details
+        style={{
+          marginTop: "var(--space-2)",
+          marginBottom: "var(--space-3)",
+          padding: "var(--space-2) var(--space-3)",
+          background: "var(--canvas)",
+          border: "1px solid var(--border)",
+          borderRadius: "var(--radius-md)"
+        }}
+      >
+        <summary
+          style={{
+            fontWeight: 600,
+            cursor: "pointer",
+            fontSize: "var(--fs-caption)",
+            color: "var(--accent)"
+          }}
+        >
+          🔍 View executed search queries ({queryEntries.length} sources)
+        </summary>
+        <div style={{ marginTop: "var(--space-2)", overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--fs-caption)" }}>
+            <thead>
+              <tr style={{ borderBottom: "1px solid var(--border-strong)", textAlign: "left" }}>
+                <th style={{ padding: "var(--space-1) var(--space-2)" }}>Source</th>
+                <th style={{ padding: "var(--space-1) var(--space-2)" }}>Query</th>
+                <th style={{ padding: "var(--space-1) var(--space-2)" }}>Hits</th>
+              </tr>
+            </thead>
+            <tbody>
+              {queryEntries.map((q, idx) => (
+                <tr key={idx} style={{ borderBottom: "1px solid var(--border)" }}>
+                  <td style={{ padding: "var(--space-1) var(--space-2)", fontWeight: 600, color: "var(--ink-2)", whiteSpace: "nowrap" }}>
+                    {getSourceLabel(q.source)}
+                  </td>
+                  <td style={{ padding: "var(--space-1) var(--space-2)", fontFamily: "monospace", fontSize: "var(--fs-badge)", color: "var(--ink-2)" }}>
+                    {q.query || q.source}
+                  </td>
+                  <td style={{ padding: "var(--space-1) var(--space-2)", whiteSpace: "nowrap", color: "var(--muted)" }}>
+                    {q.hits}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </>
+  );
 }
 
 export default function SummaryPage() {
@@ -329,16 +525,13 @@ export default function SummaryPage() {
 
   return (
     <div className="wrap">
-      <header className="hdr">
+      <header className="hdr hdr--compact">
         <div className="hdr-inner">
           <div className="hdr-left">
-            <span className="title-main">
-              AIMed <span className="version-badge">v{APP_VERSION}</span>
-            </span>
+            <span className="title-main">AIMed</span>
           </div>
           <div className="hdr-center">
-            <h1>🧾 Step 4 · Scientific Manuscript</h1>
-            <p>Publication-grade narrative evidence synthesis draft with multi-style citations</p>
+            <h1>Step 4 · Scientific Manuscript</h1>
           </div>
           <AuthorHeaderRight />
         </div>
@@ -348,35 +541,29 @@ export default function SummaryPage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div style={{
-          background: "#fef3c7",
-          border: "1px solid #f59e0b",
-          borderRadius: 8,
-          padding: "10px 14px",
-          marginBottom: 16,
-          fontSize: "0.85rem",
-          color: "#92400e",
-          lineHeight: 1.45
-        }}>
-          ⚠️ <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+          <span>⚠️</span>
+          <div>
+            <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+          </div>
         </div>
 
         {/* Compact Workflow Summary Strip */}
-        <section className="card" style={{ marginBottom: 16 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
-            <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+        <section className="card" style={{ marginBottom: "var(--space-4)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-2)", flexWrap: "wrap", gap: "var(--space-2)" }}>
+            <span className="overline" style={{ color: "var(--accent)" }}>
               🔍 Workflow Context Snapshot
             </span>
-            <div style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center", flexWrap: "wrap" }}>
               <span
                 className="pill"
                 style={{
-                  background: "#f0fdfa",
-                  color: "#0f766e",
+                  background: "var(--accent-subtle)",
+                  color: "var(--accent)",
                   fontWeight: 700,
-                  fontSize: "0.82rem",
-                  border: "1px solid #99f6e4",
-                  padding: "3px 8px"
+                  fontSize: "var(--fs-caption)",
+                  border: "1px solid var(--accent-border)",
+                  padding: "var(--space-1) var(--space-2)"
                 }}
               >
                 🩺 {specialtyLabel}
@@ -387,8 +574,8 @@ export default function SummaryPage() {
                   background: meta.badgeBg,
                   color: meta.badgeColor,
                   fontWeight: 700,
-                  fontSize: "0.82rem",
-                  padding: "3px 8px"
+                  fontSize: "var(--fs-caption)",
+                  padding: "var(--space-1) var(--space-2)"
                 }}
               >
                 {meta.icon} {meta.label}
@@ -397,7 +584,7 @@ export default function SummaryPage() {
           </div>
 
           {/* PICO Chips */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
             {words.map((w, idx) => {
               const conf = ROLE_CONFIG[w.role] || ROLE_CONFIG.population;
               return (
@@ -406,22 +593,22 @@ export default function SummaryPage() {
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: 5,
+                    gap: "var(--space-1)",
                     background: conf.bg,
                     border: `1px solid ${conf.border}`,
-                    padding: "3px 8px",
-                    borderRadius: 6,
-                    fontSize: "0.82rem"
+                    padding: "var(--space-1) var(--space-2)",
+                    borderRadius: "var(--radius-sm)",
+                    fontSize: "var(--fs-caption)"
                   }}
                 >
                   <span
                     style={{
                       background: conf.badgeBg,
                       color: "#fff",
-                      fontSize: "0.68rem",
+                      fontSize: "var(--fs-badge)",
                       fontWeight: 800,
                       padding: "1px 5px",
-                      borderRadius: 3
+                      borderRadius: "var(--radius-sm)"
                     }}
                   >
                     {conf.badge}
@@ -435,14 +622,14 @@ export default function SummaryPage() {
           {/* Chosen Phrase */}
           <div
             style={{
-              padding: "8px 12px",
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              borderRadius: 6,
-              fontSize: "0.88rem",
+              padding: "var(--space-2) var(--space-3)",
+              background: "var(--canvas)",
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-md)",
+              fontSize: "var(--fs-body-sm)",
               fontWeight: 600,
-              color: "#1e293b",
-              marginBottom: 8
+              color: "var(--ink)",
+              marginBottom: "var(--space-2)"
             }}
           >
             {choice.phrase}
@@ -455,27 +642,27 @@ export default function SummaryPage() {
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "wrap",
-              gap: 8,
-              fontSize: "0.8rem",
-              color: "#64748b",
-              borderTop: "1px solid #f1f5f9",
-              paddingTop: 8
+              gap: "var(--space-2)",
+              fontSize: "var(--fs-caption)",
+              color: "var(--muted)",
+              borderTop: "1px solid var(--border)",
+              paddingTop: "var(--space-2)"
             }}
           >
             <div>
               <span>📊 Retrieved: <strong>{retrievedDisplay}</strong></span>
-              <span style={{ margin: "0 6px" }}>·</span>
+              <span style={{ margin: "0 var(--space-1)" }}>·</span>
               <span>Screened: <strong>{screenedDisplay}</strong></span>
-              <span style={{ margin: "0 6px" }}>·</span>
+              <span style={{ margin: "0 var(--space-1)" }}>·</span>
               <span>Excluded: <strong>{excludedCount}</strong></span>
-              <span style={{ margin: "0 6px" }}>·</span>
+              <span style={{ margin: "0 var(--space-1)" }}>·</span>
               <span>Prioritized: <strong>{papers.length}</strong></span>
             </div>
             <button
               type="button"
-              className="secondary"
+              className="btn btn--ghost btn--sm"
               onClick={handleStartOver}
-              style={{ fontSize: "0.78rem", padding: "4px 10px" }}
+              style={{ fontSize: "var(--fs-caption)", padding: "var(--space-1) var(--space-2)" }}
               title="Reset workflow state and return to Step 1"
             >
               ↺ Start over
@@ -483,31 +670,39 @@ export default function SummaryPage() {
           </div>
         </section>
 
-        {/* Action Controls & Citation Style Selector Bar */}
-        <section className="card" style={{ marginBottom: 16 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-              <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "#334155" }}>
+        {/* Sticky Action Controls & Citation Style Selector Bar */}
+        <section
+          className="card summary-action-bar"
+          style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 20,
+            marginBottom: "var(--space-4)",
+            boxShadow: "var(--shadow-1)",
+            background: "var(--surface)"
+          }}
+        >
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-3)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
+              <span style={{ fontSize: "var(--fs-label)", fontWeight: 700, color: "var(--ink-2)" }}>
                 Citation style:
               </span>
-              <div style={{ display: "inline-flex", gap: 4, background: "#f1f5f9", padding: 3, borderRadius: 6 }}>
+              <div className="segmented" role="radiogroup" aria-label="Citation style selection">
                 {CITATION_STYLE_OPTIONS.map(opt => {
                   const isActive = style === opt.id;
                   return (
                     <button
                       key={opt.id}
                       type="button"
+                      role="radio"
+                      aria-checked={isActive}
+                      className={`segmented-item ${isActive ? "active" : ""}`}
                       onClick={() => handleStyleChange(opt.id)}
                       style={{
-                        border: "none",
-                        background: isActive ? "#0f766e" : "transparent",
-                        color: isActive ? "#ffffff" : "#475569",
-                        fontWeight: isActive ? 700 : 500,
-                        fontSize: "0.8rem",
-                        padding: "4px 10px",
-                        borderRadius: 4,
-                        cursor: "pointer",
-                        transition: "all 0.15s ease"
+                        minHeight: 40,
+                        padding: "0 var(--space-3)",
+                        fontSize: "var(--fs-caption)",
+                        fontWeight: isActive ? 700 : 500
                       }}
                     >
                       {opt.id.toUpperCase()}
@@ -517,13 +712,12 @@ export default function SummaryPage() {
               </div>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
               <button
                 type="button"
-                className="secondary"
+                className="btn btn--secondary"
                 onClick={handleAiEnrich}
                 disabled={enriching}
-                style={{ fontSize: "0.84rem", display: "inline-flex", alignItems: "center", gap: 6 }}
                 title="Run single-pass scientific editor enhancement on narrative flow"
               >
                 {enriching ? "Enriching narrative…" : "✨ Enrich narrative (AI)"}
@@ -531,36 +725,39 @@ export default function SummaryPage() {
 
               <button
                 type="button"
-                className="primary"
+                className="btn btn--secondary"
                 onClick={() => handleExport("docx")}
                 disabled={exporting !== null}
-                style={{ fontSize: "0.84rem" }}
               >
                 {exporting === "docx" ? "Building DOCX…" : "Download DOCX"}
               </button>
 
               <button
                 type="button"
-                className="primary"
+                className="btn btn--primary"
                 onClick={() => handleExport("pdf")}
                 disabled={exporting !== null}
-                style={{ fontSize: "0.84rem" }}
               >
                 {exporting === "pdf" ? "Building PDF…" : "Download PDF"}
+              </button>
+
+              <button
+                type="button"
+                className="btn btn--ghost"
+                onClick={handleStartOver}
+                title="Reset workflow state and return to Step 1"
+              >
+                ↺ Start over
               </button>
             </div>
           </div>
 
           {enrichNotice && (
             <div
+              className="notice notice--info"
               style={{
-                marginTop: 10,
-                padding: "8px 12px",
-                borderRadius: 6,
-                fontSize: "0.82rem",
-                background: enrichNotice.startsWith("✨") ? "#f0fdf4" : "#fefce8",
-                border: `1px solid ${enrichNotice.startsWith("✨") ? "#bbf7d0" : "#fef08a"}`,
-                color: enrichNotice.startsWith("✨") ? "#15803d" : "#a16207"
+                marginTop: "var(--space-2)",
+                fontSize: "var(--fs-caption)"
               }}
             >
               {enrichNotice}
@@ -569,14 +766,13 @@ export default function SummaryPage() {
 
           {exportError && (
             <div
+              className="notice notice--warning"
               style={{
-                marginTop: 10,
-                padding: "8px 12px",
-                borderRadius: 6,
-                fontSize: "0.82rem",
-                background: "#fef2f2",
-                border: "1px solid #fecaca",
-                color: "#b91c1c"
+                marginTop: "var(--space-2)",
+                fontSize: "var(--fs-caption)",
+                background: "var(--danger-bg)",
+                borderColor: "#fecaca",
+                color: "var(--danger)"
               }}
             >
               {exportError}
@@ -588,22 +784,22 @@ export default function SummaryPage() {
         <article
           className="card"
           style={{
-            background: "#ffffff",
-            padding: "24px 28px",
-            lineHeight: 1.6,
-            color: "#1e293b",
-            boxShadow: "0 1px 3px rgba(0,0,0,0.08)"
+            background: "var(--surface)",
+            padding: "var(--space-5)",
+            lineHeight: "var(--lh-reading)",
+            color: "var(--ink-2)",
+            boxShadow: "var(--shadow-1)"
           }}
         >
           {/* Header Title with AI Enriched Badge */}
-          <div style={{ marginBottom: 20 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, flexWrap: "wrap" }}>
+          <div style={{ marginBottom: "var(--space-4)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "var(--space-3)", flexWrap: "wrap" }}>
               <h2
                 style={{
-                  fontSize: "1.35rem",
+                  fontSize: "var(--fs-section)",
                   fontWeight: 800,
-                  color: "#0f172a",
-                  lineHeight: 1.35,
+                  color: "var(--ink)",
+                  lineHeight: "var(--lh-heading)",
                   margin: 0,
                   flex: 1
                 }}
@@ -612,14 +808,11 @@ export default function SummaryPage() {
               </h2>
               {manuscript.aiEnriched && (
                 <span
+                  className="badge badge--success"
                   style={{
-                    background: "#ecfdf5",
-                    color: "#047857",
-                    border: "1px solid #a7f3d0",
                     fontWeight: 700,
-                    fontSize: "0.75rem",
-                    padding: "2px 8px",
-                    borderRadius: 12
+                    fontSize: "var(--fs-badge)",
+                    padding: "2px 8px"
                   }}
                 >
                   ✨ AI enriched
@@ -632,27 +825,26 @@ export default function SummaryPage() {
           {manuscript.abstract && manuscript.abstract.length > 0 && (
             <div
               style={{
-                background: "#f8fafc",
-                borderLeft: "4px solid #0f766e",
-                padding: "14px 18px",
-                marginBottom: 24,
-                borderRadius: "0 6px 6px 0"
+                background: "var(--canvas)",
+                borderLeft: "4px solid var(--accent)",
+                padding: "var(--space-4)",
+                marginBottom: "var(--space-5)",
+                borderRadius: "0 var(--radius-md) var(--radius-md) 0",
+                maxWidth: "var(--reading-max)"
               }}
             >
               <h3
                 style={{
-                  fontSize: "0.98rem",
-                  fontWeight: 800,
-                  color: "#0f766e",
-                  margin: "0 0 8px 0",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.04em"
+                  fontSize: "var(--fs-subsection)",
+                  fontWeight: 700,
+                  color: "var(--accent)",
+                  margin: "0 0 var(--space-2) 0"
                 }}
               >
                 Abstract
               </h3>
               {manuscript.abstract.map((sentence, idx) => (
-                <p key={idx} style={{ fontSize: "0.92rem", margin: "4px 0", color: "#334155" }}>
+                <p key={idx} style={{ fontSize: "var(--fs-body-sm)", margin: "var(--space-1) 0", color: "var(--ink-2)", lineHeight: "var(--lh-reading)" }}>
                   {sentence}
                 </p>
               ))}
@@ -661,15 +853,15 @@ export default function SummaryPage() {
 
           {/* Manuscript Narrative Sections */}
           {manuscript.sections && manuscript.sections.map((section, secIdx) => (
-            <section key={secIdx} style={{ marginBottom: 22 }}>
+            <section key={secIdx} style={{ marginBottom: "var(--space-5)" }}>
               <h3
                 style={{
-                  fontSize: "1.08rem",
+                  fontSize: "var(--fs-subsection)",
                   fontWeight: 700,
-                  color: "#0f766e",
-                  borderBottom: "1px solid #e2e8f0",
-                  paddingBottom: 4,
-                  margin: "0 0 10px 0"
+                  color: "var(--accent)",
+                  borderBottom: "1px solid var(--border)",
+                  paddingBottom: "var(--space-1)",
+                  margin: "0 0 var(--space-3) 0"
                 }}
               >
                 {section.heading}
@@ -684,36 +876,17 @@ export default function SummaryPage() {
                     const headers = headerLine.slice(1, -1).split("|").map(c => c.trim());
                     const rows = dataLines.map(l => l.slice(1, -1).split("|").map(c => c.trim()));
                     return (
-                      <div key={pIdx} style={{ overflowX: "auto", margin: "14px 0" }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.85rem", border: "1px solid #e2e8f0" }}>
-                          <thead>
-                            <tr style={{ backgroundColor: "#f8fafc", borderBottom: "2px solid #cbd5e1" }}>
-                              {headers.map((h, i) => (
-                                <th key={i} style={{ padding: "8px 12px", textAlign: "left", fontWeight: 600, color: "#1e293b", borderRight: "1px solid #e2e8f0" }}>
-                                  {h}
-                                </th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {rows.map((row, rIdx) => (
-                              <tr key={rIdx} style={{ backgroundColor: rIdx % 2 === 0 ? "#ffffff" : "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
-                                {row.map((cell, cIdx) => (
-                                  <td key={cIdx} style={{ padding: "8px 12px", color: "#334155", borderRight: "1px solid #e2e8f0" }}>
-                                    {cell}
-                                  </td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
+                      <ExtractionTable key={pIdx} headers={headers} rows={rows} />
                     );
                   }
                 }
                 return (
-                  <p key={pIdx} style={{ fontSize: "0.93rem", margin: "0 0 10px 0", color: "#334155", lineHeight: 1.6 }}>
-                    {renderFormattedParagraph(para, style)}
+                  <p key={pIdx} style={{ fontSize: "var(--fs-body)", margin: "0 0 var(--space-3) 0", color: "var(--ink-2)", lineHeight: "var(--lh-reading)", maxWidth: "var(--reading-max)" }}>
+                    {section.heading.toLowerCase().includes("search") ? (
+                      <FormattedMethodsParagraph para={para} />
+                    ) : (
+                      renderFormattedParagraph(para, style)
+                    )}
                   </p>
                 );
               })}
@@ -721,34 +894,34 @@ export default function SummaryPage() {
           ))}
 
           {/* References Section */}
-          <section style={{ marginTop: 28, paddingTop: 16, borderTop: "2px solid #e2e8f0" }}>
+          <section style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-4)", borderTop: "2px solid var(--border)" }}>
             <h3
               style={{
-                fontSize: "1.08rem",
+                fontSize: "var(--fs-section)",
                 fontWeight: 700,
-                color: "#0f766e",
-                margin: "0 0 12px 0",
-                textTransform: "uppercase"
+                color: "var(--accent)",
+                margin: "0 0 var(--space-3) 0"
               }}
             >
-              REFERENCES ({style.toUpperCase()})
+              References ({style.toUpperCase()})
             </h3>
             {manuscript.references && manuscript.references.length > 0 ? (
               <ol
                 style={{
                   margin: 0,
                   paddingLeft: 0,
-                  listStyle: "none"
+                  listStyle: "none",
+                  maxWidth: "var(--reading-max)"
                 }}
               >
                 {manuscript.references.map((ref, idx) => (
                   <li
                     key={idx}
                     style={{
-                      fontSize: "0.85rem",
-                      color: "#334155",
-                      marginBottom: 8,
-                      lineHeight: 1.45
+                      fontSize: "var(--fs-body-sm)",
+                      color: "var(--ink-2)",
+                      marginBottom: "var(--space-2)",
+                      lineHeight: "var(--lh-snug)"
                     }}
                   >
                     {ref}
@@ -756,7 +929,7 @@ export default function SummaryPage() {
                 ))}
               </ol>
             ) : (
-              <p style={{ fontSize: "0.88rem", color: "#94a3b8", fontStyle: "italic" }}>
+              <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", fontStyle: "italic" }}>
                 No references retained for synthesis.
               </p>
             )}

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 function walkTsxFiles(dir: string): string[] {
-  let res: string[] = [];
+  const res: string[] = [];
   for (const f of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, f.name);
     if (f.isDirectory()) res.push(...walkTsxFiles(full));

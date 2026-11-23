@@ -261,9 +261,13 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
     return Boolean(audit.population && audit.intervention && audit.outcome);
   });
 
-  // Deterministic title template (plain clinical wording without P/I/C/O role markers)
+  // Deterministic title template (plain clinical wording without P/I/C/O role markers, avoid "?:")
   const cleanPhrase = phrase.replace(/\s+/g, " ").trim();
-  const titlePhrase = cleanPhrase.replace(/\s*\([PICO]\)/g, "").replace(/\s+/g, " ").trim();
+  const titlePhrase = cleanPhrase
+    .replace(/\s*\([PICO]\)/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\?+$/, "");
   let titleSuffix = "";
   if (category === "established") {
     titleSuffix = (retained.length === 0 || matchingRetained.length === 0)
@@ -431,9 +435,10 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
     synthesisParagraphs.push(`Study extractions: ${studySentences.join(". ")}.`);
 
-    // Per-study extraction table (P0-3, R10)
-    const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction | Risk of Bias |";
-    const tableSep = "| --- | --- | --- | --- | --- | --- |";
+    // Per-study extraction table (P0-3, R10, UI P2-3)
+    synthesisParagraphs.push("Risk of bias: not assessed for any study.");
+    const tableHeader = "| Citation | Study Design | Population | Comparator | Reported Finding / Direction |";
+    const tableSep = "| --- | --- | --- | --- | --- |";
     const tableRows = retained.map(r => {
       const d = classifyPaperType({
         title: r.title,
@@ -448,7 +453,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
       const popDisplay = extractStudyPopulation(r.context || "", r.title);
       const compDisplay = extractStudyComparator(r.context || "", r.title);
-      return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popDisplay} | ${compDisplay} | ${cleanFinding.replace(/\|/g, "\\|")} | Risk of bias: not assessed |`;
+      return `| ${itemCite || r.title.slice(0, 25)} | ${d} | ${popDisplay} | ${compDisplay} | ${cleanFinding.replace(/\|/g, "\\|")} |`;
     });
     synthesisParagraphs.push([tableHeader, tableSep, ...tableRows].join("\n"));
   }
