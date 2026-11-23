@@ -118,7 +118,6 @@ export default function Home() {
                     border: "2px solid #0f766e",
                     borderRadius: 10,
                     cursor: "pointer",
-                    outline: "none",
                     boxShadow: "0 2px 8px rgba(15, 118, 110, 0.12)",
                     appearance: "auto"
                   }}

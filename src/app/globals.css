@@ -1,16 +1,50 @@
 :root {
-  --bg: #f6f8fa;
-  --card: #fff;
-  --ink: #1a2332;
-  --muted: #5a6a7e;
-  --accent: #0f6b6b;
-  --accent-strong: #0f766e;
-  --accent-light: #e3f2f2;
-  --warn: #b45309;
-  --warn-bg: #fef3c7;
-  --good: #15803d;
-  --good-bg: #ecfdf5;
-  --border: #d8dee6;
+  /* Typography — base 16px. Nothing smaller than --fs-badge (12px). */
+  --font-sans: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fs-display: 1.75rem;    /* 28 — portal hero only */
+  --fs-title: 1.5rem;       /* 24 — one page title per screen */
+  --fs-section: 1.25rem;    /* 20 — section headings, manuscript H2 */
+  --fs-subsection: 1.0625rem; /* 17 — card titles, paper titles, manuscript H3 */
+  --fs-body: 1rem;          /* 16 — manuscript and main reading text */
+  --fs-body-sm: 0.875rem;   /* 14 — descriptions, tables, references, notices */
+  --fs-label: 0.875rem;     /* 14 — form labels, button text */
+  --fs-caption: 0.8125rem;  /* 13 — helper, metadata, footer */
+  --fs-badge: 0.75rem;      /* 12 — badges/chips — the floor */
+  --lh-tight: 1.2; --lh-heading: 1.3; --lh-snug: 1.4; --lh-normal: 1.5; --lh-reading: 1.6;
+  --fw-regular: 400; --fw-semibold: 600; --fw-bold: 700;
+
+  /* Spacing — 4px scale */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+
+  /* Radius */
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-pill: 999px;
+
+  /* Control heights */
+  --control-sm: 32px; --control-md: 40px; --control-lg: 48px; --touch-min: 44px;
+
+  /* Colour — ONE teal accent */
+  --accent: #0f766e; --accent-hover: #0d5f59; --accent-subtle: #f0fdfa; --accent-border: #99f6e4;
+  --ink: #0f172a; --ink-2: #334155; --muted: #475569; --muted-2: #64748b;
+  --surface: #ffffff; --canvas: #f6f8fa; --border: #d8dee6; --border-strong: #cbd5e1;
+  --success: #15803d; --success-bg: #ecfdf5;
+  --warning: #b45309; --warning-bg: #fef3c7;
+  --danger: #b91c1c; --danger-bg: #fef2f2;
+  --info: #1d4ed8; --info-bg: #eff6ff;
+  --role-p: #2563eb; --role-i: #16a34a; --role-c: #d97706; --role-o: #9333ea;
+
+  /* Elevation & focus */
+  --shadow-1: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.08);
+  --shadow-2: 0 10px 30px rgba(15,23,42,.18);
+  --focus-ring: 0 0 0 3px rgba(15,118,110,.35);
+
+  /* Layout */
+  --content-max: 1120px; --reading-max: 72ch; --form-max: 760px;
+
+  /* Legacy aliases (keep until migration is complete) */
+  --card: var(--surface); --bg: var(--canvas); --accent-strong: var(--accent);
+  --accent-light: var(--accent-subtle); --warn: var(--warning); --warn-bg: var(--warning-bg);
+  --good: var(--success); --good-bg: var(--success-bg);
 }
 
 * {
@@ -19,21 +53,39 @@
   padding: 0;
 }
 
+/* Base layer */
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
   color: var(--ink);
-  line-height: 1.55;
+  background: var(--canvas);
   -webkit-font-smoothing: antialiased;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   padding-left: env(safe-area-inset-left, 0px);
   padding-right: env(safe-area-inset-right, 0px);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
 }
 
 /* Mobile Touch Interactions & Tap Targets */
@@ -2095,7 +2147,6 @@ footer {
   font-size: 0.88rem;
   font-weight: 600;
   cursor: pointer;
-  outline: none;
   transition: all 0.2s ease;
   min-height: 40px;
   max-width: 320px;
