@@ -10,7 +10,7 @@ export function AppFooter({ stepText }: AppFooterProps) {
       <div>
         {getFooterText()} {stepText ? `· ${stepText}` : "· Educational & Research Decision Support: always verify formulated questions clinically."}
       </div>
-      <div style={{ marginTop: "6px", fontSize: "0.82rem" }}>
+      <div style={{ marginTop: "var(--space-1)", fontSize: "var(--fs-caption)" }}>
         Copyright{" "}
         <a
           href="https://doi.org/10.5281/zenodo.24402747"

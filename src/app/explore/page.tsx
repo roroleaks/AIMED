@@ -19,6 +19,7 @@ import {
   normalizeTitle,
   refCanonicalKeys
 } from "@/lib/explore-scoring";
+import { getSourceLabel } from "@/lib/literature-sources";
 import { DRAFT_DISCLAIMER } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
@@ -83,20 +84,6 @@ const ELEMENT_LABELS: Record<string, string> = {
   C: "Comparator",
   O: "Outcome"
 };
-
-function formatSourceName(id: string): string {
-  const map: Record<string, string> = {
-    pubmed: "PubMed",
-    pmc: "Europe PMC",
-    cochrane: "Cochrane",
-    openalex: "OpenAlex",
-    crossref: "CrossRef",
-    semantic_scholar: "Semantic Scholar",
-    clinicaltrials: "ClinicalTrials.gov",
-    doaj: "DOAJ"
-  };
-  return map[id] || id;
-}
 
 export default function ExplorePage() {
   const router = useRouter();
@@ -331,18 +318,31 @@ export default function ExplorePage() {
   const isExhausted = exploreData && records.length === 0 && !exploreData.hasMore && (userExcluded.length > 0 || seen.length > 0);
   const isEmptyCorpus = exploreData && records.length === 0 && !isExhausted;
 
+  const deduplicatedSources = (() => {
+    if (!exploreData?.sources) return [];
+    const map = new Map<string, { id: string; name: string; count: number; ok: boolean }>();
+    for (const src of exploreData.sources) {
+      const label = getSourceLabel(src.id);
+      const existing = map.get(label);
+      if (!existing) {
+        map.set(label, { id: src.id, name: label, count: src.count, ok: src.ok });
+      } else {
+        existing.count += src.count;
+        existing.ok = existing.ok || src.ok;
+      }
+    }
+    return Array.from(map.values());
+  })();
+
   return (
     <div className="wrap">
-      <header className="hdr">
+      <header className="hdr hdr--compact">
         <div className="hdr-inner">
           <div className="hdr-left">
-            <span className="title-main">
-              AIMed <span className="version-badge">v4.2.0</span>
-            </span>
+            <span className="title-main">AIMed</span>
           </div>
           <div className="hdr-center">
             <h1>Step 3 · Evidence Explorer</h1>
-            <p>Explore literature records ranked by relevance for your selected PICO phrase</p>
           </div>
           <AuthorHeaderRight />
         </div>
@@ -352,22 +352,16 @@ export default function ExplorePage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div style={{
-          background: "#fef3c7",
-          border: "1px solid #f59e0b",
-          borderRadius: 8,
-          padding: "10px 14px",
-          marginBottom: 16,
-          fontSize: "0.85rem",
-          color: "#92400e",
-          lineHeight: 1.45
-        }}>
-          ⚠️ <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+          <span>⚠️</span>
+          <div>
+            <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+          </div>
         </div>
         {/* Selection Summary Card */}
-        <section className="card" style={{ marginBottom: 16 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 12 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <section className="card" style={{ marginBottom: "var(--space-4)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-3)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
               <span className="specialty-active-badge">
                 {currentSpecialty.icon} {currentSpecialty.label}
               </span>
@@ -377,28 +371,28 @@ export default function ExplorePage() {
                   background: meta.badgeBg,
                   color: meta.badgeColor,
                   fontWeight: 700,
-                  fontSize: "0.88rem",
-                  padding: "4px 12px"
+                  fontSize: "var(--fs-caption)",
+                  padding: "var(--space-1) var(--space-3)"
                 }}
               >
                 {meta.label}
               </span>
             </div>
             {userExcluded.length > 0 && (
-              <span className="pill" style={{ background: "#fee2e2", color: "#991b1b", fontWeight: 700 }}>
+              <span className="badge badge--warning" style={{ fontWeight: 700 }}>
                 Excluded papers: {userExcluded.length}
               </span>
             )}
           </div>
           <div
             style={{
-              padding: "12px 16px",
+              padding: "var(--space-3) var(--space-4)",
               borderLeft: `4px solid ${meta.borderColor}`,
-              backgroundColor: "#f8fafc",
-              borderRadius: "0 8px 8px 0"
+              backgroundColor: "var(--canvas)",
+              borderRadius: "0 var(--radius-md) var(--radius-md) 0"
             }}
           >
-            <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#0f172a", lineHeight: 1.45 }}>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: "var(--fs-subsection)", color: "var(--ink)", lineHeight: "var(--lh-snug)" }}>
               {choice.phrase}
             </p>
           </div>
@@ -483,21 +477,29 @@ export default function ExplorePage() {
         {!loading && !error && records.length > 0 && (
           <section className="card">
             {/* Control Bar */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span className="pill" style={{ fontWeight: 600 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-4)", flexWrap: "wrap", gap: "var(--space-2)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
+                <span className="pill" style={{ fontWeight: 600, fontSize: "var(--fs-caption)" }}>
                   Showing {records.length} papers
                 </span>
                 {exploreData && (
-                  <span className="pill" style={{ background: "#f1f5f9", color: "#475569" }}>
+                  <span className="pill" style={{ background: "var(--canvas)", color: "var(--muted)", fontSize: "var(--fs-caption)" }}>
                     Screened {exploreData.corpusStats.screened} (Blocked: {exploreData.corpusStats.blocked}) · Relaxation: {exploreData.corpusStats.relaxationLevel}
                   </span>
                 )}
               </div>
-              <div className="row" style={{ gap: 8, flexWrap: "wrap", display: "flex" }}>
+              <div className="row" style={{ gap: "var(--space-2)", flexWrap: "wrap", display: "flex" }}>
                 <button
                   type="button"
-                  className="primary"
+                  className="btn btn--primary"
+                  onClick={() => router.push("/summary")}
+                  title="Proceed to Step 4: Workflow summary"
+                >
+                  Next: Workflow summary →
+                </button>
+                <button
+                  type="button"
+                  className="btn btn--secondary"
                   onClick={handleReRun}
                   title="Fetch new papers excluding seen and excluded ones"
                 >
@@ -505,43 +507,35 @@ export default function ExplorePage() {
                 </button>
                 <button
                   type="button"
-                  className="secondary"
+                  className="btn btn--ghost"
                   onClick={handleReset}
                   title="Clear seen papers and restart exploration"
                 >
                   ↺ Reset search
                 </button>
-                <button
-                  type="button"
-                  className="secondary"
-                  onClick={() => router.push("/summary")}
-                  title="Proceed to Step 4: Workflow summary"
-                >
-                  Next: Workflow summary →
-                </button>
               </div>
             </div>
 
             {/* Source Status Chips */}
-            {exploreData?.sources && exploreData.sources.length > 0 && (
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16, paddingBottom: 12, borderBottom: "1px solid #e2e8f0" }}>
-                {exploreData.sources.map(src => (
-                  <span
-                    key={src.id}
-                    className={`source-badge-mini source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}
-                    style={{
-                      opacity: src.ok ? 1 : 0.6,
-                      borderStyle: src.ok ? "solid" : "dashed"
-                    }}
-                  >
-                    {src.ok ? "●" : "○"} {formatSourceName(src.id)}: {src.count}
-                  </span>
-                ))}
+            {deduplicatedSources.length > 0 && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-4)", paddingBottom: "var(--space-3)", borderBottom: "1px solid var(--border)" }}>
+                {deduplicatedSources.map(src => {
+                  const isInactive = !src.ok || src.count === 0;
+                  return (
+                    <span
+                      key={src.name}
+                      className={`source-badge-mini ${isInactive ? "source-badge-inactive" : `source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}`}
+                      style={isInactive ? { color: "var(--muted)", background: "var(--canvas)", borderColor: "var(--border-strong)", borderStyle: "dashed" } : undefined}
+                    >
+                      {src.ok && src.count > 0 ? "●" : "○"} {src.name}: {src.count > 0 ? src.count : "0 results"}
+                    </span>
+                  );
+                })}
               </div>
             )}
 
             {/* Ranked Cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
               {records.map((r, i) => {
                 const elementsMatchedText = (r.matchedElements || [])
                   .map(code => ELEMENT_LABELS[code] || code)
@@ -552,47 +546,42 @@ export default function ExplorePage() {
                   <div
                     key={r.pmid || r.doi || `r-${i}`}
                     style={{
-                      border: "1px solid #e2e8f0",
-                      borderRadius: 8,
-                      padding: "16px 18px",
-                      background: "#ffffff",
+                      border: "1px solid var(--border)",
+                      borderRadius: "var(--radius-md)",
+                      padding: "var(--space-4)",
+                      background: "var(--surface)",
                       position: "relative",
-                      boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
+                      boxShadow: "var(--shadow-1)"
                     }}
                   >
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, gap: 10 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "var(--space-2)", gap: "var(--space-2)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
                         <span
-                          className="pill"
+                          className={`badge ${r.relevancePct >= 70 ? "badge--success" : "badge--accent"}`}
                           style={{
-                            background: r.relevancePct >= 70 ? "#ecfdf5" : r.relevancePct >= 40 ? "#eff6ff" : "#f8fafc",
-                            color: r.relevancePct >= 70 ? "#065f46" : r.relevancePct >= 40 ? "#1e40af" : "#475569",
-                            fontWeight: 700,
-                            fontSize: "0.92rem",
-                            padding: "4px 10px"
+                            fontSize: "var(--fs-badge)",
+                            padding: "var(--space-1) var(--space-2)"
                           }}
                         >
                           {r.relevancePct}% related
                         </span>
                         {r.design && r.design !== "unclassified" && (
-                          <span className="pill" style={{ background: "#f0fdf4", color: "#166534", fontSize: "0.78rem", fontWeight: 600 }}>
+                          <span className="tag">
                             {r.design}
                           </span>
                         )}
                         {r.year && (
-                          <span className="pill" style={{ background: "#f1f5f9", color: "#475569", fontSize: "0.82rem" }}>
+                          <span className="tag">
                             {r.year}
                           </span>
                         )}
                         {r.source && (
-                          <span
-                            className={`source-badge-mini source-badge-${r.source.toLowerCase().replace(/[^a-z0-9]/g, "")}`}
-                          >
-                            {r.source}
+                          <span className="tag">
+                            {getSourceLabel(r.source)}
                           </span>
                         )}
                         {r.lowMetadata && (
-                          <span className="pill" style={{ background: "#fff7ed", color: "#c2410c", fontSize: "0.74rem" }}>
+                          <span className="badge badge--warning">
                             low metadata
                           </span>
                         )}
@@ -603,13 +592,11 @@ export default function ExplorePage() {
                         type="button"
                         onClick={() => handleExcludeCard(r)}
                         aria-label={`Exclude paper: ${r.title}`}
-                        className="secondary"
+                        className="btn btn--ghost btn--sm"
                         style={{
-                          fontSize: "0.78rem",
-                          padding: "3px 8px",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 4
+                          height: "var(--control-sm)",
+                          fontSize: "var(--fs-caption)",
+                          padding: "0 var(--space-2)"
                         }}
                         title="Exclude paper from exploration"
                       >
@@ -618,19 +605,19 @@ export default function ExplorePage() {
                     </div>
 
                     {/* Paper Title (strictly without hyperlinks) */}
-                    <h3 style={{ fontSize: "1.05rem", fontWeight: 700, margin: "6px 0 8px 0", color: "#0f172a", lineHeight: 1.4 }}>
+                    <h3 style={{ fontSize: "var(--fs-subsection)", fontWeight: 600, margin: "var(--space-1) 0 var(--space-2) 0", color: "var(--ink)", lineHeight: "var(--lh-snug)" }}>
                       {r.title}
                     </h3>
 
                     {/* Authors and Journal */}
-                    <p style={{ margin: "0 0 8px 0", fontSize: "0.86rem", color: "#475569", lineHeight: 1.4 }}>
+                    <p style={{ margin: "0 0 var(--space-2) 0", fontSize: "var(--fs-caption)", color: "var(--muted)", lineHeight: "var(--lh-snug)" }}>
                       {r.authors ? `${r.authors}. ` : ""}
                       {r.journal ? <em>{r.journal}</em> : ""}
                       {r.pmid ? ` (PMID: ${r.pmid})` : r.doi ? ` (DOI: ${r.doi})` : ""}
                     </p>
 
                     {/* Matched Elements basis */}
-                    <div style={{ fontSize: "0.82rem", color: "#0d9488", fontWeight: 600 }}>
+                    <div style={{ fontSize: "var(--fs-caption)", color: "var(--success)", fontWeight: 600 }}>
                       ✓ {matchSummary}
                     </div>
                   </div>
@@ -639,18 +626,18 @@ export default function ExplorePage() {
             </div>
 
             {/* Bottom Actions */}
-            <div style={{ marginTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, paddingTop: 16, borderTop: "1px solid #e2e8f0" }}>
-              <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ marginTop: "var(--space-5)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-2)", paddingTop: "var(--space-4)", borderTop: "1px solid var(--border)" }}>
+              <div style={{ display: "flex", gap: "var(--space-3)", alignItems: "center", flexWrap: "wrap" }}>
                 <button
                   type="button"
-                  className="secondary"
+                  className="btn btn--secondary"
                   onClick={() => router.push("/screen")}
                 >
                   ← Back to Step 2
                 </button>
                 <button
                   type="button"
-                  className="secondary"
+                  className="btn btn--ghost"
                   onClick={() => {
                     resetSession();
                     router.replace("/");
@@ -661,7 +648,7 @@ export default function ExplorePage() {
               </div>
               <button
                 type="button"
-                className="primary"
+                className="btn btn--primary"
                 onClick={() => router.push("/summary")}
                 title="Proceed to Step 4: Workflow summary"
               >

@@ -44,7 +44,7 @@ export async function buildWorkflowPdf(workflow: WorkflowExportData): Promise<Bu
     FONT_O = "NotoSans-Italic";
   }
 
-  const teal = "#0f6b6b";
+  const teal = "#0f766e";
   const ink = "#1c2430";
   const muted = "#8a95a0";
 

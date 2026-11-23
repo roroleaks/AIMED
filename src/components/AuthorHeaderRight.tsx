@@ -15,7 +15,7 @@ export function AuthorHeaderRight() {
         />
         Dr Raouf Roshdy
       </span>
-      <span className="version-tag" style={{ fontSize: "0.82rem", color: "rgba(255, 255, 255, 0.75)", fontWeight: 600 }}>
+      <span className="version-tag" style={{ fontSize: "var(--fs-caption)", color: "rgba(255, 255, 255, 0.75)", fontWeight: 600 }}>
         v{APP_VERSION} ({getCommitSha()})
       </span>
     </div>

@@ -84,12 +84,13 @@ export function Modal({
 
     window.addEventListener("keydown", handleKeyDown);
 
+    const triggerEl = triggerRef?.current;
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
       clearTimeout(timer);
-      if (triggerRef?.current) {
-        triggerRef.current.focus();
+      if (triggerEl) {
+        triggerEl.focus();
       }
     };
   }, [isOpen, onClose, triggerRef]);

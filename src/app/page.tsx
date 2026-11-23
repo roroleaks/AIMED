@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAimedContext } from "@/context/AimedContext";
 import { SPECIALTIES } from "@/lib/specialties";
+import { ALL_LITERATURE_SOURCES } from "@/lib/literature-sources";
 import { APP_VERSION } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
@@ -45,7 +46,7 @@ export default function Home() {
               priority
             />
             <span className="title-main">
-              Aimed <span className="version-badge">v{APP_VERSION}</span>
+              AIMed <span className="version-badge">v{APP_VERSION}</span>
             </span>
           </div>
           <div className="hdr-center">
@@ -57,66 +58,66 @@ export default function Home() {
       </header>
 
       {/* Hero Welcome Banner */}
-      <section className="aimed-hero" style={{ padding: "32px 20px 24px 20px", textAlign: "center" }}>
-        <div className="aimed-badge" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginBottom: 12 }}>
-          <span>🩺 15 Medical Disciplines · Zero-Hallucination Retrieval</span>
+      <section className="aimed-hero" style={{ padding: "var(--space-6) var(--space-4) var(--space-5) var(--space-4)", textAlign: "center" }}>
+        <div className="badge badge--neutral" style={{ display: "inline-flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-3)", padding: "var(--space-1) var(--space-3)" }}>
+          <span>🩺 Multi-source retrieval · draft output — verify before use</span>
         </div>
-        <h2 className="aimed-hero-title" style={{ fontSize: "2rem", fontWeight: 800, marginBottom: 10, color: "#0f172a" }}>
+        <h2 className="aimed-hero-title" style={{ fontSize: "var(--fs-display)", fontWeight: 800, marginBottom: "var(--space-2)", color: "var(--ink)" }}>
           Select Your Clinical <span>Specialty Domain</span>
         </h2>
-        <p className="aimed-hero-subtitle" style={{ maxWidth: 780, margin: "0 auto", fontSize: "1.02rem", color: "#475569", lineHeight: 1.6 }}>
-          Calibrated PICO formulation, multi-source literature retrieval across 8 biomedical repositories, and publication-grade narrative evidence synthesis.
+        <p className="aimed-hero-subtitle" style={{ maxWidth: "var(--reading-max)", margin: "0 auto", fontSize: "var(--fs-subsection)", color: "var(--muted)", lineHeight: "var(--lh-reading)" }}>
+          Calibrated PICO formulation, multi-source literature retrieval across {ALL_LITERATURE_SOURCES.length} biomedical repositories, and publication-grade narrative evidence synthesis.
         </p>
       </section>
 
       {/* Primary Selection Section: Dropdown Menu & QR Code */}
-      <main className="solo" style={{ maxWidth: 1280, margin: "0 auto 36px auto", padding: "0 20px" }}>
+      <main className="solo" style={{ maxWidth: "var(--content-max)", margin: "0 auto var(--space-6) auto", padding: "0 var(--space-4)" }}>
         <section
           className="card"
           style={{
-            marginBottom: 24,
-            padding: "24px 28px",
+            marginBottom: "var(--space-5)",
+            padding: "var(--space-5)",
             background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
-            border: "1px solid #e2e8f0",
-            borderRadius: 14,
-            boxShadow: "0 8px 30px rgba(15, 118, 110, 0.06)"
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-lg)",
+            boxShadow: "var(--shadow-1)"
           }}
         >
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: 28,
+              gap: "var(--space-5)",
               alignItems: "center"
             }}
           >
             {/* Left Column: Dropdown Selection & Featured Domain Summary */}
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
-                <span style={{ fontSize: "1.1rem" }}>🏥</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
+                <span style={{ fontSize: "var(--fs-subsection)" }}>🏥</span>
                 <label
                   htmlFor="specialty-dropdown-select"
-                  style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0f172a" }}
+                  style={{ fontSize: "var(--fs-subsection)", fontWeight: 700, color: "var(--ink)" }}
                 >
                   Choose Specialty from Menu:
                 </label>
               </div>
 
               {/* Styled Dropdown Menu */}
-              <div style={{ position: "relative", marginBottom: 18 }}>
+              <div style={{ position: "relative", marginBottom: "var(--space-4)" }}>
                 <select
                   id="specialty-dropdown-select"
+                  className="select"
                   value={selectedId}
                   onChange={(e) => handleDropdownChange(e.target.value)}
                   style={{
                     width: "100%",
-                    padding: "13px 18px",
-                    fontSize: "1.02rem",
+                    fontSize: "var(--fs-body)",
                     fontWeight: 600,
-                    color: "#0f172a",
-                    background: "#ffffff",
-                    border: "2px solid #0f766e",
-                    borderRadius: 10,
+                    color: "var(--ink)",
+                    background: "var(--surface)",
+                    border: "2px solid var(--accent)",
+                    borderRadius: "var(--radius-md)",
                     cursor: "pointer",
                     boxShadow: "0 2px 8px rgba(15, 118, 110, 0.12)",
                     appearance: "auto"
@@ -133,22 +134,22 @@ export default function Home() {
               {/* Active Specialty Detail Showcase Card */}
               <div
                 style={{
-                  background: "#ffffff",
-                  border: "1px solid #ccfbf1",
-                  borderRadius: 10,
-                  padding: "16px 18px",
+                  background: "var(--surface)",
+                  border: "1px solid var(--accent-border)",
+                  borderRadius: "var(--radius-md)",
+                  padding: "var(--space-4)",
                   boxShadow: "0 2px 10px rgba(15, 118, 110, 0.05)",
-                  marginBottom: 18
+                  marginBottom: "var(--space-4)"
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ fontSize: "1.8rem" }}>{activeSpecialtyDef.icon}</span>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+                    <span style={{ fontSize: "var(--fs-display)" }}>{activeSpecialtyDef.icon}</span>
                     <div>
-                      <div style={{ fontSize: "1.12rem", fontWeight: 700, color: "#0f766e" }}>
+                      <div style={{ fontSize: "var(--fs-subsection)", fontWeight: 700, color: "var(--accent)" }}>
                         {activeSpecialtyDef.label}
                       </div>
-                      <div style={{ fontSize: "0.78rem", color: "#64748b" }}>
+                      <div style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
                         Category: <b>{activeSpecialtyDef.category}</b>
                       </div>
                     </div>
@@ -156,26 +157,26 @@ export default function Home() {
                   <span
                     className="pill"
                     style={{
-                      background: "#f0fdfa",
-                      color: "#0d9488",
-                      border: "1px solid #99f6e4",
-                      fontSize: "0.8rem",
+                      background: "var(--accent-subtle)",
+                      color: "var(--accent)",
+                      border: "1px solid var(--accent-border)",
+                      fontSize: "var(--fs-badge)",
                       fontWeight: 700,
-                      padding: "4px 10px"
+                      padding: "var(--space-1) var(--space-2)"
                     }}
                   >
                     🏛️ {activeSpecialtyDef.authorityGuidelines}
                   </span>
                 </div>
 
-                <p style={{ fontSize: "0.88rem", color: "#334155", margin: "6px 0 10px 0", lineHeight: 1.5 }}>
+                <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--ink-2)", margin: "var(--space-2) 0", lineHeight: "var(--lh-reading)" }}>
                   {activeSpecialtyDef.description}
                 </p>
 
-                <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: 6 }}>
+                <div style={{ fontSize: "var(--fs-caption)", color: "var(--muted)", marginBottom: "var(--space-1)" }}>
                   <b>Key Conditions:</b> {activeSpecialtyDef.conditions.slice(0, 4).join(", ")}
                 </div>
-                <div style={{ fontSize: "0.82rem", color: "#475569" }}>
+                <div style={{ fontSize: "var(--fs-caption)", color: "var(--muted)" }}>
                   <b>Prioritized Outcomes:</b> {activeSpecialtyDef.outcomesRanked?.slice(0, 3).join(", ") || "Clinical endpoints"}
                 </div>
               </div>
@@ -184,27 +185,18 @@ export default function Home() {
               <button
                 type="button"
                 id="btn-go-to-dashboard"
+                className="btn btn--primary"
                 onClick={() => handleProceedToDashboard()}
                 style={{
                   width: "100%",
-                  padding: "14px 24px",
-                  background: "linear-gradient(135deg, #0f766e 0%, #0d9488 100%)",
-                  color: "#ffffff",
-                  border: "none",
-                  borderRadius: 10,
-                  fontSize: "1.08rem",
+                  height: "var(--control-lg)",
+                  fontSize: "var(--fs-body)",
                   fontWeight: 700,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 10,
-                  boxShadow: "0 4px 16px rgba(15, 118, 110, 0.35)",
-                  transition: "transform 0.15s ease, box-shadow 0.15s ease"
+                  justifyContent: "center"
                 }}
               >
                 <span>Proceed to Clinical Dashboard ({activeSpecialtyDef.shortName})</span>
-                <span style={{ fontSize: "1.2rem" }}>→</span>
+                <span style={{ fontSize: "var(--fs-section)" }}>→</span>
               </button>
             </div>
 
@@ -215,19 +207,19 @@ export default function Home() {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "20px 24px",
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: 12,
-                boxShadow: "0 4px 16px rgba(0, 0, 0, 0.03)"
+                padding: "var(--space-4)",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-lg)",
+                boxShadow: "var(--shadow-1)"
               }}
             >
               <AppQrCode url="https://aimed-pico.vercel.app" size={145} />
-              <div style={{ marginTop: 14, textAlign: "center", maxWidth: 280 }}>
-                <div style={{ fontSize: "0.88rem", fontWeight: 700, color: "#1e293b", marginBottom: 4 }}>
+              <div style={{ marginTop: "var(--space-3)", textAlign: "center", maxWidth: 280 }}>
+                <div style={{ fontSize: "var(--fs-body-sm)", fontWeight: 700, color: "var(--ink)", marginBottom: "var(--space-1)" }}>
                   Cross-Device Synchronized
                 </div>
-                <p style={{ fontSize: "0.78rem", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
+                <p style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)", margin: 0, lineHeight: "var(--lh-snug)" }}>
                   Scan with your phone or tablet camera to access AIMed anywhere in your clinic or hospital network.
                 </p>
               </div>
@@ -236,13 +228,13 @@ export default function Home() {
         </section>
 
         {/* Visual Specialties Browser Section */}
-        <section className="card" style={{ padding: "24px 28px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: 18 }}>
+        <section className="card" style={{ padding: "var(--space-5)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-3)", marginBottom: "var(--space-4)" }}>
             <div>
-              <h3 style={{ fontSize: "1.18rem", fontWeight: 700, color: "#0f172a", margin: "0 0 4px 0" }}>
+              <h3 style={{ fontSize: "var(--fs-section)", fontWeight: 700, color: "var(--ink)", margin: "0 0 var(--space-1) 0" }}>
                 Browse All 15 Clinical Specialties
               </h3>
-              <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
+              <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", margin: 0 }}>
                 Click any specialty card below to set your clinical domain and enter the PICO workbench.
               </p>
             </div>
@@ -251,39 +243,37 @@ export default function Home() {
             <div style={{ minWidth: 260, maxWidth: 360, width: "100%" }}>
               <input
                 type="text"
+                className="input"
                 placeholder="Search specialty, guideline, or condition..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                   width: "100%",
-                  padding: "8px 12px",
-                  borderRadius: 8,
-                  border: "1px solid #cbd5e1",
-                  fontSize: "0.85rem"
+                  fontSize: "var(--fs-body-sm)",
+                  minHeight: "var(--control-md)"
                 }}
               />
             </div>
           </div>
 
           {/* Category Tabs */}
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 20 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-5)" }}>
             {categories.map((cat) => {
               const isSelected = selectedCategory === cat;
               return (
                 <button
                   key={cat}
                   type="button"
+                  className="chip"
+                  aria-pressed={isSelected}
                   onClick={() => setSelectedCategory(cat)}
                   style={{
-                    padding: "5px 12px",
-                    borderRadius: 20,
-                    border: isSelected ? "1px solid #0f766e" : "1px solid #e2e8f0",
-                    background: isSelected ? "#0f766e" : "#f8fafc",
-                    color: isSelected ? "#ffffff" : "#475569",
-                    fontSize: "0.8rem",
+                    background: isSelected ? "var(--accent)" : "var(--canvas)",
+                    color: isSelected ? "#ffffff" : "var(--muted)",
+                    borderColor: isSelected ? "var(--accent)" : "var(--border)",
                     fontWeight: isSelected ? 700 : 500,
-                    cursor: "pointer",
-                    transition: "all 0.15s ease"
+                    minHeight: "36px",
+                    cursor: "pointer"
                   }}
                 >
                   {cat}
@@ -297,7 +287,7 @@ export default function Home() {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: 16
+              gap: "var(--space-4)"
             }}
           >
             {filteredSpecialties.map((s) => {
@@ -309,14 +299,14 @@ export default function Home() {
                     handleDropdownChange(s.id);
                   }}
                   style={{
-                    padding: "16px 18px",
-                    background: isCurrent ? "#f0fdfa" : "#ffffff",
-                    border: isCurrent ? "2px solid #0f766e" : "1px solid #e2e8f0",
-                    borderRadius: 10,
+                    padding: "var(--space-4)",
+                    background: isCurrent ? "var(--accent-subtle)" : "var(--surface)",
+                    border: isCurrent ? "2px solid var(--accent)" : "1px solid var(--border)",
+                    borderRadius: "var(--radius-md)",
                     cursor: "pointer",
                     boxShadow: isCurrent
                       ? "0 4px 14px rgba(15, 118, 110, 0.15)"
-                      : "0 2px 6px rgba(0, 0, 0, 0.02)",
+                      : "var(--shadow-1)",
                     transition: "all 0.15s ease",
                     display: "flex",
                     flexDirection: "column",
@@ -324,51 +314,43 @@ export default function Home() {
                   }}
                 >
                   <div>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-                      <span style={{ fontSize: "1.6rem" }}>{s.icon}</span>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "var(--space-2)" }}>
+                      <span style={{ fontSize: "var(--fs-display)" }}>{s.icon}</span>
                       <span
-                        className="pill"
+                        className="badge"
                         style={{
-                          fontSize: "0.72rem",
-                          background: isCurrent ? "#0f766e" : "#f1f5f9",
-                          color: isCurrent ? "#ffffff" : "#475569",
+                          background: isCurrent ? "var(--accent)" : "var(--canvas)",
+                          color: isCurrent ? "#ffffff" : "var(--muted)",
                           fontWeight: 600
                         }}
                       >
                         {s.category}
                       </span>
                     </div>
-                    <div style={{ fontSize: "1rem", fontWeight: 700, color: isCurrent ? "#0f766e" : "#1e293b", marginBottom: 4 }}>
+                    <div style={{ fontSize: "var(--fs-body)", fontWeight: 700, color: isCurrent ? "var(--accent)" : "var(--ink)", marginBottom: "var(--space-1)" }}>
                       {s.label}
                     </div>
-                    <div style={{ fontSize: "0.78rem", color: "#64748b", marginBottom: 8 }}>
+                    <div style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)", marginBottom: "var(--space-2)" }}>
                       🏛️ {s.authorityGuidelines}
                     </div>
-                    <p style={{ fontSize: "0.8rem", color: "#475569", margin: "0 0 12px 0", lineHeight: 1.45 }}>
+                    <p style={{ fontSize: "var(--fs-caption)", color: "var(--muted)", margin: "0 0 var(--space-3) 0", lineHeight: "var(--lh-snug)" }}>
                       {s.description.slice(0, 95)}…
                     </p>
                   </div>
 
                   <button
                     type="button"
+                    className={isCurrent ? "btn btn--primary" : "btn btn--secondary"}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleProceedToDashboard(s.id);
                     }}
                     style={{
                       width: "100%",
-                      padding: "8px 12px",
-                      background: isCurrent ? "#0f766e" : "#f8fafc",
-                      color: isCurrent ? "#ffffff" : "#0f766e",
-                      border: isCurrent ? "none" : "1px solid #ccfbf1",
-                      borderRadius: 6,
-                      fontSize: "0.82rem",
+                      height: "var(--control-sm)",
+                      fontSize: "var(--fs-caption)",
                       fontWeight: 700,
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 6
+                      justifyContent: "center"
                     }}
                   >
                     <span>{isCurrent ? "Enter Dashboard" : "Select & Enter"}</span>

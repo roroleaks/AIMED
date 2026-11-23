@@ -219,18 +219,11 @@ export default function DashboardPage() {
                 </div>
               </div>
             </div>
-            <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center", flexWrap: "wrap" }}>
               <button
                 type="button"
-                className="secondary"
+                className="btn btn--secondary btn--sm"
                 onClick={() => router.push("/")}
-                style={{
-                  fontSize: "0.85rem",
-                  padding: "8px 14px",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6
-                }}
                 title="Return to specialty selection portal"
               >
                 ← Change Specialty
@@ -277,13 +270,13 @@ export default function DashboardPage() {
             </div>
 
             {/* Keyword Input Area */}
-            <div className="input-group" style={{ marginBottom: 16 }}>
-              <label htmlFor="raw-pico-input" style={{ fontWeight: 600, display: "block", marginBottom: 6 }}>
+            <div className="input-group" style={{ marginBottom: "var(--space-4)", maxWidth: "var(--form-max)" }}>
+              <label htmlFor="raw-pico-input" style={{ fontWeight: 600, display: "block", marginBottom: "var(--space-2)", fontSize: "var(--fs-label)" }}>
                 Clinical keywords (3 to 5 terms):
               </label>
               <textarea
                 id="raw-pico-input"
-                className="aimed-textarea"
+                className="aimed-textarea textarea"
                 rows={3}
                 placeholder="e.g. women with endometriosis, laparoscopic surgery, medical therapy, pain score reduction"
                 value={rawInput}
@@ -291,13 +284,13 @@ export default function DashboardPage() {
                   setRawInput(e.target.value);
                   setSavedNotice(null);
                 }}
-                style={{ width: "100%", padding: "10px 14px", borderRadius: 8, border: "1px solid #cbd5e1", fontSize: "0.95rem" }}
+                style={{ width: "100%", maxWidth: "var(--form-max)" }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 4 }}>
-                <span className={`count-hint ${canSubmit ? "ok" : "warn"}`} style={{ fontSize: "0.82rem", color: canSubmit ? "#166534" : "#b45309" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "var(--space-1)" }}>
+                <span className={`count-hint ${canSubmit ? "ok" : "warn"}`} style={{ fontSize: "var(--fs-caption)", color: canSubmit ? "var(--success)" : "var(--warning)" }}>
                   {countHint}
                 </span>
-                <span style={{ fontSize: "0.8rem", color: "#64748b" }}>
+                <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
                   {words.length} / 5 terms
                 </span>
               </div>
@@ -305,11 +298,11 @@ export default function DashboardPage() {
 
             {/* Live Interactive PICO Role Chips Strip */}
             {picoWords.length > 0 && (
-              <div className="aimed-chips-container" style={{ marginBottom: 16, padding: "12px 14px", background: "#f8fafc", borderRadius: 8, border: "1px solid #e2e8f0" }}>
-                <div style={{ fontSize: "0.82rem", fontWeight: 600, color: "#475569", marginBottom: 8 }}>
+              <div className="aimed-chips-container" style={{ marginBottom: "var(--space-4)", padding: "var(--space-3) var(--space-4)", background: "var(--canvas)", borderRadius: "var(--radius-md)", border: "1px solid var(--border)", maxWidth: "var(--form-max)" }}>
+                <div style={{ fontSize: "var(--fs-caption)", fontWeight: 600, color: "var(--muted)", marginBottom: "var(--space-2)" }}>
                   🏷️ Classified PICO Parameters:
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)" }}>
                   {picoWords.map((pw, idx) => {
                     const cfg = ROLE_CONFIG[pw.role] || ROLE_CONFIG.other;
                     return (
@@ -320,23 +313,23 @@ export default function DashboardPage() {
                           background: cfg.bg,
                           border: `1px solid ${cfg.border}`,
                           color: cfg.text,
-                          padding: "4px 10px",
-                          borderRadius: 6,
-                          fontSize: "0.85rem",
+                          padding: "var(--space-1) var(--space-2)",
+                          borderRadius: "var(--radius-sm)",
+                          fontSize: "var(--fs-body-sm)",
                           fontWeight: 600,
                           display: "inline-flex",
                           alignItems: "center",
-                          gap: 6
+                          gap: "var(--space-2)"
                         }}
                       >
                         <span
                           style={{
                             background: cfg.badgeBg,
                             color: "#fff",
-                            fontSize: "0.7rem",
+                            fontSize: "var(--fs-badge)",
                             fontWeight: 800,
                             padding: "2px 5px",
-                            borderRadius: 4
+                            borderRadius: "var(--radius-sm)"
                           }}
                         >
                           {cfg.badge}
@@ -350,11 +343,17 @@ export default function DashboardPage() {
                             border: "none",
                             cursor: "pointer",
                             color: cfg.text,
-                            padding: "0 2px",
+                            padding: "4px 6px",
+                            minWidth: 24,
+                            minHeight: 24,
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
                             fontWeight: 700,
-                            fontSize: "0.85rem"
+                            fontSize: "var(--fs-body-sm)"
                           }}
                           title={`Remove ${pw.word}`}
+                          aria-label={`Remove keyword ${pw.word}`}
                         >
                           ✕
                         </button>
@@ -368,31 +367,23 @@ export default function DashboardPage() {
             {/* Inline Saved Confirmation */}
             {savedNotice && (
               <div
-                className="advisory"
+                className="advisory notice notice--info"
                 style={{
-                  background: "#ecfdf5",
-                  borderColor: "#6ee7b7",
-                  color: "#065f46",
-                  padding: "10px 14px",
-                  borderRadius: 8,
-                  marginBottom: 16,
-                  fontSize: "0.88rem",
-                  fontWeight: 600,
+                  marginBottom: "var(--space-4)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   flexWrap: "wrap",
-                  gap: 8
+                  gap: "var(--space-2)"
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
                   <span>✓</span>
                   <span>{savedNotice}</span>
                 </div>
                 <button
                   type="button"
-                  className="primary"
-                  style={{ fontSize: "0.85rem", padding: "6px 16px" }}
+                  className="btn btn--primary btn--sm"
                   onClick={() => router.push("/screen")}
                 >
                   Continue to Screening →
@@ -403,26 +394,30 @@ export default function DashboardPage() {
             {/* Literature Search Databases Bar */}
             <div
               style={{
-                marginTop: 16,
-                marginBottom: 8,
-                padding: "10px 14px",
-                background: "#f8fafc",
-                borderRadius: 8,
-                border: "1px solid #e2e8f0",
+                marginTop: "var(--space-4)",
+                marginBottom: "var(--space-2)",
+                padding: "var(--space-3) var(--space-4)",
+                background: "var(--canvas)",
+                borderRadius: "var(--radius-md)",
+                border: "1px solid var(--border)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 flexWrap: "wrap",
-                gap: 10
+                gap: "var(--space-2)"
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "#334155" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "var(--fs-caption)", fontWeight: 700, color: "var(--ink-2)" }}>
                   📚 Search Databases:
                 </span>
-                <span className="pill" style={{ fontSize: "0.78rem", background: "#f1f5f9", color: "#334155" }}>
-                  PubMed · Europe PMC · Cochrane · OpenAlex · CrossRef · Semantic Scholar
-                </span>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-1)" }}>
+                  {SEARCH_SOURCE_OPTIONS.map((s) => (
+                    <span key={s.id} className="tag">
+                      {s.name}
+                    </span>
+                  ))}
+                </div>
               </div>
               <button
                 ref={sourcesTriggerRef}
@@ -440,26 +435,24 @@ export default function DashboardPage() {
             {/* Patient Privacy Notice */}
             <PhiNotice />
 
-            <div className="row" style={{ marginTop: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+            <div className="row" style={{ marginTop: "var(--space-4)", display: "flex", gap: "var(--space-3)", alignItems: "center", flexWrap: "wrap" }}>
               <button
-                className="primary btn btn--primary btn--lg"
+                className="btn btn--primary btn--lg"
                 onClick={start}
                 type="submit"
                 disabled={!canSubmit}
-                style={{ padding: "12px 28px", fontSize: "1rem", fontWeight: 700 }}
               >
                 Save words & Screen literature →
               </button>
               {(rawInput || picoWords.length > 0) && (
                 <button
                   type="button"
-                  className="secondary btn btn--ghost"
+                  className="btn btn--ghost"
                   onClick={() => {
                     resetSession();
                     setRawInput("");
                     setSavedNotice(null);
                   }}
-                  style={{ padding: "12px 20px", fontSize: "0.95rem" }}
                   title="Clear all inputs and reset session state"
                 >
                   ↺ Reset

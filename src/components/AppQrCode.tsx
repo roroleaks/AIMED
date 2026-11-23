@@ -80,10 +80,10 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
             style={{ display: "block" }}
           />
         ) : (
-          <span style={{ fontSize: "0.75rem", color: "#0d9488" }}>Generating QR…</span>
+          <span style={{ fontSize: "var(--fs-badge)", color: "var(--accent)" }}>Generating QR…</span>
         )}
       </div>
-      <div style={{ marginTop: "8px", fontSize: "0.78rem", fontWeight: 700, color: "#0f766e" }}>
+      <div style={{ marginTop: "var(--space-2)", fontSize: "var(--fs-badge)", fontWeight: 700, color: "var(--accent)" }}>
         📱 Scan for Mobile Access
       </div>
       <a
@@ -91,8 +91,8 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
         target="_blank"
         rel="noopener noreferrer"
         style={{
-          fontSize: "0.72rem",
-          color: "#64748b",
+          fontSize: "var(--fs-badge)",
+          color: "var(--muted-2)",
           marginTop: "2px",
           textDecoration: "none",
           fontWeight: 500

@@ -158,6 +158,30 @@ export const SEARCH_SOURCE_OPTIONS: SearchSourceOption[] = [
 /** Every literature source. All of them are searched on every request - none is optional. */
 export const ALL_LITERATURE_SOURCES: LiteratureSource[] = SEARCH_SOURCE_OPTIONS.map(o => o.id);
 
+export const SOURCE_LABEL_MAP: Record<string, string> = {
+  pubmed: "PubMed",
+  pmc: "PMC",
+  europepmc: "Europe PMC",
+  googlescholar: "Google Scholar",
+  semanticscholar: "Semantic Scholar",
+  semantic_scholar: "Semantic Scholar",
+  openalex: "OpenAlex",
+  crossref: "Crossref",
+  doaj: "DOAJ",
+  clinicaltrials: "ClinicalTrials.gov",
+  cochrane: "Cochrane",
+  preprints: "Preprints",
+};
+
+export function getSourceLabel(id: string): string {
+  if (!id) return "";
+  const key = id.toLowerCase().replace(/[-_]/g, "");
+  for (const [k, v] of Object.entries(SOURCE_LABEL_MAP)) {
+    if (k.toLowerCase().replace(/[-_]/g, "") === key) return v;
+  }
+  return SOURCE_LABEL_MAP[id] || id;
+}
+
 /**
  * Sources are mandatory, so whatever a client sends (an old saved selection, a subset, junk)
  * the search always runs against every source.

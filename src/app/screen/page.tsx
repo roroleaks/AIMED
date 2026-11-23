@@ -8,23 +8,10 @@ import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { useAimedContext } from "@/context/AimedContext";
 import type { PicoWord } from "@/lib/pico-roles";
 import type { ScreenCategory, ScreenPhrase, ScreenPayload } from "@/lib/deterministic-screen";
+import { getSourceLabel } from "@/lib/literature-sources";
 import { DRAFT_DISCLAIMER } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
-
-function formatSourceName(id: string): string {
-  const map: Record<string, string> = {
-    pubmed: "PubMed",
-    pmc: "Europe PMC",
-    cochrane: "Cochrane",
-    openalex: "OpenAlex",
-    crossref: "CrossRef",
-    semantic_scholar: "Semantic Scholar",
-    clinicaltrials: "ClinicalTrials.gov",
-    doaj: "DOAJ"
-  };
-  return map[id] || id;
-}
 
 export default function ScreenPage() {
   const router = useRouter();
@@ -173,18 +160,31 @@ export default function ScreenPage() {
     }
   ];
 
+  const deduplicatedSources = (() => {
+    if (!screenData?.sources) return [];
+    const map = new Map<string, { id: string; name: string; count: number; ok: boolean }>();
+    for (const src of screenData.sources) {
+      const label = getSourceLabel(src.id);
+      const existing = map.get(label);
+      if (!existing) {
+        map.set(label, { id: src.id, name: label, count: src.count, ok: src.ok });
+      } else {
+        existing.count += src.count;
+        existing.ok = existing.ok || src.ok;
+      }
+    }
+    return Array.from(map.values());
+  })();
+
   return (
     <div className="wrap">
-      <header className="hdr">
+      <header className="hdr hdr--compact">
         <div className="hdr-inner">
           <div className="hdr-left">
-            <span className="title-main">
-              AIMed <span className="version-badge">v4.2.0</span>
-            </span>
+            <span className="title-main">AIMed</span>
           </div>
           <div className="hdr-center">
             <h1>Step 2 · Deterministic Screening</h1>
-            <p>Three PICO phrases evaluated across authoritative multi-source literature</p>
           </div>
           <AuthorHeaderRight />
         </div>
@@ -194,17 +194,11 @@ export default function ScreenPage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div style={{
-          background: "#fef3c7",
-          border: "1px solid #f59e0b",
-          borderRadius: 8,
-          padding: "10px 14px",
-          marginBottom: 16,
-          fontSize: "0.85rem",
-          color: "#92400e",
-          lineHeight: 1.45
-        }}>
-          ⚠️ <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+          <span>⚠️</span>
+          <div>
+            <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
+          </div>
         </div>
         {(!screenData || loading) && !error && (
           <section className="card">
@@ -212,10 +206,10 @@ export default function ScreenPage() {
               message="Screening literature across clinical databases…"
               secondaryMessage="PubMed · Europe PMC · Cochrane CENTRAL · OpenAlex · CrossRef · Semantic Scholar"
             />
-            <div style={{ display: "flex", flexDirection: "column", gap: 14, marginTop: 20 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)", marginTop: "var(--space-5)" }}>
               {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} style={{ padding: "16px", border: "1px solid #e2e8f0", borderRadius: 8, background: "#fff" }}>
-                  <div className="skeleton-box" style={{ height: 20, width: i % 2 === 0 ? "85%" : "92%", marginBottom: 10 }} />
+                <div key={i} style={{ padding: "var(--space-4)", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", background: "var(--surface)" }}>
+                  <div className="skeleton-box" style={{ height: 20, width: i % 2 === 0 ? "85%" : "92%", marginBottom: "var(--space-2)" }} />
                   <div className="skeleton-box" style={{ height: 14, width: i % 2 === 0 ? "60%" : "70%" }} />
                 </div>
               ))}
@@ -225,20 +219,20 @@ export default function ScreenPage() {
 
         {error && (
           <section className="card">
-            <div className="advisory" style={{ borderColor: "#fca5a5", background: "#fef2f2", color: "#991b1b" }}>
+            <div className="advisory notice notice--warning" style={{ borderColor: "#fca5a5", background: "#fef2f2", color: "#991b1b" }}>
               ⚠️ {error}
             </div>
-            <div className="row" style={{ marginTop: 14, display: "flex", gap: 10 }}>
+            <div className="row" style={{ marginTop: "var(--space-3)", display: "flex", gap: "var(--space-2)" }}>
               <button
                 type="button"
-                className="secondary"
+                className="btn btn--secondary"
                 onClick={() => router.push("/dashboard")}
               >
                 ← Change words
               </button>
               <button
                 type="button"
-                className="primary"
+                className="btn btn--primary"
                 onClick={() => fetchScreen(true)}
               >
                 🔄 Try again
@@ -250,21 +244,21 @@ export default function ScreenPage() {
         {screenData && !loading && !error && (
           <section className="card">
             {/* Active Domain Header */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-4)", flexWrap: "wrap", gap: "var(--space-2)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
                 <span className="specialty-active-badge">
                   {currentSpecialty.icon} {currentSpecialty.label}
                 </span>
-                <span className="pill" style={{ fontSize: "0.82rem", fontWeight: 600 }}>
+                <span className="pill" style={{ fontSize: "var(--fs-caption)", fontWeight: 600 }}>
                   Screened {screenData.corpusStats.screened} of {screenData.corpusStats.retrieved} retrieved records
                 </span>
                 <span
                   className="pill"
                   style={{
-                    fontSize: "0.82rem",
+                    fontSize: "var(--fs-caption)",
                     fontWeight: 600,
-                    background: screenData.source === "ai" ? "#ecfdf5" : "#f1f5f9",
-                    color: screenData.source === "ai" ? "#065f46" : "#475569"
+                    background: screenData.source === "ai" ? "var(--success-bg)" : "var(--canvas)",
+                    color: screenData.source === "ai" ? "var(--success)" : "var(--muted)"
                   }}
                 >
                   {screenData.source === "ai" ? "🤖 AI-refined" : "📋 Deterministic base"}
@@ -273,7 +267,7 @@ export default function ScreenPage() {
               <div>
                 <button
                   type="button"
-                  className="secondary"
+                  className="btn btn--secondary btn--sm"
                   disabled={loading}
                   onClick={() => router.push("/")}
                 >
@@ -285,28 +279,27 @@ export default function ScreenPage() {
             {/* Inline Confirmation when a card is selected */}
             {confirmed && selectedCategory && (
               <div
-                className="advisory"
+                className="advisory notice notice--info"
                 style={{
-                  background: "#ecfdf5",
-                  borderColor: "#6ee7b7",
-                  color: "#065f46",
+                  background: "var(--success-bg)",
+                  borderColor: "var(--accent-border)",
+                  color: "var(--success)",
                   fontWeight: 600,
-                  marginBottom: 16,
+                  marginBottom: "var(--space-4)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   flexWrap: "wrap",
-                  gap: 8
+                  gap: "var(--space-2)"
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
                   <span>✓</span>
                   <span>Focus saved — ready for Explorer</span>
                 </div>
                 <button
                   type="button"
-                  className="primary"
-                  style={{ fontSize: "0.85rem", padding: "6px 16px" }}
+                  className="btn btn--primary btn--sm"
                   onClick={() => router.push("/explore")}
                 >
                   Continue to Explorer →
@@ -315,10 +308,11 @@ export default function ScreenPage() {
             )}
 
             {/* Three Category Cards */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
               {categories.map(cat => {
                 const item: ScreenPhrase = screenData.phrases[cat.key];
                 const isSelected = selectedCategory === cat.key;
+                const isUnavailable = (item.basis || "").toLowerCase().startsWith("unavailable");
                 return (
                   <div
                     key={cat.key}
@@ -338,14 +332,14 @@ export default function ScreenPage() {
                       backgroundColor: isSelected ? cat.bgColor : undefined
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
-                      <span style={{ fontWeight: 700, color: cat.badgeColor, fontSize: "0.95rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "var(--space-2)", flexWrap: "wrap", gap: "var(--space-2)" }}>
+                      <span style={{ fontWeight: 700, color: cat.badgeColor, fontSize: "var(--fs-body)" }}>
                         {cat.icon} {cat.title}
                       </span>
                       <button
                         type="button"
-                        className={isSelected ? "primary" : "secondary"}
-                        style={{ fontSize: "0.82rem", padding: "4px 12px" }}
+                        className={isUnavailable ? "btn btn--secondary btn--sm" : isSelected ? "btn btn--primary btn--sm" : "btn btn--secondary btn--sm"}
+                        aria-disabled={isUnavailable ? "true" : undefined}
                         onClick={e => {
                           e.stopPropagation();
                           handleSelectFocus(cat.key);
@@ -355,59 +349,64 @@ export default function ScreenPage() {
                       </button>
                     </div>
 
-                    <p style={{ fontWeight: 700, fontSize: "1.05rem", lineHeight: 1.45, margin: "4px 0 8px 0", color: "#0f172a" }}>
+                    <p style={{ fontWeight: 700, fontSize: "var(--fs-subsection)", lineHeight: "var(--lh-snug)", margin: "var(--space-1) 0 var(--space-2) 0", color: "var(--ink)" }}>
                       {item.phrase}
                     </p>
-                    <p style={{ fontSize: "0.88rem", color: "#64748b", margin: 0, lineHeight: 1.45 }}>
+                    <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", margin: 0, lineHeight: "var(--lh-normal)" }}>
                       {item.basis}
                     </p>
+                    {isUnavailable && (
+                      <div className="notice notice--warning" style={{ fontSize: "var(--fs-caption)", padding: "var(--space-1) var(--space-2)", marginTop: "var(--space-2)" }}>
+                        ⚠️ Not supported by retrieved evidence
+                      </div>
+                    )}
                   </div>
                 );
               })}
             </div>
 
             {/* Literature Sources Retrospective Chips & Corpus Stats */}
-            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid #e2e8f0" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
-                <span style={{ fontSize: "0.85rem", fontWeight: 600, color: "#334155" }}>
+            <div style={{ marginTop: "var(--space-5)", paddingTop: "var(--space-4)", borderTop: "1px solid var(--border)" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "var(--space-2)", marginBottom: "var(--space-2)" }}>
+                <span style={{ fontSize: "var(--fs-caption)", fontWeight: 600, color: "var(--ink-2)" }}>
                   Literature Sources Contribution
                 </span>
-                <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
+                <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
                   Relaxation level: {screenData.corpusStats.relaxationLevel} · Total retrieved: {screenData.corpusStats.retrieved}
                 </span>
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                {screenData.sources && screenData.sources.length > 0 ? (
-                  screenData.sources.map(src => (
-                    <span
-                      key={src.id}
-                      className={`source-badge-mini source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}
-                      style={{
-                        opacity: src.ok ? 1 : 0.6,
-                        borderStyle: src.ok ? "solid" : "dashed"
-                      }}
-                    >
-                      {src.ok ? "●" : "○"} {formatSourceName(src.id)}: {src.count}
-                    </span>
-                  ))
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "var(--space-2)" }}>
+                {deduplicatedSources.length > 0 ? (
+                  deduplicatedSources.map(src => {
+                    const isInactive = !src.ok || src.count === 0;
+                    return (
+                      <span
+                        key={src.name}
+                        className={`source-badge-mini ${isInactive ? "source-badge-inactive" : `source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}`}
+                        style={isInactive ? { color: "var(--muted)", background: "var(--canvas)", borderColor: "var(--border-strong)", borderStyle: "dashed" } : undefined}
+                      >
+                        {src.ok && src.count > 0 ? "●" : "○"} {src.name}: {src.count > 0 ? src.count : "0 results"}
+                      </span>
+                    );
+                  })
                 ) : (
-                  <span style={{ fontSize: "0.8rem", color: "#94a3b8" }}>Multi-source snapshot unavailable</span>
+                  <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>Multi-source snapshot unavailable</span>
                 )}
               </div>
             </div>
 
             {/* Bottom Actions */}
-            <div style={{ marginTop: 20, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10 }}>
+            <div style={{ marginTop: "var(--space-5)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "var(--space-2)" }}>
               <button
                 type="button"
-                className="secondary"
+                className="btn btn--secondary"
                 onClick={() => router.push("/dashboard")}
               >
                 ← Change words
               </button>
               <button
                 type="button"
-                className="secondary"
+                className="btn btn--secondary"
                 disabled={loading}
                 onClick={() => fetchScreen(true)}
               >

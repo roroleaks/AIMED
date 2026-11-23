@@ -25,12 +25,12 @@ export function WorkflowStepper({ currentStep, current }: WorkflowStepperProps) 
         alignItems: "center",
         justifyContent: "center",
         flexWrap: "wrap",
-        gap: "8px",
-        margin: "12px 0 20px 0",
-        padding: "8px 12px",
-        background: "#f8fafc",
-        border: "1px solid #e2e8f0",
-        borderRadius: "8px"
+        gap: "var(--space-2)",
+        margin: "var(--space-3) 0 var(--space-4) 0",
+        padding: "var(--space-2) var(--space-3)",
+        background: "var(--canvas)",
+        border: "1px solid var(--border)",
+        borderRadius: "var(--radius-md)"
       }}
     >
       {STEPS.map((s, idx) => {
@@ -42,8 +42,8 @@ export function WorkflowStepper({ currentStep, current }: WorkflowStepperProps) 
             {idx > 0 && (
               <span
                 style={{
-                  color: "#94a3b8",
-                  fontSize: "0.85rem",
+                  color: "var(--muted-2)",
+                  fontSize: "var(--fs-caption)",
                   fontWeight: 600,
                   userSelect: "none"
                 }}
@@ -56,26 +56,26 @@ export function WorkflowStepper({ currentStep, current }: WorkflowStepperProps) 
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "4px 10px",
-                borderRadius: "6px",
-                fontSize: "0.82rem",
+                padding: "var(--space-1) var(--space-2)",
+                borderRadius: "var(--radius-sm)",
+                fontSize: "var(--fs-caption)",
                 fontWeight: isCurrent ? 700 : 500,
                 background: isCurrent
-                  ? "#0f766e"
+                  ? "var(--accent)"
                   : isCompleted
-                  ? "#e6fffa"
+                  ? "var(--accent-subtle)"
                   : "transparent",
                 color: isCurrent
                   ? "#ffffff"
                   : isCompleted
-                  ? "#0d9488"
-                  : "#64748b",
+                  ? "var(--accent)"
+                  : "var(--muted-2)",
                 border: isCurrent
-                  ? "1px solid #0f766e"
+                  ? "1px solid var(--accent)"
                   : isCompleted
-                  ? "1px solid #99f6e4"
+                  ? "1px solid var(--accent-border)"
                   : "1px solid transparent",
-                lineHeight: 1.3
+                lineHeight: "var(--lh-tight)"
               }}
               aria-current={isCurrent ? "step" : undefined}
             >
