@@ -7,6 +7,7 @@ import { sset, resetSession, KEYS } from "@/lib/session";
 import { assignPicoRoles, type PicoRole, type PicoWord } from "@/lib/pico-roles";
 import { useAimedContext } from "@/context/AimedContext";
 import { SpecialtySelector } from "@/components/SpecialtySelector";
+import { Modal } from "@/components/Modal";
 import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
 import type { PicoPreset } from "@/lib/specialties";
@@ -96,6 +97,9 @@ export default function DashboardPage() {
   const rawInput = draft ?? restoredInput;
   const setRawInput = useCallback((v: string) => setDraft(v), []);
   const [savedNotice, setSavedNotice] = useState<string | null>(null);
+  const [activePresetId, setActivePresetId] = useState<string | null>(null);
+  const quickSwitchTriggerRef = useRef<HTMLButtonElement>(null);
+  const sourcesTriggerRef = useRef<HTMLButtonElement>(null);
 
   // Modal dialog states
   const [isSpecialtyModalOpen, setIsSpecialtyModalOpen] = useState(false);
@@ -142,6 +146,7 @@ export default function DashboardPage() {
 
   // "Try an example" preset handler
   const applyPreset = (preset: PicoPreset) => {
+    setActivePresetId(preset.id);
     setRawInput(preset.raw);
     setSavedNotice(null);
     if (workspaceRef.current) {
@@ -150,6 +155,7 @@ export default function DashboardPage() {
   };
 
   const handleSelectSpecialtyFromCard = (id: string) => {
+    setActivePresetId(null);
     setSpecialty(id);
     setSavedNotice(null);
     if (workspaceRef.current) {
@@ -230,23 +236,13 @@ export default function DashboardPage() {
                 ← Change Specialty
               </button>
               <button
+                ref={quickSwitchTriggerRef}
                 type="button"
                 id="btn-choose-speciality"
-                className="primary"
-                onClick={() => setIsSpecialtyModalOpen(true)}
-                style={{
-                  background: "#0f766e",
-                  color: "#ffffff",
-                  padding: "8px 16px",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  borderRadius: 8,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 6,
-                  boxShadow: "0 2px 8px rgba(15, 118, 110, 0.25)",
-                  cursor: "pointer",
-                  whiteSpace: "nowrap"
+                className="btn btn--secondary btn--sm"
+                onClick={() => {
+                  setIsSourcesModalOpen(false);
+                  setIsSpecialtyModalOpen(true);
                 }}
               >
                 🏥 Quick Switch ▾
@@ -256,22 +252,27 @@ export default function DashboardPage() {
 
           <form onSubmit={start} className="aimed-form">
             {/* Presets Bar */}
-            <div className="aimed-preset-strip" style={{ marginBottom: 16 }}>
-              <span className="aimed-preset-label">
-                💡 Clinical Question Presets ({currentSpecialty.shortName}):
-              </span>
+            <div className="aimed-preset-strip">
+              <div className="aimed-preset-label overline">
+                Quick start presets <span style={{ textTransform: "none", fontWeight: 400, color: "var(--muted)" }}>({currentSpecialty.shortName})</span>
+              </div>
               <div className="aimed-preset-chips">
-                {activePresets.map((preset) => (
-                  <button
-                    key={preset.id}
-                    type="button"
-                    className="aimed-preset-chip"
-                    onClick={() => applyPreset(preset)}
-                    title={preset.description}
-                  >
-                    {preset.name}
-                  </button>
-                ))}
+                {activePresets.map((preset) => {
+                  const isPressed = activePresetId === preset.id;
+                  return (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      className={`aimed-preset-chip chip ${isPressed ? "active" : ""}`}
+                      aria-pressed={isPressed}
+                      onClick={() => applyPreset(preset)}
+                      title={preset.description}
+                    >
+                      <span style={{ color: "var(--accent)" }} aria-hidden="true">⚡</span>
+                      <span>{preset.name}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -424,12 +425,15 @@ export default function DashboardPage() {
                 </span>
               </div>
               <button
+                ref={sourcesTriggerRef}
                 type="button"
-                className="secondary"
-                style={{ fontSize: "0.8rem", padding: "4px 10px" }}
-                onClick={() => setIsSourcesModalOpen(true)}
+                className="btn btn--secondary btn--sm"
+                onClick={() => {
+                  setIsSpecialtyModalOpen(false);
+                  setIsSourcesModalOpen(true);
+                }}
               >
-                Configure sources ▾
+                View sources
               </button>
             </div>
 
@@ -438,7 +442,7 @@ export default function DashboardPage() {
 
             <div className="row" style={{ marginTop: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
               <button
-                className="primary"
+                className="primary btn btn--primary btn--lg"
                 onClick={start}
                 type="submit"
                 disabled={!canSubmit}
@@ -449,7 +453,7 @@ export default function DashboardPage() {
               {(rawInput || picoWords.length > 0) && (
                 <button
                   type="button"
-                  className="secondary"
+                  className="secondary btn btn--ghost"
                   onClick={() => {
                     resetSession();
                     setRawInput("");
@@ -469,102 +473,80 @@ export default function DashboardPage() {
       <AppFooter />
 
       {/* Specialty Drop Menu Dialog Choice Modal */}
-      {isSpecialtyModalOpen && (
-        <div className="aimed-modal-backdrop" onClick={() => setIsSpecialtyModalOpen(false)}>
-          <div className="aimed-modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="aimed-modal-header">
-              <h3>🏥 Choose Clinical Specialty Domain</h3>
-              <button
-                type="button"
-                className="aimed-modal-close"
-                onClick={() => setIsSpecialtyModalOpen(false)}
-                title="Close"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="aimed-modal-body">
-              <SpecialtySelector
-                onSelectSpecialty={(id) => {
-                  handleSelectSpecialtyFromCard(id);
-                  setIsSpecialtyModalOpen(false);
-                }}
-                onSelectPreset={(preset) => {
-                  applyPreset(preset);
-                  setIsSpecialtyModalOpen(false);
-                }}
-              />
-            </div>
-            <div className="aimed-modal-footer">
-              <button
-                type="button"
-                className="secondary"
-                onClick={() => setIsSpecialtyModalOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <Modal
+        isOpen={isSpecialtyModalOpen}
+        onClose={() => setIsSpecialtyModalOpen(false)}
+        title="🏥 Choose Clinical Specialty Domain"
+        titleId="specialty-modal-title"
+        triggerRef={quickSwitchTriggerRef}
+        footer={
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => setIsSpecialtyModalOpen(false)}
+          >
+            Close
+          </button>
+        }
+      >
+        <SpecialtySelector
+          onSelectSpecialty={(id) => {
+            handleSelectSpecialtyFromCard(id);
+            setIsSpecialtyModalOpen(false);
+          }}
+          onSelectPreset={(preset) => {
+            applyPreset(preset);
+            setIsSpecialtyModalOpen(false);
+          }}
+        />
+      </Modal>
 
       {/* Sources Config Dialog Modal */}
-      {isSourcesModalOpen && (
-        <div className="aimed-modal-backdrop" onClick={() => setIsSourcesModalOpen(false)}>
-          <div className="aimed-modal-content" style={{ maxWidth: 640 }} onClick={(e) => e.stopPropagation()}>
-            <div className="aimed-modal-header">
-              <h3>📚 Literature Search Sources (8 Sources)</h3>
-              <button
-                type="button"
-                className="aimed-modal-close"
-                onClick={() => setIsSourcesModalOpen(false)}
-                title="Close"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="aimed-modal-body">
-              <p style={{ fontSize: "0.85rem", color: "#64748b", marginBottom: 12 }}>
-                All authoritative literature search engines are actively queried in parallel with deduplication:
-              </p>
-              <div style={{ display: "grid", gap: 10 }}>
-                {SEARCH_SOURCE_OPTIONS.map((src) => (
-                  <div
-                    key={src.id}
-                    style={{
-                      padding: "8px 12px",
-                      borderRadius: 6,
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between"
-                    }}
-                  >
-                    <div>
-                      <span style={{ fontWeight: 600, fontSize: "0.9rem", color: "#1e293b" }}>{src.name}</span>
-                      <span style={{ fontSize: "0.78rem", color: "#64748b", marginLeft: 8 }}>{src.provider}</span>
-                      <div style={{ fontSize: "0.78rem", color: "#64748b" }}>{src.description}</div>
-                    </div>
-                    <span className="pill" style={{ background: "#ecfdf5", color: "#065f46", fontSize: "0.75rem", fontWeight: 700 }}>
-                      Active
-                    </span>
-                  </div>
-                ))}
+      <Modal
+        isOpen={isSourcesModalOpen}
+        onClose={() => setIsSourcesModalOpen(false)}
+        title={`📚 Literature Search Sources (${SEARCH_SOURCE_OPTIONS.length} Databases)`}
+        titleId="sources-modal-title"
+        triggerRef={sourcesTriggerRef}
+        maxWidth={640}
+        footer={
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={() => setIsSourcesModalOpen(false)}
+          >
+            Done
+          </button>
+        }
+      >
+        <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", marginBottom: "var(--space-3)" }}>
+          All authoritative literature search engines are actively queried in parallel with deduplication:
+        </p>
+        <div style={{ display: "grid", gap: "var(--space-2)" }}>
+          {SEARCH_SOURCE_OPTIONS.map((src) => (
+            <div
+              key={src.id}
+              style={{
+                padding: "var(--space-2) var(--space-3)",
+                borderRadius: "var(--radius-sm)",
+                background: "var(--canvas)",
+                border: "1px solid var(--border)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "var(--space-3)"
+              }}
+            >
+              <div>
+                <span style={{ fontWeight: 600, fontSize: "var(--fs-body-sm)", color: "var(--ink)" }}>{src.name}</span>
+                <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted)", marginLeft: "var(--space-2)" }}>{src.provider}</span>
+                <div style={{ fontSize: "var(--fs-caption)", color: "var(--muted)" }}>{src.description}</div>
               </div>
+              <span className="badge badge--success">Active</span>
             </div>
-            <div className="aimed-modal-footer">
-              <button
-                type="button"
-                className="primary"
-                onClick={() => setIsSourcesModalOpen(false)}
-              >
-                Done
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
-      )}
+      </Modal>
     </div>
   );
 }

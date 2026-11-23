@@ -61,7 +61,7 @@ export function SpecialtySelector({ onSelectSpecialty, onSelectPreset, compact =
           <input
             type="text"
             className="specialty-search-input"
-            placeholder="Search specialty, clinical condition (e.g. Heart Failure, NSCLC, Appendicitis), or guideline..."
+            placeholder="Search specialty or condition"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
