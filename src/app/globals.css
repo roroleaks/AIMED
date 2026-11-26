@@ -39,7 +39,7 @@
   --focus-ring: 0 0 0 3px rgba(15,118,110,.35);
 
   /* Layout */
-  --content-max: 1120px; --reading-max: 72ch; --form-max: 760px;
+  --content-max: 1120px; --reading-max: min(72ch, 760px); --form-max: 760px;
 
   /* Legacy aliases (keep until migration is complete) */
   --card: var(--surface); --bg: var(--canvas); --accent-strong: var(--accent);
@@ -893,7 +893,6 @@ button:active,
   font-size: var(--fs-badge);
   font-weight: 700;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-light);
   border-radius: 999px;
