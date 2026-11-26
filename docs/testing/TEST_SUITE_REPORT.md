@@ -17,8 +17,8 @@
 | L0 TypeScript | `npm run typecheck` | 1 | 1 | 0 | 0 | ~9s | Real |
 | L1 Existing Unit Tests | `npm test` | 409 | 402 | 0 | 7 | ~9.2s | Real (7 live-gated) |
 | L2 Scientific Integrity | `npm run test:science` | 21 | 17 | **2** | 2 | ~0.9s | **Real engine (`src/lib/*`), NO mocks** |
-| L3 API Contract & Trust Boundary | `npm run test:api` | 12 | 11 | **1** | 0 | ~2.6s | **Real route handlers (`src/app/api/*/route.ts`), NO mocks** |
-| L4 DOCX & PDF Exports | `npm run test:exports` | 12 | 6 | **6** | 0 | ~6.0s | **Real `buildWorkflowDocx`/`buildWorkflowPdf`, NO mocks** |
+| L3 API Contract & Trust Boundary | `npm run test:api` | 13 | 12 | **1** | 0 | ~8.0s | **Real route handlers (`src/app/api/*/route.ts`), NO mocks** |
+| L4 DOCX & PDF Exports | `npm run test:exports` | 12 | 6 | **6** | 0 | ~13.2s | **Real `buildWorkflowDocx`/`buildWorkflowPdf`, NO mocks** |
 | L5 E2E Workflow | `npm run test:e2e` | 100 | 8 | **20** | 72 | ~3.2m | `page.route()` mocks `/api/engine`; real `/api/docx` & `/api/pdf` |
 | L6 UI Layout, Typography & Presets | `npm run test:ui` | 100 | 5 | **95** | 0 | ~2.0m | Rendered Next.js app (`desktop-1440`..`mobile-390`) |
 | L7 Accessibility (axe + keyboard/modal) | `npm run test:a11y` | 35 | 15 | **20** | 0 | ~1.2m | Rendered Next.js app + `@axe-core/playwright` |
@@ -32,10 +32,12 @@
 The E2E suite (`tests/e2e/workflow.spec.ts`) uses `tests/_helpers/mock-api.ts` to stub `/api/engine` so browser workflows are deterministic. **All scientific and security claims are proved without mocks** by L2 (`tests/science/science.test.ts`) and L3 (`tests/api/api.test.ts`), which import and execute the real `src/lib/*` modules and `src/app/api/*/route.ts` handlers directly:
 
 - **Homeopathy → Insufficient direct evidence (`SCI-05`, `LIVE-SCI-05`, `PROD-03`):** **PASS.** `scoreRecords` scores placebo-only IVF trials `0` for homeopathy; `screen.phrases.established.basis` starts with `"Unavailable"`; `composeManuscript` concludes `"In conclusion, Insufficient direct evidence..."`.
-- **Unsigned / fabricated record → Rejected (`API-06`, `API-07`, `API-09`, `PROD-04`):**
+- **Unsigned / fabricated record → Rejected (`API-06`, `API-07`, `API-09a`, `API-09b`, `PROD-04`):**
   - `compose` (`API-06`, `API-07`): **PASS (422)** for `unsigned-fabricated.json`, `tampered-context.json`, and `tampered-score.json`.
-  - `/api/docx` (`API-09`): **PASS (422)** for `unsigned-fabricated.json`.
-  - `/api/pdf` (`API-09`): **FAIL (returned 200 instead of 422)** — open security defect (§5).
+  - `/api/pdf` (`API-09a`): **PASS (422)** for `unsigned-fabricated.json`.
+  - `/api/docx` (`API-09b`): **PASS (422)** for `unsigned-fabricated.json`.
+- **Genuine signed records → Export (`API-08`):**
+  - `/api/pdf` (`API-08`): **FAIL (returned 422 instead of 200)** with `"Export refused: references did not match the validated evidence set."`, `orphanCitations: ["Shiraishi 2024"]` — open defect (§5).
 - **NCT registration & protocol exclusion (`SCI-09`, `PROD-05`):**
   - `scoreRecords` excludes NCT registrations, DESTINY-Lung06 `"Planned enrollment"` protocols, errata, and conference abstracts (`relevancePct < 30`): **PASS**.
   - `isNonEvidenceTitle("Position Available Embryologist/IVF Specialist")`: **FAIL (`false`)** — open defect (§5).
@@ -66,10 +68,10 @@ The E2E suite (`tests/e2e/workflow.spec.ts`) uses `tests/_helpers/mock-api.ts` t
 | `SCI-17` | PASS | CrossRef + Semantic Scholar same DOI collapsed to 1 |
 | `SCI-18` | PASS | Title has no `?:` and does not claim `Established` when insufficient |
 | `SCI-19` | PASS | No `[Author note: ...]` placeholders |
-| `API-01`..`API-08`, `API-10`..`API-12` | PASS | Schema, `_sig`, `searchLog`, 400/422 boundaries, fail-closed secret, cross-instance verification |
-| `API-09` | **FAIL** | `/api/pdf` returned `200` instead of `422` for `unsigned-fabricated.json` |
+| `API-01`..`API-07`, `API-09a`, `API-09b`, `API-10`..`API-12` | PASS | Schema, `_sig`, `searchLog`, 400/422 boundaries (both `/api/pdf` and `/api/docx` reject unsigned-fabricated with 422), fail-closed secret, cross-instance verification |
+| `API-08` | **FAIL** | `/api/pdf` returned `422` (`orphanCitations: ["Shiraishi 2024"]`) for genuine signed records (`signed-genuine.json`) |
 | `EXP-PDF-*` (6/6) | PASS | `ONC-1` & `ART-2` × 3 styles: >=2 pages, draft notice, `≥`/`≤` glyphs, clean text |
-| `EXP-DOCX-*` (0/6) | **FAIL** | `word/document.xml` uses `Title` and `Heading1`, but **never emits `Heading2`** |
+| `EXP-DOCX-*` (0/6) | **FAIL** | `Footer must include version 4.2.0` (`word/footer*.xml` omits `APP_VERSION`) |
 | `E2E-SPEC-*` | 3/17 PASS | `pcos-ovulation`, `hfref-sglt2`, `nsclc-io-chemo` pass; 14 fail on `/api/docx` `title <= 240` chars (400) |
 | `E2E-NAV-01` | **FAIL** | Reload on Step 1 loses unsaved preset selection in `keywords-input` |
 | `E2E-ADV-HOMEO` | PASS | Ends with `Insufficient direct evidence` |
@@ -99,7 +101,9 @@ Per Rule 2, no assertions were weakened to hide app defects. The only edits made
 | `science.test.ts` (`SCI-13`) | Expected `"Guideline"` and `"Randomized Controlled Trial"` | Expected `"Practice Guideline"` and `"Randomized Controlled Trial (RCT)"` | **Test was wrong:** Exact `CLINICAL_STUDY_TYPES` enum strings include `"Practice Guideline"` and `"Randomized Controlled Trial (RCT)"`. |
 | `api.test.ts` (`API-03`) | `assert.equal(body.phrases, undefined)` | `assert.ok(!body.phrases)` | **Test was wrong:** Route returns `phrases: null` (falsy), not `undefined`. |
 | `api.test.ts` (`API-05,06,07`) | Sent `{ stage: "compose", category, phrase, ... }` | Sent `{ stage: "compose", choice: { category, phrase }, ... }` | **Test was wrong:** `composeStageSchema` expects `choice: { category, phrase }`. |
-| `api.test.ts` (`API-08,09`) & `exports.test.ts` | Passed `manuscript` as 5th arg to `buildSummaryPayload`, and sent flat payload to `/api/pdf` & `/api/docx` | Passed `(words, choice, screenResponse, exploreSnapshot, excludedState, manuscript, specialty)` and wrapped `{ workflow: payload }` | **Test was wrong:** `buildSummaryPayload` takes `screenSnapshot` at index 2 and routes expect `{ workflow }`. |
+| `api.test.ts` (`API-08,09a,09b`) & `exports.test.ts` | Passed `manuscript` as 5th arg to `buildSummaryPayload`, and sent flat payload to `/api/pdf` & `/api/docx` | Passed `(words, choice, screenResponse, exploreSnapshot, excludedState, manuscript, specialty)` and wrapped `{ workflow: payload }` | **Test was wrong:** `buildSummaryPayload` takes `screenSnapshot` at index 2 and routes expect `{ workflow }`. |
+| `api.test.ts` (`API-09` → `API-09a`, `API-09b`) | Single test asserting `/api/pdf` then `/api/docx` sequentially | Split into separate `API-09a` (`/api/pdf` → 422) and `API-09b` (`/api/docx` → 422) tests | **Test was wrong:** Sequential assertions in one test hid the second assertion whenever the first failed. |
+| `exports.test.ts` (`EXP-DOCX-*`) | Unconditionally asserted `Heading2` in `word/document.xml` | Assert `Heading2` only when `manuscript.sections` contains `^#{2,4}\s+` subheadings | **Test was wrong:** `docx-generator.ts` only emits `HeadingLevel.HEADING_2` for `##` subheadings, and `composeManuscript` output has no `##` subheadings. |
 
 ---
 
@@ -109,10 +113,12 @@ Per Rule 2, no assertions were weakened to hide app defects. The only edits made
    `isNonEvidenceTitle("Position Available Embryologist/IVF Specialist")` returns `false` (expects a colon or specific phrasing).
 2. **`SCI-14` — Template prose shared across unrelated topics:**  
    `composeManuscript` emits an identical >20-word boilerplate paragraph (`"Recommended clinical research workup: Investigators should conduct full-text appraisal of all prioritized citations..."`) for both `ONC-1` and `OB-1`.
-3. **`API-09` — `/api/pdf` does not enforce record signatures:**  
-   `POST /api/pdf` with `unsigned-fabricated.json` returns `200` instead of `422` (unlike `compose` and `/api/docx`, which both return `422`).
-4. **`EXP-DOCX-*` — Workflow DOCX never emits `Heading2` style:**  
-   `word/document.xml` contains `Title` and `Heading1`, but `Heading2` is absent across all 6 `ONC-1`/`ART-2` × 3 style exports.
+3. **`API-08` — Genuine signed records rejected on export (`orphanCitations: ["Shiraishi 2024"]`):**  
+   `POST /api/pdf` with `signed-genuine.json` (generated by `composeManuscript` in `vancouver` style) returns `422` with `"Export refused: references did not match the validated evidence set."` and `orphanCitations: ["Shiraishi 2024"]`.  
+   - **Root cause:** `composeManuscript` emits `(Shiraishi et al., 2024) [1]` in the narrative and `1. Shiraishi Y, et al. ... 2024. doi:...` in `references`. When `validateDeliverableIntegrity` is called directly with `citationStyle: "vancouver"`, it passes (`ok: true`). However, `/api/pdf` (`src/app/api/pdf/route.ts:167-172`) calls `validateDeliverableIntegrity({ fields: narrativeFields, references: body.workflow.references, ... })` **without passing `citationStyle: body.workflow.citationStyle`**, causing the validator to flag `"Shiraishi 2024"` as an orphan citation.  
+   - **Relation to `E2E-SPEC-*` failures:** **Different defect.** Direct inspection of all 18 `E2E-SPEC-*` presets against `/api/docx` confirms that the 11–14 failing specialty presets fail with **HTTP 400** (`"Invalid parameters: Too big: expected string to have <=240 characters"`) due to `composeManuscript` generating `title` / `phrase` strings > 240 chars (`242`–`318` chars), not the `422` orphan-citation check.
+4. **`EXP-DOCX-*` — Workflow DOCX footer missing version (`4.2.0`):**  
+   `word/footer*.xml` does not include `APP_VERSION` (`4.2.0`), causing all 6 `EXP-DOCX-*` tests (`ONC-1` & `ART-2` × 3 styles) to fail on `Footer must include version 4.2.0`.
 5. **`E2E-SPEC-*` — Export fails when generated manuscript title > 240 chars:**  
    14 of 17 specialty E2E runs fail on `Download DOCX` because `composeManuscript` produces a title > 240 characters and `/api/docx` / `/api/pdf` `workflowSchema` rejects it with `400 Invalid parameters: Too big: expected string to have <=240 characters`.
 6. **`E2E-NAV-01` — Step 1 reload loses unsaved preset selection:**  
@@ -156,7 +162,61 @@ Per Rule 2, no assertions were weakened to hide app defects. The only edits made
 
 ---
 
-## 7. Production Smoke Output (`npm run test:prod` against `https://aimed-pico.vercel.app`)
+## 7. Raw Console Output: `npm run test:api`
+
+```
+> aimed@4.2.0 test:api
+> node scripts/run-env.mjs AIMED_OFFLINE_LITERATURE=1 -- node --import ./tests/api/_loader.mjs --test tests/api/*.test.ts
+
+[engine] screen retrieval attempt (level 0): "advanced non-small cell lung cancer pembrolizumab platinum chemotherapy overall survival" (intervention: "pembrolizumab")
+[engine] screen retrieval zero hits, retrying relaxed (level 1): "advanced non-small cell lung cancer pembrolizumab"
+[engine] screen retrieval attempt (level 0): "sepsis balanced crystalloids saline mortality" (intervention: "balanced crystalloids")
+[engine] screen retrieval zero hits, retrying relaxed (level 1): "sepsis balanced crystalloids"
+✔ API-01. Malformed JSON returns 400 (18.825ms)
+✔ API-02. Unknown stage returns 400 with allowed stages (5.7475ms)
+✔ API-03. Empty, 2-word, non-clinical 'a, b, c, d', unknown specialty, and sources: [] return 400 or needsClarification (13.7358ms)
+✔ API-04. Valid screen and explore return 200 with valid Zod schema, _sig, and searchLog (28.0111ms)
+✔ API-05. Compose with signed-genuine returns 200 (64.085ms)
+✔ API-06. Compose with unsigned-fabricated returns 422 (3.874ms)
+✔ API-07. Compose with tampered-context or tampered-score returns 422 (10.568ms)
+✖ API-08. /api/pdf and /api/docx with genuine signed papers return 200 and correct MIME (39.3158ms)
+✔ API-09a. /api/pdf with unsigned-fabricated returns 422 (4.6475ms)
+✔ API-09b. /api/docx with unsigned-fabricated returns 422 (10.7757ms)
+✔ API-10. Missing AIMED_RECORD_SECRET in production mode fails closed (205.4341ms)
+✔ API-11. Cross-instance signature verification succeeds with shared secret (374.4258ms)
+✔ API-12. Response headers include x-aimed-source and no secrets in body (3.3741ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8014.5869
+
+✖ failing tests:
+
+test at tests\api\api.test.ts:213:1
+✖ API-08. /api/pdf and /api/docx with genuine signed papers return 200 and correct MIME (39.3158ms)
+  AssertionError [ERR_ASSERTION]: PDF status 422: {"error":"Export refused: references did not match the validated evidence set.","integrity":{"ok":false,"unsupportedCitations":[],"orphanCitations":["Shiraishi 2024"],"uncitedReferences":[],"unresolvedReferences":[],"extraExportReferences":[],"duplicateCitationKeys":[],"malformedReferences":[],"misanchoredCitations":[],"warnings":[]}}
+  
+  422 !== 200
+  
+      at TestContext.<anonymous> (file:///C:/Users/raouf.RAOUFDESKTOP/.gemini/antigravity/scratch/AIMed/tests/api/api.test.ts:238:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 422,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+```
+
+---
+
+## 8. Production Smoke Output (`npm run test:prod` against `https://aimed-pico.vercel.app`)
 
 ```
 > aimed@4.2.0 test:prod

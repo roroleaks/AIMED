@@ -234,15 +234,17 @@ test("API-08. /api/pdf and /api/docx with genuine signed papers return 200 and c
   );
 
   const pdfRes = await pdfPost(makeReq("http://localhost:3000/api/pdf", { workflow: payload }));
-  assert.equal(pdfRes.status, 200);
+  const pdfErr = pdfRes.status !== 200 ? await pdfRes.clone().text() : "";
+  assert.equal(pdfRes.status, 200, `PDF status ${pdfRes.status}: ${pdfErr}`);
   assert.ok(pdfRes.headers.get("content-type")?.includes("application/pdf"));
 
   const docxRes = await docxPost(makeReq("http://localhost:3000/api/docx", { workflow: payload }));
-  assert.equal(docxRes.status, 200);
+  const docxErr = docxRes.status !== 200 ? await docxRes.clone().text() : "";
+  assert.equal(docxRes.status, 200, `DOCX status ${docxRes.status}: ${docxErr}`);
   assert.ok(docxRes.headers.get("content-type")?.includes("wordprocessingml.document"));
 });
 
-test("API-09. /api/pdf and /api/docx with unsigned-fabricated return 422", async () => {
+test("API-09a. /api/pdf with unsigned-fabricated returns 422", async () => {
   const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
   const fabricated = loadJson<ExploreRecord[]>("tests/fixtures/records/unsigned-fabricated.json");
   const choice = { category: "established" as const, phrase: onc1.screenResponse.phrases.established.phrase };
@@ -267,6 +269,30 @@ test("API-09. /api/pdf and /api/docx with unsigned-fabricated return 422", async
 
   const pdfRes = await pdfPost(makeReq("http://localhost:3000/api/pdf", { workflow: payload }));
   assert.equal(pdfRes.status, 422);
+});
+
+test("API-09b. /api/docx with unsigned-fabricated returns 422", async () => {
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
+  const fabricated = loadJson<ExploreRecord[]>("tests/fixtures/records/unsigned-fabricated.json");
+  const choice = { category: "established" as const, phrase: onc1.screenResponse.phrases.established.phrase };
+  const manuscript = composeManuscript({
+    specialty: "oncology",
+    words: onc1.words,
+    category: choice.category,
+    phrase: choice.phrase,
+    screeningStats: { retrieved: 1, screened: 1, excludedCount: 0, relaxationLevel: 0 },
+    records: fabricated,
+    style: "vancouver",
+  });
+  const payload = buildSummaryPayload(
+    onc1.words,
+    choice,
+    onc1.screenResponse,
+    { records: fabricated, corpusStats: { retrieved: 1, screened: 1, blocked: 0, returned: 1, relaxationLevel: 0 }, hasMore: false },
+    { phrase: choice.phrase, category: choice.category, userExcluded: [], seen: [] },
+    manuscript,
+    "oncology"
+  );
 
   const docxRes = await docxPost(makeReq("http://localhost:3000/api/docx", { workflow: payload }));
   assert.equal(docxRes.status, 422);

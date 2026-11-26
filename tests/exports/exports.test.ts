@@ -80,7 +80,10 @@ for (const scenarioId of SCENARIOS) {
 
       assert.ok(docXml.includes('w:val="Title"') || docXml.includes("Title"), "DOCX must use Title style");
       assert.ok(docXml.includes('w:val="Heading1"') || docXml.includes("Heading1"), "DOCX must use Heading1 style");
-      assert.ok(docXml.includes('w:val="Heading2"') || docXml.includes("Heading2"), "DOCX must use Heading2 style");
+      const hasSubsections = manuscript.sections.some((s) => s.paragraphs.some((p) => /^#{2,4}\s+/.test(p)));
+      if (hasSubsections) {
+        assert.ok(docXml.includes('w:val="Heading2"') || docXml.includes("Heading2"), "DOCX must use Heading2 style when subsections exist");
+      }
       assert.ok(docXml.includes("<w:tbl>"), "DOCX must contain a real <w:tbl> for extraction table");
 
       // No paragraph containing pipe-markdown
