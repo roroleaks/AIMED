@@ -3,6 +3,7 @@ import { PHI_NOTICE_TEXT } from "@/lib/phi-notice";
 export function PhiNotice() {
   return (
     <aside
+      data-testid="privacy-notice"
       aria-label="Patient Privacy Notice"
       role="note"
       className="notice notice--neutral"

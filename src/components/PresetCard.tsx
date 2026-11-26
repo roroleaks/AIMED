@@ -21,6 +21,8 @@ export function PresetCard({ preset, isActive = false, onClick, className = "" }
   return (
     <button
       type="button"
+      data-testid="preset-card"
+      data-preset-id={preset.id}
       className={`preset-card ${isActive ? "active" : ""} ${className}`.trim()}
       aria-pressed={isActive}
       aria-label={preset.name}

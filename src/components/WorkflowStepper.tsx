@@ -19,6 +19,7 @@ export function WorkflowStepper({ currentStep, current }: WorkflowStepperProps) 
 
   return (
     <nav
+      data-testid="stepper"
       aria-label="Workflow progress"
       style={{
         display: "flex",

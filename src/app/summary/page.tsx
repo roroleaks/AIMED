@@ -117,7 +117,7 @@ function ExtractionTable({ headers, rows }: { headers: string[]; rows: string[][
   };
 
   return (
-    <div style={{ margin: "var(--space-4) 0" }}>
+    <div data-testid="extraction-table" style={{ margin: "var(--space-4) 0" }}>
       {/* Desktop & Tablet Table */}
       <div className="extraction-table-wrapper" style={{ overflowX: "auto", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--fs-body-sm)" }}>
@@ -525,7 +525,7 @@ export default function SummaryPage() {
 
   return (
     <div className="wrap">
-      <header className="hdr hdr--compact">
+      <header className="hdr hdr--compact" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <span className="title-main">AIMed</span>
@@ -541,7 +541,7 @@ export default function SummaryPage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+        <div data-testid="draft-banner" className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
           <span>⚠️</span>
           <div>
             <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
@@ -687,7 +687,7 @@ export default function SummaryPage() {
               <span style={{ fontSize: "var(--fs-label)", fontWeight: 700, color: "var(--ink-2)" }}>
                 Citation style:
               </span>
-              <div className="segmented" role="radiogroup" aria-label="Citation style selection">
+              <div data-testid="style-toggle" className="segmented" role="radiogroup" aria-label="Citation style selection">
                 {CITATION_STYLE_OPTIONS.map(opt => {
                   const isActive = style === opt.id;
                   return (
@@ -715,6 +715,7 @@ export default function SummaryPage() {
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
               <button
                 type="button"
+                data-testid="enrich-ai"
                 className="btn btn--secondary"
                 onClick={handleAiEnrich}
                 disabled={enriching}
@@ -725,6 +726,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="download-docx"
                 className="btn btn--secondary"
                 onClick={() => handleExport("docx")}
                 disabled={exporting !== null}
@@ -734,6 +736,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="download-pdf"
                 className="btn btn--primary"
                 onClick={() => handleExport("pdf")}
                 disabled={exporting !== null}
@@ -743,6 +746,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="start-over"
                 className="btn btn--ghost"
                 onClick={handleStartOver}
                 title="Reset workflow state and return to Step 1"
@@ -782,6 +786,7 @@ export default function SummaryPage() {
 
         {/* Manuscript Document View */}
         <article
+          data-testid="manuscript"
           className="card"
           style={{
             background: "var(--surface)",
@@ -894,7 +899,7 @@ export default function SummaryPage() {
           ))}
 
           {/* References Section */}
-          <section style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-4)", borderTop: "2px solid var(--border)" }}>
+          <section data-testid="references" style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-4)", borderTop: "2px solid var(--border)" }}>
             <h3
               style={{
                 fontSize: "var(--fs-section)",

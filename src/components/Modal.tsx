@@ -105,6 +105,7 @@ export function Modal({
     >
       <div
         ref={dialogRef}
+        data-testid="modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}

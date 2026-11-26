@@ -288,7 +288,7 @@ export default function ExplorePage() {
   if (!choice) {
     return (
       <div className="wrap">
-        <header className="hdr">
+        <header className="hdr" data-testid="app-header">
           <div className="hdr-inner">
             <div className="hdr-left">
               <span className="title-main">
@@ -336,7 +336,7 @@ export default function ExplorePage() {
 
   return (
     <div className="wrap">
-      <header className="hdr hdr--compact">
+      <header className="hdr hdr--compact" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <span className="title-main">AIMed</span>
@@ -352,7 +352,7 @@ export default function ExplorePage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+        <div data-testid="draft-banner" className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
           <span>⚠️</span>
           <div>
             <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
@@ -492,6 +492,7 @@ export default function ExplorePage() {
               <div className="row" style={{ gap: "var(--space-2)", flexWrap: "wrap", display: "flex" }}>
                 <button
                   type="button"
+                  data-testid="next-summary"
                   className="btn btn--primary"
                   onClick={() => router.push("/summary")}
                   title="Proceed to Step 4: Workflow summary"
@@ -500,6 +501,7 @@ export default function ExplorePage() {
                 </button>
                 <button
                   type="button"
+                  data-testid="rerun-search"
                   className="btn btn--secondary"
                   onClick={handleReRun}
                   title="Fetch new papers excluding seen and excluded ones"
@@ -525,6 +527,8 @@ export default function ExplorePage() {
                   return (
                     <span
                       key={src.name}
+                      data-testid="source-chip"
+                      data-source={src.id}
                       className={`source-badge-mini ${isInactive ? "source-badge-inactive" : `source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}`}
                       style={isInactive ? { color: "var(--muted)", background: "var(--canvas)", borderColor: "var(--border-strong)", borderStyle: "dashed" } : undefined}
                     >
@@ -546,6 +550,7 @@ export default function ExplorePage() {
                 return (
                   <div
                     key={r.pmid || r.doi || `r-${i}`}
+                    data-testid="paper-card"
                     style={{
                       border: "1px solid var(--border)",
                       borderRadius: "var(--radius-md)",
@@ -591,6 +596,7 @@ export default function ExplorePage() {
                       {/* Exclude button */}
                       <button
                         type="button"
+                        data-testid="exclude-paper"
                         onClick={() => handleExcludeCard(r)}
                         aria-label={`Exclude paper: ${r.title}`}
                         className="btn btn--ghost btn--sm"

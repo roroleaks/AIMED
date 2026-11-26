@@ -178,7 +178,7 @@ export default function ScreenPage() {
 
   return (
     <div className="wrap">
-      <header className="hdr hdr--compact">
+      <header className="hdr hdr--compact" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <span className="title-main">AIMed</span>
@@ -194,7 +194,7 @@ export default function ScreenPage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+        <div data-testid="draft-banner" className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
           <span>⚠️</span>
           <div>
             <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
@@ -316,6 +316,9 @@ export default function ScreenPage() {
                 return (
                   <div
                     key={cat.key}
+                    data-testid="focus-card"
+                    data-category={cat.key}
+                    data-available={String(!isUnavailable)}
                     className={`variant-card${isSelected ? " selected" : ""}`}
                     role="radio"
                     aria-checked={isSelected}
@@ -338,6 +341,7 @@ export default function ScreenPage() {
                       </span>
                       <button
                         type="button"
+                        data-testid="choose-focus"
                         className={isUnavailable ? "btn btn--secondary btn--sm" : isSelected ? "btn btn--primary btn--sm" : "btn btn--secondary btn--sm"}
                         aria-disabled={isUnavailable ? "true" : undefined}
                         onClick={e => {
@@ -382,6 +386,8 @@ export default function ScreenPage() {
                     return (
                       <span
                         key={src.name}
+                        data-testid="source-chip"
+                        data-source={src.id}
                         className={`source-badge-mini ${isInactive ? "source-badge-inactive" : `source-badge-${src.id.toLowerCase().replace(/[^a-z0-9]/g, "")}`}`}
                         style={isInactive ? { color: "var(--muted)", background: "var(--canvas)", borderColor: "var(--border-strong)", borderStyle: "dashed" } : undefined}
                       >

@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="wrap">
       {/* Header */}
-      <header className="hdr">
+      <header className="hdr" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <Image
