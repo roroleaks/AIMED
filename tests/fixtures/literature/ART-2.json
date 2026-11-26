@@ -1,6 +1,6 @@
 {
   "id": "ART-2",
-  "recordedAt": "2026-11-26T19:39:49.365Z",
+  "recordedAt": "2026-11-26T22:48:49.346Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -61,9 +61,10 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?",
-        "basis": "While overall efficacy has 22 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
-        "supported": true
+        "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?",
+        "basis": "8 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
     },
     "corpusStats": {
@@ -75,8 +76,8 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 24
       },
       {
         "id": "pmc",
@@ -105,8 +106,8 @@
       },
       {
         "id": "crossref",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "doaj",
@@ -115,7 +116,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -134,7 +135,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?"
+      "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?"
     },
     "words": [
       {
@@ -164,28 +165,30 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "oax:W7167686614",
-        "title": "L26/O-032 Clinical outcomes following non-invasive preimplantation genetic testing in IVF: A systematic review and meta-analysis",
-        "authors": "A.N. Kovilveettil, A. Abdulah, E. Bailie, K. Jayaprakasan",
-        "year": "2026",
-        "journal": "Human Reproduction",
-        "doi": "10.1093/humrep/deag083.032",
-        "url": "https://doi.org/10.1093/humrep/deag083.032",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "32898291",
+        "title": "Preimplantation genetic testing for aneuploidies (abnormal number of chromosomes) in in vitro fertilisation",
+        "authors": "Cornelisse S, et al",
+        "year": "2020",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD005291.pub3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32898291/",
+        "context": "BACKGROUND: In in vitro fertilisation (IVF) with or without intracytoplasmic sperm injection (ICSI), selection of the most competent embryo(s) for transfer is based on morphological criteria. However, many women do not achieve a pregnancy even after 'good quality' embryo transfer. One of the presumed causes is that such morphologically normal embryos have an abnormal number of chromosomes (aneuploidies). Preimplantation genetic testing for aneuploidies (PGT-A), formerly known as preimplantation genetic screening (PGS), was therefore developed as an alternative method to select embryos for transfer in IVF. In PGT-A, the polar body or one or a few cells of the embryo are obtained by biopsy and tested. Only polar bodies and embryos that show a normal number of chromosomes are transferred. The first generation of PGT-A, using cleavage-stage biopsy and fluorescence in situ hybridisation (FISH) for the genetic analysis, was demonstrated to be ineffective in improving live birth rates. Since then, new PGT-A methodologies have been developed that perform the biopsy procedure at other stages of development and use different methods for genetic analysis. Whether or not PGT-A improves IVF outcomes and is beneficial to patients has remained controversial. OBJECTIVES: To evaluate the effectiveness and safety of PGT-A in women undergoing an IVF treatment. SEARCH METHODS: We searched the Cochrane Gynaecology and Fertility (CGF) Group Trials Register, CENTRAL, MEDLINE, Embase, PsycINFO, CINAHL, and two trials registers in September 2019 and checked the references of appropriate papers. SELECTION CRITERIA: All randomised controlled trials (RCTs) reporting data on clinical outcomes in participants undergoing IVF with PGT-A versus IVF without PGT-A were eligible for inclusion. DATA COLLECTION AND ANALYSIS: Two review authors independently selected studies for inclusion, assessed risk of bias, and extracted study data. The primary outcome was the cumulative live birth rate (cLBR). Secondary outcomes were live birth rate (LBR) after the first embryo transfer, miscarriage rate, ongoing pregnancy rate, clinical pregnancy rate, multiple pregnancy rate, proportion of women reaching an embryo transfer, and mean number of embryos per transfer. MAIN RESULTS: We included 13 trials involving 2794 women. The quality of the evidence ranged from low to moderate. The main limitations were imprecision, inconsistency, and risk of publication bias. IVF with PGT-A versus IVF without PGT-A with the use of genome-wide analyses Polar body biopsy One trial used polar body biopsy with array comparative genomic hybridisation (aCGH). It is uncertain whether the addition of PGT-A by polar body biopsy increases the cLBR compared to IVF without PGT-A (odds ratio (OR) 1.05, 95% confidence interval (CI) 0.66 to 1.66, 1 RCT, N = 396, low-quality evidence). The evidence suggests that for the observed cLBR of 24% in the control group, the chance of live birth following the results of one IVF cycle with PGT-A is between 17% and 34%. It is uncertain whether the LBR after the first embryo transfer improves with PGT-A by polar body biopsy (OR 1.10, 95% CI 0.68 to 1.79, 1 RCT, N = 396, low-quality evidence). PGT-A with polar body biopsy may reduce miscarriage rate (OR 0.45, 95% CI 0.23 to 0.88, 1 RCT, N = 396, low-quality evidence). No data on ongoing pregnancy rate were available. The effect of PGT-A by polar body biopsy on improving clinical pregnancy rate is uncertain (OR 0.77, 95% CI 0.50 to 1.16, 1 RCT, N = 396, low-quality evidence). Blastocyst stage biopsy One trial used blastocyst stage biopsy with next-generation sequencing. It is uncertain whether IVF with the addition of PGT-A by blastocyst stage biopsy increases cLBR compared to IVF without PGT-A, since no data were available. It is uncertain if LBR after the first embryo transfer improves with PGT-A with blastocyst stage biopsy (OR 0.93, 95% CI 0.69 to 1.27, 1 RCT, N = 661, low-quality evidence). It is uncertain whether PGT-A with blastocyst stage biopsy reduces miscarriage rate (OR 0.89, 95% CI 0.52 to 1.54, 1 RCT, N = 661, low-quality evidence). No data on ongoing pregnancy rate or clinical pregnancy rate were available. IVF with PGT-A versus IVF without PGT-A with the use of FISH for the genetic analysis Eleven trials were included in this comparison. It is uncertain whether IVF with addition of PGT-A increases cLBR (OR 0.59, 95% CI 0.35 to 1.01, 1 RCT, N = 408, low-quality evidence). The evidence suggests that for the observed average cLBR of 29% in the control group, the chance of live birth following the results of one IVF cycle with PGT-A is between 12% and 29%. PGT-A performed with FISH probably reduces live births after the first transfer compared to the control group (OR 0.62, 95% CI 0.43 to 0.91, 10 RCTs, N = 1680, I² = 54%, moderate-quality evidence). The evidence suggests that for the observed average LBR per first transfer of 31% in the control group, the chance of live birth after the first embryo transfer with PGT-A is between 16% and 29%. There is probably little or no difference in miscarriage rate between PGT-A and the control group (OR 1.03, 95%, CI 0.75 to 1.41; 10 RCTs, N = 1680, I² = 16%; moderate-quality evidence). The addition of PGT-A may reduce ongoing pregnancy rate (OR 0.68, 95% CI 0.51 to 0.90, 5 RCTs, N = 1121, I² = 60%, low-quality evidence) and probably reduces clinical pregnancies (OR 0.60, 95% CI 0.45 to 0.81, 5 RCTs, N = 1131; I² = 0%, moderate-quality evidence). AUTHORS' CONCLUSIONS: There is insufficient good-quality evidence of a difference in cumulative live birth rate, live birth rate after the first embryo transfer, or miscarriage rate between IVF with and IVF without PGT-A as currently performed. No data were available on ongoing pregnancy rates. The effect of PGT-A on clinical pregnancy rate is uncertain. Women need to be aware that it is uncertain whether PGT-A with the use of genome-wide analyses is an effective addition to IVF, especially in view of the invasiveness and costs involved in PGT-A. PGT-A using FISH for the genetic analysis is probably harmful. The currently available evidence is insufficient to support PGT-A in routine clinical practice.",
+        "source": "pubmed",
         "publicationTypes": [
-          "article"
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
         ],
-        "context": "Study question Among women undergoing IVF, does embryo selection using non-invasive preimplantation genetic testing (niPGT) improve live birth and other clinical outcomes compared with conventional embryo selection? Summary answer niPGT was associated with higher cumulative live birth and clinical pregnancy rates compared with morphology-based selection in one large cohort, but evidence remains limited. What is known already niPGT analyses embryonic cell-free DNA from spent culture medium or blastocoel fluid, avoiding embryo biopsy. While diagnostic accuracy studies have demonstrated variable concordance with trophectoderm biopsy, the impact of niPGT on clinically meaningful outcomes such as live birth remains uncertain. Most published studies focus on laboratory performance rather than reproductive outcomes, and there is no consensus on whether niPGT improves IVF success compared",
-        "relevancePct": 81,
+        "relevancePct": 100,
         "matchedElements": [
           "P",
+          "I",
           "C",
           "O"
         ],
         "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
-        "_sig": "f4c601712d946052ed95988afaca193c06ec468042f670ff63d4b48991fd2bfb"
+        "_sig": "3fac81cf5c67bccbc20bd22cec38469785ea944fe6548f251e1977978e3028e8"
       },
       {
         "pmid": "40725861",
@@ -212,28 +215,150 @@
         "_sig": "33609400dbdab81d37dfa610622fa1352180c2a23e94cdca58bd48286062de71"
       },
       {
-        "pmid": "oax:W7153611460",
-        "title": "Invasive versus non-invasive PGT-A: A retrospective comparative study of embryo selection and IVF outcomes in women with recurrent IVF failure",
-        "authors": "Prerana Shah, Anand Patel",
+        "pmid": "cr:10.1093/humrep/deag083.1083",
+        "title": "L26/P-756 Impact of dyslipidemia on cumulative live birth rate in PCOS patients undergoing IVF/ICSI and a predictive nomogram",
+        "authors": "Chen X., Xu H., Zheng B.",
         "year": "2026",
-        "journal": "International Journal of Clinical Obstetrics and Gynaecology",
-        "doi": "10.33545/gynae.2026.v10.i2m.2147",
-        "url": "https://doi.org/10.33545/gynae.2026.v10.i2m.2147",
-        "source": "openalex",
-        "pubType": "article",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deag083.1083",
+        "url": "https://doi.org/10.1093/humrep/deag083.1083",
+        "source": "crossref",
+        "pubType": "journal-article",
         "publicationTypes": [
-          "article"
+          "journal-article"
         ],
-        "context": "Background: Recurrent IVF failure remains a significant clinical challenge, frequently attributed to embryonic aneuploidy. While invasive preimplantation genetic testing for aneuploidy (PGT-A) via trophectoderm biopsy is well established, non-invasive PGT-A using cell-free DNA from spent blastocyst culture media has emerged as a promising alternative. However, real-world comparative outcome data remain limited. Objective: To compare embryo assessment and clinical pregnancy outcomes between invasive and non-invasive PGT-A in women with recurrent IVF failure. Materials and Methods: This retrospective comparative study included 50 IVF cycles (30 invasive PGT-A, 20 non-invasive PGT-A) conducted from January 2023 to December 2024 at a single tertiary IVF centre. Women aged >30 years with ?2 failed IVF cycles, normal hysteroscopic findings, hormonal profile, and endometrial parameters were included.",
+        "context": "Abstract Study question Can a predictive model for cumulative live birth rate (CLBR) be developed based on dyslipidemia status in PCOS patients undergoing their first IVF/ICSI cycle? Summary answer Elevated triglycerides (TG) independently reduced CLBR, and a nomogram based on BMI, TG, high-quality blastocyst rate, and high-quality embryo rate acceptably predicts it. What is known already Obesity, insulin resistance, and dyslipidemia impact pregnancy. Management in PCOS focuses on weight and insulin resistance, with lipid management receiving less attention. While dyslipidemia’s effect on live birth per cycle has been studied, its impact on CLBR in PCOS patients undergoing IVF/ICSI is not well-established. Study design, size, duration A retrospective cohort study of 413 PCOS patients (<40 years) undergoing their first IVF/ICSI cycle (long or antagonist protocol) between January 2022 and May 2024. Participants/materials, setting, methods Patients were categorized into dyslipidemic (n = 277) and normolipidemic (n = 136) groups. Groups were compared, and stratified analyses by Body mass index (BMI) and homeostatic model assessment-insulin resistance (HOMA-IR) were performed. Logistic regression identified CLBR predictors. A nomogram was built and validated using training and validation sets, with internal validation performed via Bootstrap resampling (1000 iterations). Main results and the role of chance Elevated TG was an independent risk factor for reduced CLBR (adjusted odds ratio=0.732, 95% confidence interval: 0.552-0.969, P = 0.029). The predictive model included BMI, TG, high-quality blastocyst rate, and high-quality embryo rate. It demonstrated moderate discrimination with an area under the curve (AUC) of 0.776 (95% CI 0.709–0.843) in the training set and 0.721 (95% CI 0.601–0.840) upon internal validation. Calibration and decision curve analysis indicated good consistency and clinical utility. Limitations, reasons for caution This single-center retrospective study may have selection bias. The model did not account for potential confounders like diet or exercise, and assessed only baseline (not dynamic) lipid levels. The validation set sample size (n = 123) is relatively small. Wider implications of the findings The model helps identify patients at potentially low CLBR, enabling personalized pre-transfer strategies targeting modifiable factors like weight and lipid control. This optimizes the treatment pathway and supports targeted counseling in PCOS patients with dyslipidemia undergoing IVF/ICSI. Trial registration number No",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "4347692f6158690b9b58f4c9724a7d0a30c1ff782d17bb613d810491f71cfed8"
+      },
+      {
+        "pmid": "40803331",
+        "title": "A meta-analysis and systematic review of advanced maternal age patients in IVF",
+        "authors": "Ganer Herman H, et al",
+        "year": "2025",
+        "journal": "Human reproduction update",
+        "doi": "10.1093/humupd/dmaf020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40803331/",
+        "context": "BACKGROUND: There has been an increase in the average age of patients seeking fertility treatments over the past decades, with a significantly higher rate of advanced maternal age (AMA) patients undergoing IVF. It is unclear if different treatment strategies in IVF improve outcomes in AMA patients. OBJECTIVE AND RATIONALE: The aim of this systematic review was to assess the efficacy of different interventions employed in IVF in patients of AMA. SEARCH METHODS: A comprehensive search in Embase, Medline, and the Cochrane Library was performed. The search strategy included keywords related to IVF and AMA. We included all original peer-reviewed articles published in English, from January 1985 to September 2024, primarily designed to assess the efficacy of different interventions in IVF on clinical outcomes in AMA patients. Meta-analyses were performed for interventions for which sufficient randomized controlled trials existed. OUTCOMES: A total of 151 studies were included in the review. AMA was not consistently defined in all studies reviewed, although common to all studies was an age above 35 years. For the majority of evidence, there appeared to be no clear advantage to any stimulation protocol in AMA patients. There also appeared to be no advantage to any specific FSH medication, while a meta-analysis performed for the addition of LH to follicular stimulating hormone in stimulation demonstrated similar clinical pregnancy and live birth rates. No good evidence was found to support the routine implementation of ICSI in AMA patients, while a meta-analysis performed for assisted hatching (AH) pointed to decreased live birth rates with its implementation. Low-quality evidence demonstrated an increase in live birth rates with multiple embryos transferred with an increase in multiple pregnancies delivered. Finally, a meta-analysis performed for preimplantation genetic testing for aneuploidy (PGT-A) pointed to similar live birth rates as for no testing. WIDER IMPLICATIONS: This review failed to find an advantage to the routine implementation of treatment strategies such as specific stimulation protocols and gonadotropins, ICSI, and PGT-A, and a potential harmful effect for AH. Future high-quality randomized controlled trials are needed to affirm the majority of this review's conclusions. REGISTRATION NUMBER: PROSPERO ID: CRD42022335889.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
         "relevancePct": 76,
         "matchedElements": [
           "P",
           "I",
-          "C"
+          "O"
         ],
-        "design": "Comparative Study",
+        "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
-        "_sig": "8a66cc08371901dfdfbe686f1b34bacb457ed4661afcd1b69c503cabb5d39f73"
+        "_sig": "d594a49d0b2838ca6eef3f25d14cb50864271b681231c258edbac01efa7dc5ae"
+      },
+      {
+        "pmid": "30388233",
+        "title": "Fresh versus elective frozen embryo transfer in IVF/ICSI cycles: a systematic review and meta-analysis of reproductive outcomes",
+        "authors": "Roque M, et al",
+        "year": "2019",
+        "journal": "Human reproduction update",
+        "doi": "10.1093/humupd/dmy033",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30388233/",
+        "context": "BACKGROUND: Elective freezing of all good quality embryos and transfer in subsequent cycles, i.e. elective frozen embryo transfer (eFET), has recently increased significantly with the introduction of the GnRH agonist trigger protocol and improvements in cryo-techniques. The ongoing discussion focuses on whether eFET should be offered to the overall IVF population or only to specific subsets of patients. Until recently, the clinical usage of eFET was supported by only a few randomized controlled trials (RCT) and meta-analyses, suggesting that the eFET not only reduced ovarian hyperstimulation syndrome (OHSS), but also improved reproductive outcomes. However, the evidence is not unequivocal, and recent RCTs challenge the use of eFET for the general IVF population. OBJECTIVE AND RATIONALE: This systematic review and meta-analysis aimed at evaluating whether eFET is advantageous for reproductive, obstetric and perinatal outcomes compared with fresh embryo transfer in IVF/ICSI cycles. Additionally, we evaluated the effectiveness of eFET in comparison to fresh embryo transfer in different subgroups of patients undergoing IVF/ICSI cycles. SEARCH METHODS: We conducted a systematic review, using PubMed/Medline and EMBASE to identify all relevant RCTs published until March 2018. The participants included infertile couples undergoing IVF/ICSI with or without preimplantation genetic testing for aneuploidy (PGT-A). The primary outcome was the live birth rate (LBR), whereas secondary outcomes were cumulative LBR, implantation rate, miscarriage, OHSS, ectopic pregnancy, preterm birth, pregnancy-induced hypertension, pre-eclampsia, mean birthweight and congenital anomalies. Subgroup analyses included normal and hyper-responder patients, embryo developmental stage on the day of embryo transfer, freezing method and the route of progesterone administration for luteal phase support in eFET cycles. OUTCOMES: Eleven studies, including 5379 patients, fulfilling the inclusion criteria were subjected to qualitative and quantitative analysis. A significant increase in LBR was noted with eFET compared with fresh embryo transfer in the overall IVF/ICSI population [risk ratio (RR) = 1.12; 95% CI: 1.01-1.24]. Subgroup analyses indicated higher LBRs by eFET than by fresh embryo transfer in hyper-responders (RR = 1.16; 95% CI: 1.05-1.28) and in PGT-A cycles (RR = 1.55; 95% CI: 1.14-2.10). However, no differences were observed for LBR in normo-responders (RR = 1.03; 95% CI: 0.91-1.17); moreover, the cumulative LBR was not significantly different in the overall population (RR = 1.04; 95% CI: 0.97-1.11). Regarding safety, the risk of moderate/severe OHSS was significantly lower with eFET than with fresh embryo transfer (RR = 0.42; 95% CI: 0.19-0.96). In contrast, the risk of pre-eclampsia increased with eFET (RR = 1.79; 95% CI: 1.03-3.09). No statistical differences were noted in the remaining secondary outcomes. WIDER IMPLICATIONS: Although the use of eFET has steadily increased in recent years, a significant increase in LBR with eFET was solely noted in hyper-responders and in patients undergoing PGT-A. Concerning safety, eFET significantly decreases the risk of moderate and severe OHSS, albeit at the expense of an increased risk of pre-eclampsia.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "0043857c55ee3bc2bd841929cbab77a654c8833184d9dcb9308806b5934a1510"
+      },
+      {
+        "pmid": "cr:10.4103/jhrs.jhrs_334_25",
+        "title": "Evaluating the Cumulative Live Birth Rate in Autologous In Vitro Fertilization Cycles in Women Aged 40 Years and Above : A Retrospective Study",
+        "authors": "Prasad Pallavi, Shetty Soumya, Malik Sonia, Gutgutia Rohit",
+        "year": "2026",
+        "journal": "Journal of Human Reproductive Sciences",
+        "doi": "10.4103/jhrs.jhrs_334_25",
+        "url": "https://doi.org/10.4103/jhrs.jhrs_334_25",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "A BSTRACT Background: In present times, many women in their forties are seeking fertility treatment because of delayed marriage and childbearing. They often face the dilemma of whether to try in vitro fertilisation (IVF) with self-oocytes or donor oocytes. Quoting IVF success in terms of per oocyte pick-up (OPU) or per embryo transfer (ET) cycle can be misleading, as many patients undergo pooling IVF cycles or use PGT-A for best embryo selection. Cumulative live birth rate (CLBR) per woman offers a more realistic measure of treatment efficacy, best suited for patient counselling. Aim: To evaluate CLBR in self-oocyte IVF cycles in women more than 40 years of age. Settings and Design: Retrospective study analysing patient data from the electronic medical record system of various centres of a single fertility chain between January 2019 and December 2023. Materials and Methods: Women aged >40 years who underwent one or more oocyte retrievals using self-eggs were included. Exclusion criteria were donor oocyte cycles and oocyte cryopreservation cycles. Reproductive outcomes included clinical pregnancy rate (CPR), miscarriage rate (MR) and CLBR per woman. Statistical Analysis Used: Data was analysed using descriptive and inferential statistics. Continuous and categorical variables were summarised as frequencies and percentages. Age was grouped, and treatment outcomes (OPU, embryo availability, ET, clinical pregnancy, miscarriage and live birth) were expressed as proportions by age group. Distribution between age and categorical outcomes was assessed using the Chi-square test of independence, with significance set at P < 0.05. Analyses were performed using SPSS version 21.0. Results: Among 1,088 women (mean age: 41.56 ± 1.82 years), embryo formation occurred in 69.67% and ET in 62.22%. The CPR was 17.92%, MR 40%, and live birth rate 10.75%. CLBR per woman declined steeply with increasing age – 14.35% at 40 years, 9.63% at 42 years, and 0% beyond 47 years ( P < 0.05). Conclusion: CLBR in women aged >40 years declines markedly with advancing age, with negligible live birth rates beyond 45 years despite multiple cycles.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "3f0744e21285bfe02dd0bcaa2f328c2cc75569d3628ccefcbe32b063d2c959aa"
+      },
+      {
+        "pmid": "cr:10.3389/fcell.2025.1530953",
+        "title": "Association of endometrial thickness with live birth rates among women undergoing fresh IVF, FET, and PGT cycles",
+        "authors": "Huang Wenjie, Tang Juan, Wei Liuyan, Nong Liuying",
+        "year": "2025",
+        "journal": "Frontiers in Cell and Developmental Biology",
+        "doi": "10.3389/fcell.2025.1530953",
+        "url": "https://doi.org/10.3389/fcell.2025.1530953",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background Endometrial thickness (EMT) is a crucial indicator of endometrial receptivity in assisted reproductive technology (ART). However, its relationship with pregnancy outcomes remains unclear, especially across different cycle types such as fresh in vitro fertilization-embryo transfer (IVF-ET), frozen-thawed embryo transfer (FET), and preimplantation genetic testing for aneuploidy embryo transfer (PGT-ET). The clinical significance of EMT and its optimal range for improving ART outcomes remain subjects of debate. Methods This retrospective cohort study analyzed data from 80,585 ART cycles conducted between July 2008 and December 2022 at a private reproductive center, including 25,683 fresh IVF-ET, 33,112 FET, and 1,071 PGT-ET cycles. EMT was measured via ultrasound on the day of HCG administration and grouped into ranges for comparison. Primary outcomes included live birth rates (LBR) and clinical pregnancy rates (CPR) across EMT ranges. Statistical analyses, including chi-square tests, receiver operating characteristic (ROC) analysis, and adjusted risk ratio (aRR) calculations, were performed to evaluate the association between EMT and pregnancy outcomes. Results The relationship between EMT and LBR was non-linear, with no single cutoff value. LBR varied significantly across EMT ranges, peaking at approximately 12 mm in fresh IVF-ET cycles and around 10 mm in FET and PGT-ET cycles. Higher EMT was generally associated with improved LBR and CPR, but predictive power was limited (AUC: 0.56–0.60). Compared to an EMT of 10–11.9 mm, fresh IVF-ET cycles with EMT <10 mm had significantly lower LBR (aRR: 0.60–0.86), while those with EMT ≥12 mm had higher LBR (aRR: 1.12–1.17). Similar trends were observed in FET and PGT-ET cycles, although sensitivity to EMT variations was lower, particularly in PGT-ET cycles. Miscarriage rates (MR) showed no significant differences across EMT groups. Conclusion This study demonstrates that EMT has a non-linear association with LBR and CPR across fresh IVF-ET, FET, and PGT-ET cycles, with no single cutoff value. While higher EMT generally correlates with improved outcomes, its overall predictive value for LBR is limited. The findings underscore the need for individualized evaluation of EMT based on cycle type to optimize reproductive outcomes in ART.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "7743f9385f28f852e9eebfa33a07ad4182a0caff351871685a9b22bb7e21c3d9"
+      },
+      {
+        "pmid": "cr:10.1097/gco.0000000000000865",
+        "title": "Does PGT-A affect cumulative live birth rate?",
+        "authors": "Seckin Serin, Forman Eric J.",
+        "year": "2023",
+        "journal": "Current Opinion in Obstetrics & Gynecology",
+        "doi": "10.1097/gco.0000000000000865",
+        "url": "https://doi.org/10.1097/gco.0000000000000865",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Purpose of review Preimplantation genetic testing for the purpose of aneuploidy screening (PGT-A) has increased in use over the last decade. Recent findings Whether PGT-A benefits all of the patients that choose to employ it has been a concern, as recent studies have highlighted a potential decrease in cumulative live birth rate (CLBR) for younger patients undergoing embryo transfer. However, there are limitations to many of these studies and the intended benefit of PGT-A, which is to aid as a selection tool, thus increasing the live birth rate per transfer, must not be ignored. Summary PGT-A was never intended to increase CLBR. The purpose of PGT-A is to maximize the chance at live birth per transfer while minimizing the risk of clinical miscarriage, ongoing aneuploid pregnancy and futile transfers. However, if it harms CLBR in the process that has to be taken into consideration. This review will discuss PGT-A in terms of its benefits, risks, and how it has been shown to affect the cumulative live birth rate within in-vitro fertilization cycles.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "cd98742e46ff2f86c164a25f15e2f9d7822017c25eeea52bb1fd1a2ddba326d3"
       },
       {
         "pmid": "34027546",
@@ -258,30 +383,6 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "e1255e23bdae446604f6cbe211af42c79130c8cb8559a619818f4ff796f4ad85"
-      },
-      {
-        "pmid": "oax:W4317765086",
-        "title": "Does Pgt-A Increase the Live Birth Rate in Cases with Advanced Maternal Age?",
-        "authors": "Sevinç ÖZMEN, Esra Nur Tola",
-        "year": "2022",
-        "journal": "Türk Üreme Tıbbı ve Cerrahisi Dergisi",
-        "doi": "10.24074/tjrms.2022-93484",
-        "url": "https://doi.org/10.24074/tjrms.2022-93484",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Objective: It has been suggested that preimplantation genetic testing for aneuploidi (PGT-A) of embryos may increase the success of in vitro fertilization (IVF). However, since PGT is an invasive procedure, there is a concern that it may harm the embryo, Therefore, some clinicians are hesitant to perform this procedure. Based on this thought, we compared the pregnancy outcomes of women with advanced age, normal ovarian reserve, and good quality blastocyst who underwent PGD with those who did not. Materials and Methods: 85 cases aged ≥37 years and undergoing frozen good quality blastocyst transfer were retrospectively included in the study, Cases were divided into 2 groups according to the reason for freezing the blasts. The group whose embryos were frozen due",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "22c2ef4fcbf0d05070a653a10a57f34561f200e719e3c9b97d78d1bdfe617ffd"
       },
       {
         "pmid": "doi:10.3389/fendo.2026.1959981",
@@ -331,17 +432,40 @@
         "_sig": "cd8fbcf1b1150b824db47854a3bdc2b7f4c44c4dc4589875fa75ae50b6c44933"
       },
       {
-        "pmid": "37145374",
-        "title": "Antimüllerian hormone (AMH) and age as predictors of preimplantation genetic testing for aneuploidies (PGT-A) cycle outcomes and blastocyst quality on day 5 in women undergoing in vitro fertilization (IVF)",
-        "authors": "Ana Arnanz, Aşina Bayram, Ibrahim Elkhatib, Andrea Abdala",
-        "year": "2023",
-        "journal": "Journal of Assisted Reproduction and Genetics",
-        "doi": "10.1007/s10815-023-02805-z",
-        "url": "https://doi.org/10.1007/s10815-023-02805-z",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "cr:10.54053/001c.142083",
+        "title": "RATES OF UTILIZATION OF CONFIRMATORY GENETIC TESTING IN PATIENTS UNDERGOING IVF WITH PGT-A",
+        "authors": "Wyszewianski Miceaela, Boettcher Samantha, Lambert Emily, Bosler Jayme",
+        "year": "2025",
+        "journal": "North American Proceedings in Gynecology and Obstetrics - Supplemental",
+        "doi": "10.54053/001c.142083",
+        "url": "https://doi.org/10.54053/001c.142083",
+        "source": "crossref",
+        "pubType": "journal-article",
         "publicationTypes": [
-          "article"
+          "journal-article"
+        ],
+        "context": "Objective: Preimplantation genetic testing for aneuploidy (PGT-A) is increasingly utilized in the United States for patients undergoing In Vitro Fertilization (IVF). Given that PGTA is a screening test only, it is recommended that patients who undergo PGTA are offered confirmatory testing with chorionic villous sampling (CVS) or amniocentesis to confirm any evidence of aneuploidy. Previous studies have demonstrated a limited uptake of confirmatory diagnostic testing after PGTA, though these studies have included small sample sizes and have not compared rates of uptake to the general population. The objective of this study was to establish the rate of uptake of confirmatory genetic testing after use of IVF with PGTA in a large cohort of patients. Design: Retrospective cohort study. Materials and Methods: Retrospective chart review was performed on all patients who presented for delivery of a fetus at five different hospitals in Wisconsin. Patients were included if they had a delivery between January 2016 to December 2024. If patients had multiple pregnancies during the study period, only the first delivery was analyzed. Mann Whitney U tests were used to assess for differences in uptake of amniocentesis or chorionic villous sampling and noninvasive prenatal testing (NIPT) based on history of utilization of IVF with PGT-A. Results: 20,048 patients were included in this study. The overall rate of utilization of IVF was 2% (n=413). The overall rate of uptake of NIPT was 2.15% (n=442). The rate of utilization of amniocentesis or CVS was 0.85% (n=175). 47.94% (n=198) of patients who used IVF also used PGTA. Patients who underwent IVF with PGTA were not more likely than those who used IVF without PGTA to complete amniocentesis or CVS (0% vs 0%). Similarly, patients who used IVF with PGTA were not more likely than those who used IVF without PGTA to complete NIPT (0% vs 0%). These rates were similar to the rate of uptake of NIPT, amniocentesis, or CVS in the general population (0.86% and 2.2% respectively p=1 and p=0.0635). Conclusions: Patients who use IVF with PGTA do not complete additional screening to assess for fetal aneuploidy despite this being recommended to be offered to patients. Future research should assess the underlying reasons for the absence of uptake of additional screening in this patient population.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "3ab85167c141962ee446f50a86a7755b599e905cfb68ebda417818c329890ffd"
+      },
+      {
+        "pmid": "cr:10.1016/j.fertnstert.2024.05.089",
+        "title": "LIKELIHOOD OF OBTAINING A USABLE EMBRYO FOR TRANSFER AMONG PATIENTS UNDERGOING IVF WITH PGT-A + PGT-M COMPARED WITH PATIENTS UNDERGOING IVF WITH PGT-A ALONE",
+        "authors": "Martel Rachel A., Lee Mabel B., Schadwell Alessia, Siavoshi Mehrnaz",
+        "year": "2024",
+        "journal": "Fertility and Sterility",
+        "doi": "10.1016/j.fertnstert.2024.05.089",
+        "url": "https://doi.org/10.1016/j.fertnstert.2024.05.089",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
         ],
         "relevancePct": 43,
         "matchedElements": [
@@ -350,21 +474,21 @@
         ],
         "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "5c0ed7002db97c78116d2de616a8163f20f40e3efc4e15289555b5288a5ea2ef"
+        "_sig": "54fef1abe6adafed09132d0c3a04da8a9b702f62821fb928cc7d173f32d54d2e"
       }
     ],
     "corpusStats": {
-      "retrieved": 56,
-      "screened": 56,
+      "retrieved": 44,
+      "screened": 44,
       "blocked": 0,
-      "returned": 8,
-      "relaxationLevel": 2
+      "returned": 13,
+      "relaxationLevel": 1
     },
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 20
       },
       {
         "id": "pmc",
@@ -393,17 +517,17 @@
       },
       {
         "id": "crossref",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 20
       },
       {
         "id": "doaj",
         "ok": true,
-        "count": 1
+        "count": 2
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -422,11 +546,11 @@
         "id": "pubmed",
         "name": "PubMed",
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
-        "count": 0,
+        "count": 20,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "pmc",
@@ -464,9 +588,10 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -482,17 +607,17 @@
         "id": "crossref",
         "name": "CrossRef",
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
-        "count": 0,
+        "count": 20,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "doaj",
         "name": "DOAJ",
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
-        "count": 1,
+        "count": 2,
         "date": "2026-11-26",
         "attempted": true,
         "ok": true,
@@ -504,9 +629,9 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -514,9 +639,10 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -524,9 +650,10 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

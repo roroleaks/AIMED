@@ -1,6 +1,6 @@
 {
   "id": "ART-3",
-  "recordedAt": "2026-11-26T19:39:51.414Z",
+  "recordedAt": "2026-11-26T22:48:52.207Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -48,35 +48,35 @@
       "established": {
         "category": "established",
         "phrase": "In recurrent implantation failure (P), does endometrial receptivity array (I) compared with standard timing embryo transfer (C) improve live birth rate (O)?",
-        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 1 no-difference, 1 adverse).",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
       "conflicting": {
         "category": "conflicting",
         "phrase": "In recurrent implantation failure (P), is endometrial receptivity array (I) superior to standard timing embryo transfer (C) for live birth rate (O)?",
-        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
-        "supported": false,
-        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
       },
       "gap": {
         "category": "gap",
         "phrase": "In high-risk subgroups of recurrent implantation failure (P), does endometrial receptivity array (I) compared with standard timing embryo transfer (C) improve live birth rate (O) without additional adverse events (O)?",
-        "basis": "While overall efficacy has 8 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
-        "supported": true
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
     },
     "corpusStats": {
-      "retrieved": 23,
-      "screened": 23,
+      "retrieved": 25,
+      "screened": 25,
       "relaxationLevel": 0
     },
     "aiRefined": false,
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "pmc",
@@ -105,8 +105,8 @@
       },
       {
         "id": "crossref",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "doaj",
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -133,8 +133,8 @@
   "exploreRequest": {
     "stage": "explore",
     "choice": {
-      "category": "gap",
-      "phrase": "In high-risk subgroups of recurrent implantation failure (P), does endometrial receptivity array (I) compared with standard timing embryo transfer (C) improve live birth rate (O) without additional adverse events (O)?"
+      "category": "conflicting",
+      "phrase": "In recurrent implantation failure (P), is endometrial receptivity array (I) superior to standard timing embryo transfer (C) for live birth rate (O)?"
     },
     "words": [
       {
@@ -164,6 +164,139 @@
   "exploreResponse": {
     "records": [
       {
+        "pmid": "36472596",
+        "title": "Effect of Timing by Endometrial Receptivity Testing vs Standard Timing of Frozen Embryo Transfer on Live Birth in Patients Undergoing In Vitro Fertilization: A Randomized Clinical Trial",
+        "authors": "Doyle N, et al",
+        "year": "2022",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2022.20438",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36472596/",
+        "context": "IMPORTANCE: Endometrial receptivity testing is purported to improve live birth following frozen embryo transfer by identifying the optimal embryo transfer time for an individual patient; however, data are conflicting. OBJECTIVE: To compare live birth from single euploid frozen embryo transfer according to endometrial receptivity testing vs standardized timing. DESIGN, SETTING, AND PARTICIPANTS: Double-blind, randomized clinical trial at 30 sites within a multicenter private fertility practice in the Eastern US. Enrollment was from May 2018 to September 2020; follow-up concluded in August 2021. Participants underwent in vitro fertilization, preimplantation genetic testing for aneuploidy, endometrial receptivity testing, and frozen embryo transfer. Those with euploid blastocyst(s) and an informative receptivity result were randomized. Exclusion criteria included recurrent pregnancy loss, recurrent implantation failure, surgically aspirated sperm, donor egg(s), and unmitigated anatomic uterine cavity defects. INTERVENTIONS: The intervention group (n = 381) underwent receptivity-timed frozen embryo transfer, with adjusted duration of progesterone exposure prior to transfer, if indicated by receptivity testing. The control group (n = 386) underwent transfer at standard timing, regardless of receptivity test results. MAIN OUTCOMES AND MEASURES: The primary outcome was live birth. There were 3 secondary outcomes, including biochemical pregnancy and clinical pregnancy. RESULTS: Among 767 participants who were randomized (mean age, 35 years), 755 (98%) completed the trial. All randomized participants were analyzed. The primary outcome of live birth occurred in 58.5% of transfers (223 of 381) in the intervention group vs 61.9% of transfers (239 of 386) in the control group (difference, -3.4% [95% CI, -10.3% to 3.5%]; rate ratio [RR], 0.95 [95% CI, 0.79 to 1.13]; P = .38). There were no significant differences in the intervention vs the control group for the prespecified secondary outcomes, including biochemical pregnancy rate (77.2% vs 79.5%, respectively; difference, -2.3% [95% CI, -8.2% to 3.5%]; RR, 0.97 [95% CI, 0.83 to 1.14]; P = .48) and clinical pregnancy rate (68.8% vs 72.8%, respectively; difference, -4.0% [95% CI, -10.4% to 2.4%]; RR, 0.94 [95% CI, 0.80 to 1.12]; P = .25). There were no reported adverse events. CONCLUSIONS AND RELEVANCE: Among patients for whom in vitro fertilization yielded a euploid blastocyst, the use of receptivity testing to guide the timing of frozen embryo transfer, compared with standard timing for transfer, did not significantly improve the rate of live birth. The findings do not support routine use of receptivity testing to guide the timing of embryo transfer during in vitro fertilization. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03558399.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "3d564187f3c425e6e2b4fe3999c6e418eb855dfb57e907668f5d108acf98ae63"
+      },
+      {
+        "pmid": "cr:10.1093/humrep/deag083.888",
+        "title": "L26/P-555 Autologous platelet-derived growth factor therapy (Endosera) as a co-adjuvant to restore endometrial receptivity and improve live birth in recurrent implantation failure",
+        "authors": "Dhanabagyam D., Pradeepa D.S., Chari S., Palanivel V.",
+        "year": "2026",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deag083.888",
+        "url": "https://doi.org/10.1093/humrep/deag083.888",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Study question Can intrauterine autologous platelet-derived growth factor concentrate (Endosera) improve endometrial receptivity, implantation, and live birth rates in women with recurrent implantation failure? Summary answer Endosera significantly enhanced endometrial thickness, implantation, clinical pregnancy, and live birth rates in women with >2 failed euploid embryo transfers. What is known already Recurrent implantation failure (RIF) persists despite transfer of euploid embryos and is frequently linked to impaired endometrial receptivity rather than embryonic competence. When conventional therapies fail, surrogacy is often proposed. Platelet-rich plasma (PRP) has shown potential to improve implantation, possibly through angiogenesis, immunomodulation, and tissue repair, but clinical outcomes remain inconsistent due to variability in preparation, cellular content, and growth-factor concentration. A standardized, cell-free, implantation-phase–optimized platelet-derived growth factor preparation may more precisely restore the endometrial microenvironment required for successful embryo implantation. Study design, size, duration Prospective, interventional, self-controlled study conducted between September 2018 and December 2025, including 203 women aged 25–45 years with recurrent implantation failure and refractory thin endometrium undergoing frozen embryo transfer cycles. Participants/materials, setting, methods Women with >2 failed euploid embryo transfers, endometrial thickness <7 mm, normal hysteroscopy, negative bacteriological screening, and failure of prior immunomodulatory interventions were included. Endosera was administered intrauterinely in three personalized doses (cycle days 7, 12, and two days before embryo transfer) alongside standard hormone replacement therapy. Clinical pregnancy was defined by serum β-hCG positivity and ultrasound-confirmed fetal cardiac activity. Main results and the role of chance Following Endosera administration, mean endometrial thickness increased significantly from 6.8 ± 0.22 mm to 8.6 ± 0.31 mm (P < 0.001), with an optimal response (≥7 mm) achieved after the second dose in the majority of patients. Among the total treated cohort (n = 203), five cycles were cancelled due to persistently inadequate endometrial response.A total of 127 women proceeded to frozen embryo transfer. Pregnancy was achieved in 70/127 patients (55.1%). Clinical pregnancy was confirmed in 61/127 (47.7%), while 10/127 (7.5%) experienced biochemical pregnancy and 13/127 (10.3%) had early miscarriage. Live birth was achieved in 51/127 patients (40.2%), and an additional 19/127 (15.0%) had ongoing uncomplicated pregnancies beyond 24 weeks at the time of analysis. No maternal or procedure-related adverse events were observed.The consistent improvement in endometrial thickness, high progression to embryo transfer, and sustained reproductive outcomes in a cohort with repeated euploid implantation failure demonstrate a strong temporal association with Endosera treatment. Given the refractory baseline characteristics, the magnitude and reproducibility of these findings suggest effects unlikely attributable to chance alone. Limitations, reasons for caution Absence of randomization and a parallel control group limits causal inference. Larger randomized controlled trials are required to confirm efficacy and define optimal patient selection. Wider implications of the findings Endosera may represent a clinically relevant, patient-derived coadjuvant capable of restoring endometrial receptivity, reducing repeated failed transfers, and shortening time to live birth in severe recurrent implantation failure. Trial registration number No",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "aa360b43aa6786bc2ca125c0a5bc82fcdb1e8ae12ed7631b3de87b3179703b5c"
+      },
+      {
+        "pmid": "38682756",
+        "title": "Autologous platelet-rich plasma for assisted reproduction",
+        "authors": "Vaidakis D, et al",
+        "year": "2024",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD013875.pub2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38682756/",
+        "context": "BACKGROUND: Autologous platelet-rich plasma (PRP) consists of plasma and a concentrate of platelets extracted from fresh whole blood of the person being treated. Research has suggested that intrauterine or intraovarian infusion/injection of PRP before embryo transfer may improve endometrial receptivity and response to ovarian stimulation in women undergoing assisted reproduction. We compared these interventions to standard treatment, placebo, or other interventions (mechanical or pharmacological). OBJECTIVES: To assess the effectiveness and safety of intrauterine and intraovarian infusion/injection of platelet-rich plasma in infertile women undergoing assisted reproductive technology cycles. SEARCH METHODS: We searched the Cochrane Gynaecology and Fertility Group's Specialised Register, CENTRAL, MEDLINE, Embase, and the Epistemonikos database in January 2023. We also searched the reference lists of relevant articles and contacted the trial authors and experts in the field for any additional trials. SELECTION CRITERIA: We included randomized controlled trials (RCTs) that evaluated the application of PRP in the uterine cavity, ovaries, or both versus no intervention, placebo, or any other intervention (either mechanical or pharmacological) in women undergoing in vitro fertilization (IVF) or intracytoplasmic sperm injection (ICSI) cycles. DATA COLLECTION AND ANALYSIS: We followed standard methodological procedures recommended by Cochrane, including use of the updated risk of bias tool (RoB 2). The primary outcomes were live birth (or ongoing pregnancy) and miscarriage. The secondary outcomes were clinical pregnancy, complications of the procedure, multiple pregnancy, ectopic pregnancy, fetal growth restriction, preterm delivery, and fetal abnormality. We estimated the average effect of the interventions by fitting a Der Simonian-Laird's random-effects meta-analysis model. We reported pooled odds ratios (ORs) with 95% confidence intervals (CIs). We restricted the primary analyses to trials at low risk of bias for the outcomes and performed sensitivity analyses that included all studies. MAIN RESULTS: We included 12 parallel-group RCTs that recruited a total of 1069 women. We identified three different comparison groups. Using GRADE, we assessed the certainty of evidence as very low for almost all outcomes. Intrauterine injection/infusion of platelet-rich plasma versus no intervention or placebo Nine studies evaluated intrauterine PRP versus no intervention or placebo. Eight included women with at least two or three previous implantation failures. Only one was assessed at low risk of bias for each outcome. This study provided very low-certainty evidence about the effect of intrauterine PRP injection versus no intervention on live birth (OR 1.10, 95% CI 0.38 to 3.14; 94 women) and miscarriage (OR 0.96, 95% CI 0.13 to 7.09; 94 women). If the likelihood of live birth following no intervention is assumed to be 17%, then the likelihood following intrauterine PRP would be 7% to 40%; and if the risk of miscarriage following no intervention is 4%, then the risk following intrauterine PRP would be 1% to 24%. When we analyzed all studies (regardless of risk of bias), we found very low-certainty evidence about the effect of intrauterine PRP compared with placebo or no intervention on live birth or ongoing pregnancy (OR 2.38, 95% CI 1.16 to 4.86; I² = 54%; 6 studies, 564 women) and miscarriage (OR 1.54, 95% CI 0.59 to 4.01; I² = 0%; 5 studies, 504 women). The study at low risk of bias provided very low-certainty evidence about the effect of intrauterine PRP compared with no intervention on clinical pregnancy (OR 1.55, 95% CI 0.64 to 3.76; 94 women) and ectopic pregnancy (OR 2.94, 95% CI 0.12 to 73.95; 94 women). The synthesis of all studies provided very low-certainty evidence about the effect of intrauterine PRP compared with placebo or no intervention on clinical pregnancy (OR 2.22, 95% CI 1.50 to 3.27; I² = 24%; 9 studies, 824 women), multiple pregnancy (OR 2.68, 95% CI 0.81 to 8.88; I² = 0%; 2 studies, 240 women), and ectopic pregnancy (OR 2.94, 95% CI 0.12 to 73.95; 1 study, 94 women; very low-certainty evidence). Intrauterine infusion of PRP may increase the risk of preterm delivery compared with no intervention (OR 8.02, 95% CI 1.72 to 37.33; 1 study, 120 women; low-certainty evidence). No studies reported pain, infection, allergic reaction, fetal growth restriction, or fetal abnormality. Intrauterine infusion of platelet-rich plasma versus intrauterine infusion of granulocyte colony-stimulating factor Two RCTs evaluated intrauterine PRP versus intrauterine granulocyte colony-stimulating factor (G-CSF); both included women with thin endometrium, and neither was judged at low risk of bias for any outcome. We are uncertain about the effect of intrauterine PRP compared with intrauterine G-CSF on live birth (OR 0.88, 95% CI 0.43 to 1.81; 1 study, 132 women; very low-certainty evidence), miscarriage (OR 1.94, 95% CI 0.63 to 5.96; 1 study, 132 women; very low-certainty evidence), and clinical pregnancy (OR 1.24, 95% CI 0.66 to 2.35; 2 studies, 172 women; very low-certainty evidence). Neither study reported adverse outcomes other than miscarriage. Intraovarian injection of platelet-rich plasma versus no intervention One RCT evaluated PRP injection into both ovaries versus no intervention; it was judged at high risk of bias for the two outcomes it reported. We are uncertain about the effect of intraovarian PRP injection compared with no intervention on ongoing pregnancy (OR 1.09, 95% CI 0.33 to 3.63; 73 women; very low-certainty evidence) and clinical pregnancy (OR 0.90, 95% CI 0.31 to 2.60; 73 women; very low-certainty evidence). The study examined no safety outcomes. AUTHORS' CONCLUSIONS: We are uncertain about the effect of intrauterine or intraovarian administration of PRP on outcomes of assisted reproduction technology in infertile women. The pooled results should be interpreted with caution. Only one of the 12 included studies was judged at low risk of bias. Other limitations of the included trials were failure to report live birth, poor reporting of methods, lack of prospective protocol registration, low precision due to the small number of enrolled participants, indirectness due to the specific subpopulations and settings studied, and insufficient or absent safety data.",
+        "source": "pubmed",
+        "pubType": "Systematic Review",
+        "publicationTypes": [
+          "Systematic Review",
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "efed8c19baf56477e2877605990894fa381b855b9863c55c15e8221f64b2cf3f"
+      },
+      {
+        "pmid": "36414088",
+        "title": "Endometrial receptivity array before frozen embryo transfer cycles: a systematic review and meta-analysis",
+        "authors": "Arian SE, et al",
+        "year": "2023",
+        "journal": "Fertility and sterility",
+        "doi": "10.1016/j.fertnstert.2022.11.012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36414088/",
+        "context": "OBJECTIVE: To investigate the impact of endometrial receptivity array (ERA) before frozen embryo transfer in patients undergoing in vitro fertilization (IVF). There is a lack of consensus regarding the use of ERA for increasing the success rate of IVF cycles, mainly in terms of the live birth rate. DESIGN: PubMed, Web of Science and Embase were searched from inception up to February 15, 2022. SETTING: Not applicable. PATIENT(S): Patients undergoing ERA vs no ERA before frozen embryo transfer. INTERVENTION(S): Only comparative studies evaluating pregnancy rates of patients undergoing frozen embryo transfer cycles with or without prior ERA were included. Inter-study heterogeneity was also assessed using Cochrane's Q test and the I 2 statistic. The random-effects model was used to pool the odds ratio (OR) with the corresponding 95% confidence intervals (CIs). Subgroup analyses were performed to investigate the impact of ERA on pregnancy rates according to the number of previous embryo transfer (ET) failures (≤ 2 previous failed ETs vs. > 2 failed ETs, defined as recurrent implantation failure). Separate analyses were performed according to the study design and adjustment for confounders. MAIN OUTCOME MEASURES(S): The primary outcomes of the study were live birth rate and/or ongoing pregnancy rate. Implantation rate, biochemical pregnancy rate, clinical pregnancy rate, and miscarriage rate were considered secondary outcomes. RESULT(S): Eight studies (representing data on n = 2,784 patients; n = 831 had undergone ERA and n = 1,953 without ERA) were found to be eligible for this meta-analysis. The live birth or ongoing pregnancy rate for the ERA group was not significantly different compared with the non-ERA group (OR, 1.38; 95% CI, 0.79-2.41; I 2 83.0%), nor was a difference seen in subgroup analyses based on the number of previous failed ETs. The rates of implantation, biochemical pregnancy, clinical pregnancy, and miscarriage were also comparable between the ERA and the non-ERA groups. After separate analyses according to the study design and adjustment for confounding factors, overall pooled estimates remained statistically nonsignificant. CONCLUSION(S): The findings of the current meta-analysis did not reveal a significant change in the rate of pregnancy after IVF cycles using ERA, and it is not clear whether ERA can increase the pregnancy rate or not. SYSTEMATIC REVIEW REGISTRATION: Prospectively registered in PROSPERO (CRD42022310862).",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "9079960ea4b6d59ba983fbdd88b5d97e0da3be84b79fcba13efc0bef9b46a30c"
+      },
+      {
+        "pmid": "cr:10.1093/humrep/dead093.876",
+        "title": "P-533 Comparison of Endometrial Receptivity Array (ERA) with Preimplantation genetic testing (PGT) versus ERA alone in improving outcomes in Recurrent implantation failure.",
+        "authors": "Kaur S, Gedela D R, Mantravadi K C, Yakasiri V S",
+        "year": "2023",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/dead093.876",
+        "url": "https://doi.org/10.1093/humrep/dead093.876",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Study question Whether addition of Preimplantation Genetic Testing for aneuploidy (PGT-A) to Endometrial Receptivity Array (ERA) helps in improving success rates in Recurrent Implantation Failure (RIF) patients. Summary answer Addition of PGT-A intervention to ERA in RIF patients did not improve outcomes. What is known already RIF causes great emotional stress and financial burden for the infertile couple. Successful implantation requires a synchronous interaction between a competent blastocyst and a receptive endometrium. Though ERA, as a measure to assess window of implantation (WOI), is around a decade old, its role in improving success rates in patients with RIF is still controversial. PGT-A, as a tool for selecting euploid embryos, though has shown to be beneficial in women with advanced maternal age, its role in improving success rates in RIF needs further evaluation. Study design, size, duration This is a multicenter retrospective cohort study carried out from September 2015 till September 2022. 285 patients with RIF with previous failed transfers with ≥ 3 good quality embryos were included. Participants/materials, setting, methods 285 patients with RIF were divided into 2 groups. Group 1 underwent PGT-A and Personalised Embryo Transfer (pET) guided by ERA and Group 2 underwent only ERA followed by pET. In Group 1 patients, embryo biopsy was done on day 5 and day 6 blastocyst before cryopreservation and NGS platform was used to detect euploid embryos. Both groups then underwent ERA followed by pET in the next cycle. Main results and the role of chance In total of 285 RIF patients studied, 59.2% patients showed displaced WOI. 91.7% ERA reports were pre-receptive. Group 1 included 137 patients and Group 2 had 148 patients & baseline characteristics were similar in both the groups. Group 1 had more self transfer cycles, i.e. 76.7% self and 17.2% donor oocytes, as compared to Group 2 with 40.2% self and 30.7% donor oocyte cycles. The implantation rate (IR), live birth rate (LBR), miscarriage rate and cumulative LBR were similar in both the groups. Higher Pregnancy rate (PR) in Group 2 (70.9% vs 57.83%) could be attributed to higher donor cycles in this group. Multiple gestation rate was also higher in Group 2 (31.49% vs 11.21%) as 2 blastocysts were transferred in most cycles in group 2 compared to Single embryo transfer(SET) in most cycles in Group 1. As PR was higher in ERA group, subgroup analysis of self gamete transfers and donor oocyte transfers was also done, which showed similar PR, IR and LBR in both the groups. Hence, PGT failed to show any value in improving pregnancy outcomes in RIF. Limitations, reasons for caution Retrospective study design. Wider implications of the findings The role of PGT in improving clinical outcomes in RIF patients needs to be studied in larger prospective studies. In our study, ERA as an intervention improved outcomes in RIF. Trial registration number not applicable",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "2677d57385c06b4fa270a7de8f6e77358f9442a95cb3e85dd1be4291f73ececc"
+      },
+      {
         "pmid": "40221820",
         "title": "Novel endometrial receptivity test increases clinical pregnancy and live birth rates in patients with recurrent implantation failure: Secondary analysis of a prospective clinical trial",
         "authors": "Yu Zheng, Na Xu, Biao Chen, Jun Dai",
@@ -177,7 +310,7 @@
           "article"
         ],
         "context": "OBJECTIVES: This study aimed to evaluate the efficiency of endometrial receptivity testing (ERT) in improving pregnancy outcomes for patients with recurrent implantation failure (RIF), and to investigate the incidence of implantation window displacement. METHODS: Conducted between April 2021 and August 2022, at a university-affiliated reproductive center, the study included 85 RIF patients who had failed to achieve pregnancy after three embryo transfers. As part of a multicenter prospective cohort study (ChiCTR2200059342), 45 patients underwent ERT-guided frozen single blastocyst transfer, while 40 received standard treatment without ERT. Endometrial preparation was performed using a hormone replacement therapy (HRT) protocol in the cycle preceding transfer. Endometrial sampling for ERT, including RNA sequencing, artificial intelligence, and discriminant analysis of endometrial receptivity, was conducted on",
-        "relevancePct": 95,
+        "relevancePct": 90,
         "matchedElements": [
           "P",
           "I",
@@ -186,7 +319,7 @@
         ],
         "design": "Prospective Cohort Study",
         "lowMetadata": false,
-        "_sig": "7d0b894df0941243fb7256f98c8c71364019a723d0e3148bfa9425867ea9cfcc"
+        "_sig": "c6d3981bfd7b4d2d6ab1251dad9f6e7e151276832eb4f00cdecc22b4a8c4cf64"
       },
       {
         "pmid": "40614408",
@@ -202,7 +335,7 @@
           "article"
         ],
         "context": "RESEARCH QUESTION: Does pinopode detection or endometrial receptivity analysis (ERA) improve personalized embryo transfer (PET) outcomes in patients with recurrent implantation failure (RIF) more effectively? DESIGN: This retrospective study analysed 488 patients with RIF: 222 underwent pinopode detection, 81 underwent ERA and 185 served as controls without any testing. Propensity score matching was used to mitigate confounding factors, resulting in matched pairs: 108 pinopode controls, 66 ERA controls and 66 pinopode ERA. RESULTS: In matched pairs, the pinopode group showed significantly higher rates of embryo implantation (41.55% versus 27.01%, P = 0.002), biochemical pregnancy (69.44% versus 53.70%, P = 0.017), clinical pregnancy (60.19% versus 43.52%, P = 0.014) and live birth (53.70% versus 33.33%, P = 0.003) compared with controls.",
-        "relevancePct": 95,
+        "relevancePct": 90,
         "matchedElements": [
           "P",
           "I",
@@ -211,7 +344,7 @@
         ],
         "design": "Retrospective Study",
         "lowMetadata": false,
-        "_sig": "6023af99895ccd55826746ef22d9e89102a4f65d97f1613c4ba4356cc6e72900"
+        "_sig": "838627fb1bcd900a145e401a9628a8eb828a8533f3f64c0699fd9005d2c1aed3"
       },
       {
         "pmid": "37995756",
@@ -227,7 +360,7 @@
           "article"
         ],
         "context": "OBJECTIVE: In this retrospective study, we analyzed factors influencing the ongoing pregnancy rate (PR) in women with repeated implantation failure (RIF) undergoing embryo transfer with endometrial receptivity array (ERA). METHODS: Eighty-three consecutive personalized embryo transfers (pETs) with ERA, from 54 women with RIF, were selected from June 2020 to April 2022. Vitrified blastocyst transfer was timed based on ERA results. RESULTS: The ongoing PR per pET was 33.7%. Using ERA, the endometrium was identified as pre-receptive in 26 cycles, early receptive in 25 cycles, receptive in 31 cycles, and late receptive in one cycle. With cycles categorized into three receptivity phases (pre-receptive, early receptive, or receptive), no significant differences were found in the clinical PR (27.3%, 55.6%, and 40%, respectively)",
-        "relevancePct": 95,
+        "relevancePct": 90,
         "matchedElements": [
           "P",
           "I",
@@ -236,7 +369,7 @@
         ],
         "design": "Retrospective Study",
         "lowMetadata": false,
-        "_sig": "fd473fa43492bb632d1b4296d36920cbc08c1b719c6f81d06432e16cf2a8bb39"
+        "_sig": "f78882ebe6e3ca82fc8c75fc7301ac6e77402fdfefdac130f57b1f33d865129c"
       },
       {
         "pmid": "32725589",
@@ -252,7 +385,7 @@
           "article"
         ],
         "context": "The aim of this prospective study was to evaluate outcome benefits expected in repeated implantation failure (RIF) patients (n = 217) after customized embryo transfer based upon identification of the receptivity window by transcriptomic approach using the Win-Test. In this test, the expression of 11 endometrial genes known to be predictive of endometrial receptivity is assessed by RT-PCR in biopsies collected during the implantation window (6-9 days after the spontaneous luteinizing hormone surge during natural cycles, 5-9 days after progesterone administration during hormone replacement therapy cycles). Then, patients underwent either customized embryo transfer (cET, n = 157 patients) according to the Win-Test results or embryo transfer according to the classical procedure (control group, n = 60). Pregnancy and live birth",
-        "relevancePct": 95,
+        "relevancePct": 90,
         "matchedElements": [
           "P",
           "I",
@@ -261,7 +394,32 @@
         ],
         "design": "Prospective Study",
         "lowMetadata": false,
-        "_sig": "e98798ecdd5810cd120d42aee3e00727e26848e7446d9544a9ebdc7a0d00f4ab"
+        "_sig": "f683ce93aa433c4c0530b4695eff82377da6d6ae4a0f2bbf1ac5a60a7d28e46b"
+      },
+      {
+        "pmid": "cr:10.1186/s12905-024-03160-6",
+        "title": "Oil-soluble contrast medium bathing attenuated endometrial inflammation and improved endometrial receptivity in women with recurrent implantation failure: a descriptive study",
+        "authors": "Huang Qiuyan, Mo LinIing, Wang Junli, Qin Aiping",
+        "year": "2024",
+        "journal": "BMC Women's Health",
+        "doi": "10.1186/s12905-024-03160-6",
+        "url": "https://doi.org/10.1186/s12905-024-03160-6",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background The oil-soluble contrast medium used in hysterosalpingography has been shown to have a fertility-enhancing effect, but the underlying mechanism is unclear, especially regarding the role of window of implantation (WOI). This study aimed to assess the endometrial immunological impact of the WOI before and after bathing with the oil-soluble contrast medium in women with recurrent implantation failure (RIF). Methods This descriptive study involved two medical centers between December 18, 2019, and December 30, 2020. We included infertile women who underwent three or more transfer cycles, cumulative transplantation of at least four high-quality cleavage-stage embryos or three high-quality blastocysts without clinical pregnancy, and high-quality frozen embryos that were still available for implantation. Patients received 5 ml of ethiodized poppyseed oil bathing, endometrial biopsy around bathing, and frozen-thawed embryo transfer (FET) within four menstrual cycles after bathing. Patients were excluded if failure to complete anyone. Data on the baseline characteristics and clinical data of the FET cycles were collected, and endometrial biopsy specimens were collected in the luteal phase before and after bathing and subjected to immunohistochemistry. The number of CD56 and CD138 positive cells and H-score of expression of ανβ-3 and HOXA10 in endometrium were collected. Results Thirty-four patients were initially enrolled in the study; ultimately, twelve patients with a median age of 32.5 years (range 27–40 years) completed the research. The median number of embryo transfer cycles was three (range 3–8). A total of 4 of 12 women (33.33%) were diagnosed with chronic endometritis before oil-soluble contrast bathing. After bathing, the median numbers of CD138-positive cells in endometrium decreased from 0.75 (range 0–13.5) to 0.65 (range 0–6), P = 0.035; additionally, the H-score of expression of ανβ-3 in endometrium increased from 148.50 ± 31.63 to 175.58 ± 31.83, P < 0.001. The thickness of the endometrium also significantly increased (8.90 ± 1.45 mm vs.10.11 ± 1.98 mm, P = 0.005). However, no consistent changes were found in the expression of CD56 and HOXA10 in the endometrium. Five patients experienced biochemical pregnancies (41.67%), four had clinical pregnancies (33.33%), and three achieved live births following oil-soluble contrast bathing (25%). Conclusions These results suggest that oil-soluble contrast medium bathing decreased CD138-positive cells and upregulated expression of ανβ-3 during WOI in patients with RIF. This histological impact of endometrium may result in enhanced fertility during FET cycles. Investigating the ability of intrauterine bathing with lower-dosage oil-soluble contrast to improve pregnancy in the RIF population is warranted.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "4a49f8ce6a3908686e05b0c5ae8a1341cfd7305678cbe5b02664267a7b109e31"
       },
       {
         "pmid": "35386362",
@@ -277,7 +435,7 @@
           "article"
         ],
         "context": "Purpose: To assess the clinical efficacy of personalized embryo transfer (pET) guided by a new endometrial receptivity test, ERPeakSM, in patients with recurrent implantation failure (RIF). Methods: Recurrent implantation failure patients of all ages at two private Japanese clinics from April 2019 to June 2020 were retrospectively analyzed. The intervention group (n = 244) received pET in accordance with endometrial receptivity testing results and was compared to control group (n = 306) receiving standardized timing, non-personalized embryo transfer (npET). In propensity score matching analysis, the clinical pregnancy rate (CPR) and live birth rate (LBR) were compared between groups, and a subanalysis of advanced maternal age (AMA) (≥38 years old) versus non-AMA (<38 years old) patients was also conducted. Results: The",
-        "relevancePct": 90,
+        "relevancePct": 85,
         "matchedElements": [
           "P",
           "I",
@@ -286,47 +444,50 @@
         ],
         "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "bf94eb3c5670aa3f6e7906d21bfcce0d89168c19b48866af5f08db3b14c540ca"
+        "_sig": "9914873b526aed5d489e73a896dbab01d38fa4c65b26fbfbac09768466816889"
       },
       {
-        "pmid": "39872313",
-        "title": "The use of propensity score matching to assess the effectiveness of the endometrial receptivity analysis in patients with recurrent implantation failure",
-        "authors": "Shuang Yu, Yongjie Zhang, Na Li, Zhuolun Su",
-        "year": "2025",
-        "journal": "Frontiers in Endocrinology",
-        "doi": "10.3389/fendo.2024.1402575",
-        "url": "https://doi.org/10.3389/fendo.2024.1402575",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "37129654",
+        "title": "Prednisone vs Placebo and Live Birth in Patients With Recurrent Implantation Failure Undergoing In Vitro Fertilization: A Randomized Clinical Trial",
+        "authors": "Sun Y, et al",
+        "year": "2023",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2023.5302",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37129654/",
+        "context": "IMPORTANCE: Implantation failure remains a critical barrier to in vitro fertilization. Prednisone, as an immune-regulatory agent, is widely used to improve the probability of implantation and pregnancy, although the evidence for efficacy is inadequate. OBJECTIVE: To determine the efficacy of 10 mg of prednisone compared with placebo on live birth among women with recurrent implantation failure. DESIGN, SETTING, AND PARTICIPANTS: A double-blind, placebo-controlled, randomized clinical trial conducted at 8 fertility centers in China. Eligible women who had a history of 2 or more unsuccessful embryo transfer cycles, were younger than 38 years when oocytes were retrieved, and were planning to undergo frozen-thawed embryo transfer with the availability of good-quality embryos were enrolled from November 2018 to August 2020 (final follow-up August 2021). INTERVENTIONS: Participants were randomized (1:1) to receive oral pills containing either 10 mg of prednisone (n = 357) or matching placebo (n = 358) once daily, from the day at which they started endometrial preparation for frozen-thawed embryo transfer through early pregnancy. MAIN OUTCOMES AND MEASURES: The primary outcome was live birth, defined as the delivery of any number of neonates born at 28 or more weeks' gestation with signs of life. RESULTS: Among 715 women randomized (mean age, 32 years), 714 (99.9%) had data available on live birth outcomes and were included in the primary analysis. Live birth occurred among 37.8% of women (135 of 357) in the prednisone group vs 38.8% of women (139 of 358) in the placebo group (absolute difference, -1.0% [95% CI, -8.1% to 6.1%]; relative ratio [RR], 0.97 [95% CI, 0.81 to 1.17]; P = .78). The rates of biochemical pregnancy loss were 17.3% in the prednisone group and 9.9% in the placebo group (absolute difference, 7.5% [95% CI, 0.6% to 14.3%]; RR, 1.75 [95% CI, 1.03 to 2.99]; P = .04). Of those in the prednisone group, preterm delivery occurred among 11.8% and of those in the placebo group, 5.5% of pregnancies (absolute difference, 6.3% [95% CI, 0.2% to 12.4%]; RR, 2.14 [95% CI, 1.00 to 4.58]; P = .04). There were no statistically significant between-group differences in the rates of biochemical pregnancy, clinical pregnancy, implantation, neonatal complications, congenital anomalies, other adverse events, or mean birthweights. CONCLUSIONS AND RELEVANCE: Among patients with recurrent implantation failure, treatment with prednisone did not improve live birth rate compared with placebo. Data suggested that the use of prednisone may increase the risk of preterm delivery and biochemical pregnancy loss. Our results challenge the value of prednisone use in clinical practice for the treatment of recurrent implantation failure. TRIAL REGISTRATION: Chinese Clinical Trial Registry Identifier: ChiCTR1800018783.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
         "publicationTypes": [
-          "article"
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
         ],
-        "context": "Background: One potential cause of implantation failure is abnormal endometrial receptivity, and how to objectively evaluate endometrial receptivity has been a matter of great concern. Endometrial receptivity analysis (ERA), a next-generation sequencing-based test that assesses endometrial gene expression, may be valuable in predicting endometrial receptivity, but whether ERA improves pregnancy outcomes in patients with recurrent implantation failure (RIF) is currently controversial. The purpose of this study was to investigate the effect of ERA on pregnancy outcomes in patients with RIF. Methods: We performed a retrospective cohort study analysis for a population of patients with RIF undergoing frozen embryo transfer (FET) cycles in the reproductive center of the Third Affiliated Hospital of Zhengzhou University from January 2019 to December 2022(n=1598). FET",
-        "relevancePct": 71,
+        "relevancePct": 74,
         "matchedElements": [
           "P",
-          "I",
-          "C"
+          "C",
+          "O"
         ],
-        "design": "Retrospective Cohort Study",
+        "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "8b5824ac4a2f336b85fe5a71ff0a9ff7249f063031b5b2e67781ad1ac21041b2"
+        "_sig": "021adcae569c4ee8751ae434fc9bd04938b37d6ce609235fe74b268fec3367fc"
       },
       {
-        "pmid": "oax:W4396551426",
-        "title": "Endometrial Receptivity Array—A Promising Remedy for Women Afflicted with Recurrent Implantation Failure: A Case Report",
-        "authors": "Deepti Shrivastava, Shrutika S Khapre, Mangesh D Hivre",
+        "pmid": "cr:10.12688/f1000research.147461.1",
+        "title": "Case Report: The combined effect of endometrial receptivity array and laser assisted hatching on embryo implantation in repeated implantation failure case",
+        "authors": "Ulhe Shradha, Shrivastava Jarul, Khemani Shivani, dakre Sudhanshu",
         "year": "2024",
-        "journal": "Journal of South Asian Federation of Obstetrics and Gynaecology",
-        "doi": "10.5005/jp-journals-10006-2410",
-        "url": "https://doi.org/10.5005/jp-journals-10006-2410",
-        "source": "openalex",
-        "pubType": "article",
+        "journal": "F1000Research",
+        "doi": "10.12688/f1000research.147461.1",
+        "url": "https://doi.org/10.12688/f1000research.147461.1",
+        "source": "crossref",
+        "pubType": "journal-article",
         "publicationTypes": [
-          "article"
+          "journal-article"
         ],
-        "context": "Aim and background: An endometrial receptivity array (ERA) is a test for assessing the endometrium's gene expression profile concerning receptivity for embryo implantation.The primary significance of the ERA test is its ability to objectively assess the window of implantation (WOI), thereby facilitating the development of the personalized embryo transfer (pET) concept.Case description: A patient, aged 38 years, married for 16 years, a case of secondary infertility, had three unsuccessful attempts of intrauterine insemination and six unsuccessful attempts of In vitro fertilization (IVF).Given her history of recurrent implantation failures (RIF), she underwent the ERA test.The ERA indicated a pre-receptive result.She conceived in the very first attempt of ERA-guided pET.The patient delivered a female child at 34 weeks by a lower segment",
-        "relevancePct": 71,
+        "context": "This case report describes a couple with nine years of primary infertility and three failed in vitro fertilization (IVF) attempts that showed no reproductive abnormality. Negative results were observed following the conventional IVF protocol. The couple then insisted on laser-assisted hatching (LAH) and endometrial receptivity analysis (ERA). The ERA results showed a specific window for embryo implantation, and accordingly, the treatment was carried out, which resulted in seven good-quality oocytes, leading to the formation of four blastocyst-stage embryos. These embryos were then frozen, single embryo transfer (ET) was performed following the ERA results, and the embryos were successfully implanted. The βhCG level was 245 mIU/mL, indicating that the female had successfully conceived. This case highlights the challenges of a thick zona pellucida and recurrent implantation failure (RIF), defining how a personalized method combining both LAH and ERA could lead to successful implantation.",
+        "relevancePct": 73,
         "matchedElements": [
           "P",
           "I",
@@ -334,22 +495,46 @@
         ],
         "design": "Case Report",
         "lowMetadata": false,
-        "_sig": "2815bf79fce37e4d192412e88bd59904aabef79aea222ee416764113c371eed5"
+        "_sig": "bc547b33d6a5a7aaa1a36abf6a52edc8b1c9e95a155b8d6e65ab195f5012d1fe"
       },
       {
-        "pmid": "oax:W4211026885",
-        "title": "Personalized embryo transfer after endometrial receptivity array test in patients with recurrent unexplained implantation failure",
-        "authors": "Nagwan Ahmed Bahgat, Waleed Said",
-        "year": "2022",
-        "journal": "International Journal of Reproduction Contraception Obstetrics and Gynecology",
-        "doi": "10.18203/2320-1770.ijrcog20220380",
-        "url": "https://doi.org/10.18203/2320-1770.ijrcog20220380",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "cr:10.58779/issn.2954-467x.tjor2023.v2.n1.16",
+        "title": "Assessing endometrial receptivity after recurrent implantation failure in euploid embryo transfer: a retrospective study in private clinic",
+        "authors": "Luján-Irastorza Jesús Estuardo",
+        "year": "2023",
+        "journal": "The Journal of Reproduction",
+        "doi": "10.58779/issn.2954-467x.tjor2023.v2.n1.16",
+        "url": "https://doi.org/10.58779/issn.2954-467x.tjor2023.v2.n1.16",
+        "source": "crossref",
+        "pubType": "journal-article",
         "publicationTypes": [
-          "article"
+          "journal-article"
         ],
-        "context": "Background: Unexplained recurrent implantation failure is a devastating situation for both patients and the doctor treating them, with transfer of high grade euploid embryos this situation became more related to the endometrial receptivity and the interaction between the embryo and the endometrium. Till now the best way of detecting endometrial receptivity was through endometrial receptivity array of gene in endometrial tissue.Methods: A retrospective study was carried out in large IVF center in Abu Dhabi in period from 2017-2021. Patients included in the study were infertile patients with age limit of 43 years old with history of repeated IVF failure after multiple transfer trials of high grade embryos. All patients had ERA test then frozen embryo transfer of Euploid high grade",
+        "context": "Objective: To analyze whether endometrial receptivity evaluation, prior to euploid embryo transfer, improves the success rate in patients with recurrent implantation failure (RIF). Methods: Retrospective, observational, cross-sectional study, which included couples undergoing assisted reproduction techniques (2021), who experienced RIF after transfer of good quality, euploid blastocysts (analyzed with PGT-A). Three groups were formed, which depended on the result of ERA: 1) Receptive, 2) Pre-receptive and 3) Early receptive. Results: Of the 100% of the patients, 43% presented a normal window of implantation. However, 61.5% showed a higher prevalence of natural killer alterations and 42.8% of thrombophilias. In the case of patients with altered endometrial receptivity, they presented a cumulative implantation rate higher than 70% when correcting controlled ovarian stimulation. Conclusions: More than half of the patients with RIF have a displaced implantation window and may benefit from a personalized adjustment of the endometrial stimulation protocol. Thus, couples with idiopathic RIF or associated with thrombophilias and immunological factors, benefit from the study of endometrial receptivity.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "a0a3f4feca6357bfb14a16f1d44715b828481babb1742b5c3afba3d3399d896b"
+      },
+      {
+        "pmid": "cr:10.11648/j.jgo.20221002.13",
+        "title": "Displacement of Window of Implantation in Cases of Unexplained Recurrent Implantation Failure as Detected by Endometrial Receptivity Array Testing",
+        "authors": "Ahmed Bahgat Nagwan, Syed Waleed",
+        "year": "2022",
+        "journal": "Journal of Gynecology and Obstetrics",
+        "doi": "10.11648/j.jgo.20221002.13",
+        "url": "https://doi.org/10.11648/j.jgo.20221002.13",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Patients with recurrent implantation failure had to be extensively studied to find way to achieve clinical pregnancy, it is well known that defects in the embryo or the endometrium or the alteration between both could be the reason. Exclusion of the possibilities of embryo abnormalities could help us to concentrate on the endometrial factors of failure. In this study we concentrated on endometrial receptivity displacement as a factor of implantation failure in patients with recurrent unexplained IVF failure. This is done through studying gene expression of endometrium in those cases to determine the receptivity timing and the window of implantation. Through retrospective study of 93 patients with recurrent implantation failure who underwent endometrial receptivity array testing, we found that the incidence of non-receptive endometrium in such cases was 45% 38 patients of 83 which is higher than other studies in the same field. Prevalence of pre receptive endometrium in those cases more than post receptive, Indicates the need to more exposure to Progesterone to achieve receptivity. Polycystic ovarian syndrome patients included in this study showed also high incidence of non-receptive endometrium10 out of 11patients (90.9%). In conclusion personalized embryo transfer according to ERA test could be useful to this category of patients. However larger studies are needed in the same group of patient",
         "relevancePct": 71,
         "matchedElements": [
           "P",
@@ -358,7 +543,7 @@
         ],
         "design": "Retrospective Study",
         "lowMetadata": false,
-        "_sig": "ab85bc555c5803c78aa82bfb7ecf0e8b5a890af328f670e1921955b4d10cbf97"
+        "_sig": "ed229fd48fe170267bc835c1f903f2c53249b2023af817a8e1dfb68c7fc3b4ea"
       },
       {
         "pmid": "35911354",
@@ -383,54 +568,6 @@
         "design": "Retrospective Study",
         "lowMetadata": false,
         "_sig": "53a51ecfe05f5ce6f8dc2c8f0d74abffd9d5875cc809e306e010445c1f7b5181"
-      },
-      {
-        "pmid": "oax:W3175861391",
-        "title": "Clinical applications of endometrial receptivity tests in patients with recurrent implantation failure",
-        "authors": "Ioan Boleac, Manuela Neagu, Anca Magdalena Coricovac, Dorina Codreanu",
-        "year": "2021",
-        "journal": "Romanian Journal of Medical Practice",
-        "doi": "10.37897/rjmp.2021.1.14",
-        "url": "https://doi.org/10.37897/rjmp.2021.1.14",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Recurrent implantation failure is represented by the failure to achieve a clinical pregnancy after transfer of at least 4 good-quality embryos in a minimum of 3 fresh or frozen cycles in a woman under the age of 40 years. One of the recent approaches in studying the window of implantation was building the expression profile of the genes of the endometrial cells. We performed a retrospective study which investigated if endometrial receptivity tests improved the outcomes of IVF procedures in patients with recurrent implantation failure. We enrolled 47 couples with RIF and divided them in 2 groups: the first group of 22 couples performed the ERA test and the embryo transfer according to the result of the test; the second",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Retrospective Study",
-        "lowMetadata": false,
-        "_sig": "7153d0301c21c39fb5626c8cb7c3a4148aaa49c75c032e6d35a497c52293ccaf"
-      },
-      {
-        "pmid": "33910562",
-        "title": "The role of transcriptomic biomarkers of endometrial receptivity in personalized embryo transfer for patients with repeated implantation failure",
-        "authors": "Aihua He, Yangyun Zou, Cheng Wan, Jing Zhao",
-        "year": "2021",
-        "journal": "Journal of Translational Medicine",
-        "doi": "10.1186/s12967-021-02837-y",
-        "url": "https://doi.org/10.1186/s12967-021-02837-y",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: Window of implantation (WOI) displacement is one of the endometrial origins of embryo implantation failure, especially repeated implantation failure (RIF). An accurate prediction tool for endometrial receptivity (ER) is extraordinarily needed to precisely guide successful embryo implantation. We aimed to establish an RNA-Seq-based endometrial receptivity test (rsERT) tool using transcriptomic biomarkers and to evaluate the benefit of personalized embryo transfer (pET) guided by this tool in patients with RIF. METHODS: This was a two-phase strategy comprising tool establishment with retrospective data and benefit evaluation with a prospective, nonrandomized controlled trial. In the first phase, rsERT was established by sequencing and analyzing the RNA of endometrial tissues from 50 IVF patients with normal WOI timing. In the second phase, 142",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Non-Randomized Controlled Trial",
-        "lowMetadata": false,
-        "_sig": "73a2884f7c9be192ca637a0a826096429d536bc26cac928c0ecb7b097ac3a99a"
       },
       {
         "pmid": "32998580",
@@ -481,67 +618,19 @@
         "_sig": "9604234131835694fee1a6962af519a4f716de55ade027e8772529281582734a"
       },
       {
-        "pmid": "oax:W4407571310",
-        "title": "Enhanced pregnancy outcomes with intrauterine platelet-rich plasma infusion in women following failed personalized embryo transfer guided by endometrial receptivity assay",
-        "authors": "Nalini Kaul, Meenu Sharma, Snigdha Pathak",
-        "year": "2025",
-        "journal": "International Journal of Reproduction Contraception Obstetrics and Gynecology",
-        "doi": "10.18203/2320-1770.ijrcog20250359",
-        "url": "https://doi.org/10.18203/2320-1770.ijrcog20250359",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "cr:10.70107/collectjgynecolobstet-art0018",
+        "title": "Modulation of Endometrial Receptivity by Immune Cells: Insights into Recurrent Implantation Failure (RIF) and Recurrent Miscarriage – A Narrative Review",
+        "authors": "Academic Authors",
+        "year": "2024",
+        "journal": "Collective Journal of Gynecology and Obstetrics",
+        "doi": "10.70107/collectjgynecolobstet-art0018",
+        "url": "https://doi.org/10.70107/collectjgynecolobstet-art0018",
+        "source": "crossref",
+        "pubType": "journal-article",
         "publicationTypes": [
-          "article"
+          "journal-article"
         ],
-        "context": "Background: Altered endometrial receptivity is an important cause of implantation failure. The embryo-endometrial asynchrony due to ovarian stimulation in IVF cycles contributes to low success rates. Frozen embryo transfer (FET) has become popular a method to overcome this asynchrony. Endometrial receptivity array (ERA) is a molecular test that differentiates a receptive from a non-receptive endometrium. Studies suggest that a personalised embryo transfer (pET) guided by ERA in FET cycles, improves pregnancy rates in recurrent implantation failure (RIF) patients. Despite pET not all patients achieve implantation. Intrauterine infusion of platelet-rich plasma (IUPRP) is emerging as an innovative technique to enhance fertility outcomes in patients with impaired endometrial receptivity. Platelet rich plasma (PRP) contains an abundance of growth factors and cytokines thought",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "16f4310793e3b4563144842a49047b7145b228602c63aca613dc530db57ab2cd"
-      },
-      {
-        "pmid": "36339409",
-        "title": "The RNA-seq based endometrial receptivity test (rsERT) compared to pinopode: A better diagnostic tool for endometrial receptivity for patients with recurrent implantation failure in Chinese population",
-        "authors": "Jingjing Chen, Aihua He, Qiong Zhang, Jing Zhao",
-        "year": "2022",
-        "journal": "Frontiers in Endocrinology",
-        "doi": "10.3389/fendo.2022.1009161",
-        "url": "https://doi.org/10.3389/fendo.2022.1009161",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Displaced window of implantation (WOI) is one of the endometrial origins that accounts for implantation failure, especially for patients with recurrent implantation failure (RIF), yet no standard diagnostic tool has been recognized. The study consists of two parts, aiming to compare the concordance and efficacy of the diagnostic tools, the newly developed RNA-seq based endometrial receptivity test (rsERT) to the conventional pinopode, in diagnosing WOI and guiding personalized embryo transfer (pET). With the same group of RIF patients, the rsERT diagnosed 32 patients (65.31%) with normal WOIs, and most of the displacements were advancements (30.61%). While according to pinopode, only 14 patients (28.57%) were found with normal WOIs, and most patients (63.27%) presented delayed growth patterns. After conducting pET, patients",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "3c9a190e59e0515c70f86414ab351fb1e8501d9b6cf38f111ed7c3f10a630d46"
-      },
-      {
-        "pmid": "oax:W2897168423",
-        "title": "Modern methods of influence at endometrial receptivity in patients with recurrent implantation failure (review)",
-        "authors": "M I Polovneva, I. Korneeva, Olga Bourmenskaya",
-        "year": "2018",
-        "journal": "GYNECOLOGY",
-        "doi": "10.26442/2079-5696_2018.3.66-70",
-        "url": "https://doi.org/10.26442/2079-5696_2018.3.66-70",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Objective. To carry out an analysis of the data available in scientific literature on modern methods of influence at endometrial receptivity in patients with recurrent implantation failure. Materials and methods. The review includes the data of foreign and Russia papers published on PubMed during the last 7-10 years. Results. There are studies described the role of endometrial scratching, infusion granulocyte colony stimulating factor, autologous peripheral blood mononuclear cells, autologous platelet-rich plasma, the endometrial receptivity array in treatment for patients with repeated implantation failure. Conclusion. Several adjuvant therapies and diagnostic tests have been used along with IVF to increase the pregnancy rates for women with repeated implantation failure. Perhaps a new test-system to find personal predictors of endometrial receptivity can tern",
+        "context": "Immune cells play a crucial role in endometrial receptivity for embryo implantation and placental development. These cells influence tissue remodeling and immune regulation, facilitating epithelial attachment, controlling decidual cell differentiation, remodeling uterine vasculature, resolving inflammation, and suppressing damaging immune responses against paternal alloantigens. Biologically, endometrial immune reactions impact the regulation of implantation, promoting success when conditions are favorable and restricting receptivity when physiological circumstances are not optimal.Women with recurrent implantation failure (RIF) and recurrent miscarriage often display altered numbers or dysfunction of key uterine immune cell populations, particularly uterine natural killer (uNK) cells and regulatory T cells (Tregs). Preclinical and animal studies suggest that insufficient or abnormal activation of these cells can contribute to infertility through various pathophysiological mechanisms. As a result, these immune cells are increasingly becoming targets for diagnostic investigations and therapeutic interventions.However, current diagnostic methods are relatively simple and have limited utility. To better understand the complexity of uterine immune cell disturbances, more comprehensive diagnostic approaches are needed. Furthermore, safe and effective interventions for modulating immune cells are still in their early stages, with a need for individualized treatment strategies tailored to specific diagnostic findings.This narrative review, based on a search of PubMed, Web of Science, Medline, Embase, Cochrane Reviews, and Google Scholar using MeSH terms such as \"endometrial receptivity,\" \"implantation,\" \"uNK cells,\" \"Treg cells,\" \"RIF,\" and \"pregnancy,\" aims to highlight current insights and identify knowledge gaps that must be addressed before effective therapies targeting uterine immune cells can be developed for clinical use.",
         "relevancePct": 53,
         "matchedElements": [
           "P",
@@ -549,7 +638,7 @@
         ],
         "design": "Narrative Review",
         "lowMetadata": false,
-        "_sig": "df02b2f550e51dfe3eb4dde5d8d7a24e04b7967a563cd5b24b70f179bc2e0acf"
+        "_sig": "26a60ec622098c708032f9e77fcca3d188ca77946d8b79af0f2d35d848fb7152"
       },
       {
         "pmid": "39789542",
@@ -573,43 +662,20 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "86a33daf91133b69f40c00b5a7502b9dfa49c31fe610fc353252db4d25bbaf15"
-      },
-      {
-        "pmid": "30787520",
-        "title": "Window of implantation is significantly displaced in patients with adenomyosis with previous implantation failure as determined by endometrial receptivity assay",
-        "authors": "Nalini Mahajan, Simrandeep Kaur, Maria Ruíz-Alonso",
-        "year": "2018",
-        "journal": "Journal of Human Reproductive Sciences",
-        "doi": "10.4103/jhrs.jhrs_52_18",
-        "url": "https://doi.org/10.4103/jhrs.jhrs_52_18",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: Adenomyosis is associated with implantation failure and poor reproductive performance in IVF/ICSI cycles. AIMS: To compare if window of implantation (WOI) is displaced in patients having adenomyosis compared to controls using endometrial receptivity array (ERA) test. SETTINGS AND DESIGN: Retrospective Case control study. 374 patients with previous one or more IVF failures who underwent ERA test between 2013-2016 at our centre were enrolled. Patients were divided into two groups; Group A-36 patients with adenomyosis (study group) and Group B- 338 patients without adenomyosis (controls). STATISTICAL ANALYSIS: Normality assumptions for continuous variables were tested using Kolmogorov Smirnov test. Mean values of two groups were compared using Student's t-independent test. Frequency data by categories were compared using Chi-square/Fisher's exact test. Risk",
-        "relevancePct": 48,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "5245ca3c9b29fa00d1ed5bd8530b91b6c4b54adecdf31db5d46e0a16d66cdb5b"
       }
     ],
     "corpusStats": {
-      "retrieved": 23,
-      "screened": 23,
+      "retrieved": 30,
+      "screened": 30,
       "blocked": 0,
-      "returned": 18,
+      "returned": 20,
       "relaxationLevel": 0
     },
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "pmc",
@@ -638,8 +704,8 @@
       },
       {
         "id": "crossref",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "doaj",
@@ -648,7 +714,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -667,11 +733,11 @@
         "id": "pubmed",
         "name": "PubMed",
         "query": "recurrent implantation failure endometrial receptivity array standard timing embryo transfer live birth rate",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "pmc",
@@ -727,11 +793,11 @@
         "id": "crossref",
         "name": "CrossRef",
         "query": "recurrent implantation failure endometrial receptivity array standard timing embryo transfer live birth rate",
-        "count": 0,
+        "count": 25,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "doaj",
@@ -749,9 +815,9 @@
         "query": "recurrent implantation failure endometrial receptivity array standard timing embryo transfer live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -774,6 +840,6 @@
         "skipped": "cooldown"
       }
     ],
-    "hasMore": false
+    "hasMore": true
   }
 }

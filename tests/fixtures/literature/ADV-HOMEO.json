@@ -1,6 +1,6 @@
 {
   "id": "ADV-HOMEO",
-  "recordedAt": "2026-11-26T19:40:17.991Z",
+  "recordedAt": "2026-11-26T22:49:29.466Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -61,8 +61,8 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of IVF (P), does homeopathy (I) compared with placebo (C) improve live birth (O)?",
-        "basis": "No screened record addresses 'placebo' — comparative evidence for this element is missing.",
+        "phrase": "In IVF (P), does homeopathy (I) compared with [comparator not specified] (C) improve live birth (O)?",
+        "basis": "No screened record addresses 'homeopathy' — comparative evidence for this element is missing.",
         "supported": true
       }
     },
@@ -75,8 +75,8 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "pmc",
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -134,7 +134,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of IVF (P), does homeopathy (I) compared with placebo (C) improve live birth (O)?"
+      "phrase": "In IVF (P), does homeopathy (I) compared with [comparator not specified] (C) improve live birth (O)?"
     },
     "words": [
       {
@@ -160,186 +160,8 @@
       "seen": []
     }
   },
-  "exploreStatus": 200,
+  "exploreStatus": 400,
   "exploreResponse": {
-    "records": [],
-    "corpusStats": {
-      "retrieved": 63,
-      "screened": 63,
-      "blocked": 0,
-      "returned": 0,
-      "relaxationLevel": 2
-    },
-    "sources": [
-      {
-        "id": "pubmed",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "pmc",
-        "ok": true,
-        "count": 20
-      },
-      {
-        "id": "europepmc",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "googlescholar",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "semanticscholar",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "openalex",
-        "ok": true,
-        "count": 20
-      },
-      {
-        "id": "crossref",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "doaj",
-        "ok": true,
-        "count": 20
-      },
-      {
-        "id": "clinicaltrials",
-        "ok": true,
-        "count": 24
-      },
-      {
-        "id": "cochrane",
-        "ok": false,
-        "count": 0
-      },
-      {
-        "id": "preprints",
-        "ok": false,
-        "count": 0
-      }
-    ],
-    "searchLog": [
-      {
-        "id": "pubmed",
-        "name": "PubMed",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
-      },
-      {
-        "id": "pmc",
-        "name": "PMC",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 20,
-        "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
-      },
-      {
-        "id": "europepmc",
-        "name": "Europe PMC",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
-      },
-      {
-        "id": "googlescholar",
-        "name": "Google Scholar",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "no_key"
-      },
-      {
-        "id": "semanticscholar",
-        "name": "Semantic Scholar",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
-      },
-      {
-        "id": "openalex",
-        "name": "OpenAlex",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 20,
-        "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
-      },
-      {
-        "id": "crossref",
-        "name": "CrossRef",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "CrossRef HTTP 429"
-      },
-      {
-        "id": "doaj",
-        "name": "DOAJ",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 20,
-        "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
-      },
-      {
-        "id": "clinicaltrials",
-        "name": "ClinicalTrials.gov",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 24,
-        "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
-      },
-      {
-        "id": "cochrane",
-        "name": "Cochrane Library",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
-      },
-      {
-        "id": "preprints",
-        "name": "Preprints",
-        "query": "IVF homeopathy placebo live birth",
-        "count": 0,
-        "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
-      }
-    ],
-    "hasMore": true
+    "error": "Phrase does not contain submitted word: \"placebo\""
   }
 }
