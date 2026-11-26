@@ -1,6 +1,6 @@
 {
   "id": "PRESET-cardiology-cad-pci-cabg",
-  "recordedAt": "2026-11-26T19:41:39.467Z",
+  "recordedAt": "2026-11-26T23:00:01.388Z",
   "specialty": "cardiology",
   "words": [
     {
@@ -303,6 +303,59 @@
         "_sig": "0970a895547c9787fc2fb766c474d6a6507e47a53a0d0c8f9322b41abb43e097"
       },
       {
+        "pmid": "doi:10.1186/s13098-026-02232-x",
+        "title": "Preoperative empagliflozin and ventricular remodeling after coronary artery bypass grafting in type 2 diabetes: a prespecified analysis of the POST-CABGDM randomized trial",
+        "authors": "Vinícius Oro Popp, Fabio Grunspun Pitta, Giovanna Daneluz de Brito, Júlia Oro Popp",
+        "year": "2026",
+        "journal": "Diabetology & Metabolic Syndrome",
+        "doi": "10.1186/s13098-026-02232-x",
+        "url": "https://doi.org/10.1186/s13098-026-02232-x",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Type 2 diabetes mellitus (T2DM) and coronary artery disease (CAD) are associated with adverse ventricular remodeling. Coronary artery bypass grafting (CABG) with cardiopulmonary bypass (CPB) may further contribute to myocardial injury through inflammatory and ischemia–reperfusion mechanisms. Sodium–glucose cotransporter 2 inhibitors (SGLT2i) have demonstrated cardioprotective effects, including reduction in left ventricular mass, but their impact in the perioperative setting of cardiac surgery remains unclear. Methods This study is a prespecified secondary analysis of the open-label randomized POST-CABGDM trial (NCT04523064). Patients with T2DM and multivessel CAD undergoing CABG with CPB were randomized to receive empagliflozin 25 mg once daily or standard antidiabetic therapy. SGLT2i were discontinued 3 days before surgery and were not protocol-mandated postoperatively. Transthoracic echocardiography was performed preoperatively and at 1–6 months postoperatively. The primary endpoint was the change in left ventricular mass index (ΔLVMI). Secondary endpoints included changes in left ventricular ejection fraction (ΔLVEF) and ventricular dimensions. Results A total of 118 patients were included (53 in the intervention group and 65 in the control group). Baseline characteristics were well balanced. No significant difference was observed in ΔLVMI between groups (− 1.39 ± 18.7 vs. −4.55 ± 16.8 g/m²; p = 0.337), and this finding remained unchanged after adjustment for baseline LVMI. Similarly, no differences were found in ΔLVEF or ventricular dimensions. Surgical characteristics and postoperative complications were comparable. In a separate exploratory, non-randomized multivariable analysis, continued use of SGLT2i during follow-up was associated with a higher likelihood of LVMI reduction (OR 4.69; 95% CI 1.20–18.40; p = 0.03). Conclusions Preoperative empagliflozin use was not associated with significant short-term changes in LVMI, LVEF, or ventricular dimensions after CABG with CPB. Exploratory, non-randomized analyses suggested an association between continued SGLT2i use during follow-up and LVMI reduction, but these findings should be considered hypothesis-generating and require confirmation in prospective studies designed to evaluate sustained perioperative and postoperative therapy. Trial registration ClinicalTrials.gov NCT04523064. Graphical abstract",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "670308a791e8ab98f0823d208ea17821bf04879dbcfe6373719e55c553f978d7"
+      },
+      {
+        "pmid": "34793745",
+        "title": "Percutaneous coronary intervention with drug-eluting stents versus coronary artery bypass grafting in left main coronary artery disease: an individual patient data meta-analysis",
+        "authors": "Sabatine MS, et al",
+        "year": "2021",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(21)02334-5",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34793745/",
+        "context": "BACKGROUND: The optimal revascularisation strategy for patients with left main coronary artery disease is uncertain. We therefore aimed to evaluate long-term outcomes for patients treated with percutaneous coronary intervention (PCI) with drug-eluting stents versus coronary artery bypass grafting (CABG). METHODS: In this individual patient data meta-analysis, we searched MEDLINE, Embase, and the Cochrane database using the search terms \"left main\", \"percutaneous coronary intervention\" or \"stent\", and \"coronary artery bypass graft*\" to identify randomised controlled trials (RCTs) published in English between database inception and Aug 31, 2021, comparing PCI with drug-eluting stents with CABG in patients with left main coronary artery disease that had at least 5 years of patient follow-up for all-cause mortality. Two authors (MSS and BAB) identified studies meeting the criteria. The primary endpoint was 5-year all-cause mortality. Secondary endpoints were cardiovascular death, spontaneous myocardial infarction, procedural myocardial infarction, stroke, and repeat revascularisation. We used a one-stage approach; event rates were calculated by use of the Kaplan-Meier method and treatment group comparisons were made by use of a Cox frailty model, with trial as a random effect. In Bayesian analyses, the probabilities of absolute risk differences in the primary endpoint between PCI and CABG being more than 0·0%, and at least 1·0%, 2·5%, or 5·0%, were calculated. FINDINGS: Our literature search yielded 1599 results, of which four RCTs-SYNTAX, PRECOMBAT, NOBLE, and EXCEL-meeting our inclusion criteria were included in our meta-analysis. 4394 patients, with a median SYNTAX score of 25·0 (IQR 18·0-31·0), were randomly assigned to PCI (n=2197) or CABG (n=2197). The Kaplan-Meier estimate of 5-year all-cause death was 11·2% (95% CI 9·9-12·6) with PCI and 10·2% (9·0-11·6) with CABG (hazard ratio 1·10, 95% CI 0·91-1·32; p=0·33), resulting in a non-statistically significant absolute risk difference of 0·9% (95% CI -0·9 to 2·8). In Bayesian analyses, there was an 85·7% probability that death at 5 years was greater with PCI than with CABG; this difference was more likely than not less than 1·0% (<0·2% per year). The numerical difference in mortality was comprised more of non-cardiovascular than cardiovascular death. Spontaneous myocardial infarction (6·2%, 95% CI 5·2-7·3 vs 2·6%, 2·0-3·4; hazard ratio [HR] 2·35, 95% CI 1·71-3·23; p<0·0001) and repeat revascularisation (18·3%, 16·7-20·0 vs 10·7%, 9·4-12·1; HR 1·78, 1·51-2·10; p<0·0001) were more common with PCI than with CABG. Differences in procedural myocardial infarction between strategies depended on the definition used. Overall, there was no difference in the risk of stroke between PCI (2·7%, 2·0-3·5) and CABG (3·1%, 2·4-3·9; HR 0·84, 0·59-1·21; p=0·36), but the risk was lower with PCI in the first year after randomisation (HR 0·37, 0·19-0·69). INTERPRETATION: Among patients with left main coronary artery disease and, largely, low or intermediate coronary anatomical complexity, there was no statistically significant difference in 5-year all-cause death between PCI and CABG, although a Bayesian approach suggested a difference probably exists (more likely than not <0·2% per year) favouring CABG. There were trade-offs in terms of the risk of myocardial infarction, stroke, and revascularisation. A heart team approach to communicate expected outcome differences might be useful to assist patients in reaching a treatment decision. FUNDING: No external funding.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "750ae06020f48b931c05debf1e5ea3e1d4c4d432575e32123a3e85af06673c9b"
+      },
+      {
         "pmid": "doi:10.21608/zumj.2026.500861.4645",
         "title": "Coronary Artery Disease in Patients with Diabetic Kidney Disease: Challenges and Contemporary Revascularization Strategies",
         "authors": "Mahmoud Abdelrashid, Ahmed Ammar, Abdulrahman Ibrahim, Shimaa El Abdeen",
@@ -353,57 +406,29 @@
         "_sig": "329363a79ca5d45ea9298f448f560896e92b0620c5a7127a0153dc5e6ecae392"
       },
       {
-        "pmid": "42647226",
-        "title": "Multivessel Versus Single-Vessel Coronary Endarterectomy as an Adjunct to Coronary Artery Bypass Grafting: A Meta-Analysis of Short-Term Outcomes and Implications for Target-Vessel Selection.",
-        "authors": "Hon JJ, Arjomandi Rad A, Tahir A, Salagean E, Moscarelli M, Magouliotis DE, Casula R, Athanasiou T.",
-        "year": "2026",
-        "journal": "Interdisciplinary cardiovascular and thoracic surgery",
-        "doi": "10.1093/icvts/ivag238",
-        "url": "https://europepmc.org/article/PMC/PMC13730572",
-        "source": "pmc",
-        "pubType": "Meta-Analysis, review-article, Journal Article",
+        "pmid": "17846304",
+        "title": "Outcomes of Coronary Artery Bypass Grafting Versus Percutaneous Coronary Intervention With Drug-Eluting Stents for Patients With Multivessel Coronary Artery Disease",
+        "authors": "Aamir Javaid, Daniel Howard Steinberg, Ashesh N. Buch, Paul J. Corso",
+        "year": "2007",
+        "journal": "Circulation",
+        "doi": "10.1161/circulationaha.106.681148",
+        "url": "https://doi.org/10.1161/circulationaha.106.681148",
+        "source": "openalex",
+        "pubType": "article",
         "publicationTypes": [
-          "Meta-Analysis",
-          "review-article",
-          "Journal Article"
+          "article"
         ],
-        "context": "Objectives Coronary endarterectomy (CE) extends complete revascularization to patients with diffuse coronary disease unsuitable for conventional bypass but adds perioperative risk to coronary artery bypass grafting (CABG). Whether the number of vessels endarterectomized influences early outcomes has not been formally synthesized. We compared short-term outcomes of single-vessel and multivessel CE-CABG. Methods MEDLINE, Embase, and CENTRAL were searched for studies of CE-CABG reporting outcomes stratified by single-vessel vs multivessel CE within the same cohort. The primary outcome was 30-day or in-hospital mortality. Risk ratios (RR) were pooled using DerSimonian-Laird random-effects models. Sensitivity analyses included leave-one-out analysis, Hartung-Knapp-Sidik-Jonkman (HKSJ) adjustment, and univariate meta-regression on study-level covariates. Risk of bias was assessed with ROBINS-I. Results Nine studies (1988-2022; 7302 patients; 4731 single-vessel CE, 2571 multivessel CE) met inclusion criteria. Multivessel CE was associated with higher mortality (RR, 2.59; 95% CI, 1.78-3.77), higher perioperative myocardial infarction (RR, 2.09; 95% CI, 1.67-2.62), and higher stroke (RR, 1.62; 95% CI, 1.01-2.61). Intra-aortic balloon pump use did not differ. Findings were stable on leave-one-out, HKSJ adjustment, and exclusion of pre-2000 studies. No single covariate accounted for the multivessel effect on meta-regression. Conclusions Multivessel CE substantially increases early mortality and infarction relative to single-vessel CE. The signal is consistent across analyses but the evidence is largely retrospective and unadjusted. These data support a selective approach to CE in which the prognostic value of each target vessel is weighed against the cumulative operative cost, rather than routine extension of endarterectomy to multiple territories.",
-        "relevancePct": 76,
+        "context": "BACKGROUND: Advances in coronary artery bypass grafting (CABG) surgery and percutaneous coronary intervention (PCI) with drug-eluting stents have dramatically improved results of these procedures. The optimal treatment for patients with multivessel coronary artery disease is uncertain given the lack of prospective, randomized data reflecting current practice. This study represents a \"real-world\" evaluation of current technology in the treatment of multivessel coronary artery disease. METHODS AND RESULTS: A total of 1680 patients undergoing revascularization for multivessel coronary artery disease were identified. Of these, 1080 patients were treated for 2-vessel disease (196 CABG and 884 PCI) and 600 for 3-vessel disease (505 CABG and 95 PCI). One-year mortality, cerebrovascular events, Q-wave myocardial infarction, target vessel failure, and composite major adverse cardiovascular and",
+        "relevancePct": 85,
         "matchedElements": [
           "P",
           "I",
+          "C",
           "O"
         ],
-        "design": "Meta-Analysis",
+        "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "85ec61ddcb36a385a1b09bb52e5a959e9443af32c4d961af2aeccb2fff52121a"
-      },
-      {
-        "pmid": "42798486",
-        "title": "Triglyceride-glucose index as a metabolic risk marker for adverse outcomes after coronary artery bypass grafting: a systematic review and meta-analysis.",
-        "authors": "Zhang Y, Zeng Y, Ning Y, Wang H, Yang X, Liao X, Zhang Z.",
-        "year": "2026",
-        "journal": "Frontiers in endocrinology",
-        "doi": "10.3389/fendo.2026.1909829",
-        "url": "https://europepmc.org/article/PMC/PMC13612311",
-        "source": "pmc",
-        "pubType": "Meta-Analysis, Systematic Review, systematic-review, Journal Article",
-        "publicationTypes": [
-          "Meta-Analysis",
-          "Systematic Review",
-          "systematic-review",
-          "Journal Article"
-        ],
-        "context": "Aims To evaluate the prognostic value of the triglyceride-glucose index (TyG), a surrogate marker of insulin resistance, for adverse cardiovascular outcomes in patients undergoing coronary artery bypass grafting (CABG). Materials and methods This systematic review and meta-analysis was conducted in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. Studies evaluating the association between the TyG index and postoperative outcomes after CABG were retrieved from four databases as of Jul 10, 2026. Multivariable-adjusted hazard ratios (HRs) with 95% confidence intervals (CIs) were used as the primary effect estimates for major adverse cardiovascular events (MACE), with separate analyses conducted for each 1-unit increase in the TyG index and for TyG index tertiles. Crude odds ratios (ORs) comparing the higher TyG group with the lower TyG group were estimated as a supplementary event-based analysis. Results Six retrospective cohort reports, comprising 5,978 participants and four independent cohort families, were included, with two being multi-center studies. Each 1-unit increase in the TyG index was associated with a 62.4% higher hazard of MACE (HR: 1.624, 95% CI: 1.349-1.955). Compared with the lowest tertile group, the highest tertile group demonstrated a statistically higher hazard of MACE (HR = 2.093, 95% CI: 1.635-2.680). A higher TyG index was associated with higher odds of MACE (OR: 2.59, 95% CI: 1.97-3.40). In addition, a higher TyG index was associated with an elevated risk of all-cause mortality, nonfatal stroke, and nonfatal myocardial infarction, but was not associated with revascularization. Conclusion The TyG index may serve as an accessible supplementary metabolic risk marker following CABG. Further prospective validation is required before it is routinely applied to individual risk prediction. Systematic review registration https://www.crd.york.ac.uk/PROSPERO/, identifier CRD420251158075.",
-        "relevancePct": 76,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Systematic Review and Meta-Analysis",
-        "lowMetadata": false,
-        "_sig": "bf9e0e42e12a7966035989a4bc3b52747c278707a70f407b05487dc278bc8355"
+        "_sig": "27b03137f0d16a70647876e8c391ba75c99e80ad85e0229eb449dcd934cf503b"
       },
       {
         "pmid": "29478841",
@@ -642,31 +667,6 @@
         "design": "Retrospective Cohort Study",
         "lowMetadata": false,
         "_sig": "c69669a49cc3b1f35bbeb3457427d222cacd71dab8b6504b326958e9760ed01d"
-      },
-      {
-        "pmid": "43005645",
-        "title": "Transient Type 1 Brugada ECG Pattern in a Patient With Severe Coronary Artery Disease.",
-        "authors": "Khan A, Elmobark M, Chen X, Swanson N, Ahmad M.",
-        "year": "2026",
-        "journal": "Cureus",
-        "doi": "10.7759/cureus.117717",
-        "url": "https://europepmc.org/article/PMC/PMC13746131",
-        "source": "pmc",
-        "pubType": "Journal Article, Case Reports, case-report",
-        "publicationTypes": [
-          "Journal Article",
-          "Case Reports",
-          "case-report"
-        ],
-        "context": "A type 1 Brugada electrocardiographic (ECG) pattern is characteristic of Brugada syndrome but may also occur in association with reversible clinical conditions, including myocardial ischaemia. We describe a 49-year-old man with type 2 diabetes mellitus, severe hypercholesterolaemia and a strong family history of premature ischaemic heart disease who presented with crescendo angina. His admission ECG demonstrated a type 1 Brugada pattern, with subsequent ECGs showing dynamic anterior ischaemic changes. Coronary angiography demonstrated extensive multivessel coronary artery disease, and the patient underwent urgent surgical revascularisation following Heart Team discussion. Serial postoperative ECGs demonstrated complete resolution of the type 1 pattern despite continuation of his regular medication, including mirtazapine. In the absence of arrhythmic syncope, documented ventricular arrhythmia, previous cardiac arrest or a family history of sudden cardiac death, sodium-channel blocker provocation testing was not pursued. Although latent Brugada syndrome cannot be definitively excluded, the temporal relationship between myocardial ischaemia, revascularisation and ECG normalisation supports an ischaemia-associated Brugada phenotype.",
-        "relevancePct": 55,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Case Report",
-        "lowMetadata": false,
-        "_sig": "5ffccf3ec1d12845c620b3491430d3dc8ec1d98e8d20e56db7e65c682e1d38cc"
       }
     ],
     "corpusStats": {
@@ -684,8 +684,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 30
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -748,11 +748,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "multivessel coronary artery disease, diabetes mellitus coronary artery bypass grafting (CABG) percutaneous coronary intervention (PCI) major adverse cardiovascular and cerebrovascular events (MACCE)",
-        "count": 30,
+        "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
       },
       {
         "id": "europepmc",
@@ -760,9 +760,10 @@
         "query": "multivessel coronary artery disease, diabetes mellitus coronary artery bypass grafting (CABG) percutaneous coronary intervention (PCI) major adverse cardiovascular and cerebrovascular events (MACCE)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "googlescholar",
@@ -780,9 +781,10 @@
         "query": "multivessel coronary artery disease, diabetes mellitus coronary artery bypass grafting (CABG) percutaneous coronary intervention (PCI) major adverse cardiovascular and cerebrovascular events (MACCE)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -840,9 +842,10 @@
         "query": "multivessel coronary artery disease, diabetes mellitus coronary artery bypass grafting (CABG) percutaneous coronary intervention (PCI) major adverse cardiovascular and cerebrovascular events (MACCE)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
       }
     ],
     "hasMore": true

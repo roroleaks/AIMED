@@ -1,6 +1,6 @@
 {
   "id": "PRESET-orthopedics-acl-reconstruction-rehab",
-  "recordedAt": "2026-11-26T19:50:00.219Z",
+  "recordedAt": "2026-11-26T23:06:53.681Z",
   "specialty": "orthopedics",
   "words": [
     {
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -722,7 +722,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -763,10 +763,9 @@
         "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "skipped": "cooldown"
       },
       {
         "id": "googlescholar",
@@ -824,9 +823,9 @@
         "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -844,9 +843,10 @@
         "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

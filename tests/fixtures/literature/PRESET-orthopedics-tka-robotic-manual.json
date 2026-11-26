@@ -1,6 +1,6 @@
 {
   "id": "PRESET-orthopedics-tka-robotic-manual",
-  "recordedAt": "2026-11-26T19:49:35.873Z",
+  "recordedAt": "2026-11-26T23:06:30.384Z",
   "specialty": "orthopedics",
   "words": [
     {
@@ -770,10 +770,9 @@
         "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "googlescholar",
@@ -851,9 +850,10 @@
         "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

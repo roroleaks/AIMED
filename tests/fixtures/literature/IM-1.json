@@ -1,6 +1,6 @@
 {
   "id": "IM-1",
-  "recordedAt": "2026-11-26T22:49:09.337Z",
+  "recordedAt": "2026-11-26T22:58:31.761Z",
   "specialty": "internal_med",
   "words": [
     {
@@ -164,28 +164,31 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "40600034",
-        "title": "Fluid resuscitation in adults with severe infection and sepsis: a systematic review and network meta-analysis",
-        "authors": "Song B, et al",
-        "year": "2025",
-        "journal": "Frontiers in medicine",
-        "doi": "10.3389/fmed.2025.1543586",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/40600034/",
-        "context": "INTRODUCTION: The choice of optimal resuscitation fluid for patients with septic shock remains a controversial topic. The 2021 Sepsis Surviving Campaign Guidelines strongly recommend using crystalloids as the first-line resuscitation fluid for adults with sepsis or septic shock, with balanced crystalloids as a weak recommendation. However, two large-scale network meta-analyses in 2020 concluded that balanced crystalloids are most advantageous. This study reevaluates the efficacy and safety of different resuscitation fluids in septic shock through a network meta-analysis (NMA). METHODS: Databases including PubMed, EMBASE, and WOS were searched, and reference lists of relevant literature up to September 2024 were reviewed. Studies involving adult patients with sepsis requiring fluid resuscitation were selected. The fluids covered include balanced crystalloid (BC), saline, iso-oncotic albumin (Iso-Alb), hyper-oncotic albumin (Hyper-Alb), low molecular weight hydroxyethyl starch (L-HES), high molecular weight hydroxyethyl starch (HES), and gelatin. A network meta-analysis was conducted to assess the effects of different fluid types. RESULTS: A total of 32 RCTs were included in the analysis. The NMA probability ranking results show that balanced crystalloid (BC) had the lowest all-cause mortality rate, with the highest SUCRA value (83.1%). Gelatin was shown to confer the greatest advantage in terms of kidney injury, with the highest SUCRA value (80.7%). Hyper-oncotic albumin had the lowest occurrence of renal replacement therapy events, showing the highest SUCRA value (94.1%). Patients treated with balanced crystalloids had the shortest ICU stays and hospital lengths of stay. CONCLUSION: Balanced solutions (BS) are the preferred resuscitation fluids for septic shock. High molecular weight hydroxyethyl starch (H-HES) is associated with increased risks of mortality, acute kidney injury (AKI), and renal replacement therapy (RRT), as well as prolonged hospital stays, and its use is advised against. Gelatin is associated with poorer outcomes in terms of mortality, continuous renal replacement therapy (CRRT), and length of hospital stay. SYSTEMATIC REVIEW REGISTRATION: Registration ID: INPLASY2024100049 https://doi.org/10.37766/inplasy2024.10.0049.",
+        "pmid": "33317590",
+        "title": "Resuscitation fluid types in sepsis, surgical, and trauma patients: a systematic review and sequential network meta-analyses",
+        "authors": "Tseng CH, et al",
+        "year": "2020",
+        "journal": "Critical care (London, England)",
+        "doi": "10.1186/s13054-020-03419-y",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33317590/",
+        "context": "BACKGROUND: Crystalloids and different component colloids, used for volume resuscitation, are sometimes associated with various adverse effects. Clinical trial findings for such fluid types in different patients' conditions are conflicting. Whether the mortality benefit of balanced crystalloid than saline can be inferred from sepsis to other patient group is uncertain, and adverse effect profile is not comprehensive. This study aims to compare the survival benefits and adverse effects of seven fluid types with network meta-analysis in sepsis, surgical, trauma, and traumatic brain injury patients. METHODS: Searched databases (PubMed, EMBASE, and Cochrane CENTRAL) and reference lists of relevant articles occurred from inception until January 2020. Studies on critically ill adults requiring fluid resuscitation were included. Intervention studies reported on balanced crystalloid, saline, iso-oncotic albumin, hyperoncotic albumin, low molecular weight hydroxyethyl starch (L-HES), high molecular weight HES, and gelatin. Network meta-analyses were conducted using random-effects model to calculate odds ratio (OR) and mean difference. Risk of Bias tool 2.0 was used to assess bias. Confidence in Network Meta-Analysis (CINeMA) web application was used to rate confidence in synthetic evidence. RESULTS: Fifty-eight trials (n = 26,351 patients) were identified. Seven fluid types were evaluated. Among patients with sepsis and surgery, balanced crystalloids and albumin achieved better survival, fewer acute kidney injury, and smaller blood transfusion volumes than saline and L-HES. In those with sepsis, balanced crystalloids significantly reduced mortality more than saline (OR 0.84; 95% CI 0.74-0.95) and L-HES (OR 0.81; 95% CI 0.69-0.95) and reduced acute kidney injury more than L-HES (OR 0.80; 95% CI 0.65-0.99). However, they required the greatest resuscitation volume among all fluid types, especially in trauma patients. In patients with traumatic brain injury, saline and L-HES achieved lower mortality than albumin and balanced crystalloids; especially saline was significantly superior to iso-oncotic albumin (OR 0.55; 95% CI 0.35-0.87). CONCLUSIONS: Our network meta-analysis found that balanced crystalloids and albumin decreased mortality more than L-HES and saline in sepsis patients; however, saline or L-HES was better than iso-oncotic albumin or balanced crystalloids in traumatic brain injury patients. TRIAL REGISTRATION: PROSPERO website, registration number: CRD42018115641).",
         "source": "pubmed",
         "publicationTypes": [
           "Journal Article",
-          "Systematic Review"
+          "Research Support, Non-U.S. Gov't",
+          "Systematic Review",
+          "Network Meta-Analysis"
         ],
-        "relevancePct": 81,
+        "relevancePct": 100,
         "matchedElements": [
           "P",
           "I",
+          "C",
           "O"
         ],
-        "design": "Systematic Review",
+        "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
-        "_sig": "7dc57a403fca4ec4e5ac8d73bf2f9542666d35e2efd4dfda8a8c9d43c8966106"
+        "_sig": "e28c177dfa8bfd28c833bb9590b82642ee743e6a7cced6f004757409e3ce5cb6"
       },
       {
         "pmid": "42964407",

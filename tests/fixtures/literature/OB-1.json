@@ -1,6 +1,6 @@
 {
   "id": "OB-1",
-  "recordedAt": "2026-11-26T22:49:02.302Z",
+  "recordedAt": "2026-11-26T22:58:29.219Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -740,9 +740,10 @@
         "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
       },
       {
         "id": "googlescholar",
@@ -820,9 +821,10 @@
         "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": false

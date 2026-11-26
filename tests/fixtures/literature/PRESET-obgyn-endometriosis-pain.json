@@ -1,6 +1,6 @@
 {
   "id": "PRESET-obgyn-endometriosis-pain",
-  "recordedAt": "2026-11-26T19:41:19.855Z",
+  "recordedAt": "2026-11-26T22:59:27.874Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -75,8 +75,8 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "pmc",
@@ -115,8 +115,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 7
       },
       {
         "id": "cochrane",
@@ -164,28 +164,152 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "cr:10.5301/je.5000207",
-        "title": "Impact of Surgical Excision of Deep Infiltrating Bowel Endometriosis on Health-Related Quality of Life: Review of Current Literature",
-        "authors": "Arendas Kristina, Foster Warren G., Leyland Nicholas A.",
-        "year": "2015",
-        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
-        "doi": "10.5301/je.5000207",
-        "url": "https://doi.org/10.5301/je.5000207",
-        "source": "crossref",
-        "pubType": "journal-article",
+        "pmid": "42900597",
+        "title": "Nutritional supplements in the treatment of endometriosis-associated symptoms: a systematic review",
+        "authors": "Seven M, et al",
+        "year": "2026",
+        "journal": "Reproduction & fertility",
+        "doi": "10.1530/RAF-26-0079",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42900597/",
+        "context": "ABSTRACT: Dietary supplements and antioxidant therapies are frequently used by women with endometriosis to improve symptoms; however, their clinical effectiveness remains unclear. This systematic review evaluated the effects of dietary supplements on pain, quality of life (QoL), fertility outcomes, and lesion progression in women with endometriosis. MEDLINE via PubMed, Embase, and the Cochrane Library were searched for randomized controlled trials (RCTs). The eligibility criteria included women with diagnosed endometriosis receiving dietary supplements compared with placebo, no treatment, or standard care. Findings were narratively synthesized, and risk of bias was assessed using RoB 2. Twenty-four RCTs, involving 2,019 participants, were included. Pain findings were heterogeneous. Improvements across multiple pain domains were reported with nanomicellar curcumin, used either alone or as an adjunct to dienogest, selenium added to dienogest, Proscur, and garlic; vitamin and melatonin findings were mixed, while omega-3 fatty acids, conventional curcumin, and resveratrol showed no clear benefit. QoL outcomes were similarly heterogeneous: nanocurcumin plus dienogest, Proscur, and postoperative multinutrient therapy improved overall or disease-specific QoL, whereas most other interventions showed no between-group benefit. Fertility outcomes were limited to intermediate markers of reproductive success, which improved in some studies but did not lead to higher pregnancy rates. Evidence on lesion progression was limited; adjunctive nanocurcumin and selenium reduced endometrioma size, while postoperative multinutrient supplementation did not reduce recurrence. Dietary supplements may improve selected symptom-related outcomes, but effects were intervention-specific and evidence remains insufficient to support their routine use as standalone treatments. Further adequately powered trials are needed. LAY SUMMARY: Endometriosis is a condition where tissue similar to the lining of the uterus (endometrium) grows outside the uterus, which can cause severe chronic pelvic pain, limit quality of life, and lead to infertility. In addition to standard medical treatment (painkillers or hormones), many patients with endometriosis use additional supplements, such as vitamins or antioxidants, to alleviate symptoms, but it is unclear how well these approaches work. In this study, we reviewed 24 clinical trials involving 2,019 women with endometriosis to evaluate the effects of dietary supplements. Some trials reported improvements in pain and quality of life, particularly with specially formulated curcumin or selenium, alone or alongside dienogest. Studies on fertility found improvements in some fertility-related measures, but these did not lead to higher pregnancy rates. Evidence on progression was limited: some combination treatments reduced ovarian endometriosis, but supplements did not reduce recurrence after surgery. Supplements may therefore support standard treatment, but should not replace it.",
+        "source": "pubmed",
         "publicationTypes": [
-          "journal-article"
+          "Journal Article",
+          "Systematic Review"
         ],
-        "context": "Background The aim of this study was to systematically review the impact of surgical excision of deep infiltrating endometriosis involving the bowel, on health-related quality of life, based on the currently available literature. Methods A systematic review was completed of English-language publications in the last 10 years, which had assessed the impact of surgical excision on quality of life in patients with deep infiltrating endometriosis of the bowel using standardized, validated quality-of-life questionnaires. Results Fourteen studies were identified. Standardized questionnaires used to assess the therapeutic impact on quality of life were the SF-36, SF-12, EHP-30, EQ-5D and 15D. Overall, women with bowel endometriosis scored lower on quality-of-life measures than the general population. Regardless of which standardized, validated questionnaire was used, surgical treatment had a positive impact on health-related quality of life. Conclusions Endometriosis, in particular deep infiltrating endometriosis of the bowel, has a profound impact on the quality of life of women diagnosed with the condition. Though surgical excision has a positive short-term impact, studies are needed to assess the long-term impact on quality of life in this lifelong, chronic, recurring condition.",
-        "relevancePct": 76,
+        "relevancePct": 81,
         "matchedElements": [
           "P",
-          "I",
+          "C",
           "O"
         ],
         "design": "Systematic Review",
         "lowMetadata": false,
-        "_sig": "ff1bcc2d318cdd082b73ce1c0324e3880332ee6ebfc937028aa0611557b635d4"
+        "_sig": "3f40190a7db8fb32bc49d90b4c6b3214eb203d1874d52277a45b9a3132625983"
+      },
+      {
+        "pmid": "40373315",
+        "title": "Pharmacologic Interventions for Endometriosis-Related Pain: A Systematic Review and Meta-analysis",
+        "authors": "Kou L, et al",
+        "year": "2025",
+        "journal": "Obstetrics and gynecology",
+        "doi": "10.1097/AOG.0000000000005923",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40373315/",
+        "context": "OBJECTIVE: To evaluate the effectiveness of various medications for the treatment of endometriosis-related pain through a network meta-analysis. DATA SOURCES: A comprehensive search was conducted in PubMed, Embase, Web of Science, and the Cochrane Controlled Trials Register until July 22, 2024. We also searched ClinicalTrials.gov for additional data on recently completed trials or potentially eligible randomized controlled trials (RCTs) but found nothing. METHODS OF STUDY SELECTION: The analysis included randomized RCTs that used pharmacologic interventions for managing endometriosis-related pain. The primary efficacy outcome was endometriosis-associated pelvic pain, which included dysmenorrhea, dyspareunia, and nonmenstrual pelvic pain. The analysis adhered to the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-analyses) guidelines. TABULATION, INTEGRATION, AND RESULTS: A total of 31 RCTs involving 8,665 patients were included in the analysis. In terms of endometriosis-associated pelvic pain, four interventions demonstrated significantly greater efficacy compared with placebo: leuprolide combined with combined oral contraceptive pills (OCPs) (standardized mean difference [SMD] -1.40, 95% CI, -2.41 to -0.38), dienogest (SMD -1.20, 95% CI, -1.78 to -0.61), leuprolide alone (SMD -1.05, 95% CI, -1.64 to -0.45), and combined OCP (SMD -0.67, 95% CI, -1.25 to -0.09). Leuprolide combined with combined OCP emerged as the most effective treatment modality. In addition, elagolix and the combination of vitamin C and vitamin E were identified as the most effective interventions for dysmenorrhea and dyspareunia. For nonmenstrual pelvic pain, gestrinone demonstrated superior efficacy compared with placebo and all other interventions. CONCLUSION: This network meta-analysis indicates that leuprolide in combination with combined OCP, elagolix, vitamins C and E, and gestrinone may represent the most effective therapeutic options for alleviating endometriosis-associated pelvic pain, dysmenorrhea, dyspareunia, and nonmenstrual pelvic pain. These findings enhance our understanding of the relative efficacy of treatment strategies for pain associated with endometriosis. Future research should focus on conducting larger-scale and rigorously designed clinical trials within the target patient populations to further validate these results.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Network Meta-Analysis"
+        ],
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "dd00d69466389b23c5ea184e30cf09d6cefd7addb886634930e9c61cafb18325"
+      },
+      {
+        "pmid": "37217824",
+        "title": "The Efficacy of Dienogest in Reducing Disease and Pain Recurrence After Endometriosis Surgery: a Systematic Review and Meta-Analysis",
+        "authors": "Muzii L, et al",
+        "year": "2023",
+        "journal": "Reproductive sciences (Thousand Oaks, Calif.)",
+        "doi": "10.1007/s43032-023-01266-0",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37217824/",
+        "context": "The objective of this study is to determine whether dienogest therapy after endometriosis surgery reduces the risk of recurrence compared with placebo or alternative treatments (GnRH agonist, other progestins, and estro-progestins). The design used in this study is systematic review with meta-analysis. The data source includes PubMed and EMBASE searched up to March 2022. A systematic review and meta-analysis were performed in accordance with guidelines from the Cochrane Collaboration. Keywords such as \"dienogest,\" \"endometriosis surgery,\" \"endometriosis treatment,\" and \"endometriosis medical therapy\" were used to identify relevant studies. The primary outcome was recurrence of endometriosis after surgery. The secondary outcome was pain recurrence. An additional analysis focused on comparing side effects between groups. Nine studies were eligible, including a total of 1668 patients. At primary analysis, dienogest significantly reduced the rate of cyst recurrence compared with placebo (p < 0.0001). In 191 patients, the rate of cyst recurrence comparing dienogest vs GnRHa was evaluated, but no statistically significant difference was reported. In the secondary analysis, a trend toward reduction of pain at 6 months was reported in patients treated with dienogest over placebo, with each study reporting a significantly higher reduction of pain after dienogest treatment. In terms of side effects, dienogest treatment compared with GnRHa significantly increased the rate of spotting (p = 0.0007) and weight gain (p = 0.03), but it was associated with a lower rate of hot flashes (p = 0.0006) and a trend to lower incidence of vaginal dryness. Dienogest is superior to placebo and similar to GnRHa in decreasing rate of recurrence after endometriosis surgery. A significantly higher reduction of pain after dienogest compared with placebo was reported in two separate studies, whereas a trend toward reduction of pain at 6 months was evident at meta-analysis. Dienogest treatment compared with GnRHa was associated with a lower rate of hot flashes and a trend to lower incidence of vaginal dryness.",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "31a7e7d4e49535590b4f9c910062275ca1374673512a36172aa5e3dca77162c7"
+      },
+      {
+        "pmid": "40220411",
+        "title": "Add-on effect of curcumin to dienogest in patients with endometriosis: a randomized, double-blind, controlled trial",
+        "authors": "Sargazi-Taghazi M, et al",
+        "year": "2025",
+        "journal": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "doi": "10.1016/j.phymed.2025.156715",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40220411/",
+        "context": "BACKGROUND: Endometriosis is a chronic gynecological disorder characterized by significant pain and reduced quality of life (QOL). Current treatments, such as dienogest, are not fully effective, prompting the investigation of curcumin as a potential adjunct therapy. Although curcumin has demonstrated promise in preclinical studies, its clinical efficacy in endometriosis, particularly in combination with standard therapies like dienogest, remains underexplored. PURPOSE: This is the first study aimed to evaluate the add-on effect of curcumin in combination with dienogest on pain relief, QOL, and sexual function in women with endometriosis. STUDY DESIGN: A randomized, double-blind, placebo-controlled trial was conducted to compare the efficacy of curcumin combined with dienogest versus dienogest alone with a placebo. METHODS: Eighty-six women aged 18-45 with stage 2-3 pelvic endometriosis and moderate to severe pain (visual analogue scale (VAS) ≥ 4) were randomly assigned in a 1:1 ratio to receive either nanocurcumin soft gel capsules (80 mg/day) or a placebo, along with dienogest (2 mg/day), for 8 weeks. Outcomes were assessed using adjusted mean differences (aMD) and 95 % confidence intervals (CIs). RESULTS: After 8 weeks, the curcumin and dienogest group demonstrated significantly greater improvements in pain scores compared to the placebo group: dysmenorrhea (aMD: -1.55, 95 %CI: -2.04 to -1.06; p < 0.001), dyspareunia (aMD: -0.93, 95 %CI: -1.37 to -0.49; p < 0.001), chronic pelvic pain (aMD: -1.55, 95 %CI: -2.04 to -1.06; p < 0.001), and dyschezia (aMD: -0.30, 95 %CI: -0.58 to -0.03; p = 0.030). Additional benefits were observed in QOL and Female Sexual Function Index (FSFI) scores, except for the orgasm domain. Differences in endometrioma size were not statistically significant. CONCLUSION: The combination of curcumin and dienogest significantly reduced pain and improved QOL and sexual function in women with endometriosis, suggesting curcumin as an effective adjunct therapy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "a3b51f389bc5c1be8969ecb90ac77bd06a8ec96858d0b4f110ffed2412f42940"
+      },
+      {
+        "pmid": "40233572",
+        "title": "Norethindrone acetate versus dienogest for pain relief in endometriosis related pain: A randomized controlled trial",
+        "authors": "Gurbuz TB, et al",
+        "year": "2025",
+        "journal": "European journal of obstetrics, gynecology, and reproductive biology",
+        "doi": "10.1016/j.ejogrb.2025.113940",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40233572/",
+        "context": "OBJECTIVE: To determine which progestin, norethindrone acetate (NETA) or dienogest, is more effective in alleviating pain associated with endometriosis? STUDY DESIGN: This single-center, prospective, randomized trial included 70 patients aged 18-40 years attending the Endometriosis Clinic (April 2022-April 2023). Participants were randomly assigned to receive either NETA (5 mg daily) or dienogest (2 mg daily). Pain levels were assessed using a visual analog scale (VAS) at baseline and at 6- and 12-month follow-ups. Discontinuation rates, dropout reasons, and side effects were also recorded. RESULTS: The study included 70 patients, with 40 randomized to the dienogest group and 30 to the NETA group. Both groups showed significant reductions in pain scores at all follow-ups, with no significant differences between them. At baseline, dysmenorrhea scores were 7.43 ± 2.9 (NETA) and 7.23 ± 2.87 (dienogest). By 12 months, both groups had a dysmenorrhea score of 0.00 ± 0.00. Chronic pelvic pain scores improved to 1.06 ± 2.43 (NETA) and 0.00 ± 0.00 (dienogest) (p = 0.058). NETA demonstrated a significantly greater reduction in endometrioma size (p = 0.037). At the sixth month, there were 23 patients in the NETA group and 21 patients in the dienogest group, while 16 patients in the NETA group and 18 patients in the dienogest group completed the treatment. Side effect profiles were comparable; however, the dropout rate at six months was higher in the dienogest group (47.5 % vs. 23.3 %; p = 0.026). CONCLUSIONS: Both progestins effectively reduced pain scores, but NETA achieved a greater reduction in endometrioma size and had a lower dropout rate, potentially due to its higher dose. These findings suggest NETA 5 mg/day may be a better approach instead of dienogest for the endometriosis treatment. TRIAL REGISTRATION NUMBER: International Clinical Trials Registry Platform No. NCT05476172.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "23901e03b04f5c25ed86fa5c695304b70f75cbd10eca6da705a5829a3e51e936"
+      },
+      {
+        "pmid": "34826668",
+        "title": "Efficacy of dienogest vs combined oral contraceptive on pain associated with endometriosis: Randomized clinical trial",
+        "authors": "El Taha L, et al",
+        "year": "2021",
+        "journal": "European journal of obstetrics, gynecology, and reproductive biology",
+        "doi": "10.1016/j.ejogrb.2021.10.029",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34826668/",
+        "context": "OBJECTIVE: To compare the efficacy of dienogest with the combined oral contraceptive pill (COC) Yasmin for the control of endometriosis-associated pelvic pain. STUDY DESIGN: Seventy women with endometriosis-associated chronic pelvic pain, dysmenorrhoea or both for >6 months were randomized to either dienogest (Visanne) 2 mg/day or monophasic COC (Yasmin, 0.03 mg ethinyl estradiol and 3 mg drospirenone) for 24 weeks. The primary efficacy variable was change in non-cyclic pelvic pain and dysmenorrhoea from baseline to end of treatment, assessed using a visual analogue scale (VAS). The secondary efficacy variable was change in the Biberoglu and Behrman (B&B) scale scores for chronic pelvic pain, dysmenorrhoea and dyspareunia. Health-related quality of life (HRQoL) was evaluated using the Endometriosis Health Profile-30 (EHP-30) questionnaire at baseline and 24 weeks. Safety variables included incidence of side-effects, bleeding pattern and treatment tolerability. RESULTS: Both treatments improved the mean VAS score for endometriosis-associated pelvic pain significantly: mean difference 6.0 [95% confidence interval (CI) 4.9-7.1; p < 0.0001] in the dienogest group and 4.54 (95% CI 3.1-5.9; p < 0.0001) in the COC group; the difference between them was not significant (p = 0.111). Similarly, both dienogest and COC improved HRQoL in various core and modular segments of the EHP-30 questionnaire with comparable requirements for supplemental pain medication (p = 0.782 and 0.258 at 12 and 24 weeks, respectively), and redistribution of the B&B severity profile for chronic pelvic pain (p = 0.052 and 0.526 at 12 and 24 weeks, respectively), dysmenorrhoea (p = 0.521 and 1 at 12 and 24 weeks, respectively) and dyspareunia (p = 0.376 and 0.835, respectively). Nevertheless, dienogest was associated with fewer side-effects, and hence had a better safety and tolerability profile than COC. CONCLUSIONS: Dienogest (2 mg/day) is comparable to the COC Yasmin for the relief of endometriosis-associated pelvic pain and improvement in HRQoL. CLINICAL TRIAL REGISTRATION: Clinicaltrials.gov under number NCT04256200; date of registration 15/1/2020 (registered retrospectively).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "a2682b9114f8b440e15c297e9c408844cc276a4c73974bd6e9ea4eaf75de8b35"
       },
       {
         "pmid": "15327610",
@@ -210,6 +334,32 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "5e9d7ac692071b78e5cad5c117a1286d7af525be4bb8111642e40628af70c8e2"
+      },
+      {
+        "pmid": "42941690",
+        "title": "Neuropelveology in Endometriosis: Pain Mechanisms, Diagnostic Implications, and Surgical Decision-Making.",
+        "authors": "Gabriela CH, Loza López EC, Bautista Gonzalez MF, Esparza Salazar F, Mena Guerrero T, De León Vela D, van Tienhoven XA, ",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15208177",
+        "url": "https://europepmc.org/article/PMC/PMC13705954",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Endometriosis is a systemic, estrogen dependent neuroinflammatory-mediated disease affecting approximately 10-15% of women of reproductive age. Clinical manifestations include chronic pelvic pain (CPP), dysmenorrhea, dyspareunia, dyschezia, dysuria, and infertility. Endometriosis-associated pain is multifactorial and comprises overlapping nociceptive, neuropathic, and nociplastic pain phenotypes driven by persistent inflammation, neuroangiogenesis, peripheral nerve involvement, and central sensitization (CS). These mechanisms may sustain pain beyond lesion excision, highlighting the importance of pelvic nervous system (PNS) involvement. This narrative review examines the role of neuropelveology (NP) in endometriosis, focusing on pain mechanisms, diagnostic implications, and surgical decision making. NP integrates pelvic neuroanatomy and neurophysiology into structured neurological assessment, pain mapping, symptom localization, and nerve sparing surgery. Current evidence suggests that NP may complement conventional evaluation in selected patients with refractory pain, neuropathic symptoms, discordance between symptom severity and imaging findings, or suspected involvement of the sacral plexus or sciatic nerve. Recognizing distinct pain phenotypes may support individualized treatment planning by balancing lesion excision with neural preservation and identifying patients who may benefit from multidisciplinary pain management, rehabilitation, neurolysis, or neuromodulation. Although current evidence remains limited, NP should be considered a complementary framework rather than a replacement for established endometriosis management. Prospective multicenter studies using standardized diagnostic criteria and long-term functional outcomes are needed to define its clinical utility.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "cf8e13291ae7ed734c8fc3ab2fcb82ea683d235ca209be235397a5b828347ed8"
       },
       {
         "pmid": "doi:10.3389/fsurg.2025.1735940",
@@ -308,125 +458,6 @@
         "_sig": "b6bbd39bdacddd218d58f7cf13453d3de36ed302612f1c638e89f2b1d69689e4"
       },
       {
-        "pmid": "cr:10.5301/je.5000201",
-        "title": "Diagnostic Challenges in a Young Woman with Endometriosis: The Value of Excision",
-        "authors": "Donnelly Laura, Yeung Patrick",
-        "year": "2015",
-        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
-        "doi": "10.5301/je.5000201",
-        "url": "https://doi.org/10.5301/je.5000201",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "context": "Objective The aim of this report is to highlight the value of excision when treating and diagnosing endometriosis, as well as present an unusual case of concomitant endometriosis and pelvic malignancy in a young female. Case Report In a university hospital referral center, a 24-year-old nulligravid woman with suspected endometriosis had been treated unsuccessfully with empiric therapy for several years. Interventions were preoperative cyclic and continuous combined oral contraceptive pills and a NuvaRing for 2 years. Diagnosis was completed by laparoscopy and histologic evaluation. Surgical debulking by gynecology oncologist was followed by chemotherapy. The main outcome measure was definitive diagnosis via histology. Results Histologic diagnosis of endometriosis and concomitant pelvic malignancy with successful surgical excision of both. Conclusions When evaluating a patient with chronic pelvic pain, it is necessary to have a high degree of suspicion for endometriosis. Early surgical and histologic evaluation is imperative for definitive diagnosis. An added benefit of histologic diagnosis is the opportunity to assess for malignancy.",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Case Report",
-        "lowMetadata": false,
-        "_sig": "d4350b6e15c960435bc6291736788bffc518491c2661d6bbb8319ef012b86d36"
-      },
-      {
-        "pmid": "cr:10.5301/je.5000200",
-        "title": "Development of a Symptom-Based, Screening Tool for Early-Stage Endometriosis in Patients with Chronic Pelvic Pain",
-        "authors": "Yeung Patrick, Bazinet Caroline, Gavard Jeffrey A.",
-        "year": "2014",
-        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
-        "doi": "10.5301/je.5000200",
-        "url": "https://doi.org/10.5301/je.5000200",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "context": "Purpose The aim of this study was to develop a noninvasive screening tool for patients with chronic pelvic pain, for early-stage endometriosis, with a discriminatory ability of the area under the curve (AUC) for the receiver operator characteristic (ROC) curve of over 0.8. Methods Participants were women aged 13-55 years, with chronic pelvic pain (for more than 6 months despite medical therapy), seen at the Saint Louis University Center for Endometriosis, from January 2012 to June 2013, who were found to have early-stage endometriosis or not, based on histology. All patients received the same surgical approach and goal of surgery, which was excision of all visible abnormal peritoneum. Potential variables used for generating the screening tool came from the pre-operative questionnaire with standard pain symptoms and quality-of-life questions. Individual categorical variables were tested. In addition, new binary variables were created to test specific combinations of answers to 2 individual questions. A backwards-stepping multiple logistic regression model was used to develop the screening tool. Results Ninety patients found to have early-stage disease completed pre-operative surveys. Of these, 70 (77.8%) had histologically confirmed endometriosis and 20 (22.2%) were confirmed not to be affected. Combinations of 2 variables made it possible to create a predictive model for early-stage endometriosis with excellent discriminatory ability (AUC = 0.822, p<0.001). This model was generated using a multi-staged, backwards stepping logistic regression analysis with all variables that were univariately significant included in the initial model (p<0.025). The final model had 80.5% sensitivity and 57.7% specificity. The model allows for an individual probability of disease to be calculated for each patient. Conclusions A clinically useful, symptom-based screening tool was developed for early-stage endometriosis in patients with chronic pelvic pain seen at a referral center. This approach to developing a screening tool for endometriosis should be tested further.",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Prediction Model Study",
-        "lowMetadata": false,
-        "_sig": "1a8c79e536a0de3a4a85050dd2f0a979461b69f7a7a6e167dd69a7438bfb78ee"
-      },
-      {
-        "pmid": "21681516",
-        "title": "Reduced pelvic pain in women with endometriosis: efficacy of long-term dienogest treatment",
-        "authors": "Felice Petraglia, Daniela Hornung, Christian Seitz, Thomas A. Faustmann",
-        "year": "2011",
-        "journal": "Archives of Gynecology and Obstetrics",
-        "doi": "10.1007/s00404-011-1941-7",
-        "url": "https://doi.org/10.1007/s00404-011-1941-7",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "PURPOSE: To investigate the efficacy and safety of dienogest as a long-term treatment in endometriosis, with follow-up after treatment discontinuation. The study included women with endometriosis, who had previously completed a 12-week, placebo-controlled study of dienogest, who participated in an open-label extension study for up to 53 weeks. Thereafter, a patient subgroup was evaluated in a 24-week follow-up after treatment discontinuation. METHODS: A multicenter study performed in Germany, Italy and Ukraine. Women with endometriosis were enrolled at completion of the placebo-controlled study (n = 168). All women received dienogest (2 mg once daily, orally) and changes in pelvic pain (on a visual analog scale), bleeding pattern, adverse events and laboratory parameters were evaluated during and after treatment. RESULTS: The completion",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "C",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "bf61b40246e8348b8970c62b77ae4b2f7af7b4fa55acd43ceddc09252bbd1ec4"
-      },
-      {
-        "pmid": "12923150",
-        "title": "The effects and effectiveness of laparoscopic excision of endometriosis: a prospective study with 2-5 year follow-up",
-        "authors": "Jason Anthony Abbott, J Hawe, R D Clayton, R Garry",
-        "year": "2003",
-        "journal": "Human Reproduction",
-        "doi": "10.1093/humrep/deg275",
-        "url": "https://doi.org/10.1093/humrep/deg275",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: This study investigates the outcomes for women up to 5 years after laparoscopic excision of endometriosis. METHODS: In this prospective observational cohort study, 254 women with chronic pelvic pain were referred to two units specializing in minimal access surgical management of endometriosis. Of these, 216 women underwent surgical assessment and 176 were confirmed to have endometriosis. Questionnaires and visual analogue scale (VAS) scores for dysmenorrhoea, non-menstrual pelvic pain, dyspareunia and dyschesia as well as quality of life instruments; the EQ-5Dindex and EQ-5Dvas, Short-Form 12 (SF-12) and sexual activity questionnaires were completed pre-operatively. Intra-operative details of revised American Fertility Society (rAFS) stage, site of disease, associated tests, duration of surgery and complications were noted. Follow-up was performed by postal questionnaire",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Prospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "1583540a450ba4410b889640237265e860da6a24db215fd694640ac5f56ded22"
-      },
-      {
-        "pmid": "30065547",
-        "title": "Dienogest Versus Leuprolide Acetate for Recurrent Pelvic Pain Following Laparoscopic Treatment of Endometriosis",
-        "authors": "Ahmed Mahmoud Abdou, Islam Mohamed Magdi Ammar, Amr Abd Almohsen Alnemr, Amr Ahmed Abdelrhman",
-        "year": "2018",
-        "journal": "The Journal of Obstetrics and Gynecology of India",
-        "doi": "10.1007/s13224-018-1119-3",
-        "url": "https://doi.org/10.1007/s13224-018-1119-3",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "C",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "f5fea294c0e7355fbdd32f098ebf57e947038127f80a6de9a061f9002a847092"
-      },
-      {
         "pmid": "cr:10.5301/je.5000183",
         "title": "Total Laparoscopic Hysterectomy: Overtreatment for Misdiagnosed Organic cause or Undertreatment for Idiopathic Chronic Pelvic Pain?",
         "authors": "Gizzo Salvatore, Leggieri Concetta, Conte Lorena, Luisi Stefano",
@@ -449,30 +480,6 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "a1d97316da903ba848a2e57d895c2a4decb55421ef32bda66087bdd5339f1327"
-      },
-      {
-        "pmid": "9572214",
-        "title": "Long-Term Outcome of Laparoscopic Presacral Neurectomy for the Treatment of Central Pelvic Pain Attributed to Endometriosis",
-        "authors": "CEANA H. NEZHAT, Daniel S. Seidman, Farr Reza Nezhat, CAMRAN R. NEZHAT",
-        "year": "1998",
-        "journal": "Obstetrics and Gynecology",
-        "doi": "10.1097/00006250-199805000-00011",
-        "url": "https://doi.org/10.1097/00006250-199805000-00011",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "OBJECTIVE: To evaluate the long-term pain reduction achieved by laparoscopic presacral neurectomy. METHODS: One hundred seventy-six women with median (range) age 30 (18-45) years underwent presacral neurectomy combined with excision and vaporization of endometriotic lesions and were observed, using structured questionnaires, for up to 72 months postoperatively. The study included a convenience sample of the first 100 questionnaires returned. Forty of the women were studied for 12-23 months, and 60 for 24-72 months. The main outcome measures were reduction of pelvic pain, dysmenorrhea, and dyspareunia after surgery. RESULTS: Pelvic pain, dysmenorrhea, and dyspareunia were reportedly reduced by more than 50% in 74, 61, and 55 patients, respectively, more than 12 months after laparoscopic presacral neurectomy. More than 50% reduction in",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "ba9d2638d4f1f152bdc02e5060dc834b67c628fa28bfb44511b9bf20eca23d45"
       }
     ],
     "corpusStats": {
@@ -485,13 +492,13 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -525,8 +532,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 7
       },
       {
         "id": "cochrane",
@@ -544,22 +551,21 @@
         "id": "pubmed",
         "name": "PubMed",
         "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "pmc",
         "name": "PMC",
         "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -587,10 +593,9 @@
         "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Semantic Scholar throttled (429)"
+        "skipped": "cooldown"
       },
       {
         "id": "openalex",
@@ -626,11 +631,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
-        "count": 0,
+        "count": 7,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -638,9 +643,10 @@
         "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",

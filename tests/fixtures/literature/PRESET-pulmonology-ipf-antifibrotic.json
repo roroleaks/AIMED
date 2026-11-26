@@ -1,6 +1,6 @@
 {
   "id": "PRESET-pulmonology-ipf-antifibrotic",
-  "recordedAt": "2026-11-26T19:51:33.330Z",
+  "recordedAt": "2026-11-26T23:08:28.889Z",
   "specialty": "pulmonology",
   "words": [
     {
@@ -48,8 +48,9 @@
       "established": {
         "category": "established",
         "phrase": "In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?",
-        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
-        "supported": true
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
       "conflicting": {
         "category": "conflicting",
@@ -60,8 +61,8 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O) without additional adverse events (O)?",
-        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "phrase": "In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?",
+        "basis": "5 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
         "supported": false,
         "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
@@ -115,8 +116,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 1
       },
       {
         "id": "cochrane",
@@ -133,8 +134,8 @@
   "exploreRequest": {
     "stage": "explore",
     "choice": {
-      "category": "established",
-      "phrase": "In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?"
+      "category": "gap",
+      "phrase": "In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?"
     },
     "words": [
       {
@@ -179,7 +180,7 @@
           "Multicenter Study",
           "Clinical Trial, Phase III"
         ],
-        "relevancePct": 93,
+        "relevancePct": 98,
         "matchedElements": [
           "P",
           "I",
@@ -188,7 +189,7 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "88d6fd2ae0d057815d5f1422e869d4593922669021c17701e941100181250844"
+        "_sig": "a57e467d03f4f8254de51648bbba36784bad65d26efa4f6bd0cbdd196a76bdab"
       },
       {
         "pmid": "40461817",
@@ -315,19 +316,19 @@
           "case-report"
         ],
         "context": "Acute exacerbation (AE) in idiopathic pulmonary fibrosis (IPF) is unfortunate a deadly event with a very high mortality rate. Its occurrence is highly unpredictable, though few baseline risk factors have been identified. The revised definition of AE is more precise with clarity on defined parameters. However, no clear guidelines exist on treatment, with most therapies showing inconsistent benefits. Both the approved anti-fibrotic (pirfenidone and nintedanib) have shown equal efficacy in reducing the decline in lung functions, with few studies suggesting a drop in AE. We report a case of a patient with IPF with mildly impaired lung functions who was initiated on pirfenidone with dose titrated on a weekly basis but developed AE-IPF on day 10 of starting pirfenidone and after four days of doubling the dose from 600 mg/day to 1,200 mg/day. This raised the suspicion of whether pirfenidone played any role in this unfortunate event. With no response to conventional therapy of steroids and non-invasive ventilation for AE-IPF, initialization of nintedanib led to recovery with discharge of the patient in two weeks of hospitalization. This case highlights inadequacy in knowledge about the effects of these anti-fibrotics in IPF and recommends close monitoring in the future.",
-        "relevancePct": 53,
+        "relevancePct": 58,
         "matchedElements": [
           "P",
           "C"
         ],
         "design": "Case Report",
         "lowMetadata": false,
-        "_sig": "587c01d35167d84c2221496bf686d9b1ec4d073aa3346013fe29c5595986f647"
+        "_sig": "948805037b23659e293536bed35dc760c87c0920d8d37b808f893bc361e51719"
       }
     ],
     "corpusStats": {
-      "retrieved": 42,
-      "screened": 42,
+      "retrieved": 41,
+      "screened": 41,
       "blocked": 0,
       "returned": 6,
       "relaxationLevel": 2
@@ -340,8 +341,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 20
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -404,11 +405,12 @@
         "id": "pmc",
         "name": "PMC",
         "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
-        "count": 20,
+        "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "europepmc",
@@ -499,10 +501,10 @@
         "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "skipped": "cooldown",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

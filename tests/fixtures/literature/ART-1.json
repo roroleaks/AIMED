@@ -1,6 +1,6 @@
 {
   "id": "ART-1",
-  "recordedAt": "2026-11-26T22:48:41.366Z",
+  "recordedAt": "2026-11-26T22:58:00.539Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -163,6 +163,58 @@
   "exploreStatus": 200,
   "exploreResponse": {
     "records": [
+      {
+        "pmid": "35367059",
+        "title": "Noninvasive embryo evaluation and selection by time-lapse monitoring vs. conventional morphologic assessment in women undergoing in vitro fertilization/intracytoplasmic sperm injection: a single-center randomized controlled study",
+        "authors": "Meng Q, et al",
+        "year": "2022",
+        "journal": "Fertility and sterility",
+        "doi": "10.1016/j.fertnstert.2022.02.015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35367059/",
+        "context": "OBJECTIVE: To determine whether time-lapse monitoring (TLM) for cleavage-stage embryo selection improves reproductive outcomes in comparison with conventional morphological assessment (CMA) selection. DESIGN: Prospective randomized controlled trial. SETTING: Single academic center. PATIENTS: We randomly assigned 139 women who were undergoing their first in vitro fertilization or intracytoplasmic sperm injection cycle to undergo either fresh embryo transfer or first frozen embryo transfer (FET). Only 1 cleavage-stage embryo was transferred to each participant. INTERVENTIONS: The patients were randomly assigned to either the CMA or the TLM group. In the CMA group, day 2 and day 3 embryos were observed. A good-quality cleavage-stage embryo was selected for transfer or freezing in both groups. MAIN OUTCOME MEASURES: The primary and secondary outcomes were the clinical pregnancy rate (CPR) and the live birth rate (LBR), respectively, after the first embryo transfer (fresh embryo transfer or FET). RESULTS: The CPR and LBR were significantly lower in the TLM group than in the CMA group (CPR: 49.18% vs. 70.42%; relative risk, 0.70; 95% confidence interval [CI], 0.52-0.94; LBR: 45.90% vs. 64.79%; relative risk, 0.71; 95% CI, 0.51-0.98). The CPR with fresh embryo transfer or FET did not significantly differ between the TLM and the CMA groups (fresh embryo transfer: 44.44% vs. 70.0%, relative risk, 0.63, 95% CI, 0.39-1.03; FET: 52.94% vs. 70.73%, relative risk, 0.75, 95% CI, 0.52-1.09). There was a significant difference in the LBR with fresh embryo transfer between the TLM and the CMA groups (40.74% vs. 66.67%; relative risk, 0.61; 95% CI, 0.36-1.03). The LBRs with FET were similar in the TLM and the CMA groups (50.0% vs. 63.41%; relative risk, 0.79; 95% CI, 0.52-1.19). The rates of early spontaneous abortion and ectopic pregnancy did not differ between the TLM and the CMA groups. CONCLUSIONS: Elective single cleavage-stage embryo transfer with TLM-based selection did not have any advantages over CMA when day 2 and day 3 embryo morphology was combined in young women with a good ovarian reserve. Because of these results, we conclude that TLM remains an investigational procedure for in vitro fertilization practice. CLINICAL TRIAL REGISTRATION NUMBER: ChiCTR1900021981.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "83e61470fb5c44d76ec16bbad0d00a8a935f8749b4cd73dc9e0647e72ed70853"
+      },
+      {
+        "pmid": "42745869",
+        "title": "Clinical evaluation and predictive model development of AI-based non-invasive embryo selection in <i>in vitro</i> fertilization patients.",
+        "authors": "Zhu P, Bi X, Su D, Zhang X, Wu X.",
+        "year": "2026",
+        "journal": "Frontiers in endocrinology",
+        "doi": "10.3389/fendo.2026.1920306",
+        "url": "https://europepmc.org/article/PMC/PMC13574665",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Embryo selection remains one of the most critical determinants of IVF success. Conventional embryo grading relies primarily on morphological assessment and is subject to inter-observer variability and limited predictive accuracy. Recent advances in AI have enabled non-invasive systems to analyze embryological and morphokinetic features, improving embryo selection and reproductive outcomes. Objective To evaluate the clinical effectiveness of an AI-based non-invasive embryo selection system and develop predictive models for IVF outcomes among patients undergoing assisted reproductive treatment. Methods A retrospective cohort study was conducted at a tertiary fertility center involving 300 IVF cycles from January 2020 to December 2024. Clinical, demographic, embryological, and AI-derived data were extracted from electronic medical records and laboratory databases. Primary outcome was clinical pregnancy; secondary outcomes included implantation, ongoing pregnancy, live birth, and model performance. Machine learning algorithms (logistic regression, random forest, SVM, gradient boosting, and neural networks) were evaluated using accuracy, sensitivity, specificity, precision, F1-score, and AUC-ROC. Results A total of 300 IVF cycles and 742 embryos were analyzed. Implantation, clinical pregnancy, ongoing pregnancy, and live birth rates were 60.7%, 56.0%, 51.3%, and 48.7%, respectively. Higher AI-derived embryo scores were significantly associated with improved outcomes. Clinical pregnancy rates increased progressively across AI score categories, from 18.5% (scores Conclusion AI-based non-invasive embryo selection showed significant predictive value for reproductive outcomes and outperformed conventional assessment in identifying embryos with high implantation potential. AI-derived embryo scores were independently associated with clinical pregnancy success, and the model exhibited excellent discrimination and calibration. These findings support integrating AI-assisted embryo assessment into contemporary IVF practice and highlight its potential to enhance personalized reproductive care.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "3ede5eed01d0c2c9e561875b5771c136ea7ee913d7f0a3e3fa75d5e178388af8"
+      },
       {
         "pmid": "cr:10.1093/humrep/deaf097.725",
         "title": "P-419 Prediction Model for Live Birth After Single Embryo Transfer Following IVF and ICSI Based on Nomogram",
@@ -314,30 +366,6 @@
         "_sig": "1dc2900dd18a80c982187511bdfe632613229a83bffbc3eb437687c49aa55d5b"
       },
       {
-        "pmid": "doi:10.1142/s2661318222741066",
-        "title": "How Often Does Artificial Intelligence System (Ivy) Select the Same Embryo for Transfer Compared to Selection Based on Traditional Blastocyst Morphology or Time-Lapse Algorithm (KIDScore™D5)?",
-        "authors": "Lisa Y. S. LEE, Fleur CATTRALL, Rebecca L. KELLEY, John STEVENS",
-        "year": "2022",
-        "journal": "Fertility & Reproduction",
-        "doi": "10.1142/s2661318222741066",
-        "url": "https://doi.org/10.1142/s2661318222741066",
-        "source": "doaj",
-        "pubType": "Journal Article",
-        "publicationTypes": [
-          "Journal Article"
-        ],
-        "context": "Background: When patients have multiple blastocysts following IVF/ICSI, selection of the most viable blastocyst for transfer can reduce time taken for patients to conceive. An artificial intelligence system, Ivy, has been developed to predict pregnancy from embryo images. Aim: To determine the frequency that Ivy selects the same embryo for transfer as morphological assessment or time-lapse algorithm (KIDScore™D5v2). Method: Data was collected from 100 patients that had [Formula: see text] 2 blastocysts for day 5 fresh single embryo transfer (total n=1319 embryos, cultured in EmbryoScope+). The blastocyst transferred was selected by clinic protocol: a combination of morphology and morphokinetics. Ivy analysed time-lapse images to generate an IVYScore. Four embryologists assessed morphology of one image per embryo using different focal planes. Morphokinetics parameters were annotated to calculate KIDScore. Results: Embryologists chose the same blastocyst for transfer in 51 out of 100 patients, and only 35.3% of these embryos had the highest IVYscore compared to sibling blastocysts. Compared to KIDScore, Ivy would have chosen the same blastocyst in 61% of the cases. Agreement between all methods was lower when patients had morphologically similar blastocysts (18.2% vs. 50.0%, p[Formula: see text]0.001). Clinical pregnancy rate was 48.0% (n=100), which was similar for blastocysts selected by Ivy (50.0%, n=64), morphology (n=29, 41.4%) or KIDScore (n=74, 45.9%). Further, 44 frozen blastocyst transfers resulted in 14 pregnancies. If IvyScore were to be used instead of clinic protocol, 11 cases would have resulted in an equal or shorter time to pregnancy. Conclusion: There is limited agreement between methods when patients have multiple blastocysts available for transfer, especially when morphology is similar. Pregnancy rates of Ivy-selected blastocysts were similar to other methods, indicating that Ivy could be used with comparable success, and could even lead to reduction in time to pregnancy. This study is limited by its retrospective nature, and unknown pregnancy potential of blastocysts that were not transferred.",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "56ad4bdc28935b51d4a0b6ffaa7a3a9c68e546ed28696c9ae21e1119804eb505"
-      },
-      {
         "pmid": "doi:10.7916/vib.v6i.5909",
         "title": "“The Identity Problem” in Prenatal Testing",
         "authors": "Nina Beguš",
@@ -385,10 +413,10 @@
       }
     ],
     "corpusStats": {
-      "retrieved": 54,
-      "screened": 54,
+      "retrieved": 50,
+      "screened": 50,
       "blocked": 0,
-      "returned": 9,
+      "returned": 10,
       "relaxationLevel": 2
     },
     "sources": [
@@ -399,8 +427,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 20
       },
       {
         "id": "europepmc",
@@ -463,11 +491,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
-        "count": 0,
+        "count": 20,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",

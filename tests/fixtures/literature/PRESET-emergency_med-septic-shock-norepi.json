@@ -1,6 +1,6 @@
 {
   "id": "PRESET-emergency_med-septic-shock-norepi",
-  "recordedAt": "2026-11-26T19:47:59.736Z",
+  "recordedAt": "2026-11-26T23:04:38.895Z",
   "specialty": "emergency_med",
   "words": [
     {
@@ -164,33 +164,6 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "38310764",
-        "title": "Effect of delayed antibiotic use on mortality outcomes in patients with sepsis or septic shock: A systematic review and meta-analysis",
-        "authors": "Tang F, et al",
-        "year": "2024",
-        "journal": "International immunopharmacology",
-        "doi": "10.1016/j.intimp.2024.111616",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38310764/",
-        "context": "BACKGROUND: The use of antibiotics is essential in the treatment of sepsis and septic shock, and delaying their administration may impact patient mortality outcomes. However, there is currently a controversial debate surrounding this issue. In this meta-analysis, we aimed to explore the association between delayed antibiotic use and mortality in patients with sepsis and septic shock. METHODS: A systematic search was conducted on PubMed, EMBASE, Web of Science, and Cochrane Library to identify relevant studies published from 2013 to 2023. These studies focused on patients with sepsis or septic shock and provided information on various antibiotic administration times and mortality rates. Two independent reviewers screened and extracted the data. The quality of each study was assessed using the Newcastle-Ottawa Scale, and the collected data were analyzed using STATA 15.1 software. RESULTS: A total of 29 studies were included, consisting of 17 prospective cohort studies and 12 retrospective cohort studies. The meta-analysis showed that compared to administration of antibiotics within 1 h, each hour of delay in antibiotic administration increased the in-hospital mortality (IHM) (OR = 1.041, 95 % CI: 1.021-1.062), and ministration of antibiotics after 1 h increased the IHM (OR = 1.205, 95 % CI: 1.123-1.293). There was no significant change in the 28-day mortality (OR = 1.297, 95 % CI: 0.882-1.906), 90-day mortality (OR = 1.172, 95 % CI: 0.846-1.622), and 1-year mortality (OR = 0.986, 95 % CI: 0.422-2.303). Administration of antibiotics within 3 h may reduce the IHM (OR = 1.297, 95 % CI: 1.011-1.664, p = 0.041), while administration of antibiotics within 6 h showed no significant association with the IHM. CONCLUSION: The administration of antibiotics beyond 1 h after emergency triage or disease identification is strongly associated with an increased IHM in patients with sepsis or septic shock, and each hour of delay in antibiotic administration may be associated with an increase in the IHM. Furthermore, the use of antibiotics identification beyond 3 h after emergency triage / sepsis or septic shock may also increase the IHM.",
-        "source": "pubmed",
-        "pubType": "Meta-Analysis",
-        "publicationTypes": [
-          "Meta-Analysis",
-          "Systematic Review",
-          "Journal Article"
-        ],
-        "relevancePct": 100,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Systematic Review and Meta-Analysis",
-        "lowMetadata": false,
-        "_sig": "30b0acc6002320fcbc9ad7607a984e2fa82d735bcf9c99717dcf001b931868f8"
-      },
-      {
         "pmid": "cr:10.1093/tropej/fmaf045",
         "title": "Dopamine versus norepinephrine in fluid-refractory septic shock among preterm neonates: a double-blind randomized controlled trial",
         "authors": "Singh Ravendra, Bandyopadhyay Tapas, Maria Arti",
@@ -214,6 +187,32 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "fd7009b5e07068e111d4ca6e20f77cd280895a7ed6cf37cd67801e8f9e2f394a"
+      },
+      {
+        "pmid": "42222740",
+        "title": "Impact of Early versus Delayed Vasopressin Initiation on 28-Day Mortality in Older Adults with Septic Shock.",
+        "authors": "Liu L, Shi H, Zhang L, Ma J.",
+        "year": "2026",
+        "journal": "Therapeutics and clinical risk management",
+        "doi": "10.2147/tcrm.s583585",
+        "url": "https://europepmc.org/article/PMC/PMC13220813",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background The optimal timing for initiating adjunctive vasopressin in septic shock remains controversial, with limited evidence specific to older adults who may have altered physiological responses. This study aimed to investigate the association between the timing of vasopressin initiation and 28-day mortality in older adults with septic shock. Methods In this retrospective observational cohort study, we enrolled 197 older adults (≥65 years) with septic shock who received vasopressin within 72 hours of norepinephrine initiation. Patients were categorized into an early group (vasopressin within 6 hours of norepinephrine; n=119) and a delayed group (vasopressin between 6-72 hours; n=78). The primary outcome was 28-day all-cause mortality, analyzed using multivariable Cox regression adjusting for potential confounders. Results The 28-day mortality was significantly lower in the early vasopressin group compared to the delayed group (36.1% vs. 57.7%, p p =0.02), more mechanical ventilation-free days (11.9 vs. 8.4 days, p =0.03) and more continuous renal replacement therapy (CRRT)-free days (13.2 vs. 9.5 days, p =0.03). Conclusion In older adults with septic shock, early initiation of vasopressin within six hours of norepinephrine commencement was independently associated with significantly lower 28-day mortality and improved hemodynamic and organ function outcomes.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "c14f26a0e97449568bb68241d2cd417eb704fe8788b54efa0d518c9a5f106bf3"
       },
       {
         "pmid": "30772908",
@@ -269,19 +268,21 @@
         "_sig": "46c7d8667ea8ef1610c9f9e541e1aad0622cb0d2880b7abac0714724b94f0c56"
       },
       {
-        "pmid": "42288605",
-        "title": "Steroid administration, timing, and dose in patients with septic shock in the emergency department: retrospective analysis of a multicenter prospective cohort study",
-        "authors": "Sejoong Ahn, Chiwon Ahn, Sung Yeon Hwang, Sang-Min Kim",
+        "pmid": "42936260",
+        "title": "Early Vasopressor Initiation Before Complete Fluid Resuscitation in Adults With Septic Shock: A Systematic Review.",
+        "authors": "Mohammed Hamadtalla AA, Hamid Mohammed IM, Abbas M, Elmi Y, Elhashmi Elhbishi AI, Ahmed Elgailani NE, Mohamed O.",
         "year": "2026",
-        "journal": "Scientific Reports",
-        "doi": "10.1038/s41598-026-56521-6",
-        "url": "https://doi.org/10.1038/s41598-026-56521-6",
-        "source": "openalex",
-        "pubType": "article",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.116968",
+        "url": "https://europepmc.org/article/PMC/PMC13702302",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
         "publicationTypes": [
-          "article"
+          "review-article",
+          "Review",
+          "Journal Article"
         ],
-        "context": "The benefit and optimal timing of corticosteroids in septic shock remain debated. Most evidence comes from intensive care unit-based studies, although key treatment decisions are often made early in the emergency department (ED). This study evaluated the association between steroid administration, including hydrocortisone timing and dose, and mortality in patients with septic shock in the ED. This retrospective observational study used an ED-based prospective multicenter septic shock registry from the Korean Shock Society (KoSS). The association between steroid administration and 28-day mortality was evaluated in adult patients with septic shock using multivariable regression models. Among hydrocortisone-treated patients, the associations of time from first vasopressor initiation to first hydrocortisone administration, norepinephrine-equivalent dose, and hydrocortisone dose with mortality were analyzed. From 2015",
+        "context": "Guidelines suggest at least 30 mL/kg of crystalloid within three hours in septic shock but do not specify when vasopressors should begin in relation to that bolus. Hence, we systematically reviewed contemporary evidence on initiating vasopressors before fluid resuscitation is complete. For this review, early initiation was defined as commencement of a first-line vasopressor before the treating team or study protocol judged initial volume expansion complete, and every included study's own time-zero anchor, threshold, and definition of completeness were extracted. PubMed, Scopus, Web of Science, and ClinicalTrials.gov were searched from 1 January 2021 to 18 August 2026, supplemented by citation searching. Reporting followed the Preferred Reporting Items for Systematic Reviews and Meta-Analyses 2020 guidelines, and synthesis followed Synthesis Without Meta-analysis. Eligible studies were randomised controlled trials (RCTs) and comparative observational studies in adults with septic shock or sepsis-induced hypotension, contrasting earlier with later vasopressor initiation relative to fluid loading. Risk of bias was assessed with Risk of Bias 2 and Risk of Bias in Non-randomized Studies - of Interventions, and certainty of evidence with the Grading of Recommendations Assessment, Development, and Evaluation. Heterogeneity in exposure definition precluded meta-analysis. In total, 11 studies (two multicentre RCTs and nine comparative observational studies; 18,362 adults; eight countries) were included. Thresholds for \"early\" spanned 25 minutes to three hours and were anchored variably to triage, shock recognition, or the first fluid bolus; completeness of fluid resuscitation was protocolised in only the two RCTs and left to clinician judgement in seven cohorts, with the pre-vasopressor fluid volume unmeasured in two. Both RCTs were neutral for their primary patient-centred endpoints (moderate certainty) despite achieving 1.1 to 2.1 L separation in 24-hour fluid volume (high certainty). Observational findings were discordant (very low certainty): four cohorts reported lower mortality with earlier initiation, one propensity-matched registry analysis reported higher 28-day mortality, and three found no association. Benefit was concentrated in patients meeting Sepsis-3 criteria, with high predicted vasopressor requirement, and with marked diastolic hypotension and a wide pulse pressure. No safety penalty was identified (moderate certainty). Initiating vasopressors before fluid resuscitation is complete is safe and reduces early fluid exposure and time to haemodynamic target, but does not improve survival when applied indiscriminately. The evidence supports the 2026 Surviving Sepsis Campaign position that concurrent vasopressor administration be reserved for case-by-case use in unstable shock, and future trials should enrol by vasoplegic phenotype rather than by time alone.",
         "relevancePct": 90,
         "matchedElements": [
           "P",
@@ -289,33 +290,63 @@
           "C",
           "O"
         ],
-        "design": "Prospective Cohort Study",
+        "design": "Review",
         "lowMetadata": false,
-        "_sig": "cf95e64712d9ad5761fe8e0ebaa6ff06ca1eb27ece024e9661f1db98c501ebda"
+        "_sig": "228f9e0554005dc0913cfe0d2ad8e4a8b9d5045c8823212d820bf256700ce7c4"
       },
       {
-        "pmid": "36171582",
-        "title": "Early administration of hydrocortisone, vitamin C, and thiamine in adult patients with septic shock: a randomized controlled clinical trial",
-        "authors": "Qingquan Lyu, Ruiqiang Zheng, Qihong Chen, Jiangquan Yu",
-        "year": "2022",
-        "journal": "Critical Care",
-        "doi": "10.1186/s13054-022-04175-x",
-        "url": "https://doi.org/10.1186/s13054-022-04175-x",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "41678431",
+        "title": "Continuous versus Intermittent Hydrocortisone for the Treatment of Septic Shock: A Systematic Review and Meta-Analysis.",
+        "authors": "Khan AS, Ahmad F, Khan AA, Khan Z, Ahmed T, Wazir A, Khan HU, Ali A, Khan H, Khan AY, Saqib M, Azad S, Sadiq S, Rehman M",
+        "year": "2026",
+        "journal": "Medical principles and practice : international journal of the Kuwait University, Health Science Centre",
+        "doi": "10.1159/000551004",
+        "url": "https://europepmc.org/article/PMC/PMC13038285",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Comparative Study, Systematic Review, review-article, Journal Article",
         "publicationTypes": [
-          "article"
+          "Meta-Analysis",
+          "Comparative Study",
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
         ],
-        "context": "BACKGROUND: The combination therapy of hydrocortisone, vitamin C, and thiamine has been proposed as a potential treatment in patients with sepsis and septic shock. However, subsequent trials have reported conflicting results in relation to survival outcomes. Hence, we performed this randomized controlled trial (RCT) to evaluate the efficacy and safety of early combination therapy among adult patients with septic shock. METHODS: This single-center, double-blind RCT enrolled adult patients with diagnosis of septic shock within 12 h from Northern Jiangsu People's Hospital between February 2019 and June 2021. Recruited patients were randomized 1:1 to receive intervention (hydrocortisone 200 mg daily, vitamin C 2 g every 6 h, and thiamine 200 mg every 12 h) or placebo (0.9% saline) for 5 days",
-        "relevancePct": 79,
+        "context": "Objectives: We performed a systematic review and meta-analysis of randomized controlled trials (RCTs) and comparative cohort studies comparing continuous with intermittent intravenous hydrocortisone in adults with septic shock. Subjects and methods Searches of MEDLINE, Embase, the Cochrane Central Register of Controlled Trials, and ClinicalTrials.gov were conducted till July 2025. The primary outcome was all-cause mortality; secondary outcomes included hospital and intensive care unit (ICU) length of stay, shock reversal, hypernatremia, hypokalemia, and vasopressor use. Risk of bias was assessed using Cochrane RoB 2.0 for RCTs and the Newcastle-Ottawa Scale for cohort studies. A random-effects model was applied, and certainty of evidence was graded using GRADE. Results Eight studies (five RCTs, three cohort studies) including 609 patients were analyzed. Continuous infusion was not associated with a significant reduction in mortality compared with intermittent infusion (risk ratio [RR]: 0.83, 95% confidence interval [CI]: 0.65 to 1.06; p = 0.13; I2 = 36%). No significant differences were observed in hospital stay (mean difference [MD]: 0.10 days, 95% CI: -1.40 to 1.61), ICU stay (MD: -0.02 days, 95% CI: -0.63 to 0.58), shock reversal (RR: 0.94, 95% CI: 0.61 to 1.46), hypernatremia (RR: 1.05, 95% CI: 0.51 to 2.16), hypokalemia (RR: 0.64, 95% CI: 0.40 to 1.03), or vasopressor duration (MD: -0.97 days, 95% CI: -4.00 to 2.05). Certainty of evidence ranged from very low to moderate. Conclusion Continuous and intermittent hydrocortisone infusion demonstrated comparable clinical outcomes in septic shock. Large, multicenter RCTs are warranted to determine the optimal administration strategy. .",
+        "relevancePct": 76,
         "matchedElements": [
           "P",
           "I",
           "O"
         ],
-        "design": "Randomized Controlled Trial (RCT)",
+        "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
-        "_sig": "91426697f32250f918b39ffcab4e1c52688bb9fa924dff9274768ae7648743df"
+        "_sig": "3cdc9080ffd3acf45a4e4cd54e18fe34a483abc82a3a54543fa1fbefe0bbb910"
+      },
+      {
+        "pmid": "42590151",
+        "title": "Hour-1 Sepsis Bundle: Updated Evidence.",
+        "authors": "De Pascale G, Cutuli SL, Carelli S, Cisterna I, Vecchio PD, Franchini EO, Grilli FL, Lombardi G, Palladini A, Tagliamont",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15156049",
+        "url": "https://europepmc.org/article/PMC/PMC13466698",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Sepsis and septic shock remain leading causes of disability, mortality and healthcare utilization worldwide. Increasing evidence has established sepsis as a time-dependent emergency in which delays in diagnosis and treatment are associated with worsening organ dysfunction and increased mortality. To standardize early management, the Surviving Sepsis Campaign (SSC) developed evidence-based care bundles, culminating in the current Hour-1 Bundle, which emphasizes rapid implementation of key diagnostic and therapeutic interventions. This narrative review critically examines the scientific rationale, clinical evidence, implementation challenges, and future perspectives surrounding the SSC Hour-1 Bundle. Lactate remains a valuable marker of illness severity and treatment response, although its interpretation requires consideration of multiple non-hypoperfusion-related mechanisms. Blood cultures represent the microbiological gold standard, while emerging rapid diagnostic technologies are transforming pathogen identification and antimicrobial stewardship. Early effective antimicrobial therapy remains strongly associated with improved outcomes, although balancing prompt treatment with antimicrobial stewardship remains challenging. Fluid resuscitation strategies have evolved from fixed-volume approaches toward individualized assessment of fluid responsiveness and tolerance, whereas early vasopressor initiation is increasingly recognized as complementary to fluid administration. Although observational studies frequently associate bundle adherence with improved outcomes, real-world compliance remains variable and evidence supporting strict one-hour completion targets remains heterogeneous. Future developments are expected to move beyond standardized protocols toward personalized sepsis management integrating rapid diagnostics, immune phenotyping, advanced haemodynamic monitoring, and artificial intelligence-driven clinical decision support. These innovations may enable more precise therapeutic strategies while preserving the fundamental principles of sepsis management, that remain the cornerstone of contemporary sepsis care.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "662934a1d023a0ab357128a2d80ec55f316bcab298c51dfc6bcf3ac0d1e2e1a7"
       },
       {
         "pmid": "42274006",
@@ -370,14 +401,14 @@
         "_sig": "b612293ca36089259d22d47d561d079a3dba3c8c4cb3bd41d7edcbc9a2f35e44"
       },
       {
-        "pmid": "24635772",
-        "title": "Albumin replacement in patients with severe sepsis or septic shock",
-        "authors": "Caironi P, et al",
-        "year": "2014",
+        "pmid": "29490185",
+        "title": "Hydrocortisone plus Fludrocortisone for Adults with Septic Shock",
+        "authors": "Annane D, et al",
+        "year": "2018",
         "journal": "The New England journal of medicine",
-        "doi": "10.1056/NEJMoa1305727",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/24635772/",
-        "context": "BACKGROUND: Although previous studies have suggested the potential advantages of albumin administration in patients with severe sepsis, its efficacy has not been fully established. METHODS: In this multicenter, open-label trial, we randomly assigned 1818 patients with severe sepsis, in 100 intensive care units (ICUs), to receive either 20% albumin and crystalloid solution or crystalloid solution alone. In the albumin group, the target serum albumin concentration was 30 g per liter or more until discharge from the ICU or 28 days after randomization. The primary outcome was death from any cause at 28 days. Secondary outcomes were death from any cause at 90 days, the number of patients with organ dysfunction and the degree of dysfunction, and length of stay in the ICU and the hospital. RESULTS: During the first 7 days, patients in the albumin group, as compared with those in the crystalloid group, had a higher mean arterial pressure (P=0.03) and lower net fluid balance (P<0.001). The total daily amount of administered fluid did not differ significantly between the two groups (P=0.10). At 28 days, 285 of 895 patients (31.8%) in the albumin group and 288 of 900 (32.0%) in the crystalloid group had died (relative risk in the albumin group, 1.00; 95% confidence interval [CI], 0.87 to 1.14; P=0.94). At 90 days, 365 of 888 patients (41.1%) in the albumin group and 389 of 893 (43.6%) in the crystalloid group had died (relative risk, 0.94; 95% CI, 0.85 to 1.05; P=0.29). No significant differences in other secondary outcomes were observed between the two groups. CONCLUSIONS: In patients with severe sepsis, albumin replacement in addition to crystalloids, as compared with crystalloids alone, did not improve the rate of survival at 28 and 90 days. (Funded by the Italian Medicines Agency; ALBIOS ClinicalTrials.gov number, NCT00707122.).",
+        "doi": "10.1056/NEJMoa1705716",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29490185/",
+        "context": "BACKGROUND: Septic shock is characterized by dysregulation of the host response to infection, with circulatory, cellular, and metabolic abnormalities. We hypothesized that therapy with hydrocortisone plus fludrocortisone or with drotrecogin alfa (activated), which can modulate the host response, would improve the clinical outcomes of patients with septic shock. METHODS: In this multicenter, double-blind, randomized trial with a 2-by-2 factorial design, we evaluated the effect of hydrocortisone-plus-fludrocortisone therapy, drotrecogin alfa (activated), the combination of the three drugs, or their respective placebos. The primary outcome was 90-day all-cause mortality. Secondary outcomes included mortality at intensive care unit (ICU) discharge and hospital discharge and at day 28 and day 180 and the number of days alive and free of vasopressors, mechanical ventilation, or organ failure. After drotrecogin alfa (activated) was withdrawn from the market, the trial continued with a two-group parallel design. The analysis compared patients who received hydrocortisone plus fludrocortisone with those who did not (placebo group). RESULTS: Among the 1241 patients included in the trial, the 90-day mortality was 43.0% (264 of 614 patients) in the hydrocortisone-plus-fludrocortisone group and 49.1% (308 of 627 patients) in the placebo group (P=0.03). The relative risk of death in the hydrocortisone-plus-fludrocortisone group was 0.88 (95% confidence interval, 0.78 to 0.99). Mortality was significantly lower in the hydrocortisone-plus-fludrocortisone group than in the placebo group at ICU discharge (35.4% vs. 41.0%, P=0.04), hospital discharge (39.0% vs. 45.3%, P=0.02), and day 180 (46.6% vs. 52.5%, P=0.04) but not at day 28 (33.7% and 38.9%, respectively; P=0.06). The number of vasopressor-free days to day 28 was significantly higher in the hydrocortisone-plus-fludrocortisone group than in the placebo group (17 vs. 15 days, P<0.001), as was the number of organ-failure-free days (14 vs. 12 days, P=0.003). The number of ventilator-free days was similar in the two groups (11 days in the hydrocortisone-plus-fludrocortisone group and 10 in the placebo group, P=0.07). The rate of serious adverse events did not differ significantly between the two groups, but hyperglycemia was more common in hydrocortisone-plus-fludrocortisone group. CONCLUSIONS: In this trial involving patients with septic shock, 90-day all-cause mortality was lower among those who received hydrocortisone plus fludrocortisone than among those who received placebo. (Funded by Programme Hospitalier de Recherche Clinique 2007 of the French Ministry of Social Affairs and Health; APROCCHSS ClinicalTrials.gov number, NCT00625209 .).",
         "source": "pubmed",
         "publicationTypes": [
           "Journal Article",
@@ -393,7 +424,33 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "2f16ac2a6c6a1568ccd2bac6a44d152a028eb66ba494477625a1b6f8765a45cf"
+        "_sig": "0896c70756347febf2a2fe99d1574e4ad8e16b2a36c05d5c4fe9c5b9204f4496"
+      },
+      {
+        "pmid": "42605402",
+        "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
+        "authors": "Mansoor NM, Ghassan L, Haider Ali AM, AlShehabi H, Mohamed F.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.112866",
+        "url": "https://europepmc.org/article/PMC/PMC13477727",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Sepsis remains a leading cause of morbidity and mortality worldwide and represents a major challenge in emergency medicine. Early recognition and timely intervention are critical determinants of patient outcomes. The introduction of early goal-directed therapy (EGDT) in 2001 transformed sepsis management by promoting protocolized hemodynamic resuscitation during the initial hours of care. However, subsequent evidence challenged the routine use of invasive EGDT targets and led to significant changes in contemporary sepsis management strategies. This narrative review examines the evolution of sepsis management in the emergency department, focusing on the development, implementation, and reassessment of EGDT. Literature published between 2001 and 2026 was reviewed using major medical databases and guideline repositories, with emphasis on landmark randomized controlled trials (RCTs), systematic reviews, meta-analyses, and international guideline statements. Key studies, including Protocolized Care for Early Septic Shock (ProCESS), Australasian Resuscitation in Sepsis Evaluation (ARISE), and Protocolised Management in Sepsis (ProMISe), demonstrated no mortality benefit of rigid protocolized EGDT compared with contemporary standard care, contributing to a shift toward individualized, physiology-guided resuscitation strategies. Current evidence supporting early antimicrobial administration, balanced crystalloid resuscitation, dynamic assessment of fluid responsiveness, early vasopressor initiation, and lactate-guided monitoring is reviewed, along with ongoing controversies involving antibiotic timing, fluid management, biomarker-guided therapy, and personalized sepsis care. Although protocolized EGDT is no longer routinely recommended, its emphasis on early recognition and prompt intervention continues to influence modern sepsis management. Contemporary practice favors individualized, patient-centered approaches focused on rapid diagnosis, timely antimicrobial therapy, targeted hemodynamic support, and continuous reassessment of tissue perfusion, while future advances are likely to involve biomarker-guided treatment, precision medicine, and artificial intelligence-assisted clinical decision support.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "9ed75b79470fd2650425d63d6027dd6cd0bf1270252dd0dc0ceb8b8aa9ea4859"
       },
       {
         "pmid": "cr:10.26717/bjstr.2025.62.009735",
@@ -561,6 +618,31 @@
         "_sig": "f7b7eed9e8a7abaeaa87696b8f23bb059eadff5d3ec2f7d998690f43c66d17e2"
       },
       {
+        "pmid": "42846226",
+        "title": "Septic shock in the era of precision medicine: rethinking fluids, vasopressors, and immunomodulation.",
+        "authors": "Du J, Feng H, Dong S, Yang C, Al-Danakh A, Zhou S.",
+        "year": "2026",
+        "journal": "Frontiers in medicine",
+        "doi": "10.3389/fmed.2026.1909143",
+        "url": "https://europepmc.org/article/PMC/PMC13643401",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Septic shock remains a high-mortality syndrome despite advances in early recognition, antimicrobial therapy, source control, and protocolized resuscitation. A major limitation of current practice is that septic shock is often managed as a single clinical entity, whereas patients meeting the same diagnostic criteria may differ substantially in hemodynamic phenotype, endothelial injury, microcirculatory function, immune state, coagulation activation, fluid tolerance, and vasopressor responsiveness. These differences help explain why biologically plausible therapies frequently fail when tested in unselected populations. This narrative review synthesizes evidence supporting a precision-oriented approach to septic shock across three therapeutic domains-fluid therapy, vasopressor support, and immunomodulation-supported by two cross-cutting precision layers: biological phenotyping and bedside precision tools. We distinguish bedside clinical phenotypes from biological endotypes and explain how this framework can refine resuscitation decisions. Fluid therapy is reframed as a titrated intervention requiring assessment of both fluid responsiveness and fluid tolerance. Vasopressor therapy is discussed beyond a uniform mean arterial pressure target, with emphasis on timing, agent selection, tissue perfusion, and individualized weaning. Immune, endothelial, and coagulation phenotyping are presented as biological bridges between bedside physiology and targeted therapy, while immunomodulation is considered a promising but still investigational frontier requiring patient stratification. Finally, we propose a pragmatic precision-resuscitation framework that integrates lactate kinetics, capillary refill time, point-of-care ultrasound, congestion assessment, and immune/endothelial biomarkers where available. Precision care should not delay time-critical sepsis interventions; rather, it should mature protocolized management into a dynamic process of early treatment, repeated reassessment, and phenotype-directed adjustment.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "c25aa3de299f294e67fa6f651ab8b8379a4146dce478c367d32c1dba6e79de3d"
+      },
+      {
         "pmid": "37529784",
         "title": "Circulatory shock in adults in emergency department",
         "authors": "Ashok Kumar Pannu",
@@ -582,73 +664,6 @@
         "design": "Narrative Review",
         "lowMetadata": false,
         "_sig": "72b914af2f74699a87c35adbd20d03885aff5475edc31ea91867e16232761fe7"
-      },
-      {
-        "pmid": "36864853",
-        "title": "Vasopressor Administration via Peripheral Intravenous Access for Emergency Department Stabilization in Septic Shock Patients",
-        "authors": "Brian Todd Wessman, Scott Kilian, Aaron Surrey, Weston M. McCarron",
-        "year": "2022",
-        "journal": "Indian Journal of Critical Care Medicine",
-        "doi": "10.5005/jp-journals-10071-24243",
-        "url": "https://doi.org/10.5005/jp-journals-10071-24243",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Background: Septic shock is commonly treated in the emergency department (ED) with vasopressors. Prior data have shown that vasopressor administration through a peripheral intravenous line (PIV) is feasible. Objectives: To characterize vasopressor administration for patients presenting to an academic ED in septic shock. Materials and methods: Retrospective observational cohort study evaluating initial vasopressor administration for septic shock. ED patients from June 2018 to May 2019 were screened. Exclusion criteria included other shock states, hospital transfers, or heart failure history. Patient demographics, vasopressor data, and length of stay (LOS) were collected. Cases were grouped by initiation site: PIV, ED placed central line (ED-CVL), or tunneled port/indwelling central line (Prior-CVL). Results: Of the 136 patients identified, 69 were included. Vasopressors were initiated",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "C"
-        ],
-        "design": "Retrospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "98c542e52fbf79b72a3b3b1dcbebad441f8b8d8cdc941b3afa80cd04f8578447"
-      },
-      {
-        "pmid": "cr:10.51684/firs.8205",
-        "title": "CENSER: Early norepinephrine in septic shock",
-        "authors": "Morgenstern Justin",
-        "year": "2019",
-        "journal": "First10EM blog",
-        "doi": "10.51684/firs.8205",
-        "url": "https://doi.org/10.51684/firs.8205",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 43,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "a6c0f71759e4c4942b44d204d06c429c7ce28558a8ec580a984432eee0ceb041"
-      },
-      {
-        "pmid": "cr:10.1097/pec.0b013e3181f196e6",
-        "title": "Use of Ketamine Continuous Infusion for Pediatric Sedation in Septic Shock",
-        "authors": "Barbi Egidio, Rizzello Elisa, Taddio Andrea",
-        "year": "2010",
-        "journal": "Pediatric Emergency Care",
-        "doi": "10.1097/pec.0b013e3181f196e6",
-        "url": "https://doi.org/10.1097/pec.0b013e3181f196e6",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 43,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "b4c9d568bb8f9db4ce3a565744e068a992683344e154a169123a5b588f985a18"
       }
     ],
     "corpusStats": {
@@ -666,8 +681,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -701,7 +716,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -730,12 +745,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -743,9 +757,10 @@
         "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
       },
       {
         "id": "googlescholar",
@@ -763,9 +778,10 @@
         "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -804,9 +820,8 @@
         "count": 0,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -817,7 +832,7 @@
         "attempted": true,
         "ok": false,
         "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -831,6 +846,6 @@
         "error": "Europe PMC Preprints HTTP 503"
       }
     ],
-    "hasMore": false
+    "hasMore": true
   }
 }

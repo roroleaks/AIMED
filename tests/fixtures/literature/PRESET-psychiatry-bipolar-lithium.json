@@ -1,6 +1,6 @@
 {
   "id": "PRESET-psychiatry-bipolar-lithium",
-  "recordedAt": "2026-11-26T19:49:12.525Z",
+  "recordedAt": "2026-11-26T23:06:03.789Z",
   "specialty": "psychiatry",
   "words": [
     {
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -344,6 +344,54 @@
         "_sig": "8a5362c48722e9c7edf42b887bc3f9a7eb63929fdda4f9b3c603e91b19f5e0ab"
       },
       {
+        "pmid": "30130637",
+        "title": "Safety and efficacy of lithium in children and adolescents: A systematic review in bipolar illness",
+        "authors": "Amerio A, et al",
+        "year": "2018",
+        "journal": "European psychiatry : the journal of the Association of European Psychiatrists",
+        "doi": "10.1016/j.eurpsy.2018.07.012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30130637/",
+        "context": "INTRODUCTION: Many clinicians are reluctant to use traditional mood-stabilizing agents, especially lithium, in children and adolescents. This review examined the evidence for lithium's safety and efficacy in this population. METHODS: A systematic review was conducted on the use of lithium in children and adolescents with bipolar disorder (BD). Relevant papers published through June 30 th 2018 were identified searching the electronic databases MEDLINE, Embase, PsycINFO and the Cochrane Library. RESULTS: 30 articles met inclusion criteria, including 12 randomized controlled trials (RCTs). Findings from RCTs demonstrate efficacy for acute mania in up to 50% of patients, and evidence of long-term maintenance efficacy. Lithium was generally safe, at least in the short term, with most common side effects being gastrointestinal, polyuria, or headache. Only a minority of patients experienced hypothyroidism. No cases of acute kidney injury or chronic kidney disease were reported. CONCLUSIONS: Though the available literature is mostly short-term, there is evidence that lithium monotherapy is reasonably safe and effective in children and adolescents, specifically for acute mania and for prevention of mood episodes.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "relevancePct": 84,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "670aab21df67eb01dc9b803c9a5dee417b8ca8b3cc42bb8a4c6eb25056749a31"
+      },
+      {
+        "pmid": "33960396",
+        "title": "Polypharmacy as maintenance treatment in bipolar illness: A systematic review",
+        "authors": "Amerio A, et al",
+        "year": "2021",
+        "journal": "Acta psychiatrica Scandinavica",
+        "doi": "10.1111/acps.13312",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33960396/",
+        "context": "OBJECTIVES: Polypharmacy is common in maintenance treatment of bipolar illness, but proof of greater efficacy compared to monotherapy is assumed rather than well known. We systematically reviewed the evidence from the literature to provide recommendations for clinical management and future research. METHOD: A systematic review was conducted on the use of polypharmacy in bipolar prophylaxis. Relevant papers published in English through 31 December 2019 were identified searching the electronic databases MEDLINE, Embase, PsycINFO, and the Cochrane Library. RESULTS: Twelve studies matched inclusion criteria, including 10 randomized controlled trials (RCTs). The best drug combination in prevention is represented by lithium + valproic acid which showed a significant effect on time to mood relapses (HR = 0.57) compared to valproic acid monotherapy, especially for manic episodes (HR = 0.51). The effect was significant in terms of time to new drug treatment (HR = 0.51) and time to hospitalization (HR = 0.57). A significant reduction in the frequency of mood relapses was also reported for lithium + valproic acid vs. lithium monotherapy (RR=0.12); however, the trial had a small sample size. Lamotrigine + valproic acid reported significant efficacy in prevention of depressive episodes compared to lamotrigine alone. CONCLUSIONS: The literature to support a generally greater efficacy with polypharmacy in bipolar illness is scant and heterogeneous. Within that limited evidence base, the best drug combination in bipolar prevention is represented by lithium + valproic acid for manic, but not depressive episodes. Clinical practice should focus more on adequate monotherapy before considering polypharmacy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "d88a3c699ca4e78a0cf7d8b9e4e3007dda8d32f57e0db53e687d2c6ecbcf68de"
+      },
+      {
         "pmid": "29136600",
         "title": "Effects of venlafaxine versus lithium monotherapy on quality of life in bipolar II major depressive disorder: Findings from a double-blind randomized controlled trial",
         "authors": "Lorenzo-Luaces L, Amsterdam JD",
@@ -370,6 +418,32 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "9786913e9aea16acd9f2d124f89b59c6fce41edea6560b5b3f96ef869886e6b3"
+      },
+      {
+        "pmid": "29149756",
+        "title": "Residual anxiety may be associated with depressive relapse during continuation therapy of bipolar II depression",
+        "authors": "Lorenzo-Luaces L, et al",
+        "year": "2018",
+        "journal": "Journal of affective disorders",
+        "doi": "10.1016/j.jad.2017.11.028",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29149756/",
+        "context": "BACKGROUND: Anxiety symptoms are common in bipolar disorder. We explored the effect of anxiety on the outcome of acute and continuation pharmacotherapy of bipolar II depression. METHODS: Data were derived from a randomized double-blind 12-week acute (N = 129) and 6-month continuation (N = 55) comparison of venlafaxine versus lithium monotherapy in bipolar II depression in adults. We distinguished between the items of the Hamilton Rating Scale for Depression (HRSD) that capture depression vs. anxiety (i.e., psychomotor agitation, psychic anxiety, somatic anxiety, hypochondriasis, and obsessive-compulsive concerns) and examined the effect of treatment on depression and anxiety. Additionally, we explored whether baseline anxiety or depression predicted changes over time in depression and anxiety ratings or moderated treatment outcomes. We also explored whether residual depressive and anxious symptoms predicted relapse during continuation therapy. RESULTS: Venlafaxine was superior to lithium in reducing both depression and anxiety, though its effects on anxiety were more modest than those on depression. Baseline anxiety predicted change over time in anxiety, but not depression. By contrast, baseline depression did not predict change over time in depression or anxiety. Residual anxiety, specifically uncontrollable worry, was a stronger predictor of relapse than residual depression. CONCLUSION: Successful treatment of symptoms of anxiety in bipolar depression may protect against depressive relapse.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, N.I.H., Extramural",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "6c6fa84f0f22b9d5ed37821636cf743e88197f9f970ede06829865e1a963500c"
       },
       {
         "pmid": "16263857",
@@ -516,10 +590,10 @@
       }
     ],
     "corpusStats": {
-      "retrieved": 40,
-      "screened": 40,
+      "retrieved": 42,
+      "screened": 42,
       "blocked": 0,
-      "returned": 14,
+      "returned": 17,
       "relaxationLevel": 1
     },
     "sources": [
@@ -627,9 +701,9 @@
         "query": "bipolar I disorder in maintenance phase lithium monotherapy valproate monotherapy time to recurrence of any mood episode",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
+        "skipped": "cooldown",
         "error": "Semantic Scholar throttled (429)"
       },
       {
@@ -681,7 +755,7 @@
         "attempted": false,
         "ok": false,
         "skipped": "cooldown",
-        "error": "The operation was aborted due to timeout"
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -691,7 +765,8 @@
         "date": "2026-11-26",
         "attempted": false,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "cooldown",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

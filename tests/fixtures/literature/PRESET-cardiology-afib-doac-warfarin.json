@@ -1,6 +1,6 @@
 {
   "id": "PRESET-cardiology-afib-doac-warfarin",
-  "recordedAt": "2026-11-26T19:41:30.925Z",
+  "recordedAt": "2026-11-26T22:59:44.473Z",
   "specialty": "cardiology",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In non-valvular atrial fibrillation, elevated thromboembolic risk (P), does direct oral anticoagulants (DOACs) (I) compared with warfarin (C) reduce stroke or systemic embolism (O)?",
-        "basis": "Unavailable: Retrieved trials report conflicting directional findings (6 favourable, 1 no-difference, 0 adverse).",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (7 favourable, 2 no-difference, 0 adverse).",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -315,6 +315,31 @@
         "_sig": "72fe7d3afdb23ebe739984255f6543ce62e6b20368f174394e3c5fa68b3a4580"
       },
       {
+        "pmid": "34949473",
+        "title": "Meta-Analysis Comparing Apixaban Versus Rivaroxaban for Management of Patients With Nonvalvular Atrial Fibrillation",
+        "authors": "Mamas MA, et al",
+        "year": "2022",
+        "journal": "The American journal of cardiology",
+        "doi": "10.1016/j.amjcard.2021.11.021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34949473/",
+        "context": "To compare the efficacy and safety of apixaban and rivaroxaban for the prevention of stroke in patients with nonvalvular atrial fibrillation (NVAF) by way of a meta-analysis informed by real-world evidence. Systematic review and meta-analysis of observational studies including patients with NVAF on apixaban and rivaroxaban, which reported stroke/systemic embolism and/or major bleeding. Prospero registration number: CRD42021251719. Estimates of relative treatment effect (based on hazard ratios[HRs]) were pooled using the inverse variance method. Fixed-effects and random effect analyses were conducted. Exploratory meta-regression analyses that included study-level covariates were conducted using the metareg (meta-regression) command of Stata Statistical Software: Release 15.1 (College Station, Texas. StataCorp LLC.). Study level covariates explored in the meta-regression analyses were CHA 2 DS 2 -VASc and HAS-BLED scores. A total of 10 unique retrospective real-world evidence studies reported comparative estimates for apixaban versus rivaroxaban in patients with NVAF and were included in the meta-analysis. Adjusted HR was 0.88 (95% [confidence interval] CI 0.81 to 0.95), indicating a significantly lower hazard of stroke/systemic embolism associated with apixaban versus rivaroxaban. Pairwise meta-analysis for a major bleeding episode was significantly lower with apixaban compared with rivaroxaban (HR 0.62; 95% CI 0.56 to 0.69), whereas apixaban was associated with a lower risk of gastrointestinal bleeding compared with rivaroxaban (HR 0.57; 95% CI 0.50 to 0.64). In conclusion, this study suggests that patient CHA 2 DS 2 -VASc and HAS-BLED scores might be an important factor when selecting which direct oral anticoagulants to use, given the relation these scores have on treatment outcomes. Apixaban is associated with lower rates of both major and gastrointestinal bleeding than rivaroxaban, with no loss of efficacy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "fd0fbd661646e75aab15e077e2a616f0701f8e7d2a4f9d0f19fcf944a9a9a292"
+      },
+      {
         "pmid": "34547386",
         "title": "Net clinical benefit of a reduced dose of DOACs in non-valvular atrial fibrillation: A meta-analysis of randomized trials",
         "authors": "Thomopoulos C, et al",
@@ -414,34 +439,6 @@
         "design": "Meta-Analysis",
         "lowMetadata": false,
         "_sig": "52d0dd5afd31f89b756efa5c030317a6b846d72e037fe75c3554941dfb0aaf52"
-      },
-      {
-        "pmid": "24251359",
-        "title": "Edoxaban versus warfarin in patients with atrial fibrillation",
-        "authors": "Giugliano RP, et al",
-        "year": "2013",
-        "journal": "The New England journal of medicine",
-        "doi": "10.1056/NEJMoa1310907",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/24251359/",
-        "context": "BACKGROUND: Edoxaban is a direct oral factor Xa inhibitor with proven antithrombotic effects. The long-term efficacy and safety of edoxaban as compared with warfarin in patients with atrial fibrillation is not known. METHODS: We conducted a randomized, double-blind, double-dummy trial comparing two once-daily regimens of edoxaban with warfarin in 21,105 patients with moderate-to-high-risk atrial fibrillation (median follow-up, 2.8 years). The primary efficacy end point was stroke or systemic embolism. Each edoxaban regimen was tested for noninferiority to warfarin during the treatment period. The principal safety end point was major bleeding. RESULTS: The annualized rate of the primary end point during treatment was 1.50% with warfarin (median time in the therapeutic range, 68.4%), as compared with 1.18% with high-dose edoxaban (hazard ratio, 0.79; 97.5% confidence interval [CI], 0.63 to 0.99; P<0.001 for noninferiority) and 1.61% with low-dose edoxaban (hazard ratio, 1.07; 97.5% CI, 0.87 to 1.31; P=0.005 for noninferiority). In the intention-to-treat analysis, there was a trend favoring high-dose edoxaban versus warfarin (hazard ratio, 0.87; 97.5% CI, 0.73 to 1.04; P=0.08) and an unfavorable trend with low-dose edoxaban versus warfarin (hazard ratio, 1.13; 97.5% CI, 0.96 to 1.34; P=0.10). The annualized rate of major bleeding was 3.43% with warfarin versus 2.75% with high-dose edoxaban (hazard ratio, 0.80; 95% CI, 0.71 to 0.91; P<0.001) and 1.61% with low-dose edoxaban (hazard ratio, 0.47; 95% CI, 0.41 to 0.55; P<0.001). The corresponding annualized rates of death from cardiovascular causes were 3.17% versus 2.74% (hazard ratio, 0.86; 95% CI, 0.77 to 0.97; P=0.01), and 2.71% (hazard ratio, 0.85; 95% CI, 0.76 to 0.96; P=0.008), and the corresponding rates of the key secondary end point (a composite of stroke, systemic embolism, or death from cardiovascular causes) were 4.43% versus 3.85% (hazard ratio, 0.87; 95% CI, 0.78 to 0.96; P=0.005), and 4.23% (hazard ratio, 0.95; 95% CI, 0.86 to 1.05; P=0.32). CONCLUSIONS: Both once-daily regimens of edoxaban were noninferior to warfarin with respect to the prevention of stroke or systemic embolism and were associated with significantly lower rates of bleeding and death from cardiovascular causes. (Funded by Daiichi Sankyo Pharma Development; ENGAGE AF-TIMI 48 ClinicalTrials.gov number, NCT00781391.).",
-        "source": "pubmed",
-        "pubType": "Comparative Study",
-        "publicationTypes": [
-          "Comparative Study",
-          "Journal Article",
-          "Multicenter Study",
-          "Randomized Controlled Trial",
-          "Research Support, Non-U.S. Gov't"
-        ],
-        "relevancePct": 74,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "6e232b1768cfb537473a77053f974a30b0e307b346d2a7d47635b02dbb6d1f79"
       },
       {
         "pmid": "cr:10.1177/10760296261416892",
@@ -739,9 +736,10 @@
         "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "europepmc",
@@ -769,10 +767,9 @@
         "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Semantic Scholar throttled (429)"
+        "skipped": "cooldown"
       },
       {
         "id": "openalex",

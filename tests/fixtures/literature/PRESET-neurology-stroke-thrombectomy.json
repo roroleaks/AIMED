@@ -1,6 +1,6 @@
 {
   "id": "PRESET-neurology-stroke-thrombectomy",
-  "recordedAt": "2026-11-26T19:45:56.619Z",
+  "recordedAt": "2026-11-26T23:02:26.457Z",
   "specialty": "neurology",
   "words": [
     {
@@ -61,8 +61,8 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O) without additional adverse events (O)?",
-        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O)?",
+        "basis": "7 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
         "supported": false,
         "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
@@ -81,8 +81,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -106,8 +106,8 @@
       },
       {
         "id": "crossref",
-        "ok": true,
-        "count": 22
+        "ok": false,
+        "count": 0
       },
       {
         "id": "doaj",
@@ -116,8 +116,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 24
       },
       {
         "id": "cochrane",
@@ -135,7 +135,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O) without additional adverse events (O)?"
+      "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O)?"
     },
     "words": [
       {
@@ -290,30 +290,6 @@
         "design": "Diagnostic Accuracy Study",
         "lowMetadata": false,
         "_sig": "e590b05b7163788e93242c83741b567567f2084071129e0f0e11f074b63f5c78"
-      },
-      {
-        "pmid": "cr:10.22514/sv.2023.055",
-        "title": "Comparison of clinical efficacy and safety between intravenous thrombolysis and endovascular therapy in patients with acute large vessel occlusion stroke of the posterior circulation",
-        "authors": "Academic Authors",
-        "year": "2023",
-        "journal": "Signa Vitae",
-        "doi": "10.22514/sv.2023.055",
-        "url": "https://doi.org/10.22514/sv.2023.055",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "context": "To investigate the efficacy and safety of intravenous thrombolytic (IVT) therapy and endovascular (EV) therapy in patients with acute posterior large vessel occlusion stroke (PLVOS). A total of fifty patients with acute PLVOS were randomly divided into the IVT group and EV group. The general baseline data, post-treatment vascular recanalization rate, National Institute of Health Stroke Scale (NIHSS) score before and after intervention, prognosis, and perioperative complications were compared between the two groups. There were no significant differences in the overall baseline data between the two groups (p > 0.05). The post-treatment recanalization rate was significantly higher in the EV group (88.00%) than in the IVT group (64.00%, p < 0.05). The NIHSS score at 24 h post-admission was significantly lower and prognosis was significantly better in the EV group than in the IVT group (both p < 0.05). The EV group had significantly lower overall complication rate (16.00%) than the IVT group (48.00%, p < 0.05). Compared with IVT therapy, EV therapy can effectively improve neurological damage, vascular recanalization rate and prognosis as well as reduce the incidence of perioperative complications in patients with acute PLVOS.",
-        "relevancePct": 76,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Prognostic Study",
-        "lowMetadata": false,
-        "_sig": "0f21419f35165b33967049a307aad12f1754dcd337554e4f94b4fb9d1b2e8c8f"
       },
       {
         "pmid": "26537058",
@@ -486,30 +462,6 @@
         "_sig": "1ae6d8cb824ef292e6c30d4e7569b019f2815c4eae36d404a363aabc30e40025"
       },
       {
-        "pmid": "doi:10.3390/life11121423",
-        "title": "Posterior Circulation Endovascular Thrombectomy for Large Vessels Occlusion in Patients Presenting with NIHSS Score ≤ 10",
-        "authors": "Andrea M. Alexandre, Iacopo Valente, Arturo Consoli, Pietro Trombatore",
-        "year": "2021",
-        "journal": "Life",
-        "doi": "10.3390/life11121423",
-        "url": "https://doi.org/10.3390/life11121423",
-        "source": "doaj",
-        "pubType": "Journal Article",
-        "publicationTypes": [
-          "Journal Article"
-        ],
-        "context": "Mechanical thrombectomy (MT) is currently the gold standard treatment for ischemic stroke due to large vessel occlusion (LVO). However, the evidence of clinical usefulness of MT in posterior circulation LVO (pc-LVO) is still doubtful compared to the anterior circulation, especially in patients with mild neurological symptoms. The database of 10 high-volume stroke centers in Europe, including a period of three year and a half, was screened for patients with an acute basilar artery occlusion or a single dominant vertebral artery occlusion (“functional” BAO) presenting with a NIHSS ≤10, and with at least 3 months follow-up. A total of 63 patients were included. Multivariate analysis demonstrated that female gender (adjusted OR 0.04; 95% CI 0–0.84; p = 0.04) and combined technique (adj OR 0.001; 95% CI 0–0.81; p = 0.04) were predictors of worse outcome. Higher pc-ASPECTS (adj OR 4.75; 95% CI 1.33–16.94; p = 0.02) and higher Delta NIHSS (adj OR 2.06; 95% CI 1.16–3.65; p = 0.01) were predictors of better outcome. Delta NIHSS was the main predictor of good outcome at 90 days in patients with posterior circulation LVO presenting with NIHSS score ≤ 10.",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "8a6e8b6b5994b55d978f5da7c9e802918d5da8f774c486016d56c4c4d742461a"
-      },
-      {
         "pmid": "42974611",
         "title": "Association Between Hypoperfusion Intensity Ratio and Outcomes After Endovascular Thrombectomy in Posterior Circulation Stroke: A Retrospective Study.",
         "authors": "Mo M, Tao CR, Yu CY, Chen ZJ, Hu W.",
@@ -533,54 +485,6 @@
         "design": "Prognostic Study",
         "lowMetadata": false,
         "_sig": "2a99c01add26267bb968a3c53036e01147a53af254e5d34f133304a244f6cef9"
-      },
-      {
-        "pmid": "28721323",
-        "title": "Endovascular Management of Stroke Patients with Large Vessel Occlusion and Minor Stroke Symptoms",
-        "authors": "Saeed Ali Alqahtani, Andrew B. Stemer, Michael F McCullough, Randy Scott Bell",
-        "year": "2017",
-        "journal": "Cureus",
-        "doi": "10.7759/cureus.1355",
-        "url": "https://doi.org/10.7759/cureus.1355",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Endovascular mechanical thrombectomy for stroke patients with large vessel occlusion (LVO) in the anterior circulation has become the standard of care based on several major randomized clinical trials. The successful result reported by these trials constitutes what may be the largest achievement in the history of neurological sciences. However, most of these mechanical thrombectomy trials (except for the multicenter randomized clinical trial of endovascular treatment for acute ischemic stroke in the Netherlands, i.e., MR CLEAN and Extending the Time for Thrombolysis in Emergency Neurological Deficits-Intra-Arterial, i.e., EXTEND-IA) excluded stroke patients with minor to mild stroke symptoms with National Institutes of Health Stroke Scale (NIHSS) scores of six to eight or lower. The median NIHSS score for patients who underwent acute",
-        "relevancePct": 56,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Randomized Clinical Trial",
-        "lowMetadata": false,
-        "_sig": "b3875fc96a0c6479851610d532c68b288743a8d5e74305dcbbc110c174660e0a"
-      },
-      {
-        "pmid": "42974140",
-        "title": "Mechanical Thrombectomy of a Combined Persistent Primitive Trigeminal Artery and Basilar Artery Occlusion: A Case Report and Literature Review.",
-        "authors": "Deprez L, Dasnoy-Sumell G, Abdellaoui R, Schyns O, Moïse M.",
-        "year": "2026",
-        "journal": "Journal of neuroendovascular therapy",
-        "doi": "10.5797/jnet.cr.2026-0014",
-        "url": "https://europepmc.org/article/PMC/PMC13725426",
-        "source": "pmc",
-        "pubType": "Journal Article, Case Reports, case-report",
-        "publicationTypes": [
-          "Journal Article",
-          "Case Reports",
-          "case-report"
-        ],
-        "context": "Objective Persistent primitive trigeminal artery (PPTA) is a rare anastomosis between the internal carotid artery and the posterior circulation, most commonly with the basilar artery (BA). It has been associated with neurovascular diseases such as cerebral hemorrhage and ischemic stroke. Its occlusion in the case of ischemic stroke presents multiple challenges, both diagnostic and therapeutic, as the modified vascular anatomy may complicate the initial imaging diagnosis and endovascular treatment with mechanical thrombectomy (MT). Case presentation We report here the case of a 64-year-old woman presenting with an altered conscious status and bilateral mydriasis due to an occlusion of a PPTA and the distal part of the BA, which was treated with MT. Complete recanalization was obtained using combined contact aspiration and stent retriever thrombectomy through the PPTA. Conclusion PPTA is a rare vascular anatomical variant whose knowledge is important in the setting of stroke. In this setting, MT appears to be a feasible, safe, and effective technique compared to other proximal sites of occlusion.",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Case Report",
-        "lowMetadata": false,
-        "_sig": "4b81543098b6401c3368f836c47b0ac91db333174e1aab975762b6cce827e65c"
       },
       {
         "pmid": "cr:10.3390/jcm13133707",
@@ -650,6 +554,98 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "c3d1921ed17deaa00f4e69aa808eb96f83ba0a29899adfd813b232eccaf135e0"
+      },
+      {
+        "pmid": "doi:10.3389/fneur.2022.1016734",
+        "title": "Preliminary experience with recanalization of large vessel occlusion due to underlying long-segment dissection using a standby microwire technique",
+        "authors": "Xiaoxi Zhang, Hongye Xu, Zhengzhe Feng, Weilong Hua",
+        "year": "2022",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2022.1016734",
+        "url": "https://doi.org/10.3389/fneur.2022.1016734",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "PurposeThis study aimed at investigating a novel standby microwire technique to facilitate revascularization of large vessel occlusion due to underlying long-segment dissection.MethodsPatients with acute ischemic stroke with emergent large vessel occlusion (ELVO) due to underlying long-segment dissection were screened from the prospectively established database between January 2021 and May 2022. The clinical and radiological data of eligible patients who underwent endovascular treatment by using a standby microwire technique were investigated.ResultsOf the 165 acute ischemic stroke patients who underwent mechanical thrombectomy, the standby microwire technique was used in five patients aged 33–55 years old with occlusion due to underlying long-segment dissection. Of them, three patients were diagnosed with tandem lesions and three were located at the anterior circulation. A 300 cm exchange microwire was used as the standby microwire. Stent deployment was performed in all five patients. Groin puncture to reperfusion time ranged from 10–68 min. Technical success and favorable clinical outcomes were achieved in all five patients (100%). No technique-related complication was observed.ConclusionOur preliminary experience showed that the standby microwire technique was a useful ancillary approach to facilitate the revascularization of large vessel occlusion due to underlying long-segment dissection.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bd723b6b6c1b9d764569af6fc3d8bb95f04c85089378087c7a7cc0a049090277"
+      },
+      {
+        "pmid": "31001193",
+        "title": "Endovascular Treatment of Acute Stroke Due to Intracranial Atherosclerotic Stenosis–Related Large Vessel Occlusion",
+        "authors": "Hyungjong Park, Jang‐Hyun Baek, Byung Moon Kim",
+        "year": "2019",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2019.00308",
+        "url": "https://doi.org/10.3389/fneur.2019.00308",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Endovascular treatment (EVT) has become a standard treatment for acute ischemic stroke due to large vessel occlusion (LVO) in the anterior circulation. However, whether EVT tools used for intracranial atherosclerotic stenosis (ICAS)-related LVO are as safe and effective as for use in embolic LVO remains unclear. There have been only a few studies about EVT for ICAS-related LVO, and these studies revealed that mechanical thrombectomy with a stent retriever or contact aspiration was less effective and more time consuming in ICAS-related LVO than in embolic LVO. Because fast and successful recanalization (defined as modified Thrombolysis in Cerebral Ischemia grade, 2b or 3) is the most critical factor influencing favorable outcomes, it is important to determine the appropriate EVT strategy for",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "30f8db0a2c5f3d83650c20995d7acd0f6cf3a5175cf4fbd15a8132e6a0e77245"
+      },
+      {
+        "pmid": "27422968",
+        "title": "A population-based incidence of acute large vessel occlusions and thrombectomy eligible patients indicates significant potential for growth of endovascular stroke therapy in the USA",
+        "authors": "Ansaar Rai, Aaron E Seldon, SoHyun Boo, Paul S Link",
+        "year": "2016",
+        "journal": "Journal of NeuroInterventional Surgery",
+        "doi": "10.1136/neurintsurg-2016-012515",
+        "url": "https://doi.org/10.1136/neurintsurg-2016-012515",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Data on large vessel strokes are important for resource allocation and infrastructure development. OBJECTIVE: To determine an annual incidence of large vessel occlusions (LVOs) and a thrombectomy eligible patient population. METHODS: All patients with acute ischemic stroke discharged over 3 years from a tertiary-level hospital serving a large geographic area were evaluated for an LVO (M1, internal carotid artery terminus, basilar artery). The incidence of LVO was determined for the hospital's 4-county primary service area (PSA, population 210 000) based on each county's discharges and extrapolated to the US population. 'Thrombectomy eligibility' for anterior circulation LVOs was based on time (onset <6 hours) and imaging (Alberta Stroke Program Early CT Score (ASPECTS) ≥6). The number of annual thrombectomy procedures",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c5cf53a776cdb90e22880d2fffecbd02cf6ad64dfa876843b1ca9471208c321e"
+      },
+      {
+        "pmid": "doi:10.1016/j.cdtm.2016.11.005",
+        "title": "Advances in endovascular therapy for ischemic cerebrovascular diseases",
+        "authors": "Jun Lu, Daming Wang",
+        "year": "2016",
+        "journal": "Chronic Diseases and Translational Medicine",
+        "doi": "10.1016/j.cdtm.2016.11.005",
+        "url": "https://doi.org/10.1016/j.cdtm.2016.11.005",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Endovascular therapy for ischemic cerebrovascular diseases has developed rapidly in recent years. The latest clinical trials of acute ischemic stroke have shown promising results with the continued advancement of concepts, techniques, and materials. Mechanical thrombectomy is recommended in the treatment of acute ischemic stroke caused by large vessel occlusion of the anterior circulation, according to the guidelines updated in Europe, USA, and China. The long-term therapeutic efficacy of endovascular stenting for carotid artery stenosis has also been proved noninferior to that of carotid endarterectomy. However, the latest clinical trials have shown that the efficacy of stenting for intracranial artery and vertebral artery stenosis is inferior to that of medical treatment alone, which needs urgent attention through further development and studies. Keywords: Ischemic cerebrovascular diseases, Interventional surgery, Progress",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "213237a4f2b7408854e3840d831302d2c62ee1ef643bd4f2ff5176afe7470544"
       }
     ],
     "corpusStats": {
@@ -702,8 +698,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 24
       },
       {
         "id": "cochrane",
@@ -764,9 +760,10 @@
         "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -802,11 +799,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
-        "count": 0,
+        "count": 24,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -814,9 +811,10 @@
         "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -824,11 +822,12 @@
         "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
-    "hasMore": true
+    "hasMore": false
   }
 }

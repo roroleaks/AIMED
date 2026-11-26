@@ -1,6 +1,6 @@
 {
   "id": "PRESET-dermatology-hidradenitis-biologics",
-  "recordedAt": "2026-11-26T19:55:48.371Z",
+  "recordedAt": "2026-11-26T23:13:02.335Z",
   "specialty": "dermatology",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O)?",
-        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -62,9 +62,8 @@
       "gap": {
         "category": "gap",
         "phrase": "In high-risk subgroups of moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O) without additional adverse events (O)?",
-        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
-        "supported": false,
-        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+        "basis": "While overall efficacy has 10 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
       }
     },
     "corpusStats": {
@@ -81,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -422,8 +421,8 @@
       }
     ],
     "corpusStats": {
-      "retrieved": 35,
-      "screened": 35,
+      "retrieved": 36,
+      "screened": 36,
       "blocked": 0,
       "returned": 10,
       "relaxationLevel": 1
@@ -471,8 +470,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -533,9 +532,9 @@
         "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
+        "skipped": "cooldown",
         "error": "Semantic Scholar throttled (429)"
       },
       {
@@ -544,9 +543,9 @@
         "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
+        "skipped": "cooldown",
         "error": "OpenAlex HTTP 429"
       },
       {
@@ -573,12 +572,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
-        "count": 0,
+        "count": 2,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown",
-        "error": "The operation was aborted due to timeout"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -586,10 +584,10 @@
         "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "skipped": "cooldown",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -600,7 +598,7 @@
         "attempted": false,
         "ok": false,
         "skipped": "cooldown",
-        "error": "The operation was aborted due to timeout"
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": true

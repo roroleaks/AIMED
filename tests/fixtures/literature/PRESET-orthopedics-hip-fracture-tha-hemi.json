@@ -1,6 +1,6 @@
 {
   "id": "PRESET-orthopedics-hip-fracture-tha-hemi",
-  "recordedAt": "2026-11-26T19:50:23.130Z",
+  "recordedAt": "2026-11-26T23:07:17.803Z",
   "specialty": "orthopedics",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -245,30 +245,6 @@
         "_sig": "9face6c03875e362e55df2cb1ca172f1a8c03ad26346770061587003d9498c46"
       },
       {
-        "pmid": "doaj:f05eaeebef4d42d7b31085837689c303",
-        "title": "Meta-analysis comparing total hip arthroplasty with hemiarthroplasty in the treatment of displaced femoral neck fractures in patients over 70 years old",
-        "authors": "HE Jun-hui, ZHOU Cheng-pei, ZHOU Zong-ke, SHEN Bin",
-        "year": "2012",
-        "journal": "Chinese Journal of Traumatology",
-        "url": "http://www.cjtrauma.com/apps/ojs/index.php/cjt/article/view/270",
-        "source": "doaj",
-        "pubType": "Journal Article",
-        "publicationTypes": [
-          "Journal Article"
-        ],
-        "context": "【Abstract】 Objective: Total hip arthroplasty (THA) and hemiarthroplasty (HA) are effective methods currently used to treat femoral neck fracture in elderly patients, but the two options remain controversial in patients over 70 years old. The main purpose of our study was to determine whether THA or HA is a superior treatment of femoral fractures involving a displaced neck in patients who are over 70 years of age. Methods: A computer-based online search of Medline (1970-2011), PubMed (1977-2011), and the Cochrane Central Register of Controlled Trials (2002-2011) was conducted. Six relevant randomized controlled trials with a total of 739 patients were included for the final analysis. The analysis was performed with software RevMan 5.0. Results: We found that compared with THA, HA needed shorter average time and lost less blood. While over the long-term follow-up, THA patients exhibited significantly less pain and better function and were less likely to require a revision hip surgery. Postoperative infection was equally common among HA and THA patients. Conclusions: The significant differences in outcomes suggest that THA is a valuable treatment option for active elderly hip fracture individuals. However, patients who are older, impaired or institutionalized benefit from HA. Key words: Hip fractures; Arthroplasty, replacement, hip; Aged; Meta-analysis",
-        "relevancePct": 100,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Meta-Analysis",
-        "lowMetadata": false,
-        "_sig": "b255f4b194e1053196bae3dcb17d7e902bcdec28d0c0573a1541bf6e21114074"
-      },
-      {
         "pmid": "18751862",
         "title": "Total Hip Arthroplasty is Less Painful at 12 Months Compared with Hemiarthroplasty in Treatment of Displaced Femoral Neck Fracture",
         "authors": "William B. Macaulay, Kate W. Nellans, Richard R. Iorio, Kevin L. Garvin",
@@ -292,6 +268,32 @@
         "design": "Randomized Clinical Trial",
         "lowMetadata": false,
         "_sig": "f2889b37e8809dfc8870e4283ed1c3573f18ffd276b4e4690ea59c302bb5bf61"
+      },
+      {
+        "pmid": "42512743",
+        "title": "Functional Recovery After Total Hip Arthroplasty Versus Hemiarthroplasty in Elderly Patients with Femoral Neck Fractures: A Prospective Cohort Study.",
+        "authors": "Bogosavljevic D, Tulic G, Bogosavljevic N, Popovic K, Popovac Mijatov S, Selakovic I, Tomanovic Vujadinovic S.",
+        "year": "2026",
+        "journal": "Healthcare (Basel, Switzerland)",
+        "doi": "10.3390/healthcare14142227",
+        "url": "https://europepmc.org/article/PMC/PMC13409986",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives : Displaced femoral neck fractures in older adults are associated with substantial morbidity, loss of functional independence, and reduced quality of life. Although total hip arthroplasty (THA) and hemiarthroplasty (HA) are widely used surgical options and have been extensively compared, differences in postoperative functional recovery in routine clinical practice continue to be investigated. This study aimed to compare postoperative functional outcomes between THA and HA in elderly patients with femoral neck fractures during postoperative follow-up. Methods : This prospective cohort study included 100 patients aged 70-85 years treated surgically for displaced femoral neck fractures from 1 May to 1 December 2024. Patients underwent THA (n = 57) or HA (n = 43). Functional recovery was evaluated using the Barthel Index (BI) and modified Harris Hip Score (mHHS) at 3 weeks, 3 months, and 6 months postoperatively. Changes in functional outcomes during follow-up were analyzed using repeated-measures general linear models adjusted for age, body mass index (BMI), and educational level. Exploratory binary postoperative outcomes were analyzed using logistic regression. Results : Patients treated with THA demonstrated significantly better postoperative functional outcomes compared with HA throughout follow-up. In both unadjusted and adjusted analyses, THA patients achieved consistently higher BI and mHHS scores across repeated postoperative assessments, including at 6 months postoperatively. Independent outdoor walking at 3 months postoperatively differed significantly between groups in the unadjusted analysis, although this association did not remain statistically significant after adjustment. In adjusted analyses, patients in the HA group demonstrated significantly higher odds of movement-related hip pain at 6 months postoperatively. Conclusions : THA was associated with significantly better postoperative functional outcomes compared with HA in elderly patients with femoral neck fractures. These findings highlight the importance of considering functional recovery outcomes, in addition to traditional surgical outcomes, when selecting arthroplasty strategies in geriatric hip fracture management. Given the observational study design, these findings should be interpreted as associations rather than evidence of a causal treatment effect.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "b18465e9873feebcc41c62ec961baf32f2da5793362909e610ba3d8e9c1ac7b9"
       },
       {
         "pmid": "doi:10.1177/21514593221081375",
@@ -344,6 +346,32 @@
         "_sig": "42f49b8a47d0e48509c618fde8c2119efe7a30836d7cf03d59cd40ec3450d6a8"
       },
       {
+        "pmid": "43030786",
+        "title": "Mid-Term Clinical, Radiographic, and Safety Outcomes After Hemiarthroplasty with the CL TRAUMA Cemented Femoral Stem: A Post-Market Clinical Investigation.",
+        "authors": "Biz C, Pozzuoli A, Maso G, Belluzzi E, Ruggieri P.",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15218640",
+        "url": "https://europepmc.org/article/PMC/PMC13764356",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives : Cemented femoral stems are a well-established treatment option for femoral neck fractures (FNFs) in elderly patients. This study evaluated mid-term clinical and radiographic outcomes and safety profile in patients undergoing hemiarthroplasty with the CL TRAUMA cemented femoral stem (LimaCorporate) for FNF. Methods : The single-center observational Post-Market Clinical Investigation identified 474 patients who underwent hip arthroplasty between 2017 and 2023. Of these, 54 (11.4%) who were alive, contactable, willing, and physically able to attend were included in the mid-term follow-up (FU) assessment. Perioperative, discharge, and 1-month FU data were collected retrospectively, while mid-term clinical and radiographic FU was performed prospectively after a minimum of 2 years. The primary endpoint was satisfactory status, defined as a Harris Hip Score (HHS) ≥ 80. Secondary endpoints included patient satisfaction assessed using Visual Analogue Scale (VAS), radiographic outcomes, and documented serious adverse events (SAEs). Results : The 54 evaluated patients (54/474; 11.4% of the implanted population) included 49 females and 5 males, with a mean age at surgery of 77.1 ± 9.1 years and a mean FU of 4.4 ± 0.8 years. All patients underwent hemiarthroplasty for FNF. Mean HHS was 80.6 ± 16.9, with 33 patients (61.1%) achieving the primary endpoint. Mean VAS satisfaction was 76.4 ± 29.3. At mid-term FU, RLLs were observed in 38.9% of patients, predominantly of limited thickness. Distal stem migration was observed in one case (1.9%), and bone remodeling in three patients (5.6%). Eleven SAEs occurred in 10 patients (18.5%); three events were related and two possibly related to the surgical procedure, whereas none was considered related to the device. No femoral stem revisions were documented among the 54 evaluated patients during the available FU. Conclusions : Among the selected patients who survived and completed mid-term follow-up after bipolar hemiarthroplasty with the CL TRAUMA cemented femoral stem, satisfactory functional status and patient satisfaction were observed, together with generally stable stem-specific radiographic findings. No SAEs were considered related to the femoral stem, and no femoral stem revisions were documented. These findings should be interpreted cautiously and cannot be extrapolated to the entire implanted population.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e692928fe01057969b8b3e0c76a2eccec8bbf1869fabd875e04c77f81f7b135f"
+      },
+      {
         "pmid": "doi:10.4103/jodp.jodp_66_23",
         "title": "Primary Total Hip Arthroplasty Versus Bipolar Hemiarthroplasty for Fracture Neck of Femur in Geriatric Patients: Comparative Functional Outcomes Study",
         "authors": "Rajveer Singh Bajoria, Yogeshwar Jamre, Swapnil Priyadarshi, Vivek Kumar Gupta",
@@ -369,82 +397,6 @@
         "_sig": "1195ee30383718e7c697e65aafff4f4e9a8a197a995c408fc6cf7b5851f4f32d"
       },
       {
-        "pmid": "29708038",
-        "title": "Comparison of hemiarthroplasty and total hip arthroplasty in elderly patients with displaced femoral neck fractures",
-        "authors": "Fatih Canşah Barışhan, Burak Akesen, Teoman Atıcı, Kemal Durak",
-        "year": "2018",
-        "journal": "Journal of International Medical Research",
-        "doi": "10.1177/0300060518770354",
-        "url": "https://doi.org/10.1177/0300060518770354",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Objective This study was performed to compare the clinical and radiological outcomes of displaced femoral neck fractures (FNFs) treated with either hemiarthroplasty or total hip arthroplasty (THA) in elderly patients. Morbidity and mortality were also evaluated. Methods Twenty-two patients who underwent hemiarthroplasty and 16 patients who underwent THA for treatment of Garden type 3-4 FNFs from 2012 to 2015 were enrolled in this study. All patients were >65 years of age. Cox regression analysis was performed for mortality evaluation. Results The postoperative blood loss volume, decrease in the hemoglobin level, and transfusion rate were significantly higher in the THA group. The univariate mortality risk was higher in patients with a Charlson comorbidity score of >4, American Society of Anesthesiologists score",
-        "relevancePct": 85,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "8dfe4057e878647431628f79d14ec4f69ee4495a710c6d0a62bc3fcfa9cfd32e"
-      },
-      {
-        "pmid": "35779144",
-        "title": "Patients with femoral neck fractures treated by bipolar hemiarthroplasty have superior to unipolar hip function and lower erosion rates and pain: a systematic review and meta-analysis of randomized controlled studies",
-        "authors": "Papavasiliou K, et al",
-        "year": "2023",
-        "journal": "European journal of orthopaedic surgery & traumatology : orthopedie traumatologie",
-        "doi": "10.1007/s00590-022-03320-0",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/35779144/",
-        "context": "PURPOSE: We assessed acetabular erosion, hip function, quality of life (QoL), pain, deep infection, mortality, re-operation and dislocation rates in patients with displaced femoral neck fractures (dFNFs) treated with unipolar versus bipolar hemiarthroplasty at different postoperative time points. METHODS: Relevant Randomized Controlled Trials (RCTs) were identified, following comprehensive literature research in Medline, Cochrane Central and Scopus databases, from conception until August 31th, 2021 and analyzed following the Preferred Reporting Items for Systematic Reviews and Meta-Analyses. RESULTS: Database research retrieved 120 studies; sixteen met eligibility criteria, providing 1813 (1814 hips) evaluable patients. Acetabular erosion was significantly higher for unipolar group at 6 and 12 months (p = 0.02 and p = 0.01 respectively). Patients in the bipolar group presented significantly better hip function at 12 and 24 months (p = 0.02 and p = 0.04 respectively). Postoperative pain was significantly less in the bipolar group at 12, 24 and 48 months (p = 0.01). No statistically significant differences were found regarding the postoperative rates of deep infection, mortality, re-operation and dislocation. CONCLUSION: This study showed that patients with dFNFs treated with bipolar hemiarthroplasty have lower acetabular erosion rates at 6 and 12 months postoperatively, better hip function at 12 and 24 months, better QoL and less pain, when compared with unipolar. No statistically significant difference could be established regarding deep infection, mortality, re-operation and dislocation rates.",
-        "source": "pubmed",
-        "pubType": "Meta-Analysis",
-        "publicationTypes": [
-          "Meta-Analysis",
-          "Systematic Review",
-          "Journal Article"
-        ],
-        "relevancePct": 84,
-        "matchedElements": [
-          "P",
-          "C",
-          "O"
-        ],
-        "design": "Systematic Review and Meta-Analysis",
-        "lowMetadata": false,
-        "_sig": "fd0b3e45c4f381a50d839f58a6627df72543584c0677110c69dee26dbd7cfec4"
-      },
-      {
-        "pmid": "39912063",
-        "title": "Comparing Stability, Gait, and Functional Score after 40-mm Dual-Mobility Hip Arthroplasty to 36-mm Head Hip Arthroplasty in Elderly Hip Fracture Patients",
-        "authors": "Y. Cha, Sang-Yeob Lee, Ji-Ho Bae, Y. Kang",
-        "year": "2024",
-        "journal": "Clinics in Orthopedic Surgery",
-        "doi": "10.4055/cios24148",
-        "url": "https://doi.org/10.4055/cios24148",
-        "source": "semanticscholar",
-        "pubType": "Study, JournalArticle",
-        "publicationTypes": [
-          "Study",
-          "JournalArticle"
-        ],
-        "context": "Backgroud This study aimed to compare the intraoperative stability and early clinical outcomes of 40-mm diameter dual mobility (DM)-total hip arthroplasty (THA) with 36-mm ceramic head (large head) THA in active elderly patients with hip fractures. Methods A prospective randomized controlled trial was conducted from May 2022 to December 2022. Inclusion criteria were as follows: age ≥ 60 years, displaced femoral neck fracture, Koval grade 1 or 2, planned 54-mm acetabular component, and over 1-year follow-up. Intraoperative stability tests were performed on all patients (internal rotation at 45°, 60°, and 90° of hip fracture). Functional outcomes (Harris Hip Score and University of California, Los Angeles [UCLA] Score) were evaluated at 6 weeks and 3 months postoperatively. Gait analysis using artificial intelligence (AI) techniques was conducted at 3 months postoperatively. Results The study included 36 DM-THA patients (mean age, 69.6 ± 2.2 years; 44% women) and 37 large head THA patients (mean age, 69.6 ± 1.2 years; 64% women). No statistically significant differences were observed in functional outcomes and hip range of motion between the 2 groups. However, there was a significant difference in the gait speed and stance-swing phase of the large head THA group and the DM-THA group: the DM-THA group demonstrated superior gait speed (2.85 ± 0.83 kph vs. 2.04 ± 1.04 kph, p = 0.003) and higher stance phase ratios (operated side: 63.57% ± 3.82% vs. 48.19% ± 5.50%, p < 0.001; opposite side: 62.77% ± 2.27% vs. 49.93% ± 6.94%, p < 0.001). In the stability test at 90° of hip flexion, the DM-THA group had a measurement of 48.40° ± 5.17°, while the large head THA group had a measurement of 30.94° ± 2.98° (p = 0.012). Despite the lack of statistical significance, the intraoperative stability test showed the dislocation angle was notably different between the groups in the hip flexion position of 60° (51.60° ± 6.09° in the DM-THA group and 40.00° ± 2.80° in the large head THA group, p = 0.072). Conclusions Superior results were observed in the intraoperative stability test and early recovery of gait after DM-THA compared to large head THA. We believe that DM-THA can be a useful surgical option for THA in elderly patients with hip fractures.",
-        "relevancePct": 77,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "7ee6339ec3099b3bb97933f7d6471c06eba35f7fa1e73930061cc4f50ca23d68"
-      },
-      {
         "pmid": "29861260",
         "title": "Strength and mobilization training within the first week following total hip arthroplasty",
         "authors": "Matheis C, Stöggl T",
@@ -467,6 +419,32 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "19e5a35be4a024d2b9ac39026dfbea4337a4f83f4caaa7273587ec83c269de94"
+      },
+      {
+        "pmid": "42747591",
+        "title": "Superior reduction quality without improved outcomes: open versus closed reduction for displaced femoral neck fractures in adults under 60 years.",
+        "authors": "Chi JE, Liu CH, Lo YH, Lai CY, Chen IJ, Yu YH.",
+        "year": "2026",
+        "journal": "Archives of orthopaedic and trauma surgery",
+        "doi": "10.1007/s00402-026-06475-1",
+        "url": "https://europepmc.org/article/PMC/PMC13582081",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction The optimal reduction strategy for displaced femoral neck fractures (DFNFs) in non-elderly adults remains controversial. Although open reduction may improve radiographic alignment, its impact on outcomes remains unclear. Materials and methods Adults aged Results In total, 98 patients were included, among whom 83 and 15 underwent closed and open reduction, respectively. Although open reduction achieved a higher rate of excellent reduction (53.3% vs. 16.9%, p = 0.012), it was not associated with lower rates of non-union or osteonecrosis. In the overall cohort, age was associated with non-union (odds ratio [OR], 1.09; p = 0.024), whereas poorer reduction quality was associated with major reoperation (fair: OR 7.03, p = 0.012; poor: OR 47.6, p = 0.007). In patients with Pauwels type III fractures, poorer reduction quality predicted conversion to arthroplasty (fair: OR 9.84, p = 0.014), and age was associated with non-union and osteonecrosis. Femoral neck shortening of > 10 mm at 3 months was associated with age and open reduction, whereas at 12 months, age and intraoperative blood loss remained significant predictors. Conclusions Open reduction achieved a higher rate of excellent reduction but did not reduce complication rates compared with closed reduction. Fracture severity, patient age, and reduction quality remained the principal determinants of outcome, supporting a fracture morphology-guided fixation strategy and realistic patient counseling.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "247bc542b22e24871de90f06da4088d82c77f5f9c3a1314cfa951d3ad0babd3e"
       },
       {
         "pmid": "doi:10.1016/j.jjoisr.2023.08.002",
@@ -522,28 +500,30 @@
         "_sig": "507472d2e3a877ae05dc7d71a5162e8e144db040ddbaee257a315c5f388d3273"
       },
       {
-        "pmid": "11145387",
-        "title": "Internal fixation versus total hip arthroplasty in the treatment of displaced femoral neck fractures: A prospective randomized study of 100 hips",
-        "authors": "Torsten Johansson, Sven-Arne Jacobsson, Ingemar Ivarsson, Anders Knutsson",
-        "year": "2000",
-        "journal": "Acta Orthopaedica Scandinavica",
-        "doi": "10.1080/000164700317362235",
-        "url": "https://doi.org/10.1080/000164700317362235",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "42383696",
+        "title": "Arthroplasty for femoral neck fracture of the elderly: a narrative review.",
+        "authors": "Beckers G, Lerchenberger M, Böcker W, Holzapfel BM, Arnholdt J, Simon D.",
+        "year": "2026",
+        "journal": "EFORT open reviews",
+        "doi": "10.1530/eor-2024-0211",
+        "url": "https://europepmc.org/article/PMC/PMC13326720",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
         "publicationTypes": [
-          "article"
+          "review-article",
+          "Review",
+          "Journal Article"
         ],
-        "context": "100 patients 75 years or older, with displaced femoral neck fractures, were randomly assigned to osteosynthesis with two parallel and percutaneously inserted screws (Olmed) or total hip arthroplasty (Lubinus IP). Mean age was 84 (75-101) years, 74% were women and 45% had mental dysfunction. General complications were commoner in the arthroplasty group but the mortality rates did not differ. In the osteosynthesis group, fracture complications were seen in 27/50 hips. In the arthroplasty group, dislocation was the main complication and occurred in 11/50 cases. At 3 months and after 1 year, the Harris Hip Scores were significantly better in the arthroplasty group. When mental dysfunction was present, the dislocation rate after arthroplasty was 32%, whereas the reoperation rate after osteosynthesis",
-        "relevancePct": 74,
+        "context": "This review provides an up-to-date, focused, and evidence-based treatment strategy addressing the ongoing debates in the literature surrounding arthroplasty for displaced femoral neck fractures in the elderly. Every effort should be made to perform surgery within 24-36 h of admission. After-hours surgery may be performed safely when an experienced team and adequate resources are available; if not, postponing to daytime hours to optimize surgical conditions is reasonable. While pre-fracture mobility, independence, and comorbidity are relevant in treatment planning, current high-level evidence does not support a consistent clinical benefit of total hip arthroplasty over hemiarthroplasty, even in selected, higher-functioning patients. Given the substantially increased risk of periprosthetic fracture associated with cementless fixation, cemented stems should be preferred in elderly patients with displaced femoral neck fractures.",
+        "relevancePct": 71,
         "matchedElements": [
           "P",
           "I",
-          "O"
+          "C"
         ],
-        "design": "Randomized Controlled Trial (RCT)",
+        "design": "Narrative Review",
         "lowMetadata": false,
-        "_sig": "ce90dea219e26a8a987248e637a3fd86e7e45efdca89d4497e5803a457943aa2"
+        "_sig": "c3f22d4d848a7abec4556d930630a624e70c4670f457f5ddca1d65d26ebcf70e"
       },
       {
         "pmid": "cr:10.62691/vmj.2024.266094",
@@ -570,31 +550,6 @@
         "_sig": "e3e3ed718a59a87cb5c657e4b56c3517b369e9968e1c66c9467c27823d531a50"
       },
       {
-        "pmid": "37162810",
-        "title": "Functional Outcomes of Anterior-Based Muscle Sparing Approach Compared to Direct Lateral Approach for Total HIP Arthroplasty Following Acute Femoral Neck Fractures",
-        "authors": "M. Innocenti, A. Cozzi Lepri, Alessandro Civinini, N. Mondanelli",
-        "year": "2023",
-        "journal": "Geriatric Orthopaedic Surgery & Rehabilitation",
-        "doi": "10.1177/21514593231170844",
-        "url": "https://doi.org/10.1177/21514593231170844",
-        "source": "semanticscholar",
-        "pubType": "JournalArticle, Review",
-        "publicationTypes": [
-          "JournalArticle",
-          "Review"
-        ],
-        "context": "Introduction Total hip arthroplasty (THA) performed for femoral neck fractures (FNFs) is becoming a more frequent treatment in the active elderly population. Since there is limited research available presenting clinical outcomes after THA using the anterior-based muscle sparing (ABMS) approach, the aim of this study was to compare this surgical approach to the direct lateral (DL) approach in patients treated by THA for FNFs. Materials and Methods We retrospectively reviewed the data prospectively collected as a part of our “Hip Fracture Unit” and included 163 patients who underwent THA from January 2016 to January 2019 for acute displaced FNFs. Results A total of 132 patients who completed a minimum 2-years follow up (69 in the ABMS group and 63 in DL group) were included. The ABMS group demonstrated significantly shorter time to reach milestone for hospital discharge (1.5 Days vs 2.1 days, P = .018), while no statistically significant differences were detected in peri-operative complications. At 3 months, the timed up and go test, the Harris Hip Score (HHS) and the Oxford ip Score (OHS) were significantly better (P = .024, .032 and .034, respectively) in the ABMS group compared to the DL group. No differences were found in functional outcomes (HHS and OHS) nor in complication rate at 6, 12 and 24 months. Discussion This is one of the first studies to analyze functional results of THA performed for FNFs through an ABMS approach. Results are in line with those already present in the Literature. Conclusion ABMS approach allows earlier mobilization and better early functional outcomes, compared to DL approach, in patients undergoing THA for acute displaced FNF. No differences are found after 6 months in functional results and complications rate.",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Review",
-        "lowMetadata": false,
-        "_sig": "52ef271bdbe21fc5ca930fc566a24ba4ffccac865fc873b33e905aabda17883b"
-      },
-      {
         "pmid": "37730557",
         "title": "Total hip arthroplasty versus hemiarthroplasty in the treatment of active elderly patients over 75 years with displaced femoral neck fractures: a retrospective study",
         "authors": "Santong Luo, Wupeng Qin, Lizhi Yu, Raoshan Luo",
@@ -619,19 +574,67 @@
         "_sig": "7be7dfc44779e4ec308a9ba7a3774dd6d78ca41d1e26f24ee3136333b2cbe34c"
       },
       {
+        "pmid": "1516303",
+        "title": "A Comparison of Total Hip Arthroplasty and Hemiarthroplasty for Treatment of Acute Fracture of the Femoral Neck",
+        "authors": "James S. Gebhard, Harlan C. Amstutz, Daniel M. Zinar, Frederick J. Dorey",
+        "year": "1992",
+        "journal": "Clinical Orthopaedics and Related Research",
+        "doi": "10.1097/00003086-199209000-00016",
+        "url": "https://doi.org/10.1097/00003086-199209000-00016",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "One hundred sixty-six acute, nonpathologic displaced femoral neck fractures in elderly patients were treated with either unipolar hemiarthroplasty (122 operations; 77 cemented, 45 uncemented) or total hip arthroplasty (THA) (44 operations; all cemented). The average age, (75.2 years of age in the THA group 76.2 years of age in the hemiarthroplasty group), anesthesia risk classification, in-hospital mortality, early complications, and dislocation rates were comparable in each treatment group. In an average long-term follow-up period of 56 months, pain, walking, and function scores were higher with THA than with cemented or uncemented hemiarthroplasty. Revision rates were 2.2% after THA, versus 7.9% for cemented hemiarthroplasty and 13% for uncemented hemiarthroplasty. Hemiarthroplasty is recommended for the older patient, who may be occasionally active",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "4eacde5f9992a627627823d67cd70b96257a3129d08ffcf3ff7ecbf01629797f"
+      },
+      {
+        "pmid": "doi:10.1177/21514593231170844",
+        "title": "Functional Outcomes of Anterior-Based Muscle Sparing Approach Compared to Direct Lateral Approach for Total HIP Arthroplasty Following Acute Femoral Neck Fractures",
+        "authors": "Matteo Innocenti MD, Andrea Cozzi Lepri MD, Alessandro Civinini MD, Nicola Mondanelli MD, PhD",
+        "year": "2023",
+        "journal": "Geriatric Orthopaedic Surgery & Rehabilitation",
+        "doi": "10.1177/21514593231170844",
+        "url": "https://doi.org/10.1177/21514593231170844",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction Total hip arthroplasty (THA) performed for femoral neck fractures (FNFs) is becoming a more frequent treatment in the active elderly population. Since there is limited research available presenting clinical outcomes after THA using the anterior-based muscle sparing (ABMS) approach, the aim of this study was to compare this surgical approach to the direct lateral (DL) approach in patients treated by THA for FNFs. Materials and Methods We retrospectively reviewed the data prospectively collected as a part of our “Hip Fracture Unit” and included 163 patients who underwent THA from January 2016 to January 2019 for acute displaced FNFs. Results A total of 132 patients who completed a minimum 2-years follow up (69 in the ABMS group and 63 in DL group) were included. The ABMS group demonstrated significantly shorter time to reach milestone for hospital discharge (1.5 Days vs 2.1 days, P = .018), while no statistically significant differences were detected in peri-operative complications. At 3 months, the timed up and go test, the Harris Hip Score (HHS) and the Oxford ip Score (OHS) were significantly better ( P = .024, .032 and .034, respectively) in the ABMS group compared to the DL group. No differences were found in functional outcomes (HHS and OHS) nor in complication rate at 6, 12 and 24 months. Discussion This is one of the first studies to analyze functional results of THA performed for FNFs through an ABMS approach. Results are in line with those already present in the Literature. Conclusion ABMS approach allows earlier mobilization and better early functional outcomes, compared to DL approach, in patients undergoing THA for acute displaced FNF. No differences are found after 6 months in functional results and complications rate.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "6141bbae457e2d07df5aa863660be7181feedf60a02b623b5f4b983ef6ad7adf"
+      },
+      {
         "pmid": "24010071",
         "title": "Comparison of Minimally Invasive Total Hip Arthroplasty versus Conventional Hemiarthroplasty for Displaced Femoral Neck Fractures in Active Elderly Patients",
-        "authors": "Kyung-Soon Park, Chang-Seon Oh, T. Yoon",
+        "authors": "Kyung-Soon Park, Chang-Seon Oh, Taek Rim Yoon",
         "year": "2013",
-        "journal": "Chonnam medical journal",
+        "journal": "Chonnam Medical Journal",
         "doi": "10.4068/cmj.2013.49.2.81",
         "url": "https://doi.org/10.4068/cmj.2013.49.2.81",
-        "source": "semanticscholar",
-        "pubType": "JournalArticle",
+        "source": "openalex",
+        "pubType": "article",
         "publicationTypes": [
-          "JournalArticle"
+          "article"
         ],
-        "context": "Fractures of the femoral neck in elderly patients can be treated by internal fixation, hemiarthroplasty, or total hip arthroplasty (THA), and the treatment modality used should be determined on the basis of considerations of the degree of fracture displacement, age, functional demands, and the risk factors for surgery and anesthesia. We studied 85 active elderly patients who underwent minimally invasive two-incision THA or conventional bipolar hemiarthroplasty (BHA) within 2 weeks of injury for the treatment of acute displaced femoral neck fractures. Patients were followed up for a minimum of 24 months. The average operation times were 70 minutes in the THA group and 46 minutes in the BHA group (p=0.002), and average blood losses during the perioperative period were 921 cc and 892 cc, respectively (p=0.562). In the THA group, the average postoperative Harris hip score was 88.3 and the average Western Ontario and McMaster University score was 28.8, whereas in the BHA group the corresponding scores were 80.4 (p=0.006) and 32.5 (p=0.012), respectively. There were 2 cases of hip dislocation in the THA group, and 2 cases in the BHA group underwent conversion to THA. Our short-term follow-up results were better for minimally invasive two-incision THA than for conventional BHA for the treatment of acute displaced femoral neck fractures in active elderly patients.",
+        "context": "Fractures of the femoral neck in elderly patients can be treated by internal fixation, hemiarthroplasty, or total hip arthroplasty (THA), and the treatment modality used should be determined on the basis of considerations of the degree of fracture displacement, age, functional demands, and the risk factors for surgery and anesthesia. We studied 85 active elderly patients who underwent minimally invasive two-incision THA or conventional bipolar hemiarthroplasty (BHA) within 2 weeks of injury for the treatment of acute displaced femoral neck fractures. Patients were followed up for a minimum of 24 months. The average operation times were 70 minutes in the THA group and 46 minutes in the BHA group (p=0.002), and average blood losses during the perioperative period were 921",
         "relevancePct": 66,
         "matchedElements": [
           "P",
@@ -640,7 +643,7 @@
         ],
         "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "cd0adfb1aeca2e50984b8cde48c6cc3bc224eaf4ae4838349c93d9d41eb0f12d"
+        "_sig": "4c4b1493cffb0fed14a918ea338dfb5134d5878d1639cefddcbc9ac140d8b424"
       },
       {
         "pmid": "cr:10.3928/01477447-20110525-15",
@@ -682,8 +685,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -697,8 +700,8 @@
       },
       {
         "id": "semanticscholar",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "openalex",
@@ -746,11 +749,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "active elderly patients with displaced femoral neck fracture total hip arthroplasty (THA) hemiarthroplasty reoperation rate and functional mobility at 2 years",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -758,10 +761,9 @@
         "query": "active elderly patients with displaced femoral neck fracture total hip arthroplasty (THA) hemiarthroplasty reoperation rate and functional mobility at 2 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "googlescholar",
@@ -777,11 +779,11 @@
         "id": "semanticscholar",
         "name": "Semantic Scholar",
         "query": "active elderly patients with displaced femoral neck fracture total hip arthroplasty (THA) hemiarthroplasty reoperation rate and functional mobility at 2 years",
-        "count": 25,
+        "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
       },
       {
         "id": "openalex",
@@ -829,10 +831,9 @@
         "query": "active elderly patients with displaced femoral neck fracture total hip arthroplasty (THA) hemiarthroplasty reoperation rate and functional mobility at 2 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC Cochrane HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "preprints",

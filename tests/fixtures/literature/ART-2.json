@@ -1,6 +1,6 @@
 {
   "id": "ART-2",
-  "recordedAt": "2026-11-26T22:48:49.346Z",
+  "recordedAt": "2026-11-26T22:58:11.592Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?",
-        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -61,10 +61,9 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?",
-        "basis": "8 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
-        "supported": false,
-        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+        "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 23 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
       }
     },
     "corpusStats": {
@@ -77,12 +76,12 @@
       {
         "id": "pubmed",
         "ok": true,
-        "count": 24
+        "count": 0
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -135,7 +134,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?"
+      "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?"
     },
     "words": [
       {
@@ -189,6 +188,32 @@
         "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
         "_sig": "3fac81cf5c67bccbc20bd22cec38469785ea944fe6548f251e1977978e3028e8"
+      },
+      {
+        "pmid": "42968124",
+        "title": "Preimplantation genetic testing for aneuploidy (PGT-A) vs. morphology-based blastocyst selection for transfer: cost-effectiveness analysis within Israel's publicly funded IVF system.",
+        "authors": "Zivi E, Leshno M, Hammerman A, Ziv-Baran T.",
+        "year": "2026",
+        "journal": "Israel journal of health policy research",
+        "doi": "10.1186/s13584-026-00790-z",
+        "url": "https://europepmc.org/article/PMC/PMC13726194",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Israel operates one of the most extensive publicly funded in vitro fertilization (IVF) programs worldwide. Alongside IVF, adjunct technologies aimed at improving reproductive outcomes, such as preimplantation genetic testing for aneuploidy (PGT-A), have been increasingly adopted. PGT-A is designed to identify chromosomally normal embryos before transfer. Despite its growing use, PGT-A is not included in Israel's National Health Basket. Given the local high utilization of IVF and the substantial public expenditure, evaluating the economic value of PGT-A is essential for evidence-based health policy decision-making. Most available analyses of PGT-A originate from private or mixed healthcare systems, where treatment costs and reimbursement structures differ from Israel's fully publicly funded IVF model. This study aimed to determine whether PGT-A is cost-effective when provided as part of Israel's IVF program. Methods A theoretical model-based cost-effectiveness analysis using a Markov decision framework compared PGT-A with morphology-based embryo selection from the perspective of the Israeli public healthcare payer. The model simulated repeated embryo transfers for various age groups and blastocyst availability scenarios. Relevant cost estimates of the two strategies were based on Israeli Ministry of Health data (2025). The probabilities of main clinical outcomes were derived from the American Society for Assisted Reproductive Technology (SART) database. The effectiveness outcome was live birth. Deterministic one-way sensitivity analyses were performed. Results The cost-effectiveness analysis showed dominance for the no-PGT-A strategy; PGT-A was associated with higher costs and lower effectiveness compared with no-PGT-A. Across all age groups and blastocyst numbers, PGT-A was consistently more costly than no-PGT-A. Sensitivity analyses identified the cost of the PGT-A test per tested embryo and the number of available blastocysts as the most influential factors on the incremental cost. It was demonstrated that although PGT-A is a less effective strategy, reducing the costs of the PGT-A test could make it a less costly strategy for women aged 38 years and above. In this circumstance, a trade-off between strategies can be considered. Conclusions PGT-A cannot be recommended for public funding within the Israeli public IVF program. Its application may be considered for advanced-age patients if the cost of the PGT-A test is reduced.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "ba350f8f51ca89bfcab0c19366240287617393c15434708ce6044953dbd5d68b"
       },
       {
         "pmid": "40725861",
@@ -289,28 +314,55 @@
         "_sig": "0043857c55ee3bc2bd841929cbab77a654c8833184d9dcb9308806b5934a1510"
       },
       {
-        "pmid": "cr:10.4103/jhrs.jhrs_334_25",
-        "title": "Evaluating the Cumulative Live Birth Rate in Autologous In Vitro Fertilization Cycles in Women Aged 40 Years and Above : A Retrospective Study",
-        "authors": "Prasad Pallavi, Shetty Soumya, Malik Sonia, Gutgutia Rohit",
+        "pmid": "42318092",
+        "title": "Association between ovarian reserve and utilization of preimplantation genetic testing for aneuploidy in autologous IVF cycles.",
+        "authors": "Barad DH, Darmon S, Gayete-Lafuente S, Guijarro-Baude L, Albertini DF, Patrizio P, Nicholas C, Gleicher N.",
         "year": "2026",
-        "journal": "Journal of Human Reproductive Sciences",
-        "doi": "10.4103/jhrs.jhrs_334_25",
-        "url": "https://doi.org/10.4103/jhrs.jhrs_334_25",
-        "source": "crossref",
-        "pubType": "journal-article",
+        "journal": "Human reproduction open",
+        "doi": "10.1093/hropen/hoag052",
+        "url": "https://europepmc.org/article/PMC/PMC13274540",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
         "publicationTypes": [
-          "journal-article"
+          "research-article",
+          "Journal Article"
         ],
-        "context": "A BSTRACT Background: In present times, many women in their forties are seeking fertility treatment because of delayed marriage and childbearing. They often face the dilemma of whether to try in vitro fertilisation (IVF) with self-oocytes or donor oocytes. Quoting IVF success in terms of per oocyte pick-up (OPU) or per embryo transfer (ET) cycle can be misleading, as many patients undergo pooling IVF cycles or use PGT-A for best embryo selection. Cumulative live birth rate (CLBR) per woman offers a more realistic measure of treatment efficacy, best suited for patient counselling. Aim: To evaluate CLBR in self-oocyte IVF cycles in women more than 40 years of age. Settings and Design: Retrospective study analysing patient data from the electronic medical record system of various centres of a single fertility chain between January 2019 and December 2023. Materials and Methods: Women aged >40 years who underwent one or more oocyte retrievals using self-eggs were included. Exclusion criteria were donor oocyte cycles and oocyte cryopreservation cycles. Reproductive outcomes included clinical pregnancy rate (CPR), miscarriage rate (MR) and CLBR per woman. Statistical Analysis Used: Data was analysed using descriptive and inferential statistics. Continuous and categorical variables were summarised as frequencies and percentages. Age was grouped, and treatment outcomes (OPU, embryo availability, ET, clinical pregnancy, miscarriage and live birth) were expressed as proportions by age group. Distribution between age and categorical outcomes was assessed using the Chi-square test of independence, with significance set at P < 0.05. Analyses were performed using SPSS version 21.0. Results: Among 1,088 women (mean age: 41.56 ± 1.82 years), embryo formation occurred in 69.67% and ET in 62.22%. The CPR was 17.92%, MR 40%, and live birth rate 10.75%. CLBR per woman declined steeply with increasing age – 14.35% at 40 years, 9.63% at 42 years, and 0% beyond 47 years ( P < 0.05). Conclusion: CLBR in women aged >40 years declines markedly with advancing age, with negligible live birth rates beyond 45 years despite multiple cycles.",
+        "context": "Study question Does ovarian reserve, as measured by anti-Müllerian hormone (AMH), influence the utilization of preimplantation genetic testing for aneuploidy (PGT-A) in autologous IVF cycles across different age groups? Summary answer Lower ovarian reserve, reflected by reduced AMH levels, was associated with a lower likelihood of undergoing PGT-A across all age strata. What is known already PGT-A is widely used in IVF, particularly in older patients, but its utilization may be influenced not only by age but also by expected ovarian reserve and embryo yield. How ovarian reserve is associated with selection for PGT-A at a population level has not yet been well characterized. Study design size duration This cross-sectional analysis of the US Society for Assisted Reproductive Technology Clinic Outcome Reporting System (SART CORS) database includes 258,532 patient-first autologous ovarian stimulation cycles performed between 2014 and 2021. Participants/materials setting methods The study included the first autologous IVF cycles of women aged 21-46 years. Donor oocyte, donor embryo, and gestational carrier cycles were excluded, as were cycles using Main results and the role of chance Across the study population, higher AMH levels were associated with significantly increased odds of undergoing PGT-A. This association persisted after multivariable adjustment and within each age group. AMH modelled as both a continuous variable and dichotomized at 1 ng/ml showed consistent results, indicating an independent relationship between ovarian reserve and PGT-A utilization that was unlikely due to chance. Limitations reasons for caution The observational, cross-sectional design limits causal inference. Residual confounding is possible, and registry data do not capture treatment intent or all of the clinical reasons underlying use or non-use of PGT-A. Embryo-level genetic outcomes and clinical outcomes such as live birth were not evaluated. Wider implications of the findings These findings suggest a systematic selection pattern in IVF practice, whereby patients with diminished ovarian reserve are less likely to undergo PGT-A. This population imbalance should be considered when interpreting observational studies of PGT-A and when counselling patients about the clinical context in which PGT-A is most commonly used. Study funding/competing interests This work was supported by intramural funds from The Center for Human Reproduction and the not-for-profit research Foundation for Reproductive Medicine, both in New York, NY, USA.Drs. Barad and Gleicher are co-inventors on several US patents hold patents related to androgen treatment in females (DHEA) with numbers US8067400B2, US8501718B2, and US9375436B2 (listed in USPTO/public records and assigned to American Infertility of New York). They also receive royalties from Nutraceuticals LLC, which has helped commercialize DHEA as a nutritional supplement. Dr. Gleicher is also a shareholder in Fertility Nutraceuticals and the owner of the Center for Human Reproduction. Dr. Albertini receives a stipend as Editor-in- Chief of the Journal of Assisted Reproduction and Genetics and receives consulting fees and travel support from Ferring Pharmaceuticals. Drs. Darmon, Gayete-Lafuente, Nicholas, Guijarro-Baude, and Patrizio report no conflicts of interest. Trial registration number N/A.",
         "relevancePct": 71,
         "matchedElements": [
           "P",
           "I",
           "O"
         ],
-        "design": "Retrospective Study",
+        "design": "Cross-Sectional Study",
         "lowMetadata": false,
-        "_sig": "3f0744e21285bfe02dd0bcaa2f328c2cc75569d3628ccefcbe32b063d2c959aa"
+        "_sig": "323ca0802fb736beeddc52e00796ca79f820ace2acd563b52a4df59fb61b5584"
+      },
+      {
+        "pmid": "42577078",
+        "title": "Mapping the evidence and research gaps on preimplantation genetic testing for aneuploidy in recurrent implantation failure: a scoping review.",
+        "authors": "Dabuleanu Cretu AM, Ilie OD, Maftei R, Doroftei M, Doroftei B.",
+        "year": "2026",
+        "journal": "Frontiers in endocrinology",
+        "doi": "10.3389/fendo.2026.1872860",
+        "url": "https://europepmc.org/article/PMC/PMC13453691",
+        "source": "pmc",
+        "pubType": "Scoping Review, systematic-review, Journal Article",
+        "publicationTypes": [
+          "Scoping Review",
+          "systematic-review",
+          "Journal Article"
+        ],
+        "context": "Background Recurrent implantation failure (RIF) represents a complex and heterogeneous condition in assisted reproductive technology (ART), characterized by unclear etiology and limited evidence-based management strategies. Preimplantation genetic testing for aneuploidy (PGT-A) has been proposed to improve reproductive outcomes through selection of euploid embryos; however, its clinical utility in RIF remains controversial. Methods A scoping review was conducted to systematically map the available evidence regarding the role of PGT-A in RIF. A comprehensive literature search identified 18 studies evaluating reproductive outcomes in RIF patients undergoing PGT-A compared with conventional in vitro fertilization/intracytoplasmic sperm injection (IVF/ICSI). Data were extracted and narratively synthesized across key outcomes, including implantation rate (IR), clinical pregnancy rate (CPR), live birth rate (LBR), and miscarriage rate (MR). Methodological quality was assessed using the Newcastle-Ottawa Scale (NOS), and sources of heterogeneity, including variability in RIF definitions, PGT-A methodologies, and patient subgroups, were also explored. Results Several studies reported improved outcomes at the level of individual embryo transfer (ET), including higher IR, CPR, and LBR per transfer following PGT-A. However, these findings were not consistently observed when outcomes were assessed at the patient level. In particular, cumulative live birth rate (CLBR) was generally comparable between PGT-A and non-PGT-A groups, especially in unexplained - uRIF or idiopathic - iRIF populations. Similarly, MR was largely unchanged across studies despite improved embryo selection. Subgroup analyses suggested that PGT-A may provide greater benefit in patients with a higher likelihood of embryo-related implantation failure (IF), such as those of advanced maternal age (AMA), whereas limited benefit was observed in uRIF/iRIF cohorts. Overall, substantial heterogeneity was identified regarding RIF definitions, laboratory methodologies, and clinical protocols. Conclusions The available evidence suggests that PGT-A may improve treatment efficiency by increasing the probability of success per ET in selected RIF populations. Nevertheless, it does not consistently improve CLBR or reduce miscarriage risk, underscoring the multifactorial nature of IF. Consequently, PGT-A should be considered within an individualized treatment strategy rather than as a universal intervention for all RIF patients. Further prospective studies using standardized definitions and protocols are required to better define its clinical role.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "ef156f194c8bfed0e323a6ffc0ed10a9e29d828ed4d4b518343ef003c68cb380"
       },
       {
         "pmid": "cr:10.3389/fcell.2025.1530953",
@@ -385,53 +437,6 @@
         "_sig": "e1255e23bdae446604f6cbe211af42c79130c8cb8559a619818f4ff796f4ad85"
       },
       {
-        "pmid": "doi:10.3389/fendo.2026.1959981",
-        "title": "Cell-free DNA in human ovarian follicular fluid as a potential biomarker of embryo quality in IVF cycles: a pilot study",
-        "authors": "Eun-Hye Jo, Tae Hyung Kim, Jin Hee EUM, Jihye Jeong",
-        "year": "2026",
-        "journal": "Frontiers in Endocrinology",
-        "doi": "10.3389/fendo.2026.1959981",
-        "url": "https://doi.org/10.3389/fendo.2026.1959981",
-        "source": "doaj",
-        "pubType": "Journal Article",
-        "publicationTypes": [
-          "Journal Article"
-        ],
-        "context": "IntroductionThere is growing interest in evaluating cell-free DNA (cfDNA) in follicular fluid (FF) as a molecular feature of the follicular microenvironment and examining its association with subsequent embryo development. This exploratory pilot study aimed to investigate the association between FF cfDNA integrity, measured by the Arthrobacter luteus (ALU) 247/115 ratio, and morphology-based embryo quality in IVF cycles.MethodsThis observational study analyzed 106 follicular fluid samples from patients undergoing IVF with intracytoplasmic sperm injection (ICSI) at a single fertility center. FF samples were collected during ovum pick-up, and cfDNA concentrations were quantified using ALU-quantitative PCR. To evaluate the ALU247/115 ratio in relation to age, participants were categorized into three age groups.ResultsThe ALU247/115 ratio showed a significant but weak positive correlation with embryo quality score across all patients (n = 106, r = 0.23, p = 0.016). Subgroup analysis revealed stronger correlations in women under 35 years (n = 31, r = 0.38, p = 0.035) and those aged 35–39 years (n =40, r = 0.32, p = 0.044). No significant correlation was observed in women aged 40 or older (n = 35, r = 0.21, p = 0.225).ConclusionsIn women under 40, increased cfDNA fragmentation in FF was associated with lower morphology-based embryo quality. However, the observed correlations were modest, and the absence of preimplantation genetic testing for aneuploidy (PGT-A), implantation, clinical pregnancy, and live birth outcomes limits clinical interpretation. These exploratory findings do not establish FF cfDNA as a clinically validated predictive biomarker or demonstrate that it improves embryo selection. Larger prospective studies incorporating embryo ploidy and clinically relevant reproductive outcomes are warranted.",
-        "relevancePct": 60,
-        "matchedElements": [
-          "P",
-          "C",
-          "O"
-        ],
-        "design": "Pilot Study",
-        "lowMetadata": false,
-        "_sig": "0ad376d5fb996a772b07f8e48288d68e4950710aed79ab83b7d382ad39ee995c"
-      },
-      {
-        "pmid": "41607608",
-        "title": "Thalassemia does not significantly affect embryo ploidy outcomes in women undergoing IVF with preimplantation genetic testing",
-        "authors": "Li Fan, Wenjie Huang, Zhetao Li, Li Wugao",
-        "year": "2026",
-        "journal": "Frontiers in Cell and Developmental Biology",
-        "doi": "10.3389/fcell.2025.1651060",
-        "url": "https://doi.org/10.3389/fcell.2025.1651060",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Background: Thalassemia is a common autosomal recessive disorder that may impact reproductive health and embryo development. However, limited information is available regarding the impact of thalassemia carrier status on embryo euploidy, developmental competence, and embryo availability. Therefore, this study aims to evaluate the effects on women with thalassemia by analyzing data from women undergoing IVF with PGT-A. Methods: This retrospective cohort study included 2,110 women undergoing IVF with trophectoderm biopsy and PGT-A at Guangzhou Women and Children's Medical Center Liuzhou Hospital between January 2019 and December 2024. Women were grouped by thalassemia status (955 with thalassemia vs. 1,155 without). Statistical analyses included the use of the Mann-Whitney U test for continuous variables, Chi-square test for categorical variables, and regression models",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Retrospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "cd8fbcf1b1150b824db47854a3bdc2b7f4c44c4dc4589875fa75ae50b6c44933"
-      },
-      {
         "pmid": "cr:10.54053/001c.142083",
         "title": "RATES OF UTILIZATION OF CONFIRMATORY GENETIC TESTING IN PATIENTS UNDERGOING IVF WITH PGT-A",
         "authors": "Wyszewianski Miceaela, Boettcher Samantha, Lambert Emily, Bosler Jayme",
@@ -453,35 +458,13 @@
         "design": "Retrospective Cohort Study",
         "lowMetadata": false,
         "_sig": "3ab85167c141962ee446f50a86a7755b599e905cfb68ebda417818c329890ffd"
-      },
-      {
-        "pmid": "cr:10.1016/j.fertnstert.2024.05.089",
-        "title": "LIKELIHOOD OF OBTAINING A USABLE EMBRYO FOR TRANSFER AMONG PATIENTS UNDERGOING IVF WITH PGT-A + PGT-M COMPARED WITH PATIENTS UNDERGOING IVF WITH PGT-A ALONE",
-        "authors": "Martel Rachel A., Lee Mabel B., Schadwell Alessia, Siavoshi Mehrnaz",
-        "year": "2024",
-        "journal": "Fertility and Sterility",
-        "doi": "10.1016/j.fertnstert.2024.05.089",
-        "url": "https://doi.org/10.1016/j.fertnstert.2024.05.089",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 43,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "54fef1abe6adafed09132d0c3a04da8a9b702f62821fb928cc7d173f32d54d2e"
       }
     ],
     "corpusStats": {
-      "retrieved": 44,
-      "screened": 44,
+      "retrieved": 41,
+      "screened": 41,
       "blocked": 0,
-      "returned": 13,
+      "returned": 12,
       "relaxationLevel": 1
     },
     "sources": [
@@ -492,8 +475,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 20
       },
       {
         "id": "europepmc",
@@ -556,11 +539,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
-        "count": 0,
+        "count": 20,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -570,7 +553,8 @@
         "date": "2026-11-26",
         "attempted": false,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
       },
       {
         "id": "googlescholar",
@@ -588,10 +572,9 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Semantic Scholar throttled (429)"
+        "skipped": "cooldown"
       },
       {
         "id": "openalex",
@@ -639,9 +622,9 @@
         "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
+        "skipped": "cooldown",
         "error": "Europe PMC Cochrane HTTP 503"
       },
       {

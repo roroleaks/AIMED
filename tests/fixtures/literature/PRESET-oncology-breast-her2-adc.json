@@ -1,6 +1,6 @@
 {
   "id": "PRESET-oncology-breast-her2-adc",
-  "recordedAt": "2026-11-26T19:42:10.200Z",
+  "recordedAt": "2026-11-26T23:00:20.988Z",
   "specialty": "oncology",
   "words": [
     {
@@ -61,8 +61,8 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O) without additional adverse events (O)?",
-        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?",
+        "basis": "15 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
         "supported": false,
         "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
@@ -116,7 +116,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -135,7 +135,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O) without additional adverse events (O)?"
+      "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?"
     },
     "words": [
       {
@@ -292,6 +292,32 @@
         "_sig": "49cfeef9947afa370578c65173817d765d7a9b4cc8c7b0e1986e11738927fe3b"
       },
       {
+        "pmid": "28733983",
+        "title": "Population pharmacokinetics and exposure-response of trastuzumab emtansine in advanced breast cancer previously treated with ≥2 HER2-targeted regimens",
+        "authors": "Chen SC, et al",
+        "year": "2017",
+        "journal": "British journal of clinical pharmacology",
+        "doi": "10.1111/bcp.13381",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28733983/",
+        "context": "AIMS: We conducted population pharmacokinetic (PopPK) and exposure-response analyses for trastuzumab emtansine (T-DM1), to assess the need for T-DM1 dose optimization in patients with low exposure by using TH3RESA [A Study of Trastuzumab Emtansine in Comparison With Treatment of Physician's Choice in Patients With human epidermal growth factor receptor 2 (HER2)-positive Breast Cancer Who Have Received at Least Two Prior Regimens of HER2-directed Therapy] study data (NCT01419197). The randomized phase III TH3RESA study investigated T-DM1 vs. treatment of physician's choice (TPC) in patients with heavily pretreated HER2-positive advanced breast cancer. METHODS: We compared a historical T-DM1 PopPK model with T-DM1 pharmacokinetics in TH3RESA and performed exposure-response analyses using model-predicted cycle 1 maximum concentration (C max ), cycle 1 minimum concentration (C min ) and area under the concentration-time curve at steady state (AUC ss ). Kaplan-Meier analyses [overall survival (OS), progression-free survival (PFS)] and logistic regression [overall response rate (ORR), safety] were stratified by T-DM1 exposure metrics. Survival hazard ratios (HRs) in the lowest exposure quartile (Q1) of cycle 1 C min were compared with matched TPC-treated patients. RESULTS: T-DM1 concentrations in TH3RESA were described well by the historical PopPK model. Patients with higher cycle 1 C min and AUC ss exhibited numerically longer median OS and PFS and higher ORR than patients with lower exposure. Exposure-response relationships were less evident for cycle 1 C max . No relationship between exposure and safety was identified. HRs for the comparison of T-DM1-treated patients in the Q1 subgroup with matched TPC-treated patients were 0.96 [95% confidence interval (CI) 0.63, 1.47] for OS and 0.92 (95% CI 0.64, 1.32) for PFS. CONCLUSIONS: Exposure-response relationships for efficacy were inconsistent across exposure metrics. HRs for survival in patients in the lowest T-DM1 exposure quartile vs. matched TPC-treated patients suggest that, compared with TCP, the approved T-DM1 dose is unlikely to be detrimental to patients with low exposure.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f83dc49e280a032e6c87a653bb5c480e8488376d36e21f1c38ac8778693b8c47"
+      },
+      {
         "pmid": "42426557",
         "title": "Anti-Human Epidermal Growth Factor Receptor 2 therapies in metastatic colorectal cancer: a systematic review and meta-analysis.",
         "authors": "Rota S, Di Nardo P, Zottarelli E, Giudici F, Vida R, Zilli M, de Scordilli M, Foltran L, Fumagalli A, Guardascione M, On",
@@ -319,33 +345,6 @@
         "_sig": "6471d1978a705bf68ad2583528a15922345df2e8e1cc4e6e895199859a490d2c"
       },
       {
-        "pmid": "42358834",
-        "title": "Tissue-Agnostic Targeting in Solid Tumors: A PRISMA-Compliant Meta-Analysis of Efficacy, Safety, and Resistance Determinants Across Histologies.",
-        "authors": "Balaha M, Aldosari SA, Alamer AA, Ahmed N, Balaha MF.",
-        "year": "2026",
-        "journal": "Oncology research",
-        "doi": "10.32604/or.2026.077965",
-        "url": "https://europepmc.org/article/PMC/PMC13292025",
-        "source": "pmc",
-        "pubType": "Meta-Analysis, Systematic Review, review-article, Journal Article",
-        "publicationTypes": [
-          "Meta-Analysis",
-          "Systematic Review",
-          "review-article",
-          "Journal Article"
-        ],
-        "context": "Objectives: Tissue-agnostic oncology personalizes treatments based on shared molecular biomarkers, addressing challenges like assay variability, control-arm rigor, and non-proportional hazards. Integrating efficacy, safety, and resistance factors with consistent estimands is essential for evaluating biomarker-matched therapies across histologies. This review aims to quantify and compare their efficacy and safety, and to identify determinants of resistance, using PRISMA-compliant methods. Methods: We conducted a systematic review and random-effects meta-analysis of 38 studies (15,018 participants), employing dual screening, standardized bias assessment, and evaluations of heterogeneity and small-study effects. Hazard ratios (HRs) with 95% CIs were estimated for time-to-event outcomes, and restricted mean survival times were used when the proportional hazards assumption was violated. Results: Trastuzumab deruxtecan improved objective response rates and extended progression-free survival (PFS) and overall survival (OS) in HER2-positive gastric and gastroesophageal junction cancers and in HER2-low metastatic breast cancer, showing longer response durations. In metastatic colorectal cancer with microsatellite instability-high (MSI-H) or deficient mismatch repair (dMMR), PD-1 blockade significantly increased PFS and five-year OS despite crossover, with restricted mean survival time gains of about 11 months. In endometrial cancer, dostarlimab combined with chemotherapy improved PFS in both dMMR/MSI-H and mismatch repair-proficient disease and increased OS overall. Encorafenib-based therapies reduced progression and death in BRAF V600E metastatic colorectal cancer. Safety profiles were class-specific: PD-1 inhibitors caused fewer grade 3 or higher adverse events than chemotherapy, whereas trastuzumab deruxtecan was associated with increased interstitial lung disease (ILD) or pneumonitis and higher rates of treatment discontinuation. Conclusion: Biomarker-matched therapies confer significant survival benefits with predictable toxicities. Confidence is strongest for PD-1 inhibitors in MSI-H/dMMR tumors, trastuzumab deruxtecan in HER2-low or HER2-positive cancers, and encorafenib-based regimens in BRAF V600E metastatic colorectal cancer. Implementation should include validated assays (including reconfirmation of HER2 status), prioritize earlier treatment lines where gains are greatest, and require vigilant ILD monitoring. Head-to-head trials and assay standardization, especially for tumor mutational burden, remain priorities.",
-        "relevancePct": 76,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Systematic Review and Meta-Analysis",
-        "lowMetadata": false,
-        "_sig": "007cc697fea9b3fe7a28c2ad3ed7f716ea72a4a9e9375f9a81df951514e1b508"
-      },
-      {
         "pmid": "cr:10.3390/medicina60122069",
         "title": "Trastuzumab Rechallenge in HER2-Positive Metastatic Breast Cancer: A Promising Strategy for Enhanced Progression-Free Survival Post Ado-Trastuzumab Emtansine Progression",
         "authors": "Altıntaş Yunus Emre, Kınıkoğlu Oğuzcan, Yıldız Anıl, Işık Deniz",
@@ -368,6 +367,31 @@
         "design": "Retrospective Study",
         "lowMetadata": false,
         "_sig": "7a004b663c35359db23fbeb4d1ada8d2f4a98ef5310671f12e2953e921701952"
+      },
+      {
+        "pmid": "29022084",
+        "title": "Exposure-response analyses of trastuzumab emtansine in patients with HER2-positive advanced breast cancer previously treated with trastuzumab and a taxane",
+        "authors": "Li C, et al",
+        "year": "2017",
+        "journal": "Cancer chemotherapy and pharmacology",
+        "doi": "10.1007/s00280-017-3440-4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29022084/",
+        "context": "PURPOSE: In the phase III EMILIA study, trastuzumab emtansine (T-DM1) significantly improved progression-free survival (PFS) and overall survival (OS) versus capecitabine plus lapatinib (control) in previously treated human epidermal growth factor receptor 2-positive advanced breast cancer. Using EMILIA data, we evaluated the T-DM1 exposure-response relationship. METHODS: Exposure-response relationships were examined with four exposure metrics [model-predicted and observed minimum concentration (C min ) and area under the concentration-time curve from time zero to day 21 of T-DM1 at cycle 1] and multiple efficacy (OS, PFS, objective response rate) and safety (grade ≥ 3 adverse events, grade ≥ 3 thrombocytopenia, grade ≥ 3 hepatotoxicity) endpoints. RESULTS: An apparent exposure-response trend was observed between model-predicted exposure metrics and efficacy; trends for observed exposure metrics were shallower and often not significant. Although median OS and PFS were numerically longer in patients with higher versus lower model-predicted cycle 1 C min , OS and PFS hazard ratios for T-DM1-treated patients in the lowest exposure quartile (Q1) versus control were < 1 after adjusting for baseline risk factors (e.g., ECOG status, tumor burden, measurable disease, and number of disease sites). No meaningful exposure-response relationship was observed for any safety endpoints. CONCLUSION: Exposure-response relationships for efficacy were inconsistent across exposure metrics; model-predicted cycle 1 C min showed the strongest exposure-response trend. The Q1 subgroup based on model-predicted cycle 1 C min had numerically similar or better OS and PFS versus control following covariate adjustment. The approved T-DM1 dose (3.6 mg/kg every 3 weeks) has a positive benefit-risk ratio versus control, even for the T-DM1 Q1 subgroup.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "c9a4f35d0f559903e348e11f97e55e1446428594f9e8b6907c69c9df14f911c9"
       },
       {
         "pmid": "doi:10.1177/17588359261442687",
@@ -638,30 +662,6 @@
         "design": "Cohort Study",
         "lowMetadata": false,
         "_sig": "9a89b41cb94c8d014897c4923bfb4e9796c1941592d4655aec764c01492e6b82"
-      },
-      {
-        "pmid": "doi:10.47102/annals-acadmedsg.202576",
-        "title": "Evaluating the impact of relative dose intensity on efficacy of trastuzumab deruxtecan for metastatic breast cancer in the real-world clinical setting",
-        "authors": "Han Yi Lee, Vivianne Shih, Jack Junjie Chan, Shun Zi Liong",
-        "year": "2025",
-        "journal": "Annals, Academy of Medicine, Singapore",
-        "doi": "10.47102/annals-acadmedsg.202576",
-        "url": "https://doi.org/10.47102/annals-acadmedsg.202576",
-        "source": "doaj",
-        "pubType": "Journal Article",
-        "publicationTypes": [
-          "Journal Article"
-        ],
-        "context": "Introduction: Trastuzumab deruxtecan (T-DXd) has revolutionised treatment for metastatic breast cancer (MBC). While effective, its high cost and toxicities, such as fatigue and nausea, pose challenges. Method: Medical records from the Joint Breast Cancer Registry in Singapore were used to study MBC patients treated with T-DXd (February 2021–June 2024). This study was conducted to address whether reducing dose intensity and density may have an adverse effect on treatment outcomes. Results: Eighty-seven MBC patients were treated with T-DXd, with a median age of 59 years. At the time of data cutoff, 32.1% of patients were still receiving T-DXd. Over half (54%) of the patients received treatment with an initial relative dose intensity (RDI) of equal or more than 85%. Overall median real-world progression-free survival (rwPFS) was 8.1 months. rwPFS was similar between RDI groups (less than 85%: 8.7 months, equal or more than 85%: 8.1 months, P=0.62). However, human epidermal growth receptor 2 (HER2)-positive patients showed significantly better rwPFS outcomes compared to HER2-low patients (8.8 versus 2.5 months, P less than 0.001). Only 16% with central nervous system (CNS) involvement had CNS progressive disease on treatment. No significant progression-free survival (PFS) differences were found between patients with or without CNS disease, regardless of RDI groups. Five patients (5.7%) developed interstitial lung disease (ILD), with 3 (3.4%) having grade 3 events. Two required high-dose steroids and none were rechallenged after ILD. There were no fatalities. Conclusion: Our study demonstrated that reduced dose intensity and density had no significant impact on rwPFS or treatment-related toxicities. Furthermore, only 5.7% of patients developed ILD. T-Dxd provided good control of CNS disease, with 82% of patients achieving CNS disease control.",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "66b37d1ecb79025d7cac12c10dc9ff743cab845d90a93e20000b1f67f012dcd4"
       }
     ],
     "corpusStats": {
@@ -674,8 +674,8 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "pmc",
@@ -714,7 +714,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -733,12 +733,11 @@
         "id": "pubmed",
         "name": "PubMed",
         "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
-        "count": 0,
+        "count": 2,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "pmc",
@@ -817,9 +816,9 @@
         "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",

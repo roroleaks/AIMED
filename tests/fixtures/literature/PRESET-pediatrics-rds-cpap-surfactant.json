@@ -1,6 +1,6 @@
 {
   "id": "PRESET-pediatrics-rds-cpap-surfactant",
-  "recordedAt": "2026-11-26T19:42:44.870Z",
+  "recordedAt": "2026-11-26T23:01:00.234Z",
   "specialty": "pediatrics",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?",
-        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -61,8 +61,8 @@
       },
       "gap": {
         "category": "gap",
-        "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O) without additional adverse events (O)?",
-        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?",
+        "basis": "8 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
         "supported": false,
         "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
@@ -76,8 +76,8 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "pmc",
@@ -116,8 +116,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -135,7 +135,7 @@
     "stage": "explore",
     "choice": {
       "category": "gap",
-      "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O) without additional adverse events (O)?"
+      "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?"
     },
     "words": [
       {
@@ -373,33 +373,6 @@
         "_sig": "e3929019dc7d38b815aea88050b93857cf80640f57d895dacdb0b0d2c0275f4f"
       },
       {
-        "pmid": "42277769",
-        "title": "\"Hemodynamic effects of nasal intermittent positive pressure ventilation versus nasal continuous positive airway pressure in preterm neonates following extubation: a randomized controlled trial\".",
-        "authors": "Chougula PV, Deshpande S, Nagpal R, Lakshminrusimha S, Kolkur K, Kaur A, Sohane A, Suryawanshi P.",
-        "year": "2026",
-        "journal": "BMC pediatrics",
-        "doi": "10.1186/s12887-026-07122-9",
-        "url": "https://europepmc.org/article/PMC/PMC13488235",
-        "source": "pmc",
-        "pubType": "Comparative Study, research-article, Randomized Controlled Trial, Journal Article",
-        "publicationTypes": [
-          "Comparative Study",
-          "research-article",
-          "Randomized Controlled Trial",
-          "Journal Article"
-        ],
-        "context": "Background Nasal continuous positive airway pressure (NCPAP) and nasal intermittent positive pressure ventilation (NIPPV) are two commonly used modalities of non-invasive respiratory support in neonatal intensive care units. Although both are effective, NIPPV is increasingly preferred because of its additional clinical advantages. However, the comparative hemodynamic effects of these strategies remain uncertain. This randomized controlled trial aimed to compare the hemodynamic effects of NIPPV and NCPAP in preterm infants following extubation. Methods In this single-center randomized controlled trial, preterm neonates (26-36 + 6 weeks), previously intubated and treated with surfactant, were randomized to NIPPV or NCPAP following extubation. Functional echocardiography (FnECHO) was performed at 4-6 h and 18-24 h to assess right and left ventricular output (RVO, LVO) and indices of systolic and diastolic function. Results Sixty preterm neonates were included in the final analysis (30 in each group). Baseline RVO and LVO on invasive mechanical ventilation were comparable between the groups (p = 0.33, 0.53). Post-extubation, infants on NIPPV demonstrated significantly lower cardiac outputs than those on NCPAP at 4-6 h (RVO, p = 0.006; LVO, p = 0.001) and at 18-24 h (RVO, p Conclusion Neonates supported with NIPPV in the post-extubation period demonstrated lower cardiac outputs compared with those on NCPAP, and this was associated with higher mean airway pressures. Although within physiological limits, these changes warrant hemodynamic monitoring and further evaluation of their clinical impact. Clinical trial registration This study was prospectively registered with the Clinical Trials Registry of India (CTRI/2024/04/065278) on 05 April 2024. Trial details are publicly accessible at https://ctri.nic.in/Clinicaltrials/pmaindet2.php?trialid=78,344 .",
-        "relevancePct": 74,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "9c6a05e15265f1836fd402e4fb18853fa05ae13306a1acd7ff0f55b171ace0d5"
-      },
-      {
         "pmid": "doi:10.3389/fped.2026.1780241",
         "title": "Minimally invasive surfactant administration in extremely preterm infants <28 weeks gestation with spontaneous breathing: a retrospective quality improvement study on reducing invasive ventilation burden",
         "authors": "Wenxin Dong, Hui Zhang, Xinyue Li, Hua Zhang",
@@ -422,30 +395,6 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "995a2fead0e46b85dec657d89df00a48e3cbebd66e634938bcd00bd420e51fd4"
-      },
-      {
-        "pmid": "34610212",
-        "title": "Early nasal continuous positive airway pressure failure prediction in preterm infants less than 32 weeks gestational age suffering from respiratory distress syndrome",
-        "authors": "V. Dell’Orto, Stefano Nobile, Alessio Correani, Paolo Marchionni",
-        "year": "2021",
-        "journal": "Pediatric Pulmonology",
-        "doi": "10.1002/ppul.25678",
-        "url": "https://doi.org/10.1002/ppul.25678",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: Early continuous positive airway pressure (CPAP) and surfactant replacement are effective treatments for neonatal respiratory distress syndrome (RDS). CPAP is the first line in preterm infants needing respiratory support, with surfactant replacement in case of CPAP failure (CPAP-F). OBJECTIVES: To analyze incidence and factors associated with CPAP-F in preterm infants with RDS. DESIGN, SETTING AND PATIENTS: Single-center retrospective database analysis (2004-2017) of inborn infants, gestational age (GA) 24 + 0/7-31 + 6/7 weeks, not intubated on admission to the neonatal intensive care unit, managed with CPAP. CPAP-F was defined as intubation and surfactant administration in the first 72 h of life; CPAP success (CPAP-S) was CPAP alone without need for additional RDS treatments. Demographic, respiratory, and clinical data associated",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "1673270777a06d7fd083f1bbde7531b0a48fe66a4b977e1db5c3e3d5c071b325"
       },
       {
         "pmid": "cr:10.1542/peds.113.6.e560",
@@ -666,7 +615,7 @@
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 20,
+      "returned": 18,
       "relaxationLevel": 0
     },
     "sources": [
@@ -712,8 +661,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -813,11 +762,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
-        "count": 0,
+        "count": 2,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -825,9 +774,10 @@
         "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",

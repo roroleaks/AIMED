@@ -1,6 +1,6 @@
 {
   "id": "PRESET-pulmonology-asthma-biologics",
-  "recordedAt": "2026-11-26T19:51:41.962Z",
+  "recordedAt": "2026-11-26T23:08:34.182Z",
   "specialty": "pulmonology",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -100,8 +100,8 @@
       },
       {
         "id": "openalex",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "crossref",
@@ -187,32 +187,6 @@
         "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
         "_sig": "df7188bf1dbc99fdeda3bcfae9548f738db5514bdf230dadd32c4f0151f579a5"
-      },
-      {
-        "pmid": "42764892",
-        "title": "Dupilumab Improves Lung Function and Reduces Severe Exacerbations in Patients from China with Type 2 Asthma: A Subgroup Analysis of a Phase 3 Randomized Trial.",
-        "authors": "Zhang Q, Fu X, Fang H, Lin J, Altincatal A, Huang Y, Kwah JH, Ledanois O, Zhong N.",
-        "year": "2026",
-        "journal": "Journal of asthma and allergy",
-        "doi": "10.2147/jaa.s597499",
-        "url": "https://europepmc.org/article/PMC/PMC13589984",
-        "source": "pmc",
-        "pubType": "research-article, Journal Article",
-        "publicationTypes": [
-          "research-article",
-          "Journal Article"
-        ],
-        "context": "Purpose Asthma affects approximately 46 million adults in China. The safety and efficacy of dupilumab, a monoclonal antibody which blocks the shared receptor component for interleukin (IL)-4 and IL-13, were evaluated in a phase 3 study in patients with moderate-to-severe asthma in the Asia-Pacific region (NCT03782532). This is a pre-specified subgroup analysis of patients in China derived from the Asia-Pacific trial. Patients and methods Patients (≥12 years) with inadequately controlled asthma despite medium/high-dose inhaled corticosteroids and ≥1 additional controller were included. Patients with type 2 inflammation (eosinophil counts ≥150 cells/µL or fractional exhaled nitric oxide ≥25 parts per billion) without maintenance oral corticosteroids (OCS) (type 2 non-OCS group, for primary efficacy analysis) were randomized 1:1 to receive 200-mg dupilumab every 2 weeks or placebo for 24 weeks. In this pre-specified subgroup analysis, primary efficacy endpoints examined included change from baseline in pre-bronchodilator forced expiratory volume in 1 second (FEV 1 ) to week 12. Additional outcomes assessed included asthma control measures, annualized severe exacerbation rates, and safety. Results In a total of 412 patients randomized from China (206 per treatment group) 347 (84.2%) were included in the primary efficacy analysis. Changes from baseline to week 12 in FEV 1 were significantly greater for dupilumab vs placebo (least squares [LS] mean difference: 0.34 L [95% confidence interval (CI): 0.25, 0.43]), as were improvements in 5-Item Asthma Control Questionnaire scores at week 24 (LS mean difference: -0.19 [95% CI: -0.35, -0.03]). Severe exacerbation risk was significantly reduced by 74.2% (risk ratio: 0.258 [95% CI: 0.127, 0.521], P = 0.0002) vs placebo. Treatment-emergent adverse event rates were similar across groups. Conclusion In this 24-week subgroup analysis, dupilumab improved lung function, asthma control, and exacerbations, and was well tolerated in patients from China with type 2 asthma without maintenance OCS.",
-        "relevancePct": 96,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "935c3f07e6961e5018fab401ff21bc5fd8d59ea16ca626b7825e201efff9be63"
       },
       {
         "pmid": "41738176",
@@ -325,6 +299,31 @@
         "_sig": "e3ea58f24adf556a60491e733733af4552b44d445267c9d7d28edf5c84751da7"
       },
       {
+        "pmid": "30138668",
+        "title": "Dupilumab improves symptoms, quality of life, and productivity in uncontrolled persistent asthma",
+        "authors": "Jonathan Corren, Mario Castro, Pascal Chanez, Leonardo Michele Fabbri",
+        "year": "2018",
+        "journal": "Annals of Allergy Asthma & Immunology",
+        "doi": "10.1016/j.anai.2018.08.005",
+        "url": "https://doi.org/10.1016/j.anai.2018.08.005",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: In a pivotal, phase 2b study (NCT01854047) in patients with uncontrolled persistent asthma, despite using medium-to-high-dose inhaled corticosteroids plus long-acting β2 agonists, dupilumab improved lung function, reduced severe exacerbations, and showed an acceptable safety profile. OBJECTIVE: To assess the impact of dupilumab on asthma control, symptoms, quality of life (QoL), and productivity. METHODS: Data are shown for the intention-to-treat population receiving dupilumab 200/300 mg every 2 weeks (doses being assessed in phase 3; NCT02414854), or placebo. Predefined analyses of total scores were conducted at week 24 for the 5-item Asthma Control Questionnaire (ACQ-5), patient-reported morning/evening (AM/PM) asthma symptoms, Asthma Quality of Life Questionnaire (AQLQ), and asthma-related productivity loss. Responder rate analyses for these measures, subgroup analyses by baseline characteristics,",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "d634d9cf4c7877faafb7416328bd43278e094631bab70d102ecb3bfeb2b71017"
+      },
+      {
         "pmid": "28877011",
         "title": "Tezepelumab in Adults with Uncontrolled Asthma",
         "authors": "Corren J, et al",
@@ -383,33 +382,6 @@
         "_sig": "3672a38db54a5b3f75d2a9b57de2874bb9189b540ed20e5784856b079a3605e8"
       },
       {
-        "pmid": "42605492",
-        "title": "Diagnostic and Therapeutic Challenges in Asthma and Chronic Obstructive Pulmonary Disease Overlap: A Four-Patient Case Series.",
-        "authors": "Amalraj B, Marrero Castillo M, Gulati N.",
-        "year": "2026",
-        "journal": "Cureus",
-        "doi": "10.7759/cureus.112821",
-        "url": "https://europepmc.org/article/PMC/PMC13477804",
-        "source": "pmc",
-        "pubType": "Journal Article, Case Reports, case-report",
-        "publicationTypes": [
-          "Journal Article",
-          "Case Reports",
-          "case-report"
-        ],
-        "context": "Asthma-chronic obstructive pulmonary disease (COPD) overlap is a heterogeneous clinical descriptor applied to patients with persistent airflow limitation who exhibit features of both asthma and chronic obstructive pulmonary disease. Diagnostic uncertainty is common, particularly when smoking-related emphysema coexists with asthma-associated traits such as bronchodilator reversibility, allergic rhinitis or atopy, eosinophilia, and elevated immunoglobulin E. We report four adults with chronic obstructive physiology and overlapping clinical, radiographic, physiologic, and inflammatory features. Two patients had persistent symptoms despite guideline-directed inhaled therapy and were treated with add-on biologic therapy targeting type 2 inflammation using benralizumab or dupilumab. The dupilumab-treated case demonstrated symptomatic and spirometric improvement over three months, whereas the benralizumab-treated case illustrates phenotype-guided biologic selection in eosinophilic asthma with coexisting COPD features and persistent severe obstruction on verified follow-up spirometry. The remaining cases illustrate practical diagnostic challenges, including the interpretation of serial spirometry, the recognition of bronchodilator responsiveness, and the reconciliation of radiographic emphysema with asthma-like variability and allergic sensitization. This case series highlights the clinical heterogeneity of asthma-chronic obstructive pulmonary disease overlap and supports a phenotype-informed approach incorporating spirometry, imaging, allergic evaluation, and accessible type 2 inflammatory biomarkers. Further prospective studies are needed to define which overlap phenotypes are most likely to benefit from biologic therapy.",
-        "relevancePct": 90,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Case Report",
-        "lowMetadata": false,
-        "_sig": "e296c3df9b2f1733590ceb3e62cbe4eb1a5e677abb9c8f4b870d12fd008cb9d9"
-      },
-      {
         "pmid": "41033334",
         "title": "Dupilumab versus omalizumab in patients with chronic rhinosinusitis with nasal polyps and coexisting asthma (EVEREST): a multicentre, randomised, double-blind, head-to-head phase 4 trial",
         "authors": "De Corso E, et al",
@@ -462,32 +434,6 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "388c4761a4adb6b37dcc4801b898280d098dcd37406a05a34518876ba240b75e"
-      },
-      {
-        "pmid": "42899165",
-        "title": "Biologic Use in Type 2 versus Non-Type 2 Asthma: Similarities, Differences, and Challenges.",
-        "authors": "Maglio A, D'Auria LO, Franzese A, Liguori ME, Gramazio S, Arnone G, Longobardi V, Pelaia C, Pelaia G, Calabrese C, Vital",
-        "year": "2026",
-        "journal": "Journal of inflammation research",
-        "doi": "10.2147/jir.s589946",
-        "url": "https://europepmc.org/article/PMC/PMC13679528",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
-        "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
-        ],
-        "context": "Biologic therapy has transformed the management of severe asthma, but its benefit has been distributed unevenly. Six monoclonal antibodies are licensed (omalizumab, mepolizumab, reslizumab, benralizumab, dupilumab and tezepelumab), joined most recently by the ultra-long-acting anti-interleukin (IL)-5 antibody depemokimab. All were developed within, and are prescribed on the basis of, the type 2 (T2) inflammatory pathway. Patients whose disease is driven by IL-4, IL-13, IL-5 and IgE now have several effective options; patients whose disease is not have almost none. This asymmetry is the central problem in severe asthma today, and it is the subject of this review. In this narrative review, informed by a structured literature search, we synthesize evidence from randomized controlled trials of every approved biologic, from real-world data and from the substantial body of negative trials in non-T2 disease. We argue that the T2/non-T2 dichotomy is operationally useful but biologically misleading: its thresholds are arbitrary and unstable under corticosteroid exposure, low T2 biomarkers are not synonymous with absent T2 biology, and non-T2 disease is itself heterogeneous. We examine what the phenotypes share (epithelial alarmin signaling, airway remodeling, corticosteroid-related morbidity and the treatable-traits paradigm) and where they differ. We then address the practical challenges of clinical decision-making: selecting a first biologic when eligibility criteria overlap, managing partial response, switching, de-escalation and clinical remission. Finally, we evaluate agents in development, including anti-TSLP receptor antibodies, IL-33/ST2 blockade, bispecific constructs, OX40L-directed therapy and oral eosinophil-depleting small molecules, and outline the trial designs and biomarkers that will be needed if patients with non-T2 disease are to be served as well as those with T2 disease.",
-        "relevancePct": 74,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Narrative Review",
-        "lowMetadata": false,
-        "_sig": "b69dbc05fe0b3c38d55110f0dea99d2888dc4da38d73934a001093118423ef95"
       },
       {
         "pmid": "cr:10.1002/rcr2.1311",
@@ -568,6 +514,30 @@
         "_sig": "178fcae03a8124c147da4f68695d34f16cc2352ef6782ba5e61fd2be1bd09fea"
       },
       {
+        "pmid": "32010719",
+        "title": "Dupilumab improves lung function in patients with uncontrolled, moderate-to-severe asthma",
+        "authors": "Mario Castro, Klaus Friedrich Rabe, Jonathan Corren, Ian Douglas Pavord",
+        "year": "2020",
+        "journal": "ERJ Open Research",
+        "doi": "10.1183/23120541.00204-2019",
+        "url": "https://doi.org/10.1183/23120541.00204-2019",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Dupilumab, a fully human monoclonal antibody, blocks the shared receptor component for interleukin-4 and interleukin-13, key drivers of type 2 inflammation. In the phase 3 LIBERTY ASTHMA QUEST trial (NCT02414854) in patients with uncontrolled, moderate-to-severe asthma, add-on dupilumab 200 mg or 300 mg every 2 weeks reduced exacerbations and improved forced expiratory volume in 1 s (FEV1) and quality of life over 52 weeks. This analysis evaluates dupilimab's effect on lung function in the overall population, and subgroups with baseline elevated type 2 inflammatory biomarkers. METHODS: Patients were randomised to 52 weeks of subcutaneous dupilumab 200 mg every 2 weeks, 300 mg every 2 weeks, or matched-volume placebos. Lung function outcomes were analysed in the overall population, in patients",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "7cf263f5dd93e670f17d8aff9dce58c72c076b8d2556cbf357d53ffd3d0a0c52"
+      },
+      {
         "pmid": "29782217",
         "title": "Dupilumab Efficacy and Safety in Moderate-to-Severe Uncontrolled Asthma",
         "authors": "Castro M, et al",
@@ -596,45 +566,116 @@
         "_sig": "1a01240f417fd18ad5d707e3397bc9f32c271a0143de98502e4f8def1ae63fdf"
       },
       {
-        "pmid": "42643717",
-        "title": "Biological treatments for asthma and chronic obstructive pulmonary disease.",
-        "authors": "Tejwani V, Siddharthan T, Majumdar U, Hatipoğlu U, Hanania NA.",
-        "year": "2026",
-        "journal": "BMJ medicine",
-        "doi": "10.1136/bmjmed-2025-002195",
-        "url": "https://europepmc.org/article/PMC/PMC13504856",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
+        "pmid": "29725983",
+        "title": "Liberty Asthma QUEST: Phase 3 Randomized, Double-Blind, Placebo-Controlled, Parallel-Group Study to Evaluate Dupilumab Efficacy/Safety in Patients with Uncontrolled, Moderate-to-Severe Asthma",
+        "authors": "William W. Busse, Jorge Fernando Maspero, Klaus Friedrich Rabe, Alberto A. Papi",
+        "year": "2018",
+        "journal": "Advances in Therapy",
+        "doi": "10.1007/s12325-018-0702-4",
+        "url": "https://doi.org/10.1007/s12325-018-0702-4",
+        "source": "openalex",
+        "pubType": "article",
         "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
+          "article"
         ],
-        "context": "Asthma and chronic obstructive pulmonary disease (COPD) are highly prevalent heterogeneous airway diseases in which a subset of patients with severe disease have a disproportionate share of morbidity and mortality, largely through exacerbations. Major immunological advances have reframed both conditions around endotypes, with type 2 (inflammation driven by type 2 helper cells and group 2 innate lymphoid cells) and other inflammatory pathways defined and targeted with biological treatments. This review provides an overview of biological treatments in asthma and COPD. Biological treatments are engineered monoclonal antibodies targeting proteins (eg, IgE, interleukin (IL) 5 and IL5 receptor, IL4 and IL13, and upstream epithelial alarmins, such as thymic stromal lymphopoietin (TSLP) and IL33) that enable precision treatment. Biological treatments consistently reduce exacerbations and improve lung function and quality of life in biomarker defined populations. In asthma, short term biomarkers (blood eosinophils, fractional exhaled nitric oxide (FeNO), and sputum eosinophils) guide selection, whereas emerging longer term markers, including transcriptomic signatures and imaging endpoints, offer mechanistic readouts and raise the prospect of disease modification. In COPD, type 2 biological medicines have yielded benefits among patients with high levels of eosinophils and who are prone to exacerbations, and anti-IL33 and TSLP treatments show mixed but intriguing signals. Blood eosinophil counts (≥300 cells/µL) remain the most robust predictor of benefit; FeNO may provide complementary categorisation in select settings. Priorities for treatment are identifying treatable traits, supporting comprehensive self-management, and timely referral for patients with exacerbations despite optimised inhaled treatment. Key gaps include head-to-head comparisons, criteria for switching or stopping biological medicines, feasibility of de-escalation of inhaled treatment, and type 2 low strategies.",
-        "relevancePct": 71,
+        "context": "INTRODUCTION: Dupilumab, a fully human anti-IL-4Rα monoclonal antibody, inhibits signaling of both interleukin (IL)-4 and IL-13, which are key drivers of type 2-mediated inflammation. Dupilumab is approved in the EU, USA, and other countries for the treatment of adults with inadequately controlled moderate-to-severe atopic dermatitis. Following positive phase 2 results in asthma, the phase 3 Liberty Asthma QUEST trial was initiated to provide further evidence for dupilumab efficacy and safety in patients with uncontrolled, moderate-to-severe asthma. METHODS: Liberty Asthma QUEST is a phase 3, multinational, multicenter, randomized, double-blind, placebo-controlled, parallel-group trial (NCT02414854) in patients with persistent asthma who are receiving continuous treatment with inhaled corticosteroids (ICS) plus one or two other asthma controller medicines. A total of 1902 patients (aged",
+        "relevancePct": 74,
         "matchedElements": [
           "P",
           "C",
           "O"
         ],
-        "design": "Review",
+        "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "b7264ef62e1043b9d56b5605cf89ea7e684097238b95c40c06059e7189c60f98"
+        "_sig": "fda01ba9650e38d6e55893b2d2835f31be8495228cbb00ad3edc9949f32fd775"
       },
       {
-        "pmid": "cr:10.1016/j.anai.2018.09.129",
-        "title": "EFFICACY OF SUBCUTANEOUS DUPILUMAB A HUMAN ANTI-INTERLEUKIN-4 RECEPTOR ALPHA MONOCLONAL ANTIBODY FOR MODERATE-TO-SEVERE UNCONTROLLED ASTHMATICS.",
-        "authors": "Nsouli S.",
-        "year": "2018",
-        "journal": "Annals of Allergy, Asthma & Immunology",
-        "doi": "10.1016/j.anai.2018.09.129",
-        "url": "https://doi.org/10.1016/j.anai.2018.09.129",
-        "source": "crossref",
-        "pubType": "journal-article",
+        "pmid": "36066123",
+        "title": "Dupilumab efficacy and safety in Latin American patients with uncontrolled, moderate-to-severe asthma: phase 3 LIBERTY ASTHMA QUEST study",
+        "authors": "Jorge Fernando Maspero, Guido Cardona, Patricia Schonffeldt, Alberto Tolcachier",
+        "year": "2022",
+        "journal": "Journal of Asthma",
+        "doi": "10.1080/02770903.2022.2115927",
+        "url": "https://doi.org/10.1080/02770903.2022.2115927",
+        "source": "openalex",
+        "pubType": "article",
         "publicationTypes": [
-          "journal-article"
+          "article"
         ],
-        "relevancePct": 61,
+        "context": "OBJECTIVE: While advances in asthma care have been made in Latin America, there is still a large unmet need in patients with uncontrolled asthma. This post hoc analysis of the QUEST study assessed safety and efficacy of dupilumab in the subgroup of patients enrolled in Latin American countries with a type 2 inflammatory asthma phenotype (blood eosinophils ≥ 150cells/µL or FeNO ≥25ppb). METHODS: LIBERTY ASTHMA QUEST (NCT02414854) was a phase 3, multinational, randomized, double-blind, placebo-controlled study in patients with uncontrolled, moderate-to-severe asthma. Eligible patients ≥ 12 years of age were randomized in a 2:2:1:1 ratio to receive 52 weeks of add-on subcutaneous dupilumab 200 or 300 mg every 2 weeks or matched-volume placebos. Pre-specified co-primary efficacy endpoints were the annualized",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "94c47eb8bd5a6424c8ab607a09f2aa30f4bf3265e6b13061ac60565b2b284fe0"
+      },
+      {
+        "pmid": "34266940",
+        "title": "Effect of exacerbation history on clinical response to dupilumab in moderate-to-severe uncontrolled asthma",
+        "authors": "Jonathan Corren, Constance Helen Katelaris, Mario Castro, Jorge Fernando Maspero",
+        "year": "2021",
+        "journal": "European Respiratory Journal",
+        "doi": "10.1183/13993003.04498-2020",
+        "url": "https://doi.org/10.1183/13993003.04498-2020",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The phase 3 LIBERTY ASTHMA QUEST study (ClinicalTrials.gov: NCT02414854) in patients with uncontrolled, moderate-to-severe asthma has demonstrated the efficacy and safety of dupilumab 200 and 300 mg every 2 weeks versus placebo. This post hoc analysis assessed the effect of dupilumab on efficacy outcomes and asthma control across a range of historical exacerbation rates in patients with type 2-high asthma. METHODS: Annualised severe exacerbation rates over the 52-week treatment period, pre-bronchodilator forced expiratory volume in 1 s (FEV1) at weeks 12 and 52, and the five-item Asthma Control Questionnaire (ACQ-5) score at weeks 24 and 52 were assessed in patients with ≥1, ≥2 or ≥3 exacerbations in the previous year. Subgroups were stratified by baseline blood eosinophils ≥150 or",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "6194dbec18aa3cbc29d6acfa55cf54b17c3c7f44d0168ea1069213b04a5068bf"
+      },
+      {
+        "pmid": "31351189",
+        "title": "Dupilumab Efficacy in Uncontrolled, Moderate-to-Severe Asthma with Self-Reported Chronic Rhinosinusitis",
+        "authors": "Jorge Fernando Maspero, Constance Helen Katelaris, William W. Busse, Mario Castro",
+        "year": "2019",
+        "journal": "The Journal of Allergy and Clinical Immunology In Practice",
+        "doi": "10.1016/j.jaip.2019.07.016",
+        "url": "https://doi.org/10.1016/j.jaip.2019.07.016",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Dupilumab, a fully human monoclonal antibody, blocks the shared receptor component for IL-4 and IL-13 signaling, key drivers of type 2 inflammation. In the phase 3 study (NCT02414854), add-on dupilumab 200 mg/300 mg every 2 weeks, versus placebo, significantly reduced severe asthma exacerbations and improved pre-bronchodilator forced expiratory volume in 1 second (FEV1) and quality-of-life measures in patients with uncontrolled, moderate-to-severe asthma, with greater efficacy observed in those with a high baseline type 2 phenotype. OBJECTIVE: To assess the efficacy and safety of dupilumab in patients with uncontrolled, moderate-to-severe asthma with or without self-reported comorbid chronic rhinosinusitis (CRS or non-CRS). METHODS: Comorbid CRS was self-reported by patients using an e-diary. Annualized severe exacerbation rates, changes from baseline in pre-",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2ef695ab1ca2cabe447f9fe726c385dda861479f789d31b76ca777b8b40a8c19"
+      },
+      {
+        "pmid": "38013139",
+        "title": "Impact of dupilumab across seasons in patients with type 2, uncontrolled, moderate-to-severe asthma",
+        "authors": "Anju Tripathi Peters, Hironori Sagara, Jonathan Corren, Christian Domingo",
+        "year": "2023",
+        "journal": "Annals of Allergy Asthma & Immunology",
+        "doi": "10.1016/j.anai.2023.11.021",
+        "url": "https://doi.org/10.1016/j.anai.2023.11.021",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Seasonal variability could influence asthma exacerbations. Dupilumab, a fully human monoclonal antibody, blocks the shared receptor component for interleukin (IL)-4/IL-13, key and central drivers of type 2 inflammation. In the 52-week QUEST study (NCT02414854), add-on dupilumab every 2 weeks vs placebo significantly reduced exacerbations and improved prebronchodilator forced expiratory volume in 1 second in patients with uncontrolled, moderate-to-severe asthma. TRAVERSE (NCT02134028), the open-label QUEST extension study, enrolled patients with moderate-to-severe asthma to investigate long-term safety and efficacy of dupilumab, including patients who previously received placebo that initiated dupilumab therapy. OBJECTIVE: To investigate long-term dupilumab efficacy in reducing exacerbations across yearly seasons in patients with type 2 inflammatory asthma with and without clinical evidence of allergic asthma. METHODS: Unadjusted annualized",
+        "relevancePct": 66,
         "matchedElements": [
           "P",
           "I",
@@ -642,14 +683,14 @@
         ],
         "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "67376da9967a6be34833206e8bf5fd2afa644d7ea9b980c65de2c1a4247dc3f8"
+        "_sig": "ab0f8b1824c602b7b773b558235c0bf93f08bddcc394dafe4059cf513d9c671a"
       }
     ],
     "corpusStats": {
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 18,
+      "returned": 20,
       "relaxationLevel": 0
     },
     "sources": [
@@ -660,8 +701,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 30
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -680,8 +721,8 @@
       },
       {
         "id": "openalex",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "crossref",
@@ -724,11 +765,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
-        "count": 30,
+        "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
       },
       {
         "id": "europepmc",
@@ -736,9 +777,10 @@
         "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
       },
       {
         "id": "googlescholar",
@@ -764,11 +806,11 @@
         "id": "openalex",
         "name": "OpenAlex",
         "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
-        "count": 0,
+        "count": 25,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "crossref",
@@ -806,10 +848,9 @@
         "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC Cochrane HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "preprints",
@@ -817,11 +858,12 @@
         "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
-    "hasMore": false
+    "hasMore": true
   }
 }

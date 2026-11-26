@@ -1,6 +1,6 @@
 {
   "id": "ART-3",
-  "recordedAt": "2026-11-26T22:48:52.207Z",
+  "recordedAt": "2026-11-26T22:58:21.038Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In recurrent implantation failure (P), does endometrial receptivity array (I) compared with standard timing embryo transfer (C) improve live birth rate (O)?",
-        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 1 no-difference, 1 adverse).",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (2 favourable, 0 no-difference, 1 adverse).",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -190,6 +190,34 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "3d564187f3c425e6e2b4fe3999c6e418eb855dfb57e907668f5d108acf98ae63"
+      },
+      {
+        "pmid": "42835790",
+        "title": "Endometrial receptivity failure in assisted reproduction: immune-cellular niches, mechanistic evidence, and translational boundaries.",
+        "authors": "Zhang Y, Zhu Y, Li Z, Luo J.",
+        "year": "2026",
+        "journal": "Frontiers in immunology",
+        "doi": "10.3389/fimmu.2026.1942809",
+        "url": "https://europepmc.org/article/PMC/PMC13635826",
+        "source": "pmc",
+        "pubType": "Research Support, Non-U.S. Gov't, review-article, Review, Journal Article",
+        "publicationTypes": [
+          "Research Support, Non-U.S. Gov't",
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Endometrial receptivity failure and recurrent implantation failure (RIF) are clinically heterogeneous outcomes shaped by embryo competence, uterine anatomy, endocrine support, immune adaptation, and the timing of embryo-endometrial synchrony. This Review focuses on how immune-cellular niches, cell-specific and spatiotemporal mechanisms, disease-modified receptivity states, and evidence-to-translation boundaries should be interpreted in assisted reproduction. Single-cell, spatial, and multi-omics studies increasingly resolve abnormalities in stromal, sepithelial, vascular, perivascular, and immune compartments, including altered decidualization, epithelial competence, inflammatory tone, metabolic signaling, and microbiota-immune communication. However, most of these signals remain mechanistic, preclinical, associative, or candidate-biomarker evidence rather than proof of clinical utility. Therefore, biological plausibility should not be conflated with routine care: transcriptome-based receptivity timing tests, empirical immune profiling or treatment, microbiota-directed interventions, endometrial scratching, and regenerative add-ons require cautious interpretation unless they improve clinically meaningful outcomes. Future progress depends on standardized RIF phenotyping, cycle-phase and sampling control, euploid embryo transfer where relevant, external validation of cell-specific markers, prospective trials, live-birth endpoints, safety follow-up, and transparent separation of discovery evidence from clinically actionable strategies.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "cb548b69045747c6c6bff972d1783599924b31b154d1e24a0e10b3e642488e1e"
       },
       {
         "pmid": "cr:10.1093/humrep/deag083.888",
@@ -322,56 +350,6 @@
         "_sig": "c6d3981bfd7b4d2d6ab1251dad9f6e7e151276832eb4f00cdecc22b4a8c4cf64"
       },
       {
-        "pmid": "40614408",
-        "title": "Pinopode versus endometrial receptivity analysis for personalized embryo transfer in recurrent implantation failure",
-        "authors": "Lijuan Zhao, Fei Yin, Xiaoxiao Hu, Jing Li",
-        "year": "2025",
-        "journal": "Reproductive BioMedicine Online",
-        "doi": "10.1016/j.rbmo.2025.104875",
-        "url": "https://doi.org/10.1016/j.rbmo.2025.104875",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "RESEARCH QUESTION: Does pinopode detection or endometrial receptivity analysis (ERA) improve personalized embryo transfer (PET) outcomes in patients with recurrent implantation failure (RIF) more effectively? DESIGN: This retrospective study analysed 488 patients with RIF: 222 underwent pinopode detection, 81 underwent ERA and 185 served as controls without any testing. Propensity score matching was used to mitigate confounding factors, resulting in matched pairs: 108 pinopode controls, 66 ERA controls and 66 pinopode ERA. RESULTS: In matched pairs, the pinopode group showed significantly higher rates of embryo implantation (41.55% versus 27.01%, P = 0.002), biochemical pregnancy (69.44% versus 53.70%, P = 0.017), clinical pregnancy (60.19% versus 43.52%, P = 0.014) and live birth (53.70% versus 33.33%, P = 0.003) compared with controls.",
-        "relevancePct": 90,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Retrospective Study",
-        "lowMetadata": false,
-        "_sig": "838627fb1bcd900a145e401a9628a8eb828a8533f3f64c0699fd9005d2c1aed3"
-      },
-      {
-        "pmid": "37995756",
-        "title": "Factors affecting the ongoing pregnancy rate in women with repeated implantation failure undergoing an endometrial receptivity array",
-        "authors": "Hyun Kyoung Lee, Kyoung Yong Moon, Haerin Paik, Byung Chul Jee",
-        "year": "2023",
-        "journal": "Daehan saengsik uihak hoeji/Clinical and experimental reproductive medicine",
-        "doi": "10.5653/cerm.2023.06184",
-        "url": "https://doi.org/10.5653/cerm.2023.06184",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "OBJECTIVE: In this retrospective study, we analyzed factors influencing the ongoing pregnancy rate (PR) in women with repeated implantation failure (RIF) undergoing embryo transfer with endometrial receptivity array (ERA). METHODS: Eighty-three consecutive personalized embryo transfers (pETs) with ERA, from 54 women with RIF, were selected from June 2020 to April 2022. Vitrified blastocyst transfer was timed based on ERA results. RESULTS: The ongoing PR per pET was 33.7%. Using ERA, the endometrium was identified as pre-receptive in 26 cycles, early receptive in 25 cycles, receptive in 31 cycles, and late receptive in one cycle. With cycles categorized into three receptivity phases (pre-receptive, early receptive, or receptive), no significant differences were found in the clinical PR (27.3%, 55.6%, and 40%, respectively)",
-        "relevancePct": 90,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Retrospective Study",
-        "lowMetadata": false,
-        "_sig": "f78882ebe6e3ca82fc8c75fc7301ac6e77402fdfefdac130f57b1f33d865129c"
-      },
-      {
         "pmid": "32725589",
         "title": "Customized Frozen Embryo Transfer after Identification of the Receptivity Window with a Transcriptomic Approach Improves the Implantation and Live Birth Rates in Patients with Repeated Implantation Failure",
         "authors": "D. Haouzi, Frida Entezami, Antoine Torre, Charlène Innocenti",
@@ -447,6 +425,58 @@
         "_sig": "9914873b526aed5d489e73a896dbab01d38fa4c65b26fbfbac09768466816889"
       },
       {
+        "pmid": "42577078",
+        "title": "Mapping the evidence and research gaps on preimplantation genetic testing for aneuploidy in recurrent implantation failure: a scoping review.",
+        "authors": "Dabuleanu Cretu AM, Ilie OD, Maftei R, Doroftei M, Doroftei B.",
+        "year": "2026",
+        "journal": "Frontiers in endocrinology",
+        "doi": "10.3389/fendo.2026.1872860",
+        "url": "https://europepmc.org/article/PMC/PMC13453691",
+        "source": "pmc",
+        "pubType": "Scoping Review, systematic-review, Journal Article",
+        "publicationTypes": [
+          "Scoping Review",
+          "systematic-review",
+          "Journal Article"
+        ],
+        "context": "Background Recurrent implantation failure (RIF) represents a complex and heterogeneous condition in assisted reproductive technology (ART), characterized by unclear etiology and limited evidence-based management strategies. Preimplantation genetic testing for aneuploidy (PGT-A) has been proposed to improve reproductive outcomes through selection of euploid embryos; however, its clinical utility in RIF remains controversial. Methods A scoping review was conducted to systematically map the available evidence regarding the role of PGT-A in RIF. A comprehensive literature search identified 18 studies evaluating reproductive outcomes in RIF patients undergoing PGT-A compared with conventional in vitro fertilization/intracytoplasmic sperm injection (IVF/ICSI). Data were extracted and narratively synthesized across key outcomes, including implantation rate (IR), clinical pregnancy rate (CPR), live birth rate (LBR), and miscarriage rate (MR). Methodological quality was assessed using the Newcastle-Ottawa Scale (NOS), and sources of heterogeneity, including variability in RIF definitions, PGT-A methodologies, and patient subgroups, were also explored. Results Several studies reported improved outcomes at the level of individual embryo transfer (ET), including higher IR, CPR, and LBR per transfer following PGT-A. However, these findings were not consistently observed when outcomes were assessed at the patient level. In particular, cumulative live birth rate (CLBR) was generally comparable between PGT-A and non-PGT-A groups, especially in unexplained - uRIF or idiopathic - iRIF populations. Similarly, MR was largely unchanged across studies despite improved embryo selection. Subgroup analyses suggested that PGT-A may provide greater benefit in patients with a higher likelihood of embryo-related implantation failure (IF), such as those of advanced maternal age (AMA), whereas limited benefit was observed in uRIF/iRIF cohorts. Overall, substantial heterogeneity was identified regarding RIF definitions, laboratory methodologies, and clinical protocols. Conclusions The available evidence suggests that PGT-A may improve treatment efficiency by increasing the probability of success per ET in selected RIF populations. Nevertheless, it does not consistently improve CLBR or reduce miscarriage risk, underscoring the multifactorial nature of IF. Consequently, PGT-A should be considered within an individualized treatment strategy rather than as a universal intervention for all RIF patients. Further prospective studies using standardized definitions and protocols are required to better define its clinical role.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "715d9ebad41d87dc9da503ded1eba8032d489edf6b77521e56f6611880877d72"
+      },
+      {
+        "pmid": "42923818",
+        "title": "The role of platelet-rich plasma in repeated implantation failure: a review of biological mechanisms and clinical efficacy.",
+        "authors": "Makrygiannakis F, Vrekoussis T, Marmara M, Berdiaki A, Makrigiannakis A.",
+        "year": "2026",
+        "journal": "Frontiers in reproductive health",
+        "doi": "10.3389/frph.2026.1907558",
+        "url": "https://europepmc.org/article/PMC/PMC13688098",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Repeated implantation failure (RIF) remains a significant challenge in assisted reproductive technology, with approximately two-thirds of cases attributed to impaired endometrial receptivity. This review highlights the role of autologous platelet-rich plasma (PRP) as a regenerative adjuvant for rehabilitating the uterine environment. Molecular mechanisms and clinical evidence are presented. It is evident that the concentrated growth factors in PRP-such as VEGF, PDGF, and TGF-beta-promote cell proliferation, angiogenesis, immunomodulation and tissue remodeling. Α consistent statistical trend is recognized toward improved clinical pregnancy and live birth rates across multiple meta-analyses. However, a critical methodological-clinical gap is identified, noting that the current evidence base is compromised by a high risk of bias, non-standardized preparation protocols, and inconsistent diagnostic criteria for RIF. While PRP shows significant biological promise in transforming a hostile uterine environment into a receptive one, its routine clinical application is currently cautioned. Until large-scale, properly blinded randomized controlled trials -utilizing standardized ESHRE definitions- are conducted, PRP should be regarded as an experimental tool rather than a validated standard of care.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "b8c6e08c13b43e71b1b1044081d4ba559b71b26a74d3103aac11cc603fb9309b"
+      },
+      {
         "pmid": "37129654",
         "title": "Prednisone vs Placebo and Live Birth in Patients With Recurrent Implantation Failure Undergoing In Vitro Fertilization: A Randomized Clinical Trial",
         "authors": "Sun Y, et al",
@@ -474,6 +504,32 @@
         "_sig": "021adcae569c4ee8751ae434fc9bd04938b37d6ce609235fe74b268fec3367fc"
       },
       {
+        "pmid": "42908593",
+        "title": "Case Report: Sequential blastocyst transfer for women with unexplained recurrent implantation failure: a case series.",
+        "authors": "Yin P, Wu Y, Jiang M, Li Y.",
+        "year": "2026",
+        "journal": "Frontiers in reproductive health",
+        "doi": "10.3389/frph.2026.1942865",
+        "url": "https://europepmc.org/article/PMC/PMC13683134",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Background Repeated implantation failure (RIF) is a frustrating situation for patients and medical physicians. In spite of extensive research, the underlying mechanisms of RIF are not fully understood. Endometrial receptivity is considered a critical factor for embryo implantation, particularly in patients with unexplained RIF who have usable embryos. Sequential embryo transfer (ET) has been demonstrated to improve clinical pregnancy rates in RIF patients by optimizing embryo-endometrium synchronization and interaction. In this study, we propose a strategy of sequential blastocyst transfer within a single frozen embryo transfer cycle to improve in vitro fertilization (IVF) outcomes in unexplained RIF patients who have failed conventional sequential cleavage/blastocyst ET. Case presentation Three women under 40 years of age had undergone repeated failed embryo transfer cycles in our hospital. Based on ESHRE recommendations for RIF investigation, no significant causative or contributory factors were identified, apart from mild intrauterine adhesion or chronic endometritis, treated before embryo transfer. Further embryo transfers still failed, even with regular sequential cleavage/blastocyst transfer. However, all three patients achieved positive clinical pregnancies with sequential blastocyst embryo transfer. Two of the patients had live births and the remaining patient experienced an early spontaneous miscarriage for which a pathogenic deletion of chromosome 21 was identified. Conclusion Repeated implantation failure is a complex, challenging, and burdensome condition, which causes considerable psychological and physical suffering for patients and reproductive specialists. Sequential blastocyst transfer is a potential option for patients with unexplained RIF undergoing IVF.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "20ddede57fd4cb8f95604e1b1eec6f042b7de896b8dd223bcbaafe1b98cc304b"
+      },
+      {
         "pmid": "cr:10.12688/f1000research.147461.1",
         "title": "Case Report: The combined effect of endometrial receptivity array and laser assisted hatching on embryo implantation in repeated implantation failure case",
         "authors": "Ulhe Shradha, Shrivastava Jarul, Khemani Shivani, dakre Sudhanshu",
@@ -496,6 +552,31 @@
         "design": "Case Report",
         "lowMetadata": false,
         "_sig": "bc547b33d6a5a7aaa1a36abf6a52edc8b1c9e95a155b8d6e65ab195f5012d1fe"
+      },
+      {
+        "pmid": "43048351",
+        "title": "Endometrial Testing and Immune Therapy Evaluation in Recurrent Implantation Failure After Euploid Embryo Transfer.",
+        "authors": "Ikhsan M, Jahan U, SenGupta S, Theodorou E, Mavrelos D.",
+        "year": "2026",
+        "journal": "International journal of women's health",
+        "doi": "10.2147/ijwh.s628216",
+        "url": "https://europepmc.org/article/PMC/PMC13776678",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Purpose Recurrent implantation failure (RIF) can occur despite transfer of chromosomally euploid embryos, suggesting non-embryonic factors. This retrospective study evaluated the impact of endometrial testing and immunomodulatory therapy on live birth outcomes in women with RIF. Patients and methods A single-centre retrospective cohort study was conducted at the Centre for Reproductive and Genetic Health (CRGH), London (2017-2024). Women Results From 3445 euploid embryos transferred, seventy-eight women enrolled (59 investigation/immunomodulatory group, 19 no investigation/intervention). Live birth rates were not statistically different between the investigation/immunomodulatory group and the control group (42.3% vs 26.3%, p=0.211). Multivariable analysis showed intralipid therapy was independently associated with higher live birth odds (aOR 4.528, 95% CI 1.337-15.332, p = 0.015). Although the bootstrap resampling find a wider bias-corrected and accelerated (BCa) 95% CI for this association (0.931-76.861). Endometrial tests (ERA, EMMA, ALICE) were not independently associated. The model showed good discrimination (AUC = 0.804). Conclusion Intralipid therapy was associated with improved live birth in RIF after failed 2 consecutive euploid embryo transfers, while endometrial testing showed no significant independent effect. The small retrospective cohort and the intralipid association are exploratory, hence susceptible to confounding and model instability.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "16ece562c6d6faed600d1c39391280640846a9f0fd35b7780cef5ffeaf7af8f4"
       },
       {
         "pmid": "cr:10.58779/issn.2954-467x.tjor2023.v2.n1.16",
@@ -592,76 +673,6 @@
         "design": "Narrative Review",
         "lowMetadata": false,
         "_sig": "f4713f7b0d6c077fcdf7cf2300d94085190a37d2fae5a53335f273aa1bc5d1e1"
-      },
-      {
-        "pmid": "40806480",
-        "title": "Asynchrony Between Endometrial miRNA- and mRNA-Based Receptivity Stages Associated with Impaired Receptivity in Recurrent Implantation Failure",
-        "authors": "Yu-Jen Lee, Chi-Ying Lee, En‐Hui Cheng, Wei-Ming Chen",
-        "year": "2025",
-        "journal": "International Journal of Molecular Sciences",
-        "doi": "10.3390/ijms26157349",
-        "url": "https://doi.org/10.3390/ijms26157349",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Understanding the molecular basis of endometrial receptivity is crucial for improving implantation outcomes in assisted reproduction, especially for patients with recurrent implantation failure (RIF). This study investigates the timing relationship between microRNA (miRNA) and messenger RNA (mRNA) profiles in the endometrium using simultaneously the endometrial receptivity array (ERA) and the microRNA receptivity assay (MIRA) in 100 RIF patients undergoing euploid blastocyst transfer. The concordance rate between ERA and MIRA was 72% (Kappa = 0.50), suggesting partial overlap in profiling. Patients were stratified by the timing sequence of miRNA relative to mRNA into Fast, Equal, and Slow groups. Those with delayed miRNA expression (Slow group) had significantly lower pregnancy rates (54.5%) than those with synchronous or leading miRNA expression (81.9% and",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "9604234131835694fee1a6962af519a4f716de55ade027e8772529281582734a"
-      },
-      {
-        "pmid": "cr:10.70107/collectjgynecolobstet-art0018",
-        "title": "Modulation of Endometrial Receptivity by Immune Cells: Insights into Recurrent Implantation Failure (RIF) and Recurrent Miscarriage – A Narrative Review",
-        "authors": "Academic Authors",
-        "year": "2024",
-        "journal": "Collective Journal of Gynecology and Obstetrics",
-        "doi": "10.70107/collectjgynecolobstet-art0018",
-        "url": "https://doi.org/10.70107/collectjgynecolobstet-art0018",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "context": "Immune cells play a crucial role in endometrial receptivity for embryo implantation and placental development. These cells influence tissue remodeling and immune regulation, facilitating epithelial attachment, controlling decidual cell differentiation, remodeling uterine vasculature, resolving inflammation, and suppressing damaging immune responses against paternal alloantigens. Biologically, endometrial immune reactions impact the regulation of implantation, promoting success when conditions are favorable and restricting receptivity when physiological circumstances are not optimal.Women with recurrent implantation failure (RIF) and recurrent miscarriage often display altered numbers or dysfunction of key uterine immune cell populations, particularly uterine natural killer (uNK) cells and regulatory T cells (Tregs). Preclinical and animal studies suggest that insufficient or abnormal activation of these cells can contribute to infertility through various pathophysiological mechanisms. As a result, these immune cells are increasingly becoming targets for diagnostic investigations and therapeutic interventions.However, current diagnostic methods are relatively simple and have limited utility. To better understand the complexity of uterine immune cell disturbances, more comprehensive diagnostic approaches are needed. Furthermore, safe and effective interventions for modulating immune cells are still in their early stages, with a need for individualized treatment strategies tailored to specific diagnostic findings.This narrative review, based on a search of PubMed, Web of Science, Medline, Embase, Cochrane Reviews, and Google Scholar using MeSH terms such as \"endometrial receptivity,\" \"implantation,\" \"uNK cells,\" \"Treg cells,\" \"RIF,\" and \"pregnancy,\" aims to highlight current insights and identify knowledge gaps that must be addressed before effective therapies targeting uterine immune cells can be developed for clinical use.",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Narrative Review",
-        "lowMetadata": false,
-        "_sig": "26a60ec622098c708032f9e77fcca3d188ca77946d8b79af0f2d35d848fb7152"
-      },
-      {
-        "pmid": "39789542",
-        "title": "Factors influencing endometrial receptivity in women with recurrent implantation failure",
-        "authors": "Katarzyna Opuchlik, Katarzyna Pankiewicz, Piotr Pierzyński, Janusz Sierdziński",
-        "year": "2025",
-        "journal": "BMC Women s Health",
-        "doi": "10.1186/s12905-024-03531-z",
-        "url": "https://doi.org/10.1186/s12905-024-03531-z",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: Embryo implantation involves two key elements: a good quality embryo and receptive endometrium. Endometrial receptivity abnormalities are known as one of the possible causes of recurrent implantation failure (RIF), especially when the embryo is euploid. This study was aimed to evaluate the impact of age and other clinical factors on endometrial receptivity in women with RIF. METHODS: 68 women with RIF (defined as at least three unsuccessful transfers of good quality embryo of at least 1BB category of blastocysts) and 49 controls (women undergoing IVF treatment because of idiopathic infertility or male factor) were included to the study. After preparation of the endometrium by the hormone replacement therapy endometrial biopsies were taken from each patient and sequenced with beREADY",
-        "relevancePct": 48,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "86a33daf91133b69f40c00b5a7502b9dfa49c31fe610fc353252db4d25bbaf15"
       }
     ],
     "corpusStats": {
@@ -679,8 +690,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -743,11 +754,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "recurrent implantation failure endometrial receptivity array standard timing embryo transfer live birth rate",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",

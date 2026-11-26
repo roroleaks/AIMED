@@ -1,6 +1,6 @@
 {
   "id": "PRESET-dermatology-psoriasis-il23-il17",
-  "recordedAt": "2026-11-26T19:54:53.593Z",
+  "recordedAt": "2026-11-26T23:11:54.202Z",
   "specialty": "dermatology",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -115,8 +115,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 1
       },
       {
         "id": "cochrane",
@@ -217,6 +217,33 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "8af00a839d9e2a44e791e0e033bf38ab6dd50021e5a1625163315025610f51ba"
+      },
+      {
+        "pmid": "41906525",
+        "title": "Superior Clinical and Economic Value of IL-23 Inhibitors Versus Adalimumab Biosimilars in Plaque Psoriasis.",
+        "authors": "Falco GM, Ippoliti E, Gori N, Caldarola G, De Simone C, Di Giorgi N, Longo PG, Galluzzo M, Bianchi L, Marcelli L, Talamo",
+        "year": "2026",
+        "journal": "International journal of dermatology",
+        "doi": "10.1111/ijd.70371",
+        "url": "https://europepmc.org/article/PMC/PMC13646478",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background In recent years, the introduction of interleukin (IL)-23 inhibitors has revolutionized psoriasis treatment, allowing the majority of patients to achieve a long-term, complete clinical control of the disease. Nevertheless, there are no real-world studies exploring the cost benefit ratio of these new drugs compared to the currently most prescribed therapies as adalimumab biosimilars. Methods We performed a retrospective study to evaluate the clinical effectiveness, measured as Psoriasis Area and Severity Index (PASI)90-number needed to treat (NNT) and the cost-effectiveness of IL-23 inhibitors (guselkumab, risankizumab, tildrakizumab) in patients with moderate to severe psoriasis as compared to adalimumab biosimilars (imraldi, hyrimoz, yuflima, and amgevita). Assessments were performed at Weeks 16 and 52. Results Our analysis included 616 patients with moderate to severe psoriasis who had been treated with adalimumab biosimilars or an anti-IL-23 inhibitor for at least 16 weeks. Overall, IL-23 inhibitors were shown to be more effective compared to adalimumab biosimilars, with significantly lower NNT. Risankizumab achieved the highest PASI90 response rates, whereas guselkumab had the most favorable incremental cost per PASI90 responder at Weeks 16 and 52. Conclusions Our study highlights the substantial clinical benefit of IL-23 inhibitors over adalimumab biosimilars, with guselkumab as the more cost-effective option than the other IL-23 inhibitors for the real-world management of moderate-to-severe psoriasis.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "53da0a65b212bd18485606e27ccaa3c1c000e8fef3a6ce96508148e13af4791f"
       },
       {
         "pmid": "41994714",
@@ -323,32 +350,6 @@
         "_sig": "f1de2864209c65ad6d5de7fe7d856ab75ae7fce843cbad78a7b03ecd01f8422d"
       },
       {
-        "pmid": "42835383",
-        "title": "Targeting IL-23p19 in Inflammatory Bowel Disease: The Road Ahead.",
-        "authors": "Bartolotta E, Privitera G, Dal Buono A, Gabbiadini R, Loy L, Migliorisi G, Bezzio C, Armuzzi A.",
-        "year": "2026",
-        "journal": "Journal of inflammation research",
-        "doi": "10.2147/jir.s614998",
-        "url": "https://europepmc.org/article/PMC/PMC13635285",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
-        "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
-        ],
-        "context": "Selective interleukin-23p19 (IL-23p19) inhibition represents a major advance in the management of inflammatory bowel disease (IBD). Risankizumab, mirikizumab, and guselkumab - three monoclonal antibodies targeting the p19 subunit of IL-23 - have each completed Phase 3 clinical development programs in both Crohn's disease (CD) and ulcerative colitis (UC), demonstrating consistent efficacy across a broad spectrum of disease severity. Unlike ustekinumab, which blocks the shared p40 subunit of IL-12 and IL-23, selective p19 inhibition preserves IL-12-mediated host defense while more precisely targeting the IL-23/Th17 axis implicated in chronic intestinal inflammation. In phase 3 trials, all three agents significantly outperformed placebo for co-primary endpoints combining clinical remission and endoscopic response or remission, with benefits sustained across both induction and maintenance phases. Head-to-head data from the SEQUENCE trial demonstrate superiority of risankizumab over ustekinumab for endoscopic remission in CD, a finding corroborated by active comparator arms in GALAXI-2/3. Network meta-analyses consistently rank IL-23p19 inhibitors among the most effective therapies for moderate-to-severe CD. Real-world data, predominantly available for risankizumab in CD and mirikizumab in UC, confirm meaningful clinical and endoscopic responses in refractory populations, including patients with prior ustekinumab exposure. Safety profiles are favorable across indications, with no class-specific signals for serious infection, malignancy, or cardiovascular events. Approved indications for psoriasis and psoriatic arthritis (risankizumab and guselkumab) and pediatric psoriasis (guselkumab) offer additional therapeutic value for IBD patients with extraintestinal manifestations. Key evidence gaps persist, including the absence of head-to-head data in UC, limited long-term outcomes beyond 52 weeks, and the lack of validated predictive biomarkers for patient stratification. This narrative review synthesizes the biological rationale, clinical trial evidence, real-world data, and safety profiles, focusing on clinical positioning of IL-23p19 inhibitors in IBD in the context of precision medicine.",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Narrative Review",
-        "lowMetadata": false,
-        "_sig": "2a5afb1e52c55c7b58a7c35eeb3e59347969c6fa4e66168ef2a32a8ae70b8144"
-      },
-      {
         "pmid": "cr:10.25208/vdv1349",
         "title": "Efficacy and safety of treatment of moderate and severe psoriasis with the interleukin 23 inhibitor risankizumab",
         "authors": "Bakulev Andrey L., Kruglova Larisa S.",
@@ -395,6 +396,31 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "a783d7d9e87dcdb0b5bc2f491174e7c12980520ca5f29a4c3889b12f918c5b87"
+      },
+      {
+        "pmid": "41709961",
+        "title": "IL-23 Inhibitors in Psoriasis: What Have We Learnt so Far?",
+        "authors": "Megna M, D'Agostino M, Feo F, Ventura V, Tommasino N, Potestio L.",
+        "year": "2026",
+        "journal": "Journal of inflammation research",
+        "doi": "10.2147/jir.s540848",
+        "url": "https://europepmc.org/article/PMC/PMC12912178",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Interleukin-23 (IL-23) inhibitors represent a major advance in the management of moderate-to-severe plaque psoriasis, grounded in the central pathogenic role of the IL-23/Th17 axis. By selectively targeting the p19 subunit, guselkumab, risankizumab, and tildrakizumab effectively suppress disease-driving inflammation while preserving IL-12-mediated host defence. Pivotal randomized trials have demonstrated high levels of skin clearance, durable efficacy, and favourable safety profiles. Nevertheless, such trials only partially reflect the heterogeneous and medically complex populations treated in everyday practice. Against this background, this narrative review focuses on the expanding body of real-world evidence, which has provided novel insights into the long-term durability, drug survival, performance in difficult-to-treat anatomical sites, and safety of IL-23 inhibitors in special and comorbid populations. Real-world studies consistently confirm high effectiveness in elderly patients, individuals with multiple comorbidities, and those with extensive prior biologic exposure, as well as in challenging disease localisations such as scalp, nails, palmoplantar, genital, and pretibial psoriasis. Across large observational cohorts, IL-23 inhibitors show excellent treatment persistence, largely driven by sustained efficacy and low rates of discontinuation for adverse events. Reassuring safety profiles have also been documented in patients with a history of malignancy, latent infections, or cardiometabolic disease, together with improvements in quality of life and systemic inflammatory burden. By integrating evidence from randomized trials with large real-world cohorts, this narrative review provides a clinically oriented synthesis of the efficacy, safety, and therapeutic positioning of IL-23 inhibitors in psoriasis. Although all three agents demonstrate high and durable effectiveness, real-world data suggest subtle intraclass differences, with guselkumab and risankizumab often achieving faster or deeper early responses, and tildrakizumab offering greater dosing flexibility with comparable long-term persistence in selected patient profiles. Overall, IL-23 blockade has evolved from a highly effective trial-based strategy into a versatile and reliable long-term therapeutic approach capable of addressing unmet needs in routine clinical practice.",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "7af56723c1fc57821becea7288a60c5836d15abaed5df74068a2f55cf8611c1d"
       },
       {
         "pmid": "cr:10.1177/1060028019885836",
@@ -446,10 +472,10 @@
       }
     ],
     "corpusStats": {
-      "retrieved": 33,
-      "screened": 33,
+      "retrieved": 40,
+      "screened": 40,
       "blocked": 0,
-      "returned": 11,
+      "returned": 12,
       "relaxationLevel": 1
     },
     "sources": [
@@ -460,8 +486,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 20
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -495,8 +521,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 1
       },
       {
         "id": "cochrane",
@@ -524,11 +550,12 @@
         "id": "pmc",
         "name": "PMC",
         "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
-        "count": 20,
+        "count": 0,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "europepmc",
@@ -597,12 +624,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
-        "count": 0,
+        "count": 1,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown",
-        "error": "The operation was aborted due to timeout"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",

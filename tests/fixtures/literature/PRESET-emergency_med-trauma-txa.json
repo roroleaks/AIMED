@@ -1,6 +1,6 @@
 {
   "id": "PRESET-emergency_med-trauma-txa",
-  "recordedAt": "2026-11-26T19:47:38.067Z",
+  "recordedAt": "2026-11-26T23:04:17.205Z",
   "specialty": "emergency_med",
   "words": [
     {
@@ -683,9 +683,10 @@
         "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
       },
       {
         "id": "googlescholar",
@@ -703,9 +704,10 @@
         "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -753,9 +755,10 @@
         "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -763,9 +766,10 @@
         "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": false

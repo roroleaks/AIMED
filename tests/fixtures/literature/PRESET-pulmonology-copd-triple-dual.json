@@ -1,6 +1,6 @@
 {
   "id": "PRESET-pulmonology-copd-triple-dual",
-  "recordedAt": "2026-11-26T19:50:39.036Z",
+  "recordedAt": "2026-11-26T23:07:40.576Z",
   "specialty": "pulmonology",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -488,7 +488,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -519,9 +519,10 @@
         "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "europepmc",
@@ -589,9 +590,9 @@
         "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",

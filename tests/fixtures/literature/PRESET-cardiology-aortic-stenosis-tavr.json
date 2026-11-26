@@ -1,6 +1,6 @@
 {
   "id": "PRESET-cardiology-aortic-stenosis-tavr",
-  "recordedAt": "2026-11-26T19:41:48.106Z",
+  "recordedAt": "2026-11-26T23:00:05.425Z",
   "specialty": "cardiology",
   "words": [
     {
@@ -756,10 +756,9 @@
         "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "googlescholar",

@@ -1,6 +1,6 @@
 {
   "id": "PRESET-emergency_med-cardiac-arrest-ttm",
-  "recordedAt": "2026-11-26T19:47:25.262Z",
+  "recordedAt": "2026-11-26T23:03:55.257Z",
   "specialty": "emergency_med",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermia (36-37.5°C) (C) improve favorable neurological outcome (CPC 1-2) at 6 months (O)?",
-        "basis": "Unavailable: Retrieved trials report conflicting directional findings (2 favourable, 0 no-difference, 1 adverse).",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 1 adverse).",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -61,8 +61,9 @@
       "gap": {
         "category": "gap",
         "phrase": "In high-risk subgroups of comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermia (36-37.5°C) (C) improve favorable neurological outcome (CPC 1-2) at 6 months (O) without additional adverse events (O)?",
-        "basis": "While overall efficacy has 15 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
-        "supported": true
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
       }
     },
     "corpusStats": {
@@ -79,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -114,8 +115,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -163,19 +164,22 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "34133859",
-        "title": "Hypothermia versus Normothermia after Out-of-Hospital Cardiac Arrest",
-        "authors": "Josef Dankiewicz, Tobias Cronberg, Gisela Lilja, Janus Christian Jakobsen",
-        "year": "2021",
-        "journal": "New England Journal of Medicine",
-        "doi": "10.1056/nejmoa2100591",
-        "url": "https://doi.org/10.1056/nejmoa2100591",
-        "source": "openalex",
-        "pubType": "article",
+        "pmid": "41697682",
+        "title": "Long-Term Outcomes and Recovery Trajectories in Out-of-Hospital Cardiac Arrest: A 2-Year Follow-Up of the Randomized Clinical TTM2 Trial.",
+        "authors": "Hultgren M, Blennow Nordström E, Ullén S, Nielsen N, Dankiewicz J, Jakobsen JC, Heimburg K, Moseby-Knappe M, Belohlávek ",
+        "year": "2026",
+        "journal": "JAMA neurology",
+        "doi": "10.1001/jamaneurol.2025.5614",
+        "url": "https://europepmc.org/article/PMC/PMC12910457",
+        "source": "pmc",
+        "pubType": "research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
         "publicationTypes": [
-          "article"
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
         ],
-        "context": "BACKGROUND: Targeted temperature management is recommended for patients after cardiac arrest, but the supporting evidence is of low certainty. METHODS: In an open-label trial with blinded assessment of outcomes, we randomly assigned 1900 adults with coma who had had an out-of-hospital cardiac arrest of presumed cardiac or unknown cause to undergo targeted hypothermia at 33°C, followed by controlled rewarming, or targeted normothermia with early treatment of fever (body temperature, ≥37.8°C). The primary outcome was death from any cause at 6 months. Secondary outcomes included functional outcome at 6 months as assessed with the modified Rankin scale. Prespecified subgroups were defined according to sex, age, initial cardiac rhythm, time to return of spontaneous circulation, and presence or absence of shock on",
+        "context": "Importance Guidelines for temperature control following out-of-hospital cardiac arrest (OHCA) are based on trials with end points of 180 days or fewer. Objectives To investigate if targeted hypothermia, compared with targeted normothermia with early treatment of fever, affects functional outcome focusing on societal participation or cognitive functioning at 24 months in initially comatose OHCA survivors. An additional objective was to explore recovery trajectories up to 24 months post arrest. Design, setting, and participants The randomized clinical Targeted Hypothermia vs Targeted Normothermia After OHCA (TTM2) trial (November 2017-2020) included blinded follow-up at 1, 6, and 24 months post randomization (December 2017-June 2022), with analyses performed in 2024. TTM2 was an international, multicenter study conducted at 61 hospitals in 14 countries. The study included 1861 adults with OHCA of presumed cardiac or unknown cause who were initially comatose. There were 992 survivors at 1 month, 943 at 6 months, and 835 at 24 months. Nonparticipation rates at follow-up were 44 (4%), 107 (11%), and 165 (20%), respectively. Intervention Participants were randomized 1:1 to undergo temperature control via targeted hypothermia (33 °C) or targeted normothermia and early treatment of fever (≥37.8 °C). Main outcomes and measures The functional outcome, including societal participation, was assessed using the Glasgow Outcome Scale-Extended (GOSE). Cognitive function was assessed using the Montreal Cognitive Assessment (MoCA) and the Symbol Digit Modalities Test (SDMT). Results Of the participants who were followed up, 84% were male, with a mean (SD) age of 60 (14) years, and clinical variables were similar between the hypothermia and normothermia temperature groups. No significant differences were found between temperature groups regarding societal participation (GOSE: odds ratio, 0.97 [95% CI, 0.72-1.30]) or cognitive function (MoCA: mean difference, -0.02 [95% CI, -0.67 to 0.63]; SDMT: mean difference, -0.09 [95% CI, -0.33 to 0.16]) at 24 months. Improvement for GOSE was significant within the first 6 months (1 to 6 months: n = 1707 [95% CI, -2.00 to -1.50]; P Conclusions and relevance Targeted hypothermia, compared with targeted normothermia, did not affect societal participation or cognitive function at 24 months, suggesting no longer-term effect of hypothermia for the explored outcomes. The intraindividual changes observed indicate variability in recovery. Trial registration ClinicalTrials.gov Identifier: NCT02908308.",
         "relevancePct": 93,
         "matchedElements": [
           "P",
@@ -185,32 +189,7 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "69505eb280cdc1c813e0ccf20356479d634990cc6959b9edc68902ad86d97c6d"
-      },
-      {
-        "pmid": "25913022",
-        "title": "Therapeutic Hypothermia after Out-of-Hospital Cardiac Arrest in Children",
-        "authors": "Frank W. Moler, Faye S. Silverstein, Richard Holubkov, Beth S. Slomine",
-        "year": "2015",
-        "journal": "New England Journal of Medicine",
-        "doi": "10.1056/nejmoa1411480",
-        "url": "https://doi.org/10.1056/nejmoa1411480",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: Therapeutic hypothermia is recommended for comatose adults after witnessed out-of-hospital cardiac arrest, but data about this intervention in children are limited. METHODS: We conducted this trial of two targeted temperature interventions at 38 children's hospitals involving children who remained unconscious after out-of-hospital cardiac arrest. Within 6 hours after the return of circulation, comatose patients who were older than 2 days and younger than 18 years of age were randomly assigned to therapeutic hypothermia (target temperature, 33.0°C) or therapeutic normothermia (target temperature, 36.8°C). The primary efficacy outcome, survival at 12 months after cardiac arrest with a Vineland Adaptive Behavior Scales, second edition (VABS-II), score of 70 or higher (on a scale from 20 to 160, with higher scores indicating better",
-        "relevancePct": 93,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "e1414785ccbb98cf682febebcaa724a138661681139f25fcbb0eb4b46e65caab"
+        "_sig": "5cf293038114bc0c33c96ac29f2a0e599b0154d944405fb5e3920a69cff4e326"
       },
       {
         "pmid": "31577396",
@@ -236,6 +215,31 @@
         "design": "Clinical Trial",
         "lowMetadata": false,
         "_sig": "ec5a193b4e015a793c5f46e51726023c21afca4005c758ce0352c3b27590ed13"
+      },
+      {
+        "pmid": "42733931",
+        "title": "Steroid, thiamine, and ascorbic acid for comatose out-of-hospital cardiac arrest survivors (STAR): a randomised, placebo-controlled, phase 2 trial.",
+        "authors": "Kim YJ, Ko BS, Roh YI, Kwon HJ, Kim S, Cha KC, Kim YH, Kim WY.",
+        "year": "2026",
+        "journal": "EClinicalMedicine",
+        "doi": "10.1016/j.eclinm.2026.104191",
+        "url": "https://europepmc.org/article/PMC/PMC13571931",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Pharmacologic neuroprotection for out-of-hospital cardiac arrest (OHCA) remains elusive. We evaluated whether early hydrocortisone, ascorbic acid, and thiamine reduced neuronal injury in comatose OHCA survivors. Methods In this multicentre, placebo-controlled trial across four South Korean hospitals, comatose adult OHCA survivors undergoing targeted temperature management were randomly assigned (1:1) to intravenous hydrocortisone (100 mg), ascorbic acid (50 mg/kg), and thiamine (200 mg) every 12 h for 3 days, or placebo. Randomisation was computer-generated. Bedside clinicians were aware of treatment allocation, whereas laboratory personnel and independent outcome assessors were masked. The primary outcome was peak neuron-specific enolase (NSE) concentration, defined as the highest available value measured at 48 h or 72 h after return of spontaneous circulation. Efficacy was analysed using a modified intention-to-treat (mITT) principle, with multiple imputation for the full intention-to-treat (ITT) population. The completed trial was registered with ClinicalTrials.gov on June 4, 2021 (NCT04921189). Findings Between Dec 31, 2021, and Dec 7, 2024, 160 participants (123 male, 37 female) were assigned (80 per group); 147 were included in the mITT analysis (74 treatment, 73 placebo). Peak NSE levels were 47·4 ng/mL (interquartile range [IQR] 22·4-262·6) in the treatment group and 53·3 ng/mL (IQR 26·6-244·2) in the placebo group (median difference -5·9 ng/mL; 95% confidence interval [CI] -34·5-40·8; p = 0·54). ITT sensitivity findings were consistent (geometric mean ratio 0·94; 95% CI 0·61-1·46; p = 0·80). At 180 days, survival (63·5% vs 69·9%) and good neurological outcome (54·1% vs 56·2%) were similar. Serious adverse events were comparable in the ITT population (52·5% vs 50·0%), with none deemed related to the study medication. Interpretation Early administration of hydrocortisone, ascorbic acid, and thiamine did not reduce neuronal injury or improve 6-month clinical outcomes. The findings do not support empiric neuroprotective use in comatose OHCA survivors. Funding National Research Foundation of Korea and Korea Health Technology R&D Project.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "9bc3b7e238d5907414640015c856975467b7f3a99ba985b6b2e85edefde12ce4"
       },
       {
         "pmid": "24237006",
@@ -332,6 +336,106 @@
         "_sig": "755326833fbd44f5d08b629faffd4a0b927b7859c9d886df3a2eb952d582ad4c"
       },
       {
+        "pmid": "42630144",
+        "title": "18F-FDG PET/CT for post-cardiac-arrest brain injury: current evidence and future directions.",
+        "authors": "Cheng W, Shao R, Wang X, Yu J, Yan G, Guo Y, Tang Z.",
+        "year": "2026",
+        "journal": "Frontiers in neurology",
+        "doi": "10.3389/fneur.2026.1875626",
+        "url": "https://europepmc.org/article/PMC/PMC13493222",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Post-cardiac-arrest brain injury is a major cause of death and long-term neurological disability after cardiac arrest, yet current prognostic tools provide limited information on regional cerebral metabolism and functional recovery. Fluorine-18 fluorodeoxyglucose positron emission tomography and positron emission tomography/computed tomography (18F-FDG PET and PET/CT) provide a molecular imaging approach for evaluating cerebral glucose metabolism after global ischemia-reperfusion injury. This narrative review summarizes the limited preclinical and clinical evidence on the use of 18F-FDG PET and PET/CT in post-cardiac-arrest brain injury, including animal models, small clinical cohorts, studies of disorders of consciousness, and investigations of neuroprotective interventions such as targeted temperature management. Published studies have documented global and regional abnormalities in cerebral glucose uptake; however, the use of these findings to assess injury severity, monitor treatment response, or predict prognosis remains hypothesis-generating. The evidence base is further limited by small sample sizes, heterogeneous imaging protocols, uncertain optimal timing, cost, radiation exposure, and limited feasibility in critically ill patients. Further prospective studies with standardized acquisition, quantification, and interpretation protocols are needed to determine whether 18F-FDG PET or PET/CT can be integrated into multimodal neuroprognostication and therapeutic monitoring after cardiac arrest.",
+        "relevancePct": 60,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "25d178cb2a478d22817084733266464b23232910f201b34db300bd94bce9d498"
+      },
+      {
+        "pmid": "42297409",
+        "title": "2025 Korean Guidelines for Cardiopulmonary Resuscitation: Part 6. Post-cardiac arrest care.",
+        "authors": "Bang HJ, Youn CS, Kim MC, Lim Y, Cho YJ, Chu B, Kim JS, Kim YJ, Yoon BG, Park J, Kang MJ, Jeung KW, Kim SH, Oh JH, Kim T",
+        "year": "2026",
+        "journal": "Clinical and experimental emergency medicine",
+        "doi": "10.15441/ceem.26.075",
+        "url": "https://europepmc.org/article/PMC/PMC13285305",
+        "source": "pmc",
+        "pubType": "research-article, Guideline, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Guideline",
+          "Journal Article"
+        ],
+        "context": "This guideline summarizes evidence-based post-cardiac arrest care following the return of spontaneous circulation (ROSC) in adults, incorporating updates from the 2025 Korean Guidelines for Cardiopulmonary Resuscitation and contemporary international evidence. Recommendations were informed by recent randomized controlled trials and systematic reviews, with an emphasis on patient-centered outcomes and practical clinical applications. After ROSC, early evaluation should focus on identifying reversible causes. A 12-lead electrocardiogram should be obtained promptly, with echocardiography and whole-body computed tomography performed when clinically indicated to assess cardiac function and detect noncardiac or occult etiologies. Respiratory management aims to minimize secondary brain injury by preventing hypoxemia and hyperoxemia. High inspired oxygen concentrations may be used initially, followed by titration to an appropriate oxygen saturation level once reliable measurements are available, and ventilation should target normocapnia. Hemodynamic management prioritizes adequate organ perfusion and prompt treatment of shock, including active correction of hypotension. Routine immediate coronary angiography is not recommended in patients without ST-segment elevation. However, urgent angiography is indicated in those with ST-segment elevation, cardiogenic shock, or a high likelihood of ongoing myocardial ischemia. In comatose survivors, temperature control is essential. The selected target temperature should be maintained for at least 24 hours, with active fever prevention for 36 to 72 hours. Additional intensive care unit management includes glucose control and seizure monitoring. Routine prophylactic antibiotics or anticonvulsants are not recommended. Neuroprognostication should use a multimodal approach after confounders, such as sedation and temperature management, are addressed, integrating clinical examination, electrophysiology, biomarkers, and neuroimaging to support individualized decision-making.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "cc2c7107b2e94ae2bdd77e305240989a44e247f9d6beafbdd66b63d39a2bf555"
+      },
+      {
+        "pmid": "42507344",
+        "title": "Singapore Post-cardiac Arrest Care Guidelines 2026.",
+        "authors": "Chia YW, Pothiawala S, Loh JK, Leong CK, Lim SL, Chen RW, Seet YHC, Ng ZV, Leong BS, National Post-Cardiac Arrest and Su",
+        "year": "2026",
+        "journal": "Singapore medical journal",
+        "doi": "10.4103/singaporemedj.smj-2026-279",
+        "url": "https://europepmc.org/article/PMC/PMC13516017",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Abstract A robust chain of survival is important for achieving positive outcomes following out-of-hospital cardiac arrest, which continues to pose a substantial public health challenge in Singapore. Although improvements have been made in prehospital resuscitation and survival to hospital admission, further progress is required for survival to hospital discharge and neurological recovery. This underscores the urgent need to strengthen post-cardiac arrest care-the sixth link in the chain of survival-to optimise outcomes for patients admitted to the intensive care unit after return of spontaneous circulation. This review builds on earlier recommendations of the National Targeted Temperature Management Workgroup (2017) and the National Post-Cardiac Arrest and Survivorship Workgroup (2021), providing an updated summary of post-cardiac arrest management and practical guidance for clinicians treating resuscitated cardiac arrest patients in the intensive care unit.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "9a662a12ec3b1b70696c0b686fc1fc88775cbec7b8125e7e5c23480cd5c70c53"
+      },
+      {
+        "pmid": "42135213",
+        "title": "Updated pediatric cardiopulmonary resuscitation: a comprehensive review of the 2025 guidelines.",
+        "authors": "Lee JE, Kim M, Choi EK, Yeom J, Oh J, Byun SH, Lim DG, Jung H.",
+        "year": "2026",
+        "journal": "Anesthesia and pain medicine",
+        "doi": "10.17085/apm.26581",
+        "url": "https://europepmc.org/article/PMC/PMC13175904",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Pediatric cardiac arrest differs fundamentally from adult arrest in its etiology, physiology, and clinical course. In children, most events arise from progressive respiratory failure or circulatory compromise rather than primary cardiac causes. The 2025 American Heart Association pediatric cardiopulmonary resuscitation (CPR) guidelines provide an updated, evidence-based framework that reflects these distinctions. This review summarizes key revisions across basic life support, advanced life support, and post-cardiac arrest care (PCAC), and outlines practical considerations for clinical implementation. Major updates include refined chest compression techniques for infants, earlier administration of epinephrine for non-shockable rhythms, revised management of foreign-body airway obstruction, and clearer guidance on the use and limitations of end-tidal carbon dioxide monitoring. The guidelines also emphasize targeted hemodynamic management, including maintaining diastolic pressures ≥ 25 mmHg in infants and ≥ 30 mmHg in children during CPR, and sustaining systolic and mean arterial pressures above the age-specific 10th percentile after return of spontaneous circulation. Temperature management prioritizes the strict avoidance of hyperthermia, with the optional use of structured temperature control protocols. The unified Chain of Survival-comprising (1) recognition and emergency activation, (2) high-quality CPR, (3) defibrillation, (4) advanced resuscitation, (5) PCAC, and (6) recovery and survivorship-serves as an integrated framework linking early recognition of arrest to long-term rehabilitation. Implementation of these recommendations requires coordinated teamwork, system-level preparedness, and age-appropriate clinical decision-making. Applied within this framework, the 2025 pediatric CPR guidelines have the potential to improve survival and neurological outcomes in infants and children experiencing cardiac arrest.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "47c59fc84b7b6dcfc11a231a39aa0575c20e324feaac6a6176fe72ed322371eb"
+      },
+      {
         "pmid": "30854867",
         "title": "Mitochondrial dysfunction in adults after out-of-hospital cardiac arrest",
         "authors": "Sebastian C. Wiberg, Nis Ottesen Stride, John Bro‐Jeppesen, Mathias Johan J Holmberg",
@@ -353,74 +457,6 @@
         "design": "Clinical Trial",
         "lowMetadata": false,
         "_sig": "49d521242f3721a57787ef5a1e5d5020dbe0cd53265a24abb8c45d023d681ebb"
-      },
-      {
-        "pmid": "31821187",
-        "title": "Relationship Between Duration of Targeted Temperature Management, Ischemic Interval, and Good Functional Outcome From Out-of-Hospital Cardiac Arrest",
-        "authors": "Kelly Nicole Sawyer, Andrew T. Humbert, Brian G. Leroux, Graham Nichol",
-        "year": "2019",
-        "journal": "Critical Care Medicine",
-        "doi": "10.1097/ccm.0000000000004160",
-        "url": "https://doi.org/10.1097/ccm.0000000000004160",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "OBJECTIVES: Tailoring hypothermia duration to ischemia duration may improve outcome from out-of-hospital cardiac arrest. We investigated the association between the hypothermia/ischemia ratio and functional outcome in a secondary analysis of data from the Resuscitation Outcomes Consortium Amiodarone, Lidocaine, or Placebo Study trial. DESIGN: Cohort study of out-of-hospital cardiac arrest patients screened for Resuscitation Outcomes Consortium-Amiodarone, Lidocaine, or Placebo Study. SETTING: Multicenter study across North America. PATIENTS: Adult, nontraumatic, out-of-hospital cardiac arrest patients screened for Resuscitation Outcomes Consortium-Amiodarone, Lidocaine, or Placebo Study who survived to hospital admission and received targeted temperature management between May 2012 and October 2015. INTERVENTIONS: Targeted temperature management in comatose survivors of out-of-hospital cardiac arrest. We defined hypothermia/ischemia ratio as total targeted temperature management time (initiation through",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Cohort Study",
-        "lowMetadata": false,
-        "_sig": "90ecdaa0261ee43e136325dcbec6c4999d95c5e925396091a3dc622852f504cd"
-      },
-      {
-        "pmid": "30571336",
-        "title": "Hospital Variation in the Utilization and Implementation of Targeted Temperature Management in Out-of-Hospital Cardiac Arrest",
-        "authors": "Rohan Khera, Andrew T. Humbert, Brian G. Leroux, Graham Nichol",
-        "year": "2018",
-        "journal": "Circulation Cardiovascular Quality and Outcomes",
-        "doi": "10.1161/circoutcomes.118.004829",
-        "url": "https://doi.org/10.1161/circoutcomes.118.004829",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Background Targeted temperature management (TTM) for out-of-hospital cardiac arrest is associated with improved functional survival and is a class I recommendation in resuscitation guidelines. However, patterns of utilization of TTM and adherence to recommended TTM guidelines in contemporary practice are unknown. Methods and Results In a multicenter, prospective cohort of consecutive adults with non-traumatic out-of-hospital cardiac arrest in the Resuscitation Outcomes Consortium in 2012 to 2015, we identified all adults (≥18 years) who were potential candidates for TTM. Of 37 898 out-of-hospital cardiac arrest patients at 186 hospitals across 10 Resuscitation Outcomes Consortium sites, 8313 survived for ≥4 hours after hospital arrival, of which, 2878 (34.6%) received TTM. Mean age was 61.5 years and 36.3% were women. Median hospital rate",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Prospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "b7d3362eee4275536b1b55d4204d312fe81ec1e30acf5cec955e2ef6a9320174"
-      },
-      {
-        "pmid": "cr:10.1016/s0300-9572(23)00527-0",
-        "title": "199 External validation of a prognostication score for outcomes in patients who underwent targeted temperature management during post-resuscitation care for out-of-hospital cardiac arrest",
-        "authors": "Jeong Garam, Shin Jonghwan",
-        "year": "2023",
-        "journal": "Resuscitation",
-        "doi": "10.1016/s0300-9572(23)00527-0",
-        "url": "https://doi.org/10.1016/s0300-9572(23)00527-0",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 48,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Validation Study",
-        "lowMetadata": false,
-        "_sig": "8e9f903c373807bc7a0473c57fc4fcde781023c4f84f9fc97fc77a72c6cd4a1b"
       },
       {
         "pmid": "36796779",
@@ -512,28 +548,6 @@
         "_sig": "8252ca05571d92319d5de824d2baa5482436662f5bad7dea8f034284608698c0"
       },
       {
-        "pmid": "cr:10.1016/j.resuscitation.2019.01.007",
-        "title": "Effectiveness and safety of early enteral nutrition for patients who received targeted temperature management after out-of-hospital cardiac arrest",
-        "authors": "Joo Woo Jin, Ide Kazuki, Kawasaki Yohei, Takeda Chikashi",
-        "year": "2019",
-        "journal": "Resuscitation",
-        "doi": "10.1016/j.resuscitation.2019.01.007",
-        "url": "https://doi.org/10.1016/j.resuscitation.2019.01.007",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 43,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "ca7fca9dc842112015a4af8aa2a6899bd087ff92d1dbfbcd36b7b2c34181095b"
-      },
-      {
         "pmid": "cr:10.1016/j.resuscitation.2018.07.346",
         "title": "Interaction effects between targeted temperature management and hypertension on survival outcomes after out-of-hospital cardiac arrest",
         "authors": "Cho Yongsoo, Jung Eujene",
@@ -554,28 +568,6 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "49696dd8803ca04f1de72b13ed115f8ba36d8ef316260b3b86a4778c786e83ee"
-      },
-      {
-        "pmid": "cr:10.21037/jeccm.2017.10.06",
-        "title": "Is 48-hour targeted temperature management not superior to 24-hour targeted temperature management after out-of-hospital cardiac arrest in adults? Feasible but still inconclusive",
-        "authors": "Lee Seung-Joon, Kim Young-Min",
-        "year": "2017",
-        "journal": "Journal of Emergency and Critical Care Medicine",
-        "doi": "10.21037/jeccm.2017.10.06",
-        "url": "https://doi.org/10.21037/jeccm.2017.10.06",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "relevancePct": 43,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "97ac06675635a3a175d1ef7ca758f69fd865f2ef94898caefda91d6f3590f01f"
       },
       {
         "pmid": "cr:10.1016/j.resuscitation.2014.03.239",
@@ -626,7 +618,7 @@
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 20,
+      "returned": 19,
       "relaxationLevel": 0
     },
     "sources": [
@@ -637,8 +629,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -672,8 +664,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -701,11 +693,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -773,11 +765,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
-        "count": 0,
+        "count": 2,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -788,7 +780,7 @@
         "attempted": true,
         "ok": false,
         "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -799,7 +791,7 @@
         "attempted": true,
         "ok": false,
         "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": false

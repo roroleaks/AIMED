@@ -1,6 +1,6 @@
 {
   "id": "PRESET-oncology-nsclc-io-chemo",
-  "recordedAt": "2026-11-26T19:41:57.120Z",
+  "recordedAt": "2026-11-26T23:00:13.221Z",
   "specialty": "oncology",
   "words": [
     {
@@ -115,8 +115,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -247,35 +247,6 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "d3c9d2f445767091c22bf28641bc84c9bd2a06be38361a82506a920182d71fa3"
-      },
-      {
-        "pmid": "32035514",
-        "title": "Patient-reported outcomes following pembrolizumab or placebo plus pemetrexed and platinum in patients with previously untreated, metastatic, non-squamous non-small-cell lung cancer (KEYNOTE-189): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial",
-        "authors": "Garassino MC, et al",
-        "year": "2020",
-        "journal": "The Lancet. Oncology",
-        "doi": "10.1016/S1470-2045(19)30801-0",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/32035514/",
-        "context": "BACKGROUND: Pembrolizumab plus pemetrexed-platinum led to superior overall survival and progression-free survival, and a higher proportion of patients with a confirmed complete or partial response over placebo plus pemetrexed-platinum in the KEYNOTE-189 study. We aimed to evaluate prespecified exploratory patient-reported outcomes (PROs) in patients in KEYNOTE-189. METHODS: In the multicentre, double-blind, randomised, placebo-controlled, phase 3 KEYNOTE-189 study done at 126 cancer centres in 16 countries, eligible patients aged 18 years or older with histologically or cytologically confirmed metastatic non-squamous non-small-cell lung cancer without sensitising EGFR or ALK alterations, measurable disease as per Response Evaluation Criteria in Solid Tumors (version 1.1), and an Eastern Cooperative Oncology Group performance status of 0 or 1 were enrolled. Patients were randomly assigned (2:1) to receive intravenous pembrolizumab (200 mg) or saline placebo every 3 weeks for up to 2 years (35 cycles); all patients received four cycles of intravenous pemetrexed (500 mg/m 2 ) with carboplatin (5 mg/mL per min) or cisplatin (75 mg/m 2 ; investigator's choice) every 3 weeks for four cycles, followed by pemetrexed maintenance therapy every 3 weeks. Permuted block randomisation (block size six) was done with an interactive voice-response system and stratified by PD-L1 expression, choice of platinum, and smoking status. Patients, investigators, and other study personnel were unaware of treatment assignment. The European Organisation for Research and Treatment of Cancer Quality-of-Life Questionnaire-Core 30 (QLQ-C30) and Lung Cancer 13 (QLQ-LC13) were administered at cycles 1-5, every three cycles thereafter during year 1, and every four cycles during years 2-3. The primary endpoints (overall survival and progression-free survival) have been published previously. Key PRO endpoints were change from baseline to week 12 (during chemotherapy) and week 21 (following chemotherapy) in QLQ-C30 global health status/quality of life (GHS/QOL) score, and time to deterioration in cough, chest pain, or dyspnoea. PROs were analysed in all randomly assigned patients who received at least one dose of study medication and who completed at least one PRO assessment, and the results are provided with two-sided, nominal p values. This ongoing study is registered with ClinicalTrials.gov, number NCT02578680. FINDINGS: Between Feb 26, 2016, and March 6, 2017, 616 patients were enrolled; median follow-up was 10·5 months (range 0·2-20·4) as of data cutoff on Nov 8, 2017. 402 (99%) of 405 patients in the pembrolizumab plus pemetrexed-platinum group and 200 (99%) of 202 patients in the placebo plus pemetrexed-platinum-treated group completed at least one PRO assessment. At baseline, 359 (89%) of 402 patients in the pembrolizumab plus pemetrexed-platinum group and 180 (90%) of 200 in the placebo plus pemetrexed-platinum group were compliant with QLQ-C30; at week 12, 319 (90%) of 354 and 149 (89%) of 167 patients were compliant, respectively; and at week 21, 249 (76%) of 326 and 91 (64%) of 143 patients were compliant, respectively. From baseline to week 12, GHS/QOL scores were maintained with both pembrolizumab plus pemetrexed-platinum (least-squares mean change: 1·0 point [95% CI -1·3 to 3·2] increase) and placebo plus pemetrexed-platinum (-2·6 points [-5·8 to 0·5] decrease; between-group difference: 3·6 points [-0·1 to 7·2]; p=0·053). From baseline to week 21, GHS/QOL scores were better maintained with pembrolizumab plus pemetrexed-platinum (least-squares mean change: 1·3 points [95% CI -1·2 to 3·6] increase) than with placebo plus pemetrexed-platinum (-4·0 points [-7·7 to -0·3] decrease; between-group difference: 5·3 points [1·1 to 9·5]; p=0·014). Median time to deterioration in cough, chest pain, or dyspnoea was not reached (95% CI 10·2 months to not reached) with pembrolizumab plus pemetrexed-platinum, and was 7·0 months (4·8 months to not reached) with placebo plus pemetrexed-platinum (hazard ratio 0·81 [95% CI 0·60-1·09], p=0·16). INTERPRETATION: The addition of pembrolizumab to standard chemotherapy maintained GHS/QOL, with improved GHS/QOL scores at week 21 in the pembrolizumab plus chemotherapy group compared with the placebo plus chemotherapy group. These data further support use of pembrolizumab plus pemetrexed-platinum as first-line therapy for patients with metastatic non-squamous non-small-cell lung cancer. FUNDING: Merck Sharp & Dohme.",
-        "source": "pubmed",
-        "pubType": "Clinical Trial, Phase III",
-        "publicationTypes": [
-          "Clinical Trial, Phase III",
-          "Journal Article",
-          "Multicenter Study",
-          "Randomized Controlled Trial",
-          "Research Support, Non-U.S. Gov't"
-        ],
-        "relevancePct": 96,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "c141c7983637c8557d5a2cd1f70b5021b448a7947f79519aedf8798299ee9743"
       },
       {
         "pmid": "24933332",
@@ -535,7 +506,7 @@
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 14,
+      "returned": 13,
       "relaxationLevel": 0
     },
     "sources": [
@@ -581,8 +552,8 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 2
       },
       {
         "id": "cochrane",
@@ -642,9 +613,10 @@
         "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -680,11 +652,11 @@
         "id": "clinicaltrials",
         "name": "ClinicalTrials.gov",
         "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
-        "count": 0,
+        "count": 2,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -692,9 +664,10 @@
         "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",

@@ -1,6 +1,6 @@
 {
   "id": "PRESET-endocrinology-obesity-tirzepatide",
-  "recordedAt": "2026-11-26T19:46:37.032Z",
+  "recordedAt": "2026-11-26T23:03:01.963Z",
   "specialty": "endocrinology",
   "words": [
     {
@@ -80,8 +80,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "europepmc",
@@ -95,8 +95,8 @@
       },
       {
         "id": "semanticscholar",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "openalex",
@@ -245,34 +245,6 @@
         "_sig": "d154a25ef290a82becc80869fb4c9f1bbd3685317dae55b1c5b03f7b9adbff03"
       },
       {
-        "pmid": "33625476",
-        "title": "Effect of Subcutaneous Semaglutide vs Placebo as an Adjunct to Intensive Behavioral Therapy on Body Weight in Adults With Overweight or Obesity: The STEP 3 Randomized Clinical Trial",
-        "authors": "Wadden TA, et al",
-        "year": "2021",
-        "journal": "JAMA",
-        "doi": "10.1001/jama.2021.1831",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33625476/",
-        "context": "IMPORTANCE: Weight loss improves cardiometabolic risk factors in people with overweight or obesity. Intensive lifestyle intervention and pharmacotherapy are the most effective noninvasive weight loss approaches. OBJECTIVE: To compare the effects of once-weekly subcutaneous semaglutide, 2.4 mg vs placebo for weight management as an adjunct to intensive behavioral therapy with initial low-calorie diet in adults with overweight or obesity. DESIGN, SETTING, AND PARTICIPANTS: Randomized, double-blind, parallel-group, 68-week, phase 3a study (STEP 3) conducted at 41 sites in the US from August 2018 to April 2020 in adults without diabetes (N = 611) and with either overweight (body mass index ≥27) plus at least 1 comorbidity or obesity (body mass index ≥30). INTERVENTIONS: Participants were randomized (2:1) to semaglutide, 2.4 mg (n = 407) or placebo (n = 204), both combined with a low-calorie diet for the first 8 weeks and intensive behavioral therapy (ie, 30 counseling visits) during 68 weeks. MAIN OUTCOMES AND MEASURES: The co-primary end points were percentage change in body weight and the loss of 5% or more of baseline weight by week 68. Confirmatory secondary end points included losses of at least 10% or 15% of baseline weight. RESULTS: Of 611 randomized participants (495 women [81.0%], mean age 46 years [SD, 13], body weight 105.8 kg [SD, 22.9], and body mass index 38.0 [SD, 6.7]), 567 (92.8%) completed the trial, and 505 (82.7%) were receiving treatment at trial end. At week 68, the estimated mean body weight change from baseline was -16.0% for semaglutide vs -5.7% for placebo (difference, -10.3 percentage points [95% CI, -12.0 to -8.6]; P < .001). More participants treated with semaglutide vs placebo lost at least 5% of baseline body weight (86.6% vs 47.6%, respectively; P < .001). A higher proportion of participants in the semaglutide vs placebo group achieved weight losses of at least 10% or 15% (75.3% vs 27.0% and 55.8% vs 13.2%, respectively; P < .001). Gastrointestinal adverse events were more frequent with semaglutide (82.8%) vs placebo (63.2%). Treatment was discontinued owing to these events in 3.4% of semaglutide participants vs 0% of placebo participants. CONCLUSIONS AND RELEVANCE: Among adults with overweight or obesity, once-weekly subcutaneous semaglutide compared with placebo, used as an adjunct to intensive behavioral therapy and initial low-calorie diet, resulted in significantly greater weight loss during 68 weeks. Further research is needed to assess the durability of these findings. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03611582.",
-        "source": "pubmed",
-        "pubType": "Clinical Trial, Phase III",
-        "publicationTypes": [
-          "Clinical Trial, Phase III",
-          "Comparative Study",
-          "Journal Article",
-          "Randomized Controlled Trial"
-        ],
-        "relevancePct": 96,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "770dbdc8f4f30e28a67db096914906020510882b379b1eef09be401aa6bbb648"
-      },
-      {
         "pmid": "39789843",
         "title": "Gastrointestinal tolerability and weight reduction associated with tirzepatide in adults with obesity or overweight with and without type 2 diabetes in the SURMOUNT ‐1 to ‐4 trials",
         "authors": "Domenica Rubino, Sue D. Pedersen, Lisa E. Connery, Dachuang Cao",
@@ -383,32 +355,6 @@
         "_sig": "ac64c3e47d84f2dbf6f6867d1c3998b14a2902dc461d5ecb17e3e57f44d938c9"
       },
       {
-        "pmid": "28266779",
-        "title": "Effects of once-weekly semaglutide on appetite, energy intake, control of eating, food preference and body weight in subjects with obesity",
-        "authors": "Blundell J, et al",
-        "year": "2017",
-        "journal": "Diabetes, obesity & metabolism",
-        "doi": "10.1111/dom.12932",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28266779/",
-        "context": "AIM: The aim of this trial was to investigate the mechanism of action for body weight loss with semaglutide. MATERIALS AND METHODS: This randomised, double-blind, placebo-controlled, two-period crossover trial investigated the effects of 12 weeks of treatment with once-weekly subcutaneous semaglutide, dose-escalated to 1.0 mg, in 30 subjects with obesity. Ad libitum energy intake, ratings of appetite, thirst, nausea and well-being, control of eating, food preference, resting metabolic rate, body weight and body composition were assessed. RESULTS: After a standardised breakfast, semaglutide, compared with placebo, led to a lower ad libitum energy intake during lunch (-1255 kJ; P < .0001) and during the subsequent evening meal ( P = .0401) and snacks ( P = .0034), resulting in a 24% reduction in total energy intake across all ad libitum meals throughout the day (-3036 kJ; P < .0001). Fasting overall appetite suppression scores were improved with semaglutide vs placebo, while nausea ratings were similar. Semaglutide was associated with less hunger and food cravings, better control of eating and a lower preference for high-fat foods. Resting metabolic rate, adjusted for lean body mass, did not differ between treatments. Semaglutide led to a reduction from baseline in mean body weight of 5.0 kg, predominantly from body fat mass. CONCLUSION: After 12 weeks of treatment, ad libitum energy intake was substantially lower with semaglutide vs placebo with a corresponding loss of body weight observed with semaglutide. In addition to reduced energy intake, likely mechanisms for semaglutide-induced weight loss included less appetite and food cravings, better control of eating and lower relative preference for fatty, energy-dense foods.",
-        "source": "pubmed",
-        "publicationTypes": [
-          "Journal Article",
-          "Randomized Controlled Trial",
-          "Research Support, Non-U.S. Gov't"
-        ],
-        "relevancePct": 93,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "62e7db5f1343bd8fda45adfc2b2fccdb1f04878fe78cb61018aa21981b47fcf9"
-      },
-      {
         "pmid": "cr:10.3329/jacedb.v5i20.93921",
         "title": "Efficacy and safety of once-weekly Semaglutide for weight management in adults with overweight or obesity with or without type 2 diabetes: A real-world clinical trial in Bangladesh",
         "authors": "Islam Quazi Tarikul",
@@ -509,6 +455,35 @@
         "_sig": "072433deca1eead8bcd0d1f55e8ce9e3d1eb85daae2d62e9464947354486d630"
       },
       {
+        "pmid": "33667417",
+        "title": "Semaglutide 2·4 mg once a week in adults with overweight or obesity, and type 2 diabetes (STEP 2): a randomised, double-blind, double-dummy, placebo-controlled, phase 3 trial",
+        "authors": "Davies M, et al",
+        "year": "2021",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(21)00213-0",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33667417/",
+        "context": "BACKGROUND: This trial assessed the efficacy and safety of the GLP-1 analogue once a week subcutaneous semaglutide 2·4 mg versus semaglutide 1·0 mg (the dose approved for diabetes treatment) and placebo for weight management in adults with overweight or obesity, and type 2 diabetes. METHODS: This double-blind, double-dummy, phase 3, superiority study enrolled adults with a body-mass index of at least 27 kg/m 2 and glycated haemoglobin 7-10% (53-86 mmol/mol) who had been diagnosed with type 2 diabetes at least 180 days before screening. Patients were recruited from 149 outpatient clinics in 12 countries across Europe, North America, South America, the Middle East, South Africa, and Asia. Patients were randomly allocated (1:1:1) via an interactive web-response system and stratified by background glucose-lowering medication and glycated haemoglobin, to subcutaneous injection of semaglutide 2·4 mg, or semaglutide 1·0 mg, or visually matching placebo, once a week for 68 weeks, plus a lifestyle intervention. Patients, investigators, and those assessing outcomes were masked to group assignment. Coprimary endpoints were percentage change in bodyweight and achievement of weight reduction of at least 5% at 68 weeks for semaglutide 2·4 mg versus placebo, assessed by intention to treat. Safety was assessed in all patients who received at least one dose of study drug. This study is registered with ClinicalTrials.gov, NCT03552757 and is closed to new participants. FINDINGS: From June 4 to Nov 14, 2018, 1595 patients were screened, of whom 1210 were randomly assigned to semaglutide 2·4 mg (n=404), semaglutide 1·0 mg (n=403), or placebo (n=403) and included in the intention-to-treat analysis. Estimated change in mean bodyweight from baseline to week 68 was -9·6% (SE 0·4) with semaglutide 2·4 mg vs -3·4% (0·4) with placebo. Estimated treatment difference for semaglutide 2·4 mg versus placebo was -6·2 percentage points (95% CI -7·3 to -5·2; p<0·0001). At week 68, more patients on semaglutide 2·4 mg than on placebo achieved weight reductions of at least 5% (267 [68·8%] of 388 vs 107 [28·5%] of 376; odds ratio 4·88, 95% CI 3·58 to 6·64; p<0·0001). Adverse events were more frequent with semaglutide 2·4 mg (in 353 [87·6%] of 403 patients) and 1·0 mg (329 [81·8%] of 402) than with placebo (309 [76·9%] of 402). Gastrointestinal adverse events, which were mostly mild to moderate, were reported in 256 (63·5%) of 403 patients with semaglutide 2·4 mg, 231 (57·5%) of 402 with semaglutide 1·0 mg, and 138 (34·3%) of 402 with placebo. INTERPRETATION: In adults with overweight or obesity, and type 2 diabetes, semaglutide 2·4 mg once a week achieved a superior and clinically meaningful decrease in bodyweight compared with placebo. FUNDING: Novo Nordisk.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Equivalence Trial"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "da2054be185a81c6c7c8d88ddfa6b2623bce1893e0235b59417ddb479474c921"
+      },
+      {
         "pmid": "42806056",
         "title": "Indirect comparative efficacy and safety of tirzepatide vs semaglutide for the treatment of obesity or overweight in patients without type 2 diabetes",
         "authors": "Andreea Ciudin, Erin Johansson, Sarah Zimner‐Rapuch, Georgios K. Dimitriadis",
@@ -555,37 +530,13 @@
         "design": "Cohort Study",
         "lowMetadata": false,
         "_sig": "6f3f5459ba21280fe3b5598f3df5d1adfa4cd2cceb575952ebe5099ceceb0465"
-      },
-      {
-        "pmid": "40512543",
-        "title": "Kidney Parameters with Tirzepatide in Obesity with or without Type 2 Diabetes",
-        "authors": "Hiddo J.L. Heerspink, Allon N. Friedman, Petter Bjornstad, Daniël H. van Raalte",
-        "year": "2025",
-        "journal": "Journal of the American Society of Nephrology",
-        "doi": "10.1681/asn.0000000764",
-        "url": "https://doi.org/10.1681/asn.0000000764",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Key Points People with obesity and/or type 2 diabetes are at higher risk of progressive kidney function loss. We assessed the association of tirzepatide use with kidney function parameters in people with overweight/obesity with or without type 2 diabetes. Tirzepatide treatment was associated with urine albumin-to-creatinine reduction after 24 weeks, which was sustained through week 72, and no change in eGFR. Background Tirzepatide, a once-weekly, glucose-dependent insulinotropic polypeptide and glucagon-like peptide-1 receptor agonist, showed kidney-protective effects in people with type 2 diabetes at high cardiovascular disease risk. In this post hoc analysis of the SURMOUNT-1 and SURMOUNT-2 trials, we assessed the association of tirzepatide use with kidney function parameters in people with overweight/obesity with or without type 2 diabetes. Methods",
-        "relevancePct": 66,
-        "matchedElements": [
-          "P",
-          "I",
-          "O"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "5246148ef98b0e7980bbf5d9c4c3c6cd671cbf806f404e2da7412b85c6b46fb5"
       }
     ],
     "corpusStats": {
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 16,
+      "returned": 14,
       "relaxationLevel": 0
     },
     "sources": [
@@ -596,8 +547,8 @@
       },
       {
         "id": "pmc",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 30
       },
       {
         "id": "europepmc",
@@ -660,11 +611,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "adults with obesity or overweight without diabetes tirzepatide once weekly semaglutide 2.4 mg once weekly percentage total body weight loss at 72 weeks",
-        "count": 0,
+        "count": 30,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "europepmc",
@@ -744,9 +695,10 @@
         "query": "adults with obesity or overweight without diabetes tirzepatide once weekly semaglutide 2.4 mg once weekly percentage total body weight loss at 72 weeks",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -754,9 +706,10 @@
         "query": "adults with obesity or overweight without diabetes tirzepatide once weekly semaglutide 2.4 mg once weekly percentage total body weight loss at 72 weeks",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
       }
     ],
     "hasMore": false

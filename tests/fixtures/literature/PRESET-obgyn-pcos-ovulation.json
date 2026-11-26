@@ -1,6 +1,6 @@
 {
   "id": "PRESET-obgyn-pcos-ovulation",
-  "recordedAt": "2026-11-26T19:41:08.729Z",
+  "recordedAt": "2026-11-26T22:59:20.565Z",
   "specialty": "obgyn",
   "words": [
     {
@@ -48,15 +48,15 @@
       "established": {
         "category": "established",
         "phrase": "In polycystic ovary syndrome, anovulatory infertility (P), does letrozole (I) compared with clomiphene citrate (C) improve cumulative live birth rate (O)?",
-        "basis": "Screened literature contains 8 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
-        "supported": true
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 1 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
       "conflicting": {
         "category": "conflicting",
         "phrase": "In polycystic ovary syndrome, anovulatory infertility (P), is letrozole (I) superior to clomiphene citrate (C) for cumulative live birth rate (O)?",
-        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
-        "supported": false,
-        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
       },
       "gap": {
         "category": "gap",
@@ -133,8 +133,8 @@
   "exploreRequest": {
     "stage": "explore",
     "choice": {
-      "category": "established",
-      "phrase": "In polycystic ovary syndrome, anovulatory infertility (P), does letrozole (I) compared with clomiphene citrate (C) improve cumulative live birth rate (O)?"
+      "category": "conflicting",
+      "phrase": "In polycystic ovary syndrome, anovulatory infertility (P), is letrozole (I) superior to clomiphene citrate (C) for cumulative live birth rate (O)?"
     },
     "words": [
       {
@@ -164,31 +164,217 @@
   "exploreResponse": {
     "records": [
       {
-        "pmid": "41007614",
-        "title": "Letrozole at the Crossroads of Efficacy and Fetal Safety in Ovulation Induction: A Narrative Review.",
-        "authors": "Kaltsas A, Efthimiou A, Roidos C, Tzikoulis V, Georgiou I, Sotiriadis A, Zachariou A, Chrisofos M, Sofikitis N, Dimitria",
+        "pmid": "40193219",
+        "title": "Gonadotropins for ovulation induction in women with polycystic ovary syndrome",
+        "authors": "Weiss NS, et al",
         "year": "2025",
-        "journal": "Biomedicines",
-        "doi": "10.3390/biomedicines13092051",
-        "url": "https://europepmc.org/article/PMC/PMC12467464",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD010290.pub4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40193219/",
+        "context": "RATIONALE: Ovulation induction with follicle-stimulating hormone (FSH) is a second-line treatment in women with polycystic ovary syndrome (PCOS) who do not ovulate or conceive on clomiphene citrate or letrozole, though induction protocols and types of gonadotropins used vary greatly. OBJECTIVES: To compare the effectiveness and safety of gonadotropins as a second-line treatment for ovulation induction in women with PCOS who do not ovulate or conceive after clomiphene citrate or letrozole. SEARCH METHODS: In March 2024, we searched the Cochrane Gynaecology and Fertility Group Specialised Register of Controlled Trials, CENTRAL, MEDLINE, Embase and PsycINFO. We checked references of all relevant studies. We had no language or date restrictions. ELIGIBILITY CRITERIA: All randomised controlled trials (RCTs) reporting data on clinical outcomes in women with PCOS who did not ovulate or conceive on clomiphene citrate or letrozole, and were undergoing ovulation induction with urinary-derived gonadotropins, including urofollitropin in purified FSH (uFSH) or highly purified FSH (HP-FSH) form, human menopausal gonadotropin (HMG) and highly purified human menopausal gonadotropin (HP-HMG), or recombinant FSH (rFSH) were eligible. We included trials reporting on ovulation induction followed by intercourse or intrauterine insemination. We excluded studies that described co-treatment with clomiphene citrate, metformin, luteinising hormone, or letrozole. OUTCOMES: We implemented the core outcome set for infertility. Our critical outcomes were live birth rate and multiple pregnancy rate per woman. Important outcomes were clinical pregnancy, pregnancy loss, incidence of ovarian hyperstimulation syndrome (OHSS) per woman, total gonadotropin dose, total duration of stimulation per woman, gestational age at birth, birthweight, neonatal mortality, and major congenital anomaly. RISK OF BIAS: We used the Cochrane RoB 1 tool to assess bias in the included studies. SYNTHESIS METHODS: Where meta-analysis was possible, we combined data using a fixed-effect model to calculate the risk ratio (RR) or mean difference. We summarised the overall certainty of evidence for the main outcomes using GRADE criteria. INCLUDED STUDIES: We included 15 studies with 2348 women. Ten trials compared rFSH with urinary-derived gonadotropins (one compared rFSH with human menopausal gonadotropin (HMG), and nine compared rFSH with urinary FSH). Three trials compared HMG with purified FSH (uFSH). One trial compared HP-FSH with purified FSH (uFSH) and one trial compared gonadotropins with continued clomiphene citrate. SYNTHESIS OF RESULTS: Recombinant FSH (rFSH) versus urinary-derived gonadotropins There may be little or no difference in the birth rate between rFSH and urinary-derived gonadotropins (RR 1.21, 95% confidence interval (CI) 0.83 to 1.78; 5 RCTs, 505 participants; low-certainty evidence). This suggests that if the observed average live birth per woman who used urinary-derived gonadotropins is 16%, the chance of live birth with rFSH is between 13% and 28%. There may be little or no difference between groups in multiple pregnancy (RR 0.86, 95% CI 0.46 to 1.61; 8 RCTs, 1368 participants; low-certainty evidence), clinical pregnancy rate (RR 1.05, 95% CI 0.88 to 1.27; 8 RCTs, 1330 participants; low-certainty evidence), or miscarriage rate (RR 1.20, 95% CI 0.71 to 2.04; 7 RCTs, 970 participants; low-certainty evidence). We are uncertain whether rFSH reduces ectopic pregnancy (RR 2.81, 95% CI 0.12 to 67.90; 1 RCT, 151 participants; very-low certainty evidence) or the incidence of OHSS (RR 1.48, 95% CI 0.82 to 2.65; 10 RCTs, 1565 participants; very low-certainty evidence) when compared to urinary-derived gonadotropins. Human menopausal gonadotropin (HMG) versus purified urinary FSH (uFSH) When compared to uFSH, we are uncertain whether HMG improves live birth rate (RR 1.44, 95% CI 0.55 to 3.76; 2 RCTs, 79 participants), or reduces multiple pregnancy (RR 6.56, 95% CI 0.28 to 152.45; 3 RCTs, 102 participants). We are also uncertain whether HMG improves clinical pregnancy rate (RR 1.31, 95% CI 0.66 to 2.59; 3 RCTs, 102 participants), reduces miscarriage rate (RR 0.33, 95% CI 0.06 to 1.97; 2 RCTs, 98 participants), or reduces the incidence of OHSS (RR 7.07, 95% CI 0.42 to 117.81; 2 RCTs, 53 participants) when compared to uFSH. No trials reported on ectopic pregnancy. The certainty of the evidence was very low for all outcomes. Gonadotropins versus continued clomiphene citrate Gonadotropins (FSH) probably result in more live births than continued clomiphene citrate (RR 1.24, 95% CI 1.05 to 1.46; 1 RCT, 661 participants; moderate-certainty evidence). This suggests that for a woman with a live birth rate of 41% with continued clomiphene citrate, the live birth rate with gonadotropins was between 43% and 60%. There may be little or no difference in multiple pregnancy between treatments (RR 0.89, 95% CI 0.33 to 2.44; 1 RCT, 661 participants; low-certainty evidence). Gonadotropins probably result in more clinical pregnancies than continued clomiphene citrate (RR 1.31, 95% CI 1.13 to 1.52; 1 RCT, 661 participants; moderate-certainty evidence), and may result in more miscarriages (RR 2.23, 95% CI 1.11 to 4.47; 1 RCT, 661 participants; low-certainty evidence). We are uncertain if there is a difference in ectopic pregnancy between the groups (RR 0.51, 95% CI 0.09 to 2.77; 1 RCT, 661 participants; very low-certainty evidence). None of the women developed OHSS. The main limitations were imprecision, inconsistency, and indirectness. AUTHORS' CONCLUSIONS: There may be little or no difference in live birth, multiple pregnancy, clinical pregnancy, or miscarriage rates between rFSH and uFSH in women with PCOS. For HMG versus uFSH, we are uncertain whether one or the other improves or lowers rates of live birth, multiple pregnancy, clinical pregnancy, or miscarriage. We are uncertain whether any of the interventions reduce ectopic pregnancy or the incidence of OHSS. In women with clomiphene citrate failure, gonadotropins (FSH) probably result in more live births and clinical pregnancies than continued clomiphene citrate without increasing multiple pregnancies. Gonadotropins may increase the miscarriage rate per woman. We are uncertain if gonadotropins reduce ectopic pregnancy. None of the women developed OHSS. FUNDING: This Cochrane review had no dedicated funding. REGISTRATION: Protocol (2012) https://doi.org/10.1002/14651858.CD010290 Review (2015) https://doi.org/10.1002/14651858.CD010290.pub2/full Update (2019) https://doi.org/10.1002/14651858.CD010290.pub3.",
+        "source": "pubmed",
         "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
         ],
-        "context": "Letrozole, a third-generation aromatase inhibitor initially developed for breast cancer, has become the preferred first-line agent for ovulation induction (OI), particularly in women with polycystic ovary syndrome (PCOS). This narrative review critically evaluates the efficacy, safety, and clinical applications of letrozole across diverse infertility contexts. Compared to clomiphene citrate, letrozole is associated with higher ovulation and live birth rates, a lower risk of multiple gestation, and a more favorable endometrial environment. Its pharmacokinetics-marked by transient estrogen suppression and a short half-life-limit embryonic exposure, supporting its favorable safety profile. Emerging data from large, randomized trials and meta-analyses demonstrate no increase in congenital anomalies, miscarriage, or adverse perinatal outcomes in letrozole-conceived pregnancies. Moreover, maternal side effects are generally mild, and the risk of ovarian hyperstimulation syndrome is low. Letrozole has also shown utility in mild stimulation protocols, fertility preservation for estrogen-sensitive malignancies, and clomiphene-resistant PCOS. Key clinical strategies-such as early-cycle initiation, lowest effective dosing, and individualized monitoring-optimize therapeutic outcomes while minimizing potential risks. While long-term offspring data remain limited and mechanistic concerns persist, current evidence robustly supports letrozole as a safe and effective option for OI, balancing reproductive success with maternal-fetal safety across a range of infertility indications.",
-        "relevancePct": 93,
+        "relevancePct": 95,
         "matchedElements": [
           "P",
           "I",
           "C",
           "O"
         ],
-        "design": "Narrative Review",
+        "design": "Systematic Review and Meta-Analysis",
         "lowMetadata": false,
-        "_sig": "c6eb7f780cf05c0216438ac74e2e945285d9e968933b91b4d169b7100f6d406c"
+        "_sig": "a4eafa4cccf8baa0a54197e7929f58cb7d225f31155953d1f6e29da71763bbcf"
+      },
+      {
+        "pmid": "36735392",
+        "title": "Letrozole Compared With Clomiphene Citrate for Polycystic Ovarian Syndrome: A Systematic Review and Meta-analysis",
+        "authors": "Liu Z, et al",
+        "year": "2023",
+        "journal": "Obstetrics and gynecology",
+        "doi": "10.1097/AOG.0000000000005070",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36735392/",
+        "context": "OBJECTIVE: To estimate the effect of letrozole and clomiphene citrate in women with infertility and polycystic ovarian syndrome (PCOS). METHODS OF STUDY SELECTION: MEDLINE through PubMed, Web of Science, EMBASE, Cochrane Library, and ClinicalTrials.gov were searched for relevant studies from inception to February 1, 2022. Two reviewers retrieved, filtered, and extracted data independently using the bibliographic software EndNote X9 and Excel workbook. We included randomized controlled trials (RCTs) reporting ovulation induction outcomes in women with infertility and PCOS treated with either letrozole or clomiphene citrate followed by timed intercourse or intrauterine insemination. The data were merged into a mean difference or risk ratio (RR) with 95% CI, depending on variable types. TABULATION, INTEGRATION, AND RESULTS: Data collection and organization were conducted in accordance with the 2020 PRISMA (Preferred Reporting Items for Systematic Review and Meta-Analyses) statement. Twenty-nine RCTs were eligible, which included 3,952 women and 7,633 ovulation induction cycles. We acquired evidence from 22 RCTs for the ovulation rate, 28 RCTs for the clinical pregnancy rate, and eight RCTs for live-birth rate. Pooled analysis indicated that letrozole treatment prevailed against clomiphene citrate in ovulation rate (RR 1.14, 95% CI 1.06-1.21, P <.001), clinical pregnancy rate (RR 1.48, 95% CI 1.34-1.63, P <.001), and live-birth rate (RR 1.49, 95% CI 1.27-1.74, P <.001). CONCLUSIONS: Letrozole was associated with improved ovulation, pregnancy, and live-birth rates compared with clomiphene citrate. We recommend letrozole over clomiphene citrate as an ovulation induction drug in women with infertility and PCOS, although the quality of the evidence is mixed. SYSTEMATIC REVIEW REGISTRATION: PROSPERO, CRD42022308777.",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "5f21ff966420122ac0f212132926b0c1fb022e09ebe02d27dc752c2536282aa2"
+      },
+      {
+        "pmid": "36165742",
+        "title": "Aromatase inhibitors (letrozole) for ovulation induction in infertile women with polycystic ovary syndrome",
+        "authors": "Franik S, et al",
+        "year": "2022",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD010287.pub4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36165742/",
+        "context": "BACKGROUND: Polycystic ovary syndrome (PCOS) is the most common cause of infrequent periods (oligomenorrhoea) and absence of periods (amenorrhoea). It affects about 5% to 20% of women worldwide and often leads to anovulatory infertility. Aromatase inhibitors (AIs) are a class of drugs that were introduced for ovulation induction in 2001. Since about 2001 clinical trials have reached differing conclusions as to whether the AI, letrozole, is at least as effective as the first-line treatment clomiphene citrate (CC), a selective oestrogen receptor modulator (SERM). OBJECTIVES: To evaluate the effectiveness and safety of AIs (letrozole) (with or without adjuncts) compared to SERMs (with or without adjuncts) for infertile women with anovulatory PCOS for ovulation induction followed by timed intercourse or intrauterine insemination. SEARCH METHODS: We searched the following sources, from their inception to 4 November 2021, to identify relevant randomised controlled trials (RCTs): the Cochrane Gynaecology and Fertility Group Specialised Register, CENTRAL, MEDLINE, Embase and PsycINFO. We also checked reference lists of relevant trials, searched the trial registers and contacted experts in the field for any additional trials. We did not restrict the searches by language or publication status. SELECTION CRITERIA: We included all RCTs of AIs used alone or with other medical therapies for ovulation induction in women of reproductive age with anovulatory PCOS. DATA COLLECTION AND ANALYSIS: Two review authors independently selected trials, extracted the data and assessed risks of bias using RoB 1. We pooled trials where appropriate using a fixed-effect model to calculate odds ratios (ORs) and 95% confidence intervals (CIs) for most outcomes, and risk differences (RDs) for ovarian hyperstimulation syndrome (OHSS). The primary outcomes were live birth rate and OHSS rate. Secondary outcomes were clinical pregnancy, miscarriage and multiple pregnancy rates. We assessed the certainty of the evidence for each comparison using GRADE methods. MAIN RESULTS: This is a substantive update of a previous review; of six previously included trials, we excluded four from this update and moved two to 'awaiting classification' due to concerns about validity of trial data. We included five additional trials for this update that now includes a total of 41 RCTs (6522 women). The AI, letrozole, was used in all trials. Letrozole compared to SERMs with or without adjuncts followed by timed intercourse Live birth rates were higher with letrozole (with or without adjuncts) compared to SERMs followed by timed intercourse (OR 1.72, 95% CI 1.40 to 2.11; I 2 = 0%; number needed to treat for an additional beneficial outcome (NNTB) = 10; 11 trials, 2060 participants; high-certainty evidence). This suggests that in women with a 20% chance of live birth using SERMs, the live birth rate in women using letrozole with or without adjuncts would be 27% to 35%. There is high-certainty evidence that OHSS rates are similar with letrozole or SERMs (0.5% in both arms: risk difference (RD) -0.00, 95% CI -0.01 to 0.01; I 2 = 0%; 10 trials, 1848 participants; high-certainty evidence). There is evidence for a higher pregnancy rate in favour of letrozole (OR 1.69, 95% CI 1.45 to 1.98; I 2 = 0%; NNTB = 10; 23 trials, 3321 participants; high-certainty evidence). This suggests that in women with a 24% chance of clinical pregnancy using SERMs, the clinical pregnancy rate in women using letrozole with or without adjuncts would be 32% to 39%. There is little or no difference between treatment groups in the rate of miscarriage per pregnancy (25% with SERMs versus 24% with letrozole: OR 0.94, 95% CI 0.66 to 1.32; I 2 = 0%; 15 trials, 736 participants; high-certainty evidence) and multiple pregnancy rate (2.2% with SERMs versus 1.6% with letrozole: OR 0.74, 95% CI 0.42 to 1.32; I 2 = 0%; 14 trials, 2247 participants; high-certainty evidence). However, a funnel plot showed mild asymmetry, indicating that some trials in favour of SERMs might be missing. Letrozole compared to laparoscopic ovarian drilling (LOD) One trial reported very low-certainty evidence that live birth rates may be higher with letrozole compared to LOD (OR 2.07, 95% CI 0.99 to 4.32; 1 trial, 141 participants; very low-certainty evidence). This suggests that in women with a 22% chance of live birth using LOD with or without adjuncts, the live birth rate in women using letrozole with or without adjuncts would be 24% to 47%. No trial reported OHSS rates. Due to the low-certainty evidence we are uncertain if letrozole improves pregnancy rates compared to LOD (OR 1.47, 95% CI 0.95 to 2.28; I² = 0%; 3 trials, 367 participants; low-certainty evidence). This suggests that in women with a 29% chance of clinical pregnancy using LOD with or without adjuncts, the clinical pregnancy rate in women using letrozole with or without adjuncts would be 28% to 45%. There seems to be no evidence of a difference in miscarriage rates per pregnancy comparing letrozole to LOD (OR 0.65, 95% CI 0.22 to 1.92; I² = 0%; 3 trials, 122 participants; low-certainty evidence). This also applies to multiple pregnancies (OR 3.00, 95% CI 0.12 to 74.90; 1 trial, 141 participants; very low-certainty evidence). AUTHORS' CONCLUSIONS: Letrozole appears to improve live birth rates and pregnancy rates in infertile women with anovulatory PCOS, compared to SERMs, when used for ovulation induction, followed by intercourse. There is high-certainty evidence that OHSS rates are similar with letrozole or SERMs. There was high-certainty evidence of no difference in miscarriage rate and multiple pregnancy rate. We are uncertain if letrozole increases live birth rates compared to LOD. In this update, we added good quality trials and removed trials with concerns over data validity, thereby upgrading the certainty of the evidence base.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "45661507f2ba295ed72f4872a48bdd63b756d738f39bab7bf2cda4ecc5a8a362"
+      },
+      {
+        "pmid": "31647106",
+        "title": "First-line ovulation induction for polycystic ovary syndrome: an individual participant data meta-analysis",
+        "authors": "Wang R, et al",
+        "year": "2019",
+        "journal": "Human reproduction update",
+        "doi": "10.1093/humupd/dmz029",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31647106/",
+        "context": "BACKGROUND: Polycystic ovary syndrome (PCOS) is the most frequent cause of anovulatory infertility. In women with PCOS, effective ovulation induction serves as an important first-line treatment for anovulatory infertility. Individual participant data (IPD) meta-analysis is considered as the gold standard for evidence synthesis which provides accurate assessments of outcomes from primary randomised controlled trials (RCTs) and allows additional analyses for time-to-event outcomes. It also facilitates treatment-covariate interaction analyses and therefore offers an opportunity for personalised medicine. OBJECTIVE AND RATIONALE: We aimed to evaluate the effectiveness of different ovulation induction agents, in particular letrozole alone and clomiphene citrate (CC) plus metformin, as compared to CC alone, as the first-line choice for ovulation induction in women with PCOS and infertility, and to explore interactions between treatment and participant-level baseline characteristics. SEARCH METHODS: We searched electronic databases including MEDLINE, EMBASE and Cochrane Central Register of Controlled Trials up to 20 December 2018. We included RCTs comparing the following interventions with each other or placebo/no treatment in women with PCOS and infertility: CC, metformin, CC plus metformin, letrozole, gonadotrophin and tamoxifen. We excluded studies on treatment-resistant women. The primary outcome was live birth. We contacted the investigators of eligible RCTs to share the IPD and performed IPD meta-analyses. We assessed the risk of bias by using the Cochrane risk of bias tool for RCTs. OUTCOMES: IPD of 20 RCTs including 3962 women with PCOS were obtained. Six RCTs compared letrozole and CC in 1284 women. Compared with CC, letrozole improved live birth rates (3 RCTs, 1043 women, risk ratio [RR] 1.43, 95% confidence interval [CI] 1.17-1.75, moderate-certainty evidence) and clinical pregnancy rates (6 RCTs, 1284 women, RR 1.45, 95% CI 1.23-1.70, moderate-certainty evidence) and reduced time-to-pregnancy (6 RCTs, 1235 women, hazard ratio [HR] 1.72, 95% CI 1.38-2.15, moderate-certainty evidence). Meta-analyses of effect modifications showed a positive interaction between baseline serum total testosterone levels and treatment effects on live birth (interaction RR 1.29, 95% CI 1.01-1.65). Eight RCTs compared CC plus metformin to CC alone in 1039 women. Compared with CC alone, CC plus metformin might improve clinical pregnancy rates (8 RCTs, 1039 women, RR 1.18, 95% CI 1.00-1.39, low-certainty evidence) and might reduce time-to-pregnancy (7 RCTs, 898 women, HR 1.25, 95% CI 1.00-1.57, low-certainty evidence), but there was insufficient evidence of a difference on live birth rates (5 RCTs, 907 women, RR 1.08, 95% CI 0.87-1.35, low-certainty evidence). Meta-analyses of effect modifications showed a positive interaction between baseline insulin levels and treatment effects on live birth in the comparison between CC plus metformin and CC (interaction RR 1.03, 95% CI 1.01-1.06). WIDER IMPLICATIONS: In women with PCOS, letrozole improves live birth and clinical pregnancy rates and reduces time-to-pregnancy compared to CC and therefore can be recommended as the preferred first-line treatment for women with PCOS and infertility. CC plus metformin may increase clinical pregnancy and may reduce time-to-pregnancy compared to CC alone, while there is insufficient evidence of a difference on live birth. Treatment effects of letrozole are influenced by baseline serum levels of total testosterone, while those of CC plus metformin are affected by baseline serum levels of insulin. These interactions between treatments and biomarkers on hyperandrogenaemia and insulin resistance provide further insights into a personalised approach for the management of anovulatory infertility related to PCOS.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "9085f5d03deae4b15d0e31698cfee11839cf8ed8bee9aa06873ebf1e7dc7285d"
+      },
+      {
+        "pmid": "30648738",
+        "title": "Gonadotrophins for ovulation induction in women with polycystic ovary syndrome",
+        "authors": "Weiss NS, et al",
+        "year": "2019",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD010290.pub3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30648738/",
+        "context": "BACKGROUND: Ovulation induction with follicle stimulating hormone (FSH) is a second-line treatment in women with polycystic ovary syndrome (PCOS) who do not ovulate or conceive on clomiphene citrate. OBJECTIVES: To compare the effectiveness and safety of gonadotrophins as a second-line treatment for ovulation induction in women with clomiphene citrate-resistant polycystic ovary syndrome (PCOS), and women who do not ovulate or conceive after clomiphene citrate. SEARCH METHODS: In January 2018, we searched the Cochrane Gynaecology and Fertility Group Specialised Register of Controlled Trials, CENTRAL, MEDLINE, Embase, PsycINFO, CINAHL, the World Health Organisation clinical trials register, Clinicaltrials.gov, LILACs, and PubMed databases, and Google Scholar. We checked references of in all obtained studies. We had no language restrictions. SELECTION CRITERIA: All randomised controlled trials reporting data on clinical outcomes in women with PCOS who did not ovulate or conceive on clomiphene citrate, and undergoing ovulation induction with urinary-derived gonadotrophins, including urofollitropin (uFSH) in purified FSH (FSH-P) or highly purified FSH (FSH-HP) form, human menopausal gonadotropin (HMG) and highly purified human menopausal gonadotrophin (HP-HMG), or recombinant FSH (rFSH), or continuing clomiphene citrate. We included trials reporting on ovulation induction followed by intercourse or intrauterine insemination. We excluded studies that described co-treatment with clomiphene citrate, metformin, luteinizing hormone, or letrozole. DATA COLLECTION AND ANALYSIS: Three review authors (NW, EK, and MvW) independently selected studies for inclusion, assessed risk of bias, and extracted study data. Primary outcomes were live birth rate per woman and multiple pregnancy per woman. Secondary outcomes were clinical pregnancy, miscarriage, incidence of ovarian hyperstimulation syndrome (OHSS) per woman, total gonadotrophin dose, and total duration of stimulation per woman. We combined data using a fixed-effect model to calculate the risk ratio (RR). We summarised the overall quality of evidence for the main outcomes using GRADE criteria. MAIN RESULTS: The review included 15 trials with 2387 women. Ten trials compared rFSH with urinary-derived gonadotrophins (three compared rFSH with human menopausal gonadotrophin, and seven compared rFSH with FSH-HP), four trials compared FSH-P with HMG. We found no trials that compared FSH-HP with FSH-P. One trial compared FSH with continued clomiphene citrate.Recombinant FSH (rFSH) versus urinary-derived gonadotrophinsThere may be little or no difference in the birth rate between rFSH and urinary-derived gonadotrophins (RR 1.21, 95% confidence interval (CI) 0.83 to 1.78; five trials, N = 505; I² = 9%; low-quality evidence). This suggests that for the observed average live birth per woman who used urinary-derived FSH of 16%, the chance of live birth with rFSH is between 13% and 28%. There may also be little or no difference between groups in incidence of multiple pregnancy (RR 0.86, 95% CI 0.46 to 1.61; eight trials, N = 1368; I² = 0%; low-quality evidence), clinical pregnancy rate (RR 1.05, 95% CI 0.88 to 1.27; eight trials, N = 1330; I² = 0; low-quality evidence), or miscarriage rate (RR 1.20, 95% CI 0.71 to 2.04; seven trials, N = 970; I² = 0; low-quality evidence). We are uncertain whether rFSH reduces the incidence of OHSS (RR 1.48, 95% CI 0.82 to 2.65, ten trials, n=1565, I² = 0%, very low-quality evidence).Human menopausal gonadotrophin (HMG) or HP-HMG versus uFSHWhen compared to uFSH, we are uncertain whether HMG or HP-HMG improves live birth rate (RR 1.28, 95% CI 0.65 to 2.52; three trials, N = 138; I² = 0%; very low quality evidence), or reduces multiple pregnancy rate (RR 2.13, 95% CI 0.51 to 8.91; four trials, N = 161; I² = 0%; very low quality evidence). We are also uncertain whether HMG or HP-HMG improves clinical pregnancy rate (RR 1.31, 95% CI 0.66 to 2.59; three trials, N = 102; I² = 0; very low quality evidence), reduces miscarriage rate (RR 0.33, 95% CI 0.06 to 1.97; two trials, N = 98; I² = 0%; very low quality evidence), or reduces the incidence of OHSS (RR 7.07, 95% CI 0.42 to 117.81; two trials, N = 53; very low quality evidence) when compared to uFSH.Gonadotrophins versus continued clomiphene citrateGonadotrophins resulted in more live births than continued clomiphene citrate (RR 1.24, 95% CI 1.05 to 1.46; one trial, N = 661; I² = 0%; moderate-quality evidence). This suggests that for a woman with a live birth rate of 41% with continued clomiphene citrate, the live birth rate with FSH was between 43% and 60%. There is probably little or no difference in the incidence of multiple pregnancy between treatments (RR 0.89, 95% CI 0.33 to 2.44; one trial, N = 661; I² = 0%; moderate-quality evidence). Gonadotrophins resulted in more clinical pregnancies than continued clomiphene citrate (RR 1.31, 95% CI 1.13 to 1.52; one trial, N = 661; I² = 0%; moderate-quality evidence), and more miscarriages (RR 2.23, 95% CI 1.11 to 4.47; one trial, N = 661; I² = 0%; moderate-quality evidence). None of the women developed OHSS. AUTHORS' CONCLUSIONS: There may be little or no difference in live birth, incidence of multiple pregnancy, clinical pregnancy rate, or miscarriage rate between urinary-derived gonadotrophins and recombinant follicle stimulating hormone in women with polycystic ovary syndrome. For human menopausal gonadotropin or highly purified human menopausal gonadotrophin versus urinary follicle stimulating hormone we are uncertain whether one or the other improves or lowers live birth, incidence of multiple pregnancy, clinical pregnancy rate, or miscarriage rate. We are uncertain whether any of the interventions reduce the incidence of ovarian hyperstimulation syndrome. We suggest weighing costs and convenience in the decision to use one or the other gonadotrophin. In women with clomiphene citrate failure, gonadotrophins resulted in more live births than continued clomiphene citrate without increasing multiple pregnancies.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "3d55dda06600510959de820f3f011dfe3508d41324c307dcd5272fdadcaec9c8"
+      },
+      {
+        "pmid": "29797697",
+        "title": "Aromatase inhibitors (letrozole) for subfertile women with polycystic ovary syndrome",
+        "authors": "Franik S, et al",
+        "year": "2018",
+        "journal": "The Cochrane database of systematic reviews",
+        "doi": "10.1002/14651858.CD010287.pub3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29797697/",
+        "context": "BACKGROUND: Polycystic ovary syndrome (PCOS) is the most common cause of infrequent periods (oligomenorrhoea) and absence of periods (amenorrhoea). It affects about 4% to 8% of women worldwide and often leads to anovulatory subfertility. Aromatase inhibitors (AIs) are a class of drugs that were introduced for ovulation induction in 2001. Since about 2001 clinical trials have reached differing conclusions as to whether the AI letrozole is at least as effective as the first-line treatment clomiphene citrate (CC). OBJECTIVES: To evaluate the effectiveness and safety of aromatase inhibitors for subfertile women with anovulatory PCOS for ovulation induction followed by timed intercourse or intrauterine insemination (IUI). SEARCH METHODS: We searched the following sources from inception to November 2017 to identify relevant randomised controlled trials (RCTs): the Cochrane Gynaecology and Fertility Group Specialised Register, the Cochrane Central Register of Controlled Trials, MEDLINE, Embase, PsycINFO, Pubmed, LILACS, Web of Knowledge, the World Health Organization (WHO) clinical trials register and Clinicaltrials.gov. We also searched the references of relevant articles. We did not restrict the searches by language or publication status. SELECTION CRITERIA: We included all RCTs of AIs used alone or with other medical therapies for ovulation induction in women of reproductive age with anovulatory PCOS. DATA COLLECTION AND ANALYSIS: Two review authors independently selected trials, extracted the data and assessed risks of bias. We pooled studies where appropriate using a fixed-effect model to calculate odds ratios (ORs) and 95% confidence intervals (CIs) for most outcomes, and risk differences (RDs) for ovarian hyperstimulation syndrome (OHSS). The primary outcomes were live birth and OHSS. Secondary outcomes were clinical pregnancy, miscarriage and multiple pregnancy. We assessed the quality of the evidence for each comparison using GRADE methods. MAIN RESULTS: This is a substantive update of a previous review. We identified 16 additional studies for the 2018 update. We include 42 RCTs (7935 women). The aromatase inhibitor letrozole was used in all studies.Letrozole compared to clomiphene citrate (CC) with or without adjuncts followed by timed intercourseLive birth rates were higher with letrozole (with or without adjuncts) compared to clomiphene citrate (with our without adjuncts) followed by timed intercourse (OR 1.68, 95% CI 1.42 to 1.99; 2954 participants; 13 studies; I 2 = 0%; number needed to treat for an additional beneficial outcome (NNTB) = 10; moderate-quality evidence). There is high-quality evidence that OHSS rates are similar with letrozole or clomiphene citrate (0.5% in both arms: risk difference (RD) -0.00, 95% CI -0.01 to 0.00; 2536 participants; 12 studies; I 2 = 0%; high-quality evidence). There is evidence for a higher pregnancy rate in favour of letrozole (OR 1.56, 95% CI 1.37 to 1.78; 4629 participants; 25 studies; I 2 = 1%; NNTB = 10; moderate-quality evidence). There is little or no difference between treatment groups in the rate of miscarriage by pregnancy (20% with CC versus 19% with letrozole; OR 0.94, 95% CI 0.70 to 1.26; 1210 participants; 18 studies; I 2 = 0%; high-quality evidence) and multiple pregnancy rate (1.7% with CC versus 1.3% with letrozole; OR 0.69, 95% CI 0.41 to 1.16; 3579 participants; 17 studies; I 2 = 0%; high-quality evidence). However, a funnel plot showed mild asymmetry, indicating that some studies in favour of clomiphene might be missing.Letrozole compared to laparoscopic ovarian drillingThere is low-quality evidence that live birth rates are similar with letrozole or laparoscopic ovarian drilling (OR 1.38, 95% CI 0.95 to 2.02; 548 participants; 3 studies; I 2 = 23%; low-quality evidence). There is insufficient evidence for a difference in OHSS rates (RD 0.00, 95% CI -0.01 to 0.01; 260 participants; 1 study; low-quality evidence). There is low-quality evidence that pregnancy rates are similar (OR 1.28, 95% CI 0.94 to 1.74; 774 participants; 5 studies; I 2 = 0%; moderate-quality evidence). There is insufficient evidence for a difference in miscarriage rate by pregnancy (OR 0.66, 95% CI 0.30 to 1.43; 240 participants; 5 studies; I 2 = 0%; moderate-quality evidence), or multiple pregnancies (OR 3.00, 95% CI 0.12 to 74.90; 548 participants; 3 studies; I 2 = 0%; low-quality evidence).Additional comparisons were made for Letrozole versus placebo, Selective oestrogen receptor modulators (SERMS) followed by intrauterine insemination (IUI), follicle stimulating hormone (FSH), Anastrozole, as well as dosage and administration protocols. There is insufficient evidence for a difference in either group of treatment due to a limited number of studies. Hence more research is necessary. AUTHORS' CONCLUSIONS: Letrozole appears to improve live birth and pregnancy rates in subfertile women with anovulatory polycystic ovary syndrome, compared to clomiphene citrate. There is high-quality evidence that OHSS rates are similar with letrozole or clomiphene citrate. There is high-quality evidence of no difference in miscarriage rates or multiple pregnancy rates. There is low-quality evidence of no difference in live birth and pregnancy rates between letrozole and laparoscopic ovarian drilling, although there were few relevant studies. For the 2018 update, we added good-quality trials, upgrading the quality of the evidence.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "33fedf36fa5e0483f3d549ace7dc2127e0f9d696d44018a758b2fb66f4ca3cf1"
+      },
+      {
+        "pmid": "29392438",
+        "title": "Letrozole versus clomiphene citrate in polycystic ovary syndrome: a meta-analysis of randomized controlled trials",
+        "authors": "Hu S, et al",
+        "year": "2018",
+        "journal": "Archives of gynecology and obstetrics",
+        "doi": "10.1007/s00404-018-4688-6",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29392438/",
+        "context": "PURPOSE: Polycystic ovary syndrome (PCOS) is a common endocrine disturbance affecting women in the reproductive age group. The present study aimed to compare the effects of letrozole (LE) and clomiphene citrate (CC) for ovulation induction in women with PCOS. METHODS: The PUBMED, Web of Science, and EMBASE databases were screened systematically for randomized controlled trials (RCTs) published from database inception to July 2017. RESULTS: Eleven RCTs involving 2255 patients were included, and data were independently extracted and analyzed using 95% risk ratios (RRs) and confidence intervals (CIs) based on a random- or fixed-effect model (as appropriate). Meta-analyses of nine RCTs comparing LE and CC ovulation induction, followed by timed intercourse, indicated that the former significantly increased the ovulation rate (RR = 1.18; 95% CI 1.03-1.36, P = 0.01), pregnancy rate (RR = 1.34; 95% CI 1.09-1.64, P = 0.006), and live birth rate (RR = 1.55; 95% CI 1.28-1.88, P < 0.00001). However, LE and CC did not differ significantly in terms of the multiple pregnancy and abortion rates. Furthermore, LE for ovulation induction significantly improved the pregnancy rate after IUI. CONCLUSION: LE is superior to CC for ovulation induction in patients with PCOS.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "112b944cd851f135776ed5b98c1e3b1dcdc985ab9056856c96df3da431151f1e"
+      },
+      {
+        "pmid": "26479460",
+        "title": "Letrozole versus clomiphene citrate in polycystic ovary syndrome: systematic review and meta-analysis",
+        "authors": "Roque M, et al",
+        "year": "2015",
+        "journal": "Gynecological endocrinology : the official journal of the International Society of Gynecological Endocrinology",
+        "doi": "10.3109/09513590.2015.1096337",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26479460/",
+        "context": "The objective of the present systematic review and meta-analysis was to examine the literature and to identify the results of randomized controlled trials (RCTs) comparing the use of letrozole to clomiphene citrate (CC) for ovulation induction in patients with polycystic ovary syndrome (PCOS). An exhaustive electronic literature search was performed using the MEDLINE and EMBASE databases until October 2014. Seven prospective RCTs comparing the use of letrozole to CC in PCOS patients met the inclusion criteria. Overall, the seven included studies accounted for 1833 patients (906 in the letrozole group and 927 in the CC group) and for 4999 ovulation induction cycles (2455 in the letrozole group and 2544 in the CC group). Five of the included studies reported data on live birth rates. There was a statistically significant increase in the live birth and pregnancy rates in the letrozole group when compared to the CC group, with a relative risk (RR) = 1.55 (95% confidence interval (CI): 1.26-1.90; I(2) = 0%) and RR = 1.38 (95% CI: 1.05-1.83; I(2) = 61%), respectively. There were no differences in the multiple pregnancy, miscarriage and ovulation rates between the two groups. Our study found that letrozole is superior to CC when considering the live birth and pregnancy rates in patients with PCOS.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "3b5fc876ea0f3f9c37550eda9d88c7de40801c5cd4b4f1d702394f8a52838881"
       },
       {
         "pmid": "41826916",
@@ -233,7 +419,7 @@
           "Journal Article"
         ],
         "context": "Background Polycystic Ovary Syndrome (PCOS) is among the most prevalent endocrine disorders in women of reproductive age and may significantly impact pregnancy outcomes. However, no comprehensive bibliometric analysis has synthesized research findings in this field. Objective This study aims to identify trends and key research areas in PCOS and pregnancy outcomes and to summarize effective treatment strategies for PCOS-related infertility. Method Literature was retrieved and collated from the Web of Science Core Collection (WOSCC) and PubMed databases up to 10 May 2025. Bibliometric analysis was conducted using VOSviewer, CiteSpace, and R software. Result A total of 410 WOSCC publications and 45 PubMed clinical trials were included. China ( n = 192, 46.8%) and the United States ( n = 52, 12.7%) were the leading contributors. Shanghai Jiao Tong University had the greatest output, while the University of Adelaide was the most cited institution. Vanky, Eszter was the most prolific author, and Legro, Richard S. was the most cited. Frontiers in Endocrinology was the leading core journal. Insulin resistance and metformin were identified as current research hotspots, while neonatal outcomes, metabolic syndrome, and ovarian hyperstimulation syndrome represent emerging frontiers. Conclusion This first bibliometric analysis of PCOS and pregnancy outcomes provides a comprehensive overview of the research landscape. Future research should focus on insulin resistance mechanisms, metabolic syndrome management, and the optimization of assisted reproductive technologies including frozen embryo transfer, letrozole combination therapies, and traditional Chinese medicine approaches.",
-        "relevancePct": 84,
+        "relevancePct": 76,
         "matchedElements": [
           "P",
           "I",
@@ -241,7 +427,7 @@
         ],
         "design": "Systematic Review",
         "lowMetadata": false,
-        "_sig": "4c22e712fcfc9e15c97f7e6c040045a542bc51eddfe73a5fc3223cf1f5f0446a"
+        "_sig": "0893d64b34239bd9f87af2fd59f50abc3d1be10132a82f458234e3c612bbb4ea"
       },
       {
         "pmid": "41437199",
@@ -258,7 +444,7 @@
           "Journal Article"
         ],
         "context": "Objective Clomiphene citrate (CC) is the first-line treatment for ovulation induction in women with polycystic ovary syndrome (PCOS), yet a substantial proportion exhibit CC resistance. This study compares clinical outcomes following treatment with gonadotropins, letrozole, or unilateral laparoscopic ovarian drilling (LOD) in women with CC-resistant PCOS. Methods In this prospective, randomized clinical trial conducted at the infertility clinic of the Maternity Hospital from May 2021 to May 2024 (Clinical Trial No. NCT06486870), 183 middle-aged, anovulatory infertile women with CC-resistant PCOS, diagnosed using the Rotterdam criteria, were included. Participants were randomly assigned to one of three groups: letrozole (n=61), gonadotropins (n=61), or unilateral LOD (n=61). The primary outcome was the cumulative pregnancy rate over 6 months. Statistical analyses were performed using IBM SPSS Statistics ver. 24. Results Baseline demographics were comparable across groups. The gonadotropin-treated cohort achieved the highest cumulative pregnancy rate (41%), followed by letrozole (32.8%) and LOD (18%). Gonadotropin therapy also yielded the highest ovulation rate and the lowest incidence of oligo/amenorrhea. In contrast, LOD produced greater reductions in luteinizing hormone, anti-Müllerian hormone, and antral follicle count, and more patients attained menstrual regularity. Although LOD was associated with a lower pregnancy rate, it conferred a reduced risk of multiple gestations and ovarian hyperstimulation syndrome (OHSS). Conclusion Gonadotropins and letrozole are more effective than unilateral LOD for inducing ovulation and achieving pregnancy in women with CC-resistant PCOS. Nevertheless, LOD remains a viable alternative, offering the advantage of lower rates of multiple pregnancy and OHSS.",
-        "relevancePct": 77,
+        "relevancePct": 74,
         "matchedElements": [
           "P",
           "I",
@@ -266,7 +452,7 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "201167c803652d9e6cda6e87d01442b0733b86e40b731ed59372294f680e7a75"
+        "_sig": "ee5764fb166873e50800163daa7d8d08619445e5b1deab515f48ea9c96f41276"
       },
       {
         "pmid": "41958601",
@@ -283,7 +469,7 @@
           "Journal Article"
         ],
         "context": "Background Polycystic ovary syndrome (PCOS) is a leading cause of anovulatory infertility. Letrozole is the first-line agent for ovulation induction; however, response to the standard 5-day regimen may be suboptimal in some women. Aim The aim is to compare the efficacy and safety of an extended 10-day letrozole regimen with the conventional 5-day regimen for ovulation induction in infertile women with PCOS. Settings and design Prospective, open-label, parallel-group randomised controlled trial conducted at a tertiary care centre in North India. Materials and methods Eighty infertile women with PCOS (Rotterdam criteria, 2003) were randomised to receive either letrozole 2.5 mg daily for 10 days or 5 days. Up to three ovulation induction cycles were allowed. Follicular monitoring was performed using transvaginal ultrasonography. Ovulation was triggered with human chorionic gonadotropin, followed by timed intercourse. Statistical analysis used Continuous variables were analysed using the t -test or Wilcoxon-Mann-Whitney U test. Categorical variables were compared using the Chi-square or Fisher's exact test. A P Results The 10-day regimen showed a significantly higher follicular response in the first cycle compared to the 5-day regimen (85.0% vs. 52.5%, P = 0.002). Dose escalation and gonadotropin use were significantly lower in the extended regimen group. No cases of ovarian hyperstimulation syndrome were reported. Pregnancy rates were comparable between groups. Conclusion The extended 10-day letrozole regimen significantly improves follicular response without increasing adverse outcomes and may improve cycle efficiency in women with PCOS.",
-        "relevancePct": 77,
+        "relevancePct": 74,
         "matchedElements": [
           "P",
           "I",
@@ -291,7 +477,7 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "0642f0e7b3dadffac92834ea9a659f8ad273ded70dac99b04351b306d017b5a1"
+        "_sig": "1aef1c454eee6918a9609f181d750d250adcdb55fe95ed22a1d002d3d92fb4d9"
       },
       {
         "pmid": "32131886",
@@ -307,7 +493,7 @@
           "article"
         ],
         "context": "BACKGROUND: Traditional Chinese medicine (TCM) usually involves syndrome differentiation and treatment. Acupuncture, one form of TCM, requires the selection of appropriate acupoints and needling techniques, but many clinical trials on acupuncture have used fixed acupuncture protocols without accounting for individual patient differences. We have designed a multicenter randomized controlled trial (RCT) to evaluate whether personalized or fixed acupuncture increases the likelihood of live births in infertile women with polycystic ovary syndrome (PCOS) compared with letrozole or placebo letrozole. We hypothesize that letrozole is more effective than personalized acupuncture, which in turn is more effective than fixed acupuncture, and that placebo letrozole is the least effective intervention. Moreover, we hypothesize that personalized acupuncture is more likely to reduce the miscarriage rate",
-        "relevancePct": 77,
+        "relevancePct": 74,
         "matchedElements": [
           "P",
           "I",
@@ -315,7 +501,7 @@
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "ca6cbdf40d47183a9a78ee859d4287a1541171914a1f4741ccde9adde9bb4a05"
+        "_sig": "9b4037fd6490337dcfdf39e66d622e0a7a54d3f4c453e8816256bc4f26052800"
       },
       {
         "pmid": "41049039",
@@ -332,7 +518,7 @@
           "Journal Article"
         ],
         "context": "Background Letrozole is the first-line treatment for ovulation induction in women with polycystic ovary syndrome (PCOS). However, a subset of patients remains anovulatory despite standard treatment, a condition termed \"letrozole resistance\". This retrospective cohort study aimed to evaluate the effectiveness and time efficiency of a novel \"letrozole stair-step duration regimen\", which skips progestin-induced withdrawal bleeding and proceeds directly to an extended letrozole course after anovulatory cycles, compared with a previously established \"2-step extended letrozole regimen\". Methods We analyzed 158 women with PCOS and letrozole resistance who underwent ovulation induction at two university-affiliated reproductive centers between March 2018 and September 2024. Participants received either the stair-step duration regimen (n = 62) or the 2-step extended regimen (n = 96). Outcomes compared included follicular development, hormone profiles, ovulation, and pregnancy outcomes. The primary outcome was the ovulation rate. Results Ovulation rates were comparable between groups [95.16% vs 94.79%]. Clinical pregnancy rates [23.73% (14/59) vs 20.88% (19/91), P = 0.681] and live birth rates [16.95% (11/59) vs 18.68% (17/91), P = 0.824] also showed no significant differences. However, the stair-step group achieved ovulation in a significantly shorter time, with a median of 36 days (interquartile range [IQR] 32-54) versus 47 days (IQR 45-51) in the extended regimen group (P Conclusion The letrozole stair-step duration regimen is a time-saving and effective ovulation induction protocol for women with PCOS and letrozole resistance, yielding comparable reproductive outcomes in a shorter treatment duration.",
-        "relevancePct": 74,
+        "relevancePct": 71,
         "matchedElements": [
           "P",
           "I",
@@ -340,7 +526,7 @@
         ],
         "design": "Retrospective Cohort Study",
         "lowMetadata": false,
-        "_sig": "80a5a7818b9e16a93b7e0ef0ae8f038138bb0c2ffc7adefa20cc01780a1bf182"
+        "_sig": "6d1994a08de9ef892b1f1b0535b8ba591e1a6282e6915042933f241af381ca90"
       },
       {
         "pmid": "31510088",
@@ -356,32 +542,6 @@
           "article"
         ],
         "context": "Polycystic ovary syndrome (PCOS) is the most common cause of anovulatory infertility in women of reproductive age. Lifestyle change is considered the first line treatment for the management of infertile anovulatory women with PCOS, and weight loss for those who are overweight or obese. First line medical ovulation induction therapy to improve fertility outcomes is letrozole, whilst other less efficacious ovulation induction agents, such as clomiphene citrate, metformin, and metformin combined with clomiphene citrate, may also be considered. Metformin combined with clomiphene citrate is more effective than clomiphene citrate alone. In obese women with PCOS, clomiphene citrate could be used in preference to metformin alone whilst clomiphene citrate could be added to metformin alone in order to improve reproductive outcome",
-        "relevancePct": 74,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Narrative Review",
-        "lowMetadata": false,
-        "_sig": "f4134db64753b998ff58fa756c0ce429e8998e8c56acfb87b2be5057a520e943"
-      },
-      {
-        "pmid": "41594197",
-        "title": "Significance of Follicle-Stimulating Hormone Receptor Gene Single-Nucleotide Polymorphism rs6165/rs6166 Analysis for Infertility-Associated Ovarian Disease Susceptibility Prediction and Optimized Individualized Ovulation Induction/Ovarian Stimulation.",
-        "authors": "Kitaya K, Hamazaki A, Kobayashi N, Mihara T, Mihara M.",
-        "year": "2026",
-        "journal": "Diagnostics (Basel, Switzerland)",
-        "doi": "10.3390/diagnostics16020221",
-        "url": "https://europepmc.org/article/PMC/PMC12839752",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
-        "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
-        ],
-        "context": "Follicle-stimulating hormone receptor (FSHR) is expressed on the plasma membrane of granulosa cells in the ovarian follicles. FSHR is involved in the development and maturation of Graafian follicles, along with granulosa proliferation and estrogen synthesis. There are two well-characterized non-synonymous single-nucleotide gene polymorphisms in the exon 10 of the human FSHR gene, namely rs6165 (c.919G>A, Ala307Thr) and rs6166 (c.2039A>G, Ser680Asn). Recent research clarifies the association of rs6165/rs6166 with susceptibility to infertility-associated ovarian diseases, ranging from polycystic ovarian syndrome, premature ovarian insufficiency, endometriosis, to ovarian cancer, along with response/resistance to ovulation induction/ovarian stimulation with clomiphene citrate, letrozole, metformin, FSH preparations, and adjunctive growth hormone in infertility treatment. This narrative review aims to update the knowledge on the relationship among rs6165/rs6166, infertility etiology, and differential responses to oral ovulation induction agents, FSH preparations, and adjunctive growth hormone. The re6165/rs6166 genotype-guided choice of individualized ovulation stimulation preparations has great potential to reduce unexpected poor or high ovarian responses in ovulation induction and ovarian stimulation and improve clinical outcomes in reproductive medicine. Current evidence is insufficient, and further studies are warranted to ascertain its potential for clinical implementation.",
         "relevancePct": 71,
         "matchedElements": [
           "P",
@@ -390,7 +550,7 @@
         ],
         "design": "Narrative Review",
         "lowMetadata": false,
-        "_sig": "567e04b94feab114f9ba090d6062c4f57efa97c7d1401efc15247427b5d1b300"
+        "_sig": "96a2496bf7b5f4e7e3e5602b63905e3f548789c5dcb2f4e9cb1ea3a5ebdbfd5c"
       },
       {
         "pmid": "26602525",
@@ -406,7 +566,7 @@
           "article"
         ],
         "context": "Polycystic ovary syndrome represents 80% of anovulatory infertility cases. Treatment initially includes preconception guidelines, such as lifestyle changes (weight loss), folic acid therapy to prevent the risk of fetal neural tube defects and halting the consumption of tobacco and alcohol. The first-line pharmacological treatment for inducing ovulation consists of a clomiphene citrate treatment for timed intercourse. The second-line pharmacological treatment includes the administration of exogenous gonadotropins or laparoscopic ovarian surgery (ovarian drilling). Ovulation induction using clomiphene citrate or gonadotropins is effective with cumulative live birth rates of approximately 70%. Ovarian drilling should be performed when laparoscopy is indicated; this procedure is typically effective in approximately 50% of cases. Finally, a high-complexity reproduction treatment (in vitro fertilization or intracytoplasmic sperm injection)",
-        "relevancePct": 69,
+        "relevancePct": 66,
         "matchedElements": [
           "P",
           "C",
@@ -414,7 +574,7 @@
         ],
         "design": "Observational Study",
         "lowMetadata": false,
-        "_sig": "ac977d2baa77d032b4b8dd683bb7bdce60758beaf933f28b41ac33d2dde39e4a"
+        "_sig": "bd428f2d2dd0c3ab8736e51ee1fe677c3c03485b343f048fcc9f7abe8ad2e9a4"
       },
       {
         "pmid": "cr:10.1016/j.fertnstert.2013.07.1834",
@@ -440,6 +600,29 @@
         "_sig": "0fd1932c060b9075eab045460edb63f69bc881a3d2d0fd5e661f6e7480010360"
       },
       {
+        "pmid": "37144035",
+        "title": "Role of luteinizing hormone elevation in outcomes of ovulation induction with letrozole for polycystic ovary syndrome",
+        "authors": "Wenyan Fu, Yanping Kuang",
+        "year": "2023",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2023.1113840",
+        "url": "https://doi.org/10.3389/fmed.2023.1113840",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction: The effect of elevated luteinizing hormone (LH) on the clinical outcomes of ovulation induction (OI) in infertile anovulatory patients with polycystic ovary syndrome (PCOS) remains controversial. This retrospective study included PCOS patients undergoing intrauterine insemination (IUI) following letrozole (LE) stimulation without OC pretreatment. Materials and methods: A retrospective cohort analysis was conducted in a single, academic ART center from January 2013 to May 2019. In total, 835 IUI cycles of PCOS patients treated with letrozole were collected for the analysis. Cohorts were separated based on the level of basal LH (bLH) and LH level after letrozole administration (LHle) during OI. OI response and reproductive outcomes were evaluated for each cohort. Results: No adverse effects of dysregulated levels of either",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "d19a15ce4a0477c235691878e22ff51e7df1a7b6c95e124973134a04af0a9fbe"
+      },
+      {
         "pmid": "25006718",
         "title": "Letrozole versus Clomiphene for Infertility in the Polycystic Ovary Syndrome",
         "authors": "Richard S. Legro, Robert G. Brzyski, Michael P. Diamond, Christos Coutifaris",
@@ -453,14 +636,14 @@
           "article"
         ],
         "context": "BACKGROUND: Clomiphene is the current first-line infertility treatment in women with the polycystic ovary syndrome, but aromatase inhibitors, including letrozole, might result in better pregnancy outcomes. METHODS: In this double-blind, multicenter trial, we randomly assigned 750 women, in a 1:1 ratio, to receive letrozole or clomiphene for up to five treatment cycles, with visits to determine ovulation and pregnancy, followed by tracking of pregnancies. The polycystic ovary syndrome was defined according to modified Rotterdam criteria (anovulation with either hyperandrogenism or polycystic ovaries). Participants were 18 to 40 years of age, had at least one patent fallopian tube and a normal uterine cavity, and had a male partner with a sperm concentration of at least 14 million per milliliter; the women",
-        "relevancePct": 59,
+        "relevancePct": 56,
         "matchedElements": [
           "P",
           "I"
         ],
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
-        "_sig": "d28be9585bd2381f10b619e23da5b36a92e358e8ed3e014bac7f2a1d672cf02f"
+        "_sig": "d0f05b8e3502afdf35b8acd74a819b9c0da97937c06ba290853f9e4b779d7e60"
       },
       {
         "pmid": "cr:10.62472/kjps.v16.i26.48-63",
@@ -484,112 +667,20 @@
         "design": "Clinical Trial",
         "lowMetadata": false,
         "_sig": "6c73d4f9c3a2e97a1bf532410694f000ddabb8a26130231fd82fbf3edba98b0b"
-      },
-      {
-        "pmid": "37098539",
-        "title": "Predictors of response to ovulation induction using letrozole in women with polycystic ovary syndrome",
-        "authors": "Zaixin Guo, Shuwen Chen, Zhiyan Chen, Pan Hu",
-        "year": "2023",
-        "journal": "BMC Endocrine Disorders",
-        "doi": "10.1186/s12902-023-01336-z",
-        "url": "https://doi.org/10.1186/s12902-023-01336-z",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "BACKGROUND: This study aimed to evaluate the predictive value of the initial screening characteristics of women with anovulatory polycystic ovary syndrome (PCOS) who did or did not respond to 2.5 mg letrozole (LET). METHODS: The clinical and laboratory characteristics of women with PCOS who underwent LET treatment were evaluated. Women with PCOS were stratified according to their responses to LET (2.5 mg). The potential predictors of their responses to LET were estimated using logistic regression analysis. RESULTS: Our retrospective study included 214 eligible patients with a response to 2.5 mg LET (n = 131) or no response to 2.5 mg LET (n = 83). PCOS patients who responded to 2.5 mg LET showed better outcomes than those who did not",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Retrospective Study",
-        "lowMetadata": false,
-        "_sig": "2e003a54033ae577639cee1c81c55a18d45c06bd74bcb1118c126d69c9c688e4"
-      },
-      {
-        "pmid": "37144035",
-        "title": "Role of luteinizing hormone elevation in outcomes of ovulation induction with letrozole for polycystic ovary syndrome",
-        "authors": "Wenyan Fu, Yanping Kuang",
-        "year": "2023",
-        "journal": "Frontiers in Medicine",
-        "doi": "10.3389/fmed.2023.1113840",
-        "url": "https://doi.org/10.3389/fmed.2023.1113840",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Introduction: The effect of elevated luteinizing hormone (LH) on the clinical outcomes of ovulation induction (OI) in infertile anovulatory patients with polycystic ovary syndrome (PCOS) remains controversial. This retrospective study included PCOS patients undergoing intrauterine insemination (IUI) following letrozole (LE) stimulation without OC pretreatment. Materials and methods: A retrospective cohort analysis was conducted in a single, academic ART center from January 2013 to May 2019. In total, 835 IUI cycles of PCOS patients treated with letrozole were collected for the analysis. Cohorts were separated based on the level of basal LH (bLH) and LH level after letrozole administration (LHle) during OI. OI response and reproductive outcomes were evaluated for each cohort. Results: No adverse effects of dysregulated levels of either",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Retrospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "a234345e041eb1e6f3dbf4c2cfd011b2715ff700a77fc8a95ad150ea8b303c5b"
-      },
-      {
-        "pmid": "36506073",
-        "title": "Effect of different timing of letrozole initiation on pregnancy outcome in polycystic ovary syndrome",
-        "authors": "Lan Shi, Shujin Ye, Mengyun Gao, Yijie Chen",
-        "year": "2022",
-        "journal": "Frontiers in Endocrinology",
-        "doi": "10.3389/fendo.2022.1059609",
-        "url": "https://doi.org/10.3389/fendo.2022.1059609",
-        "source": "openalex",
-        "pubType": "article",
-        "publicationTypes": [
-          "article"
-        ],
-        "context": "Objective: To investigate the efficacy of oral letrozole (LE) starting on day 3 or 5 of the menstrual cycle in patients with polycystic ovary syndrome (PCOS). Design: Retrospective cohort study. Setting: Reproductive Endocrinology Department of Hangzhou Women's Hospital. Methods: In this retrospective analysis, we analyzed patients who received oral LE for ovulation induction (OI) at the Hangzhou Women's Hospital from January 2016 to January 2021. In total, 539 PCOS patients with fertility requirements were classified into the D3 group and D5 group according to the different starting times of oral LE, that is, from the 3rd or 5th day of the menstrual cycle or LE is taken orally for 5 days starting on day 3 or 5 of progesterone withdrawal",
-        "relevancePct": 53,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Retrospective Cohort Study",
-        "lowMetadata": false,
-        "_sig": "cce5efbc42dce813769d758e109e8e1cf52e4f85d775d8a6237d3d8e4aee504c"
-      },
-      {
-        "pmid": "cr:10.26689/aogr.v2i3.7665",
-        "title": "Analysis of the Effect of Letrozole Tablets Combined with Menotrophin in the Treatment of Infertility of Polycystic Ovary Syndrome",
-        "authors": "Liu Caixia",
-        "year": "2024",
-        "journal": "Advances in Obstetrics and Gynecology Research",
-        "doi": "10.26689/aogr.v2i3.7665",
-        "url": "https://doi.org/10.26689/aogr.v2i3.7665",
-        "source": "crossref",
-        "pubType": "journal-article",
-        "publicationTypes": [
-          "journal-article"
-        ],
-        "context": "Objective: To investigate the clinical effects of Letrozole tablets combined with Menotrophin in infertile patients with polycystic ovary syndrome (PCOS). Methods: The time period of the study was from February 2023 to February 2024; 62 cases of PCOS infertility patients admitted to our hospital were selected and divided into an observation group (n = 31) and a control group (n = 31) by using the method of a random drawing of medical record number. The patients in the control group were treated with Letrozole tablets, and the patients in the observation group were treated with Letrozole tablets combined with Menotrophin, and the sex hormone levels, ovulation rate, the number of mature follicles, endometrial thickness, pregnancy rate, and early miscarriage rate were compared between the two groups. Results: Before treatment, the sex hormone levels of the two groups were compared, and there was no statistical difference (P > 0.05). After treatment, the sex hormone levels of the observation group were all better than those of the control group, and the differences were statistically significant (P < 0.05). The ovulation rate of the observation group was higher than that of the observation group, the number of mature follicles was more than that of the control group, and the endometrial thickness was greater than that of the control group, with statistically significant differences (P < 0.05). The pregnancy rate of the observation group was higher than that of the control group, and the rate of preterm delivery was lower than that of the control group, and the difference was statistically significant (P < 0.05). Conclusion: The combined application of Letrozole tablets and Menotrophin can improve the sex hormone level of PCOS infertility patients, promote their ovulation, improve follicular development, restore the thickness of endometrial lining, and increase the pregnancy rate of the patients and reduce the rate of preterm delivery, which is of value for promotion and application.",
-        "relevancePct": 48,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Observational Study",
-        "lowMetadata": false,
-        "_sig": "ed61d2fffd567918ceff1445e9dd300526540723a1bcbd4e6ba932e5f7c569d9"
       }
     ],
     "corpusStats": {
       "retrieved": 30,
       "screened": 30,
       "blocked": 0,
-      "returned": 17,
+      "returned": 20,
       "relaxationLevel": 0
     },
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 15
       },
       {
         "id": "pmc",
@@ -628,7 +719,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -647,12 +738,11 @@
         "id": "pubmed",
         "name": "PubMed",
         "query": "polycystic ovary syndrome, anovulatory infertility letrozole clomiphene citrate cumulative live birth rate",
-        "count": 0,
+        "count": 15,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "pmc",
@@ -670,10 +760,9 @@
         "query": "polycystic ovary syndrome, anovulatory infertility letrozole clomiphene citrate cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "skipped": "cooldown"
       },
       {
         "id": "googlescholar",
@@ -732,9 +821,8 @@
         "count": 0,
         "date": "2026-11-26",
         "attempted": true,
-        "ok": false,
-        "skipped": "none",
-        "error": "The operation was aborted due to timeout"
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -742,10 +830,9 @@
         "query": "polycystic ovary syndrome, anovulatory infertility letrozole clomiphene citrate cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC Cochrane HTTP 503"
+        "skipped": "cooldown"
       },
       {
         "id": "preprints",
@@ -753,12 +840,11 @@
         "query": "polycystic ovary syndrome, anovulatory infertility letrozole clomiphene citrate cumulative live birth rate",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC Preprints HTTP 503"
+        "skipped": "cooldown"
       }
     ],
-    "hasMore": false
+    "hasMore": true
   }
 }

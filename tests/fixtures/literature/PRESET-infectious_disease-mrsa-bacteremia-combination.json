@@ -1,6 +1,6 @@
 {
   "id": "PRESET-infectious_disease-mrsa-bacteremia-combination",
-  "recordedAt": "2026-11-26T19:54:19.846Z",
+  "recordedAt": "2026-11-26T23:11:21.846Z",
   "specialty": "infectious_disease",
   "words": [
     {
@@ -48,7 +48,7 @@
       "established": {
         "category": "established",
         "phrase": "In adults with persistent MRSA bacteremia (P), does high-dose daptomycin plus ceftaroline combination (I) compared with standard vancomycin monotherapy (C) improve time to bacteremia clearance and 30-day mortality (O)?",
-        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 1 no-difference, 0 adverse).",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 2 no-difference, 0 adverse).",
         "supported": false,
         "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
       },
@@ -76,12 +76,12 @@
       {
         "id": "pubmed",
         "ok": true,
-        "count": 23
+        "count": 4
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -163,35 +163,6 @@
   "exploreStatus": 200,
   "exploreResponse": {
     "records": [
-      {
-        "pmid": "41705840",
-        "title": "Preclinical and clinical evaluation of vancomycin plus delpazolid combination therapy for MRSA bacteremia: a multicenter, double-blinded, randomized, parallel design, phase IIa clinical trial.",
-        "authors": "Park K-H, Jung J, Shin SU, Jeong SJ, Park DW, Kim D-M, Choi SJ, Moon SM, Park JS, Song K-H, Kim ES, Cho YL, Bae S, Kim H",
-        "year": "2026",
-        "journal": "Microbiology spectrum",
-        "doi": "10.1128/spectrum.03361-25",
-        "url": "https://europepmc.org/article/PMC/PMC13055365",
-        "source": "pmc",
-        "pubType": "Clinical Trial, Phase II, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
-        "publicationTypes": [
-          "Clinical Trial, Phase II",
-          "research-article",
-          "Multicenter Study",
-          "Randomized Controlled Trial",
-          "Journal Article"
-        ],
-        "context": "Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia is a serious clinical challenge due to limited treatments and high mortality. We conducted both preclinical and clinical studies to assess the potential role of delpazolid in combination with vancomycin. Synergistic effects of delpazolid with vancomycin or daptomycin were evaluated in vitro using checkerboard and time-kill assays, and in vivo using a Galleria mellonella model. A multicenter, double-blind, randomized, Phase IIa trial was conducted at six Korean hospitals between 26 April 2022 and 18 March 2024. Patients with MRSA bacteremia were randomized 1:1 to receive vancomycin monotherapy or vancomycin plus delpazolid for 14 to 42 days. The primary outcome was overall cure at day 14 (microbiological clearance and symptom resolution). Secondary endpoints included safety, adverse events, and delpazolid pharmacokinetics. In vitro checkerboard assays showed no interaction between delpazolid and vancomycin or daptomycin, while time-kill assays revealed antagonism only when delpazolid was combined with vancomycin. In the Galleria mellonella model, combination therapy improved survival over monotherapy. In the clinical study, 40 patients were enrolled, 38 received ≥1 dose (safety set), and 34 (monotherapy: 19; combination: 15) were included in the full analysis set. On day 14, overall cure was 52.6% in the monotherapy and 60.0% in the combination group ( P = 0.6675). Adverse event rates were similar across groups, with no significant safety concerns. In pharmacokinetic analyses, delpazolid showed favorable plasma levels when co-administered. These preliminary findings warrant further investigation in adequately powered trials to define the role of delpazolid plus vancomycin in the treatment of MRSA bacteremia.CLINICAL TRIALSThe study is registered with ClinicalTrial.gov as NCT05225558. Importance Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia presents a serious clinical challenge due to limited treatments and high mortality. This study evaluated the potential role of delpazolid, an oral oxazolidinone, in combination with vancomycin for MRSA bacteremia. Preclinical studies demonstrated delpazolid's antimicrobial activity comparable to vancomycin and daptomycin, and in the Galleria mellonella infection model, combination therapy significantly improved survival rates over monotherapy. The early-terminated Phase IIa clinical study showed that the combination regimen had an acceptable safety profile, with no apparent increase in adverse events compared to vancomycin monotherapy. While overall cure rates and bacteremia clearance were numerically higher in the combination group, these differences were not statistically significant. These preliminary findings underscore the need for larger, adequately powered clinical trials to clarify the clinical role of delpazolid combination therapy in MRSA infections.",
-        "relevancePct": 93,
-        "matchedElements": [
-          "P",
-          "I",
-          "C",
-          "O"
-        ],
-        "design": "Randomized Controlled Trial (RCT)",
-        "lowMetadata": false,
-        "_sig": "94c180a433178755c871b69c8c0f43cf14a3f146c98bd004ca72e7878fc4731f"
-      },
       {
         "pmid": "cr:10.1093/ofid/ofab466.406",
         "title": "204. Clinical Outcomes with Ceftaroline Monotherapy versus Daptomycin-Ceftaroline Combination Therapy in the Treatment of Methicillin-Resistant Staphylococcus aureus Bacteremia",
@@ -244,6 +215,30 @@
         "design": "Randomized Controlled Trial (RCT)",
         "lowMetadata": false,
         "_sig": "de0c6fc8c1ef44e8d4e49a8e717c4eb39da5162654dc0993b4b8b60c3f316e8e"
+      },
+      {
+        "pmid": "cr:10.1080/14787210.2026.2625377",
+        "title": "Comparative effectiveness of ceftaroline plus vancomycin or daptomycin versus vancomycin or daptomycin monotherapy for MRSA bacteremia: an updated systematic review and meta-analysis",
+        "authors": "Mohammad Shahd, Aljumaa Sarah Alhassan, Ghazal Haneen, Alnamous Alyamama",
+        "year": "2026",
+        "journal": "Expert Review of Anti-infective Therapy",
+        "doi": "10.1080/14787210.2026.2625377",
+        "url": "https://doi.org/10.1080/14787210.2026.2625377",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "beb50c6207c4ec49433a6185f2900e0ac448d1d11c4da34c30c814c1d395200b"
       },
       {
         "pmid": "cr:10.1177/87551225241227796",
@@ -369,32 +364,6 @@
         "_sig": "4c73ae76c649b1b7d14f73958277383e8e186558434a64b4e4766ed7262f48d3"
       },
       {
-        "pmid": "40558207",
-        "title": "Use of Daptomycin to Manage Severe MRSA Infections in Humans.",
-        "authors": "Fiore M, Alfieri A, Fiore D, Iuliano P, Spatola FG, Limone A, Pezone I, Leone S.",
-        "year": "2025",
-        "journal": "Antibiotics (Basel, Switzerland)",
-        "doi": "10.3390/antibiotics14060617",
-        "url": "https://europepmc.org/article/PMC/PMC12190081",
-        "source": "pmc",
-        "pubType": "review-article, Review, Journal Article",
-        "publicationTypes": [
-          "review-article",
-          "Review",
-          "Journal Article"
-        ],
-        "context": "Methicillin-resistant Staphylococcus aureus (MRSA) represents a major therapeutic challenge due to its multidrug-resistance and the associated clinical burden. Daptomycin (DAP), a cyclic lipopeptide antibiotic, has become a key agent for the treatment of severe MRSA infections owing to its rapid bactericidal activity and favourable safety profile. In this narrative review, we examine studies published between 2010 and April 2025. The data suggest that treatment with high-dose (8-10 mg kg⁻ 1 ) DAP shortened the time to blood-culture sterilisation by a median of 2 days compared with standard-dose vancomycin without increasing toxicity when model-informed area-under-the-curve monitoring was employed. Particular attention is given to the synergistic effects of DAP combined with fosfomycin or β-lactams, especially ceftaroline and ceftobiprole, in overcoming persistent and refractory MRSA infections; this approach results in a reduction in microbiological failure relative to monotherapy. Resistance remains uncommon ( mprF , liaFSR , and walK underscore the need for proactive genomic surveillance. Despite promising preclinical and clinical evidence supporting combination strategies, further randomized controlled trials are necessary to establish their definitive role in clinical practice, as are head-to-head cost-effectiveness evaluations. DAP remains a critical option in the evolving landscape of MRSA management, provided its use is integrated with precision dosing, resistance surveillance, and antimicrobial-stewardship frameworks.",
-        "relevancePct": 71,
-        "matchedElements": [
-          "P",
-          "I",
-          "C"
-        ],
-        "design": "Narrative Review",
-        "lowMetadata": false,
-        "_sig": "0c64827fad88a1c08359dcfa7edefb8f9044b7dd125424ac4dc724611e7d71c3"
-      },
-      {
         "pmid": "cr:10.1093/ofid/ofad500.247",
         "title": "174. Impact of Ceftaroline Duration after Bacteremia Clearance When Used in Combination Therapy for Persistent or High-grade MRSA Bacteremia",
         "authors": "Cabanilla M Gabriela, Atallah Liana, Bernauer Michael, Briski Matthew",
@@ -467,31 +436,6 @@
         "_sig": "b9c3931da19af922c67d5ce8b0012f8c369deabf87f03edc976c670c1f013a75"
       },
       {
-        "pmid": "41404634",
-        "title": "Successful treatment of methicillin-resistant Staphylococcus aureus osteomyelitis and persistent bacteremia using adjunctive ceftaroline fosamil to vancomycin: A case report.",
-        "authors": "Alomair SM, Sulaiman KA, Khayyat T, Wali H, Bosaeed M.",
-        "year": "2025",
-        "journal": "IDCases",
-        "doi": "10.1016/j.idcr.2025.e02437",
-        "url": "https://europepmc.org/article/PMC/PMC12704323",
-        "source": "pmc",
-        "pubType": "Journal Article, Case Reports, case-report",
-        "publicationTypes": [
-          "Journal Article",
-          "Case Reports",
-          "case-report"
-        ],
-        "context": "Background Ceftaroline fosamil is a novel cephalosporin antibiotic effective against methicillin-resistant Staphylococcus aureus (MRSA). The FDA approved it in 2010 for the treatment of community-acquired pneumonia and acute bacterial skin and skin structure infections. However, there is a lack of comprehensive data evaluating its effectiveness in treating osteomyelitis. Therefore, we report a case of MRSA osteomyelitis with persistent bacteremia, initially treated with vancomycin, where ceftaroline fosamil was subsequently added due to persistently positive blood cultures. Case report We report a case of a 47-year-old male with a medical history of ischemic heart disease, heart failure with reduced ejection fraction, schizophrenia, hypertension, and type 2 diabetes mellitus who was admitted to the ICU with septic shock. Empiric treatment was initiated with meropenem and vancomycin. Vancomycin was given as 1000 mg IV every 24 h (18.8 mg/kg). Dosing was guided by serum vancomycin concentrations, with adjustments made by critical care clinical pharmacists to maintain target levels of 15-20 µg/mL (10-14 µmol/L). Over the following days, the patient was diagnosed with osteomyelitis, confirmed through CT and MRI imaging. Blood cultures subsequently grew MRSA. Despite 18 days of vancomycin therapy, he had persistent bacteremia, and the infectious disease team recommended the addition of ceftaroline fosamil to vancomycin to address the persistent bacteremia. Blood cultures turned negative within 24 h of initiating combination therapy. Conclusion Ceftaroline fosamil shows promise as an adjunct therapy alongside vancomycin for treating osteomyelitis complicated by persistent bacteremia caused by MRSA. Further studies with a larger sample size are needed to refine its application in the management of MRSA osteomyelitis.",
-        "relevancePct": 55,
-        "matchedElements": [
-          "P",
-          "I"
-        ],
-        "design": "Case Report",
-        "lowMetadata": false,
-        "_sig": "3b7e63c6ffbc36c3a5441ebcd34d0caaa74dbd0f8905a54d93539699b655ae0d"
-      },
-      {
         "pmid": "cr:10.1002/ccr3.8486",
         "title": "Daptomycin plus ceftaroline salvage therapy for persistent Staphylococcus epidermidis bacteremia",
         "authors": "Zhang Hayden, Tran Kylie, Lindley Richard, Dotel Ravindra",
@@ -515,6 +459,28 @@
         "_sig": "8621fc356707070f5ff44642bb1d246580b6ac0eb568d23a622d8648c1cc28c6"
       },
       {
+        "pmid": "cr:10.1093/jac/dku322",
+        "title": "Vancomycin plus ceftaroline shows potent in vitro synergy and was successfully utilized to clear persistent daptomycin-non-susceptible MRSA bacteraemia",
+        "authors": "Barber K. E., Rybak M. J., Sakoulas G.",
+        "year": "2014",
+        "journal": "Journal of Antimicrobial Chemotherapy",
+        "doi": "10.1093/jac/dku322",
+        "url": "https://doi.org/10.1093/jac/dku322",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "In Vitro Study",
+        "lowMetadata": false,
+        "_sig": "d3f44b31d20a609ca451ffe34e1d69399be0282019e31fa5851ecee55c4aa92e"
+      },
+      {
         "pmid": "cr:10.1016/j.chest.2024.06.1543",
         "title": "DISSEMINATED MRSA BACTEREMIA TREATED WITH A COMBINATION THERAPY OF CEFTAROLINE AND DAPTOMYCIN",
         "authors": "GUPTA NIKITA, DEVAKUMAR SAHANA, KAUL VIREN",
@@ -535,6 +501,28 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "aa5bd2903286950c3eb9ecd960e158f66838f0ec891e234bd2008347b1361e57"
+      },
+      {
+        "pmid": "cr:10.1016/j.ijantimicag.2023.106735",
+        "title": "Outcomes of Daptomycin Plus Ceftaroline Versus Alternative Therapy for Persistent Methicillin-resistant Staphylococcus aureus (MRSA) Bacteraemia",
+        "authors": "Patel Darshan, Brown Matthew L., Edwards Seth, Oster Robert A.",
+        "year": "2023",
+        "journal": "International Journal of Antimicrobial Agents",
+        "doi": "10.1016/j.ijantimicag.2023.106735",
+        "url": "https://doi.org/10.1016/j.ijantimicag.2023.106735",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "cfe4618f0dc664598d5705711460d6817531e1622bb6bbe790e7c49c27c92c0e"
       },
       {
         "pmid": "cr:10.1097/01.ccm.0000907508.28131.c2",
@@ -579,13 +567,57 @@
         "design": "Observational Study",
         "lowMetadata": false,
         "_sig": "0d11e0975c39db58a869f723682c51849da72691cc3b8f41f3ae93cbb32a4566"
+      },
+      {
+        "pmid": "cr:10.1080/23744235.2018.1448110",
+        "title": "Daptomycin and combination daptomycin-ceftaroline as salvage therapy for persistent methicillin-resistant Staphylococcus aureus bacteremia",
+        "authors": "Cortes-Penfield Nicolas, Oliver Nora T., Hunter Andrew, Rodriguez-Barradas Maria",
+        "year": "2018",
+        "journal": "Infectious Diseases",
+        "doi": "10.1080/23744235.2018.1448110",
+        "url": "https://doi.org/10.1080/23744235.2018.1448110",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "053e2aa8423fa59d5644530613e1b88e09d86dad643cf60c0612903cf766ea61"
+      },
+      {
+        "pmid": "cr:10.2169/internalmedicine.53.2711",
+        "title": "Successful Treatment of Persistent MRSA Bacteremia using High-dose Daptomycin Combined with Rifampicin",
+        "authors": "Hagiya Hideharu, Terasaka Tomohiro, Kimura Kosuke, Satou Asuka",
+        "year": "2014",
+        "journal": "Internal Medicine",
+        "doi": "10.2169/internalmedicine.53.2711",
+        "url": "https://doi.org/10.2169/internalmedicine.53.2711",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "54b6c64e0dc3ab54523daead2c54d9b2859950222cbec912b5e3a072029af26e"
       }
     ],
     "corpusStats": {
-      "retrieved": 30,
-      "screened": 30,
+      "retrieved": 26,
+      "screened": 26,
       "blocked": 0,
-      "returned": 17,
+      "returned": 19,
       "relaxationLevel": 0
     },
     "sources": [
@@ -596,8 +628,8 @@
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 30
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -631,7 +663,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -660,11 +692,11 @@
         "id": "pmc",
         "name": "PMC",
         "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
-        "count": 30,
+        "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
-        "ok": true,
-        "skipped": "none"
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
       },
       {
         "id": "europepmc",
@@ -693,9 +725,10 @@
         "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
       },
       {
         "id": "openalex",
@@ -703,9 +736,10 @@
         "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "OpenAlex HTTP 429"
       },
       {
         "id": "crossref",
@@ -733,9 +767,9 @@
         "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",

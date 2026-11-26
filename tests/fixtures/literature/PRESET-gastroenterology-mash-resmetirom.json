@@ -1,6 +1,6 @@
 {
   "id": "PRESET-gastroenterology-mash-resmetirom",
-  "recordedAt": "2026-11-26T19:52:42.125Z",
+  "recordedAt": "2026-11-26T23:09:50.865Z",
   "specialty": "gastroenterology",
   "words": [
     {
@@ -62,7 +62,7 @@
       "gap": {
         "category": "gap",
         "phrase": "In high-risk subgroups of biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stage fibrosis improvement (O) without additional adverse events (O)?",
-        "basis": "While overall efficacy has 22 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "basis": "While overall efficacy has 16 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
         "supported": true
       }
     },
@@ -75,13 +75,13 @@
     "sources": [
       {
         "id": "pubmed",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 25
       },
       {
         "id": "pmc",
-        "ok": true,
-        "count": 25
+        "ok": false,
+        "count": 0
       },
       {
         "id": "europepmc",
@@ -100,8 +100,8 @@
       },
       {
         "id": "openalex",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 24
       },
       {
         "id": "crossref",
@@ -115,7 +115,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -163,6 +163,56 @@
   "exploreStatus": 200,
   "exploreResponse": {
     "records": [
+      {
+        "pmid": "38324483",
+        "title": "A Phase 3, Randomized, Controlled Trial of Resmetirom in NASH with Liver Fibrosis",
+        "authors": "Stephen A. Harrison, Pierre Bédossa, Cynthia D. Guy, Jörn Markus Schattenberg",
+        "year": "2024",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa2309000",
+        "url": "https://doi.org/10.1056/nejmoa2309000",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Nonalcoholic steatohepatitis (NASH) is a progressive liver disease with no approved treatment. Resmetirom is an oral, liver-directed, thyroid hormone receptor beta-selective agonist in development for the treatment of NASH with liver fibrosis. METHODS: We are conducting an ongoing phase 3 trial involving adults with biopsy-confirmed NASH and a fibrosis stage of F1B, F2, or F3 (stages range from F0 [no fibrosis] to F4 [cirrhosis]). Patients were randomly assigned in a 1:1:1 ratio to receive once-daily resmetirom at a dose of 80 mg or 100 mg or placebo. The two primary end points at week 52 were NASH resolution (including a reduction in the nonalcoholic fatty liver disease [NAFLD] activity score by ≥2 points; scores range from 0 to 8,",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1bea686f9d3dd2dc78163e46c460cfc510afcfbb8bafb6bc8eaf81674a56fae0"
+      },
+      {
+        "pmid": "42527732",
+        "title": "Clinical Trial: Phase 3 Trial of Resmetirom Versus Placebo in Metabolic Dysfunction‐Associated Steatohepatitis—Reanalysis of Fibrosis Stage 2–3 Subset",
+        "authors": "Maria Mironova, Krishna Padmanabhan, David Schneider, Jörn Markus Schattenberg",
+        "year": "2026",
+        "journal": "Alimentary Pharmacology & Therapeutics",
+        "doi": "10.1111/apt.70888",
+        "url": "https://doi.org/10.1111/apt.70888",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Resmetirom is an oral thyroid hormone receptor beta agonist clinically used to treat metabolic dysfunction-associated steatohepatitis (MASH) among adults with stage F2 or F3 fibrosis. AIMS: Because the pivotal, 52-week, randomized, controlled, phase 3 MAESTRO-NASH trial (once-daily oral resmetirom 80 or 100 mg or placebo) included patients with F1, F2, or F3 fibrosis, we conducted a post hoc analysis aimed at assessing treatment response in the subset of patients with stages F2 and F3 fibrosis, consistent with the approved label population. METHODS: Co-primary end points were MASH resolution (hepatocellular ballooning score 0, lobular inflammation score ≤ 1, and ≥ 2-point nonalcoholic fatty liver disease activity score [NAS] reduction from baseline) with no fibrosis worsening, and ≥ 1-stage fibrosis improvement",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "b52c2b48fcf409403dd73ee1bc97aa5784801264bab303c1f3054c55dc26e797"
+      },
       {
         "pmid": "cr:10.20517/mtod.2026.13",
         "title": "Semaglutide in MASH with F2-F3 fibrosis: a holistic perspective on the ESSENCE phase 3 trial",
@@ -238,10 +288,10 @@
       }
     ],
     "corpusStats": {
-      "retrieved": 39,
-      "screened": 39,
+      "retrieved": 46,
+      "screened": 46,
       "blocked": 0,
-      "returned": 3,
+      "returned": 5,
       "relaxationLevel": 2
     },
     "sources": [
@@ -272,8 +322,8 @@
       },
       {
         "id": "openalex",
-        "ok": false,
-        "count": 0
+        "ok": true,
+        "count": 20
       },
       {
         "id": "crossref",
@@ -287,7 +337,7 @@
       },
       {
         "id": "clinicaltrials",
-        "ok": false,
+        "ok": true,
         "count": 0
       },
       {
@@ -331,7 +381,7 @@
         "attempted": false,
         "ok": false,
         "skipped": "cooldown",
-        "error": "Europe PMC HTTP 503"
+        "error": "The operation was aborted due to timeout"
       },
       {
         "id": "googlescholar",
@@ -358,12 +408,11 @@
         "id": "openalex",
         "name": "OpenAlex",
         "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
-        "count": 0,
+        "count": 20,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown",
-        "error": "OpenAlex HTTP 429"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "crossref",
@@ -391,9 +440,9 @@
         "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
-        "ok": false,
-        "skipped": "cooldown"
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
       },
       {
         "id": "cochrane",
@@ -401,9 +450,10 @@
         "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": false,
+        "attempted": true,
         "ok": false,
-        "skipped": "cooldown"
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
       },
       {
         "id": "preprints",
@@ -411,10 +461,10 @@
         "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
         "count": 0,
         "date": "2026-11-26",
-        "attempted": true,
+        "attempted": false,
         "ok": false,
-        "skipped": "none",
-        "error": "Europe PMC Preprints HTTP 503"
+        "skipped": "cooldown",
+        "error": "The operation was aborted due to timeout"
       }
     ],
     "hasMore": true
