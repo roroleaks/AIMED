@@ -1,0 +1,644 @@
+{
+  "id": "PRESET-pediatrics-bronchiolitis-hfnc",
+  "recordedAt": "2026-11-26T19:43:10.691Z",
+  "specialty": "pediatrics",
+  "words": [
+    {
+      "word": "infants under 12 months, acute viral bronchiolitis",
+      "role": "population"
+    },
+    {
+      "word": "high-flow nasal cannula (HFNC) therapy",
+      "role": "intervention"
+    },
+    {
+      "word": "standard low-flow oxygen therapy",
+      "role": "comparator"
+    },
+    {
+      "word": "treatment failure requiring respiratory support escalation",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "infants under 12 months, acute viral bronchiolitis",
+        "role": "population"
+      },
+      {
+        "word": "high-flow nasal cannula (HFNC) therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "standard low-flow oxygen therapy",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure requiring respiratory support escalation",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In infants under 12 months, acute viral bronchiolitis (P), does high-flow nasal cannula (HFNC) therapy (I) compared with standard low-flow oxygen therapy (C) reduce treatment failure requiring respiratory support escalation (O)?",
+        "basis": "Screened literature contains 2 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In infants under 12 months, acute viral bronchiolitis (P), is high-flow nasal cannula (HFNC) therapy (I) superior to standard low-flow oxygen therapy (C) for treatment failure requiring respiratory support escalation (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of infants under 12 months, acute viral bronchiolitis (P), does high-flow nasal cannula (HFNC) therapy (I) compared with standard low-flow oxygen therapy (C) reduce treatment failure requiring respiratory support escalation (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In infants under 12 months, acute viral bronchiolitis (P), does high-flow nasal cannula (HFNC) therapy (I) compared with standard low-flow oxygen therapy (C) reduce treatment failure requiring respiratory support escalation (O)?"
+    },
+    "words": [
+      {
+        "word": "infants under 12 months, acute viral bronchiolitis",
+        "role": "population"
+      },
+      {
+        "word": "high-flow nasal cannula (HFNC) therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "standard low-flow oxygen therapy",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure requiring respiratory support escalation",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42387462",
+        "title": "Efficacy and safety of high-flow nasal cannula versus continuous positive airway pressure and conventional oxygen therapies in pediatric acute respiratory failure: a systematic review and meta-analysis.",
+        "authors": "Memar EHE, Shirzadi R, Rahsepar NS, Ashtari S.",
+        "year": "2026",
+        "journal": "BMC pediatrics",
+        "doi": "10.1186/s12887-026-07220-8",
+        "url": "https://europepmc.org/article/PMC/PMC13617689",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Comparative Study, research-article, Systematic Review, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Comparative Study",
+          "research-article",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "context": "Background Pediatric acute respiratory failure (ARF) is a significant clinical challenge, often requiring respiratory support. While Continuous Positive Airway Pressure (CPAP) and conventional oxygen therapy (COT) are standard treatments, High-Flow Nasal Cannula (HFNC) has emerged as a promising non-invasive alternative, though its benefits remain unclear. This study aimed to compare the efficacy and safety of HFNC versus CPAP and COT in treating pediatric ARF. Methods A literature search was conducted in Embase, PubMed, Cochrane Library, Scopus, and Web of Science until June 15, 2026. Randomized controlled trials (RCTs) comparing HFNC with CPAP and COT in children with ARF secondary to acute severe asthma, bronchiolitis, or pneumonia were included. Primary outcomes were treatment failure and intubation rates; secondary outcomes included oxygen therapy duration, pediatric intensive care unit (PICU) length of stay (LOS), hospital LOS, and mortality. Quality assessment used the Cochrane Risk of Bias Tool, and a random-effects meta-analysis was performed to calculate pooled odds ratios (ORs) and mean differences (MDs). Results A total of 22 RCTs involving 6,641 children were included in this analysis. Compared to COT, HFNC was associated with a significantly lower risk of treatment failure (OR: 0.509, 95% CI: 0.42-0.61). However, there were no significant differences in intubation rates (OR: 0.796, 95% CI: 0.39-1.63) or hospital mortality (OR: 0.654, 95% CI: 0.4-1.06) between the HFNC and COT groups. Compared to CPAP, HFNC showed increased risks for treatment failure (OR: 1.343, 95% CI: 0.75-2.4), intubation rates (OR: 1.044, 95% CI: 0.58-1.89), and hospital mortality (OR: 3.11, 95% CI: 0.96-10.1), although these increases did not reach statistical significance (P > 0.05). Additionally, there were no significant differences in the duration of oxygen therapy, pediatric PICU LOS, or hospital LOS between HFNC and either CPAP or COT. Conclusions HFNC significantly reduces the risk of treatment failure compared to conventional oxygen therapy in children with ARF, though it does not differ significantly from CPAP regarding intubation rates or hospital mortality. Further research is necessary to clarify its relative efficacy and safety in comparison to CPAP. Clinical trial registration CRD420250652913.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "f59560104bc0f1b4948e6e6d87cd7546bfb0db9c951fd49fbf6d01af48bea554"
+      },
+      {
+        "pmid": "42723831",
+        "title": "Comparison Between High-Flow Nasal Cannula (HFNC) Therapy and Noninvasive Ventilation (NIV) in Children With Bronchiolitis-Associated Acute Respiratory Failure: A Systematic Review and Meta-Analysis.",
+        "authors": "Fardan ZH, Abu Ayish A, AlQahtani RH, Naser NM, Alali N, Aldabli A, Alghamdi AA, Alghayyadh S, Alahmri MN, Bakhsh AK, Al",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.114308",
+        "url": "https://europepmc.org/article/PMC/PMC13557933",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "The optimal noninvasive respiratory support for infants and children with severe viral bronchiolitis remains unclear. While continuous positive airway pressure (CPAP) has traditionally been considered the gold standard, high-flow nasal cannula (HFNC) therapy is a better-tolerated alternative. This systematic review and meta-analysis aimed to evaluate the comparative efficacy and safety of HFNC versus noninvasive ventilation (NIV) in pediatric patients with bronchiolitis-associated acute respiratory failure. We searched major electronic databases through June 2026. We included randomized controlled trials (RCTs) and observational cohorts comparing HFNC with NIV (CPAP/bilevel positive airway pressure (BiPAP)). The primary outcomes were treatment failure, as defined by the individual studies, and endotracheal intubation. Data were synthesized using random-effects models, and heterogeneity was explored via subgroup analysis and meta-regression. Eleven studies (seven RCTs and four observational studies) comprising 7,574 patients were included. There was no statistically significant difference in the overall risk of treatment failure between HFNC and NIV (RR 1.99, 95% CI 0.65-6.10); however, study design was a significant moderator (p = 0.0019). Observational studies reported significantly higher failure rates with HFNC (RR 7.78), whereas RCTs showed no significant difference (RR 1.11). There were no significant differences in endotracheal intubation rates (RR 0.75, 95% CI 0.51-1.09) or pediatric intensive care unit length of stay (MD -0.16 days, 95% CI -0.79 to 0.47) between the groups. HFNC demonstrated a trend toward fewer local adverse events, such as nasal/skin trauma (RR 0.30, 95% CI 0.06-1.52), than did NIV. The certainty of evidence according to GRADE was low for all outcomes. HFNC showed no significant differences from NIV in critical clinical endpoints, including intubation rates and intensive care duration. Differences in treatment failure rates appeared to be influenced by study design, highlighting potential confounding by indication in observational data. Given its improved tolerability and trend toward reduced mucosal trauma, HFNC may represent a viable first-line noninvasive intervention for pediatric bronchiolitis.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "94be62dcde26b6a4ed159eda8a3eced48c03ecfd3073eb86b5cdbec7100d69a7"
+      },
+      {
+        "pmid": "cr:10.69849/rq8zym58",
+        "title": "Uso da cânula nasal de alto fluxo no tratamento da bronquiolite aguda em lactentes",
+        "authors": "Almeida Yssis Kamille Dias, Roiz Roberta de Melo",
+        "year": "2026",
+        "journal": "Revista ft",
+        "doi": "10.69849/rq8zym58",
+        "url": "https://doi.org/10.69849/rq8zym58",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Acute viral bronchiolitis is a leading cause of hospital admission in infants; in severe cases, it can progress to respiratory distress requiring ventilatory support. Given this, high-flow nasal cannula (HFNC)—a therapy that delivers a heated and humidified mixture of air and oxygen—has been adopted as a respiratory support strategy. This study aims to analyze the role of HFNC as a respiratory support strategy in the clinical management of acute viral bronchiolitis in infants and to describe the physiological mechanisms involved in this therapy. This is an integrative literature review, employing a qualitative approach and a descriptive focus, with data collected from the PubMed, Virtual Health Library (VHL), Cochrane Library, and Physiotherapy Evidence Database (PEDro) databases. Following the application of inclusion and exclusion criteria, six articles were analyzed, consisting of four randomized clinical trials and two systematic reviews. The findings indicate that HFNC therapy prevents clinical deterioration and the need for treatment escalation when low-flow oxygen therapy is insufficient. Regarding comparisons with continuous positive airway pressure (CPAP), the studies reached varying conclusions. It is concluded that HFNC is an effective resource for infants with acute viral bronchiolitis, particularly as a subsequent step following low-flow oxygen therapy; however, its use as an alternative to CPAP requires further investigation through larger, multicenter clinical trials.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "9141e8123aa18349eaa075a7616b287ed13a37080779f91c6624c451aaa09f44"
+      },
+      {
+        "pmid": "38197495",
+        "title": "ROX (Respiratory rate–OXygenation) index to predict early response to high‐flow nasal cannula therapy in infants with viral bronchiolitis",
+        "authors": "Christophe Milési, Erika Nogué, Julien Frederic Baleine, Lionel Moulis",
+        "year": "2024",
+        "journal": "Pediatric Pulmonology",
+        "doi": "10.1002/ppul.26860",
+        "url": "https://doi.org/10.1002/ppul.26860",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: High-flow nasal cannula (HFNC) is commonly used as first step respiratory support in infants with moderate-to-severe acute viral bronchiolitis (AVB). This device, however, fails to effectively manage respiratory distress in about a third of patients, and data are limited on determinants of patient response. The respiratory rate-oxygenation (ROX) index is a relevant tool to predict the risk for HFNC failure in adult patients with lower respiratory tract infections. The primary objective of this study was to assess the relationship between ROX indexes collected before and 1 h after HFNC initiation, and HFNC failure occurring in the following 48 h in infants with AVB. METHOD: This is an ancillary study to the multicenter randomized controlled trial TRAMONTANE 2, that included",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "72600ed2d409d128d0ced4dd8697f3b8c875b7a99cfbd1cbe4b33d43f17d4cc6"
+      },
+      {
+        "pmid": "doi:10.1186/s12887-026-06562-7",
+        "title": "Burden, risk factors, and outcomes respiratory syncytial virus (RSV) infection in pediatric intensive care units in Türkiye (RSVP Study 2020-2024)",
+        "authors": "Yasemin Coban, Gultac Evren, Dincer Yildizdas, Neslihan Zengin",
+        "year": "2026",
+        "journal": "BMC Pediatrics",
+        "doi": "10.1186/s12887-026-06562-7",
+        "url": "https://doi.org/10.1186/s12887-026-06562-7",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Respiratory syncytial virus (RSV) is one of the leading causes of respiratory tract infections in infants and young children requiring a pediatric intensive care unit (PICU). This study aimed to characterize the clinical features, complications, co-infections, and risk factors associated with RSV-related morbidity and mortality in a large PICU cohort over five years. Methods This is a retrospective multicenter study to evaluate medical records of patients with RSV infection admitted to the PICUs in Türkiye between 2020 and 2024, including the COVID-19 pandemic. Clinical data, co-morbidities, complications, and outcomes were analyzed. Logistic regression was performed to identify factors associated with mortality. Results During the study period, medical records of 646 children (360 boys, 286 girls, 70% younger than 12 months; 70.6% previously healthy) were evaluated. Of the total, 388 patients were delivered by cesarean section, and 139 were born preterm (21.5%; mean gestational age: 32.9 ± 2.96 weeks). A history of newborn intensive care unit admission was present in 174 cases (26.9%). Underlying disease was identified in 190 children (29.4%), and congenital heart disease in 58 (9.0%). Most of them had pneumonia (59.8%) or bronchiolitis (38.1%). Complications included pleural effusion (n = 8), pneumothorax (n = 8), central nervous system involvement (n = 19), apnea (n = 10), and myocarditis (n = 5). Pediatric Acute Respiratory Distress Syndrome (pARDS) occurred in 82 patients (12.7%) and eight pARDS cases (9.8%) resulted in death. The number of pARDS admissions was low during the initial phase of the pandemic, and we observed a resurgence in 2022–2024, peaking in November-December every year. Respiratory co-pathogens were detected in 169 patients (26.2%). The most frequent viral co-infections were rhinovirus/enterovirus (n = 57), influenza A (n = 23), coronavirus NL63/OC43/HKU (n = 17), adenovirus (n = 15), and SARS-CoV-2 (n = 12). Bacterial and fungal secondary infections were identified in 49 patients, most commonly Streptococcus pneumoniae (n = 10) and Pseudomonas aeruginosa (n = 10). During PICU admission, 381 patients required high-flow nasal cannula, 57 non-invasive ventilation, and 106 invasive mechanical ventilation (IMV). Over the clinical course, 165 patients (25.5%) required IMV. The median PICU stay was 6 days. Overall mortality rate was 5.4%, mainly in children with the presence of underlying conditions. Logistic regression revealed that the presence of an underlying disease significantly increased mortality risk (OR 3.15, p < 0.01) and this association remained significant in infants under one year (OR 3.57, p < 0.01). Conclusion Most children admitted to the PICU due to RSV infection were under one year of age and previously healthy, while mortality was associated with underlying conditions. pARDS is an important clinical picture in the PICU. Secondary infections are common and may complicate disease progression. Monitoring RSV cases in the PICU can be used as a probe for determining the burden of disease and economic cost in the country and for potential treatment and prevention strategies.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "a76e3af60a94d37c9e1d1f3c8f4998cd45de3453b328b6bda09e17ea3eef5c65"
+      },
+      {
+        "pmid": "42603895",
+        "title": "Demographic and Clinical Determinants of Acute Bronchiolitis Outcomes in a Tertiary Pediatric Hospital in Dubai, United Arab Emirates.",
+        "authors": "Helali H, Hashmath A, Khan B, Mazahir F.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.112747",
+        "url": "https://europepmc.org/article/PMC/PMC13476164",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Bronchiolitis is a lower respiratory tract infection that affects children under two years of age and is considered a cause of increased morbidity and healthcare costs, especially during the winter season. Despite its global burden, evidence on how local demographic or clinical factors influence outcomes in Middle Eastern populations remains limited. Objectives This study aims to examine the descriptive epidemiology and different demographic and clinical characteristics of patients admitted with bronchiolitis, and to evaluate exploratory associations between these characteristics and various clinical outcomes, including duration of hospital admission, need for pediatric intensive care unit (PICU) admission, and need for invasive oxygen supplementation. Methods This retrospective study included all infants aged 1-24 months who were admitted with bronchiolitis between October 1, 2022, and March 31, 2023. Electronic records from Cerner and Salama (Epic) were screened. Variables extracted included age at presentation, sex, nationality, gestational age, feeding type, family history of atopy, viral PCR results, initial oxygen saturation, and therapies received. Primary outcomes were PICU admission, maximum oxygen support, and length of stay. Associations were assessed using chi‑square or Fisher's exact tests for categorical variables and Mann-Whitney U tests for continuous variables, with significance set at p Results Of 1,804 screened encounters, 232 patients were eligible for the study. The mean (± SD) age was 6.6 ± 5.2 months, and 138 patients (59.5%) were male. Respiratory syncytial virus (RSV) was detected in 101 patients (43.5%), rhinovirus/enterovirus in 29 patients (12.5%), and mixed/other viruses in 53 patients (22.8%). A high-flow nasal cannula was used in 87 cases (37.5%), but only 14 patients (6.1%) required PICU admission. None of the demographic or clinical factors showed a statistically significant effect on the chance of PICU admission or oxygen requirement. A family history of atopy was the only factor associated with a shorter length of stay (Mann-Whitney U = 2503.5; p = 0.008). Steroid therapy was more frequently administered to infants requiring greater oxygen support (chi-square = 13.971; p Conclusions In this cohort from the United Arab Emirates, bronchiolitis outcomes were largely independent of demographic factors, viral etiology, or corticosteroid use. Adherence to international guidelines, which advocate for supportive care and discourage the routine use of glucocorticoids or bronchodilators, is likely to improve resource utilization without compromising outcomes.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "bd553ee2905cd34402ce1ff61166e806ace07a8e03a5708830fc3fcbe781a61c"
+      },
+      {
+        "pmid": "39969010",
+        "title": "Predictive factors for high-flow nasal cannula failure in patients with acute viral bronchiolitis admitted to the pediatric intensive care unit",
+        "authors": "Patrick Jacobsen Westphal, Cassiano Teixeira, João Ronaldo Mafalda Krauzer, Mirelle Hugo Bueno",
+        "year": "2025",
+        "journal": "Critical Care Science",
+        "doi": "10.62675/2965-2774.20250161",
+        "url": "https://doi.org/10.62675/2965-2774.20250161",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To identify predictive factors for failure in the installation of high-flow nasal cannulas in children diagnosed with acute viral bronchiolitis under 24 months of age admitted to the pediatric intensive care unit. METHODS: This work was a retrospective single-center cohort study conducted from March 2018 to July 2023 involving infants under 24 months of age who were diagnosed with acute viral bronchiolitis and who received high-flow nasal cannulas upon admission to the pediatric intensive care unit. Patients were categorized into two groups, the Success Group and Failure Group, on the basis of high-flow nasal cannula therapy efficacy. The primary outcome was treatment failure, which was defined as the transition to invasive or noninvasive ventilation. The analyzed variables included age,",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "9c6fa16cb8c9409e6b4cc9538a72cba473766c992d7085248096b5cfe7a5cb3d"
+      },
+      {
+        "pmid": "39570893",
+        "title": "“Comparative analysis of predictors of failure for high-flow nasal cannula in bronchiolitis”",
+        "authors": "Ana Carolina Etrusco Zaroni Santos, Carolina Marques Caiado, Alessandra Geisler Daud Lopes, Gabriela Cunha de França",
+        "year": "2024",
+        "journal": "PLoS ONE",
+        "doi": "10.1371/journal.pone.0309523",
+        "url": "https://doi.org/10.1371/journal.pone.0309523",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To assess a comparative analysis of the ROX index, Wood-Downes-Ferrés score (WDF), p-ROXI, and the SpO2/FiO2 ratio as predictors of high-flow nasal cannula (HFNC) failure in children hospitalized for bronchiolitis. METHODS: Data were extracted from the clinical trial \"Comparison between HFNC and NIV in children with acute respiratory failure caused by bronchiolitis\" conducted at a tertiary Brazilian hospital (Emergency Department and PICU). The inclusion criteria were children under 2 years of age admitted for bronchiolitis who developed mild to moderate respiratory distress and were eligible for HFNC therapy. Performance was determined by ROC and AUC metrics to define the best sensitivity and specificity for each variable. Children were evaluated at 0 h, 2 h, 6 h, 12 h, 24",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Diagnostic Accuracy Study",
+        "lowMetadata": false,
+        "_sig": "fb66da395e8323f899406d72b6a1c57525cf46c63b7fabf265b7f24d01abf147"
+      },
+      {
+        "pmid": "42261784",
+        "title": "High‐Flow Nasal Cannula and Continuous Positive Airway Pressure in Infants With Acute Bronchiolitis—Trends of Use in Norway",
+        "authors": "Knut Asbjørn Alexander Øymar, Joel Pradeepkumar Selvakumar, Maren Våland Øymar, Ingvild Dalen",
+        "year": "2026",
+        "journal": "Acta Paediatrica",
+        "doi": "10.1111/apa.70643",
+        "url": "https://doi.org/10.1111/apa.70643",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIM: High-flow nasal cannula (HFNC) and continuous positive airway pressure (CPAP) are options for respiratory support in infants with bronchiolitis. The aim of this study was to evaluate the use of HFNC and CPAP in infants with bronchiolitis at five hospitals in Norway to study time trends over seasons and differences in use between hospitals. METHODS: In this multicentre retrospective study, we compared data from 1186 infants < 12 months of age hospitalized for bronchiolitis at five Norwegian hospitals during the winter seasons 2017-2018, 2018-2019, and 2021-2022. RESULTS: Over the three seasons, HFNC was provided to 29%-33% and CPAP to 8%-18% of all infants, but with a substantial difference between hospitals for both modalities. The change between seasons was less",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "fbcb46e6b217c86449ff701297e173668dc753d732c8a59f3f767936a96acb4f"
+      },
+      {
+        "pmid": "cr:10.1016/j.jped.2017.04.004",
+        "title": "Heliox delivered by high flow nasal cannula improves oxygenation in infants with respiratory syncytial virus acute bronchiolitis",
+        "authors": "Seliem Wael, Sultan Amira M.",
+        "year": "2018",
+        "journal": "Jornal de Pediatria",
+        "doi": "10.1016/j.jped.2017.04.004",
+        "url": "https://doi.org/10.1016/j.jped.2017.04.004",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 46,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1d8275d0b798502c1111f7ea5ff8cf544ba6ea55cee89e3ac95bdcc4922fc14e"
+      },
+      {
+        "pmid": "cr:10.62675/2965-2774.20250115",
+        "title": "To: Predictive factors for high-flow nasal cannula failure in patients with acute viral bronchiolitis admitted to the pediatric intensive care unit",
+        "authors": "Ayad Michael, Lorking Hannah, Gupta Vishal",
+        "year": "2025",
+        "journal": "Critical Care Science",
+        "doi": "10.62675/2965-2774.20250115",
+        "url": "https://doi.org/10.62675/2965-2774.20250115",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "472d0fc952634604d0ec19b7893c7e4236a29aae949c1c0cea9496722f115a14"
+      },
+      {
+        "pmid": "cr:10.4103/jpcc.jpcc_81_20",
+        "title": "High-flow nasal cannula for acute viral bronchiolitis in children: Worth a high five",
+        "authors": "Bhalala UtpalS",
+        "year": "2020",
+        "journal": "Journal of Pediatric Critical Care",
+        "doi": "10.4103/jpcc.jpcc_81_20",
+        "url": "https://doi.org/10.4103/jpcc.jpcc_81_20",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "6b1362cec90acd376f24e13032bc0f588872cbbfddfe412311aac8d6e32632af"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 12,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "infants under 12 months, acute viral bronchiolitis high-flow nasal cannula (HFNC) therapy standard low-flow oxygen therapy treatment failure requiring respiratory support escalation",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      }
+    ],
+    "hasMore": false
+  }
+}

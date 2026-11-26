@@ -1,0 +1,567 @@
+{
+  "id": "PRESET-gastroenterology-cirrhosis-early-tips",
+  "recordedAt": "2026-11-26T19:53:29.598Z",
+  "specialty": "gastroenterology",
+  "words": [
+    {
+      "word": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C",
+      "role": "population"
+    },
+    {
+      "word": "early preemptive TIPS within 72 hours",
+      "role": "intervention"
+    },
+    {
+      "word": "standard medical therapy (vasoactive drugs) plus endoscopic band ligation",
+      "role": "comparator"
+    },
+    {
+      "word": "treatment failure and 6-week all-cause mortality",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C",
+        "role": "population"
+      },
+      {
+        "word": "early preemptive TIPS within 72 hours",
+        "role": "intervention"
+      },
+      {
+        "word": "standard medical therapy (vasoactive drugs) plus endoscopic band ligation",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure and 6-week all-cause mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), does early preemptive TIPS within 72 hours (I) compared with standard medical therapy (vasoactive drugs) plus endoscopic band ligation (C) reduce treatment failure and 6-week all-cause mortality (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), is early preemptive TIPS within 72 hours (I) superior to standard medical therapy (vasoactive drugs) plus endoscopic band ligation (C) for treatment failure and 6-week all-cause mortality (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), does early preemptive TIPS within 72 hours (I) compared with standard medical therapy (vasoactive drugs) plus endoscopic band ligation (C) reduce treatment failure and 6-week all-cause mortality (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 13 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), does early preemptive TIPS within 72 hours (I) compared with standard medical therapy (vasoactive drugs) plus endoscopic band ligation (C) reduce treatment failure and 6-week all-cause mortality (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C",
+        "role": "population"
+      },
+      {
+        "word": "early preemptive TIPS within 72 hours",
+        "role": "intervention"
+      },
+      {
+        "word": "standard medical therapy (vasoactive drugs) plus endoscopic band ligation",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure and 6-week all-cause mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "32980344",
+        "title": "Effects of Early Placement of Transjugular Portosystemic Shunts in Patients With High-Risk Acute Variceal Bleeding: a Meta-analysis of Individual Patient Data",
+        "authors": "Nicoară-Farcău O, et al",
+        "year": "2021",
+        "journal": "Gastroenterology",
+        "doi": "10.1053/j.gastro.2020.09.026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32980344/",
+        "context": "BACKGROUND &amp; AIMS: Compared with drugs plus endoscopy, placement of transjugular portosystemic shunt within 72 hours of admission to the hospital (early or preventive transjugular intrahepatic portosystemic shunt [TIPS], also called preemptive TIPS) increases the proportion of high-risk patients with cirrhosis and acute variceal bleeding who survive for 1 year. However, the benefit of preemptive TIPS is less clear for patients with a Child-Pugh score of B and active bleeding (CP-B+AB). We performed an individual data meta-analysis to assess the efficacy of preemptive TIPS in these patients and identify factors associated with reduced survival of patients receiving preemptive TIPS. METHODS: We searched publication databases for randomized controlled trials and observational studies comparing the effects of preemptive TIPS versus endoscopy plus nonselective beta-blockers in the specific population of high-risk patients with cirrhosis and acute variceal bleeding (CP-B+AB or Child-Pugh C, below 14 points), through December 31, 2019. We performed a meta-analysis of data from 7 studies (3 randomized controlled trials and 4 observational studies), comprising 1327 patients (310 received preemptive TIPS and 1017 received drugs plus endoscopy). We built adjusted models to evaluate risk using propensity score for baseline covariates. Multivariate Cox regression models were used to assess the factors associated with survival time. The primary endpoint was effects of preemptive TIPS versus drugs plus endoscopy on 1-year survival in the overall population as well as CP-B+AB and Child-Pugh C patients. RESULTS: Overall, preemptive TIPS significantly increased the proportion of high-risk patients with cirrhosis and acute variceal bleeding who survived for 1 year, compared with drugs plus endoscopy (hazard ratio [HR] 0.443; 95% CI 0.323-0.607; P < .001). This effect was observed in CP-B+AB patients (HR 0.524; 95% CI 0.307-0.896; P = .018) and in patients with Child-Pugh C scores below 14 points (HR 0.374; 95% CI 0.253-0.553; P < .001). Preemptive TIPS significantly improved control of bleeding and ascites without increasing risk of hepatic encephalopathy in Child-Pugh C and CP-B+AB patients, compared with drugs plus endoscopy. Cox analysis of patients who received preemptive TIPS showed that patients could be classified into 3 categories for risk of death, based on age, serum level of creatinine, and Child-Pugh score. In each of these risk categories, preemptive TIPS increased the proportion of patients who survived for 1 year, compared with drugs plus endoscopy. CONCLUSIONS: In a meta-analysis of data from 1327 patients with cirrhosis, acute variceal bleeding, and Child-Pugh score between 10 and 13 points or CP-B+AB, preemptive TIPS increased the proportion who survived for 1 year, in both subgroups separately, compared with drugs plus endoscopy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "39ed876a7417c1f47e3a350583a5f5cccca9054f462e2c2d240f2dcf2644005a"
+      },
+      {
+        "pmid": "42492543",
+        "title": "[Endoscopic and Interventional Therapy of Acute Variceal Bleeding: Endoscopy, EUS, TIPS and BRTO]",
+        "authors": "Praktiknjo M, Meyer C",
+        "year": "2026",
+        "journal": "Zeitschrift fur Gastroenterologie",
+        "doi": "10.1055/a-2894-2004",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42492543/",
+        "context": "Acute variceal bleeding is a time-critical gastroenterological emergency requiring a structured interdisciplinary approach. When variceal bleeding is suspected, vasoactive therapy and intravenous antibiotics should be started before endoscopy; in hemodynamically stable patients, esophagogastroduodenoscopy should be performed within 12 hours. Endoscopic hemostasis depends on the bleeding site: endoscopic variceal ligation is preferred for esophageal varices, whereas (n-butyl-2-)cyanoacrylate injection is standard for fundal or gastric varices. In specialized centers, endohepatology broadens treatment options: EUS-guided coil deployment combined with cyanoacrylate allows targeted obliteration of gastric varices (GOV2, IGV), particularly when TIPS is not feasible. High-risk patients (Child-Pugh B >7 with active bleeding at index endoscopy or Child-Pugh C <14) benefit from pre-emptive TIPS within 72 hours if no contraindications exist. In primary treatment failure, eligibility for salvage TIPS and transfer to an expert center should be assessed early; a fully covered self-expanding esophageal metal stent can bridge refractory esophageal variceal bleeding. If TIPS or EUS are not an option, BRTO is increasingly relevant-when anatomy is suitable, especially with a gastrorenal shunt-for GOV2, isolated gastric and ectopic varices. Die akute variköse Blutung ist ein zeitkritischer gastroenterologischer Notfall und erfordert ein strukturiertes interdisziplinäres Vorgehen. Bereits bei Verdacht sollen vor der Endoskopie eine vasoaktive Therapie und intravenöse Antibiotikagabe beginnen; bei hämodynamischer Stabilität sollte die Ösophago-Gastro-Duodenoskopie innerhalb von 12 Stunden erfolgen. Die endoskopische Blutstillung richtet sich nach der Lokalisation: Ösophagusvarizen werden bevorzugt mittels Gummibandligatur behandelt, Fundus- bzw. gastrische Varizen mittels (n-Butyl-2-)Cyanoacrylat-Injektion. In spezialisierten Zentren ergänzt die Endohepatologie das Spektrum: EUS-gesteuerte Coil-Implantation kombiniert mit Cyanoacrylat ermöglicht eine gezielte Obliteration gastrischer Varizen (GOV2, IGV), besonders bei fehlender TIPS-Option. Hochrisikopatienten (Child-Pugh B >7 mit aktiver Blutung in der Indexendoskopie oder Child-Pugh C <14) profitieren bei fehlenden Kontraindikationen von einem präemptiven TIPS innerhalb von 72 Stunden. Bei primärem Therapieversagen sind früh Salvage-TIPS-Eignung und ggf. Zentrumstransfer zu prüfen; als Bridging bei refraktärer Ösophagusvarizenblutung dient ein voll gecoverter selbstexpandierender Ösophagusmetallstent. Bei fehlender TIPS- und EUS-Option gewinnt, bei geeigneter Anatomie insbesondere mit gastrorenalem Shunt, die BRTO für GOV2, isolierte gastrische und ektope Varizen an Bedeutung.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Review",
+          "English Abstract"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "e6f4732eef5c29b5b99df08c000c4cbaaad432b988423110d89d67d4c09d056c"
+      },
+      {
+        "pmid": "36174643",
+        "title": "Endoscopic diagnosis and management of esophagogastric variceal hemorrhage: European Society of Gastrointestinal Endoscopy (ESGE) Guideline",
+        "authors": "Gralnek IM, et al",
+        "year": "2022",
+        "journal": "Endoscopy",
+        "doi": "10.1055/a-1939-4887",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36174643/",
+        "context": "1: ESGE recommends that patients with compensated advanced chronic liver disease (ACLD; due to viruses, alcohol, and/or nonobese [BMI < 30 kg/m 2 ] nonalcoholic steatohepatitis) and clinically significant portal hypertension (hepatic venous pressure gradient [HVPG] > 10 mmHg and/or liver stiffness by transient elastography > 25 kPa) should receive, if no contraindications, nonselective beta blocker (NSBB) therapy (preferably carvedilol) to prevent the development of variceal bleeding.Strong recommendation, moderate quality evidence. 2: ESGE recommends that in those patients unable to receive NSBB therapy with a screening upper gastrointestinal (GI) endoscopy that demonstrates high risk esophageal varices, endoscopic band ligation (EBL) is the endoscopic prophylactic treatment of choice. EBL should be repeated every 2-4 weeks until variceal eradication is achieved. Thereafter, surveillance EGD should be performed every 3-6 months in the first year following eradication.Strong recommendation, moderate quality evidence. 3: ESGE recommends, in hemodynamically stable patients with acute upper GI hemorrhage (UGIH) and no history of cardiovascular disease, a restrictive red blood cell (RBC) transfusion strategy, with a hemoglobin threshold of ≤ 70 g/L prompting RBC transfusion. A post-transfusion target hemoglobin of 70-90 g/L is desired.Strong recommendation, moderate quality evidence. 4 : ESGE recommends that patients with ACLD presenting with suspected acute variceal bleeding be risk stratified according to the Child-Pugh score and MELD score, and by documentation of active/inactive bleeding at the time of upper GI endoscopy.Strong recommendation, high quality of evidence. 5 : ESGE recommends the vasoactive agents terlipressin, octreotide, or somatostatin be initiated at the time of presentation in patients with suspected acute variceal bleeding and be continued for a duration of up to 5 days.Strong recommendation, high quality evidence. 6 : ESGE recommends antibiotic prophylaxis using ceftriaxone 1 g/day for up to 7 days for all patients with ACLD presenting with acute variceal hemorrhage, or in accordance with local antibiotic resistance and patient allergies.Strong recommendation, high quality evidence. 7 : ESGE recommends, in the absence of contraindications, intravenous erythromycin 250 mg be given 30-120 minutes prior to upper GI endoscopy in patients with suspected acute variceal hemorrhage.Strong recommendation, high quality evidence. 8 : ESGE recommends that, in patients with suspected variceal hemorrhage, endoscopic evaluation should take place within 12 hours from the time of patient presentation provided the patient has been hemodynamically resuscitated.Strong recommendation, moderate quality evidence. 9 : ESGE recommends EBL for the treatment of acute esophageal variceal hemorrhage (EVH).Strong recommendation, high quality evidence. 10 : ESGE recommends that, in patients at high risk for recurrent esophageal variceal bleeding following successful endoscopic hemostasis (Child-Pugh C ≤ 13 or Child-Pugh B > 7 with active EVH at the time of endoscopy despite vasoactive agents, or HVPG > 20 mmHg), pre-emptive transjugular intrahepatic portosystemic shunt (TIPS) within 72 hours (preferably within 24 hours) must be considered.Strong recommendation, high quality evidence. 11 : ESGE recommends that, for persistent esophageal variceal bleeding despite vasoactive pharmacological and endoscopic hemostasis therapy, urgent rescue TIPS should be considered (where available).Strong recommendation, moderate quality evidence. 12 : ESGE recommends endoscopic cyanoacrylate injection for acute gastric (cardiofundal) variceal (GOV2, IGV1) hemorrhage.Strong recommendation, high quality evidence. 13: ESGE recommends endoscopic cyanoacrylate injection or EBL in patients with GOV1-specific bleeding.Strong recommendations, moderate quality evidence. 14: ESGE suggests urgent rescue TIPS or balloon-occluded retrograde transvenous obliteration (BRTO) for gastric variceal bleeding when there is a failure of endoscopic hemostasis or early recurrent bleeding.Weak recommendation, low quality evidence. 15: ESGE recommends that patients who have undergone EBL for acute EVH should be scheduled for follow-up EBLs at 1- to 4-weekly intervals to eradicate esophageal varices (secondary prophylaxis).Strong recommendation, moderate quality evidence. 16: ESGE recommends the use of NSBBs (propranolol or carvedilol) in combination with endoscopic therapy for secondary prophylaxis in EVH in patients with ACLD.Strong recommendation, high quality evidence.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Practice Guideline"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "5f8ba3ee4d0ff44223e14c48e47c8fab839d3615ac251a2f214ba15a25fa7fa3"
+      },
+      {
+        "pmid": "42870342",
+        "title": "Nonselective beta blockers and hepatic encephalopathy in liver cirrhosis: A meta-analysis of randomized controlled trials.",
+        "authors": "Kuo TH, Chen YJ, Lee PC, Yang TC, Lu HS, Huang HC, Luo JC, Cheng HM, Hou MC.",
+        "year": "2026",
+        "journal": "Journal of the Chinese Medical Association : JCMA",
+        "doi": "10.1097/jcma.0000000000001435",
+        "url": "https://europepmc.org/article/PMC/PMC13792612",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, research-article, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Liver cirrhosis leads to portal hypertension and related complications, including ascites, esophageal varices, and hepatic encephalopathy (HE). Nonselective beta blockers (NSBBs) decrease portal pressure, but it is not yet clear whether they contribute to HE development. Therefore, we examined the association between NSBB therapy and HE in randomized controlled trials (RCTs) involving patients with cirrhosis. Methods We systematically searched PubMed, Web of Science, ScienceDirect, and the Cochrane Library (from inception to December 31, 2024) for RCTs comparing NSBBs with a placebo, endoscopic band ligation, or injection sclerotherapy for variceal bleeding prevention that reported HE as an outcome. The risk ratios (RRs) and 95% CIs were pooled using a random-effects model. Subgroups were defined according to the comparator, NSBB type, and hepatic function status (weighted mean Child-Pugh score ≤6 vs >6). The risk of bias was assessed using the revised Cochrane risk-of-bias tool for randomized trials (RoB 2). Results There were 12 relevant studies, which included 775 NSBB-treated and 771 comparator patients (54 and 57 HE events). NSBB therapy was not associated with a statistically significant change in HE risk (RR: 1.04, 95% CI, 0.73-1.47; p = 0.84; I2= 0%). Estimates were consistent across all subgroups of hepatic function statuses (compensation, RR: 1.18, 0.44-3.14; decompensation, RR: 1.02, 0.70-1.48; p = 0.79), comparators (placebo, RR: 1.19, 0.79-1.80; endoscopic therapy, RR: 0.72, 0.38-1.39; p = 0.20), and NSBB types (propranolol/timolol, RR: 1.06, 0.72-1.55; carvedilol, RR: 0.95, 0.42-2.15; p = 0.82). Conclusion Current evidence does not indicate a statistically significant association between NSBB therapy and HE development in patients with cirrhosis, regardless of disease severity.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "0d5f97d4802762635561fdbc8880833d152c2593c7b558840d45b70b52ac13b7"
+      },
+      {
+        "pmid": "cr:10.29328/journal.acgh.1001010",
+        "title": "Addition of Simvastatin to Carvedilol and Endoscopic Variceal Ligation improves rebleeding and survival in patients with Child-Pugh A and B class but not in Child Pugh C class",
+        "authors": "Jha Sanjeev Kumar, Saharawat Kuldeep, Keshari Ravi, Jha Praveen",
+        "year": "2019",
+        "journal": "Annals of Clinical Gastroenterology and Hepatology",
+        "doi": "10.29328/journal.acgh.1001010",
+        "url": "https://doi.org/10.29328/journal.acgh.1001010",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Even with current standard treatment after variceal bleeding which includes combination of nonselective b-blockers and repeated endoscopic variceal ligation, the risk of rebleeding and mortality are high. Statins exhibit an antifibrotic effect and improves HVPG. We evaluated whether addition of simvastatin to carvedilol plus EVL therapy reduces variceal rebleeds or death in patients with cirrhosis. Method: Patients with a variceal bleed 5 to 10 days before were randomly assigned to groups A [carvedilol (n = 69)] or group B [carvedilol (maximum dose - 12.5mg), and simvastatin (40mg/day) (n = 65)]. Primary end points were variceal rebleeding or death. Secondary end points were new complications of portal hypertension and serious adverse effects of drugs. Results: During a mean follow-up of 49.05 ± 25.74 weeks, composite end point i.e. rebleeding or death developed in 23 patients (33.3%) in group A and 12 patients (18.5%) in group B [HR for simvastatin = 0.512; 95% CI: 0.254 – 1.030; p = 0.06]. In subgroup analysis by excluding patients of Child C class, 18 patients (34.6%) in group A and 7 patients (13.6%) in group B developed composite end point [HR for simvastatin = 0.369; 95% CI: 0.154 – 0.887; p = 0.026]. 17.4% and 15.4% patients in group A and B developed additional secondary complication [HR = 0.86; 95% CI: 0.345-2.161; p = 0.75). No simvastatin induced significant adverse effects were found. Conclusion: Addition of simvastatin to carvedilol and EVL may reduce the rebleeding and death in patients with less advance liver disease.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "0cb34d7685587f6f2d9cebe407c03481e93e7c92e3b08b682b12164331c2ecdd"
+      },
+      {
+        "pmid": "42121993",
+        "title": "The Role of Rotational Thromboelastometry in High-Risk-of-Bleeding Endoscopic Procedures in Patients with Decompensated Liver Cirrhosis.",
+        "authors": "Girleanu I, Huiban L, Muzica C, Cojocariu C, Sfarti CV, Chiriac S, Zenovia S, Balan GG, Avram R, Sîngeap AM, Buzincu I, ",
+        "year": "2026",
+        "journal": "Diagnostics (Basel, Switzerland)",
+        "doi": "10.3390/diagnostics16091289",
+        "url": "https://europepmc.org/article/PMC/PMC13164039",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives : This study aimed to evaluate the differences between two blood product transfusion protocols [a standard coagulation (SC) group and a rotational thromboelastometry (ROTEM) group] in patients with decompensated liver cirrhosis (LC) undergoing high-bleeding-risk endoscopic procedures. Methods : Between December 2024 and March 2025, we conducted a prospective cohort study including adult decompensated cirrhotic patients who needed prophylactic blood product transfusion before high-bleeding-risk endoscopic procedures. The prophylactic blood product transfusion strategy in the SC group was based on conventional coagulation tests (INR, platelets, and fibrinogen), and in the ROTEM group on viscoelastic parameters. Results : A total of 72 patients were included in this study (36 patients in each group); most were male (63.9%), Child-Pugh B (54.2%), and had LC with a predominance of alcoholic etiology (51.4%). There were no clinically significant differences regarding the baseline characteristics between the study groups. The most frequent endoscopic procedure was polypectomy (76.4%). Postinterventional bleeding occurred after eight procedures in the SC group and after four procedures in the ROTEM group ( p = 0.206). Endoscopic hemostasis was effective. Patients from the ROTEM group received fewer FFP transfusions than the SC group (5.6% vs. 69.4%; p p p = 0.618) or 30-day mortality ( p = 0.643) between the two study groups. Conclusions : ROTEM-guided transfusion management was associated with a significant reduction in blood product use compared with standard coagulation test-based management. However, this difference should be interpreted in the context of the distinct transfusion thresholds applied in the two groups, as the standard coagulation arm followed predefined laboratory-based criteria that may have increased the likelihood of prophylactic transfusion. No statistically significant differences were observed in bleeding complications, length of hospital stay, or 30-day mortality. Therefore, these findings reflect differences in transfusion strategies rather than demonstrating clinical superiority of ROTEM-based management and should be considered preliminary.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "ac95aed17c390d07a92083fb753624a45767cadd1207fef2fbefd8bee2b789c2"
+      },
+      {
+        "pmid": "cr:10.1002/hep.30608",
+        "title": "Letter to the Editor: Preemptive TIPS Must Be the Treatment of Choice for Child‐Pugh Class C Patients With Variceal Bleeding?",
+        "authors": "Lo Gin‐Ho",
+        "year": "2019",
+        "journal": "Hepatology",
+        "doi": "10.1002/hep.30608",
+        "url": "https://doi.org/10.1002/hep.30608",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Editorial",
+        "lowMetadata": false,
+        "_sig": "ff56617a3fd2cbe7575da772249436385eaf75b3bfd8618442f356cd2b312844"
+      },
+      {
+        "pmid": "cr:10.1016/s0168-8278(13)60615-7",
+        "title": "613 USEFULNESS OF ACTIVE BLEEDING AS PROGNOSTIC FACTOR IN CHILD–PUGH B CIRRHOTIC PATIENTS WITH ACUTE VARICEAL BLEEDING. IS EARLY TIPS JUSTIFIED?",
+        "authors": "Castellote J., Girbau A., Rota R., nas E. Due",
+        "year": "2013",
+        "journal": "Journal of Hepatology",
+        "doi": "10.1016/s0168-8278(13)60615-7",
+        "url": "https://doi.org/10.1016/s0168-8278(13)60615-7",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "ca0504146b2f2b5a2118580ed88e73600f3e035f8c0df7f437d5933842092a03"
+      },
+      {
+        "pmid": "cr:10.1016/s0168-8278(22)01560-4",
+        "title": "Personalized preemptive TIPS treatment for patients with Child-Pugh B cirrhosis and acute variceal bleeding by applying individualized of prediction of treatment effect",
+        "authors": "Lv Yong, Bai Wei, Li Kai, Xia Dongdong",
+        "year": "2022",
+        "journal": "Journal of Hepatology",
+        "doi": "10.1016/s0168-8278(22)01560-4",
+        "url": "https://doi.org/10.1016/s0168-8278(22)01560-4",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d34cb77dd23874d86677bab76288cc257bf922c59e4945f6a807e599ce3a20d3"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 49,
+      "screened": 49,
+      "blocked": 0,
+      "returned": 9,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C early preemptive TIPS within 72 hours standard medical therapy (vasoactive drugs) plus endoscopic band ligation treatment failure and 6-week all-cause mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

@@ -1,0 +1,807 @@
+{
+  "id": "PRESET-emergency_med-cardiac-arrest-ttm",
+  "recordedAt": "2026-11-26T19:47:25.262Z",
+  "specialty": "emergency_med",
+  "words": [
+    {
+      "word": "comatose adults after resuscitation from out-of-hospital cardiac arrest",
+      "role": "population"
+    },
+    {
+      "word": "targeted temperature management at 33°C",
+      "role": "intervention"
+    },
+    {
+      "word": "targeted normothermia (36-37.5°C)",
+      "role": "comparator"
+    },
+    {
+      "word": "favorable neurological outcome (CPC 1-2) at 6 months",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "comatose adults after resuscitation from out-of-hospital cardiac arrest",
+        "role": "population"
+      },
+      {
+        "word": "targeted temperature management at 33°C",
+        "role": "intervention"
+      },
+      {
+        "word": "targeted normothermia (36-37.5°C)",
+        "role": "comparator"
+      },
+      {
+        "word": "favorable neurological outcome (CPC 1-2) at 6 months",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermia (36-37.5°C) (C) improve favorable neurological outcome (CPC 1-2) at 6 months (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (2 favourable, 0 no-difference, 1 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), is targeted temperature management at 33°C (I) superior to targeted normothermia (36-37.5°C) (C) for favorable neurological outcome (CPC 1-2) at 6 months (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermia (36-37.5°C) (C) improve favorable neurological outcome (CPC 1-2) at 6 months (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 15 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), is targeted temperature management at 33°C (I) superior to targeted normothermia (36-37.5°C) (C) for favorable neurological outcome (CPC 1-2) at 6 months (O)?"
+    },
+    "words": [
+      {
+        "word": "comatose adults after resuscitation from out-of-hospital cardiac arrest",
+        "role": "population"
+      },
+      {
+        "word": "targeted temperature management at 33°C",
+        "role": "intervention"
+      },
+      {
+        "word": "targeted normothermia (36-37.5°C)",
+        "role": "comparator"
+      },
+      {
+        "word": "favorable neurological outcome (CPC 1-2) at 6 months",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "34133859",
+        "title": "Hypothermia versus Normothermia after Out-of-Hospital Cardiac Arrest",
+        "authors": "Josef Dankiewicz, Tobias Cronberg, Gisela Lilja, Janus Christian Jakobsen",
+        "year": "2021",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa2100591",
+        "url": "https://doi.org/10.1056/nejmoa2100591",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Targeted temperature management is recommended for patients after cardiac arrest, but the supporting evidence is of low certainty. METHODS: In an open-label trial with blinded assessment of outcomes, we randomly assigned 1900 adults with coma who had had an out-of-hospital cardiac arrest of presumed cardiac or unknown cause to undergo targeted hypothermia at 33°C, followed by controlled rewarming, or targeted normothermia with early treatment of fever (body temperature, ≥37.8°C). The primary outcome was death from any cause at 6 months. Secondary outcomes included functional outcome at 6 months as assessed with the modified Rankin scale. Prespecified subgroups were defined according to sex, age, initial cardiac rhythm, time to return of spontaneous circulation, and presence or absence of shock on",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "69505eb280cdc1c813e0ccf20356479d634990cc6959b9edc68902ad86d97c6d"
+      },
+      {
+        "pmid": "25913022",
+        "title": "Therapeutic Hypothermia after Out-of-Hospital Cardiac Arrest in Children",
+        "authors": "Frank W. Moler, Faye S. Silverstein, Richard Holubkov, Beth S. Slomine",
+        "year": "2015",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1411480",
+        "url": "https://doi.org/10.1056/nejmoa1411480",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Therapeutic hypothermia is recommended for comatose adults after witnessed out-of-hospital cardiac arrest, but data about this intervention in children are limited. METHODS: We conducted this trial of two targeted temperature interventions at 38 children's hospitals involving children who remained unconscious after out-of-hospital cardiac arrest. Within 6 hours after the return of circulation, comatose patients who were older than 2 days and younger than 18 years of age were randomly assigned to therapeutic hypothermia (target temperature, 33.0°C) or therapeutic normothermia (target temperature, 36.8°C). The primary efficacy outcome, survival at 12 months after cardiac arrest with a Vineland Adaptive Behavior Scales, second edition (VABS-II), score of 70 or higher (on a scale from 20 to 160, with higher scores indicating better",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "e1414785ccbb98cf682febebcaa724a138661681139f25fcbb0eb4b46e65caab"
+      },
+      {
+        "pmid": "31577396",
+        "title": "Targeted Temperature Management for Cardiac Arrest with Nonshockable Rhythm",
+        "authors": "Jean-Baptiste Lascarrou, Hamid Merdji, Amélie Le Gouge, Gwenhaël Colin",
+        "year": "2019",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1906661",
+        "url": "https://doi.org/10.1056/nejmoa1906661",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Moderate therapeutic hypothermia is currently recommended to improve neurologic outcomes in adults with persistent coma after resuscitated out-of-hospital cardiac arrest. However, the effectiveness of moderate therapeutic hypothermia in patients with nonshockable rhythms (asystole or pulseless electrical activity) is debated. METHODS: We performed an open-label, randomized, controlled trial comparing moderate therapeutic hypothermia (33°C during the first 24 hours) with targeted normothermia (37°C) in patients with coma who had been admitted to the intensive care unit (ICU) after resuscitation from cardiac arrest with nonshockable rhythm. The primary outcome was survival with a favorable neurologic outcome, assessed on day 90 after randomization with the use of the Cerebral Performance Category (CPC) scale (which ranges from 1 to 5, with higher scores indicating",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "ec5a193b4e015a793c5f46e51726023c21afca4005c758ce0352c3b27590ed13"
+      },
+      {
+        "pmid": "24237006",
+        "title": "Targeted Temperature Management at 33°C versus 36°C after Cardiac Arrest",
+        "authors": "Niklas Nielsen, Jørn Wetterslev, Tobias Cronberg, David Erlinge",
+        "year": "2013",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1310519",
+        "url": "https://doi.org/10.1056/nejmoa1310519",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Unconscious survivors of out-of-hospital cardiac arrest have a high risk of death or poor neurologic function. Therapeutic hypothermia is recommended by international guidelines, but the supporting evidence is limited, and the target temperature associated with the best outcome is unknown. Our objective was to compare two target temperatures, both intended to prevent fever. METHODS: In an international trial, we randomly assigned 950 unconscious adults after out-of-hospital cardiac arrest of presumed cardiac cause to targeted temperature management at either 33°C or 36°C. The primary outcome was all-cause mortality through the end of the trial. Secondary outcomes included a composite of poor neurologic function or death at 180 days, as evaluated with the Cerebral Performance Category (CPC) scale and the modified",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "3ccaf211185bbb366cf8b74ccc7f3446c49341d9aa5ef9ebeb1389947b3f6dfe"
+      },
+      {
+        "pmid": "cr:10.1089/ther.2023.0039",
+        "title": "Soluble Urokinase-Type Plasminogen Activator Receptor in Comatose Survivors After Out-of-Hospital Cardiac Arrest Treated with Targeted Temperature Management",
+        "authors": "Bro-Jeppesen John, Grejs Anders M., Andersen Ove, Jeppesen Anni N.",
+        "year": "2024",
+        "journal": "Therapeutic Hypothermia and Temperature Management",
+        "doi": "10.1089/ther.2023.0039",
+        "url": "https://doi.org/10.1089/ther.2023.0039",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Exposure to whole-body ischemia/reperfusion after out-of-hospital cardiac arrest (OHCA) triggers a systemic inflammatory response where soluble urokinase plasminogen activator receptor (suPAR) is released. This study investigated serial levels of suPAR in differentiated target temperature management and the associations with mortality and 6-month neurological outcome. This is a single-center substudy of the randomized Targeted Temperature Management (TTM) for 24-hour versus 48-hour trial. In this analysis, we included 82 patients and measured serial levels of suPAR at 24, 48, and 72 hours after achievement of target temperature (32–34°C). We assessed all-cause mortality and neurological function evaluated by the Cerebral Performance Categories (CPC) at 6 months after OHCA. Levels of suPAR between TTH groups were evaluated in repeated measures mixed models. Mortality was assessed by the Kaplan-Meier method and serial measurements of suPAR (log 2 transformed) were investigated by Cox proportional-hazards models. Good neurological outcome at 6 months was assessed by logistic regression analyses. Levels of suPAR were significantly different between TTH groups (p interaction = 0.04) with the highest difference at 48 hours, 4.7 ng/mL (95% CI: 4.1–5.4 ng/mL) in the TTH24 group compared to 2.8 ng/mL (95% CI: 2.2–3.5 ng/mL) in the TTH48 group, p < 0.0001. Levels of suPAR above the median value were significantly associated with increased all-cause mortality at any time point (p log-rank <0.05). The interaction of suPAR levels and TTH group was not significant (p interaction = NS). A twofold increase in levels of suPAR was significantly associated with a decreased odds ratio of a good neurological outcome in both unadjusted and adjusted analyses without interaction of TTH group (p interaction = NS). Prolonged TTM of 48 hours versus 24 hours was associated with lower levels of suPAR. High levels of suPAR were associated with increased mortality and lower odds for good neurological outcome at 6 months with no significant interaction of TTH group.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "62797a58925a8358b0cfbdb85cf56690673b3c02f2c687b8d472a10a105c2884"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2021.03.027",
+        "title": "Changes in temperature management and outcome after out-of-hospital cardiac arrest in United Kingdom intensive care units following publication of the targeted temperature management trial",
+        "authors": "Nolan J.P., Orzechowska I., Harrison D.A., Soar J.",
+        "year": "2021",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2021.03.027",
+        "url": "https://doi.org/10.1016/j.resuscitation.2021.03.027",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "ff5254619ca0a2f2036ee127f8d55265bceff578f17e37ce3058210d57b5e709"
+      },
+      {
+        "pmid": "cr:10.1016/s0300-9572(25)00438-1",
+        "title": "Relationship between Brain Temperature and Neurological Outcome in Out-of-Hospital Cardiac Arrest Survivors Underwent Targeted Temperature Management at 33°C",
+        "authors": "Lee Dahae",
+        "year": "2025",
+        "journal": "Resuscitation",
+        "doi": "10.1016/s0300-9572(25)00438-1",
+        "url": "https://doi.org/10.1016/s0300-9572(25)00438-1",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 61,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "755326833fbd44f5d08b629faffd4a0b927b7859c9d886df3a2eb952d582ad4c"
+      },
+      {
+        "pmid": "30854867",
+        "title": "Mitochondrial dysfunction in adults after out-of-hospital cardiac arrest",
+        "authors": "Sebastian C. Wiberg, Nis Ottesen Stride, John Bro‐Jeppesen, Mathias Johan J Holmberg",
+        "year": "2020",
+        "journal": "European Heart Journal Acute Cardiovascular Care",
+        "doi": "10.1177/2048872618814700",
+        "url": "https://doi.org/10.1177/2048872618814700",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: While preclinical studies suggest that mitochondria play a pivotal role in ischaemia-reperfusion injury, the knowledge of mitochondrial function in human out-of-hospital cardiac arrest remains scarce. The present study sought to compare oxidative phosphorylation capacity in skeletal muscle biopsies from out-of-hospital cardiac arrest patients to healthy controls. METHODS: This was a substudy of a randomised trial comparing targeted temperature management at 33°C versus 36°C for out-of-hospital cardiac arrest patients. Skeletal muscle biopsies were obtained from adult resuscitated comatose out-of-hospital cardiac arrest patients 28 hours after initiation of targeted temperature management, i.e. at target temperature prior to rewarming, and from age-matched healthy controls. Mitochondrial function was analysed by high-resolution respirometry. Maximal sustained respiration through complex I, maximal coupled respiration through complex",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "49d521242f3721a57787ef5a1e5d5020dbe0cd53265a24abb8c45d023d681ebb"
+      },
+      {
+        "pmid": "31821187",
+        "title": "Relationship Between Duration of Targeted Temperature Management, Ischemic Interval, and Good Functional Outcome From Out-of-Hospital Cardiac Arrest",
+        "authors": "Kelly Nicole Sawyer, Andrew T. Humbert, Brian G. Leroux, Graham Nichol",
+        "year": "2019",
+        "journal": "Critical Care Medicine",
+        "doi": "10.1097/ccm.0000000000004160",
+        "url": "https://doi.org/10.1097/ccm.0000000000004160",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: Tailoring hypothermia duration to ischemia duration may improve outcome from out-of-hospital cardiac arrest. We investigated the association between the hypothermia/ischemia ratio and functional outcome in a secondary analysis of data from the Resuscitation Outcomes Consortium Amiodarone, Lidocaine, or Placebo Study trial. DESIGN: Cohort study of out-of-hospital cardiac arrest patients screened for Resuscitation Outcomes Consortium-Amiodarone, Lidocaine, or Placebo Study. SETTING: Multicenter study across North America. PATIENTS: Adult, nontraumatic, out-of-hospital cardiac arrest patients screened for Resuscitation Outcomes Consortium-Amiodarone, Lidocaine, or Placebo Study who survived to hospital admission and received targeted temperature management between May 2012 and October 2015. INTERVENTIONS: Targeted temperature management in comatose survivors of out-of-hospital cardiac arrest. We defined hypothermia/ischemia ratio as total targeted temperature management time (initiation through",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "90ecdaa0261ee43e136325dcbec6c4999d95c5e925396091a3dc622852f504cd"
+      },
+      {
+        "pmid": "30571336",
+        "title": "Hospital Variation in the Utilization and Implementation of Targeted Temperature Management in Out-of-Hospital Cardiac Arrest",
+        "authors": "Rohan Khera, Andrew T. Humbert, Brian G. Leroux, Graham Nichol",
+        "year": "2018",
+        "journal": "Circulation Cardiovascular Quality and Outcomes",
+        "doi": "10.1161/circoutcomes.118.004829",
+        "url": "https://doi.org/10.1161/circoutcomes.118.004829",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background Targeted temperature management (TTM) for out-of-hospital cardiac arrest is associated with improved functional survival and is a class I recommendation in resuscitation guidelines. However, patterns of utilization of TTM and adherence to recommended TTM guidelines in contemporary practice are unknown. Methods and Results In a multicenter, prospective cohort of consecutive adults with non-traumatic out-of-hospital cardiac arrest in the Resuscitation Outcomes Consortium in 2012 to 2015, we identified all adults (≥18 years) who were potential candidates for TTM. Of 37 898 out-of-hospital cardiac arrest patients at 186 hospitals across 10 Resuscitation Outcomes Consortium sites, 8313 survived for ≥4 hours after hospital arrival, of which, 2878 (34.6%) received TTM. Mean age was 61.5 years and 36.3% were women. Median hospital rate",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "b7d3362eee4275536b1b55d4204d312fe81ec1e30acf5cec955e2ef6a9320174"
+      },
+      {
+        "pmid": "cr:10.1016/s0300-9572(23)00527-0",
+        "title": "199 External validation of a prognostication score for outcomes in patients who underwent targeted temperature management during post-resuscitation care for out-of-hospital cardiac arrest",
+        "authors": "Jeong Garam, Shin Jonghwan",
+        "year": "2023",
+        "journal": "Resuscitation",
+        "doi": "10.1016/s0300-9572(23)00527-0",
+        "url": "https://doi.org/10.1016/s0300-9572(23)00527-0",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Validation Study",
+        "lowMetadata": false,
+        "_sig": "8e9f903c373807bc7a0473c57fc4fcde781023c4f84f9fc97fc77a72c6cd4a1b"
+      },
+      {
+        "pmid": "36796779",
+        "title": "Targeted temperature management with hypothermia for comatose patients after cardiac arrest",
+        "authors": "Clifton W. Callaway",
+        "year": "2023",
+        "journal": "Clinical and Experimental Emergency Medicine",
+        "doi": "10.15441/ceem.23.012",
+        "url": "https://doi.org/10.15441/ceem.23.012",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Targeted temperature management with mild hypothermia (TTM-hypothermia; 32-34 °C) is a treatment strategy for adult patients who are comatose after cardiac arrest. Robust preclinical data support the beneficial effects of hypothermia beginning within 4 hours of reperfusion and maintained during the several days of postreperfusion brain dysregulation. TTM-hypothermia increased survival and functional recovery after adult cardiac arrest in several trials and in realworld implementation studies. TTM-hypothermia also benefits neonates with hypoxic-ischemic brain injury. However, larger and methodologically more rigorous adult trials do not detect benefit. Reasons for inconsistency of adult trials include the difficulty delivering differential treatment between randomized groups within 4 hours and the use of shorter durations of treatment. Furthermore, adult trials enrolled populations that vary in illness",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "3e85b2bd13f56ea8ad493e28b31a515d6a7c56efff8ea3e27d2200b36b896d55"
+      },
+      {
+        "pmid": "cr:10.1016/s0300-9572(26)01294-3",
+        "title": "Predicting the Individualized Treatment Effect of Targeted Temperature Management on Neurological Outcomes in Comatose Out-of-hospital Cardiac Arrest Survivors: A Causal Machine Learning Approach",
+        "authors": "Chen Chi-Hsin, Sung Chih-Wei, Huang Chien-Hua, Huang Edward Pei-Chuan",
+        "year": "2026",
+        "journal": "Resuscitation",
+        "doi": "10.1016/s0300-9572(26)01294-3",
+        "url": "https://doi.org/10.1016/s0300-9572(26)01294-3",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8260601e5f72956fbf9bc64b777338400876e7278179f55dddb8400bf457350a"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2021.08.037",
+        "title": "Increasing mean arterial pressure or cardiac output in comatose out-of-hospital cardiac arrest patients undergoing targeted temperature management: Effects on cerebral tissue oxygenation and systemic hemodynamics",
+        "authors": "Grand Johannes, Wiberg Sebastian, Kjaergaard Jesper, Wanscher Michael",
+        "year": "2021",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2021.08.037",
+        "url": "https://doi.org/10.1016/j.resuscitation.2021.08.037",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a54d8d7a0ea8e7f91c19035e12df07b2a1820bcea4d513b0d9dd51a20988aee8"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2019.06.226",
+        "title": "Effect of targeted temperature management volume on good neurological recovery after out-of-hospital cardiac arrest",
+        "authors": "Son Jeong Min, Shin Sang Do, Jeong Joo, Song Kyoung Jun",
+        "year": "2019",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2019.06.226",
+        "url": "https://doi.org/10.1016/j.resuscitation.2019.06.226",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8252ca05571d92319d5de824d2baa5482436662f5bad7dea8f034284608698c0"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2019.01.007",
+        "title": "Effectiveness and safety of early enteral nutrition for patients who received targeted temperature management after out-of-hospital cardiac arrest",
+        "authors": "Joo Woo Jin, Ide Kazuki, Kawasaki Yohei, Takeda Chikashi",
+        "year": "2019",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2019.01.007",
+        "url": "https://doi.org/10.1016/j.resuscitation.2019.01.007",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "ca7fca9dc842112015a4af8aa2a6899bd087ff92d1dbfbcd36b7b2c34181095b"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2018.07.346",
+        "title": "Interaction effects between targeted temperature management and hypertension on survival outcomes after out-of-hospital cardiac arrest",
+        "authors": "Cho Yongsoo, Jung Eujene",
+        "year": "2018",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2018.07.346",
+        "url": "https://doi.org/10.1016/j.resuscitation.2018.07.346",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "49696dd8803ca04f1de72b13ed115f8ba36d8ef316260b3b86a4778c786e83ee"
+      },
+      {
+        "pmid": "cr:10.21037/jeccm.2017.10.06",
+        "title": "Is 48-hour targeted temperature management not superior to 24-hour targeted temperature management after out-of-hospital cardiac arrest in adults? Feasible but still inconclusive",
+        "authors": "Lee Seung-Joon, Kim Young-Min",
+        "year": "2017",
+        "journal": "Journal of Emergency and Critical Care Medicine",
+        "doi": "10.21037/jeccm.2017.10.06",
+        "url": "https://doi.org/10.21037/jeccm.2017.10.06",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "97ac06675635a3a175d1ef7ca758f69fd865f2ef94898caefda91d6f3590f01f"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2014.03.239",
+        "title": "Impact of case volume on performance of targeted temperature management, incidence of adverse events, and neurologic outcome in comatose out-of-hospital cardiac arrest survivors treated with targeted temperature management: A propensity score matching analysis",
+        "authors": "Lee Seung Joon, Jeung Kyung Woon, Lee Byung Kook, Min Yong Il",
+        "year": "2014",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2014.03.239",
+        "url": "https://doi.org/10.1016/j.resuscitation.2014.03.239",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a4bf162a28a25dc0b87e70b2f436ba04e5332326ff8cdb80f93a7c1b5caed2c7"
+      },
+      {
+        "pmid": "cr:10.1016/j.resuscitation.2014.07.010",
+        "title": "The effect of time to defibrillation and targeted temperature management on functional survival after out-of-hospital cardiac arrest",
+        "authors": "Drennan Ian R., Lin Steve, Thorpe Kevin E., Morrison Laurie J.",
+        "year": "2014",
+        "journal": "Resuscitation",
+        "doi": "10.1016/j.resuscitation.2014.07.010",
+        "url": "https://doi.org/10.1016/j.resuscitation.2014.07.010",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "96f0bfa1a4b73c4e2dff00c96ea742d985ceaf8d14ad8627a80138d1d14c0d56"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "comatose adults after resuscitation from out-of-hospital cardiac arrest targeted temperature management at 33°C targeted normothermia (36-37.5°C) favorable neurological outcome (CPC 1-2) at 6 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      }
+    ],
+    "hasMore": false
+  }
+}

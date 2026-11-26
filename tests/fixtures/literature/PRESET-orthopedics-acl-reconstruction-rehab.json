@@ -1,0 +1,854 @@
+{
+  "id": "PRESET-orthopedics-acl-reconstruction-rehab",
+  "recordedAt": "2026-11-26T19:50:00.219Z",
+  "specialty": "orthopedics",
+  "words": [
+    {
+      "word": "active young adults with acute ACL rupture",
+      "role": "population"
+    },
+    {
+      "word": "early surgical ACL reconstruction",
+      "role": "intervention"
+    },
+    {
+      "word": "structured rehabilitation with optional delayed ACL reconstruction",
+      "role": "comparator"
+    },
+    {
+      "word": "KOOS functional score and secondary meniscus injury at 5 years",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "active young adults with acute ACL rupture",
+        "role": "population"
+      },
+      {
+        "word": "early surgical ACL reconstruction",
+        "role": "intervention"
+      },
+      {
+        "word": "structured rehabilitation with optional delayed ACL reconstruction",
+        "role": "comparator"
+      },
+      {
+        "word": "KOOS functional score and secondary meniscus injury at 5 years",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "orthopedics"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In active young adults with acute ACL rupture (P), does early surgical ACL reconstruction (I) compared with structured rehabilitation with optional delayed ACL reconstruction (C) improve KOOS functional score and secondary meniscus injury at 5 years (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (2 favourable, 0 no-difference, 3 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In active young adults with acute ACL rupture (P), is early surgical ACL reconstruction (I) superior to structured rehabilitation with optional delayed ACL reconstruction (C) for KOOS functional score and secondary meniscus injury at 5 years (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of active young adults with acute ACL rupture (P), does early surgical ACL reconstruction (I) compared with structured rehabilitation with optional delayed ACL reconstruction (C) improve KOOS functional score and secondary meniscus injury at 5 years (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In active young adults with acute ACL rupture (P), is early surgical ACL reconstruction (I) superior to structured rehabilitation with optional delayed ACL reconstruction (C) for KOOS functional score and secondary meniscus injury at 5 years (O)?"
+    },
+    "words": [
+      {
+        "word": "active young adults with acute ACL rupture",
+        "role": "population"
+      },
+      {
+        "word": "early surgical ACL reconstruction",
+        "role": "intervention"
+      },
+      {
+        "word": "structured rehabilitation with optional delayed ACL reconstruction",
+        "role": "comparator"
+      },
+      {
+        "word": "KOOS functional score and secondary meniscus injury at 5 years",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "orthopedics",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.31282/joti.v6n1.93",
+        "title": "Functional Outcomes in the Management of ACL Rupture by ACL Reconstruction with Lateral Extra-articular Tenodesis Lemaire Procedure Versus MacIntosh Procedure: A Systematic Review",
+        "authors": "Laksana Komang Mahendra, Aryana IGN Wien",
+        "year": "2023",
+        "journal": "Jurnal Orthopaedi dan Traumatologi Indonesia",
+        "doi": "10.31282/joti.v6n1.93",
+        "url": "https://doi.org/10.31282/joti.v6n1.93",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "The purpose of this study was to systematically review the functional outcomes between lateral extraarticular tenodesis (LET) Modified Lemaire procedure and MacIntosh modified by Cocker-Arnold procedure other than ACL reconstruction (ACLR) alone in studies with high levels of evidence. We performed a literature search for clinical studies comparing the LET Modified Lemaire procedure and MacIntosh modified by Cocker-Arnold procedure as an augmentation to ACLR with ACLR alone. The primary outcomes were the International Knee Documentation Committee (IKDC) score, the Lysholm score, and graft failures. A systematic search on the literature was performed online from the inception dates to July 2022. Based on the screening of abstracts and titles, a total of 123 records were excluded. The authors independently based on the extracted full text. This selection process resulted in the final 6 articles for inclusion in the systematic review. The remaining 6 studies were eventually included, consisting of 2 randomized controlled trials, 2 retrospective studies and 2 prospective studies. ACLR with the LET provides better functional outcomes than ACLR alone, whereas between the two LET i.e. Lemaire and MacIntosh in the ACLR action do not give different functional outcomes. ACLR with the LET provides better functional results than ACLR without the LET, the LET provides better rotational stability than ACLR alone, and also lower graft failures than ACLR alone. Meanwhile, between the two LET, namely the Lemaire and MacIntosh in ACLR, do not give different functional results because they can maintain rotational stability to reduce the incidence of graft failure and later will provide better functional outcomes.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "3fb8ed9317d2fdff4f4675d3c383e31f5ad223b6a19cf87694788826d64489d1"
+      },
+      {
+        "pmid": "41803188",
+        "title": "Effectiveness of exercise prehabilitation before anterior cruciate ligament reconstruction on functional outcomes - a single-blinded randomized controlled trial.",
+        "authors": "Abel R, Niederer D, Glowa A, Hansen N, Wilke C, Offerhaus C.",
+        "year": "2026",
+        "journal": "Scientific reports",
+        "doi": "10.1038/s41598-026-41576-2",
+        "url": "https://europepmc.org/article/PMC/PMC12987922",
+        "source": "pmc",
+        "pubType": "research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Objective: To compare the effectiveness of an individually tailored, adaptive, guided, structured and criteria-based preoperative rehabilitation program (IG) to a structured, non-guided, self-administered home training program (CG) in individuals after an anterior cruciate ligament (ACL) rupture. Methods: We enrolled participants 16 to 60 years with a unilateral ACL rupture, scheduled for reconstruction using a hamstring or quadriceps tendon autograft. They were assessor-blinded 1:1 block-randomized to the IG or the CG. Self-reported knee function, assessed using the Knee injury and Osteoarthritis Outcome Score (KOOS), was the primary outcome. Secondary outcomes included functional measures (range of motion, muscle strength, functional limb asymmetries, and hopping ability) as well as self-reported psychological readiness to return to sport. Parameters were assessed at up to seven time points: anamnesis in the hospital, 1 to 7 days before the surgery, on the day of surgery, 30, 60, 90, and 180 days post-surgery. Intention-to-treat based linear mixed models were calculated using the change scores since anamnesis. Results: Of 114 enrolled participants (mean age = 31.03, SD = 10.30 years; 53% females), 58 participants discontinued intervention or dropped out. The IG (KOOS score anamnesis: 46.04, 95% confidence interval = [45.07 to 47.02]; pre-reconstruction: 58.52, [57.51 to 59.54]) demonstrated a more pronounced preoperative improvement in the KOOS score compared to the CG (51.01, [50.10 to 51.92]; 59.18, [58.40 to 59.96]). The interaction (group*time) of the KOOS sum score differed for the change score to the surgery day (p = 0.039) and to 60 days postoperative (p = 0.039). Conclusion: The individually tailored preoperative rehabilitation program may improve perceived knee function more than self-guided training. Caution and future research are needed as the effects were small.Trial registration: German Register of Clinical Trials, DRKSID: DRKS00030312, Date of registration in DRKS 26.09.2022.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8fafa8e1ed73f1d8fef8f1b1cd501adef2f0da6321fa5f0fb4701ec53b36df3d"
+      },
+      {
+        "pmid": "41796176",
+        "title": "Effects of early inertial exercises on morphological and functional recovery after ACL reconstruction.",
+        "authors": "Naczk A, Wieczorek K, Kaczorowski P, Gramza P, Gajewska E, Naczk M.",
+        "year": "2026",
+        "journal": "Scientific reports",
+        "doi": "10.1038/s41598-026-42441-y",
+        "url": "https://europepmc.org/article/PMC/PMC12979773",
+        "source": "pmc",
+        "pubType": "research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Effective and safe rehabilitation following ACL reconstruction is an important factor in determining a patient's return to health. This pilot randomized controlled trial aimed to compare the effectiveness of two rehabilitation protocols in patients following ACL reconstruction. Twenty-four adults following anterior cruciate ligament reconstruction were randomly allocated to the study groups. The first group (SR) underwent standard rehabilitation, whereas the experimental group (SRI) performed standard rehabilitation and additional inertial exercises starting from the seventh week. After 12 weeks of rehabilitation, isokinetic and inertial strength, dynamic balance, thigh circumference, and body composition were evaluated. At the post-intervention assessment, both groups demonstrated comparable isokinetic strength and dynamic balance performance, with no significant between-group differences. In contrast, the SRI group demonstrated greater restoration of morphological symmetry and interlimb strength symmetry under inertial loading compared with the SR group (p < 0.05; Cohen's d = 1.37). Additionally, only the SRI group exhibited a significant increase in muscle mass of the operated limb, whereas no significant change was observed in the SR group. These findings indicate that early inclusion of inertial training provides additional benefits in morphological and inertial interlimb symmetry, without compromising conventional neuromuscular strength or balance outcomes following arthroscopic ACL reconstruction.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4f88dd550ff8fe4869c8523b1dcefb7db5f1266ad041eae3899cbb1f1645b22e"
+      },
+      {
+        "pmid": "38601122",
+        "title": "Recruitment and baseline characteristics of young adults at risk of early-onset knee osteoarthritis after ACL reconstruction in the SUPER-Knee trial",
+        "authors": "Adam Geoffrey Culvenor, T. West, Andrea Maree Bruder, Mark James Scholes",
+        "year": "2024",
+        "journal": "BMJ Open Sport & Exercise Medicine",
+        "doi": "10.1136/bmjsem-2024-001909",
+        "url": "https://doi.org/10.1136/bmjsem-2024-001909",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objectives: The study aims to (1) report the process of recruiting young adults into a secondary knee osteoarthritis prevention randomised controlled trial (RCT) after anterior cruciate ligament reconstruction (ACLR); (2) determine the number of individuals needed to be screened to include one participant (NNS) and (3) report baseline characteristics of randomised participants. Methods: The SUpervised exercise-therapy and Patient Education Rehabilitation (SUPER)-Knee RCT compares SUPER and minimal intervention for young adults (aged 18-40 years) with ongoing symptoms (ie, mean score of <80/100 from four Knee injury and Osteoarthritis Outcome Score subscales (KOOS4)) 9-36 months post-ACLR. The NNS was calculated as the number of prospective participants screened to enrol one person. At baseline, participants provided medical history, completed questionnaires (demographic, injury/surgery, rehabilitation",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "37c9427a0735b959f6cbf102fe8a083ea61fd88eb37462f3b164efb2e1db8d8c"
+      },
+      {
+        "pmid": "35550002",
+        "title": "ACL Surgery Necessity in Non-Acute Patients (ACL SNNAP): a statistical analysis plan for a randomised controlled trial",
+        "authors": "Jamie R. Stokes, David John Beard, Loretta J Davies, Beverly A. Shirkey",
+        "year": "2022",
+        "journal": "Trials",
+        "doi": "10.1186/s13063-022-06309-6",
+        "url": "https://doi.org/10.1186/s13063-022-06309-6",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Rupture of the anterior cruciate ligament (ACL) is a common injury, primarily affecting young, active individuals. Despite surgical intervention being the more common treatment for patients suffering ACL ruptures, current management is based on limited and generally low-quality evidence. We describe a statistical analysis plan (SAP) for the ACL SNNAP randomised controlled trial, which aims to investigate the necessity of surgical management in patients with ACL injuries. METHODS/DESIGN: ACL SNNAP is a pragmatic, multi-centre, superiority, parallel-group randomised controlled trial in participants with a symptomatic non-acute ACL deficient knee. Participants are allocated in a 1:1 ratio to either non-surgical management (rehabilitation) or surgical management (reconstruction) with the aim of assessing the efficacy and cost-effectiveness. The primary outcome of the study",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "ee25c77edc6619753cbf254c1516f80674229b9ffad428d61cb54b4c239a544d"
+      },
+      {
+        "pmid": "35988569",
+        "title": "Rehabilitation versus surgical reconstruction for non-acute anterior cruciate ligament injury (ACL SNNAP): a pragmatic randomised controlled trial",
+        "authors": "David John Beard, Loretta J Davies, Jonathan Alistair Cook, Jamie R. Stokes",
+        "year": "2022",
+        "journal": "The Lancet",
+        "doi": "10.1016/s0140-6736(22)01424-6",
+        "url": "https://doi.org/10.1016/s0140-6736(22)01424-6",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Anterior cruciate ligament (ACL) rupture is a common debilitating injury that can cause instability of the knee. We aimed to investigate the best management strategy between reconstructive surgery and non-surgical treatment for patients with a non-acute ACL injury and persistent symptoms of instability. METHODS: We did a pragmatic, multicentre, superiority, randomised controlled trial in 29 secondary care National Health Service orthopaedic units in the UK. Patients with symptomatic knee problems (instability) consistent with an ACL injury were eligible. We excluded patients with meniscal pathology with characteristics that indicate immediate surgery. Patients were randomly assigned (1:1) by computer to either surgery (reconstruction) or rehabilitation (physiotherapy but with subsequent reconstruction permitted if instability persisted after treatment), stratified by site and baseline",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "88d393456efe245db28e78271cca23febff3accf7e2788d162d828b078496933"
+      },
+      {
+        "pmid": "cr:10.1177/2325967125s00057",
+        "title": "Over the Top ACL Reconstruction Technique Combined with Anterolateral Ligament Reconstruction for An Unstable Chronic ACL Rupture: A Case Report",
+        "authors": "Pontoh Ludwig Andribert Powantia, Patih Ichsan Dana",
+        "year": "2025",
+        "journal": "Orthopaedic Journal of Sports Medicine",
+        "doi": "10.1177/2325967125s00057",
+        "url": "https://doi.org/10.1177/2325967125s00057",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Anterior cruciate ligament (ACL) rupture is a common injury, particularly among athletes involved in high-impact sports. It often results from sudden changes in direction, causing instability, pain, and functional limitations. Arthroscopic ACL reconstruction is now the gold standard for treatment of ACL injury, many techniques has been introduced with excellent results. One of the techniques is the over the top technique. Case Presentation: A young adult male patient presented with a chief complaint of an unstable left knee. He was injured four years prior while playing football, involving a pivoting motion that led to pain and swollen left knee. Initially, he went to a bone setter and physiotherapy but had no improvement. After the pain and swelling subsided, the patient felt his knee often giving away when walking. Physical examination revealed positive Lachman, anterior drawer, with gross pivot shift test. An MRI confirmed an isolated total rupture of the anterior cruciate ligament. The patient then underwent “over the top” ACL reconstruction combined with Anterolateral ligament reconstruction, using a peroneus longus tendon graft. Discussion: The indication for “over the top” ACL reconstruction combined with anterolateral ligament reconstruction in this case was based on the patient’s chronic case with significant instability. This technique was done using autograft peroneus longus tendon to achieve sufficient graft length and graft diameter. Previous literature had shown that this technique provides several advantages, including better rotational stability and reduced graft failure rates compared to other methods. However, challenges include technical complexity and the requirement for precise surgical execution to avoid complications such as graft impingement or inadequate tensioning. Conclusion: This case report highlights the successful application of “over the top” ACL reconstruction combined with Anterolateral ligament reconstruction using a peroneus longus tendon graft in an adult male with an unstable chronic ACL rupture. The procedure effectively addressed knee instability, providing the patient with improved functional outcomes. These results underscore the viability of this technique as a valuable option in the surgical management of ACL injuries, particularly in cases requiring enhanced rotational control.",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "8f58d2564738668ee2f3bc53700fd6b0063f54ec61a0c87065abb5871aadf2a6"
+      },
+      {
+        "pmid": "31637269",
+        "title": "Prospective Evaluation of Range of Motion in Acute ACL Reconstruction Using Patellar Tendon Autograft",
+        "authors": "Mitchell C. Harris, Connor B. Venrick, Adam C. Hines, Jay B. Cook",
+        "year": "2019",
+        "journal": "Orthopaedic Journal of Sports Medicine",
+        "doi": "10.1177/2325967119875415",
+        "url": "https://doi.org/10.1177/2325967119875415",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Optimal timing of anterior cruciate ligament (ACL) reconstruction has been a topic of controversy. Reconstruction has historically been delayed for at least 3 weeks, given previous studies reporting a high risk of postoperative arthrofibrosis and suboptimal clinical results. PURPOSE: To prospectively evaluate postoperative range of motion following acutely reconstructed ACLs with patellar tendon autograft. STUDY DESIGN: Case series; Level of evidence, 4. METHODS: Patients (age >18 years) who had ACL reconstruction as soon as possible after injury, regardless of the condition or preoperative range of motion of the injured knee, underwent reconstruction with patellar tendon autograft. An identical standard surgical technique and postoperative rehabilitation were employed for all patients. Postoperative assessment included active range of motion measurements with a",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Series",
+        "lowMetadata": false,
+        "_sig": "b10690627c3a35d09a21ca37b708e94defa63254e064659a308973b7262d60cb"
+      },
+      {
+        "pmid": "cr:10.1302/1358-992x.2026.1.129",
+        "title": "ANTERIOR CRUCIATE LIGAMENT (ACL) REPAIR WITH SUTURE TAPE AUGMENTATION AND EARLY ACL RECONSTRUCTION WITH SUTURE TAPE AUGMENTATION RESULT IN COMPARABLE CLINICAL OUTCOMES WITH ACL RECONSTRUCTION AT TWO-YEAR FOLLOW-UP",
+        "authors": "Greenfield C., Simard S.",
+        "year": "2026",
+        "journal": "Orthopaedic Proceedings",
+        "doi": "10.1302/1358-992x.2026.1.129",
+        "url": "https://doi.org/10.1302/1358-992x.2026.1.129",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "To compare the postoperative side-to-side laxity and short-term clinical outcomes of patients who received primary anterior cruciate ligament (ACL) repair with suture tape augmentation, acute anterior cruciate ligament reconstruction (ACLR) with suture tape augmentation performed within eight weeks of injury (ACLRacute), or ACLR beyond eight weeks of injury. After institutional review board approval was obtained, 100 patients were enrolled in this prospective trial: 34 primary ACL repair with suture tape augmentation, 33 ACLRs performed within eight weeks of injury (ACLRacute), and 33 ACLRs. Patients were allocated to ACL repair if a proximal avulsion was present with good tissue quality (Sherman type 1), confirmed by intraoperative diagnostic arthroscopy. Preoperative side-to-side anteroposterior knee laxity was assessed with KT-1000 arthrometer, and patient-reported outcomes (PROs) including the visual analog scale, Marx activity scale, Veterans RAND 12-item health survey (VR-12 physical & mental), Single Assessment Numeric Evaluation, Knee Injury and Osteoarthritis Outcome Score survey subscales, and range of motion were collected. These objective and subjective measures were repeated at regular intervals postoperatively through 2 years. Minimal clinically important difference calculations were performed assessing postoperative PRO changes at 2 years compared with preoperative. The average time from injury to surgery was 5.03 ± 1.2 weeks for the ACL repair group, 5.09 ± 0.74 weeks for the ACLRacute, and 43.22 ± 33.5 weeks for the ACLR group. Postoperatively, the KT-1000 side-to-side laxity difference for 30 lbs was determined to be 0.1 ± 0.37 (95% confidence interval [CI] –0.7 to 0.8) for ACL repair versus ACLR (P < .0001), –0.8 ± 0.35 (95% CI –1.5 to –0.1) for ACLRacute versus ACLR (P < .0001), and 0.8 ± 0.40 (95% CI 0.0–1.6) for ACL repair versus ACLRacute (P < .0001). The data reveal ACL repair and ACLRacute are noninferior to ACLR at 2-year follow-up. The postoperative difference from baseline for all PROs demonstrated improvement for all PROs. Magnetic resonance imaging at one year revealed tissue healing for the three ACL injury treatment groups. Patients who underwent ACL repair of proximal tears with suture tape augmentation or ACL reconstruction within eight weeks from injury resulted in noninferior side-to-side knee laxity, comparable PROs, and similar range of motion at 2-year follow-up compared with ACLR.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "0f20663decf8a857e65cacee471159b6596acc489656425037f70ff946866f14"
+      },
+      {
+        "pmid": "42422462",
+        "title": "Knee Osteoarthritis on MRI in Symptomatic Young Adults After ACL Reconstruction From the SUPER-Knee Trial: Feature Prevalence and Association With Early-Stage Clinical Osteoarthritis Criteria.",
+        "authors": "Couch JL, West TJ, Oei E, Crossley KM, King MG, De Oliveira Silva D, Whittaker JL, Bruder AM, Girdwood MA, Scholes M, Pa",
+        "year": "2026",
+        "journal": "Orthopaedic journal of sports medicine",
+        "doi": "10.1177/23259671261455852",
+        "url": "https://europepmc.org/article/PMC/PMC13342361",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background One of the most common long-term consequences of a traumatic knee injury is the development of knee osteoarthritis (OA), yet the characteristics of OA structural change and their relationship to early-stage OA clinical criteria in those with persistent knee symptoms following traumatic knee injury has not been described. Purpose To describe the prevalence of OA features on magnetic resonance imaging (MRI) and explore the association between MRI-defined OA and early-stage knee OA clinical criteria in young adults with a symptomatic knee at short- to medium-term follow-up after anterior cruciate ligament reconstruction (ACLR). Study design Cross-sectional study; Level of evidence, 3. Methods Knee MRIs from 184 SUPER-Knee trial participants with a symptomatic knee at 9 to 36 months post-ACLR (68 female; mean ± SD age, 30 ± 6 years; months post-ACLR, 27.6 ± 8.4) were assessed for tibiofemoral and patellofemoral OA features using the MRI Osteoarthritis Knee Score. The prevalence of MRI-defined OA was described based on published criteria by Hunter and colleagues. Logistic regression was used to explore the association between MRI-defined OA and the Luyten classification criteria for early-stage clinical knee OA. Results Across participants, cartilage loss was the most prevalent MRI-defined OA feature in both the tibiofemoral (61%) and the patellofemoral (51%) joint. Osteophytes were more common in the tibiofemoral (52%) than patellofemoral (28%) joint of participants. Bone marrow lesions (tibiofemoral, 26%; patellofemoral, 13%), meniscal tears (42%), and meniscal extrusion (18%) were also observed. Based on MRI-defined criteria, 71 (39%) participants were characterized with OA (tibiofemoral, n = 58 [32%]; patellofemoral, n = 34 [18%]). No association was observed between MRI-defined OA and the Luyten classification criteria for early-stage clinical knee OA. Conclusion Over half of symptomatic young adults 9 to 36 months post-ACLR demonstrated OA features on MRI, with the tibiofemoral joint more commonly affected than the patellofemoral joint. More than one-third of participants met the criteria for MRI-defined OA. A lack of association between MRI and clinical definitions of early-stage knee OA suggests a possible symptom-structure discordance in the early stages of post-traumatic OA disease.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "05a00b72e3e8ef2719169334c66435c667431b1938f5bee812ff52a88d148b97"
+      },
+      {
+        "pmid": "42121578",
+        "title": "Surgical Versus Rehabilitation-First Management Strategies After ACL Injury: Persisting Uncertainty over Long-Term Outcomes-A Systematic Search and Narrative Synthesis of Randomized Trial Cohorts.",
+        "authors": "Biały M, Gnat R.",
+        "year": "2026",
+        "journal": "Healthcare (Basel, Switzerland)",
+        "doi": "10.3390/healthcare14091135",
+        "url": "https://europepmc.org/article/PMC/PMC13163805",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives : The optimal management of anterior cruciate ligament (ACL) rupture remains debated, especially regarding long-term outcomes after early ACL reconstruction (ACLR) versus rehabilitation-first with optional delayed ACLR. The interpretation of randomized evidence is complicated by frequent treatment crossover. This review synthesized evidence from randomized controlled trial (RCT) cohorts comparing surgical versus rehabilitation-first management strategies across available follow-up durations. Methods : A structured review based on a systematic literature search and narrative synthesis was conducted, with study identification and reporting guided by PRISMA 2020. MEDLINE (via PubMed) and Google Scholar were searched in February 2026 for English-language human RCTs (2000-2026) comparing early ACLR plus rehabilitation with rehabilitation-first management allowing delayed ACLR for persistent instability. A linked-report PubMed search using the KANON trial registration number (ISRCTN84752559) was additionally performed to identify cohort-derived follow-up publications. Reports were grouped by underlying RCT cohort. Data were extracted on crossover, follow-up, and clinical outcomes. Risk of bias for primary RCT reports was assessed with Cochrane RoB 2. Results : Twenty-seven reports representing three RCT cohorts (KANON, COMPARE, ACL SNNAP) were included; six index reports were prioritized for synthesis. In acute ACL rupture (KANON, COMPARE), early ACLR did not show a consistent long-term superiority in patient-reported outcomes versus rehabilitation-first with optional delayed ACLR, although COMPARE reported a statistically significant 2-year subjective functional difference favoring early ACLR; early ACLR more consistently improved mechanical stability and reduced instability episodes. Crossover from rehabilitation to delayed ACLR was common. In non-acute ACL injury with persistent symptomatic instability (ACL SNNAP), surgery-first improved 18-month patient-reported outcomes. Meniscal procedure rates and osteoarthritis-related outcomes did not consistently favor early ACLR. Conclusions : In acute ACL rupture, rehabilitation-first with timely access to delayed ACLR appears to provide long-term patient-reported outcomes comparable to an early ACLR strategy in many patients, while early ACLR more consistently improves knee stability. In non-acute symptomatic ACL deficiency, a surgery-first strategy appears more effective in the mid-term. These randomized trials should be interpreted as comparisons of management strategies rather than of \"pure\" operative versus nonoperative treatment approaches.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "59ac3593218d311dc860e6ffd5115a59eceb39300af6ba82a1734c21ce5e83e7"
+      },
+      {
+        "pmid": "cr:10.1177/23259671241247488",
+        "title": "Comparison of Contralateral ACL Rupture Versus ACL Graft Rupture in Australian Netballers After ACL Reconstruction",
+        "authors": "Honeywill Conor, Salmon Lucy, Pinczewski Leo, Sundaraj Keran",
+        "year": "2024",
+        "journal": "Orthopaedic Journal of Sports Medicine",
+        "doi": "10.1177/23259671241247488",
+        "url": "https://doi.org/10.1177/23259671241247488",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Netball is a popular sport worldwide, particularly for women. However, its nature puts players at high risk for anterior cruciate ligament (ACL) injury. Purpose: To determine (1) the prevalence of ACL graft rupture and contralateral ACL (CACL) rupture in Australian female netballers after ACL reconstruction (ACLR) and (2) the rate of return to sports (RTS) and psychological readiness. Study Design: Cohort study; Level of evidence, 3. Methods: A patient database identified 332 consecutive female netball players who underwent ACLR with hamstring tendon autografts performed by 2 surgeons between 2007 and 2015. Patients were retrospectively surveyed at a minimum of 7 years postoperatively—including details of a second ACL injury to either knee, RTS, and psychological readiness per the ACL–Return to Sport After Injury (ACL-RSI) score. Multivariate regression assessed the association between selected variables and repeat ACL injury. Results: A total of 267 patients (80%) were included with a mean follow-up of 8.4 years (range, 7-15 years). ACL graft rupture and CACL rupture occurred in 11 (4%) and 27 (10%) patients, respectively, at 7 years postoperatively. The ACL graft had a survival rate of 99%, 97%, 97%, and 96% at 1, 2, 5, and 7 years after surgery, respectively. The native CACL had a survival rate of 100%, 99%, 94%, and 90% at 1, 2, 5, and 7 years, respectively. Adolescents had a 4.5 times greater hazard for ACL graft rupture (95% CI, 1.4-14.6; P = .014) and a 2.5 times greater hazard for CACL rupture (95% CI, 1.2-5.5; P = .021) compared with adults. CACL injury was also associated with a return to level 1—including jumping, hard pivoting, and cutting—sports (hazard ratio, 10.3 [95% CI, 1.4-77.1]; P = .023). Most (62%) participants returned to netball, with those with higher ACL-RSI scores more likely to RTS. Conclusion: The prevalence of repeat ACL injury was higher in the contralateral knee (10%) than the ACL-reconstructed knee (4%) at 7 years postoperatively. ACLR was a suitable option for female netballers who sustained an ACL rupture with low long-term rates of graft rupture. Repeat ACL injuries to either knee were more common in adolescents and those who returned to cutting and pivoting sports.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "ac59b624776f8ecf2c3b9a31e3d2134a54145e26775da05b56e539945d7d3e2c"
+      },
+      {
+        "pmid": "cr:10.1002/jeo2.70025",
+        "title": "No difference in laxity, proprioception and neuromuscular control after suture‐tape augmented ACL repair of acute proximal avulsions versus ACL reconstruction using hamstring autografts in young, active population",
+        "authors": "Góralczyk Adrian, Zalewska Paulina, Piszczatowski Szczepan, Hermanowicz Krzysztof",
+        "year": "2024",
+        "journal": "Journal of Experimental Orthopaedics",
+        "doi": "10.1002/jeo2.70025",
+        "url": "https://doi.org/10.1002/jeo2.70025",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Purpose The purpose of this study is to compare results of suture‐tape augmented anterior cruciate ligament (ACL) repair (internal bracing [IB]) and ACL reconstruction (ACLR) with hamstring autograft in terms of laxity, proprioception and neuromuscular control. The hypothesis was that with strict indications IB may provide better results in proprioception and neuromuscular control. Methods Patients with unilateral ACL injury treated with IB or ACLR with hamstring autograft were enroled in this retrospective study. Anterior tibial translation (ATT) in 30° and 90° of flexion was measured with Rolimeter. The joint position sense (JPS) test was performed in 30° and 60° of flexion using Biodex System 4Pro. The time‐synchronized motion capture system and surface electromyography set were used during dynamic tasks to assess knee valgus and semitendinosus (ST) and biceps femoris (BF) activities. Comparisons between both techniques and operated versus contralateral healthy knees were performed. Results The study groups involved 28 patients after ACLR (21.8 ± 4.8 years) and 20 patients after IB (25.8 ± 10.5 years) with the average follow‐up 30 ± 18 and 28 ± 15 months, respectively. The ATT did not differ significantly between operated groups. In 30° of flexion ATT for ACLR was significantly higher in operated than in contralateral knee (5.8 ± 2.4 mm vs. 4.3 ± 1.3 mm, p < 0.001). The JPS test and dynamic knee valgus presented no significant differences. The ACLR group presented significantly higher ST ( p = 0.048) and BF ( p = 0.012) activity comparing operated to contralateral knee in dynamic tasks. Conclusion Suture‐tape augmented ACL repair and ACLR with hamstring autograft yield similar results in terms of laxity, proprioception and neuromuscular control. Level of Evidence Level III: Retrospective comparative study.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "fee530af56bd07aa53c9cf6f674fb3155ea2b38e384e30f0b2d958a3128ca47a"
+      },
+      {
+        "pmid": "37781636",
+        "title": "Comparison of ACL and Anterolateral Ligament Reconstruction With Isolated ACL Reconstruction Using Hamstring Autograft: Outcomes in Young Female Patients With High-Grade Pivot Shift",
+        "authors": "Dhong Won Lee, Dong Hwan Lee, Seung Ik Cho, Sang Jin Yang",
+        "year": "2023",
+        "journal": "Orthopaedic Journal of Sports Medicine",
+        "doi": "10.1177/23259671231178048",
+        "url": "https://doi.org/10.1177/23259671231178048",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Inferior return to sports (RTS) and functional outcomes have been reported in women after anterior cruciate ligament reconstruction (ACLR). Purpose/Hypothesis: The purpose was to evaluate the results of combined ACLR and anterolateral ligament reconstruction (ALLR) in young women with a high-grade pivot shift (grade ≥2). It was hypothesized that combined ACLR and ALLR would result in better RTS and rotational stability than isolated ACLR. Study Design: Cohort study; Level of evidence, 3. Methods: Two groups were retrospectively evaluated and compared. Group I (n = 39; mean age, 31.1 ± 5.7 years) underwent isolated ACLR using hamstring autografts; group C (n = 39; mean age, 30.4 ± 6.1 years) underwent combined ACLR and ALLR. Subjective outcome measures included the International",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "c4657ea895e00524dfeca2caf8381443b11f5a4406f63d469ad8d5291afefda2"
+      },
+      {
+        "pmid": "cr:10.1186/s12891-022-05708-9",
+        "title": "‘I was young, I wanted to return to sport, and re-ruptured my ACL’ – young active female patients’ voices on the experience of sustaining an ACL re-rupture, a qualitative study",
+        "authors": "Piussi Ramana, Krupic Ferid, Sundemo David, Svantesson Eleonor",
+        "year": "2022",
+        "journal": "BMC Musculoskeletal Disorders",
+        "doi": "10.1186/s12891-022-05708-9",
+        "url": "https://doi.org/10.1186/s12891-022-05708-9",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Despite anterior cruciate ligament (ACL) re-ruptures being common, research on patient experiences after knee trauma has primarily focused on the time after primary ACL reconstruction. Integrating qualitative research and patient experiences can facilitate researchers and clinicians in understanding the burden of an ACL re-rupture. The aim of the study was to explore the experiences of an ACL re-rupture journey in young active females aiming to return to knee-strenuous sports after primary ACL reconstruction. Method Fifteen young (19[range 16–23] years old) active females who suffered an ACL re-rupture were interviewed with semi-structured interviews. Qualitative content analysis using deductive approach based on Wiese-Bjornstal’s ‘integrated model of response to sport injury’ was used. Results The results are presented in two timelines 1) from first ACL injury to ACL re-rupture, and 2) from ACL re-rupture to present day, and further stratified according to the domains of the ‘integrated model of psychological response to injury’. Results in the first timeline are summarised into seven categories: Finding hope for the journey; Accepting my ACL injury; I succeeded; What matters now? Who am I?; Where will this end? What is going to happen? In the second timeline, eight categories were identified: Fighting spirit; A helping hand; Working hard; I am a new me; I am destroyed; Loneliness; Painful changes; and, I could have made it to the pro´s. Conclusion Young active females who suffered an ACL re-rupture did not express any positive experience following their first ACL injury, however, in contrast, expressed positive experiences and personal growth after going through the ACL re-rupture journey, characterized by a lot of struggling, and ultimately led to the experience of becoming a new, stronger person.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Qualitative Study",
+        "lowMetadata": false,
+        "_sig": "7c7d2738ce2c4a085b45de385315dd7f325980b6bd670fb57470433f3d613045"
+      },
+      {
+        "pmid": "36328403",
+        "title": "Evidence of ACL healing on MRI following ACL rupture treated with rehabilitation alone may be associated with better patient-reported outcomes: a secondary analysis from the KANON trial",
+        "authors": "Stephanie Rose Filbay, Frank W. Roemer, Stefan L. Lohmander, Aleksandra Turkiewicz",
+        "year": "2022",
+        "journal": "British Journal of Sports Medicine",
+        "doi": "10.1136/bjsports-2022-105473",
+        "url": "https://doi.org/10.1136/bjsports-2022-105473",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: Evaluate the natural course of anterior cruciate ligament (ACL) healing on MRI within 5 years of acute ACL rupture and compare 2-year and 5-year outcomes based on healing status and treatment group. METHODS: Secondary analysis of 120 Knee Anterior Cruciate Ligament Nonsurgical vs Surgical Treatment (KANON) trial participants randomised to rehabilitation and optional delayed ACL reconstruction (ACLR) or early ACLR and rehabilitation. ACL continuity on MRI (Anterior Cruciate Ligament OsteoArthritis Score 0-2) was considered evidence of ACL healing. Outcomes included Knee Injury and Osteoarthritis Outcome Score (KOOS), KOOS patient acceptable symptomatic state (PASS) and treatment failure criteria. Linear mixed models were used to estimate adjusted mean differences (95% CIs) in patient-reported sport and recreational function (KOOS-Sport/Rec) and quality of",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "94522311b52f8d2508e2c8da4648460ff5b08f6d5c3254f26e2c0b3dd8387d51"
+      },
+      {
+        "pmid": "25926596",
+        "title": "Treatment for acute anterior cruciate ligament tear: five year outcome of randomised trial",
+        "authors": "Richard B. Frobell, Harald P. Roos, Ewa Maria Roos, Frank W. Roemer",
+        "year": "2015",
+        "journal": "British Journal of Sports Medicine",
+        "doi": "10.1136/bjsports-2014-f232rep",
+        "url": "https://doi.org/10.1136/bjsports-2014-f232rep",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "STUDY QUESTION: In young active adults with an acute anterior cruciate ligament (ACL) rupture, do patient reported or radiographic outcomes after five years differ between those treated with rehabilitation plus early ACL reconstruction and those treated with rehabilitation and optional delayed ACL reconstruction? SUMMARY ANSWER: At five years, patients assigned to rehabilitation plus early ACL reconstruction did not differ significantly in patient reported or radiographic outcomes from those assigned to initial rehabilitation with the option of having a later reconstruction if needed. WHAT IS KNOWN AND WHAT THIS PAPER ADDS: The relative efficacy of surgical reconstruction and rehabilitation for short and long term outcomes of ACL rupture is debated. Clinicians and young active adult patients should consider rehabilitation as a",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "1afeb7c71ba728feb4cdc93bd3d959509844a7040f0d2db07a5859049ab61632"
+      },
+      {
+        "pmid": "cr:10.1302/1358-992x.2023.2.053",
+        "title": "CONTRALATERAL ACL RUPTURE IS MORE COMMON THAN ACL GRAFT RUPTURE IN AUSTRALIAN NETBALLERS AFTER ACL RECONSTRUCTION",
+        "authors": "Honeywill C., Salmon L., Pinczewski L., Sundaraj K.",
+        "year": "2023",
+        "journal": "Orthopaedic Proceedings",
+        "doi": "10.1302/1358-992x.2023.2.053",
+        "url": "https://doi.org/10.1302/1358-992x.2023.2.053",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "The aim of this study was to determine Anterior Cruciate Ligament (ACL) graft and contralateral ACL (CACL) survival in patients who have undergone ACL reconstruction (ACLR) with hamstring autograft following netball injuries, and determine factors associated with repeat ACL injury and return to netball. From a prospectively collected database, a consecutive series of 332 female netballers who underwent primary ACLRs using hamstring autografts were identified. Subjects were surveyed at a minimum of five years following reconstruction, including details of further ACL injuries to either knee, return to netball or other sports and psychological readiness with the ACL-RSI score. 264 participants (80%) were reviewed at the mean follow up of 9 years (60-180 months). There were 12 ACL graft ruptures (5%) and 35 contralateral ACL ruptures (13%). ACL graft survival was 97% and 97%, 96% at 2, 5 and 7 years respectively. CACL survival was 99%, 94%, and 90% at 2, 5 and 7 years respectively. The 7-year ACL graft survival was 97% in those 25 or more and 93% in those under 25 years (p=0.126). The 7-year CACL survival was 93% in those 25 or more and 85% in those under 25 years (HR 2.6, 95%CI 1.3-5.0, p=0.007). A family history of ACL injury was reported by 32% of participants. A return to netball was reported by 61% of participants. The mean ACL-RSI score was 65 in those who returned to netball and 37 in those who did not (p=0.001). ACLR with hamstring autografts is a reliable procedure for netballers with a survival rate of 96% at 7 years, allowing 63% of participants to return to netball. A successful return to sport was associated with greater psychological readiness. CACL injury occurred with more than double the frequency of ACL graft rupture and was increased by 2.6x in those <25 years.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "587a0e19bf79f6a048fb33e6bf0b54a8fcee0844f8d77c91d07faa775fbcfb26"
+      },
+      {
+        "pmid": "42699145",
+        "title": "Clinical and MRI Restoration of ACL Continuity Following Functional Complete ACL Rupture in an Adolescent Athlete: A Case Report.",
+        "authors": "Angoorani H, Fesharaki MJ, Valadkhani C, Safaei H.",
+        "year": "2026",
+        "journal": "Clinical case reports",
+        "doi": "10.1002/ccr3.73465",
+        "url": "https://europepmc.org/article/PMC/PMC13542709",
+        "source": "pmc",
+        "pubType": "case-study, Journal Article",
+        "publicationTypes": [
+          "case-study",
+          "Journal Article"
+        ],
+        "context": "Restoration of ACL continuity and clinical stability may occur in selected adolescents with functional ACL insufficiency. This case highlights the potential value of repeat clinical and MRI assessment before proceeding with definitive ACL reconstruction when clinical circumstances permit.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "481b1afaeb796071428e3d675ef341d645aaf6f564fd2c65b1ed5b5f5aad3666"
+      },
+      {
+        "pmid": "42774985",
+        "title": "Diagnosis, Treatment, and Current Controversies in Multiligament Knee Injuries: A Narrative Review.",
+        "authors": "Saráchaga Mendoza MA.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.116740",
+        "url": "https://europepmc.org/article/PMC/PMC13596754",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Multiligament knee injuries are infrequent but potentially severe, defined by the simultaneous rupture of two or more major knee ligaments, with a considerable risk of neurovascular injury. This narrative review, based on a search of PubMed, the Cochrane Library, and Google Scholar covering 2010 to 2026, examines their diagnosis, treatment, and outcomes, with emphasis on current controversies in surgical management. The Schenck classification remains the reference system, but its initial category is imprecise, and it does not reliably predict neurovascular injury; it should be interpreted alongside the full injury profile. Diagnosis requires a high index of suspicion and systematic physical examination; magnetic resonance imaging is the diagnostic standard, with a low threshold for computed tomography angiography when vascular injury is suspected. Surgery is the treatment of choice in active patients. Single-stage anatomic reconstruction of all injured structures within the first two to three weeks is associated with less secondary meniscal and chondral injury. Autograft is preferred for the anterior cruciate ligament in young patients, whereas autograft and allograft perform comparably for the posterior cruciate ligament and collateral complexes. Early mobilization is associated with less arthrofibrosis without compromising the grafts. Functional outcomes are acceptable in the short and medium term but deteriorate from seven years onward, with post-traumatic osteoarthritis in up to 71.7% of patients in some series. This should be discussed in preoperative counseling. Arthrofibrosis and residual instability are the most frequent complications, and neurovascular injury is the most severe. Surgical timing, graft selection, and the sequence of reconstruction remain the main open questions and will require comparative studies.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "df83f38d647e04cf02c1aa4ff04d41c854dbf7cfe185fe035adb322324ecfbc0"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "active young adults with acute ACL rupture early surgical ACL reconstruction structured rehabilitation with optional delayed ACL reconstruction KOOS functional score and secondary meniscus injury at 5 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

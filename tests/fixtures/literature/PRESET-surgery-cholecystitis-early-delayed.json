@@ -1,0 +1,852 @@
+{
+  "id": "PRESET-surgery-cholecystitis-early-delayed",
+  "recordedAt": "2026-11-26T19:44:23.742Z",
+  "specialty": "surgery",
+  "words": [
+    {
+      "word": "acute calculous cholecystitis within 72 hours",
+      "role": "population"
+    },
+    {
+      "word": "early laparoscopic cholecystectomy (< 72 hours)",
+      "role": "intervention"
+    },
+    {
+      "word": "delayed interval laparoscopic cholecystectomy (6-8 weeks)",
+      "role": "comparator"
+    },
+    {
+      "word": "overall 30-day complications and total hospital stay",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "acute calculous cholecystitis within 72 hours",
+        "role": "population"
+      },
+      {
+        "word": "early laparoscopic cholecystectomy (< 72 hours)",
+        "role": "intervention"
+      },
+      {
+        "word": "delayed interval laparoscopic cholecystectomy (6-8 weeks)",
+        "role": "comparator"
+      },
+      {
+        "word": "overall 30-day complications and total hospital stay",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In acute calculous cholecystitis within 72 hours (P), does early laparoscopic cholecystectomy (< 72 hours) (I) compared with delayed interval laparoscopic cholecystectomy (6-8 weeks) (C) reduce overall 30-day complications and total hospital stay (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In acute calculous cholecystitis within 72 hours (P), is early laparoscopic cholecystectomy (< 72 hours) (I) superior to delayed interval laparoscopic cholecystectomy (6-8 weeks) (C) for overall 30-day complications and total hospital stay (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of acute calculous cholecystitis within 72 hours (P), does early laparoscopic cholecystectomy (< 72 hours) (I) compared with delayed interval laparoscopic cholecystectomy (6-8 weeks) (C) reduce overall 30-day complications and total hospital stay (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 15 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 5
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of acute calculous cholecystitis within 72 hours (P), does early laparoscopic cholecystectomy (< 72 hours) (I) compared with delayed interval laparoscopic cholecystectomy (6-8 weeks) (C) reduce overall 30-day complications and total hospital stay (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "acute calculous cholecystitis within 72 hours",
+        "role": "population"
+      },
+      {
+        "word": "early laparoscopic cholecystectomy (< 72 hours)",
+        "role": "intervention"
+      },
+      {
+        "word": "delayed interval laparoscopic cholecystectomy (6-8 weeks)",
+        "role": "comparator"
+      },
+      {
+        "word": "overall 30-day complications and total hospital stay",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42908709",
+        "title": "When should a laparoscopic cholecystectomy be performed after ERCP for common bile duct stones combined with gallbladder stones? A meta-analysis of randomized controlled trials.",
+        "authors": "Shi T, Fu C, Li Y, Chen W, Sun H, Jin Y, Lin X, Cao W, Ran B.",
+        "year": "2026",
+        "journal": "Frontiers in surgery",
+        "doi": "10.3389/fsurg.2026.1889144",
+        "url": "https://europepmc.org/article/PMC/PMC13683056",
+        "source": "pmc",
+        "pubType": "Systematic Review, systematic-review, Journal Article",
+        "publicationTypes": [
+          "Systematic Review",
+          "systematic-review",
+          "Journal Article"
+        ],
+        "context": "Background Gallstones combined with common bile duct stones are a common disease in biliary surgery. At present, for gallbladder stones with common bile duct stones, the globally recognized standard treatment is a step-by-step treatment of \"endoscopy combined with surgery\". First, more urgent and potentially life-threatening bile duct stones are treated, and then gallbladder stones are treated. However, after the common bile duct stones are successfully removed by ERCP, how long should laparoscopic cholecystectomy be performed at intervals? There is a dispute between \"early\" (defined as within 72 h after ERCP) and \"delayed\" (defined as 72 h after ERCP). The conclusion is not yet uniform. Objective To systematically analyze the efficacy and safety of early LC and delayed LC in patients with gallstones and common bile duct stones after ERCP, to provide current high-level evidence-based medical evidence for clinical decision-making, to help clinicians optimize the diagnosis and treatment process, to reduce the occurrence of adverse complications caused by treatment. Method PubMed, Embase, Cochrane Library, Web of Science, Scopus, and other databases were searched to collect randomized controlled trials (RCTs) comparing early LC and delayed LC after ERCP from inception to December 2025. Two reviewers independently screened literature, extracted data, and assessed the risk of bias of included studies using the Cochrane ROB evaluation tool. The RevMan 5.4 software was used to analyze the outcomes of each group. Unlike previous meta-analyses, this study only included randomized controlled trials and incorporated the latest ones. Moreover, the quality of each outcome indicator was evaluated using the GRADE method. Result This meta-analysis included 7 randomized controlled trials involving 593 patients (296 in the early LC group and 297 in the delayed LC group). Compared with the delayed LC group, the early LC group was associated with a significantly lower rate of conversion to open surgery ( RR = 0.35, 95 % CI : 0.17-0.68, P = 0.002), shorter operation time ( MD = -14.37 min, 95 % CI : -28.22 to -0.51, P = 0.04), shorter postoperative hospital stay ( MD = -0.81 days, 95 % CI : -1.20 to -0.42, P (RR = 0.21, 95 % CI : 0.07-0.61, P = 0.004). No significant difference was observed between the two groups in the incidence of bile leakage ( RD = -0.04, 95 % CI : -0.12-0.04, P = 0.30). Conclusion In conclusion, the available RCT evidence suggests that early LC following successful ERCP may provide clinical advantages over delayed LC, including lower conversion and infection rates and shorter operative and postoperative hospital stay. However, because of outcome-level heterogeneity, the limited number of included trials, and few bile-leakage events, these findings should be interpreted with caution and further verified in larger well-designed RCTs. Systematic review registration https://www.crd.york.ac.uk/PROSPERO/view/CRD420261395564, PROSPERO CRD420261395564.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "43a2d4aaa5a98c97cd42b2817359289a3c8d73644376ca8d90e48ee5cb249888"
+      },
+      {
+        "pmid": "cr:10.25258/ijddt.16.70s.15",
+        "title": "A Prospective Comparative Study of Early Versus Delayed Laparoscopic Cholecystectomy in Acute Calculous Cholecystitis",
+        "authors": "Rajasekaran Nandhini",
+        "year": "2026",
+        "journal": "International Journal of Drug Delivery Technology",
+        "doi": "10.25258/ijddt.16.70s.15",
+        "url": "https://doi.org/10.25258/ijddt.16.70s.15",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Acute calculous cholecystitis is a common surgical emergency. Although laparoscopic cholecystectomy is the gold standard treatment, the optimal timing of surgery remains controversial. Methods: This prospective comparative study included 80 patients diagnosed with acute calculous cholecystitis. Forty patients underwent early laparoscopic cholecystectomy within 24 hours of admission, while 40 underwent delayed laparoscopic cholecystectomy after an average waiting period of six weeks. Outcomes assessed included operative time, conversion to open surgery, development of recurrent acute cholecystitis, perioperative complications, and duration of hospital stay. Results: No patient in the early group developed recurrent acute cholecystitis, whereas 6 patients (15%) in the delayed group experienced recurrent attacks during the waiting period. There was no conversion to open surgery in either group. The delayed group had significantly longer operative time and hospital stay .It demonstrates that early laparoscopic cholecystectomy provides superior clinical outcomes with reduced morbidity and faster recovery. Conclusion: Early laparoscopic cholecystectomy is safe and effective, reducing recurrent attacks, operative time, and hospital stay compared with delayed surgery.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "bcee139a619ca8d500daa621124e4365dccf40a9f3cc48092718ccc9cea3368d"
+      },
+      {
+        "pmid": "oax:W7238735394",
+        "title": "Early Laparoscopic Cholecystectomy within 72 Hours versus Conservative Management in Acute Calculous Cholecystitis: A Comparative Study of Complications and Conversion Rate to Open Cholecystectomy",
+        "authors": "Research Group",
+        "year": "2026",
+        "journal": "The Egyptian Journal of Hospital Medicine",
+        "doi": "10.21608/ejhm.2026.539552",
+        "url": "https://doi.org/10.21608/ejhm.2026.539552",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Acute calculous cholecystitis (ACC) is a common surgical emergency requiring timely intervention to prevent complications and recurrent biliary events. Early laparoscopic cholecystectomy (LC) provides definitive treatment, whereas conservative management remains an alternative in selected patients. Objective: It was to compare early LC within 72 hours of symptom onset with conservative management regarding complications, conversion to open surgery, hospitalization and recurrent symptoms. Patients and methods: This comparative study included 50 patients with ACC at Kasr Al Ainy Hospital and the National Hepatology and Tropical Medicine Research Institute. Patients were divided equally into Group A, undergoing early LC, and Group B, receiving conservative treatment. Clinical, laboratory, ultrasonographic, and treatment outcomes were assessed. Results: Baseline characteristics were largely comparable, although admission temperature",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "7977d1eec6e2fe5dbb6a989aed242b05a3ebcf9de15a90d0c98a37b490aff4c3"
+      },
+      {
+        "pmid": "42724851",
+        "title": "Early Versus Delayed Laparoscopic Cholecystectomy for Acute Calculous Cholecystitis: A Systematic Review.",
+        "authors": "Hakam I AA, Sultan MA, Hak Ami HA, Durayb AA, AlYousfi LA, Ageeli FE, Aburasain AB, Homadi IA, Gohal SO.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.114352",
+        "url": "https://europepmc.org/article/PMC/PMC13561140",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Acute calculous cholecystitis is a common emergency surgical condition, and the optimal timing of laparoscopic cholecystectomy (LC) remains controversial. Previous meta-analyses have not consistently distinguished evidence from randomized controlled trials (RCTs) and observational studies or separated postoperative complications from composite strategy-level morbidity. We conducted a systematic review and meta-analysis in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 guidelines by searching PubMed, the Cochrane Library, Scopus, and Web of Science from inception through June 2026. Dichotomous outcomes from RCTs were pooled using the DerSimonian-Laird random-effects model, while observational studies were synthesized narratively. Risk of bias was assessed using the revised Cochrane Risk of Bias 2 (RoB 2) tool and the Risk of Bias In Non-randomized Studies of Interventions (ROBINS-I) tool. Seventeen studies met the inclusion criteria (11 RCTs and six observational studies). Meta-analysis of RCTs demonstrated that early LC did not significantly increase conversion to open surgery (odds ratio (OR) 0.90, 95% confidence interval (CI) 0.58-1.38; I² = 0%), bile leak (OR 1.80, 95% CI 0.69-4.66), bile duct injury (OR 0.61, 95% CI 0.15-2.48), mortality (OR 0.94, 95% CI 0.21-4.17), or postoperative complications (OR 0.73, 95% CI 0.38-1.40). In contrast, composite strategy morbidity, which incorporated waiting-period events, was significantly lower with early LC (OR 0.26, 95% CI 0.17-0.38; p < 0.001; I² = 0%). Total hospital stay was consistently reduced by approximately three to six days across all 11 RCTs. Observational studies supported same-admission surgery but were uniformly at serious risk of confounding. Overall, early LC appears surgically safe and substantially reduces composite strategy morbidity and hospital stays without increasing operative risk. The traditional 72-hour symptom threshold should not be considered an absolute contraindication to surgery. Further high-quality evidence is needed for patients presenting beyond 72 hours, older adults, and severity-stratified subgroups.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "3fe7840f2cd671f39d28ac39d8187087612945c4f79556943833d23ab312b8aa"
+      },
+      {
+        "pmid": "41960505",
+        "title": "Early versus delayed laparoscopic cholecystectomy in acute cholecystitis: A prospective study.",
+        "authors": "Narwariya KS, Shakya R, Sharma S, Singh KP, Nema P.",
+        "year": "2026",
+        "journal": "Bioinformation",
+        "doi": "10.6026/973206300220338",
+        "url": "https://europepmc.org/article/PMC/PMC13058381",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "The optimal timing for laparoscopic cholecystectomy in patients with acute calculous cholecystitis remains unclear. Therefore, it is of interest to compare early versus delayed laparoscopic cholecystectomy in 246 patients with acute calculous cholecystitis. Early surgery performed within 72 hours showed significantly shorter operative time, reduced hospital stay and faster return to normal activity. Conversion to open surgery and postoperative complications were similar between both groups. Delayed surgery required longer operative duration and hospitalization despite comparable safety outcomes. Early laparoscopic cholecystectomy within 72 hours is more effective and efficient, with shorter operative time, reduced hospital stay and quicker recovery compared to delayed surgery.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Study",
+        "lowMetadata": false,
+        "_sig": "85eb5d436599b3553b811cb69c0f109d81a8e4496c53ecf2967a8bc67e4fbe49"
+      },
+      {
+        "pmid": "42458031",
+        "title": "Risk factors and outcomes of bailout procedures during laparoscopic cholecystectomy for acute cholecystitis: the BOLAC study.",
+        "authors": "Ceresoli M, Graziano F, Allievi N, Ansaloni L, Bencini M, Benzoni I, Bisagni P, Boccia L, Branciforte B, Cassini D, Del ",
+        "year": "2026",
+        "journal": "Surgical endoscopy",
+        "doi": "10.1007/s00464-026-13040-9",
+        "url": "https://europepmc.org/article/PMC/PMC13633154",
+        "source": "pmc",
+        "pubType": "research-article, Multicenter Study, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Multicenter Study",
+          "Journal Article"
+        ],
+        "context": "Background Bailout procedures during laparoscopic cholecystectomy are employed to prevent major complications. However, their incidence, determinants, and clinical impact remain incompletely defined in large multicenter settings. This study aimed to assess the incidence of bailout procedures during laparoscopic cholecystectomy for acute cholecystitis, identify associated risk factors, and evaluate postoperative outcomes. Methods A retrospective multicenter cohort study was conducted across 22 hospitals in Northern Italy, including consecutive adult patients undergoing laparoscopic cholecystectomy for acute calculous cholecystitis between January 2023 and December 2024. Bailout procedures were defined as any deviation from standard laparoscopic cholecystectomy, including subtotal cholecystectomy or conversion to open surgery. Multivariable logistic regression was used to identify independent predictors. Inter-center variability was assessed using the median odds ratio (MOR). Results Among 1805 patients, bailout procedures were required in 176 cases (9.8%). The most common strategies were open conversion (4.7%) and laparoscopic subtotal cholecystectomy (3.3%). Failure to achieve the Critical View of Safety was the leading indication (54.2%). Independent predictors of bailout included intramural abscess (OR = 3.25), male sex (OR = 1.74), peritoneal collection (OR = 1.77), and surgical delay > 7 days (OR = 1.85). Significant inter-center variability was observed (MOR = 2.42). Bailout procedures were associated with worse outcomes, including longer hospital stay (11.8 vs. 6.7 days), higher severe complication rates (4.5 vs. 1.6%), increased bile leaks (10.8 vs. 2.3%), and higher readmission rates (6.8 vs. 2.3%). Conclusions Bailout procedures are required in approximately 10% of LCs for AC and are strongly associated with markers of advanced inflammation and delayed surgery. Their use reflects both disease severity and institutional practice variability and is associated with increased postoperative morbidity. Early intervention and improved risk stratification may optimize surgical planning and outcomes.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "1c722d95e4665037737efa5715c3a86dff07cc0a1ed92d06ec40fbce9ca398fb"
+      },
+      {
+        "pmid": "oax:W4415119490",
+        "title": "A COMPARATIVE STUDY OF EARLY VERSUS LATE LAPAROSCOPIC CHOLECYSTECTOMY FOR ACUTE CALCULOUS CHOLECYSTITIS",
+        "authors": "Kanwar Singh Goel, Megha Grover, Aditi Tomar, Manjit Tanwar",
+        "year": "2025",
+        "journal": "INTERNATIONAL JOURNAL OF SCIENTIFIC RESEARCH",
+        "doi": "10.36106/ijsr/6903298",
+        "url": "https://doi.org/10.36106/ijsr/6903298",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction: Acute calculous cholecystitis is a common surgical emergency, especially in adults, often necessitating cholecystectomy. Among treatment options, laparoscopic cholecystectomy is the preferred choice due to faster recovery and fewer complications. However, the timing of surgery—early (within 72 hours) versus delayed (after 4–6 weeks)—remains debated. The aim of this stu Aim & Objective: dy was to compare early versus delayed laparoscopic cholecystectomy in acute calculous cholecystitis with respect to operative time, frequency of complications, and length of postoperative hospital stay. This comparative observational study was conducted on 70 patie Methodology: nts aged 18–60 years at SGT Medical Hospital. Patients were randomly divided into early (n=35) and delayed (n=35) laparoscopic cholecystectomy groups. Standard investigations and follow-up protocols were followed, and statistical",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "032f72218ebdf066d1518d07e4d7e2c06f95334bfe3c9f6394776216606f1db2"
+      },
+      {
+        "pmid": "oax:W3180075360",
+        "title": "COMPARISON OF OUTCOMES BETWEEN EARLY AND DELAYED LAPAROSCOPIC CHOLECYSTECTOMY IN ACUTE CALCULOUS CHOLECYSTITIS",
+        "authors": "Muhammad Ismail, Nasir Mehmood Wattoo, Muhammad Qasim Butt, Fareeha Naz",
+        "year": "2021",
+        "journal": "Pakistan Armed Forces Medical Journal",
+        "doi": "10.51253/pafmj.v71i3.2777",
+        "url": "https://doi.org/10.51253/pafmj.v71i3.2777",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objective: To compare early versus delayed laparoscopic cholecystectomy in acute calculous cholecystitis in terms of mean operative time, hospital stay, conversion rate to open surgery and post-operative complications. Study Design: Quasi experimental study. Place and Duration of Study: Army Liver Transplant Unit, Department of Surgery, Pak-Emirates Military Hospital Rawalpindi, from Jul to Dec 2018. Methodology: A total of 170 patients (85 in each group) diagnosed as a case of acute calculous cholecystitis who met the sample selection criteria were included. Group A patients underwent early laparoscopic cholecystectomy within 72 hours of admission while group B patients underwent conservative management followed by delayed laparoscopic cholecystectomy after 6 weeks. All patients were followed for operative time, hospital stay, per-operative difficulties encountered and",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "600ab7e84b2747de2b4c39cf48f464a74ae291705c3f99bc5eeeb083dde9f9a7"
+      },
+      {
+        "pmid": "27891173",
+        "title": "Laparoscopic cholecystectomy for acute calculous cholecystitis: a retrospective study assessing risk factors for conversion and complications",
+        "authors": "Petra Terho, Ari Kalevi Leppäniemi, Panu Juhani Mentula",
+        "year": "2016",
+        "journal": "World Journal of Emergency Surgery",
+        "doi": "10.1186/s13017-016-0111-4",
+        "url": "https://doi.org/10.1186/s13017-016-0111-4",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The purpose of the study was to identify risk factors for conversion of laparoscopic cholecystectomy and risk factors for postoperative complications in acute calculous cholecystitis. The most common complications arising from cholecystectomy were also to be identified. METHODS: A total of 499 consecutive patients, who had undergone emergent cholecystectomy with diagnosis of cholecystitis in Meilahti Hospital in 2013-2014, were identified from the hospital database. Of the identified patients, 400 had acute calculous cholecystitis of which 27 patients with surgery initiated as open cholecystectomy were excluded, resulting in 373 patients for the final analysis. The Clavien-Dindo classification of surgical complications was used. RESULTS: Laparoscopic cholecystectomy was initiated in 373 patients of which 84 (22.5%) were converted to open surgery. Multivariate",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "b767491b8dbf885a8caf6d350bf68a62ba8dd6318938b7a8d66034a98cfd7104"
+      },
+      {
+        "pmid": "oax:W7202294622",
+        "title": "Clinical Outcomes of Early versus Delayed Laparoscopic Cholecystectomy in Acute Calculous Cholecystitis",
+        "authors": "Sampurnanand Jha, Mohan Kant Thakur, Ashutosh Anand, Nawin Kumar",
+        "year": "2026",
+        "journal": "International Journal of Drug Delivery Technology",
+        "doi": "10.25258/ijddt.16.74s.60",
+        "url": "https://doi.org/10.25258/ijddt.16.74s.60",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BackgroundAcute calculous cholecystitis is one of the most common surgical emergencies encountered in clinical practice.Laparoscopic cholecystectomy is the gold standard treatment; however, the optimal timing of surgery remains a matter of debate.Early laparoscopic cholecystectomy may reduce recurrent symptoms and hospital stay, whereas delayed surgery is traditionally considered technically easier after resolution of inflammation.Aim To compare the clinical outcomes of early versus delayed laparoscopic cholecystectomy in patients with acute calculous cholecystitis.Methods A retrospective observational study was conducted at Shri Ramkrishna Institute of Medical Sciences and Sanaka Hospitals, Durgapur, from May 2025 to May 2026.Ninety-eight patients diagnosed with acute calculous cholecystitis were included.Patients were categorized into an Early Laparoscopic Cholecystectomy (ELC) group (within 72 hours of admission; n=50) and a Delayed Laparoscopic",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5ceb90d322aba536a95ee04decb490b9c584d0a20380a71566aa4a0859986178"
+      },
+      {
+        "pmid": "cr:10.21276/amit.2026.v13.i2.719",
+        "title": "Clinico-Radiological Score for Predicting the Difficulty of Laparoscopic Cholecystectomy in Acute Calculous Cholecystitis",
+        "authors": "TR Karthikhaeyan, P Sabari Arasu, Sriram Rashmika, Bahnou Noor Mohamed Shawnas",
+        "year": "2026",
+        "journal": "Acta Medica International",
+        "doi": "10.21276/amit.2026.v13.i2.719",
+        "url": "https://doi.org/10.21276/amit.2026.v13.i2.719",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Acute calculous cholecystitis is a common surgical condition for which early laparoscopic cholecystectomy is the standard treatment. However, operative difficulty varies widely and is often unpredictable, leading to increased complications and technical challenges. Accurate preoperative prediction of operative difficulty is essential for surgical planning, patient counseling, and optimizing outcomes. This study aimed to develop a clinico-radiological scoring system using preoperative parameters to predict operative difficulty in patients with acute calculous cholecystitis. Material and Methods: This retrospective observational study included adult patients with acute calculous cholecystitis who underwent laparoscopic cholecystectomy at a tertiary care center between February 2022 and August 2023. Clinical, laboratory, and ultrasonographic parameters were collected from medical records. Operative difficulty was categorized as easy or difficult based on intraoperative findings documented in operative notes. Univariate analysis was performed using independent t-tests and chi-square tests, followed by multivariate linear regression analysis to identify independent predictors. A preoperative clinico-radiological scoring system was constructed based on regression coefficients and statistical significance. Correlation between the preoperative score and operative difficulty was assessed using Spearman's rank correlation coefficient. Results: A total of 183 patients were included, of whom 77 (42.1%) underwent difficult laparoscopic cholecystectomy. Elevated C-reactive protein levels and neutrophil-to-lymphocyte ratio were significantly associated with operative difficulty on univariate analysis. Clinical factors such as positive Murphy's sign and prior endoscopic retrograde cholangiopancreatography showed strong associations. Radiological predictors included increased gallbladder wall thickness, multiple gallstones, stone impaction at the gallbladder neck, and presence of pericholecystic fluid. Multivariate linear regression analysis identified Murphy's sign, prior endoscopic retrograde cholangiopancreatography, elevated C-reactive protein levels, gallbladder wall thickness, and stone impaction at the gallbladder neck as independent predictors (R² = 0.863). The derived scoring system ranged from 0 to 13 and demonstrated strong correlation with operative difficulty (Spearman's ρ = 0.796, p < 0.001). A score ≥ 7 was significantly associated with difficult laparoscopic cholecystectomy (p < 0.001). Conclusion: The proposed clinico-radiological scoring system, based on routine preoperative clinical, laboratory, and ultrasonographic parameters, is a reliable tool for predicting operative difficulty in laparoscopic cholecystectomy for acute calculous cholecystitis. This scoring system may assist surgeons in preoperative risk stratification, surgical planning, and patient counseling, thereby improving operative preparedness and outcomes. Keywords: Acute calculous cholecystitis, c-reactive protein, difficult laparoscopic cholecystectomy, gallbladder wall thickness, laparoscopic cholecystectomy, preoperative scoring system, stone impaction, ultrasonography.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "eb6151aedcd817f513cf0d5f2affc0b20bd254e92bdfc22de596e59313b6f1e3"
+      },
+      {
+        "pmid": "36601493",
+        "title": "Evaluation of early versus delayed laparoscopic cholecystectomy in acute calculous cholecystitis: a prospective, randomized study",
+        "authors": "Gaurav Gupta, Ajay Shahbaj, Dharmendra Kumar Pipal, Pawan Kumar Saini",
+        "year": "2022",
+        "journal": "Daehan nae'si'gyeong bog'gang'gyeong oe'gwa haghoeji/Journal of minimally invasive surgery",
+        "doi": "10.7602/jmis.2022.25.4.139",
+        "url": "https://doi.org/10.7602/jmis.2022.25.4.139",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Purpose: Uncertainty exists about whether early laparoscopic cholecystectomy (LC) is an appropriate surgical treatment for acute calculous cholecystitis. This study aimed to compare early vs. late LC for acute calculous cholecystitis regarding intraoperative difficulty and postoperative outcomes. Methods: This was a prospective randomized study carried out between December 2015 and June 2017; 60 patients with acute calculous cholecystitis were divided into two groups (early and delayed groups), each comprising 30 patients. Thirty patients treated with LC within 3 to 5 days of arrival at the hospital were assigned to the early group. The other 30 patients were placed in the delayed group, first treated conservatively, and followed by LC 3 to 6 weeks later. Results: The conversion rates in both",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "85432fb49c7eb495b837ac9e1e8b6a4e99fdb751df43d01c1efc24639f8e4b35"
+      },
+      {
+        "pmid": "oax:W4377085243",
+        "title": "Role of Laparoscopic Cholecystectomy in Early Management of Acute Calculous Cholecystitis",
+        "authors": "Research Group",
+        "year": "2021",
+        "journal": "Journal of Liaquat University of Medical & Health Sciences",
+        "doi": "10.22442/jlumhs.2021.00819",
+        "url": "https://doi.org/10.22442/jlumhs.2021.00819",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To demonstrate the results of early laparoscopic cholecystectomy in patients having acute calculous cholecystitis undergone surgery specially focusing hospital stay duration and postoperative complications related to biliary injury and port site infection.METHODOLOGY: This observational study was carried out at surgical department Unit-II, Liaquat University Hospital Jamshoro/Hyderabad and Minimal Invasive Surgical Center from July 2018 to June 2019 with Non-probability, consecutive sampling technique.Patients of acute calculous cholecystitis irrespective of sex between 15 to 60 years age, who need admission for laparoscopic cholecystectomy were included.A calculous acute cholecystitis, hepatitis B and C+ve, coagulopathy, patients below age of 15 years and above 60 years, gall bladder cancer, acute pancreatitis, choledocholithiasis and previous abdominal surgery.\"RESULTS: 138 patients, 127(92.02%)female and 11(7.91%)male.Mean age was 41.13±4.50years.Presented",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d86625e9141ecff92920f0169c6d2167ad947b6b3fb88dc10227bf438b98b783"
+      },
+      {
+        "pmid": "doaj:71edd5d8c5f04272b75de23cb971f181",
+        "title": "BRIDGING THERAPY RESULTS IN PATIENTS WITH ACUTE CALCULOUS CHOLECYSTITIS AND CONCOMITANT ISCHEMIC HEART DISEASE",
+        "authors": "A.V. Dinets, S.O. Kondratenko, L.Yu. Markulan, V.M. Holinko",
+        "year": "2018",
+        "journal": "Ukrainian Scientific Medical Youth Journal",
+        "url": "https://mmj.nmuofficial.com/index.php/journal/article/view/5",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction. Binding or bridging therapy (BT) suggests long-term administration of short acting anticoagulants (unfractionated heparin – UFH or low-molecular-weight heparin – LMWH) during preoperative preparation and early postoperative period in patients who had been receiving anticoagulation therapy (ACT) or anti-aggregation therapy (AAT) for a long time before surgery. The generalized data on the BT technique for urgent surgical interventions, particularly, in patients with acute calculous cholecystitis (ACH) and concomitant ischemic heart disease (IHD), is currently lacking. The aim of the work – to improve the BT technique in patients with ACH and IHD and to evaluate the results of its application. Materials and methods. The study included 73 patients– 33 (45,2 %) women and 40 (54,8 %) men aged 57 to 81 years, on average 71,4 ± 0,7 years, who had received ACT or AAT before the hospitalization. All patients were admitted to hospital within 72 hours (from 6 to 65 hours) from the onset of the disease, on average 27.3 ± 1.5 hours. The catarrhal ACH occurred in 27 (37,0%) patients, phlegmonous – in 21 (28,8 %) patients, gangrenous – in 25 (34,2 %) patients. According to Tokyo Guidelines for the management of acute cholangitis and cholecystitis (TG13), 19 (26.0 %) patients had ACH I degree, 31 (42.5 %) patients– ACH II degree, 23 (31.5 %) patients – ACH III degree. There were 3 (4.1 %) patients with NYHA class I heart failure, 39 (53.4 %) patients with NYHA class II heart failure, 26 (35.6 %) patients with NYHA class III heart failure, and 5 (6.8 %) patients with NYHA class IV heart failure. The advanced tactics of bridging therapy was applied, which depended on several factors such as INR, aPTT, creatinine clearance, Lee-White’s bleeding time. The target points were the frequency of INR or bleeding time therapeutic range achieving, and the frequency of hemorrhagic complications. Results and discussion. Immediately before surgery (laparoscopic cholecystectomy), the target (therapeutic) INR range >2 was obtained in 18 (90 %) patients among 20 patients who had previously received warfarin. Among them 2 (10.0 %) patients had INR in the range of 1.3-2.0, 12 (60.0%) patients had INR in the range of 2.1-3.0, and 6 (30.0 %) had INR >3.1. The target value of bleeding time >12 min was in 48 (90.6 %) patients among the patients (53 patients) who had received AAT earlier. The values of bleeding time in the range of 10-12 min were in 5 (9.4 %) patients, 12.1-14 min –in 42 (79.2 %) patients, >14 min – in 6 (11.3 %) patients. In general, INR and bleeding time values were within the therapeutic window in 65 (90.3 %) patients, and there was no patient with signs of hypercoagulation. In the postoperative period, the dynamics of INR and bleeding time values were similar and figured out at increase in the part of patients with INR 2.1-3.0 and bleeding time 12.1-14 min respectively.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1ce1c32a9408f846967c010f1dc62c0026d2d2928205ab71b111315fcb4185bd"
+      },
+      {
+        "pmid": "oax:W2617897634",
+        "title": "Efficacy of acute laparoscopic cholecystectomy for acute calculous cholecystitis regardless the length of symptoms",
+        "authors": "Marek Šoltés",
+        "year": "2017",
+        "journal": "Laparoscopic Endoscopic Surgical Science",
+        "doi": "10.14744/less.2017.21931",
+        "url": "https://doi.org/10.14744/less.2017.21931",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction: Although early acute laparoscopic cholecystectomy within 72 hours is considered method of choice for acute calculous cholecystitis, controversy persists concerning its indication in case of prolonged symptoms. Materials and Methods:Prospectively run data of patients operated on for acute calculous cholecystitis over period of 3 years in tertiary referral center were analyzed.Acute surgery was performed, regardless of the duration of symptoms, provided that no prohibitive surgical factors were present.Only patients with histopathologically confirmed acute cholecystitis were included in the study.Analyzed parameters included age, gender, preoperative C-reactive protein (CRP) level, time interval from onset of symptoms until surgery, operating time, intraoperative and postoperative complications, conversion rate, length of hospital stay, readmission, and reoperation rate.Analysis was performed on intention-to-treat basis.Results: Total of",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "7ea3cdc6f2de4d5dfeefb693d99df04a1e96b47abeb29e24287b89a28eb32281"
+      },
+      {
+        "pmid": "42839553",
+        "title": "Advances in Indocyanine Green Near-Infrared Fluorescence for Extrahepatic Biliary Identification in Laparoscopic Cholecystectomy for Acute Cholecystitis: A Narrative Review.",
+        "authors": "Jin Z, Yang X, Liu Y, Song L, Chen X, Wang Y, Cheng X, Liang L, Yao B.",
+        "year": "2026",
+        "journal": "Medical science monitor : international medical journal of experimental and clinical research",
+        "doi": "10.12659/msm.953667",
+        "url": "https://europepmc.org/article/PMC/PMC13656823",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Laparoscopic cholecystectomy, a minimally invasive procedure with rapid recovery, remains the standard surgical intervention for acute cholecystitis. Acute inflammation of the gallbladder can cause severe edema, dense adhesions, and anatomical distortion within Calot's triangle, frequently obscuring tissue planes and increasing the risk of iatrogenic bile duct injury, a significant surgical complication. Indocyanine green fluorescence serves as a valuable intraoperative navigation tool. Its hepatobiliary metabolic characteristics enable real-time near-infrared visualization of extrahepatic bile ducts, thereby compensating for the limitations of visual and tactile identification during routine cholecystectomy. This narrative review compiles published clinical evidence regarding the application of indocyanine green fluorescence in acute cholecystitis operations. We summarize its advantages in inflamed operative fields and categorize practical application experiences across varying grades of inflammation. Current data indicate enhanced biliary visualization and reduced operative time; however, robust high-level trials confirming a reduction in bile duct injury risks remain lacking. Additionally, we discuss emerging technical advancements, such as artificial intelligence and multispectral imaging. This article aims to evaluate the practical value of indocyanine green near-infrared fluorescence for the recognition of extrahepatic bile ducts in laparoscopic cholecystectomy performed on patients with acute cholecystitis.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "c0caa49510f2b5a649824422ce2bd21de52149a393a30cc578f7ab6fcb5adfa3"
+      },
+      {
+        "pmid": "42136788",
+        "title": "Association of intra-operative adverse events with gall bladder wall thickness in patients undergoing laparoscopic cholecystectomy for acute calculous cholecystitis: A prospective study from a low middle income country.",
+        "authors": "Asif N, Sohail AA, Sundardas K, Alvi AR.",
+        "year": "2026",
+        "journal": "Pakistan journal of medical sciences",
+        "doi": "10.12669/pjms.42.(11aasc).15799",
+        "url": "https://europepmc.org/article/PMC/PMC13169993",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Objective Acute calculous cholecystitis is one of the most common surgical infectious disease emergencies worldwide. Early laparoscopic cholecystectomy (LC) is the definitive treatment, but severe inflammation often leads to technical difficulty and increased intraoperative adverse events. This study evaluated preoperative gallbladder wall thickness (GWT) on ultrasound as a simple, objective predictor of difficult LC in acute calculous cholecystitis. Methodology A prospective cross-sectional study was conducted in the Department of Surgery, Aga Khan University Hospital, Karachi, from May to November 2022. Consecutive adult patients (18-60 years) with ultrasound-confirmed acute calculous cholecystitis undergoing LC within 96 hours of symptom onset were included (n=116). GWT was classified as normal (≤3 mm), moderate (3.1-7 mm), and severe (>7 mm). Intraoperative adverse events recorded were operative time >90 minutes, distended gallbladder requiring aspiration, dense adhesions, conversion to open procedure, and drain placement. Results Mean GWT was 3.44 ± 1.79 mm. Severe thickening (>7 mm) was present in six patients (5.2%) and was highly significantly associated with prolonged operative time (p Conclusion Severe preoperative gallbladder wall thickening (>7 mm) is a powerful, reproducible marker of intense inflammation and can predicts difficult laparoscopic cholecystectomy in acute infectious cholecystitis. Routine reporting of GWT allows accurate risk stratification, facilitates early involvement of experienced surgeons, reduces conversion rates, and optimizes outcomes in this common infectious surgical emergency - making it a practical and cost-effective surgical solution, especially in low-middle-income settings.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "bc013af7d76b4487bf39a611170630c54e4e7df37b195228f3c062b0332a006e"
+      },
+      {
+        "pmid": "42715902",
+        "title": "Preoperative predictors of difficult laparoscopic cholecystectomy after percutaneous transhepatic gallbladder drainage in patients with cholecystitis.",
+        "authors": "Zhou C, Xia Z, Chu L, Xu Z, Chen Z.",
+        "year": "2026",
+        "journal": "Clinics (Sao Paulo, Brazil)",
+        "doi": "10.1016/j.clinsp.2026.101132",
+        "url": "https://europepmc.org/article/PMC/PMC13573668",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Percutaneous Transhepatic Gallbladder Drainage (PTGBD) serves as a bridge therapy for moderate-to-severe cholecystitis. However, Laparoscopic Cholecystectomy (LC) after PTGBD is frequently complicated by chronic inflammation and fibrosis. Currently, predictive tools for difficult surgery in this population are limited, and none have integrated multidimensional parameters including novel imaging metrics and psychological assessments. Methods We retrospectively analyzed 150 patients who underwent LC after PTGBD between September 2018 and May 2025. After excluding 43 patients (22 with missing data, 21 with combined procedures), 107 were included. Using univariate and multivariate logistic regression, we developed a nomogram incorporating five-dimensional preoperative parameters: 1) Baseline clinical characteristics, 2) CT imaging features, 3) PTGBD-related surgical parameters, 4) Laboratory indicators, and 5) Psychological assessments. Difficult surgery was defined by Tokyo Guidelines (TG18) criteria: operative time > 110 min, blood loss > 150 mL, or conversion to open surgery (including subtotal cholecystectomy or fundus-first technique). Results Multivariate analysis identified four independent predictors: elevated C-reactive protein (CRP > 8.2 mg/L; OR = 4.21, p = 0.011), pericholecystic fluid (OR = 60.93, p 0.7; OR = 4.00, p = 0.015), and increased Calot's triangle CT attenuation (HU > 30; OR = 5.82, p Conclusions The model enables precise risk stratification, which could potentially guide clinical decisions and improve surgical outcomes.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "a84d83c229c644a5beb3ed5c59bc63baaf23aabccca4a86b8255de8b82361d5b"
+      },
+      {
+        "pmid": "cr:10.17116/hirurgia202411172",
+        "title": "Comparative analysis of laparoscopic cholecystectomy outcomes in acute calculous cholecystitis: importance of indocyanine green, optimal dosing regimen",
+        "authors": "Klimov A.E., Leonovich A.M., Kosachenko M.V., Barkhudarov A.A.",
+        "year": "2024",
+        "journal": "Pirogov Russian Journal of Surgery",
+        "doi": "10.17116/hirurgia202411172",
+        "url": "https://doi.org/10.17116/hirurgia202411172",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective. To show the effectiveness of the indocyanine green application in laparoscopic cholecystectomy of any complexity. Material and methods. Our study used a domestically produced drug, namely indocyanine green, lyophilisate, which was diluted in water for injections. In addition, 4K equipment with the possibility of fluorescence of different manufacturers (Arthrex, ELEPS, KARL STORZ) was used. The study group included 117 patients who were urgently hospitalized with acute calculous cholecystitis diagnosis. All patients were additionally examined in the preoperative period according to the recommendations of the Ministry of Health of the Russian Federation. The control group included 109 patients. A retrospective analysis of the medical records for 2023 was carried out. Results. The advantages of using indocyanine green in the performance of laparoscopic cholecystectomy of any complexity were confirmed. The drug application promotes the extrahepatic biliary tracts navigation, thus allowing to avoid the injuries of extrahepatic bile ducts and the consequences of these injuries. In addition, its implementation increases the possibility of early training of young professionals and residents on the technique of safe laparoscopic cholecystectomy. Conclusions. The application of optimal dosages of indocyanine does not cause visual discomfort during the operation, significantly reduces the duration of the surgery, thus allowing to reduce the time spent in the hospital in the postoperative period.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "b3eba89cdce59745e2810748d4f3395b8b354ede86d15b7b7d1a318b32aa680e"
+      },
+      {
+        "pmid": "42575844",
+        "title": "Impact of Surgical Timing on Outcomes of Laparoscopic Cholecystectomy for Acute Calculous Cholecystitis: A Multicenter Real-World Analysis",
+        "authors": "Carlo Bergamini, Andrea Balla, Giulia Montori, Salvador Morales Conde",
+        "year": "2026",
+        "journal": "Journal of Laparoendoscopic & Advanced Surgical Techniques",
+        "doi": "10.1177/10926429261478769",
+        "url": "https://doi.org/10.1177/10926429261478769",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Early laparoscopic cholecystectomy is recommended for acute calculous cholecystitis (ACC), although the optimal timing within the recommended early treatment window remains uncertain. This study evaluated whether different time intervals from symptom onset to surgery influence operative difficulty and perioperative outcomes in routine emergency surgical practice. METHODS: A retrospective multicenter study was conducted including consecutive patients who underwent LC for Tokyo Grade I or II ACC between January 2021 and December 2025. Patients were stratified according to Tokyo severity grade and further categorized into five predefined intervals according to time from symptom onset to surgery (≤6 hours, 6 to 12 hours, 12 to 24 hours, 24 to 72 hours, and > 72 hours). Demographic characteristics, comorbidities, operative findings, postoperative outcomes,",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "73c048ecc87952544053f55a7153485b052681771659b202068ced09612ecfb5"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 5
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 5,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "acute calculous cholecystitis within 72 hours early laparoscopic cholecystectomy (< 72 hours) delayed interval laparoscopic cholecystectomy (6-8 weeks) overall 30-day complications and total hospital stay",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

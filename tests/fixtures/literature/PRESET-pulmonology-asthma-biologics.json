@@ -1,0 +1,827 @@
+{
+  "id": "PRESET-pulmonology-asthma-biologics",
+  "recordedAt": "2026-11-26T19:51:41.962Z",
+  "specialty": "pulmonology",
+  "words": [
+    {
+      "word": "severe uncontrolled asthma with type 2 inflammatory phenotype",
+      "role": "population"
+    },
+    {
+      "word": "add-on dupilumab subcutaneous every 2 weeks",
+      "role": "intervention"
+    },
+    {
+      "word": "standard high-dose inhaled therapy alone",
+      "role": "comparator"
+    },
+    {
+      "word": "annualized severe asthma exacerbation rate and FEV1 improvement",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "severe uncontrolled asthma with type 2 inflammatory phenotype",
+        "role": "population"
+      },
+      {
+        "word": "add-on dupilumab subcutaneous every 2 weeks",
+        "role": "intervention"
+      },
+      {
+        "word": "standard high-dose inhaled therapy alone",
+        "role": "comparator"
+      },
+      {
+        "word": "annualized severe asthma exacerbation rate and FEV1 improvement",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In severe uncontrolled asthma with type 2 inflammatory phenotype (P), does add-on dupilumab subcutaneous every 2 weeks (I) compared with standard high-dose inhaled therapy alone (C) improve annualized severe asthma exacerbation rate and FEV1 improvement (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In severe uncontrolled asthma with type 2 inflammatory phenotype (P), is add-on dupilumab subcutaneous every 2 weeks (I) superior to standard high-dose inhaled therapy alone (C) for annualized severe asthma exacerbation rate and FEV1 improvement (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of severe uncontrolled asthma with type 2 inflammatory phenotype (P), does add-on dupilumab subcutaneous every 2 weeks (I) compared with standard high-dose inhaled therapy alone (C) improve annualized severe asthma exacerbation rate and FEV1 improvement (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In severe uncontrolled asthma with type 2 inflammatory phenotype (P), does add-on dupilumab subcutaneous every 2 weeks (I) compared with standard high-dose inhaled therapy alone (C) improve annualized severe asthma exacerbation rate and FEV1 improvement (O)?"
+    },
+    "words": [
+      {
+        "word": "severe uncontrolled asthma with type 2 inflammatory phenotype",
+        "role": "population"
+      },
+      {
+        "word": "add-on dupilumab subcutaneous every 2 weeks",
+        "role": "intervention"
+      },
+      {
+        "word": "standard high-dose inhaled therapy alone",
+        "role": "comparator"
+      },
+      {
+        "word": "annualized severe asthma exacerbation rate and FEV1 improvement",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.33086/jhs.v15i03.2788",
+        "title": "Dupilumab Efficacy and Safety as an Add-On Therapy in Uncontrolled Asthma Patients: A Systematic Review",
+        "authors": "Evelyn Evelyn, Djohan Putra Brillian, Herawati Fauna",
+        "year": "2022",
+        "journal": "Journal of Health Sciences",
+        "doi": "10.33086/jhs.v15i03.2788",
+        "url": "https://doi.org/10.33086/jhs.v15i03.2788",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Asthma is a heterogeneous chronic inflammatory condition affecting the lung. Standard treatment, a high-dose inhaled corticosteroid (ICS) and long-acting bronchodilator (LABA), effectively manages asthma in most individuals. However, 5%-10% of individuals with asthma were ineffective with those treatments. Recent RCTs suggested that Dupilumab posed potential as an add-on therapy. This systematic review aims to support the efficacy (the annualized rate of severe asthma exacerbation and increase in FEV1) and the safety of Dupilumab as an add-on therapy in uncontrolled asthma patients. We used \"(Asthma) AND (Dupilumab)\" as keywords on PubMed and ScienceDirect. We included only RCT design studies comparing the efficacy and safety of Dupilumab with a placebo in uncontrolled asthma patients. The placebo was ICS and LABA or oral glucocorticoids. This paper included five RCTs with 3400 participants, and their quality was assessed using Critical Appraisal Tools Program (CASP) tools. We conducted a meta-analysis to calculate the pooled risk ratio (RR). In addition, we used Mantel-Haenszel with 95% confidence intervals for dichotomous data. Furthermore, we used a random-effects model to count for interstudy heterogeneity. Then, we processed data using Revman 5.4. Dupilumab as an add-on therapy significantly showed a consistent effect in lower the annualized rate of severe asthma exacerbation (RR= 0.46; 95% CI 0.36- 0.58; p=0.007) and increased FEV1 compared to placebo. In addition, the most common adverse effect of using Dupilumab were injection site reaction, upper respiratory tract infections, and eosinophilia. In conclusion, Dupilumab is safe and well-tolerated as moderate-to-severe uncontrolled asthma add-on therapy",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "df7188bf1dbc99fdeda3bcfae9548f738db5514bdf230dadd32c4f0151f579a5"
+      },
+      {
+        "pmid": "42764892",
+        "title": "Dupilumab Improves Lung Function and Reduces Severe Exacerbations in Patients from China with Type 2 Asthma: A Subgroup Analysis of a Phase 3 Randomized Trial.",
+        "authors": "Zhang Q, Fu X, Fang H, Lin J, Altincatal A, Huang Y, Kwah JH, Ledanois O, Zhong N.",
+        "year": "2026",
+        "journal": "Journal of asthma and allergy",
+        "doi": "10.2147/jaa.s597499",
+        "url": "https://europepmc.org/article/PMC/PMC13589984",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Purpose Asthma affects approximately 46 million adults in China. The safety and efficacy of dupilumab, a monoclonal antibody which blocks the shared receptor component for interleukin (IL)-4 and IL-13, were evaluated in a phase 3 study in patients with moderate-to-severe asthma in the Asia-Pacific region (NCT03782532). This is a pre-specified subgroup analysis of patients in China derived from the Asia-Pacific trial. Patients and methods Patients (≥12 years) with inadequately controlled asthma despite medium/high-dose inhaled corticosteroids and ≥1 additional controller were included. Patients with type 2 inflammation (eosinophil counts ≥150 cells/µL or fractional exhaled nitric oxide ≥25 parts per billion) without maintenance oral corticosteroids (OCS) (type 2 non-OCS group, for primary efficacy analysis) were randomized 1:1 to receive 200-mg dupilumab every 2 weeks or placebo for 24 weeks. In this pre-specified subgroup analysis, primary efficacy endpoints examined included change from baseline in pre-bronchodilator forced expiratory volume in 1 second (FEV 1 ) to week 12. Additional outcomes assessed included asthma control measures, annualized severe exacerbation rates, and safety. Results In a total of 412 patients randomized from China (206 per treatment group) 347 (84.2%) were included in the primary efficacy analysis. Changes from baseline to week 12 in FEV 1 were significantly greater for dupilumab vs placebo (least squares [LS] mean difference: 0.34 L [95% confidence interval (CI): 0.25, 0.43]), as were improvements in 5-Item Asthma Control Questionnaire scores at week 24 (LS mean difference: -0.19 [95% CI: -0.35, -0.03]). Severe exacerbation risk was significantly reduced by 74.2% (risk ratio: 0.258 [95% CI: 0.127, 0.521], P = 0.0002) vs placebo. Treatment-emergent adverse event rates were similar across groups. Conclusion In this 24-week subgroup analysis, dupilumab improved lung function, asthma control, and exacerbations, and was well tolerated in patients from China with type 2 asthma without maintenance OCS.",
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "935c3f07e6961e5018fab401ff21bc5fd8d59ea16ca626b7825e201efff9be63"
+      },
+      {
+        "pmid": "41738176",
+        "title": "Switching to twice-yearly depemokimab from mepolizumab/benralizumab in severe asthma: a multicenter, randomized, double-blind, phase 3A clinical trial (NIMBLE)",
+        "authors": "Chupp G, et al",
+        "year": "2026",
+        "journal": "American journal of respiratory and critical care medicine",
+        "doi": "10.1093/ajrccm/aamag031",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41738176/",
+        "context": "RATIONALE: Depemokimab is the first ultra-long-acting biologic with high IL-5 binding affinity, high potency, and an extended half-life enabling twice-yearly dosing. OBJECTIVES: Investigate the efficacy and safety of switching to depemokimab in participants with severe asthma already managed with and responsive to short-acting biologic therapies targeting IL-5 or its receptor. METHODS: NIMBLE (NCT04718389) was a multicenter, randomized, double-blind, double-dummy, parallel-group, phase 3A noninferiority study. Participants were ≥12 years old with asthma and documented clinical benefit on mepolizumab 100 mg subcutaneously every 4 weeks or benralizumab 30 mg subcutaneously every 8 weeks for ≥12 months. Participants were randomized 1:1 to depemokimab 100 mg subcutaneously every 26 weeks or maintained on their prior biologic (mepolizumab or benralizumab). The primary endpoint was annualized rate of clinically significant exacerbations over 52 weeks, with predefined noninferiority margin set at 1.28. Safety endpoints included adverse events. MEASUREMENTS AND MAIN RESULTS: Annualized rates (95% confidence intervals [CIs]) of clinically significant exacerbations over 52 weeks were 0.57 (0.50 to 0.64) with depemokimab (n = 848) and 0.49 (0.43 to 0.55) with active comparator (n = 839); the rate ratio (95% CI) was 1.16 (0.98 to 1.38). Since the upper bound of the 95% CI exceeded 1.28, noninferiority was not met. Most participants in both treatment arms experienced no clinically significant exacerbations. Health-related quality of life, asthma control, and lung function outcomes were stable throughout the study. Adverse events were comparable between treatment groups. CONCLUSIONS: While statistical noninferiority was not met, exacerbation rates were low and symptom control/lung function were maintained in both groups. This first randomized, controlled switch trial in severe asthma suggests that participants with severe asthma on mepolizumab or benralizumab may safely switch to twice-yearly depemokimab. People with severe asthma may be treated with injectable biologic medicines to reduce inflammation in the bronchial tubes of the lungs. These medicines (aka biologics) can reduce asthma flare-ups (ie, exacerbations) and improve asthma symptoms; they are considered safer than long-term steroid use. Depemokimab is a newly developed biologic that has been shown to reduce severe exacerbations versus placebo in patients with severe asthma (SWIFT-1/-2 studies). Once injected under the skin, depemokimab works for a 6-month period, so injections are only needed twice a year. Currently available biologics for severe asthma, such as mepolizumab and benralizumab, require injections every 4 to 8 weeks. Since people with asthma may prefer fewer injections and find it easier to stay on less frequent treatment, it is of clinical interest to find out whether those who have previously improved with mepolizumab/benralizumab therapy maintain that improvement when their treatment is switched to depemokimab therapy. This study compared outcomes after 1 year in people with severe asthma who either switched to depemokimab or continued with mepolizumab/benralizumab. A statistical threshold was set to determine whether switching to depemokimab was noninferior (ie, not worse) than continuing mepolizumab/benralizumab. While the study did not meet this threshold for noninferiority, switching to depemokimab was linked to only a marginally higher number of exacerbations per year compared with continuing mepolizumab/benralizumab, and most people in all treatment groups did not experience any exacerbations. Additionally, other outcomes, such as asthma symptoms, lung function, and adverse events were similar between all the treatments. These results indicate that most people with severe asthma can safely and effectively switch from a current short-acting biologic to a twice-yearly treatment regimen with depemokimab.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Equivalence Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "20cf6f4f5903fca2480a419a322323f7152aeed6430e3a7e35df9f28657e23d4"
+      },
+      {
+        "pmid": "cr:10.1186/s13561-024-00532-4",
+        "title": "Cost-effectiveness analysis of dupilumab among patients with uncontrolled severe asthma using LIBERTY ASTHMA QUEST Korean data",
+        "authors": "Oh Sung-Hee, Rhee Chin Kook, Bae Eun Jin, Ku Hyemin",
+        "year": "2024",
+        "journal": "Health Economics Review",
+        "doi": "10.1186/s13561-024-00532-4",
+        "url": "https://doi.org/10.1186/s13561-024-00532-4",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background A sub-analysis of the Korean population in the LIBERTY ASTHMA QUEST trial (NCT02414854) revealed that dupilumab effectively treated severe uncontrolled asthma. This study aimed to assess the cost-effectiveness of add-on therapy with dupilumab to background therapy in patients ≥ 12 years of age with uncontrolled severe asthma compared to that of background therapy in South Korea. Methods The cost-effectiveness analysis was conducted using a Markov model over a lifetime from the Korean healthcare system perspective. Clinical efficacy and utility weights were obtained from post-hoc analyses of the Korean population in the QUEST trial. Data on the costs and treatment setting of exacerbation in a real-world setting were retrospectively collected using the administrative medical database from a single tertiary hospital. Results The base-case results indicated that add-on dupilumab therapy increases costs ($112,924 for add-on dupilumab versus $29,545 for background therapy alone). However, add-on dupilumab increased quality-adjusted life years (QALYs, 8.03 versus 3.93, respectively), with fewer events of severe exacerbations per patient compared to using the background therapy alone (17.920 versus 19.911, respectively). The incremental cost-effectiveness ratio was $20,325 per QALY. Various sensitivity analyses supported the robustness of the base-case results. Probabilistic sensitivity analysis showed that the probability of add-on dupilumab being cost-effective was 87% at a threshold willingness-to-pay of $26,718 (KRW 35 million) per QALY gained. Conclusions Dupilumab is cost-effective for adolescents and adults with uncontrolled severe asthma in South Korea. Our study provides evidence to support clinicians and policymakers in making informed decisions for severe asthma management.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "4abac86b12540b9679bab62ff967f16da7ceb8117e71ca57fd109644c656dde8"
+      },
+      {
+        "pmid": "34879449",
+        "title": "Dupilumab in Children with Uncontrolled Moderate-to-Severe Asthma",
+        "authors": "Bacharier LB, et al",
+        "year": "2021",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2106567",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34879449/",
+        "context": "BACKGROUND: Children with moderate-to-severe asthma continue to have disease complications despite the receipt of standard-of-care therapy. The monoclonal antibody dupilumab has been approved for the treatment of adults and adolescents with asthma as well as with other type 2 inflammatory diseases. METHODS: In this 52-week phase 3, randomized, double-blind, placebo-controlled trial, we assigned 408 children between the ages of 6 and 11 years who had uncontrolled moderate-to-severe asthma to receive a subcutaneous injection of dupilumab (at a dose of 100 mg for those weighing ≤30 kg and 200 mg for those weighing >30 kg) or matched placebo every 2 weeks. All the children continued to receive a stable dose of standard background therapy. The primary end point was the annualized rate of severe asthma exacerbations. Secondary end points included the change from baseline in the percentage of predicted prebronchodilator forced expiratory volume in 1 second (ppFEV 1 ) at week 12 and in the score on the Asthma Control Questionnaire 7 Interviewer-Administered (ACQ-7-IA) at week 24. End points were evaluated in the two primary efficacy populations who had either a type 2 inflammatory asthma phenotype (≥150 blood eosinophils per cubic millimeter or a fraction of exhaled nitric oxide of ≥20 ppb at baseline) or a blood eosinophil count of at least 300 cells per cubic millimeter at baseline. RESULTS: In patients with the type 2 inflammatory phenotype, the annualized rate of severe asthma exacerbations was 0.31 (95% confidence interval [CI], 0.22 to 0.42) with dupilumab and 0.75 (95% CI, 0.54 to 1.03) with placebo (relative risk reduction in the dupilumab group, 59.3%; 95% CI, 39.5 to 72.6; P<0.001). The mean (±SE) change from baseline in the ppFEV 1 was 10.5±1.0 percentage points with dupilumab and 5.3±1.4 percentage points with placebo (mean difference, 5.2 percentage points; 95% CI, 2.1 to 8.3; P<0.001). Dupilumab also resulted in significantly better asthma control than placebo (P<0.001). Similar results were observed in the patients with an eosinophil count of at least 300 cells per cubic millimeter at baseline. The incidence of serious adverse events was similar in the two groups. CONCLUSIONS: Among children with uncontrolled moderate-to-severe asthma, those who received add-on dupilumab had fewer asthma exacerbations and better lung function and asthma control than those who received placebo. (Funded by Sanofi and Regeneron Pharmaceuticals; Liberty Asthma VOYAGE ClinicalTrials.gov number, NCT02948959.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d7b3b2bf753c54f93b14a77b6bf0d7c8e4ec6fb892bc26fc9dcc9c18f8954bdd"
+      },
+      {
+        "pmid": "31543428",
+        "title": "Efficacy and safety of dupilumab in patients with severe chronic rhinosinusitis with nasal polyps (LIBERTY NP SINUS-24 and LIBERTY NP SINUS-52): results from two multicentre, randomised, double-blind, placebo-controlled, parallel-group phase 3 trials",
+        "authors": "Bachert C, et al",
+        "year": "2019",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(19)31881-1",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31543428/",
+        "context": "BACKGROUND: Patients with chronic rhinosinusitis with nasal polyps (CRSwNP) generally have a high symptom burden and poor health-related quality of life, often requiring recurring systemic corticosteroid use and repeated sinus surgery. Dupilumab is a fully human monoclonal antibody that inhibits signalling of interleukin (IL)-4 and IL-13, key drivers of type 2 inflammation, and has been approved for use in atopic dermatitis and asthma. In these two studies, we aimed to assess efficacy and safety of dupilumab in patients with CRSwNP despite previous treatment with systemic corticosteroids, surgery, or both. METHODS: LIBERTY NP SINUS-24 and LIBERTY NP SINUS-52 were two multinational, multicentre, randomised, double-blind, placebo-controlled, parallel-group studies assessing dupilumab added to standard of care in adults with severe CRSwNP. SINUS-24 was done in 67 centres in 13 countries, and SINUS-52 was done in 117 centres in 14 countries. Eligible patients were 18 years or older with bilateral CRSwNP and symptoms despite intranasal corticosteroid use, receiving systemic corticosteroids in the preceding 2 years, or having had sinonasal surgery. Patients in SINUS-24 were randomly assigned (1:1) to subcutaneous dupilumab 300 mg or placebo every 2 weeks for 24 weeks. Patients in SINUS-52 were randomly assigned (1:1:1) to dupilumab 300 mg every 2 weeks for 52 weeks, dupilumab every 2 weeks for 24 weeks and then every 4 weeks for the remaining 28 weeks, or placebo every 2 weeks for 52 weeks. All patients were randomly assigned centrally with a permuted block randomisation schedule. Randomisation was stratified by asthma or non-steroidal anti-inflammatory drug-exacerbated respiratory disease status at screening, previous surgery at screening, and country. Patients with or without comorbid asthma were included. Coprimary endpoints were changes from baseline to week 24 in nasal polyp score (NPS), nasal congestion or obstruction, and sinus Lund-Mackay CT scores (a coprimary endpoint in Japan), done in an intention-to-treat population. Safety was assessed in a pooled population of both dupilumab groups in SINUS-52 up to week 24 and the dupilumab group in SINUS-24 and the placebo groups in both studies until week 24. The trials are complete and registered at ClinicalTrials.gov, NCT02912468 and NCT02898454. FINDINGS: Between Dec 5, 2016, and Aug 3, 2017, 276 patients were enrolled in SINUS-24, with 143 in the dupilumab group and 133 in the placebo group receiving at least one study drug dose. Between Nov 28, 2016, and Aug 28, 2017, 448 patients were enrolled in SINUS-52, with 150 receiving at least one dose of dupilumab every 2 weeks, 145 receiving at least one dose of dupilumab every 2 weeks for 24 weeks and every 4 weeks until week 52, and 153 receiving at least one dose of placebo. Dupilumab significantly improved the coprimary endpoints in both studies. At 24 weeks, least squares mean difference in NPS of dupilumab treatment versus placebo was -2·06 (95% CI -2·43 to -1·69; p<0·0001) in SINUS-24 and -1·80 (-2·10 to -1·51; p<0·0001) in SINUS-52; difference in nasal congestion or obstruction score was -0·89 (-1·07 to -0·71; p<0·0001) in SINUS-24 and -0·87 (-1·03 to -0·71; p<0·0001) in SINUS-52; and difference in Lund-Mackay CT scores was -7·44 (-8·35 to -6·53; p<0·0001) in SINUS-24 and -5·13 (-5·80 to -4·46; p<0·0001) in SINUS-52. The most common adverse events (nasopharyngitis, worsening of nasal polyps and asthma, headache, epistaxis, and injection-site erythema) were more frequent with placebo. INTERPRETATION: In adult patients with severe CRSwNP, dupilumab reduced polyp size, sinus opacification, and severity of symptoms and was well tolerated. These results support the benefits of adding dupilumab to daily standard of care for patients with severe CRSwNP who otherwise have few therapeutic options. FUNDING: Sanofi and Regeneron Pharmaceuticals.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "e3ea58f24adf556a60491e733733af4552b44d445267c9d7d28edf5c84751da7"
+      },
+      {
+        "pmid": "28877011",
+        "title": "Tezepelumab in Adults with Uncontrolled Asthma",
+        "authors": "Corren J, et al",
+        "year": "2017",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1704064",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28877011/",
+        "context": "BACKGROUND: In some patients with moderate-to-severe asthma, particularly those with noneosinophilic inflammation, the disease remains uncontrolled. This trial evaluated the efficacy and safety of tezepelumab (AMG 157/MEDI9929), a human monoclonal antibody specific for the epithelial-cell-derived cytokine thymic stromal lymphopoietin (TSLP), in patients whose asthma remained uncontrolled despite treatment with long-acting beta-agonists and medium-to-high doses of inhaled glucocorticoids. METHODS: In this phase 2, randomized, double-blind, placebo-controlled trial, we compared subcutaneous tezepelumab at three dose levels with placebo over a 52-week treatment period. The primary end point was the annualized rate of asthma exacerbations (events per patient-year) at week 52. RESULTS: The use of tezepelumab at a dose of 70 mg every 4 weeks (low dose; 145 patients), 210 mg every 4 weeks (medium dose; 145 patients), or 280 mg every 2 weeks (high dose; 146 patients) resulted in annualized asthma exacerbation rates at week 52 of 0.26, 0.19, and 0.22, respectively, as compared with 0.67 in the placebo group (148 patients). Thus, exacerbation rates in the respective tezepelumab groups were lower by 61%, 71%, and 66% than the rate in the placebo group (P<0.001 for all comparisons). Similar results were observed in patients regardless of blood eosinophil counts at enrollment. The prebronchodilator forced expiratory volume in 1 second at week 52 was higher in all tezepelumab groups than in the placebo group (difference, 0.12 liters with the low dose [P=0.01], 0.11 liters with the medium dose [P=0.02], and 0.15 liters with the high dose [P=0.002]). A total of 2 patients in the medium-dose group, 3 in the high-dose group, and 1 in the placebo group discontinued the trial regimen because of adverse events. CONCLUSIONS: Among patients treated with long-acting beta-agonists and medium-to-high doses of inhaled glucocorticoids, those who received tezepelumab had lower rates of clinically significant asthma exacerbations than those who received placebo, independent of baseline blood eosinophil counts. (Funded by MedImmune [a member of the AstraZeneca Group] and Amgen; PATHWAY ClinicalTrials.gov number, NCT02054130 .).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase II",
+        "publicationTypes": [
+          "Clinical Trial, Phase II",
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "85cd7197133275329185ba42ee723be39de7b7229bbc51dd8ba0c24963c27691"
+      },
+      {
+        "pmid": "25199059",
+        "title": "Mepolizumab treatment in patients with severe eosinophilic asthma",
+        "authors": "Ortega HG, et al",
+        "year": "2014",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1403290",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25199059/",
+        "context": "BACKGROUND: Some patients with severe asthma have frequent exacerbations associated with persistent eosinophilic inflammation despite continuous treatment with high-dose inhaled glucocorticoids with or without oral glucocorticoids. METHODS: In this randomized, double-blind, double-dummy study, we assigned 576 patients with recurrent asthma exacerbations and evidence of eosinophilic inflammation despite high doses of inhaled glucocorticoids to one of three study groups. Patients were assigned to receive mepolizumab, a humanized monoclonal antibody against interleukin-5, which was administered as either a 75-mg intravenous dose or a 100-mg subcutaneous dose, or placebo every 4 weeks for 32 weeks. The primary outcome was the rate of exacerbations. Other outcomes included the forced expiratory volume in 1 second (FEV1) and scores on the St. George's Respiratory Questionnaire (SGRQ) and the 5-item Asthma Control Questionnaire (ACQ-5). Safety was also assessed. RESULTS: The rate of exacerbations was reduced by 47% (95% confidence interval [CI], 29 to 61) among patients receiving intravenous mepolizumab and by 53% (95% CI, 37 to 65) among those receiving subcutaneous mepolizumab, as compared with those receiving placebo (P<0.001 for both comparisons). Exacerbations necessitating an emergency department visit or hospitalization were reduced by 32% in the group receiving intravenous mepolizumab and by 61% in the group receiving subcutaneous mepolizumab. At week 32, the mean increase from baseline in FEV1 was 100 ml greater in patients receiving intravenous mepolizumab than in those receiving placebo (P=0.02) and 98 ml greater in patients receiving subcutaneous mepolizumab than in those receiving placebo (P=0.03). The improvement from baseline in the SGRQ score was 6.4 points and 7.0 points greater in the intravenous and subcutaneous mepolizumab groups, respectively, than in the placebo group (minimal clinically important change, 4 points), and the improvement in the ACQ-5 score was 0.42 points and 0.44 points greater in the two mepolizumab groups, respectively, than in the placebo group (minimal clinically important change, 0.5 points) (P<0.001 for all comparisons). The safety profile of mepolizumab was similar to that of placebo. CONCLUSIONS: Mepolizumab administered either intravenously or subcutaneously significantly reduced asthma exacerbations and was associated with improvements in markers of asthma control. (Funded by GlaxoSmithKline; MENSA ClinicalTrials.gov number, NCT01691521.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "3672a38db54a5b3f75d2a9b57de2874bb9189b540ed20e5784856b079a3605e8"
+      },
+      {
+        "pmid": "42605492",
+        "title": "Diagnostic and Therapeutic Challenges in Asthma and Chronic Obstructive Pulmonary Disease Overlap: A Four-Patient Case Series.",
+        "authors": "Amalraj B, Marrero Castillo M, Gulati N.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.112821",
+        "url": "https://europepmc.org/article/PMC/PMC13477804",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Asthma-chronic obstructive pulmonary disease (COPD) overlap is a heterogeneous clinical descriptor applied to patients with persistent airflow limitation who exhibit features of both asthma and chronic obstructive pulmonary disease. Diagnostic uncertainty is common, particularly when smoking-related emphysema coexists with asthma-associated traits such as bronchodilator reversibility, allergic rhinitis or atopy, eosinophilia, and elevated immunoglobulin E. We report four adults with chronic obstructive physiology and overlapping clinical, radiographic, physiologic, and inflammatory features. Two patients had persistent symptoms despite guideline-directed inhaled therapy and were treated with add-on biologic therapy targeting type 2 inflammation using benralizumab or dupilumab. The dupilumab-treated case demonstrated symptomatic and spirometric improvement over three months, whereas the benralizumab-treated case illustrates phenotype-guided biologic selection in eosinophilic asthma with coexisting COPD features and persistent severe obstruction on verified follow-up spirometry. The remaining cases illustrate practical diagnostic challenges, including the interpretation of serial spirometry, the recognition of bronchodilator responsiveness, and the reconciliation of radiographic emphysema with asthma-like variability and allergic sensitization. This case series highlights the clinical heterogeneity of asthma-chronic obstructive pulmonary disease overlap and supports a phenotype-informed approach incorporating spirometry, imaging, allergic evaluation, and accessible type 2 inflammatory biomarkers. Further prospective studies are needed to define which overlap phenotypes are most likely to benefit from biologic therapy.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "e296c3df9b2f1733590ceb3e62cbe4eb1a5e677abb9c8f4b870d12fd008cb9d9"
+      },
+      {
+        "pmid": "41033334",
+        "title": "Dupilumab versus omalizumab in patients with chronic rhinosinusitis with nasal polyps and coexisting asthma (EVEREST): a multicentre, randomised, double-blind, head-to-head phase 4 trial",
+        "authors": "De Corso E, et al",
+        "year": "2025",
+        "journal": "The Lancet. Respiratory medicine",
+        "doi": "10.1016/S2213-2600(25)00287-5",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41033334/",
+        "context": "BACKGROUND: Chronic rhinosinusitis with nasal polyps (CRSwNP) is predominantly driven by type 2 inflammation. The biologics dupilumab and omalizumab, which target drivers and mediators of type 2 inflammation (interleukin [IL]-4/IL-13 signaling and immunoglobulin E [IgE], respectively), are efficacious in treating CRSwNP but direct comparisons are few. In EVEREST (EValuating trEatment RESponses of dupilumab versus omalizumab), the first head-to-head trial in respiratory biologics, we aimed to compare the efficacy and safety of dupilumab and omalizumab in patients with severe CRSwNP who had mild, moderate, or severe asthma. METHODS: EVEREST was an international, randomised, double-blind, phase 4 trial, conducted at 100 hospitals or clinical centres in 17 countries. Sites were selected with otolaryngology, pneumologist, allergist, and immunologist practices; needed to have previously conducted double-blind studies; and were required have nasal endoscopy and electrocardiogram machines. Eligible patients aged 18 years or older with severe uncontrolled CRSwNP (with a nasal polyp score of 5 or more [and ≥2 for each nostril]), symptoms of nasal congestion and loss of smell for at least 8 weeks before screening, and physician-diagnosed asthma. Patients were randomly assigned (1:1) to subcutaneous dupilumab 300 mg every 2 weeks or omalizumab weight-tiered and IgE-tiered dosing every 2 weeks or 4 weeks for 24 weeks, with background mometasone furoate nasal spray. Patients and investigators were masked to the study drugs. Primary endpoints were change from baseline in endoscopic nasal polyp score and University of Pennsylvania Smell Identification Test (UPSIT) at 24 weeks. Efficacy was assessed in the intention-to-treat population and safety was assessed in patients who received at least one dose of study medication. The trial was registered at ClinicalTrials.gov, NCT04998604. FINDINGS: Between Sept 27, 2021, and Dec 27, 2024, 819 individuals were screened for study inclusion, 459 were excluded (most common screen failures were: 167 did not meet nasal polyp score ≥5 or did not have ongoing symptoms of nasal congestion and loss of smell, 114 did not meet pre-bronchodilator FEV 1 ≤85% predicted normal, and 99 did not meet eligibility as per omalizumab drug-dosing), and 360 participants were randomly assigned (181 assigned to the dupilumab group and 179 assigned to the omalizumab group). Of the 360 participants, 198 (55%) participants were male, 162 (45%) were female, and the mean age of the total population sample was 52 years (SD 13·1). Improvements were significantly greater with dupilumab than omalizumab for all primary and secondary efficacy endpoints at week 24. Least squares mean differences in change from baseline dupilumab over omalizumab were: nasal polyp score -1·60 (95% CI -1·96 to -1·25; p<0·0001) and UPSIT 8·0 (6·3 to 9·7; p<0·0001). 115 (64%) of 179 participants in the dupilumab group and 116 (67%) of 173 participants in the omalizumab group reported treatment-emergent adverse events, the most common of which were nasopharyngitis, accidental overdose, headache, upper respiratory tract infection, and cough. There were no deaths in the study. INTERPRETATION: Dupilumab was superior to omalizumab in patients with severe CRSwNP and coexisting asthma. These findings support the efficacy of dupilumab in patients with type 2 respiratory diseases versus an active biologic comparator, the known safety profiles of dupilumab and omalizumab, and could enable better treatment targeting for patients with CRSwNP and asthma in clinical practice. FUNDING: Sanofi and Regeneron Pharmaceuticals.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase IV",
+        "publicationTypes": [
+          "Clinical Trial, Phase IV",
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "ec140b3baf92880fed3bed71371738d4e253435278322f5377ec72a2cbeeb592"
+      },
+      {
+        "pmid": "39248309",
+        "title": "Twice-Yearly Depemokimab in Severe Asthma with an Eosinophilic Phenotype",
+        "authors": "Jackson DJ, et al",
+        "year": "2024",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2406673",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39248309/",
+        "context": "BACKGROUND: Depemokimab is an ultra-long-acting biologic therapy with enhanced binding affinity for interleukin-5 that may enable effective 6-month dosing intervals. METHODS: In these phase 3A, randomized, placebo-controlled replicate trials, we evaluated the efficacy and safety of depemokimab in patients with severe asthma and an eosinophilic phenotype characterized by a high eosinophil count (≥300 cells per microliter in the previous 12 months or ≥150 cells per microliter at screening) and a history of exacerbations despite the receipt of medium- or high-dose inhaled glucocorticoids. Patients were randomly assigned in a 2:1 ratio to receive either depemokimab (at a dose of 100 mg subcutaneously) or placebo at weeks 0 and 26, plus standard care. The primary end point was the annualized rate of exacerbations at 52 weeks. Secondary end points, which were analyzed in a hierarchical manner to adjust for multiplicity, included the change from baseline in the score on the St. George's Respiratory Questionnaire (SGRQ), the forced expiratory volume in 1 second, and asthma symptom reports at 52 weeks. RESULTS: Across the two trials, 792 patients underwent randomization and 762 were included in the full analysis; 502 were assigned to receive depemokimab and 260 to receive placebo. The annualized rate of exacerbations was 0.46 (95% confidence interval [CI]), 0.36 to 0.58) with depemokimab and 1.11 (95% CI, 0.86 to 1.43) with placebo (rate ratio, 0.42; 95% CI, 0.30 to 0.59; P<0.001) in SWIFT-1 and 0.56 (95% CI, 0.44 to 0.70) with depemokimab and 1.08 (95% CI, 0.83 to 1.41) with placebo (rate ratio, 0.52; 95% CI, 0.36 to 0.73; P<0.001) in SWIFT-2. No significant between-group difference in the change from baseline in the SGRQ score was observed in either trial, so no statistical inference was drawn on subsequent secondary end points. The proportion of patients with any adverse event was similar in the two groups in both trials. CONCLUSIONS: Depemokimab reduced the annualized rate of exacerbations among patients with severe asthma with an eosinophilic phenotype. (Funded by GSK; SWIFT-1 and SWIFT-2 ClinicalTrials.gov numbers, NCT04719832 and NCT04718103.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "388c4761a4adb6b37dcc4801b898280d098dcd37406a05a34518876ba240b75e"
+      },
+      {
+        "pmid": "42899165",
+        "title": "Biologic Use in Type 2 versus Non-Type 2 Asthma: Similarities, Differences, and Challenges.",
+        "authors": "Maglio A, D'Auria LO, Franzese A, Liguori ME, Gramazio S, Arnone G, Longobardi V, Pelaia C, Pelaia G, Calabrese C, Vital",
+        "year": "2026",
+        "journal": "Journal of inflammation research",
+        "doi": "10.2147/jir.s589946",
+        "url": "https://europepmc.org/article/PMC/PMC13679528",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Biologic therapy has transformed the management of severe asthma, but its benefit has been distributed unevenly. Six monoclonal antibodies are licensed (omalizumab, mepolizumab, reslizumab, benralizumab, dupilumab and tezepelumab), joined most recently by the ultra-long-acting anti-interleukin (IL)-5 antibody depemokimab. All were developed within, and are prescribed on the basis of, the type 2 (T2) inflammatory pathway. Patients whose disease is driven by IL-4, IL-13, IL-5 and IgE now have several effective options; patients whose disease is not have almost none. This asymmetry is the central problem in severe asthma today, and it is the subject of this review. In this narrative review, informed by a structured literature search, we synthesize evidence from randomized controlled trials of every approved biologic, from real-world data and from the substantial body of negative trials in non-T2 disease. We argue that the T2/non-T2 dichotomy is operationally useful but biologically misleading: its thresholds are arbitrary and unstable under corticosteroid exposure, low T2 biomarkers are not synonymous with absent T2 biology, and non-T2 disease is itself heterogeneous. We examine what the phenotypes share (epithelial alarmin signaling, airway remodeling, corticosteroid-related morbidity and the treatable-traits paradigm) and where they differ. We then address the practical challenges of clinical decision-making: selecting a first biologic when eligibility criteria overlap, managing partial response, switching, de-escalation and clinical remission. Finally, we evaluate agents in development, including anti-TSLP receptor antibodies, IL-33/ST2 blockade, bispecific constructs, OX40L-directed therapy and oral eosinophil-depleting small molecules, and outline the trial designs and biomarkers that will be needed if patients with non-T2 disease are to be served as well as those with T2 disease.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "b69dbc05fe0b3c38d55110f0dea99d2888dc4da38d73934a001093118423ef95"
+      },
+      {
+        "pmid": "cr:10.1002/rcr2.1311",
+        "title": "Efficacy of tezepelumab against uncontrolled severe non‐type 2 asthma refractory to bronchial thermoplasty, benralizumab, dupilumab and mepolizumab",
+        "authors": "Kai Yoshiro, Suzuki Kentaro, Kataoka Ryosuke, Sato Ichiro",
+        "year": "2024",
+        "journal": "Respirology Case Reports",
+        "doi": "10.1002/rcr2.1311",
+        "url": "https://doi.org/10.1002/rcr2.1311",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Severe asthma affects approximately 5%–10% of patients with asthma. Herein, we describe a case of non‐type 2 asthma that progressively worsened over the years. An 80‐year‐old woman was diagnosed with asthma 11 years back. She experienced repeated exacerbations requiring treatment with systemic corticosteroid despite therapy with medications including high‐dose inhaled corticosteroids/long‐acting beta‐agonists plus long‐acting muscarinic antagonist. The patient presented with non‐eosinophilic asthma. Therefore, the patient was initially treated with bronchial thermoplasty, which was effective for 1 year only. Treatment with bronchial thermoplasty, benralizumab, dupilumab, and mepolizumab was ineffective. The fourth treatment, which included tezepelumab, was initiated. The patient's symptoms and quality of life improved significantly. This is the first case of a patient who did not respond to sequential bronchial thermoplasty, benralizumab, dupilumab, and mepolizumab but who presented with good clinical response to tezepelumab. Therefore, tezepelumab may be useful for patients with non‐type 2 asthma.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "b82f2550e69532eed37e3106348011b0e5693ff6b7f9398ea311745e2937d372"
+      },
+      {
+        "pmid": "37015033",
+        "title": "Efficacy of Tezepelumab in Severe, Uncontrolled Asthma: Pooled Analysis of the PATHWAY and NAVIGATOR Clinical Trials",
+        "authors": "Corren J, et al",
+        "year": "2023",
+        "journal": "American journal of respiratory and critical care medicine",
+        "doi": "10.1164/rccm.202210-2005OC",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37015033/",
+        "context": "Rationale: Tezepelumab reduced exacerbations in patients with severe, uncontrolled asthma across a range of baseline blood eosinophil counts and fractional exhaled nitric oxide levels, and irrespective of allergy status, in the phase 2b PATHWAY (Study to Evaluate the Efficacy and Safety of MEDI9929 [AMG 157] in Adult Subjects With Inadequately Controlled, Severe Asthma; NCT02054130) and phase 3 NAVIGATOR (Study to Evaluate Tezepelumab in Adults & Adolescents With Severe Uncontrolled Asthma; NCT03347279) trials. Objectives: To examine the efficacy and safety of tezepelumab in additional clinically relevant subgroups using pooled data from PATHWAY and NAVIGATOR. Methods: PATHWAY and NAVIGATOR were randomized, double-blind, placebo-controlled trials with similar designs. This pooled analysis included patients with severe, uncontrolled asthma (PATHWAY, 18-75 years old; NAVIGATOR, 12-80 years old) who received tezepelumab 210 mg or placebo subcutaneously every 4 weeks for 52 weeks. The annualized asthma exacerbation rate over 52 weeks and secondary outcomes were calculated in the overall population and in subgroups defined by inflammatory biomarker levels or clinical characteristics. Measurements and Main Results: Overall, 1,334 patients were included (tezepelumab, n = 665; placebo, n = 669). Tezepelumab reduced the annualized asthma exacerbation rate versus placebo by 60% (rate ratio, 0.40 [95% confidence interval, 0.34-0.48]) in the overall population, and clinically meaningful reductions in exacerbations were observed in tezepelumab-treated patients with type 2-high and type 2-low disease by multiple definitions. Tezepelumab reduced exacerbation-related hospitalization or emergency department visits and improved secondary outcomes compared with placebo overall and across subgroups. The incidence of adverse events was similar between treatment groups. Conclusions: Tezepelumab resulted in clinically meaningful reductions in exacerbations and improvements in other outcomes in patients with severe, uncontrolled asthma, across clinically relevant subgroups. Clinical trials registered with www.clinicaltrials.gov (NCT02054130 [PATHWAY], NCT03347279 [NAVIGATOR]).",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "ba806404709d1e78cff72822bb98689fdb96242d43e62274c1d2f0bcceae8735"
+      },
+      {
+        "pmid": "33979488",
+        "title": "Tezepelumab in Adults and Adolescents with Severe, Uncontrolled Asthma",
+        "authors": "Menzies-Gow A, et al",
+        "year": "2021",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2034975",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33979488/",
+        "context": "BACKGROUND: Tezepelumab is a human monoclonal antibody that blocks thymic stromal lymphopoietin, an epithelial-cell-derived cytokine implicated in the pathogenesis of asthma. The efficacy and safety of tezepelumab in patients with severe, uncontrolled asthma require further assessment. METHODS: We conducted a phase 3, multicenter, randomized, double-blind, placebo-controlled trial. Patients (12 to 80 years of age) were randomly assigned to receive tezepelumab (210 mg) or placebo subcutaneously every 4 weeks for 52 weeks. The primary end point was the annualized rate of asthma exacerbations over a period of 52 weeks. This end point was also assessed in patients with baseline blood eosinophil counts of less than 300 cells per microliter. Secondary end points included the forced expiratory volume in 1 second (FEV 1 ) and scores on the Asthma Control Questionnaire-6 (ACQ-6; range, 0 [no impairment] to 6 [maximum impairment]), Asthma Quality of Life Questionnaire (AQLQ; range, 1 [maximum impairment] to 7 [no impairment]), and Asthma Symptom Diary (ASD; range, 0 [no symptoms] to 4 [worst possible symptoms]). RESULTS: Overall, 1061 patients underwent randomization (529 were assigned to receive tezepelumab and 532 to receive placebo). The annualized rate of asthma exacerbations was 0.93 (95% confidence interval [CI], 0.80 to 1.07) with tezepelumab and 2.10 (95% CI, 1.84 to 2.39) with placebo (rate ratio, 0.44; 95% CI, 0.37 to 0.53; P<0.001). In patients with a blood eosinophil count of less than 300 cells per microliter, the annualized rate was 1.02 (95% CI, 0.84 to 1.23) with tezepelumab and 1.73 (95% CI, 1.46 to 2.05) with placebo (rate ratio, 0.59; 95% CI, 0.46 to 0.75; P<0.001). At week 52, improvements were greater with tezepelumab than with placebo with respect to the prebronchodilator FEV 1 (0.23 vs. 0.09 liters; difference, 0.13 liters; 95% CI, 0.08 to 0.18; P<0.001) and scores on the ACQ-6 (-1.55 vs. -1.22; difference, -0.33; 95% CI, -0.46 to -0.20; P<0.001), AQLQ (1.49 vs. 1.15; difference, 0.34; 95% CI, 0.20 to 0.47; P<0.001), and ASD (-0.71 vs. -0.59; difference, -0.12; 95% CI, -0.19 to -0.04; P = 0.002). The frequencies and types of adverse events did not differ meaningfully between the two groups. CONCLUSIONS: Patients with severe, uncontrolled asthma who received tezepelumab had fewer exacerbations and better lung function, asthma control, and health-related quality of life than those who received placebo. (Funded by AstraZeneca and Amgen; NAVIGATOR ClinicalTrials.gov number, NCT03347279.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "178fcae03a8124c147da4f68695d34f16cc2352ef6782ba5e61fd2be1bd09fea"
+      },
+      {
+        "pmid": "29782217",
+        "title": "Dupilumab Efficacy and Safety in Moderate-to-Severe Uncontrolled Asthma",
+        "authors": "Castro M, et al",
+        "year": "2018",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1804092",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29782217/",
+        "context": "BACKGROUND: Dupilumab is a fully human anti-interleukin-4 receptor α monoclonal antibody that blocks both interleukin-4 and interleukin-13 signaling. We assessed its efficacy and safety in patients with uncontrolled asthma. METHODS: We randomly assigned 1902 patients 12 years of age or older with uncontrolled asthma in a 2:2:1:1 ratio to receive add-on subcutaneous dupilumab at a dose of 200 or 300 mg every 2 weeks or matched-volume placebos for 52 weeks. The primary end points were the annualized rate of severe asthma exacerbations and the absolute change from baseline to week 12 in the forced expiratory volume in 1 second (FEV 1 ) before bronchodilator use in the overall trial population. Secondary end points included the exacerbation rate and FEV 1 in patients with a blood eosinophil count of 300 or more per cubic millimeter. Asthma control and dupilumab safety were also assessed. RESULTS: The annualized rate of severe asthma exacerbations was 0.46 (95% confidence interval [CI], 0.39 to 0.53) among patients assigned to 200 mg of dupilumab every 2 weeks and 0.87 (95% CI, 0.72 to 1.05) among those assigned to a matched placebo, for a 47.7% lower rate with dupilumab than with placebo (P<0.001); similar results were seen with the dupilumab dose of 300 mg every 2 weeks. At week 12, the FEV 1 had increased by 0.32 liters in patients assigned to the lower dose of dupilumab (difference vs. matched placebo, 0.14 liters; P<0.001); similar results were seen with the higher dose. Among patients with a blood eosinophil count of 300 or more per cubic millimeter, the annualized rate of severe asthma exacerbations was 0.37 (95% CI, 0.29 to 0.48) among those receiving lower-dose dupilumab and 1.08 (95% CI, 0.85 to 1.38) among those receiving a matched placebo (65.8% lower rate with dupilumab than with placebo; 95% CI, 52.0 to 75.6); similar results were observed with the higher dose. Blood eosinophilia occurred after the start of the intervention in 52 patients (4.1%) who received dupilumab as compared with 4 patients (0.6%) who received placebo. CONCLUSIONS: In this trial, patients who received dupilumab had significantly lower rates of severe asthma exacerbation than those who received placebo, as well as better lung function and asthma control. Greater benefits were seen in patients with higher baseline levels of eosinophils. Hypereosinophilia was observed in some patients. (Funded by Sanofi and Regeneron Pharmaceuticals; LIBERTY ASTHMA QUEST ClinicalTrials.gov number, NCT02414854 .).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1a01240f417fd18ad5d707e3397bc9f32c271a0143de98502e4f8def1ae63fdf"
+      },
+      {
+        "pmid": "42643717",
+        "title": "Biological treatments for asthma and chronic obstructive pulmonary disease.",
+        "authors": "Tejwani V, Siddharthan T, Majumdar U, Hatipoğlu U, Hanania NA.",
+        "year": "2026",
+        "journal": "BMJ medicine",
+        "doi": "10.1136/bmjmed-2025-002195",
+        "url": "https://europepmc.org/article/PMC/PMC13504856",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Asthma and chronic obstructive pulmonary disease (COPD) are highly prevalent heterogeneous airway diseases in which a subset of patients with severe disease have a disproportionate share of morbidity and mortality, largely through exacerbations. Major immunological advances have reframed both conditions around endotypes, with type 2 (inflammation driven by type 2 helper cells and group 2 innate lymphoid cells) and other inflammatory pathways defined and targeted with biological treatments. This review provides an overview of biological treatments in asthma and COPD. Biological treatments are engineered monoclonal antibodies targeting proteins (eg, IgE, interleukin (IL) 5 and IL5 receptor, IL4 and IL13, and upstream epithelial alarmins, such as thymic stromal lymphopoietin (TSLP) and IL33) that enable precision treatment. Biological treatments consistently reduce exacerbations and improve lung function and quality of life in biomarker defined populations. In asthma, short term biomarkers (blood eosinophils, fractional exhaled nitric oxide (FeNO), and sputum eosinophils) guide selection, whereas emerging longer term markers, including transcriptomic signatures and imaging endpoints, offer mechanistic readouts and raise the prospect of disease modification. In COPD, type 2 biological medicines have yielded benefits among patients with high levels of eosinophils and who are prone to exacerbations, and anti-IL33 and TSLP treatments show mixed but intriguing signals. Blood eosinophil counts (≥300 cells/µL) remain the most robust predictor of benefit; FeNO may provide complementary categorisation in select settings. Priorities for treatment are identifying treatable traits, supporting comprehensive self-management, and timely referral for patients with exacerbations despite optimised inhaled treatment. Key gaps include head-to-head comparisons, criteria for switching or stopping biological medicines, feasibility of de-escalation of inhaled treatment, and type 2 low strategies.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "b7264ef62e1043b9d56b5605cf89ea7e684097238b95c40c06059e7189c60f98"
+      },
+      {
+        "pmid": "cr:10.1016/j.anai.2018.09.129",
+        "title": "EFFICACY OF SUBCUTANEOUS DUPILUMAB A HUMAN ANTI-INTERLEUKIN-4 RECEPTOR ALPHA MONOCLONAL ANTIBODY FOR MODERATE-TO-SEVERE UNCONTROLLED ASTHMATICS.",
+        "authors": "Nsouli S.",
+        "year": "2018",
+        "journal": "Annals of Allergy, Asthma & Immunology",
+        "doi": "10.1016/j.anai.2018.09.129",
+        "url": "https://doi.org/10.1016/j.anai.2018.09.129",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 61,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "67376da9967a6be34833206e8bf5fd2afa644d7ea9b980c65de2c1a4247dc3f8"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 18,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "severe uncontrolled asthma with type 2 inflammatory phenotype add-on dupilumab subcutaneous every 2 weeks standard high-dose inhaled therapy alone annualized severe asthma exacerbation rate and FEV1 improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

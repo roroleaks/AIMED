@@ -104,7 +104,7 @@ test("SCI-04. Conclusion invariance across established, conflicting, and gap cat
       words: onc1.words,
       category: cat,
       phrase: onc1.screenResponse.phrases[cat].phrase,
-      screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+      screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
       records,
       style: "vancouver",
     });
@@ -143,7 +143,7 @@ test("SCI-05. Intervention required: ADV-HOMEO records score 0/ineligible and co
     words: homeo.words,
     category: "gap",
     phrase: homeo.screenResponse.phrases.gap.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: [],
     style: "vancouver",
   });
@@ -160,7 +160,7 @@ test("SCI-06. Positive control: genuine concordant RCT/SR fixture produces estab
     words: onc1.words,
     category: "established",
     phrase: onc1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: records.slice(0, 5),
     style: "vancouver",
   });
@@ -201,7 +201,7 @@ test("SCI-07. Direction check: single SR with no extractable direction reports d
     words,
     category: "established",
     phrase: "In endometriosis (P), does dienogest (I) compared with placebo (C) reduce pelvic pain (O)?",
-    screeningStats: { retrieved: 1, screened: 1, blocked: 0, excluded: 0, relaxationLevel: 0 },
+    screeningStats: { retrieved: 1, screened: 1, excludedCount: 0, relaxationLevel: 0 },
     records: srNoDir,
     style: "vancouver",
   });
@@ -351,14 +351,11 @@ test("SCI-12. Finding extraction avoids methods boilerplate fragments", () => {
     words: onc1.words,
     category: "established",
     phrase: onc1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: onc1.exploreResponse?.records.slice(0, 5) ?? [],
     style: "vancouver",
   });
-  const text = [
-    ...m.sections.flatMap((s) => s.paragraphs),
-    ...(m.extractionTable?.rows.flat() ?? []),
-  ].join(" ");
+  const text = m.sections.flatMap((s) => s.paragraphs).join(" ");
   assert.ok(!/Allocation concealment was achieved/i.test(text));
   assert.ok(!/Eleven studies reporting/i.test(text));
   assert.ok(!/Women were grouped by/i.test(text));
@@ -383,7 +380,7 @@ test("SCI-14. No template prose shared between unrelated topics and banned phras
     words: onc1.words,
     category: "established",
     phrase: onc1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0, excluded: 5, relaxationLevel: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 5, relaxationLevel: 0 },
     records: onc1.exploreResponse?.records.slice(0, 5) ?? [],
     style: "vancouver",
   });
@@ -392,7 +389,7 @@ test("SCI-14. No template prose shared between unrelated topics and banned phras
     words: ob1.words,
     category: "established",
     phrase: ob1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 23, screened: 21, blocked: 2, excluded: 3, relaxationLevel: 1 },
+    screeningStats: { retrieved: 23, screened: 21, excludedCount: 3, relaxationLevel: 1 },
     records: ob1.exploreResponse?.records.slice(0, 5) ?? [],
     style: "vancouver",
   });
@@ -432,7 +429,7 @@ test("SCI-15. Methods truthfulness: lists only ok=true sources, query strings, h
     words: onc1.words,
     category: "established",
     phrase: onc1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: onc1.exploreResponse?.records.slice(0, 5) ?? [],
     style: "vancouver",
     searchLog,
@@ -492,6 +489,7 @@ test("SCI-17. Deduplication collapses same DOI across CrossRef and Semantic Scho
       journal: "NEJM",
       pubType: "Journal Article",
       context: "Abstract A",
+      url: "https://doi.org/10.1056/NEJMoa1801005",
       source: "crossref",
     },
     {
@@ -503,6 +501,7 @@ test("SCI-17. Deduplication collapses same DOI across CrossRef and Semantic Scho
       journal: "NEJM",
       pubType: "Journal Article",
       context: "Abstract A",
+      url: "https://doi.org/10.1056/NEJMoa1801005",
       source: "semanticscholar",
     },
   ]);
@@ -516,7 +515,7 @@ test("SCI-18. Title has no '?:' and does not claim Established when conclusion i
     words: homeo.words,
     category: "gap",
     phrase: homeo.screenResponse.phrases.gap.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: [],
     style: "vancouver",
   });
@@ -531,7 +530,7 @@ test("SCI-19. No author-note placeholders in final manuscript text", () => {
     words: onc1.words,
     category: "established",
     phrase: onc1.screenResponse.phrases.established.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: onc1.exploreResponse?.records.slice(0, 5) ?? [],
     style: "vancouver",
   });

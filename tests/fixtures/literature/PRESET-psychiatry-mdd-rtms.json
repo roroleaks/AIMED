@@ -1,0 +1,816 @@
+{
+  "id": "PRESET-psychiatry-mdd-rtms",
+  "recordedAt": "2026-11-26T19:48:45.930Z",
+  "specialty": "psychiatry",
+  "words": [
+    {
+      "word": "pharmacoresistant major depressive disorder",
+      "role": "population"
+    },
+    {
+      "word": "high-frequency left prefrontal rTMS",
+      "role": "intervention"
+    },
+    {
+      "word": "sham rTMS stimulation",
+      "role": "comparator"
+    },
+    {
+      "word": "treatment response and remission rates at 6 weeks",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "pharmacoresistant major depressive disorder",
+        "role": "population"
+      },
+      {
+        "word": "high-frequency left prefrontal rTMS",
+        "role": "intervention"
+      },
+      {
+        "word": "sham rTMS stimulation",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment response and remission rates at 6 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "psychiatry"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In pharmacoresistant major depressive disorder (P), does high-frequency left prefrontal rTMS (I) compared with sham rTMS stimulation (C) improve treatment response and remission rates at 6 weeks (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In pharmacoresistant major depressive disorder (P), is high-frequency left prefrontal rTMS (I) superior to sham rTMS stimulation (C) for treatment response and remission rates at 6 weeks (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of pharmacoresistant major depressive disorder (P), does high-frequency left prefrontal rTMS (I) compared with sham rTMS stimulation (C) improve treatment response and remission rates at 6 weeks (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 24 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 6
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of pharmacoresistant major depressive disorder (P), does high-frequency left prefrontal rTMS (I) compared with sham rTMS stimulation (C) improve treatment response and remission rates at 6 weeks (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "pharmacoresistant major depressive disorder",
+        "role": "population"
+      },
+      {
+        "word": "high-frequency left prefrontal rTMS",
+        "role": "intervention"
+      },
+      {
+        "word": "sham rTMS stimulation",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment response and remission rates at 6 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "psychiatry",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.3389/fpsyt.2021.665347",
+        "title": "Left Dorsolateral Prefrontal Cortex Glx/tCr Predicts Efficacy of High Frequency 4- to 6-Week rTMS Treatment and Is Associated With Symptom Improvement in Adults With Major Depressive Disorder: Findings From a Pilot Study",
+        "authors": "Bhattacharyya Pallab, Anand Amit, Lin Jian, Altinay Murat",
+        "year": "2021",
+        "journal": "Frontiers in Psychiatry",
+        "doi": "10.3389/fpsyt.2021.665347",
+        "url": "https://doi.org/10.3389/fpsyt.2021.665347",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "About 20–40% of estimated 121 million patients with major depressive disorder (MDD) are not adequately responsive to medication treatment. Repetitive transcranial magnetic stimulation (rTMS), a non-invasive, non-convulsive neuromodulation/neurostimulation method, has gained popularity in treatment of MDD. Because of the high cost involved in rTMS therapy, ability to predict the therapy effectiveness is both clinically and cost wise significant. This study seeks an imaging biomarker to predict efficacy of rTMS treatment using a standard high frequency 10-Hz 4- to 6-week protocol in adult population. Given the significance of excitatory and inhibitory neurotransmitters glutamate (Glu) and gamma aminobutyric acid (GABA) in the pathophysiology of MDD, and the involvement of the site of rTMS application, left dorsolateral prefrontal cortex (lDLPFC), in MDD, we explored lDLPFC Glx (Glu + glutamine) and GABA levels, measured by single voxel magnetic resonance spectroscopy (MRS) with total creatine (tCr; sum of creatine and phosphocreatine) as reference, as possible biomarkers of rTMS response prediction. Mescher-Garwood point-resolved spectroscopy (MEGA-PRESS) MRS data from 7 patients (40–74 y) were used in the study; 6 of these patients were scanned before and after 6 weeks of rTMS therapy. Findings from this study show inverse correlation between pretreatment lDLPFC Glx/tCr and (i) posttreatment depression score and (ii) change in depression score, suggesting higher Glx/tCr as a predictor of treatment efficacy. In addition association was observed between changes in depression scores and changes in Glx/tCr ratio. The preliminary findings did not show any such association between GABA/tCr and depression score.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "3c2792f4a6792f02ee10226f87a29a8aa61123ac805d3c32419bd178e9723f4b"
+      },
+      {
+        "pmid": "32677923",
+        "title": "Efficacy and clinical predictors of response to rTMS treatment in pharmacoresistant obsessive-compulsive disorder (OCD): a retrospective study",
+        "authors": "Reza Rostami, Reza Kazemi, Arezoo Jabbari, Azam Sadat Madani",
+        "year": "2020",
+        "journal": "BMC Psychiatry",
+        "doi": "10.1186/s12888-020-02769-9",
+        "url": "https://doi.org/10.1186/s12888-020-02769-9",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Application of repetitive transcranial magnetic stimulation (rTMS) for treating obsessive-compulsive disorder (OCD) has been promising and approved by the Food and Drug Administration in 2018, but effects differ between patients. Knowledge about clinical predictors of rTMS response may help to increase clinical efficacy but is not available so far. METHODS: In a retrospective study, we investigated the efficacy of rTMS over the dorsolateral prefrontal cortex (DLPFC) or supplementary motor area (SMA) in 65 pharmaco-resistant OCD outpatients recruited for rTMS treatment from July 2015 to May 2017. Patients received either SMA rTMS (n = 38) or bilateral DLPFC rTMS (n = 27) in case of reporting higher affective and depressive symptoms in addition to the primary OCD symptoms. OCD symptoms",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "3f72dd47b3a2ea51301000664c0edf1021d5b0db5497c775d91eaebc3b14b361"
+      },
+      {
+        "pmid": "38135965",
+        "title": "Effects of rTMS Intervention on Functional Neuroimaging Activities in Adolescents with Major Depressive Disorder Measured Using Resting-State fMRI",
+        "authors": "Fengmei Lu, Qian Cui, Yang Zou, Yuanhong Guo",
+        "year": "2023",
+        "journal": "Bioengineering",
+        "doi": "10.3390/bioengineering10121374",
+        "url": "https://doi.org/10.3390/bioengineering10121374",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Repetitive transcranial magnetic stimulation (rTMS) to the left dorsolateral prefrontal cortex (L-DLPFC) is commonly used for the clinical treatment of major depressive disorder (MDD). The neuroimaging biomarkers and mechanisms of rTMS are still not completely understood. This study aimed to explore the functional neuroimaging changes induced by rTMS in adolescents with MDD. A total of ten sessions of rTMS were administrated to the L-DLPFC in thirteen adolescents with MDD once a day for two weeks. All of them were scanned using resting-state functional magnetic resonance imaging at baseline and after rTMS treatment. The regional homogeneity (ReHo), amplitude of low-frequency fluctuation (ALFF), and the subgenual anterior cingulate cortex (sgACC)-based functional connectivity (FC) were computed as neuroimaging indicators. The correlation between changes",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d48142bda03a352a3d13e6295091b684042cd7831ec5e94011352cd13002f82c"
+      },
+      {
+        "pmid": "29174304",
+        "title": "Simultaneous rTMS and psychotherapy in major depressive disorder: Clinical outcomes and predictors from a large naturalistic study",
+        "authors": "Lana Donse, Frank Padberg, Alexander Thomas Sack, Augustus John Rush",
+        "year": "2017",
+        "journal": "Brain stimulation",
+        "doi": "10.1016/j.brs.2017.11.004",
+        "url": "https://doi.org/10.1016/j.brs.2017.11.004",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Repetitive transcranial magnetic stimulation (rTMS) is considered an efficacious non-invasive neuromodulation treatment for major depressive disorder (MDD). However, little is known about the clinical outcome of combined rTMS and psychotherapy (rTMS + PT). Through common neurobiological brain mechanisms, rTMS + PT may exert enhanced antidepressant effects compared to the respective monotherapies. OBJECTIVE: The current naturalistic study aimed to evaluate feasibility and clinical outcome of rTMS + PT in a large group of MDD patients. The second aim was to identify clinical predictors of response and remission. METHODS: A total of 196 patients with MDD were treated with at least 10 sessions of simultaneous rTMS and PT. rTMS was applied over the DLPFC, either 10 Hz left or 1 Hz",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8d51dfea67178de3f958e7b567debcb02c0121294cd33996a0705fedb4c8d076"
+      },
+      {
+        "pmid": "25670947",
+        "title": "Neural Network Based Response Prediction of rTMS in Major Depressive Disorder Using QEEG Cordance",
+        "authors": "Türker Tekin Erguzel, Serhat Özekes, Selahattin Gultekin, Nevzat Tarhan",
+        "year": "2015",
+        "journal": "Psychiatry Investigation",
+        "doi": "10.4306/pi.2015.12.1.61",
+        "url": "https://doi.org/10.4306/pi.2015.12.1.61",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: The combination of repetitive transcranial magnetic stimulation (rTMS), a non-pharmacological form of therapy for treating major depressive disorder (MDD), and electroencephalogram (EEG) is a valuable tool for investigating the functional connectivity in the brain. This study aims to explore whether pre-treating frontal quantitative EEG (QEEG) cordance is associated with response to rTMS treatment among MDD patients by using an artificial intelligence approach, artificial neural network (ANN). METHODS: The artificial neural network using pre-treatment cordance of frontal QEEG classification was carried out to identify responder or non-responder to rTMS treatment among 55 MDD subjects. The classification performance was evaluated using k-fold cross-validation. RESULTS: The ANN classification identified responders to rTMS treatment with a sensitivity of 93.33%, and its overall accuracy",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Validation Study",
+        "lowMetadata": false,
+        "_sig": "cccc356440aab15c2b115975fcf6bcd36d6270419c926bc5419b1e8368688da0"
+      },
+      {
+        "pmid": "cr:10.1177/00912174261420110",
+        "title": "High Frequency Left-Sided Repetitive Transcranial Magnetic Stimulation (rTMS) for Post Traumatic Stress Disorder With Comorbid Major Depressive Disorder",
+        "authors": "Seiler Natalie, Nguyen Thomas P., Coelen Amy, Newham Benjamin",
+        "year": "2026",
+        "journal": "The International Journal of Psychiatry in Medicine",
+        "doi": "10.1177/00912174261420110",
+        "url": "https://doi.org/10.1177/00912174261420110",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective Repetitive transcranial magnetic stimulation (rTMS) is an established treatment for comorbid post-traumatic stress disorder (PTSD) and major depressive disorder (MDD). However, there are no universal protocols regarding the type of rTMS recommended, including among military and first responders. This study aimed to describe high frequency rTMS applied to the left dorsolateral prefrontal cortex (DLPFC) administered to inpatients with comorbid PTSD and MDD at Ward 17, Austin Health in Melbourne, Australia. Method Retrospective review of patient files was undertaken for adult inpatients admitted between 01/01/2017 and 01/12/2024 with PTSD and MDD who received ten or more rTMS treatments during admission. Paired t-tests were used for statistical analysis. Results Among 65 patients and 118 admissions, the majority received high frequency rTMS to the left DLPFC (n = 106, 89.8%), followed by rTMS applied to the right DLPFC (n = 8, 6.8%). The group who received left-sided rTMS had an average of 6 fewer treatments and admission length that was 10 days shorter, but almost half required readmission for further rTMS treatments. The most common side effects reported were pain, fatigue, light-headedness or dizziness, and increased anxiety. Left-sided rTMS was associated with significant improvements in MADRS (Cohen’s D = 1.36, 95% CI = 1.06-1.65, P < .001), PCL-5 (D = 1.18, 95% CI = 0.72-1.63, P < .001), HoNOS (D = 1.20, 95% CI = 0.94-1.46, P < .001), and MoCA scores (D = −0.56, 95% CI = −0.81 to −0.31, P < .001). Conclusions High frequency left-sided rTMS is generally well tolerated and may reduce both depressive and PTSD symptoms. Further research to assess rTMS subtypes and target specific symptomatology would support standardization of care and inform future protocol guidelines.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "6c1f7dd1ed94b0cc00d13ee42052f263249a7f8aeb82452c35ef4c99d77cb59e"
+      },
+      {
+        "pmid": "31944611",
+        "title": "Treatment of Adults with Autism and Major Depressive Disorder Using Transcranial Magnetic Stimulation: An Open Label Pilot Study",
+        "authors": "McLeod Frampton Gwynette, Danielle W. Lowe, Erin A. Henneberry, Gregory L. Sahlem",
+        "year": "2020",
+        "journal": "Autism Research",
+        "doi": "10.1002/aur.2266",
+        "url": "https://doi.org/10.1002/aur.2266",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Patients with autism spectrum disorder (ASD) are at high risk for comorbid major depressive disorder (MDD), which can severely impair functioning and quality of life. Repetitive transcranial magnetic stimulation (rTMS) is a noninvasive brain stimulation technique, which is Food and Drug Administration (FDA) cleared for the treatment of MDD in adults. Despite demonstrated efficacy in the treatment of depression, there are limited data on the use of rTMS in patients with ASD and comorbid MDD. We hypothesized that a standard rTMS protocol for MDD would reduce depressive symptoms for adults with ASD and MDD. Secondarily, we investigated whether this treatment would also reduce core ASD symptoms. Participants of 18-65 years old with ASD and MDD without any medication changes in",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "d0fd88fec6d800891663dd39ffc468583c2b5283588065a8d3d36d6a3d74e8b9"
+      },
+      {
+        "pmid": "cr:10.1038/s41398-019-0549-8",
+        "title": "Measuring change in anhedonia using the “Happy Faces” task pre- to post-repetitive transcranial magnetic stimulation (rTMS) treatment to left dorsolateral prefrontal cortex in Major Depressive Disorder (MDD): relation to empathic happiness",
+        "authors": "Light Sharee N., Bieliauskas Linas A., Taylor Stephan F.",
+        "year": "2019",
+        "journal": "Translational Psychiatry",
+        "doi": "10.1038/s41398-019-0549-8",
+        "url": "https://doi.org/10.1038/s41398-019-0549-8",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract We investigated whether repetitive transcranial magnetic stimulation (rTMS) to the left dorsolateral prefrontal cortex (DLPFC) would reduce anhedonia in a sample of 19 depressed adults ( M age = 45.21, SD = 11.21, 63% women) randomized to either active or sham rTMS. To track anhedonia, patients completed the Snaith-Hamilton Pleasure Scale (SHAPS) 1 and a novel behavioral task called “Happy Faces,” which required patients to interpret neutral versus various intensities of positively valenced human facial expressions. Patients had to indicate dichotomously whether any degree of positive emotion was expressed. We expected that more anhedonic patients would struggle most with low intensity happy faces; often incorrectly calling them neutral. Patients also completed a self-report measure of “empathic happiness”—i.e., vicarious joy. Measures were completed pre- to post-treatment. Results indicate rTMS to DLPFC related to improvement in interpretation of subtle forms of happiness in active rTMS patients relative to sham. Furthermore, empathic happiness and anhedonia score were significantly antagonistic across all patients.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e95cbf5a9ac7ad36fdcff65130a7e73f5f31c673ddb230e782520bd6af0c7e3b"
+      },
+      {
+        "pmid": "cr:10.1016/j.encep.2016.11.002",
+        "title": "Predictors of response to repetitive transcranial magnetic stimulation (rTMS) in the treatment of major depressive disorder",
+        "authors": "Beuzon G., Timour Q., Saoud M.",
+        "year": "2017",
+        "journal": "L'Encéphale",
+        "doi": "10.1016/j.encep.2016.11.002",
+        "url": "https://doi.org/10.1016/j.encep.2016.11.002",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b0c379095894125f24c936b6cde23ee2a94facbe811a3cfe3c59fc07af548a9a"
+      },
+      {
+        "pmid": "cr:10.1016/j.brs.2018.12.797",
+        "title": "10 Hz rTMS-induced Neural Response of Gamma Oscillations in Subgenual Anterior Cingulate Cortex (sgACC) is Anti-correlated with Left Dorsolateral Prefrontal Cortex (DLPFC) in Major Depressive Disorder",
+        "authors": "Liu Q., Wu H., Doyle J., Wilson A.",
+        "year": "2019",
+        "journal": "Brain Stimulation",
+        "doi": "10.1016/j.brs.2018.12.797",
+        "url": "https://doi.org/10.1016/j.brs.2018.12.797",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 61,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a7b268ef93e5fe0e2adfbf03a53a17a0fedd630ee401bc856a3704da82070c21"
+      },
+      {
+        "pmid": "cr:10.1016/j.clinph.2017.07.027",
+        "title": "O16 Shifts in mean peak oscillatory frequency during repetitive transcranial magnetic stimulation (rTMS) treatment of major depressive disorder",
+        "authors": "Leuchter Andrew, Corlier Juliane, Cook Ian",
+        "year": "2017",
+        "journal": "Clinical Neurophysiology",
+        "doi": "10.1016/j.clinph.2017.07.027",
+        "url": "https://doi.org/10.1016/j.clinph.2017.07.027",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 61,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "ac2ffc38e7aafcec4f26332d4a245f1166131ba62478e13dbe2b117976a1fdfc"
+      },
+      {
+        "pmid": "22135698",
+        "title": "Meta-Review of Metanalytic Studies with Repetitive Transcranial Magnetic Stimulation (rTMS) for the Treatment of Major Depression",
+        "authors": "Bernardo Maria Dell’Osso, G. Camuri, Filippo Castellano, Vittoria Vecchi",
+        "year": "2011",
+        "journal": "Clinical Practice and Epidemiology in Mental Health",
+        "doi": "10.2174/1745017901107010167",
+        "url": "https://doi.org/10.2174/1745017901107010167",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Major Depression (MD) and treatment-resistant depression (TRD) are worldwide leading causes of disability and therapeutic strategies for these impairing and prevalent conditions include pharmacological augmentation strategies and brain stimulation techniques. In this perspective, repetitive transcranial magnetic stimulation (rTMS) is a non-invasive brain stimulation technique with a favorable profile of tolerability which, despite being recently approved by the Food and Drug Administration (FDA) for the treatment of patients with medication-refractory unipolar depression, still raises some doubts about most effective parameters of stimulation. METHODS: A literature search was performed using PubMed for the years 2001 through February 2011 in order to review meta-analytic studies assessing efficacy and safety issues for rTMS in depressive disorders. Fifteen meta-analyses were identified and critically discussed",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "351cbaa9fe2af8e2756119ac2fd44123b20f22e57907688804159d4130be67a3"
+      },
+      {
+        "pmid": "cr:10.31579/2690-1919/116",
+        "title": "Using repetitive Transcranial Magnetic Stimulation (rTMS) Method in the Treatment of Major Depressive Disorder (MDD)",
+        "authors": "Saberi Behzad",
+        "year": "2020",
+        "journal": "Journal of Clinical Research and Reports",
+        "doi": "10.31579/2690-1919/116",
+        "url": "https://doi.org/10.31579/2690-1919/116",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Repetitive Transcranial Magnetic Stimulation (rTMS) as a noninvasive method of brain stimulation, has shown various diagnostic and therapeutic potentials in neurologic and psychiatric disorders. Major Depressive Disorder (MDD) as one of the global challenges in mental health disorders, requires new therapeutic strategies to be developed to be treated in addition to the usual therapeutic strategies. Repetitive Transcranial Magnetic Stimulation or rTMS is one of the new treatment methods for the Major Depressive Disorder which is promising new developments in the treatment of MDD. rTMS is approved by the Food and Drug Administration to treat resistant depression in 2008. According to the recent guidelines in the Europe and North America, rTMS can be considered the first line treatment strategy for the MDD. This is a brief review study on the effects of using repetitive Transcranial Magnetic Stimulation in the treatment of Major Depressive Disorder in clinical practice. It is important for the mental health care professionals who deal with the patients with the Major Depressive Disorder during clinical practice, to be aware of the repetitive Transcranial Magnetic Stimulation method as an option to treat MDD specifically in the cases who do not respond well to usual therapeutic strategies or whom encounter with unfavorable drug treatment side effects which need the treatment strategies to be changed.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "95116f07ce83ac16f290c787cda9c4f3724c42157f18c103360cf6e59ee0cc8a"
+      },
+      {
+        "pmid": "40104331",
+        "title": "A naturalistic analysis of rTMS treatment outcomes for major depressive disorder in West Australian youth",
+        "authors": "Aleksandra Miljevic, Kyle Hoath, Kerry Leggett, Lauren A. Hennessy",
+        "year": "2025",
+        "journal": "Frontiers in Psychiatry",
+        "doi": "10.3389/fpsyt.2025.1513339",
+        "url": "https://doi.org/10.3389/fpsyt.2025.1513339",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objective: Repetitive transcranial magnetic stimulation (rTMS) is an effective, evidence-based treatment for major depressive disorder (MDD) in adults and is publicly funded in Australia. However, there is limited data as to its efficacy and safety in treating MDD in adolescent and youth populations. Methods: This retrospective report examined routinely collected data of 46 outpatients aged 17 to 25 years old, who received rTMS treatment for MDD in a private TMS clinic. Primary outcomes measures were the Montgomery-Asberg Depression Rating Scale (MADRS) and the depression subscale of the 21-item Depression, Anxiety and Stress Scale (DASS-21). Secondary measures included the anxiety and stress sub-scales of the DASS-21, a measure of Quality of Life (QoL) Enjoyment and Satisfaction Questionnaire, and the Cognitive Failures",
+        "relevancePct": 51,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c814f790ef8cff412298e798001491aa3564d7e5f2a95acdbd1e13f400826f41"
+      },
+      {
+        "pmid": "41059612",
+        "title": "The effects of rTMS on self-reported quality of life in younger and older adults with major depressive disorder",
+        "authors": "Katharina Göke, Jonathan H. Downar, Fidel Vila‐Rodriguez, Zafiris J. Daskalakis",
+        "year": "2025",
+        "journal": "Psychological Medicine",
+        "doi": "10.1017/s0033291725102079",
+        "url": "https://doi.org/10.1017/s0033291725102079",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background Repetitive transcranial magnetic stimulation (rTMS) is a well-established intervention for treatment-resistant depression. However, its effects on patient-reported outcomes, such as quality of life (QoL), have not been fully characterized, especially among older adults. This study compares the impact of rTMS on QoL in younger (<60 years) versus older (≥60 years) adults with major depressive disorder. Methods We analyzed data from 531 participants with depression (ages 18–89 years) from two randomized clinical trials (THREE-D and FOUR-D). All participants received either unilateral or bilateral rTMS or theta burst stimulation. QoL was assessed using the Quality of Life Enjoyment and Satisfaction Questionnaire – Short Form at baseline, end of treatment, and 12-week follow-up, and compared between younger adults (age < 60 years;",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "26c4f24211937319ddceadff34a8bcd39ca9626b16416500b792d7da1235ac13"
+      },
+      {
+        "pmid": "37437737",
+        "title": "Pretreatment pupillary reactivity is associated with outcome of Repetitive Transcranial Magnetic Stimulation (rTMS) treatment of Major Depressive Disorder (MDD)",
+        "authors": "Cole Citrenbaum, Juliana Corlier, Doan Ngo, Nikita Vince-Cruz",
+        "year": "2023",
+        "journal": "Journal of Affective Disorders",
+        "doi": "10.1016/j.jad.2023.07.008",
+        "url": "https://doi.org/10.1016/j.jad.2023.07.008",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Pre-treatment biomarkers for outcome of repetitive Transcranial Magnetic Stimulation (rTMS) treatment of Major Depressive Disorder (MDD) have proven elusive. One promising family of biomarkers involves the autonomic nervous system (ANS), which is dysregulated in individuals with MDD. METHODS: We examined the relationship between the pre-treatment pupillary light reflex (PLR) and rTMS outcome in 51 MDD patients. Outcome was measured as the percent change in the 30-item Inventory of Depressive Symptomatology Self Rated (IDS-SR) score from baseline to treatment 30. RESULTS: Patients showed significant improvement with rTMS treatment. There was a significant correlation between baseline pupillary Constriction Amplitude (CA) and clinical improvement over the treatment course (R = 0.41, p = 0.003). LIMITATIONS: We examined a limited number of subjects",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a0b774abe1fdc45e34eb9eb6a9327f9a35d3e4252a09eef4a37628595adba6c0"
+      },
+      {
+        "pmid": "cr:10.1155/2021/5563017",
+        "title": "High-Frequency and Low-Intensity Patterned Transcranial Magnetic Stimulation over Left Dorsolateral Prefrontal Cortex as Treatment for Major Depressive Disorder: A Report of 3 Cases",
+        "authors": "Castillo-Aguilar Lizbeth, Ríos-Ponce Alma E., Albano de Mendonca Edson, Villafuerte Gabriel",
+        "year": "2021",
+        "journal": "Case Reports in Psychiatry",
+        "doi": "10.1155/2021/5563017",
+        "url": "https://doi.org/10.1155/2021/5563017",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Current transcranial magnetic stimulation devices apply intense (near 1 tesla) repetitive magnetic pulses over a specific area of the skull at relatively lower frequencies (1-50 Hz). Nevertheless, different studies have shown that very small magnetic fields, at higher frequencies (50-1000 Hz.), produce therapeutic effects in major depressive disorder. We report the application of high-frequency and low-intensity patterned magnetic pulses over the left prefrontal dorsolateral cortex in three subjects diagnosed with clinical major depressive disorder. All three patients showed sharp changes in their self-reports as well as in the standardized clinical assessment. Hypothesized mechanisms of action of this new variant of magnetic stimulation are discussed.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bae5df652a959eceeecf61bedfbd13f8ba874c055833c535d065c5fa0032f6ec"
+      },
+      {
+        "pmid": "cr:10.1016/j.jpsychires.2022.01.025",
+        "title": "The effectiveness of high-frequency left DLPFC-rTMS on depression, response inhibition, and cognitive flexibility in female subjects with major depressive disorder",
+        "authors": "Asgharian Asl Fatemeh, Vaghef Ladan",
+        "year": "2022",
+        "journal": "Journal of Psychiatric Research",
+        "doi": "10.1016/j.jpsychires.2022.01.025",
+        "url": "https://doi.org/10.1016/j.jpsychires.2022.01.025",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bdf302ffc556b184598f6f1beeb9f437aa9ac79103d7875dac66043ddaf61370"
+      },
+      {
+        "pmid": "cr:10.1002/da.22894",
+        "title": "Is rTMS effective for anxiety symptoms in major depressive disorder? An efficacy analysis comparing left‐sided high‐frequency, right‐sided low‐frequency, and sequential bilateral rTMS protocols",
+        "authors": "Chen Leo, Hudaib Abdul‐Rahman, Hoy Kate E., Fitzgerald Paul B.",
+        "year": "2019",
+        "journal": "Depression and Anxiety",
+        "doi": "10.1002/da.22894",
+        "url": "https://doi.org/10.1002/da.22894",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "afb6de2d3ae9f867b18cbdd4dd071060a847d9ca0683c39fd1be22bb9a5cc3a2"
+      },
+      {
+        "pmid": "cr:10.1016/j.psychres.2012.09.011",
+        "title": "Left dorsolateral prefrontal transcranial magnetic stimulation (TMS): Sleep factor changes during treatment in patients with pharmacoresistant major depressive disorder",
+        "authors": "Rosenquist Peter B., Krystal Andrew, Heart Karen L., Demitrack Mark A.",
+        "year": "2013",
+        "journal": "Psychiatry Research",
+        "doi": "10.1016/j.psychres.2012.09.011",
+        "url": "https://doi.org/10.1016/j.psychres.2012.09.011",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b1a7e659f33b23b9f57193019a9907134c9cf97203c66263798662fee779af23"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 6
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 6,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "pharmacoresistant major depressive disorder high-frequency left prefrontal rTMS sham rTMS stimulation treatment response and remission rates at 6 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

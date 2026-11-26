@@ -15,6 +15,16 @@ const { POST: docxPost } = await import("../../src/app/api/docx/route.ts");
 const { composeManuscript } = await import("../../src/lib/manuscript-composer.ts");
 const { buildSummaryPayload } = await import("../../src/lib/summary-payload.ts");
 
+import type { PicoWord } from "../../src/lib/pico-roles.ts";
+import type { ScreenPayload } from "../../src/lib/deterministic-screen.ts";
+import type { ExploreRecord } from "../../src/lib/explore-scoring.ts";
+
+interface ApiFixture {
+  specialty: string;
+  words: PicoWord[];
+  screenResponse: ScreenPayload;
+}
+
 function loadJson<T>(relPath: string): T {
   return JSON.parse(fs.readFileSync(path.resolve(relPath), "utf8")) as T;
 }
@@ -151,8 +161,8 @@ test("API-04. Valid screen and explore return 200 with valid Zod schema, _sig, a
 });
 
 test("API-05. Compose with signed-genuine returns 200", async () => {
-  const onc1 = loadJson<any>("tests/fixtures/literature/ONC-1.json");
-  const genuine = loadJson<any[]>("tests/fixtures/records/signed-genuine.json");
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
+  const genuine = loadJson<ExploreRecord[]>("tests/fixtures/records/signed-genuine.json");
   const res = await enginePost(
     makeReq("http://localhost:3000/api/engine", {
       stage: "compose",
@@ -167,8 +177,8 @@ test("API-05. Compose with signed-genuine returns 200", async () => {
 });
 
 test("API-06. Compose with unsigned-fabricated returns 422", async () => {
-  const onc1 = loadJson<any>("tests/fixtures/literature/ONC-1.json");
-  const fabricated = loadJson<any[]>("tests/fixtures/records/unsigned-fabricated.json");
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
+  const fabricated = loadJson<ExploreRecord[]>("tests/fixtures/records/unsigned-fabricated.json");
   const res = await enginePost(
     makeReq("http://localhost:3000/api/engine", {
       stage: "compose",
@@ -183,9 +193,9 @@ test("API-06. Compose with unsigned-fabricated returns 422", async () => {
 });
 
 test("API-07. Compose with tampered-context or tampered-score returns 422", async () => {
-  const onc1 = loadJson<any>("tests/fixtures/literature/ONC-1.json");
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
   for (const file of ["tampered-context.json", "tampered-score.json"]) {
-    const recs = loadJson<any[]>(`tests/fixtures/records/${file}`);
+    const recs = loadJson<ExploreRecord[]>(`tests/fixtures/records/${file}`);
     const res = await enginePost(
       makeReq("http://localhost:3000/api/engine", {
         stage: "compose",
@@ -201,24 +211,24 @@ test("API-07. Compose with tampered-context or tampered-score returns 422", asyn
 });
 
 test("API-08. /api/pdf and /api/docx with genuine signed papers return 200 and correct MIME", async () => {
-  const onc1 = loadJson<any>("tests/fixtures/literature/ONC-1.json");
-  const genuine = loadJson<any[]>("tests/fixtures/records/signed-genuine.json");
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
+  const genuine = loadJson<ExploreRecord[]>("tests/fixtures/records/signed-genuine.json");
   const choice = { category: "established" as const, phrase: onc1.screenResponse.phrases.established.phrase };
   const manuscript = composeManuscript({
     specialty: "oncology",
     words: onc1.words,
     category: choice.category,
     phrase: choice.phrase,
-    screeningStats: { retrieved: 25, screened: 25, blocked: 0, excluded: 0, relaxationLevel: 0 },
+    screeningStats: { retrieved: 25, screened: 25, excludedCount: 0, relaxationLevel: 0 },
     records: genuine,
     style: "vancouver",
   });
   const payload = buildSummaryPayload(
     onc1.words,
     choice,
+    onc1.screenResponse,
     { records: genuine, corpusStats: { retrieved: 25, screened: 25, blocked: 0, returned: genuine.length, relaxationLevel: 0 }, hasMore: false },
     { phrase: choice.phrase, category: choice.category, userExcluded: [], seen: [] },
-    onc1.screenResponse,
     manuscript,
     "oncology"
   );
@@ -233,24 +243,24 @@ test("API-08. /api/pdf and /api/docx with genuine signed papers return 200 and c
 });
 
 test("API-09. /api/pdf and /api/docx with unsigned-fabricated return 422", async () => {
-  const onc1 = loadJson<any>("tests/fixtures/literature/ONC-1.json");
-  const fabricated = loadJson<any[]>("tests/fixtures/records/unsigned-fabricated.json");
+  const onc1 = loadJson<ApiFixture>("tests/fixtures/literature/ONC-1.json");
+  const fabricated = loadJson<ExploreRecord[]>("tests/fixtures/records/unsigned-fabricated.json");
   const choice = { category: "established" as const, phrase: onc1.screenResponse.phrases.established.phrase };
   const manuscript = composeManuscript({
     specialty: "oncology",
     words: onc1.words,
     category: choice.category,
     phrase: choice.phrase,
-    screeningStats: { retrieved: 1, screened: 1, blocked: 0, excluded: 0, relaxationLevel: 0 },
+    screeningStats: { retrieved: 1, screened: 1, excludedCount: 0, relaxationLevel: 0 },
     records: fabricated,
     style: "vancouver",
   });
   const payload = buildSummaryPayload(
     onc1.words,
     choice,
+    onc1.screenResponse,
     { records: fabricated, corpusStats: { retrieved: 1, screened: 1, blocked: 0, returned: 1, relaxationLevel: 0 }, hasMore: false },
     { phrase: choice.phrase, category: choice.category, userExcluded: [], seen: [] },
-    onc1.screenResponse,
     manuscript,
     "oncology"
   );
@@ -263,7 +273,7 @@ test("API-09. /api/pdf and /api/docx with unsigned-fabricated return 422", async
 });
 
 test("API-10. Missing AIMED_RECORD_SECRET in production mode fails closed", () => {
-  const env = { ...process.env, NODE_ENV: "production" };
+  const env: NodeJS.ProcessEnv = { ...process.env, NODE_ENV: "production" };
   delete env.AIMED_RECORD_SECRET;
   delete env.VERCEL;
   const res = spawnSync(

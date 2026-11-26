@@ -1,0 +1,848 @@
+{
+  "id": "PRESET-obgyn-short-cervix",
+  "recordedAt": "2026-11-26T19:40:54.244Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "asymptomatic singleton pregnancy, short cervix <= 25 mm",
+      "role": "population"
+    },
+    {
+      "word": "vaginal progesterone",
+      "role": "intervention"
+    },
+    {
+      "word": "cervical cerclage",
+      "role": "comparator"
+    },
+    {
+      "word": "spontaneous preterm birth < 34 weeks",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "asymptomatic singleton pregnancy, short cervix <= 25 mm",
+        "role": "population"
+      },
+      {
+        "word": "vaginal progesterone",
+        "role": "intervention"
+      },
+      {
+        "word": "cervical cerclage",
+        "role": "comparator"
+      },
+      {
+        "word": "spontaneous preterm birth < 34 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In asymptomatic singleton pregnancy, short cervix <= 25 mm (P), does vaginal progesterone (I) compared with cervical cerclage (C) improve spontaneous preterm birth < 34 weeks (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 7 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In asymptomatic singleton pregnancy, short cervix <= 25 mm (P), is vaginal progesterone (I) superior to cervical cerclage (C) for spontaneous preterm birth < 34 weeks (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of asymptomatic singleton pregnancy, short cervix <= 25 mm (P), does vaginal progesterone (I) compared with cervical cerclage (C) improve spontaneous preterm birth < 34 weeks (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In asymptomatic singleton pregnancy, short cervix <= 25 mm (P), is vaginal progesterone (I) superior to cervical cerclage (C) for spontaneous preterm birth < 34 weeks (O)?"
+    },
+    "words": [
+      {
+        "word": "asymptomatic singleton pregnancy, short cervix <= 25 mm",
+        "role": "population"
+      },
+      {
+        "word": "vaginal progesterone",
+        "role": "intervention"
+      },
+      {
+        "word": "cervical cerclage",
+        "role": "comparator"
+      },
+      {
+        "word": "spontaneous preterm birth < 34 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42877099",
+        "title": "Progestogens, cervical cerclage, and cervical pessary for preventing preterm birth in asymptomatic singleton pregnancies with a sonographic short cervix and no previous history of spontaneous preterm birth: systematic review and bayesian network meta-analysis.",
+        "authors": "Wu H, Yu L, Zhang J, Goya M, Otsuki K, Cruz-Melguizo S, Fu X.",
+        "year": "2026",
+        "journal": "BMJ medicine",
+        "doi": "10.1136/bmjmed-2026-003010",
+        "url": "https://europepmc.org/article/PMC/PMC13662088",
+        "source": "pmc",
+        "pubType": "research-article, Systematic Review, Network Meta-Analysis, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Systematic Review",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "context": "Objective To compare the efficacy of different interventions to prevent preterm birth in asymptomatic singleton pregnancies with a sonographic short cervix and no previous history of spontaneous preterm birth. Design Systematic review and bayesian network meta-analysis. Data sources Ovid Medline, Cochrane Library, Embase, ClinicalTrials.gov, Google Scholar, and Chinese databases, from inception to 13 March 2025, updated 3 February 2026. Eligibility criteria for selecting studies Randomised controlled trials comparing two or more active interventions or comparing an active intervention with a control (placebo, expectant management, or usual care) to prevent preterm birth in asymptomatic women with singleton pregnancies and a sonographic short cervix, but no previous history of spontaneous preterm birth. Results The primary outcomes were preterm birth before 34 and 37 weeks' gestation. 26 randomised controlled trials (8561 women) were identified, with 6004 participants included in the network meta-analysis. In direct pairwise comparisons, vaginal progesterone monotherapy was supported by high certainty evidence as a highly effective intervention for reducing preterm birth before 34 weeks' gestation (risk ratio 0.56, 95% confidence interval (CI) 0.44 to 0.72). In the network meta-analysis for preterm birth before 34 weeks' gestation (24 randomised controlled trials, 5738 women), vaginal progesterone monotherapy maintained a high efficacy ranking (mean rank 3.3, probability of risk ratio Conclusions The results showed that vaginal progesterone monotherapy remains the benchmark standard of care for the prevention of preterm birth, uniquely combining high certainty direct evidence, strong efficacy rankings, and excellent maternal safety. Although combination treatments showed high efficacy rankings, their routine clinical adoption should be restricted to research settings given the safety concerns and lower certainty evidence. A cervical pessary might be an alternative to vaginal progesterone in selected populations. Systematic review registration PROSPERO CRD420251004808.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "2b66f60c8b589a7418601d50b8d7235448bf4098c6d901002316357b2bbe3ddf"
+      },
+      {
+        "pmid": "33946019",
+        "title": "Role of progesterone, cerclage and pessary in preventing preterm birth in twin pregnancies: A systematic review and network meta-analysis",
+        "authors": "D'Antonio F, et al",
+        "year": "2021",
+        "journal": "European journal of obstetrics, gynecology, and reproductive biology",
+        "doi": "10.1016/j.ejogrb.2021.04.023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33946019/",
+        "context": "OBJECTIVE: To determine the role of progesterone, pessary and cervical cerclage in reducing the risk of (preterm birth) PTB in twin pregnancies and compare these interventions using pairwise and network meta-analysis. STUDY DESIGN: Medline, Embase, CINAHL and Cochrane databases were explored. The inclusion criteria were studies in which twin pregnancies were randomized to an intervention for the prevention of PTB (any type of progesterone, cervical cerclage, cervical pessary, or any combination of these) or to a control group (e.g. placebo or treatment as usual). Interventions of interest were either progesterone [vaginal or oral natural progesterone or intramuscular 17a-hydroxyprogesterone caproate (17-OHPC)], cerclage (McDonald or Shirodkar), or cervical pessary. The primary outcome was PTB < 34 weeks of gestation. Both primary and secondary outcomes were explored in an unselected population of twin pregnancies and in women at higher risk of PTB (defined as those with cervical length <25 mm). Random-effect head-to-head and a multiple-treatment meta-analyses were used to analyze the data and results expressed as risk ratios. RESULTS: 26 studies were included in the meta-analysis. When considering an unselected population of twin pregnancies, vaginal progesterone, intra-muscular17-OHPC or pessary did not reduce the risk of PTB < 34 weeks of gestation (all p > 0.05). When stratifying the analysis for spontaneous PTB, neither pessary, vaginal or intramuscular 17-OHPC were associated with a significant reduction in the risk of PTB compared to controls (all p > 0.05), while there was no study on cerclage which explored this outcome in an unselected population of twin pregnancies. When considering twin pregnancies with short cervical length (≤25 mm), there was no contribution of either pessary, vaginal progesterone, intra-muscular 17-OHPC or cerclage in reducing the risk of overall PTB < 34 weeks of gestation. CONCLUSIONS: Cervical pessary, progesterone and cerclage do not show a significant effect in reducing the rate of PTB or perinatal morbidity in twins, either when these interventions are applied to an unselected population of twins or in pregnancies with a short cervix.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Network Meta-Analysis"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "e3bde0c4029df064f563bc7d018ebdd6e292f4a403dbe3d550bde866ea49a298"
+      },
+      {
+        "pmid": "39012912",
+        "title": "Comparing cervical cerclage, pessary and vaginal progesterone for prevention of preterm birth in women with a short cervix (SuPPoRT): A multicentre randomised controlled trial",
+        "authors": "Hezelgrave NL, et al",
+        "year": "2024",
+        "journal": "PLoS medicine",
+        "doi": "10.1371/journal.pmed.1004427",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39012912/",
+        "context": "BACKGROUND: Cervical cerclage, cervical pessary, and vaginal progesterone have each been shown to reduce preterm birth (PTB) in high-risk women, but to our knowledge, there has been no randomised comparison of the 3 interventions. The SuPPoRT \"Stitch, Pessary, or Progesterone Randomised Trial\" was designed to compare the rate of PTB <37 weeks between each intervention in women who develop a short cervix in pregnancy. METHODS AND FINDINGS: SuPPoRT was a multicentre, open label 3-arm randomised controlled trial designed to demonstrate equivalence (equivalence margin 20%) conducted from 1 July 2015 to 1 July 2021 in 19 obstetric units in the United Kingdom. Asymptomatic women with singleton pregnancies with transvaginal ultrasound cervical lengths measuring <25 mm between 14+0 and 23+6 weeks' gestation were eligible for randomisation (1:1:1) to receive either vaginal cervical cerclage (n = 128), cervical pessary (n = 126), or vaginal progesterone (n = 132). Minimisation variables were gestation at recruitment, body mass index (BMI), and risk factor for PTB. The primary outcome was PTB <37 weeks' gestation. Secondary outcomes included PTB <34 weeks', <30 weeks', and adverse perinatal outcome. Analysis was by intention to treat. A total of 386 pregnant women between 14+0 and 23+6 weeks' gestation with a cervical length <25 mm were randomised to one of the 3 interventions. Of these women, 67% were of white ethnicity, 18% black ethnicity, and 7.5% Asian ethnicity. Mean BMI was 25.6. Over 85% of women had prior risk factors for PTB; 39.1% had experienced a spontaneous PTB or midtrimester loss (>14 weeks gestation); and 45.8% had prior cervical surgery. Data from 381 women were available for outcome analysis. Using binary regression, randomised therapies (cerclage versus pessary versus vaginal progesterone) were found to have similar effects on the primary outcome PTB <37 weeks (39/127 versus 38/122 versus 32/132, p = 0.4, cerclage versus pessary risk difference (RD) -0.7% [-12.1 to 10.7], cerclage versus progesterone RD 6.2% [-5.0 to 17.0], and progesterone versus pessary RD -6.9% [-17.9 to 4.1]). Similarly, no difference was seen for PTB <34 and 30 weeks, nor adverse perinatal outcome. There were some differences in the mild side effect profile between interventions (vaginal discharge and bleeding) and women randomised to progesterone reported more severe abdominal pain. A small proportion of women did not receive the intervention as per protocol; however, per-protocol and as-treated analyses showed similar results. The main study limitation was that the trial was underpowered for neonatal outcomes and was stopped early due to the COVID-19 pandemic. CONCLUSIONS: In this study, we found that for women who develop a short cervix, cerclage, pessary, and vaginal progesterone were equally efficacious at preventing PTB, as judged with a 20% equivalence margin. Commencing with any of the therapies would be reasonable clinical management. These results can be used as a counselling tool for clinicians when managing women with a short cervix. TRIAL REGISTRATION: EU Clinical Trials register. EudraCT Number: 2015-000456-15, clinicaltrialsregister.eu., ISRCTN Registry: ISRCTN13364447, isrctn.com.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Comparative Study",
+          "Equivalence Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "718200df6803638354ce2cb57d2188e9c1ac48dd21a75b09f3a4908f8501559a"
+      },
+      {
+        "pmid": "cr:10.1002/jppr.70100",
+        "title": "Combination of cervical cerclage and vaginal progesterone for prevention of preterm birth in singleton pregnancy with a short cervix: a scoping review",
+        "authors": "Abou‐El‐Makarem Sarah Amin, Shaaban Mohamed",
+        "year": "2026",
+        "journal": "Journal of Pharmacy Practice and Research",
+        "doi": "10.1002/jppr.70100",
+        "url": "https://doi.org/10.1002/jppr.70100",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Women with a short cervix are at increased risk of preterm birth (PTB), a major contributor to neonatal morbidity and mortality globally, leading to significant financial and emotional burdens for families and healthcare systems. Cerclage or vaginal progesterone is effective for reducing PTB, but the benefits of combining both interventions remain unclear and nonconclusive. Aim This scoping review aimed to critically appraise current evidence on the effectiveness of combining cerclage and vaginal progesterone in managing short cervix in singleton pregnancies to prevent PTB. Design PubMed and Embase were searched for studies published between 2018–2024. The authors independently performed screening and data extraction. Studies that included singleton pregnancies with short cervix (defined as cervical length <25 mm) and comparing combination therapy (cerclage and vaginal progesterone) versus either intervention alone were included. This review followed the Preferred Reporting Items for Systematic Reviews and Meta‐Analyses extension for scoping reviews (PRISMA‐ScR) guidelines and applied the Arksey and O'Malley framework. Results A total of 923 studies were identified and 12 studies were included. Most studies had a retrospective design ( n = 10). Combination of cerclage and vaginal progesterone showed a trend towards improved maternal and neonatal outcomes, including prolonging pregnancy period particularly in high‐risk populations with cervical length ≤10 mm; however, five studies did not demonstrate statistically significant benefits. Conclusion This review highlighted the need for larger, well‐designed studies to evaluate the efficacy and cost‐benefit analysis of cerclage and vaginal progesterone in the prevention of PTB in singleton pregnancies with short cervix as compared to either intervention alone.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Scoping Review",
+        "lowMetadata": false,
+        "_sig": "cb9c8cfdd335efec6c446520a4eeeae3a1e69931689f5c419b129853760b3d08"
+      },
+      {
+        "pmid": "38471724",
+        "title": "Cervical pessary versus vaginal progesterone in women with a singleton pregnancy, a short cervix, and no history of spontaneous preterm birth at less than 34 weeks’ gestation: open label, multicentre, randomised, controlled trial",
+        "authors": "Charlotte E. van Dijk, Annabelle L. van Gils, Maud D. van Zijl, Bouchra Koullali",
+        "year": "2024",
+        "journal": "BMJ",
+        "doi": "10.1136/bmj-2023-077033",
+        "url": "https://doi.org/10.1136/bmj-2023-077033",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To compare the effectiveness of cervical pessary and vaginal progesterone in the prevention of adverse perinatal outcomes and preterm birth in pregnant women of singletons with no prior spontaneous preterm birth at less than 34 weeks' gestation and who have a short cervix of 35 mm or less. DESIGN: Open label, multicentre, randomised, controlled trial. SETTING: 20 hospitals and five obstetric ultrasound practices in the Netherlands. PARTICIPANTS: Women with a healthy singleton pregnancy and an asymptomatic short cervix of 35 mm or less between 18 and 22 weeks' gestation were eligible. Exclusion criteria were prior spontaneous preterm birth at less than 34 weeks, a cerclage in situ, maternal age of younger than 18 years, major congenital abnormalities, prior participation",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3f9e138e829977dec19f017730f9824d0e1520ff35597272a2754cdbd5c192e7"
+      },
+      {
+        "pmid": "cr:10.1097/01.aog.0001013876.15465.36",
+        "title": "The Association Between Maternal Body Mass Index and Spontaneous Preterm Birth Among Patients Prescribed Vaginal Progesterone for Short Cervix [ID 2683530]",
+        "authors": "Steelman Morgan, Park Jiwoo, Wang Kelly Z., Warren Leslie",
+        "year": "2024",
+        "journal": "Obstetrics & Gynecology",
+        "doi": "10.1097/01.aog.0001013876.15465.36",
+        "url": "https://doi.org/10.1097/01.aog.0001013876.15465.36",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "INTRODUCTION: Vaginal progesterone decreases the risk of spontaneous preterm birth (sPTB) and adverse neonatal outcomes in patients with short cervix (cervical length [CL] <2.5 cm) between 16 and 24 weeks. Few studies have assessed the efficacy of this intervention in patients with obesity. We evaluate the association between maternal body mass index (BMI) and sPTB among patients prescribed vaginal progesterone for short cervix. METHODS: This was an IRB-approved retrospective cohort study of patients prescribed vaginal progesterone for short cervix at Mount Sinai Hospital. Exclusion criteria included prior PTB, cerclage, or progesterone treatment in prior pregnancy, and multifetal gestation. Logistic regression models assessed the association between BMI categories (BMI less than 25, BMI 25.0–29.9, BMI 30 or higher) and PTB less than 37 weeks, PTB less than 34 weeks, and neonatal intensive care unit (NICU) admission adjusting for nulliparity, CL at diagnosis, and insurance status. RESULTS: Of the 210 patients included, 86 had BMI of less than 25 (41%), 72 had BMI of 25.0–25.9 (34.4%), and 52 had BMI of 30 or higher (24.8%), and 79 experienced sPTB (37.6%). Although BMI was not associated with sPTB less than 37 weeks, the odds of sPTB at less than 34 weeks among individuals with BMI of 30 or higher was 3.03 times the odds for those with BMI of less than 25 (95% CI, 1.13–8.14). The odds of NICU admission among those with BMI of 30 or higher is 2.82 times the odds among those with BMI of less than 25 (95% CI, 1.23, 6.46). CONCLUSION: This study demonstrates obesity is associated with sPTB at less than 34 weeks and NICU admission among those prescribed vaginal progesterone for short cervix. Larger studies are needed to evaluate the effect of BMI on efficacy of vaginal progesterone.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "d3df8f7beb2012a6b6dbe8d4aa1cb1df791ea8ff75387c8b5ea12ac7d8cf9082"
+      },
+      {
+        "pmid": "32333390",
+        "title": "Very short cervix in low‐risk asymptomatic singleton pregnancies: Outcome according to treatment and cervical length at diagnosis",
+        "authors": "Athena P. Souka, Maria Papamihail, Athanasios Pilalis",
+        "year": "2020",
+        "journal": "Acta Obstetricia Et Gynecologica Scandinavica",
+        "doi": "10.1111/aogs.13881",
+        "url": "https://doi.org/10.1111/aogs.13881",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: The aim of this study was to explore the outcome of low-risk singleton pregnancies with very short cervical length (CL ≤15 mm) according to method of treatment and CL at diagnosis. MATERIAL AND METHODS: Retrospective study on singleton pregnancies devoid of risk factors for spontaneous preterm delivery identified in the course of universal screening programs by vaginal sonography at 20-24 weeks of gestation to have very short CL ≤ 15 mm. RESULTS: The study group consisted of 233 pregnancies with CL ≤ 15 mm of which 88 had cervical cerclage inserted and the remaining 145 were treated with vaginal progesterone. Mean CL at diagnosis was significantly shorter in the cerclage group (5 mm) compared with the progesterone group (12",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "3c49494df843042a37c990c242b9c3a28551969d75970c96d4bee57e3a25da82"
+      },
+      {
+        "pmid": "22991337",
+        "title": "Vaginal progesterone, cerclage or cervical pessary for preventing preterm birth in asymptomatic singleton pregnant women with a history of preterm birth and a sonographic short cervix",
+        "authors": "Žarko Alfirević, John Owen, E. Carreras, Andrew Sharp",
+        "year": "2013",
+        "journal": "Ultrasound in Obstetrics and Gynecology",
+        "doi": "10.1002/uog.12300",
+        "url": "https://doi.org/10.1002/uog.12300",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To compare the outcome of pregnancy in cohorts of women with singleton pregnancy and history of preterm birth and sonographic short cervix managed with different treatment protocols, namely cerclage, vaginal progesterone or cervical pessary. METHODS: This was a comparison of three management protocols for women with singleton pregnancy and a high risk of preterm birth because of a prior spontaneous preterm birth before 34 weeks and a shortened cervical length detected by transvaginal ultrasound. The study included 142 women who were initially treated with cerclage (USA), 59 with vaginal progesterone (UK) and 42 with cervical pessary (Spain). Perinatal outcomes were compared between the three cohorts. RESULTS: There were no statistically significant differences in perinatal losses, neonatal morbidity and preterm",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f2dd2e71a2d2d64a8cb6c29913ed6e25c01344c2f50bd38d2154d1fb4c37db98"
+      },
+      {
+        "pmid": "cr:10.3389/fmed.2024.1328014",
+        "title": "Effects of vaginal progesterone and placebo on preterm birth and antenatal outcomes in women with singleton pregnancies and short cervix on ultrasound: a meta-analysis",
+        "authors": "Peng Limin, Gao Yan, Yuan Chengkun, Kuang Hongying",
+        "year": "2024",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2024.1328014",
+        "url": "https://doi.org/10.3389/fmed.2024.1328014",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background Vaginal progesterone in preterm birth and adverse outcomes caused by cervical insufficiency remains controversial. To address it, the effect of vaginal progesterone on preterm delivery and perinatal outcome of single pregnancy women with short cervix (less than 25 mm) was systematically evaluated by meta-analysis. Methods “Vaginal progesterone,” “placebo,” “ultrasound,” “cervix,” “singleton pregnancy,” “preterm birth,” and “antenatal outcomes” were entered to screen clinical studies PubMed, Embase, and the Chinese Biomedical Literature Database (CBM). The study population consisted of women with singleton pregnancies and a short cervix on ultrasound, and were assigned into the progesterone group ( n = 1,368) and the placebo group ( n = 1,373). Treatment began after the patient was diagnosed with short cervix until delivery. Neonatal survival rate, Neonatal Intensive Care Unit (NICU) admission rate, respiratory distress syndrome (RDS), intraventricular hemorrhage (IVH), neonatal mortality, and birth weight <1,500 g were analyzed. Results A total of 8 articles, totaling 2,741 study subjects, were enrolled. The progesterone group exhibited an obvious reduced rate of preterm birth at <34 weeks (OR = 0.67, 95% CI: 0.53∼0.84; Z = 3.53, P = 0.004), preterm birth at <32 weeks (OR = 0.46, 95% CI: 0.28∼0.77; Z = 2.99, P = 0.003), NICU admission rate (OR = 0.45, 95% CI: 0.30∼0.66; Z = 0.15, P < 0.0001), RDS rate (OR = 0.42, 95% CI: 0.28∼0.63; Z = 4.25, P < 0.0001), IVH incidence rate (OR = 0.40, 95% CI: 0.17∼0.95; Z = 2.08, P = 0.04), neonatal mortality (OR = 0.25, 95% CI: 0.13∼0.46; Z = 4.39, P < 0.0001), and proportion of neonates with birth weight < 1,500 g (OR = 0.45, 95% CI: 0.32∼0.64; Z = 4.50, P < 0.0001). Conclusion Vaginal progesterone lowered the incidences of preterm birth and adverse pregnancy outcomes in women with singleton pregnancies and a short cervix.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "02c6876d5049ea4c78f06347890a0638377cf5b2daf145b6df90090db4d8be7f"
+      },
+      {
+        "pmid": "42688633",
+        "title": "Ultrasound-indicated cerclage as a critical decision window in cervical insufficiency: a mini review of time-dependent risk interpretation.",
+        "authors": "Park YJ, Park MI.",
+        "year": "2026",
+        "journal": "Frontiers in medicine",
+        "doi": "10.3389/fmed.2026.1900226",
+        "url": "https://europepmc.org/article/PMC/PMC13534988",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Ultrasound-indicated cerclage occupies an intermediate position between history-based prophylaxis and emergency or physical examination-indicated cerclage. Current guidelines generally define this intervention by obstetric history and cervical-length thresholds, but these categorical criteria do not fully capture the time-dependent nature of cervical insufficiency. This focused Mini Review synthesizes international guidelines, randomized and meta-analytic evidence, and recent observational studies to examine ultrasound-indicated cerclage as a critical decision window within a dynamic process of cervical remodeling and progressive structural failure. In this framework, sonographic cervical shortening represents a transitional phase in which risk has become clinically visible but may still remain modifiable. Evidence most consistently supports cerclage in selected high-risk singleton pregnancies with prior spontaneous preterm birth or mid-trimester loss and current cervical shortening, whereas benefit is less certain in low-risk populations with an incidentally detected short cervix or after progression to membrane exposure or advanced dilation. Interpretation is limited by heterogeneity in patient selection, cervical state, timing of intervention, and reporting of operative variables. Reframing ultrasound-indicated cerclage as a time-dependent decision window may help explain heterogeneous findings, improve interpretation of guideline differences, and support more precise patient selection. Future studies should report cervical-length trajectory, gestational timing, cervical phenotype, membrane relationship, inflammatory context, and transition to emergency operative states.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "73a25744e3a5e7c29fe913e9da1d629d53f9e4fc7f5e6c321ffa68ed1b56792c"
+      },
+      {
+        "pmid": "37196896",
+        "title": "Vaginal progesterone for preventing preterm birth and adverse perinatal outcomes in twin gestations: a systematic review and meta-analysis",
+        "authors": "Conde-Agudelo A, et al",
+        "year": "2023",
+        "journal": "American journal of obstetrics and gynecology",
+        "doi": "10.1016/j.ajog.2023.05.010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37196896/",
+        "context": "OBJECTIVE: To evaluate the efficacy of vaginal progesterone for the prevention of preterm birth and adverse perinatal outcomes in twin gestations. DATA SOURCES: MEDLINE, Embase, LILACS, and CINAHL (from their inception to January 31, 2023), Cochrane databases, Google Scholar, bibliographies, and conference proceedings. STUDY ELIGIBILITY CRITERIA: Randomized controlled trials that compared vaginal progesterone to placebo or no treatment in asymptomatic women with a twin gestation. METHODS: The systematic review was conducted according to the Cochrane Handbook for Systematic Reviews of Interventions. The primary outcome was preterm birth <34 weeks of gestation. Secondary outcomes included adverse perinatal outcomes. Pooled relative risks with 95% confidence intervals were calculated. We assessed the risk of bias in each included study, heterogeneity, publication bias, and quality of evidence, and performed subgroup and sensitivity analyses. RESULTS: Eleven studies (3401 women and 6802 fetuses/infants) fulfilled the inclusion criteria. Among all twin gestations, there were no significant differences between the vaginal progesterone and placebo or no treatment groups in the risk of preterm birth <34 weeks (relative risk, 0.99; 95% confidence interval, 0.84-1.17; high-quality evidence), <37 weeks (relative risk, 0.99; 95% confidence interval, 0.92-1.06; high-quality evidence), and <28 weeks (relative risk, 1.00; 95% confidence interval, 0.64-1.55; moderate-quality evidence), and spontaneous preterm birth <34 weeks of gestation (relative risk, 0.97; 95% confidence interval, 0.80-1.18; high-quality evidence). Vaginal progesterone had no significant effect on any of the perinatal outcomes evaluated. Subgroup analyses showed that there was no evidence of a different effect of vaginal progesterone on preterm birth <34 weeks of gestation related to chorionicity, type of conception, history of spontaneous preterm birth, daily dose of vaginal progesterone, and gestational age at initiation of treatment. The frequencies of preterm birth <37, <34, <32, <30, and <28 weeks of gestation and adverse perinatal outcomes did not significantly differ between the vaginal progesterone and placebo or no treatment groups in unselected twin gestations (8 studies; 3274 women and 6548 fetuses/infants). Among twin gestations with a transvaginal sonographic cervical length <30 mm (6 studies; 306 women and 612 fetuses/infants), vaginal progesterone was associated with a significant decrease in the risk of preterm birth occurring at <28 to <32 gestational weeks (relative risks, 0.48-0.65; moderate- to high-quality evidence), neonatal death (relative risk, 0.32; 95% confidence interval, 0.11-0.92; moderate-quality evidence), and birthweight <1500 g (relative risk, 0.60; 95% confidence interval, 0.39-0.88; high-quality evidence). Vaginal progesterone significantly reduced the risk of preterm birth occurring at <28 to <34 gestational weeks (relative risks, 0.41-0.68), composite neonatal morbidity and mortality (relative risk, 0.59; 95% confidence interval, 0.33-0.98), and birthweight <1500 g (relative risk, 0.55; 95% confidence interval, 0.33-0.94) in twin gestations with a transvaginal sonographic cervical length ≤25 mm (6 studies; 95 women and 190 fetuses/infants). The quality of evidence was moderate for all these outcomes. CONCLUSION: Vaginal progesterone does not prevent preterm birth, nor does it improve perinatal outcomes in unselected twin gestations, but it appears to reduce the risk of preterm birth occurring at early gestational ages and of neonatal morbidity and mortality in twin gestations with a sonographic short cervix. However, more evidence is needed before recommending this intervention to this subset of patients.",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article",
+          "Research Support, N.I.H., Intramural",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "2bb9b888d3a2f20427057a4b2ba602516630ddc24e2d02d4fe2db34e25530c4e"
+      },
+      {
+        "pmid": "42989805",
+        "title": "Circulating TGF-β1 Increases During Vaginal Progesterone Therapy in Women With a Short Cervix.",
+        "authors": "Laštůvka Z, Černý V, Škvorová A, Petrásková P, Novotná O, Kopřivová H, Hrdý J, Koucký M.",
+        "year": "2026",
+        "journal": "Scandinavian journal of immunology",
+        "doi": "10.1111/sji.70165",
+        "url": "https://europepmc.org/article/PMC/PMC13740651",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Progesterone is an effective tool for the secondary prevention of spontaneous preterm birth. The aim of this prospective exploratory pilot study was to evaluate the effect of progesterone administration on the number of regulatory T cell (Treg) populations and on the concentrations of the immunoregulatory cytokines IL-10 and TGF-β1 during in vivo progesterone treatment in women at risk of preterm delivery. Pregnant women with a singleton pregnancy (22-30 weeks of gestation) who were at risk of spontaneous preterm delivery and required progesterone therapy were included (n = 21). Peripheral blood was sampled before progesterone administration and twice thereafter during treatment. Seventeen women attended the second visit, while only seven attended the third visit. The control group consisted of prospectively recruited low-risk women (n = 8). Treg numbers were determined by flow cytometry, and plasma concentrations of TGF-β1 and IL-10 were measured by ELISA. In women at risk, plasma TGF-β1 concentrations increased significantly between the first and second sampling (p ≤ 0.01) and remained at a similar level at the third sampling. In contrast, TGF-β1 levels in the control group remained low without statistically significant change. IL-10 concentrations were generally low in both groups. This pilot study was associated with an increase in the immunoregulatory cytokine TGF-β1 following progesterone administration. Although TGF-β1 is produced by several cell types in addition to Tregs, our findings raise the possibility that progesterone reinforces an immunoregulatory pathway relevant to the maintenance of pregnancy in women at risk of preterm birth; however, the present study does not establish this mechanism.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "9782856a668f3a759ccbe1372bca0e5a869a4ce2f02a66ab5e57446d46818024"
+      },
+      {
+        "pmid": "42344621",
+        "title": "Cerclage for singleton pregnancies with an extremely short cervix (≤10 mm) and no history of spontaneous preterm birth: A multisite observational study.",
+        "authors": "Kansal N, Lantigua-Martinez M, Friedman S, Khurana S, Goldberger C, Hade EM, Silverstein J, Berger D, Roman AS, Brandt J",
+        "year": "2026",
+        "journal": "Pregnancy (Hoboken, N.J.)",
+        "doi": "10.1002/pmf2.70262",
+        "url": "https://europepmc.org/article/PMC/PMC13290289",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction There is uncertainty about the benefits of cerclage in patients with transvaginal cervical length (TVCL) ≤10 mm and no prior spontaneous preterm birth. Our aim was to assess whether cervical cerclage in these patients was associated with prolonged pregnancy latency. Methods This was an observational study of asymptomatic singleton pregnancies without a history of spontaneous preterm birth with extremely short cervix (TVCL ≤10 mm) in the second trimester. Exposure and outcome data were extracted manually from medical charts by obstetric providers, with all outcomes occurring prior to study initiation. All patients were prescribed vaginal progesterone and those with a cervical dilation >1.5 cm were excluded. The primary outcome was time interval from diagnosis to delivery (or 37 weeks' gestation, whichever occurred first). Secondary outcomes included gestational age at delivery, mode of delivery, and neonatal outcomes. We adjusted for parity and used log-binomial regression to estimate the relative risk for categorical variables and linear regression to estimate mean differences for continuous variables. Results There were 247 patients with TVCL ≤10 mm during anatomy scan. After exclusions, 87 remained, of which 55 (63.2%) received cervical cerclage. At the time of diagnosis, the mean cervical length was 5.8 mm (cerclage group) versus 7.4mm (no cerclage group, difference: -1.6, 95% CI -0.6, -2.6) and the gestational age was 21.0 weeks (cerclage group) versus 22.1 weeks (no cerclage group, -1.1, 95% CI -1.8, -0.3). Mean pregnancy latency was longer in the cerclage group compared to the no cerclage group (13.4 vs 11.1 weeks, 2.2, 95% CI -0.3, 4.9), though there was a high level of uncertainty in the estimate. Term delivery occurred 30% more often in the cerclage group compared to the no cerclage group (RR 1.31, 95% CI 0.96, 1.79). Conclusion In our cohort, patients with extremely short cervix who received a cerclage had longer pregnancy latency than those who did not receive cerclage and more patients achieved term gestation, suggesting a potential benefit of cerclage in this population. However, given the high level of uncertainty of our estimates, additional research is needed to investigate these findings.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "e61e577f817fb1370052881c89f62226cacd4fa7d9859575b0eefb30c9624c16"
+      },
+      {
+        "pmid": "42174458",
+        "title": "Predictive value of a short cervix in the early third trimester for preterm birth in twin pregnancies.",
+        "authors": "Kim O, Lee HY, Ko HS, Park IY, Hong S.",
+        "year": "2026",
+        "journal": "BMC pregnancy and childbirth",
+        "doi": "10.1186/s12884-026-09302-y",
+        "url": "https://europepmc.org/article/PMC/PMC13371461",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Preterm birth (PTB) is a major cause of neonatal morbidity and mortality, and cervical length measured in the mid-trimester is a well-established predictor of PTB. However, the predictive value of cervical length in the early third trimester remains unclear, particularly in twin pregnancies. This study aimed to investigate the association between a short cervical length (≤ 25 mm) measured during the early third trimester (28 + 0 to 33 + 6 weeks) and the risk of PTB before 37 weeks, and to evaluate its predictive utility. Methods This retrospective cohort study included women with twin pregnancies who delivered at a single tertiary hospital between 2009 and 2019. Women with a history of cervical cerclage, iatrogenic preterm birth, or missing cervical length measurements in the second or early third trimester were excluded. Participants were categorized into short cervix and control groups based on cervical length in the early third trimester. Results Among 291 twin pregnancies, 102 (35.1%) resulted in PTB. The incidence of PTB was significantly greater in the short cervix group (73.0%) compared to the control group (29.0%, P Conclusions A short cervical length in the early third trimester is associated with an increased risk of PTB in twin pregnancies. Assessing cervical length during this period may improve risk stratification and inform clinical assessment, particularly among asymptomatic or relatively lower-risk populations.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "dfc654855b500622da8b5718bede06cf0bc2305d9fbb7fc817913f2d155d2117"
+      },
+      {
+        "pmid": "cr:10.1097/grf.0000000000000867",
+        "title": "Vaginal Progesterone to Prevent Spontaneous Preterm Birth in Women With a Sonographic Short Cervix: The Story of the PREGNANT Trial",
+        "authors": "Romero Roberto, Meyyazhagan Arun, Hassan Sonia S., Creasy George W.",
+        "year": "2024",
+        "journal": "Clinical Obstetrics & Gynecology",
+        "doi": "10.1097/grf.0000000000000867",
+        "url": "https://doi.org/10.1097/grf.0000000000000867",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "The PREGNANT trial was a randomized, placebo-controlled, multicenter trial designed to determine the efficacy and safety of vaginal progesterone (VP) to reduce the risk of birth < 33 weeks and of neonatal complications in women with a sonographic short cervix (10 to 20 mm) in the mid-trimester (19 to 23 6/7 wk). Patients allocated to receive VP had a 45% lower rate of preterm birth (8.9% vs 16.1%; relative risk = 0.55; 95% CI: 0.33-0.92). Neonates born to mothers allocated to VP had a 60% reduction in the rate of respiratory distress syndrome. This article reviews the background, design, execution, interpretation, and impact of the PREGNANT Trial.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "fc72c0a6786a971b2e7efee5ad5148c419176164679f95e1577bdf20de3dbeb8"
+      },
+      {
+        "pmid": "21472815",
+        "title": "Vaginal progesterone reduces the rate of preterm birth in women with a sonographic short cervix: a multicenter, randomized, double‐blind, placebo‐controlled trial",
+        "authors": "Sonia S. Hassan, Roberto J. Romero, D. Vidyadhari, Shalini Fusey",
+        "year": "2011",
+        "journal": "Ultrasound in Obstetrics and Gynecology",
+        "doi": "10.1002/uog.9017",
+        "url": "https://doi.org/10.1002/uog.9017",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: Women with a sonographic short cervix in the mid-trimester are at increased risk for preterm delivery. This study was undertaken to determine the efficacy and safety of using micronized vaginal progesterone gel to reduce the risk of preterm birth and associated neonatal complications in women with a sonographic short cervix. METHODS: This was a multicenter, randomized, double-blind, placebo-controlled trial that enrolled asymptomatic women with a singleton pregnancy and a sonographic short cervix (10-20 mm) at 19 + 0 to 23 + 6 weeks of gestation. Women were allocated randomly to receive vaginal progesterone gel or placebo daily starting from 20 to 23 + 6 weeks until 36 + 6 weeks, rupture of membranes or delivery, whichever occurred first. Randomization",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "950ee9a170165111d0315cd58f170e3b60a9e52e4ec0624f0d16641c6ff5b3ed"
+      },
+      {
+        "pmid": "27600865",
+        "title": "The prevalence of short cervix between 20 and 24 weeks of gestation and vaginal progesterone for prolonging of gestation",
+        "authors": "Malipati Maerdan, Chunyan Shi, Xiaoxiao Zhang, Lixin Fan",
+        "year": "2016",
+        "journal": "The Journal of Maternal-Fetal & Neonatal Medicine",
+        "doi": "10.1080/14767058.2016.1220528",
+        "url": "https://doi.org/10.1080/14767058.2016.1220528",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: The objective of this study is to understand the prevalence of short cervical length between 20 and 24 weeks gestation in China and to evaluate the efficacy of micronized progesterone for prolonging gestation in nulliparous patients with a short cervix. METHODS: From May 2010 to May 2015, a total of 25 328 asymptomatic women with singleton pregnancies at Peking University First Hospital had their cervical length routinely measured between 20 and 24 weeks of gestation. A cervical length of 25 mm or less was defined as a shortened cervical length. The therapies prescribed include vaginal micronized progesterone capsules (200 mg each night) or bed rest from 20 to 34 weeks of gestation. The primary outcome was spontaneous delivery before",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5fbab57c890fe846902f3afb8026d96f3b8de69a6bf1aa3b3ca8323b6f8ed2c4"
+      },
+      {
+        "pmid": "cr:10.1155/2012/201628",
+        "title": "Transvaginal Sonographic Evaluation of the Cervix in Asymptomatic Singleton Pregnancy and Management Options in Short Cervix",
+        "authors": "Arisoy Resul, Yayla Murat",
+        "year": "2012",
+        "journal": "Journal of Pregnancy",
+        "doi": "10.1155/2012/201628",
+        "url": "https://doi.org/10.1155/2012/201628",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Preterm delivery (PTD), defined as birth before 37 completed weeks of gestation, is the leading cause of perinatal morbidity and mortality. Evaluation of the cervical morphology and biometry with transvaginal ultrasonography at 16–24 weeks of gestation is a useful tool to predict the risk of preterm birth in low- and high-risk singleton pregnancies. For instance, a sonographic cervical length (CL) > 30 mm and present cervical gland area have a 96-97% negative predictive value for preterm delivery at <37 weeks. Available evidence supports the use of progesterone to women with cervical length ≤25 mm, irrespective of other risk factors. In women with prior spontaneous PTD with asymptomatic cervical shortening (CL ≤ 25 mm), prophylactic cerclage procedure must be performed and weekly to every two weeks follow-up is essential. This article reviews the evidence in support of the clinical introduction of transvaginal sonography for both the prediction and management of spontaneous preterm labour.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "cff9353da872d813ae8fb02c3c09fae1c19b4840f92c3a2f872d13238820fe07"
+      },
+      {
+        "pmid": "23071418",
+        "title": "Vaginal progesterone in risk reduction of preterm birth in women with short cervix in the midtrimester of pregnancy",
+        "authors": "Meena Khandelwal",
+        "year": "2012",
+        "journal": "International Journal of Women s Health",
+        "doi": "10.2147/ijwh.s28944",
+        "url": "https://doi.org/10.2147/ijwh.s28944",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Preterm birth is a major health problem for the neonate, family, country, and society in general. Despite many risk factors being identified for women destined to deliver preterm, short cervical length detected on transvaginal ultrasound is the most plausible, practical and sensitive risk factor for prediction of spontaneous preterm birth. The definition of short cervix has varied in various studies, but most commonly accepted is ≤2.5 cm in the midtrimester of pregnancy, though risk of spontaneous preterm birth (sPTB) increases as the cervical length decreases. Vaginal progesterone, a naturally occurring steroid hormone, is the most bioavailable form of progesterone for uterine and cervical effects with the fewest side effects. Multiple prospective studies have consistently shown its benefits in decreasing sPTB",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "19a5551479ffac32d15224f76be5390772946b93791493f2654f6fe670fde787"
+      },
+      {
+        "pmid": "cr:10.31662/jmaj.2024-0036",
+        "title": "Possible Efficacy of Vaginal Progesterone on Asymptomatic Women with a Short Cervix after 24 Weeks of Gestation: A Historical Cohort Study in Japan",
+        "authors": "Academic Authors",
+        "year": "2024",
+        "journal": "JMA Journal",
+        "doi": "10.31662/jmaj.2024-0036",
+        "url": "https://doi.org/10.31662/jmaj.2024-0036",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "a9a9bfc62ad0d96c4db7b868f19f95f1f59efa74e35d1d9c931187b8b7080929"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "asymptomatic singleton pregnancy, short cervix <= 25 mm vaginal progesterone cervical cerclage spontaneous preterm birth < 34 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

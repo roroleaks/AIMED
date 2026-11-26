@@ -1,0 +1,658 @@
+{
+  "id": "PRESET-obgyn-endometriosis-pain",
+  "recordedAt": "2026-11-26T19:41:19.855Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "endometriosis, chronic pelvic pain",
+      "role": "population"
+    },
+    {
+      "word": "laparoscopic surgical excision",
+      "role": "intervention"
+    },
+    {
+      "word": "dienogest",
+      "role": "comparator"
+    },
+    {
+      "word": "pelvic pain reduction at 12 months",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "endometriosis, chronic pelvic pain",
+        "role": "population"
+      },
+      {
+        "word": "laparoscopic surgical excision",
+        "role": "intervention"
+      },
+      {
+        "word": "dienogest",
+        "role": "comparator"
+      },
+      {
+        "word": "pelvic pain reduction at 12 months",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In endometriosis, chronic pelvic pain (P), does laparoscopic surgical excision (I) compared with dienogest (C) improve pelvic pain reduction at 12 months (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In endometriosis, chronic pelvic pain (P), is laparoscopic surgical excision (I) superior to dienogest (C) for pelvic pain reduction at 12 months (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of endometriosis, chronic pelvic pain (P), does laparoscopic surgical excision (I) compared with dienogest (C) improve pelvic pain reduction at 12 months (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 24 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of endometriosis, chronic pelvic pain (P), does laparoscopic surgical excision (I) compared with dienogest (C) improve pelvic pain reduction at 12 months (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "endometriosis, chronic pelvic pain",
+        "role": "population"
+      },
+      {
+        "word": "laparoscopic surgical excision",
+        "role": "intervention"
+      },
+      {
+        "word": "dienogest",
+        "role": "comparator"
+      },
+      {
+        "word": "pelvic pain reduction at 12 months",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.5301/je.5000207",
+        "title": "Impact of Surgical Excision of Deep Infiltrating Bowel Endometriosis on Health-Related Quality of Life: Review of Current Literature",
+        "authors": "Arendas Kristina, Foster Warren G., Leyland Nicholas A.",
+        "year": "2015",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.5301/je.5000207",
+        "url": "https://doi.org/10.5301/je.5000207",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background The aim of this study was to systematically review the impact of surgical excision of deep infiltrating endometriosis involving the bowel, on health-related quality of life, based on the currently available literature. Methods A systematic review was completed of English-language publications in the last 10 years, which had assessed the impact of surgical excision on quality of life in patients with deep infiltrating endometriosis of the bowel using standardized, validated quality-of-life questionnaires. Results Fourteen studies were identified. Standardized questionnaires used to assess the therapeutic impact on quality of life were the SF-36, SF-12, EHP-30, EQ-5D and 15D. Overall, women with bowel endometriosis scored lower on quality-of-life measures than the general population. Regardless of which standardized, validated questionnaire was used, surgical treatment had a positive impact on health-related quality of life. Conclusions Endometriosis, in particular deep infiltrating endometriosis of the bowel, has a profound impact on the quality of life of women diagnosed with the condition. Though surgical excision has a positive short-term impact, studies are needed to assess the long-term impact on quality of life in this lifelong, chronic, recurring condition.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "ff1bcc2d318cdd082b73ce1c0324e3880332ee6ebfc937028aa0611557b635d4"
+      },
+      {
+        "pmid": "15327610",
+        "title": "A double‐blind randomised controlled trial of laparoscopic uterine nerve ablation for women with chronic pelvic pain",
+        "authors": "Neil Philip JOHNSON, Cindy M. Farquhar, S. Crossley, Y. Yu",
+        "year": "2004",
+        "journal": "BJOG An International Journal of Obstetrics & Gynaecology",
+        "doi": "10.1111/j.1471-0528.2004.00233.x",
+        "url": "https://doi.org/10.1111/j.1471-0528.2004.00233.x",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To determine the effectiveness of laparoscopic uterine nerve ablation (LUNA) for chronic pelvic pain in women with endometriosis and women with no laparoscopic evidence of endometriosis. DESIGN: A prospective double-blind randomised controlled trial (RCT). SETTING: Single-centre, secondary-level gynaecology outpatient service and tertiary-level pelvic pain and endometriosis outpatient service in Auckland, New Zealand. POPULATION: One hundred and twenty-three women undergoing laparoscopy for investigation and management of chronic pelvic pain, 56 with no laparoscopic evidence of endometriosis and 67 with endometriosis. METHODS: Women were randomised from the two populations, firstly those with no evidence of endometriosis and secondly those undergoing laparoscopic surgical treatment for endometriosis, to receive LUNA or no LUNA. Participant and assessor blinding was employed. Follow up for pain",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "5e9d7ac692071b78e5cad5c117a1286d7af525be4bb8111642e40628af70c8e2"
+      },
+      {
+        "pmid": "doi:10.3389/fsurg.2025.1735940",
+        "title": "Ultrasonic surgical aspiration (CUSA®) for laparoscopic excision of endometriosis: a prospective case series demonstrating safety and precision in fertility-preserving surgery",
+        "authors": "Márcia Vieira-Coimbra, Hélder Ferreira, Hélder Ferreira, Hélder Ferreira",
+        "year": "2025",
+        "journal": "Frontiers in Surgery",
+        "doi": "10.3389/fsurg.2025.1735940",
+        "url": "https://doi.org/10.3389/fsurg.2025.1735940",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "IntroductionEndometriosis affects ∼10% of women of reproductive age, often causing chronic pelvic pain and infertility. Conventional energy devices risk thermal injury and bleeding, particularly in fertility-preserving surgeries. The Cavitron Ultrasonic Surgical Aspirator (CUSA®) selectively fragments tissue with minimal thermal spread. This prospective case series evaluates CUSA's safety and effectiveness in endometriosis surgery.Material and methodsFifteen women with suspected peritoneal, deep-infiltrating, or diaphragmatic endometriosis underwent laparoscopic excision exclusively using CUSA at a single center (Jan 2024–Jan 2025). Outcomes included operative time, blood loss, pain score change, recovery time, and complications.ResultsMean CUSA time was 8.5 ± 3.0 min with a median blood loss was less than10 mL. No intraoperative complications or conversions occurred. Surgeon-reported performance scores demonstrated high procedural efficiency and manageable technical challenges. At the first follow-up visit (6–8 weeks postoperatively), Numeric Pain Rating Score decreased by 3.2 points from 6.9 ± 1.4 to 3.7 ± 1.0, indicating marked symptom relief. All patients resumed daily activities within 3 days. In all patients, all visible lesions suggestive of endometriosis were excised intraoperatively, and histology confirmed endometriosis in all cases. Discussion: CUSA allows precise and safe laparoscopic excision of endometriosis with minimal bleeding, absence of perioperative complications, and significant short-term pain reduction. These findings demonstrate the feasibility and short-term safety of the technique and support its potential value in fertility-preserving surgery. However, given the small sample size, single-center design, and limited follow-up, the results should be interpreted with caution. Future multicenter studies with larger cohorts and reproductive outcome assessment are needed to confirm these preliminary findings.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Series",
+        "lowMetadata": false,
+        "_sig": "790cdc95ffba22966a1d7149a492d713d62d37b23f664f31553e2af9c1907b43"
+      },
+      {
+        "pmid": "cr:10.1177/2284026520926038",
+        "title": "Endometriosis-related pelvic pain following laparoscopic surgical treatment",
+        "authors": "Harris Amani, McCaughey Tristan, Tsaltas Jim, Davies-Tuck Miranda",
+        "year": "2020",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.1177/2284026520926038",
+        "url": "https://doi.org/10.1177/2284026520926038",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Endometriosis is a common, often-debilitating disease, affecting women of reproductive age. Pain is a common symptom of the disease and is commonly treated by surgery, medical therapy, or a combination of the two. This study aimed to evaluate the rates of ongoing pain post laparoscopic excision and the risk factors for ongoing pain symptoms. Methods: This retrospective cohort study analyzed the medical records of all patients who underwent laparoscopic surgery for endometriosis in a large tertiary healthcare service in Australia between January 2009 and September 2016. Results were analyzed using SPSS statistics version 11. Results: A total of 972 patients met the inclusion criteria; of these, 398 had follow-up at our hospital network and were included in the final analysis. The median age was 34.5 years, 69.6% were of Caucasian ethnicity, and the median body mass index was 25.9; 70.6% of our patients reported decreased pain after surgery. Patients who suffered from chronic pain were twice as likely to experience ongoing pain, while patients with stage 3–4 endometriosis were found to have 65% reduced odds of pain at follow-up (95% confidence interval = 0.22–0.61, p < 0.001). In univariate analysis of non-Caucasian patients, those who had a specialist endometriosis surgeon perform the surgery had significantly higher incidence of symptom improvement (58% reduced odds of recurrent pain and 40% reduced odds, p < 0.05, accordingly). Conclusion: The prevalence and severity of pain associated with endometriosis mandates a thorough understanding of the effectiveness of current management. Our article highlights the utility of laparoscopic surgery in treating endometriosis-associated pain.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "1092d735ee3432cb25403eb5cc4710fa6120854c2c422271e2291b45a5cccf5c"
+      },
+      {
+        "pmid": "29632080",
+        "title": "Laparoscopic excision of deep rectovaginal endometriosis in BSGE endometriosis centres: a multicentre prospective cohort study",
+        "authors": "Dominic L. Byrne, Tamara Curnow, Paul Smith, Alfred S. Cutner",
+        "year": "2018",
+        "journal": "BMJ Open",
+        "doi": "10.1136/bmjopen-2017-018924",
+        "url": "https://doi.org/10.1136/bmjopen-2017-018924",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To estimate the effectiveness and safety of laparoscopic surgical excision of rectovaginal endometriosis. DESIGN: A multicentre, prospective cohort study. SETTING: 51 hospitals accredited as specialist endometriosis centres. PARTICIPANTS: 5162 women of reproductive age with rectovaginal endometriosis of which 4721 women had planned laparoscopic excision. INTERVENTIONS: Laparoscopic surgical excision of rectovaginal endometriosis requiring dissection of the pararectal space. MAIN OUTCOME MEASURES: Standardised symptom questionnaires enquiring about chronic pelvic pain, bladder and bowel symptoms, analgesia use and quality of life (EuroQol) completed prior to surgery and at 6, 12 and 24 months postoperatively. Serious perioperative and postoperative complications including major haemorrhage, infection and visceral injury were recorded. RESULTS: At 6 months postsurgery, there were significant reductions in premenstrual, menstrual and non-cyclical",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "40c6173078d4f0714fa1c838273099492b59630a78daadec100e2f8f802e1351"
+      },
+      {
+        "pmid": "cr:10.5301/je.5000245",
+        "title": "Retroperitoneal Anatomy during Excision of Pelvic Side Wall Endometriosis",
+        "authors": "Gingold Julian A., Falcone Tommaso",
+        "year": "2016",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.5301/je.5000245",
+        "url": "https://doi.org/10.5301/je.5000245",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Surgical management of endometriosis has been shown to improve dysmenorrhea at all disease stages and is recommended in severe disease for treatment of infertility. Deeply infiltrating endometriosis (DIE) produces thick inflammatory tissue that precludes visualization of anatomical landmarks and distorts normal anatomy. Excision of DIE poses several technical and surgical challenges that mandate a clear understanding of the anatomy of the pelvic sidewall. This review details relevant surgical anatomy and addresses the principles of safe retroperitoneal entry, ureterolysis and excision of endometriotic lesions. Proper use of these techniques should facilitate safe and successful surgery for management of DIE.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "b6bbd39bdacddd218d58f7cf13453d3de36ed302612f1c638e89f2b1d69689e4"
+      },
+      {
+        "pmid": "cr:10.5301/je.5000201",
+        "title": "Diagnostic Challenges in a Young Woman with Endometriosis: The Value of Excision",
+        "authors": "Donnelly Laura, Yeung Patrick",
+        "year": "2015",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.5301/je.5000201",
+        "url": "https://doi.org/10.5301/je.5000201",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective The aim of this report is to highlight the value of excision when treating and diagnosing endometriosis, as well as present an unusual case of concomitant endometriosis and pelvic malignancy in a young female. Case Report In a university hospital referral center, a 24-year-old nulligravid woman with suspected endometriosis had been treated unsuccessfully with empiric therapy for several years. Interventions were preoperative cyclic and continuous combined oral contraceptive pills and a NuvaRing for 2 years. Diagnosis was completed by laparoscopy and histologic evaluation. Surgical debulking by gynecology oncologist was followed by chemotherapy. The main outcome measure was definitive diagnosis via histology. Results Histologic diagnosis of endometriosis and concomitant pelvic malignancy with successful surgical excision of both. Conclusions When evaluating a patient with chronic pelvic pain, it is necessary to have a high degree of suspicion for endometriosis. Early surgical and histologic evaluation is imperative for definitive diagnosis. An added benefit of histologic diagnosis is the opportunity to assess for malignancy.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "d4350b6e15c960435bc6291736788bffc518491c2661d6bbb8319ef012b86d36"
+      },
+      {
+        "pmid": "cr:10.5301/je.5000200",
+        "title": "Development of a Symptom-Based, Screening Tool for Early-Stage Endometriosis in Patients with Chronic Pelvic Pain",
+        "authors": "Yeung Patrick, Bazinet Caroline, Gavard Jeffrey A.",
+        "year": "2014",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.5301/je.5000200",
+        "url": "https://doi.org/10.5301/je.5000200",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Purpose The aim of this study was to develop a noninvasive screening tool for patients with chronic pelvic pain, for early-stage endometriosis, with a discriminatory ability of the area under the curve (AUC) for the receiver operator characteristic (ROC) curve of over 0.8. Methods Participants were women aged 13-55 years, with chronic pelvic pain (for more than 6 months despite medical therapy), seen at the Saint Louis University Center for Endometriosis, from January 2012 to June 2013, who were found to have early-stage endometriosis or not, based on histology. All patients received the same surgical approach and goal of surgery, which was excision of all visible abnormal peritoneum. Potential variables used for generating the screening tool came from the pre-operative questionnaire with standard pain symptoms and quality-of-life questions. Individual categorical variables were tested. In addition, new binary variables were created to test specific combinations of answers to 2 individual questions. A backwards-stepping multiple logistic regression model was used to develop the screening tool. Results Ninety patients found to have early-stage disease completed pre-operative surveys. Of these, 70 (77.8%) had histologically confirmed endometriosis and 20 (22.2%) were confirmed not to be affected. Combinations of 2 variables made it possible to create a predictive model for early-stage endometriosis with excellent discriminatory ability (AUC = 0.822, p<0.001). This model was generated using a multi-staged, backwards stepping logistic regression analysis with all variables that were univariately significant included in the initial model (p<0.025). The final model had 80.5% sensitivity and 57.7% specificity. The model allows for an individual probability of disease to be calculated for each patient. Conclusions A clinically useful, symptom-based screening tool was developed for early-stage endometriosis in patients with chronic pelvic pain seen at a referral center. This approach to developing a screening tool for endometriosis should be tested further.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "1a8c79e536a0de3a4a85050dd2f0a979461b69f7a7a6e167dd69a7438bfb78ee"
+      },
+      {
+        "pmid": "21681516",
+        "title": "Reduced pelvic pain in women with endometriosis: efficacy of long-term dienogest treatment",
+        "authors": "Felice Petraglia, Daniela Hornung, Christian Seitz, Thomas A. Faustmann",
+        "year": "2011",
+        "journal": "Archives of Gynecology and Obstetrics",
+        "doi": "10.1007/s00404-011-1941-7",
+        "url": "https://doi.org/10.1007/s00404-011-1941-7",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "PURPOSE: To investigate the efficacy and safety of dienogest as a long-term treatment in endometriosis, with follow-up after treatment discontinuation. The study included women with endometriosis, who had previously completed a 12-week, placebo-controlled study of dienogest, who participated in an open-label extension study for up to 53 weeks. Thereafter, a patient subgroup was evaluated in a 24-week follow-up after treatment discontinuation. METHODS: A multicenter study performed in Germany, Italy and Ukraine. Women with endometriosis were enrolled at completion of the placebo-controlled study (n = 168). All women received dienogest (2 mg once daily, orally) and changes in pelvic pain (on a visual analog scale), bleeding pattern, adverse events and laboratory parameters were evaluated during and after treatment. RESULTS: The completion",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bf61b40246e8348b8970c62b77ae4b2f7af7b4fa55acd43ceddc09252bbd1ec4"
+      },
+      {
+        "pmid": "12923150",
+        "title": "The effects and effectiveness of laparoscopic excision of endometriosis: a prospective study with 2-5 year follow-up",
+        "authors": "Jason Anthony Abbott, J Hawe, R D Clayton, R Garry",
+        "year": "2003",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deg275",
+        "url": "https://doi.org/10.1093/humrep/deg275",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: This study investigates the outcomes for women up to 5 years after laparoscopic excision of endometriosis. METHODS: In this prospective observational cohort study, 254 women with chronic pelvic pain were referred to two units specializing in minimal access surgical management of endometriosis. Of these, 216 women underwent surgical assessment and 176 were confirmed to have endometriosis. Questionnaires and visual analogue scale (VAS) scores for dysmenorrhoea, non-menstrual pelvic pain, dyspareunia and dyschesia as well as quality of life instruments; the EQ-5Dindex and EQ-5Dvas, Short-Form 12 (SF-12) and sexual activity questionnaires were completed pre-operatively. Intra-operative details of revised American Fertility Society (rAFS) stage, site of disease, associated tests, duration of surgery and complications were noted. Follow-up was performed by postal questionnaire",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "1583540a450ba4410b889640237265e860da6a24db215fd694640ac5f56ded22"
+      },
+      {
+        "pmid": "30065547",
+        "title": "Dienogest Versus Leuprolide Acetate for Recurrent Pelvic Pain Following Laparoscopic Treatment of Endometriosis",
+        "authors": "Ahmed Mahmoud Abdou, Islam Mohamed Magdi Ammar, Amr Abd Almohsen Alnemr, Amr Ahmed Abdelrhman",
+        "year": "2018",
+        "journal": "The Journal of Obstetrics and Gynecology of India",
+        "doi": "10.1007/s13224-018-1119-3",
+        "url": "https://doi.org/10.1007/s13224-018-1119-3",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f5fea294c0e7355fbdd32f098ebf57e947038127f80a6de9a061f9002a847092"
+      },
+      {
+        "pmid": "cr:10.5301/je.5000183",
+        "title": "Total Laparoscopic Hysterectomy: Overtreatment for Misdiagnosed Organic cause or Undertreatment for Idiopathic Chronic Pelvic Pain?",
+        "authors": "Gizzo Salvatore, Leggieri Concetta, Conte Lorena, Luisi Stefano",
+        "year": "2014",
+        "journal": "Journal of Endometriosis and Pelvic Pain Disorders",
+        "doi": "10.5301/je.5000183",
+        "url": "https://doi.org/10.5301/je.5000183",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background Chronic pelvic pain (CPP) is considered a symptom but also a syndrome with misunderstood pathophysiology and treatment options ranging from conservative management to opioid analgesia and surgical intervention. The aim of this study was to evaluate the role of gynecological surgery in modifying presurgical pain status and reducing the postoperative analgesic use of patients suffering CPP. The second aim of the study was to analyze intraoperative and histological differences in patients who benefited from surgery versus those without benefit. Methods An observational study was conducted in 16 fertile women affected by CPP, treated by total laparoscopic hysterectomy (TLH) to solve their pelvic pain. In 7 cases, undetected pelvic endometriosis was found. Results A complete resolution of pre-operative pain symptoms (score 0) occurred in 9 patients (56.2%), an occasional pelvic discomfort (score 1) in 2 cases (12.5%), 2 patients reported minimal benefit of pelvic pain (score 2), while in 3 cases, severe pain persisted (score 3). The correlation between intraoperative/histological features and reported symptoms after surgery showed that 7 of 9 patients (77.7%) who benefited from surgery were affected by an organic cause; while 5 women with minimal or no benefits from the surgery did not have any organic disease (idiopathic CPP). Conclusions If conservative treatment fails to treat CPP, investigative laparoscopy represents a necessary step to discriminate patients with misdiagnosed organic from idiopathic CPP, selecting those who will potentially benefit from hysterectomy. The role of concomitant appendectomy needs to be defined in surgical treatment of idiopathic CPP.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a1d97316da903ba848a2e57d895c2a4decb55421ef32bda66087bdd5339f1327"
+      },
+      {
+        "pmid": "9572214",
+        "title": "Long-Term Outcome of Laparoscopic Presacral Neurectomy for the Treatment of Central Pelvic Pain Attributed to Endometriosis",
+        "authors": "CEANA H. NEZHAT, Daniel S. Seidman, Farr Reza Nezhat, CAMRAN R. NEZHAT",
+        "year": "1998",
+        "journal": "Obstetrics and Gynecology",
+        "doi": "10.1097/00006250-199805000-00011",
+        "url": "https://doi.org/10.1097/00006250-199805000-00011",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To evaluate the long-term pain reduction achieved by laparoscopic presacral neurectomy. METHODS: One hundred seventy-six women with median (range) age 30 (18-45) years underwent presacral neurectomy combined with excision and vaporization of endometriotic lesions and were observed, using structured questionnaires, for up to 72 months postoperatively. The study included a convenience sample of the first 100 questionnaires returned. Forty of the women were studied for 12-23 months, and 60 for 24-72 months. The main outcome measures were reduction of pelvic pain, dysmenorrhea, and dyspareunia after surgery. RESULTS: Pelvic pain, dysmenorrhea, and dyspareunia were reportedly reduced by more than 50% in 74, 61, and 55 patients, respectively, more than 12 months after laparoscopic presacral neurectomy. More than 50% reduction in",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "ba9d2638d4f1f152bdc02e5060dc834b67c628fa28bfb44511b9bf20eca23d45"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 13,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "endometriosis, chronic pelvic pain laparoscopic surgical excision dienogest pelvic pain reduction at 12 months",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

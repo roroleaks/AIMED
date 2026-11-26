@@ -1,0 +1,828 @@
+{
+  "id": "PRESET-psychiatry-trd-esketamine",
+  "recordedAt": "2026-11-26T19:48:23.847Z",
+  "specialty": "psychiatry",
+  "words": [
+    {
+      "word": "treatment-resistant major depressive disorder",
+      "role": "population"
+    },
+    {
+      "word": "adjunctive esketamine nasal spray plus SSRI/SNRI",
+      "role": "intervention"
+    },
+    {
+      "word": "adjunctive quetiapine extended-release plus SSRI/SNRI",
+      "role": "comparator"
+    },
+    {
+      "word": "clinical remission at 8 weeks (MADRS <= 10)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "treatment-resistant major depressive disorder",
+        "role": "population"
+      },
+      {
+        "word": "adjunctive esketamine nasal spray plus SSRI/SNRI",
+        "role": "intervention"
+      },
+      {
+        "word": "adjunctive quetiapine extended-release plus SSRI/SNRI",
+        "role": "comparator"
+      },
+      {
+        "word": "clinical remission at 8 weeks (MADRS <= 10)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "psychiatry"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In treatment-resistant major depressive disorder (P), does adjunctive esketamine nasal spray plus SSRI/SNRI (I) compared with adjunctive quetiapine extended-release plus SSRI/SNRI (C) improve clinical remission at 8 weeks (MADRS <= 10) (O)?",
+        "basis": "Screened literature contains 2 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In treatment-resistant major depressive disorder (P), is adjunctive esketamine nasal spray plus SSRI/SNRI (I) superior to adjunctive quetiapine extended-release plus SSRI/SNRI (C) for clinical remission at 8 weeks (MADRS <= 10) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of treatment-resistant major depressive disorder (P), does adjunctive esketamine nasal spray plus SSRI/SNRI (I) compared with adjunctive quetiapine extended-release plus SSRI/SNRI (C) improve clinical remission at 8 weeks (MADRS <= 10) (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In treatment-resistant major depressive disorder (P), does adjunctive esketamine nasal spray plus SSRI/SNRI (I) compared with adjunctive quetiapine extended-release plus SSRI/SNRI (C) improve clinical remission at 8 weeks (MADRS <= 10) (O)?"
+    },
+    "words": [
+      {
+        "word": "treatment-resistant major depressive disorder",
+        "role": "population"
+      },
+      {
+        "word": "adjunctive esketamine nasal spray plus SSRI/SNRI",
+        "role": "intervention"
+      },
+      {
+        "word": "adjunctive quetiapine extended-release plus SSRI/SNRI",
+        "role": "comparator"
+      },
+      {
+        "word": "clinical remission at 8 weeks (MADRS <= 10)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "psychiatry",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.1016/s0924-9338(10)70217-0",
+        "title": "P01-101 - Unique: Assessing the Efficacy of Quetiapine Fumarate Augmentation of SSRI or SNRI Treatment in SSRI- or SNRI-resistant Major Depressive Disorder",
+        "authors": "Lejeune J., Taeter C., Duquenne V., Goodman N.",
+        "year": "2010",
+        "journal": "European Psychiatry",
+        "doi": "10.1016/s0924-9338(10)70217-0",
+        "url": "https://doi.org/10.1016/s0924-9338(10)70217-0",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objectives The UNIQUE study assessed the effect of Quetiapine fumarate augmentation on the overall depression status of patients with major depressive disorder and who did not respond to any acute treatment with selective serotonin reuptake inhibitors (SSRIs) or selective noradrenalin reuptake inhibitors (SNRIs) and naïve to any atypical antipsychotics. Methods Between March 2006 and November 2007, 39 male and female patients, aged 18-65, were enrolled into this four-week, open label, non-comparative, multicentric, phase II prospective study. Treatment with Quetiapine fumarate began at enrolment, with a titration to a target dose of 300mg. The following scales were completed during all five visits: Montgomery-Asberg Depression Rating Scale (MADRS); Clinical Global Impression (CGI); Brief Psychiatric Rating Scale (BPRS); Sheehan Disability Scale (SDS). Results All questionnaire mean scales were significantly reduced (Friedman P < 0.0001) at the end of the study from baseline: MADRS 16.9 (12.8-21.0); CGI 1.94 (1.52-2.37); BPRS 10.3 (6.7-13.6); SDS 8.5 (5.6-11.5). Response, defined as a reduction in MADRS total score >50% was observed in 45.9% of the 37 patients completing at least 2 weeks of the study and 37.8% were considered in remission e.g. MADRS total score ≤ 12 at visit 5. Conclusions Quetiapine fumarate augmentation improved the overall depression status of patients resistant to SSRI or SNRI treatment.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Study",
+        "lowMetadata": false,
+        "_sig": "aa54c14f8648965bea313ff65b48e0cc47834a736b3e2b806f47ebdf0c13b43f"
+      },
+      {
+        "pmid": "cr:10.1002/cpt.3555",
+        "title": "Esketamine Nasal Spray in Major Depressive Disorder: A Meta‐Analysis of Randomized Controlled Trials",
+        "authors": "Wang Zhibin, Jiang Lili, Ma Wenzhuang, Li Xingyue",
+        "year": "2025",
+        "journal": "Clinical Pharmacology & Therapeutics",
+        "doi": "10.1002/cpt.3555",
+        "url": "https://doi.org/10.1002/cpt.3555",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Despite being approved by the US FDA and the EU European Medicines Agency, the performance of esketamine nasal spray as an adjunctive therapy with an antidepressant in major depressive disorder is still controversial. Comprehensive retrieval in Embase, Pubmed, and Web of Science was conducted to identify randomized controlled trials comparing esketamine nasal spray versus control in major depressive disorder or treatment‐resistant depression. The primary efficacy outcome was a reduction of the Montgomery‐Asberg Depression Rating Scale, from baseline to Day 2 or Day 28 for patients with or without suicidal ideation, respectively. The long‐term efficacy outcome was the relapse rate of patients who achieved stable remission. The certainty of evidence was assessed according to the Cochrane recommendation. Esketamine nasal spray was superior to placebo in reduction of Montgomery‐Asberg Depression Rating Scale from baseline to Day 28 in patients without suicidal ideation (standardized mean difference: −0.24, 95% confidence interval: −0.38, −0.09, P = 0.001, I 2 = 24%), and on Day 2 in patients with suicidal ideation (standardized mean difference: −0.30, 95% confidence interval: −0.47, −0.12, P = 0.0008, I 2 = 0%). The long‐term relapse rate was significantly lower in the esketamine nasal spray group than in the placebo/quetiapine group (risk ratio: RR: 0.60, 95% confidence interval: 0.45–0.80, I 2 = 0%). The rate of suicidal ideation was similar between the two groups. The certainty of evidence was graded as “moderate” or “high” in the abovementioned results. Esketamine nasal spray in conjunction with an antidepressant effectively controls short‐term and long‐term depressive symptoms in major depressive disorder and treatment‐resistant depression, with a manageable trade‐off between efficacy and safety.",
+        "relevancePct": 88,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b5882ea2ca3aafeecd3e780b423012c2b23e3ad6e1787293e2190918b1fda669"
+      },
+      {
+        "pmid": "cr:10.1097/md.0000000000041495",
+        "title": "Efficacy of esketamine nasal spray for treatment-resistant depression: A meta-analysis of randomized controlled studies",
+        "authors": "Ouyang Yannan, Li Juan",
+        "year": "2025",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000041495",
+        "url": "https://doi.org/10.1097/md.0000000000041495",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: The efficacy of esketamine nasal spray for treatment-resistant depression remains controversial. This systematic review and meta-analysis was conducted to explore the influence of esketamine nasal spray on treatment efficacy for treatment-resistant depression. Methods: We conducted a comprehensive search across multiple databases, including PubMed, EMbase, Web of Science, EBSCO, and Cochrane library through March 2024 for randomized controlled trials (RCTs) assessing the effect of esketamine nasal spray on the treatment efficacy of depression. This meta-analysis was performed using the random-effect model. Results: Five RCTs are included in the meta-analysis. Overall, compared with control group treatment-resistant depression, esketamine nasal spray is associated with significantly reduced MADRS scores (SMD = −3.88; 95% confidence interval [CI] = −5.71 to −2.05; P < .0001), increased response rates (RR = 1.99; 95% CI = 1.28–3.10; P = .002), decreased Sheehan Disability Scale (SMD = −3.01; 95% CI = −4.39 to −1.64; P < .0001) and PHQ-9 scores (SMD = −2.32; 95% CI = −3.51 to −1.13; P = .0001), but leads to the increase in dizziness (RR = 3.55; 95% CI = 2.37–5.32; P < .00001) and nausea (RR = 3.88; 95% CI = 2.10–7.18; P < .0001). Conclusion: Esketamine nasal spray is beneficial to improve the efficacy of treatment-resistant depression.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "ab09d5e9af31c175f2ace46b9f0d534d625837525015a119de0fbfd3f7d23341"
+      },
+      {
+        "pmid": "39876682",
+        "title": "Esketamine Treatment for Depression in Adults: A PRISMA Systematic Review and Meta-Analysis",
+        "authors": "Fountoulakis KN, et al",
+        "year": "2025",
+        "journal": "The American journal of psychiatry",
+        "doi": "10.1176/appi.ajp.20240515",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39876682/",
+        "context": "OBJECTIVE: Intranasal esketamine has been approved as an adjunctive therapy for treatment-resistant major depressive disorder with acute suicidal ideation and behavior. The authors conducted a systematic review and meta-analysis of the available data on its efficacy against depression and suicidality as well as its side effects. METHODS: MEDLINE was searched with the keyword \"esketamine\" on March 24, 2024, using the PRISMA method. Data processing and statistical analysis were performed with R, version 4.3.3, and the meta-analysis was performed with the METAFOR package. RESULTS: Of 1,115 articles initially identified, 87 were included for analysis and discussion. At weeks 2-4, randomized controlled trials were mostly negative or failed; however, the meta-analysis returned a weak but significant positive effect for depression (effect size range, 0.15-0.23 at weeks 2-4), similar to augmentation strategies with atypical antipsychotics for treatment-resistant depression. The effect size concerning suicidality was not significant at any time point. The sensitivity analysis produced the same results. CONCLUSIONS: The study findings suggest that esketamine's efficacy as an add-on to antidepressants is modest in treatment-resistant depression (similar to augmentation strategies with atypical antipsychotics) and is absent against suicidality itself. These findings need to be considered in light of esketamine's abuse potential and the fact that long-term effects are still not fully known. Some alarming signs concerning deaths and emerging suicidality during the testing phase are discussed, along with other regulatory issues.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "967cf1e6aa08cbf7a75a88f0417caab02b62f97593aef4559108238829f92a17"
+      },
+      {
+        "pmid": "40601310",
+        "title": "Esketamine Monotherapy in Adults With Treatment-Resistant Depression: A Randomized Clinical Trial",
+        "authors": "Adam Janik, Xin Qiu, Rosanne Lane, Vanina Popova",
+        "year": "2025",
+        "journal": "JAMA Psychiatry",
+        "doi": "10.1001/jamapsychiatry.2025.1317",
+        "url": "https://doi.org/10.1001/jamapsychiatry.2025.1317",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Esketamine nasal spray, administered in conjunction with an oral antidepressant, is approved for treatment-resistant depression (TRD). However, the efficacy of esketamine nasal spray administered as monotherapy for patients with TRD has not yet been evaluated. Objective: To assess the efficacy and safety of esketamine monotherapy compared to placebo in reducing depressive symptoms in patients with TRD. Design, Setting, and Participants: This phase 4, double-blind, placebo-controlled randomized clinical trial was conducted from November 2020 to January 2024 at 51 outpatient centers in the US. Adults with major depressive disorder (DSM-5 criteria) without psychotic features who experienced inadequate response (≤25% improvement) to 2 or more oral antidepressants during the current depressive episode were eligible for inclusion. Data analyses were conducted from",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "007ebddf715c9422c2e1e2a34c7fb9e37d80acd66b29428a16965e312ce360c4"
+      },
+      {
+        "pmid": "cr:10.48047/en272v57",
+        "title": "EFFICACY AND SAFETY OF ESKETAMINE NASAL SPRAY IN PATIENTS WITH MAJOR DEPRESSIVE DISORDER AND ACTIVE SUICIDAL IDEATION: RESULTS FROM A RANDOMIZED DOUBLE-BLIND STUDY",
+        "authors": "Vidhya Joth N",
+        "year": "2024",
+        "journal": "Cuestiones de Fisioterapia",
+        "doi": "10.48047/en272v57",
+        "url": "https://doi.org/10.48047/en272v57",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Major depressive disorder and the presence of active suicidal ideation is a psychiatric emergency that must be treated swiftly and efficiently. The traditional antidepressants have the disadvantage of slow action that causes an unmet clinical need in acute suicidal crisis. It was a randomized, placebo-controlled, double-blind study, which compared the effectiveness and safety of the esketamine nasal spray in patients with major depressive disorder and intent-to-committ suicide thoughts. One hundred and sixty (160) patients were randomly assigned to take esketamine 84 mg and the standard-of-care or placebo and standard-of-care. The main outcome measure was Montgomery-Aseberg Depression Rating Scale (MADRS) total score at 24 hours of first dose. The secondary endpoints were modifications to the severity of suicidality and safety outcomes. Esketamine was shown to respond with rapid response in the depressive symptoms than that of placebo, with a statistically significant response in terms of suicidality measures. Adverse events emerging during the treatment were high in the esketamine group yet were mostly mild to moderate and temporary. These results justify the use of esketamine as a suitable and convenient rapid-acting intervention, in high-risk patients with depression.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "799d16ed00b48f16d26c4596aad6f7cc7c2d417d8451ac41fb54e5ca10b552ec"
+      },
+      {
+        "pmid": "31109201",
+        "title": "Efficacy and Safety of Flexibly Dosed Esketamine Nasal Spray Combined With a Newly Initiated Oral Antidepressant in Treatment-Resistant Depression: A Randomized Double-Blind Active-Controlled Study",
+        "authors": "Vanina Popova, Ella Daly, Madhukar H. Trivedi, Kimberly Cooper",
+        "year": "2019",
+        "journal": "American Journal of Psychiatry",
+        "doi": "10.1176/appi.ajp.2019.19020172",
+        "url": "https://doi.org/10.1176/appi.ajp.2019.19020172",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: About one-third of patients with depression fail to achieve remission despite treatment with multiple antidepressants. This study compared the efficacy and safety of switching patients with treatment-resistant depression from an ineffective antidepressant to flexibly dosed esketamine nasal spray plus a newly initiated antidepressant or to a newly initiated antidepressant (active comparator) plus placebo nasal spray. METHODS: This was a phase 3, double-blind, active-controlled, multicenter study conducted at 39 outpatient referral centers. The study enrolled adults with moderate to severe nonpsychotic depression and a history of nonresponse to at least two antidepressants in the current episode, with one antidepressant assessed prospectively. Confirmed nonresponders were randomly assigned to treatment with esketamine nasal spray (56 or 84 mg twice weekly) and an",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d45af6f55371790a82b94963bdada721b370670e6f2ed3d5f50a40c28762e5a2"
+      },
+      {
+        "pmid": "29282469",
+        "title": "Efficacy and Safety of Intranasal Esketamine Adjunctive to Oral Antidepressant Therapy in Treatment-Resistant Depression: A Randomized Clinical Trial",
+        "authors": "Ella Daly, Jaskaran B. Singh, Maggie M Fedgchin, Kimberly Cooper",
+        "year": "2017",
+        "journal": "JAMA Psychiatry",
+        "doi": "10.1001/jamapsychiatry.2017.3739",
+        "url": "https://doi.org/10.1001/jamapsychiatry.2017.3739",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Approximately one-third of patients with major depressive disorder (MDD) do not respond to available antidepressants. Objective: To assess the efficacy, safety, and dose-response of intranasal esketamine hydrochloride in patients with treatment-resistant depression (TRD). Design, Setting, and Participants: This phase 2, double-blind, doubly randomized, delayed-start, placebo-controlled study was conducted in multiple outpatient referral centers from January 28, 2014, to September 25, 2015. The study consisted of 4 phases: (1) screening, (2) double-blind treatment (days 1-15), composed of two 1-week periods, (3) optional open-label treatment (days 15-74), and (4) posttreatment follow-up (8 weeks). One hundred twenty-six adults with a DSM-IV-TR diagnosis of MDD and history of inadequate response to 2 or more antidepressants (ie, TRD) were screened, 67 were randomized, and",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "8626693cc27a05e81bda8e67ff073baff8cbba90f65aa4ed4d912a0ddcd46da1"
+      },
+      {
+        "pmid": "40319349",
+        "title": "Safety and efficacy with esketamine in treatment-resistant depression: long-term extension study",
+        "authors": "Zaki N, et al",
+        "year": "2025",
+        "journal": "The international journal of neuropsychopharmacology",
+        "doi": "10.1093/ijnp/pyaf027",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40319349/",
+        "context": "IMPORTANCE: The rates of relapse and suicide risk are higher in treatment-resistant depression (TRD) vs non-treatment-resistant major depressive disorder. Even among patients with TRD who initially respond, the majority (70%) relapse within 6 months. OBJECTIVE: To evaluate the long-term safety and efficacy of esketamine nasal spray, combined with an oral antidepressant, in patients with TRD. DESIGN: Phase 3, open-label, single-arm long-term extension study (SUSTAIN-3) conducted from June 2016 to December 2022. SETTING: Outpatient. PARTICIPANTS: Adults with TRD who participated in ≥1 of 6 phase 3 \"parent\" studies continued esketamine by either entering a 4-week induction phase followed by an optimization/maintenance phase of variable duration (n = 458) or directly entering the optimization/maintenance phase of SUSTAIN-3 (n = 690), based on their individual response to study drug at the endpoint of the parent study. INTERVENTIONS: Intranasal esketamine dosing was flexible, twice-weekly during induction and individualized to depression severity during optimization/maintenance (weekly, every-other-week, or every-4-weeks), under direct supervision by site staff. MAIN OUTCOMES AND MEASURES: To assess the long-term safety of esketamine. Efficacy endpoints included the change in depressive symptoms, assessed by the Montgomery-Åsberg Depression Rating Scale (MADRS). RESULTS: A total of 1148 patients were enrolled. Total exposure to esketamine was 3777 cumulative patient-years. Mean (median, range) exposure to esketamine in SUSTAIN-3 was 42.9 (45.8, range 0-79) months. The most common adverse events were headache (36.9%), dizziness (33.9%), nausea (33.6%), dissociation (25.5%), nasopharyngitis (23.8%), somnolence (23.1%), dysgeusia (20.2%), and back pain (20.0%). During the study, 5.3% and 6.4% of participants discontinued due to lack of efficacy or adverse event, respectively. Nine participants died: COVID-19-related (n = 3), pneumonia (n = 2), and completed suicide, myocardial infarction, multiple injuries, unknown cause (n = 1 each). The mean MADRS total score decreased during induction, and this reduction persisted during optimization/maintenance (mean [SD] change from baseline-to-phase endpoint of each phase: induction: -12.8 [9.73]; optimization/maintenance: + 0.2 [9.93]). A total of 35.6% of participants were in remission at the induction endpoint, and 48.5% and 49.6% at week 112 and optimization/maintenance endpoint, respectively. CONCLUSIONS AND RELEVANCE: In the SUSTAIN-3 final dataset, no new safety signals were identified during long-term treatment with intermittently-dosed esketamine, combined with oral antidepressant, and improvement in depression generally persisted among participants who remained on maintenance treatment. These results add to the accumulated evidence on TRD treatment with esketamine. TRIAL REGISTRATION: clinicaltrials.gov identifier: NCT02782104.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Clinical Trial, Phase III",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e5401eed8c04f53c060d4007e9a7cd8e6d59e94706151ec3c1bb0848e2da0731"
+      },
+      {
+        "pmid": "cr:10.3389/fpsyt.2021.698954",
+        "title": "A Treatment-Response Comparison Study of Resting-State Functional Magnetic Resonance Imaging Between Standard Treatment of SSRI and Standard Treatment of SSRI Plus Non-dominant Hand-Writing Task in Patients With Major Depressive Disorder",
+        "authors": "Boyraz Rabia Kevser, Kirpinar Ismet, Yilmaz Onur, Özyurt Onur",
+        "year": "2021",
+        "journal": "Frontiers in Psychiatry",
+        "doi": "10.3389/fpsyt.2021.698954",
+        "url": "https://doi.org/10.3389/fpsyt.2021.698954",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Researches have recently shifted from functional/structural imaging studies to functional connectivity (FC) studies in major depressive disorder (MDD). We aimed to compare treatment response of two treatment groups before and after treatment, in terms of both with psychiatric evaluation scales and resting-state functional connectivity (RSFC) changes in order to objectively demonstrate the possible contribution of the non-dominant hand-writing exercise (NHE) effect on depression treatment. Methods: A total of 26 patients who were right-handed women with similar sociodemographic characteristics were enrolled. Their pre-treatment resting-state functional magnetic resonance imaging (rs-fMRI) and neuropsychiatric tests were recorded, and then, patients were divided into two groups randomly. A standard treatment (ST) (fix sertraline 50 mg/day) was given to both groups. One randomly selected group was given the NHE in addition to the ST. After 8 weeks of treatment, all patients were reevaluated with rs-fMRI and neuropsychiatric tests. Pre- and post-treatment FC changes within the groups and post-treatment connectivity changes between groups were evaluated. Results: Post-treatment neuropsychiatric tests were significantly different in both groups. Post-treatment, two brain regions' connectivity changed in the ST group, whereas 10 brain regions' connectivity changed significantly in the ST + NHE group. When treatment groups were compared with each other after the treatment, the FC of 13 regions changed in the ST + NHE group compared to the ST group ( p -unc/ p -PFD <0.05). The density of connectivity changes in the frontal and limbic regions, especially connectivities shown to change in depression treatment, in the ST + NHE group indicates a positive contribution to depression treatment, which is also supported by neuropsychiatric scale changes. Conclusion: NHE, which we developed with inspiration from the Eye Movement Desensitization and Reprocessing (EMDR) method, showed significantly more connecitivity changes related with MDD treatment. Beyond offering a new additional treatment method, our study will also contribute to the current literature with our efforts to evaluate all brain regions and networks that may be related to MDD and its treatment together, without being limited to a few regions. Trial Registration: The rs-fMRI and treatment registers were recorded in the BizMed system, which is the patient registration system of Bezmialem Vakif University Medicine Faculty, under the BAP support project approval code and the registration number 3.2018/8.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2c55a8e38ad4fd5dc9ef30996c330c6eded904a31538c1e7ad7d241dec475c54"
+      },
+      {
+        "pmid": "31994024",
+        "title": "Cardiac Safety of Esketamine Nasal Spray in Treatment-Resistant Depression: Results from the Clinical Development Program",
+        "authors": "Teodora Doherty, Ewa Wajs, Rama Melkote, Janice Miller",
+        "year": "2020",
+        "journal": "CNS Drugs",
+        "doi": "10.1007/s40263-020-00699-4",
+        "url": "https://doi.org/10.1007/s40263-020-00699-4",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: An intranasal formulation of esketamine, combined with an oral antidepressant, is approved in the USA and the European Union for adults with treatment-resistant depression (TRD). Transient cardiovascular stimulatory effects have been reported with ketamine. METHODS: Cardiovascular effects of esketamine nasal spray, combined with an oral antidepressant, were evaluated in 1708 esketamine-treated adults with TRD in six trials (five double-blind, placebo-controlled (486 placebo-treated patients); one open-label) of 4-52 weeks' duration. Patients with established cardiovascular disease, including uncontrolled hypertension (> 140/> 90 mmHg), history of hypertensive crisis, or clinically significant electrocardiogram (ECG) abnormalities, were excluded from enrollment. Effects on cardiac repolarization were assessed in a phase I randomized, positive- and active-controlled thorough corrected QT (QTc) interval study. For adverse events, odds",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "877fe1a697770780b996a517755424bea82d31093deb8899f883566a5d012b15"
+      },
+      {
+        "pmid": "31290965",
+        "title": "Efficacy and Safety of Fixed-Dose Esketamine Nasal Spray Combined With a New Oral Antidepressant in Treatment-Resistant Depression: Results of a Randomized, Double-Blind, Active-Controlled Study (TRANSFORM-1)",
+        "authors": "Maggie M Fedgchin, Madhukar H. Trivedi, Ella Daly, Rama Melkote",
+        "year": "2019",
+        "journal": "The International Journal of Neuropsychopharmacology",
+        "doi": "10.1093/ijnp/pyz039",
+        "url": "https://doi.org/10.1093/ijnp/pyz039",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: About one-third of patients with depression fail to achieve remission despite treatment with multiple antidepressants and are considered to have treatment-resistant depression. METHODS: This Phase 3, double-blind, multicenter study enrolled adults with moderate-to-severe depression and nonresponse to ≥2 antidepressants in the current depression episode. Eligible patients (N = 346) were randomized (1:1:1) to twice-weekly nasal spray treatment (esketamine [56 or 84 mg] or placebo) plus a newly initiated, open-label, oral antidepressant taken daily for 4 weeks. The primary efficacy endpoint was change from baseline to day 28 in the Montgomery-Asberg Depression Rating Scale total score, performed by blinded, remote raters. Based on the predefined statistical testing sequence, esketamine 84 mg/antidepressant had to be significant for esketamine 56 mg/antidepressant to",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f34b67402221305364856f75ea94ec2d9440da7fe638318b89701303a6979a38"
+      },
+      {
+        "pmid": "40226655",
+        "title": "Use of Esketamine Nasal Spray in Patients with Treatment‐Resistant Depression in Routine Practice: A Real‐World French Study",
+        "authors": "Ludovic Samalin, Lila Mékaoui, Maud Rothärmel, Anne Sauvaget",
+        "year": "2024",
+        "journal": "Depression and Anxiety",
+        "doi": "10.1155/2024/7262794",
+        "url": "https://doi.org/10.1155/2024/7262794",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: The efficacy and safety of esketamine nasal spray (ESK) were established in registration trials in patients with treatment-resistant depression (TRD). This French real-world study aimed to describe the treatment patterns, effectiveness, and safety of ESK in TRD patients over a 12-month follow-up. Materials and Methods: This study used secondary data from patient files of hospital-based psychiatrists and started during the first French patient early access to ESK. The response and remission rates with ESK were analyzed using the total score of the Montgomery-Åsberg Depression Rating Scale (MADRS). The time to first treatment response and work resumption were described (Kaplan-Meier method). Adverse events (AEs) were analyzed. Results: Prior to ESK initiation, the 157 analyzed patients (age ≤ 65 years, 82.8%;",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bd165716271ff7fd8699b89a369e65d19b6940a7187479d9e045fbaf9f29f05c"
+      },
+      {
+        "pmid": "cr:10.1017/s1092852922000931",
+        "title": "Treatment response to esketamine nasal spray in patients with major depressive disorder and acute suicidal ideation or behavior without evidence of early response: a pooled post hoc analysis of ASPIRE",
+        "authors": "Turkoz Ibrahim, Lopena Oliver, Salvadore Giacomo, Sanacora Gerard",
+        "year": "2022",
+        "journal": "CNS Spectrums",
+        "doi": "10.1017/s1092852922000931",
+        "url": "https://doi.org/10.1017/s1092852922000931",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Objective To assess the likelihood of attaining response/remission of depressive symptoms with esketamine nasal spray (ESK) plus standard of care (SoC) vs placebo nasal spray (PBO) plus SoC at 4 weeks in patients with major depressive disorder and active suicidal ideation with intent (MDSI) without early response. Methods A post hoc analysis of pooled data from ASPIRE I and ASPIRE II evaluated ESK plus SoC vs PBO plus SoC in adults with MDSI without response (≥50% improvement from baseline in Montgomery-Åsberg Depression Rating Scale [MADRS] score) at 24 hours after the first dose or at week 1 after the first two doses (ie, 24-hour and week 1 nonresponders). Response and remission (MADRS score ≤ 12) rates were assessed on day 25. Results The analysis included 362 patients (n = 182, ESK plus SoC; n = 180, PBO plus SoC). Among 24-hour nonresponders, more patients receiving ESK plus SoC vs PBO plus SoC achieved response (63.9% vs 48.0%, P = .010) and remission (35.1% vs 24.4%, P = .074) at day 25. Odds of response/remission were higher with ESK plus SoC vs PBO plus SoC (response: 1.89, 95% CI, 1.17-3.05; remission: 1.48, 95% CI, 0.93-2.35). Similar findings were observed among week 1 nonresponders for response (48.4% vs 34.5%, P = .075), remission (25.0% vs 13.1%, P = .060), and odds of response/remission (response: 2.03, 95% CI, 1.22-3.40; remission: 1.63, 95% CI, 1.01-2.62). Conclusions Patients with MDSI not responding within the first week of treatment with ESK plus SoC may still benefit from a full 4-week treatment course.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "609c41335ef6d8dbeaf980f67e6fff331ac7ccb180ddbac1c298106db8437294"
+      },
+      {
+        "pmid": "34293233",
+        "title": "The effect of esketamine in patients with treatment‐resistant depression with and without comorbid anxiety symptoms or disorder",
+        "authors": "Ella Daly, Ibrahim Turkoz, Giacomo Salvadore, Maggie M Fedgchin",
+        "year": "2021",
+        "journal": "Depression and Anxiety",
+        "doi": "10.1002/da.23193",
+        "url": "https://doi.org/10.1002/da.23193",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Comorbid anxiety is generally associated with poorer response to antidepressant treatment. This post hoc analysis explored the efficacy of esketamine plus an antidepressant in patients with treatment-resistant depression (TRD) with or without comorbid anxiety. METHODS: TRANSFORM-2, a double-blind, flexible-dose, 4-week study (NCT02418585), randomized adults with TRD to placebo or esketamine nasal spray, each with a newly-initiated oral antidepressant. Comorbid anxiety was defined as clinically noteworthy anxiety symptoms (7-item Generalized Anxiety Disorder scale [GAD-7] score ≥10) at screening and baseline or comorbid anxiety disorder diagnosis at screening. Treatment effect based on change in Montgomery-Åsberg Depression Rating Scale (MADRS) total score, and response and remission were examined by presence/absence of comorbid anxiety using analysis of covariance and logistic regression models. RESULTS:",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "039e003ceea111b88b174a0b332dac1e623939639e75d2f7964ac8f26c469455"
+      },
+      {
+        "pmid": "cr:10.1093/ijnp/pyaa034",
+        "title": "Treatment Response of Add-On Esketamine Nasal Spray in Resistant Major Depression in Relation to Add-On Second-Generation Antipsychotic Treatment",
+        "authors": "Dold Markus, Bartova Lucie, Kasper Siegfried",
+        "year": "2020",
+        "journal": "International Journal of Neuropsychopharmacology",
+        "doi": "10.1093/ijnp/pyaa034",
+        "url": "https://doi.org/10.1093/ijnp/pyaa034",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract In this meta-analysis, we aimed to estimate and compare the efficacy of add-on treatment of antidepressants with esketamine nasal spray and second-generation antipsychotics in patients with nonpsychotic major depressive disorder and inadequate response to antidepressants. Searching for acute-phase, double-blind, placebo-controlled, randomized trials, we found 22 second-generation antipsychotic (n = 8363) and 3 intranasal esketamine (n = 641) studies. Mean change in the Montgomery Åsberg Depression Rating Scale total score served as outcome. We determined a higher mean difference (vs placebo) for the pooled esketamine nasal spray trials (mean difference = 4.09, 95% confidence interval: 2.01 to 6.17) than for the pooled second-generation antipsychotic augmentation trials (mean difference = 2.05, 95% confidence interval: 1.51 to 2.59). Thus, the effect size for intranasal esketamine was nearly twice as high as those for the second-generation antipsychotics. This indicates high efficacy of add-on esketamine nasal spray in treatment-resistant major depressive disorder compared with other well-established, evidence-based pharmacological options such as augmentation with second-generation antipsychotics.",
+        "relevancePct": 63,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "c5f6e393f1717af44636aacce8b084d8ccaf7b9aaeb4cc33c6ac53a5960e08a4"
+      },
+      {
+        "pmid": "cr:10.1002/pu.30468",
+        "title": "Esketamine nasal spray offers rapid improvement in treatment‐resistant depression",
+        "authors": "Academic Authors",
+        "year": "2019",
+        "journal": "The Brown University Psychopharmacology Update",
+        "doi": "10.1002/pu.30468",
+        "url": "https://doi.org/10.1002/pu.30468",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Esketamine nasal spray in combination with a newly initiated antidepressant was more effective than a new antidepressant plus placebo in reducing depressive symptoms in patients with treatment‐resistant depression, a Phase 3 study has found. Esketamine, the S‐enantiomer of ketamine, recently received Food and Drug Administration (FDA) approval for treatment‐resistant depression in adults. Study results were published online May 21 in the American Journal of Psychiatry .",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2f222e07d69a68ec7f9ce8073024d9ca18a4e803da6b211bdc348ce95db35186"
+      },
+      {
+        "pmid": "42736875",
+        "title": "Real-World Effectiveness and Safety of Esketamine Nasal Spray in Treatment-Resistant Depression: A Retrospective Observational Study",
+        "authors": "Mostafa A. Sayed Ali, Palanisamy Amirthalingam, Hanan M. Alshareef, Mohammed Zayed Alassiry",
+        "year": "2026",
+        "journal": "Healthcare",
+        "doi": "10.3390/healthcare14172717",
+        "url": "https://doi.org/10.3390/healthcare14172717",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background/Objectives: This study evaluated the real-world effectiveness and safety of intranasal esketamine plus oral antidepressants compared with venlafaxine-based oral antidepressant therapy in adults with moderate-to-severe treatment-resistant depression (TRD). Methods: This retrospective cohort study used electronic medical records from a mental health hospital between January 2023 and December 2025. Adults with moderately severe or severe major depressive disorder who had not responded adequately to at least two antidepressant trials received esketamine plus oral antidepressants or venlafaxine-based therapy. The outcomes were changes in the Patient Health Questionnaire-9 (PHQ-9) score, remission, response, minimal clinically important difference (MCID) without response or remission, and documented adverse events at 28 days, 3 months, and 6 months. Propensity score matching was used for continuous follow-up of the",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "8a732f4980cfa287234e18e9eeebf1706f8cb89abd9a1508cb49d11fd012c5e6"
+      },
+      {
+        "pmid": "37158911",
+        "title": "Assessment of health-related quality of life and health status in patients with treatment-resistant depression treated with esketamine nasal spray plus an oral antidepressant",
+        "authors": "Carol Jamieson, Vanina Popova, Ella Daly, Kimberly Cooper",
+        "year": "2023",
+        "journal": "Health and Quality of Life Outcomes",
+        "doi": "10.1186/s12955-023-02113-1",
+        "url": "https://doi.org/10.1186/s12955-023-02113-1",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Patients with treatment-resistant depression (TRD) report significant deficits in physical and mental health, as well as severely impaired health-related quality of life (HRQoL) and functioning. Esketamine effectively enhances the daily functioning in these patients while also improving their depressive symptoms. This study assessed HRQoL and health status of patients with TRD, who were treated with esketamine nasal spray and an oral antidepressant (ESK + AD) vs. placebo nasal spray and an AD (AD + PBO). METHODS: Data from TRANSFORM-2, a phase 3, randomized, double-blind, short-term flexibly dosed study, were analyzed. Patients (aged 18-64 years) with TRD were included. The outcome assessments included the European Quality of Life Group, Five Dimension, Five Level (EQ-5D-5L), EQ-Visual Analogue Scale (EQ-VAS), and Sheehan",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f2682c7c4ea2ad9ffa1e8b418fb68049b37686acc196e6a7feaf598ef2040425"
+      },
+      {
+        "pmid": "cr:10.1097/md.0000000000032895",
+        "title": "Social determinants and distance from certified treatment centers are associated with initiation of esketamine nasal spray among patients with challenging-to-treat major depressive disorder",
+        "authors": "Liberman Joshua, Pesa Jacqueline, Rui Pinyao, Joshi Kruti",
+        "year": "2023",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000032895",
+        "url": "https://doi.org/10.1097/md.0000000000032895",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Indicated for treatment-resistant depression or major depression with suicidal ideation, esketamine (ESK) is self-administered under supervision at certified treatment centers. Our study was to determine if social determinants of health and distance were associated with ESK utilization. We conducted a retrospective cohort study among 308 US adults initiating ESK between October 11, 2019 and December 31, 2020 and 1540 propensity-score matched controls with treatment-resistant depression or major depression with suicidal ideation. Adjusting for demographics, prior health care utilization and comorbidities, social determinant variables and distance were regressed separately on each outcome: ESK initiation, failure to complete induction (8 treatments in 45 days), and discontinuation within 6 months. ESK initiation was associated with higher population density (odds ratio [OR]: 2.12), American Indian, Alaska Native, Native Hawaiian, Other Pacific Islander (OR: 3.19), and mental health (OR: 1.55) and primary care providers (OR: 1.55) per capita. Lower likelihood of ESK initiation was associated with living > 7.2 miles from a treatment center (OR: 0.75), living in rural areas (OR: 0.64), and percent non-Hispanic African American (OR: 0.58) and Hispanic (OR: 0.40). Health care providers should tailor patient engagement strategies to mitigate potential barriers to initiating and continuing appropriate treatment. Failing to complete induction was associated with substance use disorder and longer distance to treatment center was associated with discontinuation (hazard ratio: 1.48), as was percent Asian population (hazard ratio: 1.37). Prior psychiatric care and residence in counties with high rates of primary care providers per capita, unemployment, and high school graduation were associated with both higher likelihood of completing induction and lower likelihood of discontinuation.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "2927795c394c5f25b940924dc6884037ad0ca32257e6c7a998dc62816fb043ae"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "treatment-resistant major depressive disorder adjunctive esketamine nasal spray plus SSRI/SNRI adjunctive quetiapine extended-release plus SSRI/SNRI clinical remission at 8 weeks (MADRS <= 10)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      }
+    ],
+    "hasMore": true
+  }
+}

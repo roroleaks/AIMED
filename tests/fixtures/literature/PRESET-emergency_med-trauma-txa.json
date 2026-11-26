@@ -1,0 +1,773 @@
+{
+  "id": "PRESET-emergency_med-trauma-txa",
+  "recordedAt": "2026-11-26T19:47:38.067Z",
+  "specialty": "emergency_med",
+  "words": [
+    {
+      "word": "adult trauma patients with significant bleeding within 3 hours",
+      "role": "population"
+    },
+    {
+      "word": "intravenous tranexamic acid (CRASH-2 protocol)",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "all-cause mortality at 28 days",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "adult trauma patients with significant bleeding within 3 hours",
+        "role": "population"
+      },
+      {
+        "word": "intravenous tranexamic acid (CRASH-2 protocol)",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "all-cause mortality at 28 days",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In adult trauma patients with significant bleeding within 3 hours (P), does intravenous tranexamic acid (CRASH-2 protocol) (I) compared with placebo (C) reduce all-cause mortality at 28 days (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In adult trauma patients with significant bleeding within 3 hours (P), is intravenous tranexamic acid (CRASH-2 protocol) (I) superior to placebo (C) for all-cause mortality at 28 days (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of adult trauma patients with significant bleeding within 3 hours (P), does intravenous tranexamic acid (CRASH-2 protocol) (I) compared with placebo (C) reduce all-cause mortality at 28 days (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In adult trauma patients with significant bleeding within 3 hours (P), does intravenous tranexamic acid (CRASH-2 protocol) (I) compared with placebo (C) reduce all-cause mortality at 28 days (O)?"
+    },
+    "words": [
+      {
+        "word": "adult trauma patients with significant bleeding within 3 hours",
+        "role": "population"
+      },
+      {
+        "word": "intravenous tranexamic acid (CRASH-2 protocol)",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "all-cause mortality at 28 days",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "23477634",
+        "title": "The CRASH-2 trial: a randomised controlled trial and economic evaluation of the effects of tranexamic acid on death, vascular occlusive events and transfusion requirement in bleeding trauma patients",
+        "authors": "Ian Roberts, Haleema Shakur‐Still, Tim Coats, Beverley Jane Hunt",
+        "year": "2013",
+        "journal": "Health Technology Assessment",
+        "doi": "10.3310/hta17100",
+        "url": "https://doi.org/10.3310/hta17100",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Among trauma patients who survive to reach hospital, exsanguination is a common cause of death. A widely practicable treatment that reduces blood loss after trauma could prevent thousands of premature deaths each year. The CRASH-2 trial aimed to determine the effect of the early administration of tranexamic acid on death and transfusion requirement in bleeding trauma patients. In addition, the effort of tranexamic acid on the risk of vascular occlusive events was assessed. OBJECTIVE: Tranexamic acid (TXA) reduces bleeding in patients undergoing elective surgery. We assessed the effects and cost-effectiveness of the early administration of a short course of TXA on death, vascular occlusive events and the receipt of blood transfusion in trauma patients. DESIGN: Randomised placebo-controlled trial and",
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "84760050f68f24ead13f8acc38153636c23712ed561c16d9228302abf8afd1dd"
+      },
+      {
+        "pmid": "42912008",
+        "title": "Tranexamic acid in laparoscopic sleeve gastrectomy: bleeding control amid thrombotic concerns and hemodynamic instability: a randomized double-blinded clinical trial.",
+        "authors": "Savaş OA, Mercan S, Akbari AM, Sheikhvatan M.",
+        "year": "2026",
+        "journal": "Acta cirurgica brasileira",
+        "doi": "10.1590/acb416226",
+        "url": "https://europepmc.org/article/PMC/PMC13686607",
+        "source": "pmc",
+        "pubType": "research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Purpose Laparoscopic sleeve gastrectomy (LSG) carries a risk of intraoperative and postoperative bleeding. Tranexamic acid (TXA) has been proposed to reduce blood loss. We evaluated the efficacy of TXA in preventing perioperative bleeding in patients undergoing LSG. Methods In a randomized clinical trial, 185 morbidly obese patients scheduled for elective LSG were randomly assigned to receive TXA (n = 93) or a placebo (n = 92) before surgery. The rate of bleeding requiring blood transfusion, 24-hour serum hemoglobin levels, postoperative hemodynamic indices, and the incidence of postoperative thrombotic events were assessed. Results Intraoperative bleeding occurred less frequently in the TXA group than in the placebo group (1 versus 5.5%, p = 0.012). Postoperative hemoglobin levels were higher in the TXA group (12.5 ± 1.2 g/dL versus 11.1 ± 1.5 g/dL, p = 0.002), while transfusion requirements, hemodynamic stability, and length of hospital stay were similar between groups. No postoperative thromboembolic events were observed. Multivariable analysis confirmed TXA as an independent predictor of reduced bleeding and higher postoperative hemoglobin levels. Conclusion TXA significantly reduced intraoperative bleeding and improved postoperative hemoglobin levels in LSG without increasing hemodynamic instability or the risk of thromboembolic events.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "6db8000376e2f22ac095b52bdcdaa997b29782f409659b73c5d3b1bbf1b64834"
+      },
+      {
+        "pmid": "cr:10.1186/s13054-014-0685-8",
+        "title": "Mechanism of action of tranexamic acid in bleeding trauma patients: an exploratory analysis of data from the CRASH-2 trial",
+        "authors": "Roberts Ian, Prieto-Merino David, Manno Daniela",
+        "year": "2014",
+        "journal": "Critical Care",
+        "doi": "10.1186/s13054-014-0685-8",
+        "url": "https://doi.org/10.1186/s13054-014-0685-8",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Introduction To investigate the mechanism of action of tranexamic acid (TXA) in bleeding trauma patients, we examined the timing of its effect on mortality. We hypothesised that if TXA reduces mortality by decreasing blood loss, its effect should be greatest on the day of the injury when bleeding is most profuse. However, if TXA reduces mortality via an anti-inflammatory mechanism its effect should be greater over the subsequent days. Methods Exploratory analysis, including per-protocol analyses, of data from the CRASH-2 trial, a randomised placebo controlled trial of the effect of TXA on mortality in 20,211 trauma patients with, or at risk of, significant bleeding. We examined hazard ratios (HR) and 95% confidence intervals for all-cause mortality, deaths due to bleeding and non-bleeding deaths, according to the day since injury. The CRASH-2 trial is registered as ISRCTN86750102 and ClinicalTrials.gov NCT00375258. Results The effect of TXA on mortality is greatest for deaths occurring on the day of the injury (HR all-cause mortality = 0.83, 0.73 to 0.93). This survival benefit is only evident in patients in whom treatment is initiated within 3 hours of their injury (HR ≤3 hours = 0.78, 0.68 to 0.90; HR >3 hours = 1.02, 0.76 to 1.36). Initiation of TXA treatment within 3 hours of injury reduced the hazard of death due to bleeding on the day of the injury by 28% (HR = 0.72, 0.60 to 0.86). TXA treatment initiated beyond 3 hours of injury appeared to increase the hazard of death due to bleeding, although the estimates were imprecise. Conclusions Early administration of tranexamic acid appears to reduce mortality primarily by preventing exsanguination on the day of the injury.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e3f5371465012a2b7db46758707ada0d09f782eb9acb26f91266d5dc5abcac56"
+      },
+      {
+        "pmid": "cr:10.1097/crd.0000000000001130",
+        "title": "Comparison of the Efficacy and Safety of Tranexamic Acid Versus Aminocaproic Acid for Bleeding Prevention in Adult Surgical Patients Undergoing Cardiopulmonary Bypass: A Systematic Review and Meta-Analysis",
+        "authors": "Behrendt Hunter A., Reinert Justin P.",
+        "year": "2025",
+        "journal": "Cardiology in Review",
+        "doi": "10.1097/crd.0000000000001130",
+        "url": "https://doi.org/10.1097/crd.0000000000001130",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "The objective of this endeavor was to analyze current evidence comparing tranexamic acid (TXA) with aminocaproic acid (EACA) to determine their relative efficacy and safety in adult patients undergoing cardiopulmonary bypass (CPB). A systematic review and meta-analysis were conducted utilizing the Preferred Reporting Items for Systematic Reviews and Meta-Analyses methodology to assess randomized controlled trials comparing TXA with EACA in adult CPB. Studies were excluded if not randomized, did not directly compare TXA with EACA, or did not involve the adult CPB population. The primary efficacy endpoint was total blood loss in 24 hours (mL). Safety endpoints included the most commonly reported adverse events. The secondary efficacy endpoint was total units of packed red blood cells transfused (units). Nine randomized controlled trials were included. TXA had a statistically significant reduction in 24-hour blood loss compared with EACA [−0.21 (CI, −0.36 to −0.06), P = 0.0070]. TXA also had a statistically significant reduction in total packed red blood cells infused [−0.30 (CI −0.50 to −0.11), P = 0.0025]. There was no significant difference in neurological [1.48 (0.92–2.38), P = 0.9843], renal [0.99 (0.85–1.15), P = 0.2274], cardiac [1.08 (0.88–1.32), P = 0.2068], or thrombotic [1.00 (0.39–2.58), P = 0.4450] events. With synthesized evidence supporting TXA, this review can help guide practitioners to make informed recommendations regarding periprocedural care to minimize blood loss and maximize resource use. This analysis and review supports the preferential use of TXA over EACA in adults undergoing CPB.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "80cf9516850f40d793b48ab881102cc08bc73da0143eec7733e07059e63e4a3a"
+      },
+      {
+        "pmid": "25705414",
+        "title": "Applying results from clinical trials: tranexamic acid in trauma patients",
+        "authors": "Ian Roberts, David Prieto‐Merino",
+        "year": "2014",
+        "journal": "Journal of Intensive Care",
+        "doi": "10.1186/s40560-014-0056-1",
+        "url": "https://doi.org/10.1186/s40560-014-0056-1",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "This paper considers how results from clinical trials should be applied in the care of patients, using the results of the Clinical Randomisation of an Antifibrinolytic in Significant Haemorrhage (CRASH-2) trial of tranexamic acid in bleeding trauma patients as a case study. We explain why an understanding of the mechanisms of action of the trial treatment, and insight into the factors that might be relevant to this mechanism, is critical in order to properly apply (generalise) trial results and why it is not necessary that the trial population is representative of the population in which the medicine will be used. We explain why cause (mechanism)-specific mortality is more generalizable than all-cause mortality and why the risk ratio is the generalizable",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "290067a1ba84ab15d79b085b6441c5ed8c5f0f545eaf01f1bf72f01fdc130245"
+      },
+      {
+        "pmid": "42937726",
+        "title": "Effect of intraoperative tranexamic acid use on postoperative bleeding in tumor replacement surgery: A retrospective cohort study.",
+        "authors": "Balkanlı B, Kahraman A, Bayram S, Salduz A.",
+        "year": "2026",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000051264",
+        "url": "https://europepmc.org/article/PMC/PMC13706392",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "The aim of this study was to evaluate whether intraoperative intravenous (IV) tranexamic acid (TXA) reduces postoperative blood loss in patients undergoing tumor prosthesis surgery for primary or metastatic bone tumors. In this retrospective single-center study, 59 patients who underwent tumor prosthesis surgery between January 2013 and June 2024 were analyzed. Forty-two patients received a single intraoperative dose of 1 g IV TXA (TXA Group), while 17 did not receive TXA (Control Group). Demographic and clinical characteristics were recorded. Perioperative outcomes assessed were operative duration, hemoglobin (Hb) levels, drain output, and transfusion requirements during the postoperative 48 hours, and length of hospital stay. Multivariable linear regression and Firth's penalized logistic regression were used to adjust for confounding factors. Baseline demographic and clinical characteristics were comparable between groups (P > .05). Operative duration was significantly longer in the TXA group (P < .001). Unadjusted analyses showed higher 48-hour drainage volumes and transfusion amounts in the TXA group (P = .021 and P < .001, respectively), whereas Hb drop and transfusion rates did not differ significantly. After multivariable adjustment, TXA use was not independently associated with Hb decrease (P = .824), 48-hour drainage (P = .652), transfusion amount (P = .135), or transfusion requirement (P = .566). In patients undergoing tumor prosthesis surgery for primary or metastatic bone tumors, a single intraoperative dose of IV TXA was not associated with reduced postoperative Hb decline, drainage volume, or transfusion requirements. The higher crude transfusion and drainage volumes observed in the TXA group likely reflect longer operative times and increased surgical complexity rather than a direct effect of TXA.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "d40c73f8a6ff71d9a658bf9eb5eb708f4379d1a1f11fa75987666dde92702be1"
+      },
+      {
+        "pmid": "cr:10.13181/mji.v25i4.1502",
+        "title": "The effects of intra-articular tranexamic acid given intraoperatively and intravenous tranexamic acid given preoperatively on post surgical bleeding and transfusion rate post total knee arthroplasty",
+        "authors": "Triyudanto Aryo N., Lubis Andri M.T.",
+        "year": "2017",
+        "journal": "Medical Journal of Indonesia",
+        "doi": "10.13181/mji.v25i4.1502",
+        "url": "https://doi.org/10.13181/mji.v25i4.1502",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Despite the advances in the design and fixation of implants in total knee replacement (TKR). the amount of postoperative bleeding is still an important issue that has not been resolved. This study aimed to measure the effectiveness of various tranexamic acid administration. Methods: This was a randomized controlled trial study, held from August 2014 to February 2016 at Cipto Mangunkusumo Hospital, Jakarta. Twenty two patients having TKR were divided into three groups: the control group, the tranexamic acid intra-articular-intraoperative group, and the intravenous preoperative group. Intraoperative bleeding, haemoglobin (Hb) level on preoperative to five-day-post-surgery, total drain production, total blood tranfusion needed and the drain removal timing were recorded and compared. Numerical data were analyzed by using parametric and non-parametric test, depended on the normality of the data. Results: The amount of blood transfusion needed in both the intra-articular group (200±SD 100 mL) and the intravenous group (238±SD 53 mL) were significantly different compared to those in the control group (1,016±SD 308.2 mL) (p=0.001). Meanwhile, there was no significant difference between the amount of blood transfusion needed in the intra-articular group and the intravenous group. Total drain production in the intra-articular group (328±SD 193 mL) and intravenous group (391±SD 185 mL) was significantly different compared to the control group (652±SD 150 mL) (p=0.003). No significant difference between the levels of both preoperative and postoperative haemoglobin, the amount of intraoperative bleeding, and the duration of drain usage. Conclusion: Intravenous and intra-articular tranexamic acid effectively decreased transfusion volume and drain production in patients undergoing TKR.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "25957446a484d6770e0a5e2fa731a8dfe49273a63f2babbba8dffd603aabdd11"
+      },
+      {
+        "pmid": "41637560",
+        "title": "Guideline on the emergency management of critical bleeding in patients with immune thrombocytopenia.",
+        "authors": "Chowdhury SR, Sirotich E, Guyatt G, Modi D, Cuker A, Breakey VR, Grace RF, Pai M, Beck CE, Yan JW, Porter S, Kang M, Web",
+        "year": "2026",
+        "journal": "Blood advances",
+        "doi": "10.1182/bloodadvances.2025018818",
+        "url": "https://europepmc.org/article/PMC/PMC13487680",
+        "source": "pmc",
+        "pubType": "other, Journal Article",
+        "publicationTypes": [
+          "other",
+          "Journal Article"
+        ],
+        "context": "Background For patients with immune thrombocytopenia (ITP), a critical bleed, such as intracranial hemorrhage or bleeding causing hemodynamic instability, requires urgent treatment to rapidly raise the platelet count and restore hemostasis. There is no standardized approach to this hematologic emergency. Objective The McMaster ITP Emergency Management Guideline Group developed evidence-informed recommendations for the management of a critical bleed in adults and children with ITP. Methods The guideline panel included 5 clinical experts in adult ITP, 3 clinical experts in pediatric ITP, 2 emergency department physicians, 1 emergency department nurse, 2 methodologists, and 4 patient partners. To inform recommendations, the guideline team conducted a multicenter retrospective cohort study and systematic reviews. The panel used the Grading of Recommendations Assessment, Development, and Evaluation (GRADE) approach to rate the certainty in the evidence and GRADE evidence-to-decision framework to formulate recommendations. Results Given the life-threatening nature or significant morbidity associated with the condition, despite low or very low certainty in the evidence, the panel made strong recommendations for the combined use of high-dose corticosteroids, high-dose IV immunoglobulin (IVIG), platelet transfusions, tranexamic acid, and thrombopoietin receptor agonists (TPO-RAs) for the treatment of adults or children with a critical ITP bleed. The panel made a conditional recommendation for urgent splenectomy when other treatments have failed and, due to the risk of thrombosis, a conditional recommendation against the use of recombinant factor VIIa. Conclusions Motivated by the life-threatening nature of the condition, the panel made strong recommendations for the combined use of high-dose corticosteroids, high-dose IVIG, platelet transfusions, tranexamic acid, and TPO-RAs for the emergency management of adults and children with a critical ITP bleed.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "1477d79bd0310c81876a2402314743ef8ff4aa5b4e63650b4fc64c2f6f007d8c"
+      },
+      {
+        "pmid": "43004374",
+        "title": "Postpartum-acquired hemophilia A presenting as a recurrent rectus sheath hematoma following cesarean section: a case report.",
+        "authors": "Rishard M, Gunasinghe KSC, Jeykrishna K, Perera MANAP, Fernando H.",
+        "year": "2026",
+        "journal": "Journal of medical case reports",
+        "doi": "10.1186/s13256-026-06831-0",
+        "url": "https://europepmc.org/article/PMC/PMC13746529",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Background Acquired hemophilia A is a rare autoimmune bleeding disorder caused by autoantibodies against factor VIII. Peripartum cases account for approximately 7-11% of the total, and untreated mortality reaches 10-20%. Postpartum-acquired hemophilia A typically presents with subcutaneous bruising, mucosal bleeding, intramuscular hematomas, or retroperitoneal bleeding; presentation as an isolated rectus sheath hematoma masquerading as a surgical complication of cesarean section is uncommon and may delay diagnosis. Case presentation A 30-year-old Sri Lankan (South Asian) para 2 woman presented 17 days after an uncomplicated elective second cesarean section with severe abdominal pain and a sub-rectus sheath hematoma. Her first pregnancy had been complicated by placental abruption at 32 weeks, after which antiphospholipid syndrome screening had been advised but not undertaken. She underwent two surgical evacuations of recurrent hematomas without a discrete bleeding source, and developed multifocal bleeding including hematuria and wound oozing. Coagulation studies showed an isolated prolongation of the activated partial thromboplastin time (APTT), and inhibitor screening was positive for an acquired, time-dependent inhibitor consistent with a factor VIII inhibitor. Antinuclear antibody was positive (nuclear speckled pattern). Management combined recombinant activated factor VII (rFVIIa), tranexamic acid, blood product support, and immunosuppression with oral prednisone 1 mg/kg/day. The course was complicated by a polymicrobial wound infection (Pseudomonas and Klebsiella species) treated with meropenem and clindamycin. Marked clinical improvement occurred within 48 hours of immunosuppression, and she was discharged on day 11. Conclusions Postpartum-acquired hemophilia A should be considered in any postpartum woman with unexplained spontaneous soft-tissue or mucosal bleeding when the APTT is prolonged in isolation and surgical exploration finds no discrete bleeding source. Inhibitor screening is the pivotal diagnostic investigation. The case is particularly relevant to clinicians in low- and middle-income countries, where multidisciplinary clinical reasoning combined with widely available therapies can deliver excellent outcomes when the diagnosis is recognized early.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "31326d1319b6c9fd6123843676e4529fd37ec8f1c7cf9bc5c41068dcbf9abcde"
+      },
+      {
+        "pmid": "42625973",
+        "title": "Strengthening trauma care in low- and middle-income countries through guideline adaptation and scalable system reforms.",
+        "authors": "Le KL, Pham TN, Tran MQ, Trinh MT, Pham PC, Duong-Ngoc QN, Thai KP, Le NK, Mai-Phan TA, Luong-Toan HL.",
+        "year": "2026",
+        "journal": "World journal of methodology",
+        "doi": "10.5662/wjm.v16.i3.113355",
+        "url": "https://europepmc.org/article/PMC/PMC13491171",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Trauma is a leading global cause of death and disability, with nearly 90% of fatalities occurring in low- and middle-income countries (LMICs), where prehospital care, infrastructure, and trained personnel are limited. This narrative review synthesizes literature (2019-2025) on the initial management of adult polytrauma, and explores strategies to adapt global guidelines in resource-constrained settings. Contemporary frameworks such as advanced trauma life support (ATLS) and World Health Organization essential trauma care emphasize context-sensitive sequencing, permissive hypotension, balanced transfusion, damage-control surgery, and integration of point-of-care ultrasound. Adjuncts including tranexamic acid, viscoelastic-guided transfusion, prehospital whole blood, and selective aortic balloon occlusion offer incremental survival benefits. However, widespread barriers-training deficits, blood bank shortages, lack of imaging, and absent trauma registries-impede implementation. Emerging models demonstrate that scalable solutions such as primary trauma care courses, phased ATLS rollouts, hybrid emergency rooms, and tablet-based registries can reduce mortality and referral delays without requiring wholesale adoption of high-income systems. Meaningful progress requires adapting evidence-based guidelines to local realities, supported by investments in education, diagnostics, transfusion logistics, and national surveillance. Future work should quantify cost-effectiveness and refine context-specific frameworks to close the outcome gap in LMICs.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "5604ec772eefdc9a21c319050ccfd360ecf0edb285e52359a4b7d4acff080283"
+      },
+      {
+        "pmid": "38697615",
+        "title": "Population pharmacokinetic modelling and simulation of tranexamic acid in adult trauma patients",
+        "authors": "Gideon A. Stitt, Philip Charles Spinella, Grant Vincent Bochicchio, Ian Roberts",
+        "year": "2024",
+        "journal": "British Journal of Clinical Pharmacology",
+        "doi": "10.1111/bcp.16075",
+        "url": "https://doi.org/10.1111/bcp.16075",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIMS: The aim of this study is to describe the disposition of tranexamic acid (TXA) in adult trauma patients and derive a dosing regimen that optimizes exposure based on a predefined exposure target. METHODS: We performed a population pharmacokinetic (popPK) analysis of participants enrolled in the Tranexamic Acid Mechanisms and Pharmacokinetics in Traumatic Injury (TAMPITI) trial (≥18 years with traumatic injury, given ≥1 blood product and/or requiring immediate transfer to the operating room) who were randomized to a single dose of either 2 or 4 g of TXA ≤2 h from time of injury. PopPK analysis was conducted using nonlinear mixed-effects modelling (NONMEM). Simulations were then performed using the final model to generate estimated plasma TXA concentrations in 1000 simulated",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2ef246eebe8a74b68450e3d4e422774733bbdcedce4ecb86227bf8f7af151670"
+      },
+      {
+        "pmid": "30530744",
+        "title": "Implementation of tranexamic acid for bleeding trauma patients: a longitudinal and cross-sectional study",
+        "authors": "Tim Coats, Marisol Fragoso-Iñiguez, Ian Roberts",
+        "year": "2018",
+        "journal": "Emergency Medicine Journal",
+        "doi": "10.1136/emermed-2018-207693",
+        "url": "https://doi.org/10.1136/emermed-2018-207693",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To describe the use of tranexamic acid (TXA) in trauma care in England and Wales since the Clinical Randomization of an Antifibrinolytic in Significant Hemorrhage (CRASH-2) trial results were published in 2010. METHODS: A national longitudinal and cross-sectional study using data collected through the Trauma Audit and Research Network (TARN), the clinical audit of major trauma care for England and Wales. All patients in the TARN database injured in England and Wales were included apart from those with an isolated traumatic brain injury, with a primary outcome of the proportion of patients given TXA and the secondary outcome of time to treatment. RESULTS: Among 228 250 patients, the proportion of trauma patients treated with TXA increased from near zero",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "efa02f948c6993ab45dfe20ef5fda4f722b2b7d2c9c33417a5bfb7d3d679f6e3"
+      },
+      {
+        "pmid": "41253374",
+        "title": "The critical role of tranexamic acid for bleeding patients",
+        "authors": "Avery A. Thompson, Sidharth Misra, Laith A Ayasa, Nikathan Kumar",
+        "year": "2025",
+        "journal": "Vox Sanguinis",
+        "doi": "10.1111/vox.70156",
+        "url": "https://doi.org/10.1111/vox.70156",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Tranexamic acid (TXA) is an essential life-saving medicine that prevents clot breakdown in patients who are haemorrhaging from trauma, childbirth, surgery and other causes. While TXA is inexpensive, it is not widely used, especially in low- and middle-income countries, which also experience challenges in the domains of blood collection, testing, storage and transfusion. TXA has been extensively studied for the treatment of traumatic, obstetric and surgical bleeding, and landmark trials have repeatedly demonstrated its safety, efficacy and life-saving potential, especially when given early (within 3 h of the inciting event). Among trauma patients with blunt and penetrating injuries as well as head trauma, TXA decreases the risk of mortality and is also cost effective. Among women with postpartum haemorrhage, TXA",
+        "relevancePct": 51,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d2ba01e38619b9f1db62c2a71a758308e75a6748f13485fe20eb070bb9820966"
+      },
+      {
+        "pmid": "25043066",
+        "title": "Tranexamic acid in pediatric trauma: why not?",
+        "authors": "Suzanne M. Beno, Alun Ackery, Jeannie Callum, Sandro Rizoli",
+        "year": "2014",
+        "journal": "Critical Care",
+        "doi": "10.1186/cc13965",
+        "url": "https://doi.org/10.1186/cc13965",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Trauma is a leading cause of death in pediatrics. Currently, no medical treatment exists to reduce mortality in the setting of pediatric trauma; however, this evidence does exist in adults. Bleeding and coagulopathy after trauma increases mortality in both adults and children. Clinical research has demonstrated a reduction in mortality with early use of tranexamic acid in adult trauma patients in both civilian and military settings. Tranexamic acid used in the perioperative setting safely reduces transfusion requirements in children. This article compares the hematologic response to trauma between children and adults, and explores the potential use of tranexamic acid in pediatric hemorrhagic trauma.",
+        "relevancePct": 51,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8f49e7bb0421d9b1eac87b8b29021186511708d499864c61a0f006dc9c3e8006"
+      },
+      {
+        "pmid": "36949540",
+        "title": "Prehospital tranexamic acid for trauma victims",
+        "authors": "Kazuhiko Omori, Ian Roberts",
+        "year": "2023",
+        "journal": "Journal of Intensive Care",
+        "doi": "10.1186/s40560-023-00661-8",
+        "url": "https://doi.org/10.1186/s40560-023-00661-8",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "The public enquiry into the mass casualty incident at the Manchester Arena in the UK in which 23 people died and over 1000 were injured, identified the need for timely intramuscular administration of tranexamic acid to trauma patients. Since then, a number of studies and trials have been carried out and UK paramedics are now authorized to give intramuscular tranexamic acid in the pre-hospital setting. In Japan, pre-hospital administration by emergency life-saving technicians is not yet authorized, despite the fact that tranexamic acid was invented by Japanese scientists. In Japan, the need for the pre-hospital administration of tranexamic acid has been raised on several occasions, where a patient died from traumatic bleeding prior to hospital admission. This paper summarizes the",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "93e54c7cace034cb7b3a07bb76adfb8b4f7008486863042584c644d0c9c62e8a"
+      },
+      {
+        "pmid": "cr:10.31579/2693-2156/004",
+        "title": "A comparitive study between tranexamic acid and epsilon-amino-caproic acid in reducing post-operative bleeding in patients undergoing on pump cabg surgeries.",
+        "authors": "Mishra Satish",
+        "year": "2020",
+        "journal": "Journal of Thoracic Disease and Cardiothoracic Surgery",
+        "doi": "10.31579/2693-2156/004",
+        "url": "https://doi.org/10.31579/2693-2156/004",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "The amount of strain that cardiac surgery exerts on blood bank services is an example that emphasises the need for multimodel blood conservation stratergy. The most common factor which is being attibutable to increased bleeding after cardiac surgery is hyperfibrinolysis. Thererfore the use of antifibrinolytics during high risk cardiac surgery becomes inevitable. Commonly used antifibrinolytic include Tranexamic Acid(TA) and Epsilon-amino-caproic acid (EACA) .The aim of our study was to compare the effectiveness of both TA and EACA in reducing post surgical bleeding in on-pump CABG surgeries and to asses the post operative complications associated with its use.Material and Methods After obtaining informed written consent,approval of ethics and research commitee patients who were scheduled for on-pump CABG were included in the study.Patients were divided into two groups randomly by using a comupter generated randomized block design namely group TA(n=40) and group EACA (n=40). TA group received tranaxamic acid at a dose of 10mg/kg IV over 20 min at the time of induction then 1-2 mg/kg in CPB prime followed by 1 mg /kg/hr infusion during surgery. Group EACA received EACA in a dose of 100mg/kg/IV over 20 min at he time of induction then 5-10mg/kg in CPB prime followed by 10mg/kg/hr infusion during surgery . Pateints were assessed for blood loss and were monitored for fibrinogen level and D- dimer levels, Re-exploration and post operative complications. Result Primary outcomes like bleeding at 4hrs, there was no significant difference between the groups but when total bleeding at 24 hrs was compared there was a significantly lesser bleed in group TA group compared to group EACA (P=0.0022).The requirement of PRBC in group TA was for 3 patients,where as in EACA group 4 patients required PRBC (P>0.05).There was no significant difference in the rate of post operative complications between the groups.(P>0.05) .Conclusion from our study we concluded that both TA & EACA effectively inhibits fibrinolysis during on pump CABG surgery and thus results in decreased post operative bleeding.When compared between the two, TA was slightly better with respect to post operative bleeding at 24hrs.Our study also re emphesized the fact that neither of the drug led to any additional risk of post operative thrombotic complications.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a2aadbcd7f2c25cc2844751129e41c4f7de8aba9f3c3f105ab2f68d92d29ddfb"
+      },
+      {
+        "pmid": "cr:10.1097/01.ebp.0000540463.82343.1e",
+        "title": "Early administration of tranexamic acid reduces death from bleeding in trauma patients",
+        "authors": "Kaiseruddin Altaf, Stulberg Debra",
+        "year": "2013",
+        "journal": "Evidence-Based Practice",
+        "doi": "10.1097/01.ebp.0000540463.82343.1e",
+        "url": "https://doi.org/10.1097/01.ebp.0000540463.82343.1e",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 46,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "0f30f8d3be18c7317008b4e1494a57c721411d6836d1f1c1c341ef3536b73441"
+      },
+      {
+        "pmid": "cr:10.21608/alexpo.2021.80647.1182",
+        "title": "Efficacy of tranexamic acid in bleeding pediatric trauma patients in emergency department",
+        "authors": "Bakry Moemen",
+        "year": "2021",
+        "journal": "ALEXMED ePosters",
+        "doi": "10.21608/alexpo.2021.80647.1182",
+        "url": "https://doi.org/10.21608/alexpo.2021.80647.1182",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e8b32677a9cda369ca7f4a8d2ce053371d8b8ef02605b8828f0fd39c22cdab70"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 18,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "adult trauma patients with significant bleeding within 3 hours intravenous tranexamic acid (CRASH-2 protocol) placebo all-cause mortality at 28 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

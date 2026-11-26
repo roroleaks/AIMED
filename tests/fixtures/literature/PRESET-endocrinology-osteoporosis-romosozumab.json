@@ -1,0 +1,762 @@
+{
+  "id": "PRESET-endocrinology-osteoporosis-romosozumab",
+  "recordedAt": "2026-11-26T19:47:01.601Z",
+  "specialty": "endocrinology",
+  "words": [
+    {
+      "word": "postmenopausal women with severe osteoporosis and prior fracture",
+      "role": "population"
+    },
+    {
+      "word": "romosozumab followed by antiresorptive therapy",
+      "role": "intervention"
+    },
+    {
+      "word": "alendronate alone",
+      "role": "comparator"
+    },
+    {
+      "word": "new clinical vertebral and non-vertebral fractures",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "postmenopausal women with severe osteoporosis and prior fracture",
+        "role": "population"
+      },
+      {
+        "word": "romosozumab followed by antiresorptive therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "alendronate alone",
+        "role": "comparator"
+      },
+      {
+        "word": "new clinical vertebral and non-vertebral fractures",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "endocrinology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In postmenopausal women with severe osteoporosis and prior fracture (P), does romosozumab followed by antiresorptive therapy (I) compared with alendronate alone (C) improve new clinical vertebral and non-vertebral fractures (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 3 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In postmenopausal women with severe osteoporosis and prior fracture (P), is romosozumab followed by antiresorptive therapy (I) superior to alendronate alone (C) for new clinical vertebral and non-vertebral fractures (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of postmenopausal women with severe osteoporosis and prior fracture (P), does romosozumab followed by antiresorptive therapy (I) compared with alendronate alone (C) improve new clinical vertebral and non-vertebral fractures (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In postmenopausal women with severe osteoporosis and prior fracture (P), is romosozumab followed by antiresorptive therapy (I) superior to alendronate alone (C) for new clinical vertebral and non-vertebral fractures (O)?"
+    },
+    "words": [
+      {
+        "word": "postmenopausal women with severe osteoporosis and prior fracture",
+        "role": "population"
+      },
+      {
+        "word": "romosozumab followed by antiresorptive therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "alendronate alone",
+        "role": "comparator"
+      },
+      {
+        "word": "new clinical vertebral and non-vertebral fractures",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "endocrinology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42075559",
+        "title": "The Anabolic-First Strategy in Osteoporosis: A Systematic Review and Meta-Analysis of Fracture Outcomes in Patients at Very High Fracture Risk.",
+        "authors": "Cipolloni V, Bonifacio M, Hassny SM, Melara G, Lucchetti L, Gentile M, Conforti A.",
+        "year": "2026",
+        "journal": "Medicina (Kaunas, Lithuania)",
+        "doi": "10.3390/medicina62040687",
+        "url": "https://europepmc.org/article/PMC/PMC13117170",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Systematic Review, review-article, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
+        ],
+        "context": "Background and Objectives : Individuals classified as having very high fracture risk remain vulnerable to imminent fractures even when treated with antiresorptive therapies. This meta-analysis evaluated whether initiating treatment with anabolic agents, including teriparatide, abaloparatide, and romosozumab, provides superior fracture protection in this high-risk population. Materials and Methods : A systematic review and meta-analysis of randomized controlled trials was conducted following PRISMA standards. Eligible studies included adults at very high fracture risk, defined by recent or multiple fragility fractures or markedly low bone mineral density, who received anabolic therapy as initial treatment compared with placebo or antiresorptive agents. Outcomes of interest were new vertebral, non-vertebral, hip, and clinical fractures. Effect estimates were pooled using random-effects models. Results : Six randomized trials encompassing 17,872 participants were analyzed. Initiation with anabolic therapy was associated with a marked reduction in incident vertebral fractures. The labeled pooled summary estimate for vertebral fractures was 0.43 (95% confidence interval 0.34-0.54). Significant risk reductions were also observed for clinical fractures (hazard ratio 0.62, 95% confidence interval 0.51-0.75), non-vertebral fractures (pooled effect estimate 0.71, 95% confidence interval 0.59-0.85), and hip fractures (risk ratio 0.65, 95% confidence interval 0.45-0.96). Exploratory subgroup analyses suggested greater vertebral fracture protection versus placebo and persistent benefit versus active antiresorptive comparators. Sequential therapy using an anabolic agent followed by an antiresorptive reduced spinal fracture risk by approximately half. Considerable heterogeneity was noted for vertebral fracture outcomes. Conclusions : Starting osteoporosis treatment with anabolic agents results in faster and more-pronounced fracture risk reduction across all major fracture categories in patients at very high fracture risk. These findings support a shift toward anabolic-first treatment sequencing in this particularly vulnerable group.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "6a27b3819d495b3eb47611f07b062dc88df5233441345ea6c8996fa97553c2b6"
+      },
+      {
+        "pmid": "42761068",
+        "title": "Case Report: Reopening the anabolic window - romosozumab added to ongoing denosumab for severe osteoporosis in two kidney transplant recipients.",
+        "authors": "Barbuto S, Mastromauro P, Zavatta G, Vetrano D, Mistretta A, Bisceglia N, Comai G, Pagotto U, La Manna G, Cianciolo G.",
+        "year": "2026",
+        "journal": "Frontiers in endocrinology",
+        "doi": "10.3389/fendo.2026.1947545",
+        "url": "https://europepmc.org/article/PMC/PMC13585594",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Kidney transplant recipients develop disorders of mineral and bone metabolism that further impair bone strength, leading to osteoporosis and a high fracture risk. However, evidence in this setting is limited. Romosozumab, a sclerostin inhibitor with both anabolic and antiresorptive effects, is an attractive option, but its use in transplant recipients, as well as its combination with denosumab, has rarely been reported. We describe two female kidney transplant recipients with severe osteoporosis and persistently high fracture risk despite long-term denosumab, in whom romosozumab (210 mg monthly) was added to ongoing denosumab for 12 months. In both patients the bone-formation markers P1NP and BAP rose early, and bone mineral density improved preferentially at the lumbar spine (Case 1 + 5.9%, Case 2 + 11.2%), with only modest changes at the femoral neck and total hip. Serum calcium, parathyroid hormone, 25-hydroxyvitamin D and allograft function remained stable throughout, with no clinically significant hypocalcemia, and neither patient sustained a new vertebral fracture. Adding romosozumab to ongoing denosumab thus reopened the anabolic window and improved lumbar-spine bone mineral density without compromising mineral metabolism or graft function. This combination may represent a reasonable option for carefully selected transplant recipients who continue to lose bone or to fracture despite antiresorptive therapy, pending confirmation in controlled studies.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "58efe2924dc00792406fa6fd5611b020a63d50611a55d6edf66436bffeb1c67d"
+      },
+      {
+        "pmid": "42466020",
+        "title": "Article title efficacy and safety of romosozumab in postmenopausal women with osteoporosis previously treated with antiresorptive drugs: a prospective observational study and literature review.",
+        "authors": "Yamamoto M, Ikenaga Y, Yamamoto G, Oride T, Oi Y, Kuruma A, Bun M, Yagi T, Shimizu A, Kinose Y, Kawano M, Kodama M, Sawa",
+        "year": "2026",
+        "journal": "Frontiers in global women's health",
+        "doi": "10.3389/fgwh.2026.1779730",
+        "url": "https://europepmc.org/article/PMC/PMC13373090",
+        "source": "pmc",
+        "pubType": "Clinical Trial, research-article, Journal Article",
+        "publicationTypes": [
+          "Clinical Trial",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Objectives The number of patients receiving long-term antiresorptive drugs for postmenopausal osteoporosis is increasing worldwide. However, there is limited evidence on when and how to discontinue or switch these drugs. This study evaluated the efficacy of romosozumab in women who had been treated with antiresorptive drugs for over three years. Methods This was a prospective observational non-randomized study analyzing patients with postmenopausal osteoporosis, which was registered in the jRCT (No. 1051210070). Postmenopausal women with lumbar and femoral neck bone mineral density (BMD) below -2.5 SD, as measured by dual-energy x-ray absorptiometry (DXA), despite more than 36 months of antiresorptive treatment, were recruited. They received romosozumab along with calcium and active vitamin D supplementation for 12 months. BMD and bone turnover markers, including serum P1NP and I-CTP, were periodically monitored. Results Twenty-one patients (median age: 73 years) were observed for a median of 833 days. Baseline BMD was 0.77 g/cm² at the lumbar spine (T-score: -2.0) and 0.49 g/cm² at the femoral neck (T-score: -2.8). After 12 months, lumbar BMD significantly increased by 6.2% ( P P = 0.46). P1NP and I-CTP levels significantly increased by 455.8% and 30.3%, respectively ( P Conclusion Romosozumab significantly increased lumbar BMD and bone turnover markers in patients previously treated with antiresorptive drugs, supporting its use as a potential treatment option. Clinical trial registration https://jrct.mhlw.go.jp/, identifier No. 1051210070.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "52b9069a525833f3262402d517b3616d9809a384c40da9ceea7f86e79efeab1e"
+      },
+      {
+        "pmid": "42796031",
+        "title": "Beyond the T-Score: A Narrative Clinical Review of Adult Endocrine Osteoporosis Care.",
+        "authors": "Georgescu LM, Igna AD, Popa Tăut EC, Toderaș Herlaș BA, Rațiu IA, Luengo Perez LM, Pașcalău NAM.",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15187258",
+        "url": "https://europepmc.org/article/PMC/PMC13607700",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives: Bone mineral density (BMD) is fundamental to osteoporosis assessment, but fracture risk is also shaped by fracture history, falls, frailty, secondary causes, age, sex, and treatment context. This narrative review examines clinically relevant information that modifies adult endocrine decision-making beyond the T-score. Methods: PubMed/MEDLINE was searched through 28 June 2026; recent guidelines, consensus statements, systematic reviews, meta-analyses, and pivotal fracture-endpoint trials were prioritized. The exact search strings, filters, eligibility criteria, selection process, and prioritized guidance documents are provided in PubMed MEDLINE search strategies. Results: BMD should be interpreted with fracture history and clinical risk factors, while the applicability of T-scores differs by age and sex. FRAX, vertebral imaging, and trabecular bone score can refine assessment in selected patients. Very-high-risk patients may warrant early osteoanabolic or dual-action therapy followed by antiresorptive treatment, whereas antiresorptives remain appropriate for many high-risk patients. Denosumab requires planned continuity and a follow-on strategy; advanced chronic kidney disease requires particular attention to mineral metabolism and hypocalcemia risk. Conclusions: Contemporary osteoporosis care expands rather than replaces densitometry. Endocrine management should integrate valid DXA interpretation, fracture-risk urgency, reversible contributors, drug-specific safety, treatment feasibility, monitoring, and the next treatment phase.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "0bc5768f9b728b4b5c4e6928cd774f74f08029d92ea6fefd6b876ed24d867a2e"
+      },
+      {
+        "pmid": "42494964",
+        "title": "Longitudinal osteoporosis therapy: treat-to-target and sequential strategies-a narrative review.",
+        "authors": "Tskhakaia I, Danila MI.",
+        "year": "2026",
+        "journal": "Therapeutic advances in musculoskeletal disease",
+        "doi": "10.1177/1759720x261466911",
+        "url": "https://europepmc.org/article/PMC/PMC13392348",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Osteoporosis is a chronic skeletal disorder in which reduced bone strength confers sustained fracture risk, often necessitating long-term pharmacotherapy with a multi-phase approach rather than a single \"one and done\" drug choice. Contemporary guidelines increasingly advocate a treat-to-target (TTT), goal-directed approach: clinicians define an explicit target, most often a total hip T -score threshold that corresponds to a lower fracture risk than baseline; select initial therapy according to baseline risk; and reassess and adjust treatment intensity until that target is achieved and maintained. Within this framework, sequential strategies are central. Anabolic-first sequences (e.g., abaloparatide or teriparatide followed by alendronate, or romosozumab followed by alendronate or denosumab) consistently produce larger and more durable gains in bone mineral density and fracture risk reduction in very-high-risk patients than antiresorptive monotherapy. Transitions from long-term bisphosphonates to teriparatide are complicated by transient increased remodeling and modest hip BMD responses, whereas switching to romosozumab yields more robust bone mineral density (BMD) gains at the hip. Notably, denosumab discontinuation demands structured bisphosphonate \"exit\" therapy to avoid rebound bone loss and multiple vertebral fractures. Across all pathways, rare but serious adverse events (e.g., atypical femoral fractures, medication-related osteonecrosis of the jaw, cardiovascular events), patient adherence and persistence, and insurance coverage constraints strongly shape the feasibility and desirability of specific regimens. This narrative review synthesizes mechanistic and clinical evidence underlying TTT osteoporosis care, summarizes the evidence base for sequential osteoporosis pharmacotherapy, and proposes practical strategies to help clinicians choose, transition, and discontinue therapies while preserving skeletal gains and minimizing harm over decades of longitudinal osteoporosis care.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "35499b060709791b21e85024d35f5a748aee1fb0d90fd4329a1bf76a2b48fbdc"
+      },
+      {
+        "pmid": "42652552",
+        "title": "Preventing Hip (Proximal Femoral) Fractures: An Evidence-Based Review for Clinicians.",
+        "authors": "Kawai T, Okuzu Y, Takaoka Y, Natsume D, Matsuda S.",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15166148",
+        "url": "https://europepmc.org/article/PMC/PMC13513599",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Hip fractures are among the most devastating fragility fractures, associated with excess mortality, disability, loss of independence, and substantial healthcare costs. Although age-standardized incidence has declined in several high-income countries, absolute case numbers continue to rise because of population aging. This review summarizes contemporary PubMed-indexed evidence on the epidemiology, risk stratification, and prevention of proximal femoral fractures, with emphasis on hip-fracture outcomes rather than vertebral or composite endpoints alone. We discuss secular trends, FRAX-based case findings and screening, non-pharmacologic strategies, pharmacologic therapy, and health-system interventions relevant to both primary and secondary prevention. Among non-pharmacologic measures, long-term balance-challenging and resistance-based exercise has the most consistent evidence for reducing falls and likely contributes to fracture prevention, whereas multifactorial interventions, home hazard modification, calcium/vitamin D supplementation, and hip protectors are best targeted to selected high-risk populations and care settings. Among medications, bisphosphonates, denosumab, and romosozumab-based sequential strategies show the strongest evidence for reducing hip-fracture risk, while teriparatide and abaloparatide have important roles in very-high-risk patients despite less direct hip-fracture evidence. Menopausal hormone therapy reduces hip fractures in younger postmenopausal women but is limited by extra-skeletal risk, and selective estrogen receptor modulators are primarily vertebral-fracture agents. A major message of this review is that effective prevention depends not only on drug efficacy but also on implementation. Fracture liaison services, orthogeriatric co-management, prompt treatment after fragility fracture, and sustained adherence support are essential to close persistent care gaps. Preventing hip fractures therefore requires an integrated, risk-stratified approach that combines skeletal protection, falls prevention, and reliable health-system delivery.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "a4ca7f8522096e46dfb9fa18d0959e5109a7cbf07aa3267b7e351706fa9fefda"
+      },
+      {
+        "pmid": "cr:10.1093/rheumatology/keaf142.002",
+        "title": "OA02 Mortality and cardiovascular events in patients with severe osteoporosis treated with romosozumab followed by antiresorptive therapy: a comparative analysis with teriparatide in a single-centre study",
+        "authors": "Ravji Pollie, Orhadje Elizabeth, Bendstrup-Charlton Nikita, Berg Kathryn M",
+        "year": "2025",
+        "journal": "Rheumatology",
+        "doi": "10.1093/rheumatology/keaf142.002",
+        "url": "https://doi.org/10.1093/rheumatology/keaf142.002",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background/Aims Romosozumab is a newly licensed osteoporosis (OP) treatment for patients at high fracture risk. Concerns regarding its cardiovascular (CV) safety were raised following analysis of the pivotal ARCH trial. Current SIGN guidelines recommend anabolic treatment for postmenopausal women with severe spinal OP and vertebral fracture, favouring romosozumab over teriparatide (TPTD) when at high risk of non-vertebral fracture. We studied serious adverse events (SAE) in patients started on romosozumab followed by 1 year of antiresorptive treatment (ART) in comparison with those started on a 24-month course of teriparatide. We further wanted to assess whether baseline CV risk is associated with occurrence of SAE. Methods Retrospective single-centre analysis of patients who started a 12-month course of ROMO followed by 12 months ART or a 24-month course of TPTD between February 2021 and September 2024. CV risk was assessed with QRISK3®. Adverse events and SAE were assessed through electronic record review and through primary care contact. Results Patients who started romosozumab (n = 100) were postmenopausal women with an average (± SD) age of 72.9± 9.1 years and BMI of 23.5± 5.9 kg/m2. The baseline 10-year fracture risk was 30.9 ± 12.4 % for major osteoporotic (MOP) fractures and 10-year CV risk was 21.5 ± 12.3%. Patients started on TPTD (n = 107) were on average 5 years younger (p < 0.001), had a higher BMI 25.6 ± 5.4 (p = 0.004); a lower MOP fracture risk 22.6 ±10.1 (p < 0.001), and a lower baseline QRISK3 score 13.8 ± 10.1 (p<.001). In the romosozumab group, there were 14 deaths (14%) during the 2-year follow-up, 11 occurred while receiving romosozumab. These included 2 confirmed and 1 suspected cardiac ischaemic events and 1 CV event. A further 5 (5%) suffered a CV event, 3 cerebrovascular and 2 cardiac ischaemic events. Amongst patients on TPTD, 5 deaths occurred (4.6%) and 4 (3.7%) sustained a CV event. Causes of death included 1 cardiac ischaemic event. Although deaths were numerically greater in the romosozumab group, treatment type was not identified as an independent risk for death in a multivariable logistic regression model; instead, this identified QRISK3 as independent predictor of mortality (OR 1.05, 95% CI 1.01-1.09) when adjusting for treatment type, BMI and MOP fracture risk. Conclusion We found 9.1% of women with severe postmenopausal osteoporosis died within two years of initiating anabolic therapy and that this was associated with QRISK3 score but not treatment type. Further research is indicated to target anabolic therapy to patients most likely to experience clinical benefit. Disclosure P. Ravji: None. E. Orhadje: None. N. Bendstrup-Charlton: None. K.M. Berg: None. S.H. Ralston: Consultancies; S.R Reports financial support to his institution for consultancy work from UCB. Grants/research support; S.R. reports research grants to his institution from Kyowa Kirin, AstraZeneca; donations of investigational medicinal products from Eli Lilly and Novartis to his institution for clinical trials, S.R. reports financial support to his institution for educational events from Pfizer, Abbvie, Kyowa Kirin, Alexion, Amgen, Cellgene, Bristol Myers Squibb, Janssen-Cilag, Novartis, Eli Lilly, Thornton & Ross, AstraZeneca, Sanofi Genzyme, Sandoz, and Roche. B. Hauser: Consultancies; B.H. reports consultancy fees from UCB. Grants/research support; B.H. reports research grants to her institution from Novartis.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "afb42d8c9796eb2d7a554ed5d05a4fedeb3ef8bfcb362d962ba49fca3ea77cad"
+      },
+      {
+        "pmid": "34547521",
+        "title": "Romosozumab reduces incidence of new vertebral fractures across severity grades among postmenopausal women with osteoporosis",
+        "authors": "Piet Geusens, Robert Feldman, Mary K. Oates, Thierry Thomas",
+        "year": "2021",
+        "journal": "Bone",
+        "doi": "10.1016/j.bone.2021.116209",
+        "url": "https://doi.org/10.1016/j.bone.2021.116209",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Vertebral fractures (VFs) are the most common type of osteoporotic fracture, and their prevalence and severity are key risk factors for future fragility fractures. Here, we assess the treatment effect of romosozumab on the incidence of new on-study VFs according to Genant severity grades (mild, moderate, and severe). Data are reported from two phase 3 clinical studies for patients who received romosozumab versus placebo through 12 months, followed by denosumab through 24 months (FRAME: NCT01575834), and for patients who received romosozumab through 12 months, followed by alendronate through 24 months, versus alendronate only through 24 months (ARCH: NCT01631214). The treatment effect of romosozumab is reported for all included patients, and for patients with prevalent and severe baseline VFs. The incidence",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "fa9581c3b33b4d0801c2480e520f1e66c3fdb370d963ec0aa9892bf700545efd"
+      },
+      {
+        "pmid": "42417976",
+        "title": "Romosozumab in severe postmenopausal osteoporosis-real-world data from 192 women.",
+        "authors": "Dehne N, von Brackel FN, Günzl C, Barvencik F, Oheim R.",
+        "year": "2026",
+        "journal": "Osteoporosis international : a journal established as result of cooperation between the European Foundation for Osteoporosis and the National Osteoporosis Foundation of the USA",
+        "doi": "10.1007/s00198-026-08127-x",
+        "url": "https://europepmc.org/article/PMC/PMC13710655",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Romosozumab, used to treat severe osteoporosis, still lacks real-world treatment data. We observed significant gains in spinal and hip bone mineral density, as well as improvements in trabecular microarchitecture. These real-world observations corroborate controlled trials and provide new insights into sequential therapy effects and the management of severe osteoporosis. Purpose Osteoporosis is a common disease that leads to fractures causing immobility and pain. Pharmacological therapy plays a pivotal role in osteoporosis management with a growing number of approved drugs. Romosozumab, an anti-sclerostin antibody, is approved in several countries for the treatment of severe osteoporosis in postmenopausal women. Clinical trials have demonstrated significant gain of areal bone mineral density (aBMD) in these patients over 12 months of treatment; however, real-world data is still limited. Methods From 2020 to 2024, 192 postmenopausal women with severe osteoporosis treated with romosozumab were identified at our institution. Clinical data from a 24-month observation period were analyzed, comprising aBMD by dual-energy X-ray absorptiometry (DXA), bone microstructure by high-resolution peripheral quantitative computed tomography (HR-pQCT), and biochemical bone turnover markers. Results Patients treated with romosozumab showed significant gains in spinal (L1-L4) and hip aBMD (lumbar spine: 14.47 ± 8.74%, p Conclusion Our real-world data corroborate the results from controlled studies and provide new insights into microstructural changes as well as biochemical treatment monitoring. To fully evaluate sequential therapy, larger studies and longer observation times are needed in the future.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9bcb258cc1bb508ec3785fdc7dfe078eb8ef928dd66a493a31c2324cbccb8d63"
+      },
+      {
+        "pmid": "37406858",
+        "title": "Romosozumab Efficacy in Postmenopausal Women With No Prior Fracture Who Fulfill Criteria for Very High Fracture Risk",
+        "authors": "Michael R. McClung, Donald Betah, Cynthia Deignan, Yifei Shi",
+        "year": "2023",
+        "journal": "Endocrine Practice",
+        "doi": "10.1016/j.eprac.2023.06.011",
+        "url": "https://doi.org/10.1016/j.eprac.2023.06.011",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: We evaluated the efficacy of romosozumab in women from FRAME who had no prior fracture but met other criteria for very high fracture risk (VHFR). METHODS: In FRAME, postmenopausal women received romosozumab or placebo for 12 months (year 1) followed by denosumab for 12 months (year 2). In this post hoc analysis, we applied the following criteria from the American Association of Clinical Endocrinology to define VHFR: lumbar spine or total hip T-score <-3.0 and/or Fracture Risk Assessment Tool probability of major osteoporotic fracture >30% or hip fracture >4.5% to women with no fracture history at baseline (no fracture-VHFR [NF-VHFR]). Incidence of new vertebral, clinical, and nonvertebral fractures and mean bone mineral density (BMD) percentage change from baseline were",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d59871cdf76ae506986241a639c6d9ab9390a9c461437eaf7d506a528e83e7c4"
+      },
+      {
+        "pmid": "33409591",
+        "title": "Cost-effectiveness of romosozumab for the treatment of postmenopausal women with severe osteoporosis at high risk of fracture in Sweden",
+        "authors": "Emma Söreskog, Ingrid Lindberg, John А. Kanis, Kristina Åkesson",
+        "year": "2021",
+        "journal": "Osteoporosis International",
+        "doi": "10.1007/s00198-020-05780-8",
+        "url": "https://doi.org/10.1007/s00198-020-05780-8",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Romosozumab is a novel bone-building drug that reduces fracture risk. This health economic analysis indicates that sequential romosozumab-to-alendronate can be a cost-effective treatment option for postmenopausal women with severe osteoporosis at high risk of fracture. PURPOSE: To estimate the cost-effectiveness of sequential treatment with romosozumab followed by alendronate (\"romosozumab-to-alendronate\") compared with alendronate alone in patients with severe osteoporosis at high risk of fracture in Sweden. METHODS: A microsimulation model with a Markov structure was used to simulate fractures, costs, and quality-adjusted life years (QALYs), for women treated with romosozumab-to-alendronate or alendronate alone. Patients aged 74 years with a recent major osteoporotic fracture (MOF) were followed from the start of treatment until the age of 100 years or death. Treatment with",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e1618a3df441df0723d1507277e9a9773f898b37ba0d28f7df40674277a28fa3"
+      },
+      {
+        "pmid": "cr:10.7326/acpjc-2018-168-2-003",
+        "title": "In postmenopausal women with osteoporosis, romosozumab followed by alendronate reduced fractures vs alendronate alone",
+        "authors": "Hirsch Calvin",
+        "year": "2018",
+        "journal": "Annals of Internal Medicine",
+        "doi": "10.7326/acpjc-2018-168-2-003",
+        "url": "https://doi.org/10.7326/acpjc-2018-168-2-003",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 61,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bdae98fbce231c119d13712e607fa7691f51d5475d1fe5c97a473eaa811adc03"
+      },
+      {
+        "pmid": "41327832",
+        "title": "Romosozumab and Denosumab Combination Therapy After Denosumab in Postmenopausal Osteoporosis",
+        "authors": "Giovanni Adami, Francesco Pollastri, Angelo Fassio, Filippo Montanari",
+        "year": "2026",
+        "journal": "Arthritis & Rheumatology",
+        "doi": "10.1002/art.70002",
+        "url": "https://doi.org/10.1002/art.70002",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: Transition from long-term denosumab (Dmab) to parathyroid hormone-analogs or romosozumab (Romo) might expose patients to the risk of the so-called rebound phenomenon. Adding Romo to Dmab might represent an option in patients experiencing a fracture while on Dmab. The aim of this study was to investigate the effects of the combination of Romo to Dmab in postmenopausal osteoporosis. METHODS: We did a 36-month combined retrospective and prospective study analyzed with prospective score matching. Postmenopausal women were divided into two groups: patients on Dmab who added Romo to Dmab (Dmab from baseline [M-24] to Romo initiation [M0] ➔ Dmab + Romo from M0 to M+12), and matched controls on Dmab continuing Dmab (Dmab from M-24 to M0 ➔ Dmab from",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prospective Study",
+        "lowMetadata": false,
+        "_sig": "d99e5a8b1069d93bc51dc83001477dcdd42d055093d71ccfc035faab626c1907"
+      },
+      {
+        "pmid": "cr:10.1177/11795514261509739",
+        "title": "Response to Letter to the Editor: Methodological Considerations Regarding Romosozumab Efficacy in Osteoporosis: Influence of Diabetes and Prior Antiresorptive Therapy",
+        "authors": "Almazrouei Raya",
+        "year": "2026",
+        "journal": "Clinical Medicine Insights: Endocrinology and Diabetes",
+        "doi": "10.1177/11795514261509739",
+        "url": "https://doi.org/10.1177/11795514261509739",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Editorial",
+        "lowMetadata": false,
+        "_sig": "751d242b585d0fb2e510aaa79891380e40fab6fa712719e8e3f3ab007671f979"
+      },
+      {
+        "pmid": "31233639",
+        "title": "Bone-Forming and Antiresorptive Effects of Romosozumab in Postmenopausal Women With Osteoporosis: Bone Histomorphometry and Microcomputed Tomography Analysis After 2 and 12 Months of Treatment",
+        "authors": "Pascale Chavassieux, Roland D Chapurlat, Nathalie Portero-Muzy, Jean-Paul Roux",
+        "year": "2019",
+        "journal": "Journal of Bone and Mineral Research",
+        "doi": "10.1002/jbmr.3735",
+        "url": "https://doi.org/10.1002/jbmr.3735",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Sclerostin, a protein produced by osteocytes, inhibits bone formation. Administration of sclerostin antibody results in increased bone formation in multiple animal models. Romosozumab, a humanized sclerostin antibody, has a dual effect on bone, transiently increasing serum biochemical markers of bone formation and decreasing serum markers of bone resorption, leading to increased BMD and reduction in fracture risk in humans. We aimed to evaluate the effects of romosozumab on bone tissue. In a subset of 107 postmenopausal women with osteoporosis in the multicenter, international, randomized, double-blind, placebo-controlled Fracture Study in Postmenopausal Women with Osteoporosis (FRAME), transiliac bone biopsies were performed either after 2 (n = 34) or 12 (n = 73) months of treatment with 210 mg once monthly of romosozumab",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9e4e040490229cb1c049a7fdbc5856d203bcd59a3a0ed5d2a0f0dcb655b8a2ea"
+      },
+      {
+        "pmid": "cr:10.1136/annrheumdis-2023-eular.3684",
+        "title": "POS0390 PRIOR ANTIRESORPTIVE TREATMENT REDUCES LUMBAR SPINE BMD RESPONSE TO ROMOSOZUMAB IN CAUCASIAN POSTMENOPAUSAL WOMEN WITH SEVERE OSTEOPOROSIS",
+        "authors": "Ravji P., Mcrorie M., Berg K., Ralston S.",
+        "year": "2023",
+        "journal": "Annals of the Rheumatic Diseases",
+        "doi": "10.1136/annrheumdis-2023-eular.3684",
+        "url": "https://doi.org/10.1136/annrheumdis-2023-eular.3684",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "3b4cb11642bebd1146f6765fe94340961c1689df042c6cf32fc998d7ed935337"
+      },
+      {
+        "pmid": "cr:10.1016/s8756-3282(00)00301-x",
+        "title": "How does antiresorptive therapy decrease the risk of fracture in women with osteoporosis?",
+        "authors": "Delmas P.D",
+        "year": "2000",
+        "journal": "Bone",
+        "doi": "10.1016/s8756-3282(00)00301-x",
+        "url": "https://doi.org/10.1016/s8756-3282(00)00301-x",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "887b1736be7856892b4d05f788569658e6f7ef8ae1e2489fd23a2831db17fc04"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 17,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "postmenopausal women with severe osteoporosis and prior fracture romosozumab followed by antiresorptive therapy alendronate alone new clinical vertebral and non-vertebral fractures",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": false
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "id": "PRESET-cardiology-hfref-sglt2",
+  "recordedAt": "2026-11-26T19:41:27.366Z",
+  "specialty": "cardiology",
+  "words": [
+    {
+      "word": "heart failure with reduced ejection fraction, NYHA class II-IV",
+      "role": "population"
+    },
+    {
+      "word": "SGLT2 inhibitors",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "cardiovascular death or heart failure hospitalization",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "heart failure with reduced ejection fraction, NYHA class II-IV",
+        "role": "population"
+      },
+      {
+        "word": "SGLT2 inhibitors",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "cardiovascular death or heart failure hospitalization",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In heart failure with reduced ejection fraction, NYHA class II-IV (P), does SGLT2 inhibitors (I) compared with placebo (C) reduce cardiovascular death or heart failure hospitalization (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (7 favourable, 3 no-difference, 0 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In heart failure with reduced ejection fraction, NYHA class II-IV (P), is SGLT2 inhibitors (I) superior to placebo (C) for cardiovascular death or heart failure hospitalization (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of heart failure with reduced ejection fraction, NYHA class II-IV (P), does SGLT2 inhibitors (I) compared with placebo (C) reduce cardiovascular death or heart failure hospitalization (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 6
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In heart failure with reduced ejection fraction, NYHA class II-IV (P), is SGLT2 inhibitors (I) superior to placebo (C) for cardiovascular death or heart failure hospitalization (O)?"
+    },
+    "words": [
+      {
+        "word": "heart failure with reduced ejection fraction, NYHA class II-IV",
+        "role": "population"
+      },
+      {
+        "word": "SGLT2 inhibitors",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "cardiovascular death or heart failure hospitalization",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "40884036",
+        "title": "Dapagliflozin in Patients Hospitalized for Heart Failure: Primary Results of the DAPA ACT HF-TIMI 68 Randomized Clinical Trial and Meta-Analysis of Sodium-Glucose Cotransporter-2 Inhibitors in Patients Hospitalized for Heart Failure",
+        "authors": "Berg DD, et al",
+        "year": "2025",
+        "journal": "Circulation",
+        "doi": "10.1161/CIRCULATIONAHA.125.076575",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40884036/",
+        "context": "BACKGROUND: SGLT2 (sodium-glucose cotransporter-2) inhibitors reduce the risk of cardiovascular death or worsening heart failure (HF) in outpatients with HF. Data on initiation in patients hospitalized for HF are limited. METHODS: We conducted a randomized, double-blind, placebo-controlled trial evaluating the efficacy and safety of in-hospital initiation of dapagliflozin (10 mg daily) in patients hospitalized for HF. The primary efficacy outcome was a composite of time to cardiovascular death or worsening HF through 2 months. Key safety outcomes included symptomatic hypotension and worsening kidney function. A prespecified meta-analysis of randomized trials evaluating initiation of SGLT2 inhibitors in patients hospitalized for HF was performed. RESULTS: Of 2401 patients (median age, 69 [Q1-Q3, 58-77] years, 815 [33.9%] women, 448 [18.7%] Black race, 1717 [71.5%] left ventricular ejection fraction ≤40%, 1074 [44.7%] newly diagnosed HF) randomized between September 2020 and March 2025, 1218 were assigned to dapagliflozin and 1183 to placebo. The primary outcome occurred in 133 patients (10.9%) in the dapagliflozin group and 150 (12.7%) in the placebo group (hazard ratio [HR], 0.86 [95% CI, 0.68-1.08]; P =0.20). A worsening HF event occurred in 115 (9.4%) and 122 (10.3%) patients in the dapagliflozin and placebo groups, respectively (HR, 0.91 [95% CI, 0.71-1.18]). Cardiovascular death occurred in 30 (2.5%) and 37 (3.1%) patients (HR, 0.78 [95% CI, 0.48-1.27]), and death from any cause occurred in 36 (3.0%) and 53 (4.5%) patients in the dapagliflozin and placebo groups, respectively (HR, 0.66 [95% CI, 0.43-1.00]). The rates of symptomatic hypotension were 3.6% and 2.2%, and the rates of worsening kidney function were 5.9% and 4.7% with dapagliflozin and placebo, respectively. In a meta-analysis of patients hospitalized for HF, SGLT2 inhibitors reduced the early risk of cardiovascular death or worsening HF (HR, 0.71 [95% CI, 0.54-0.93] P =0.012) and of all-cause death (HR, 0.57 [95% CI, 0.41-0.80]; P =0.001). CONCLUSIONS: In this trial, in-hospital initiation of dapagliflozin did not significantly reduce the risk of cardiovascular death or worsening HF through 2 months in hospitalized HF patients. However, the totality of randomized clinical trial data suggests that in-hospital initiation of SGLT2 inhibitors may reduce the early risk of cardiovascular death or worsening HF and of all-cause mortality. REGISTRATION: URL: https://www.clinicaltrials.gov; Unique identifier: NCT04363697.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "320ec4e281fd1d2bd1b51858cb46bb38faa9893753bc82d28b570115146e06ea"
+      },
+      {
+        "pmid": "38587237",
+        "title": "Empagliflozin after Acute Myocardial Infarction",
+        "authors": "Butler J, et al",
+        "year": "2024",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2314051",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38587237/",
+        "context": "BACKGROUND: Empagliflozin improves cardiovascular outcomes in patients with heart failure, patients with type 2 diabetes who are at high cardiovascular risk, and patients with chronic kidney disease. The safety and efficacy of empagliflozin in patients who have had acute myocardial infarction are unknown. METHODS: In this event-driven, double-blind, randomized, placebo-controlled trial, we assigned, in a 1:1 ratio, patients who had been hospitalized for acute myocardial infarction and were at risk for heart failure to receive empagliflozin at a dose of 10 mg daily or placebo in addition to standard care within 14 days after admission. The primary end point was a composite of hospitalization for heart failure or death from any cause as assessed in a time-to-first-event analysis. RESULTS: A total of 3260 patients were assigned to receive empagliflozin and 3262 to receive placebo. During a median follow-up of 17.9 months, a first hospitalization for heart failure or death from any cause occurred in 267 patients (8.2%) in the empagliflozin group and in 298 patients (9.1%) in the placebo group, with incidence rates of 5.9 and 6.6 events, respectively, per 100 patient-years (hazard ratio, 0.90; 95% confidence interval [CI], 0.76 to 1.06; P = 0.21). With respect to the individual components of the primary end point, a first hospitalization for heart failure occurred in 118 patients (3.6%) in the empagliflozin group and in 153 patients (4.7%) in the placebo group (hazard ratio, 0.77; 95% CI, 0.60 to 0.98), and death from any cause occurred in 169 (5.2%) and 178 (5.5%), respectively (hazard ratio, 0.96; 95% CI, 0.78 to 1.19). Adverse events were consistent with the known safety profile of empagliflozin and were similar in the two trial groups. CONCLUSIONS: Among patients at increased risk for heart failure after acute myocardial infarction, treatment with empagliflozin did not lead to a significantly lower risk of a first hospitalization for heart failure or death from any cause than placebo. (Funded by Boehringer Ingelheim and Eli Lilly; EMPACT-MI ClinicalTrials.gov number, NCT04509674.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Multicenter Study"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "96cbb7b5bb4a7e34469649b01d7d30a785279db9d7b946796644962ce307f4d6"
+      },
+      {
+        "pmid": "35228754",
+        "title": "The SGLT2 inhibitor empagliflozin in patients hospitalized for acute heart failure: a multinational randomized trial",
+        "authors": "Voors AA, et al",
+        "year": "2022",
+        "journal": "Nature medicine",
+        "doi": "10.1038/s41591-021-01659-1",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35228754/",
+        "context": "The sodium-glucose cotransporter 2 inhibitor empagliflozin reduces the risk of cardiovascular death or heart failure hospitalization in patients with chronic heart failure, but whether empagliflozin also improves clinical outcomes when initiated in patients who are hospitalized for acute heart failure is unknown. In this double-blind trial (EMPULSE; NCT04157751 ), 530 patients with a primary diagnosis of acute de novo or decompensated chronic heart failure regardless of left ventricular ejection fraction were randomly assigned to receive empagliflozin 10 mg once daily or placebo. Patients were randomized in-hospital when clinically stable (median time from hospital admission to randomization, 3 days) and were treated for up to 90 days. The primary outcome of the trial was clinical benefit, defined as a hierarchical composite of death from any cause, number of heart failure events and time to first heart failure event, or a 5 point or greater difference in change from baseline in the Kansas City Cardiomyopathy Questionnaire Total Symptom Score at 90 days, as assessed using a win ratio. More patients treated with empagliflozin had clinical benefit compared with placebo (stratified win ratio, 1.36; 95% confidence interval, 1.09-1.68; P = 0.0054), meeting the primary endpoint. Clinical benefit was observed for both acute de novo and decompensated chronic heart failure and was observed regardless of ejection fraction or the presence or absence of diabetes. Empagliflozin was well tolerated; serious adverse events were reported in 32.3% and 43.6% of the empagliflozin- and placebo-treated patients, respectively. These findings indicate that initiation of empagliflozin in patients hospitalized for acute heart failure is well tolerated and results in significant clinical benefit in the 90 days after starting treatment.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "38c7785214da68cceff45b8a19d56638140f1b871971d1765965f3757a6cf483"
+      },
+      {
+        "pmid": "34449189",
+        "title": "Empagliflozin in Heart Failure with a Preserved Ejection Fraction",
+        "authors": "Anker SD, et al",
+        "year": "2021",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2107038",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34449189/",
+        "context": "BACKGROUND: Sodium-glucose cotransporter 2 inhibitors reduce the risk of hospitalization for heart failure in patients with heart failure and a reduced ejection fraction, but their effects in patients with heart failure and a preserved ejection fraction are uncertain. METHODS: In this double-blind trial, we randomly assigned 5988 patients with class II-IV heart failure and an ejection fraction of more than 40% to receive empagliflozin (10 mg once daily) or placebo, in addition to usual therapy. The primary outcome was a composite of cardiovascular death or hospitalization for heart failure. RESULTS: Over a median of 26.2 months, a primary outcome event occurred in 415 of 2997 patients (13.8%) in the empagliflozin group and in 511 of 2991 patients (17.1%) in the placebo group (hazard ratio, 0.79; 95% confidence interval [CI], 0.69 to 0.90; P<0.001). This effect was mainly related to a lower risk of hospitalization for heart failure in the empagliflozin group. The effects of empagliflozin appeared consistent in patients with or without diabetes. The total number of hospitalizations for heart failure was lower in the empagliflozin group than in the placebo group (407 with empagliflozin and 541 with placebo; hazard ratio, 0.73; 95% CI, 0.61 to 0.88; P<0.001). Uncomplicated genital and urinary tract infections and hypotension were reported more frequently with empagliflozin. CONCLUSIONS: Empagliflozin reduced the combined risk of cardiovascular death or hospitalization for heart failure in patients with heart failure and a preserved ejection fraction, regardless of the presence or absence of diabetes. (Funded by Boehringer Ingelheim and Eli Lilly; EMPEROR-Preserved ClinicalTrials.gov number, NCT03057951).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "455f88ba8d5111e75ac6fe552fbe7f7d8c5aea41d9b30a915c71ea251d8355b8"
+      },
+      {
+        "pmid": "32865377",
+        "title": "Cardiovascular and Renal Outcomes with Empagliflozin in Heart Failure",
+        "authors": "Packer M, et al",
+        "year": "2020",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2022190",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32865377/",
+        "context": "BACKGROUND: Sodium-glucose cotransporter 2 (SGLT2) inhibitors reduce the risk of hospitalization for heart failure in patients regardless of the presence or absence of diabetes. More evidence is needed regarding the effects of these drugs in patients across the broad spectrum of heart failure, including those with a markedly reduced ejection fraction. METHODS: In this double-blind trial, we randomly assigned 3730 patients with class II, III, or IV heart failure and an ejection fraction of 40% or less to receive empagliflozin (10 mg once daily) or placebo, in addition to recommended therapy. The primary outcome was a composite of cardiovascular death or hospitalization for worsening heart failure. RESULTS: During a median of 16 months, a primary outcome event occurred in 361 of 1863 patients (19.4%) in the empagliflozin group and in 462 of 1867 patients (24.7%) in the placebo group (hazard ratio for cardiovascular death or hospitalization for heart failure, 0.75; 95% confidence interval [CI], 0.65 to 0.86; P<0.001). The effect of empagliflozin on the primary outcome was consistent in patients regardless of the presence or absence of diabetes. The total number of hospitalizations for heart failure was lower in the empagliflozin group than in the placebo group (hazard ratio, 0.70; 95% CI, 0.58 to 0.85; P<0.001). The annual rate of decline in the estimated glomerular filtration rate was slower in the empagliflozin group than in the placebo group (-0.55 vs. -2.28 ml per minute per 1.73 m 2 of body-surface area per year, P<0.001), and empagliflozin-treated patients had a lower risk of serious renal outcomes. Uncomplicated genital tract infection was reported more frequently with empagliflozin. CONCLUSIONS: Among patients receiving recommended therapy for heart failure, those in the empagliflozin group had a lower risk of cardiovascular death or hospitalization for heart failure than those in the placebo group, regardless of the presence or absence of diabetes. (Funded by Boehringer Ingelheim and Eli Lilly; EMPEROR-Reduced ClinicalTrials.gov number, NCT03057977.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "9147afccd511054ba9866909e9ffd6484fb2ff0dbe7b5bcaceb5e77848874a49"
+      },
+      {
+        "pmid": "33081531",
+        "title": "Effect of Empagliflozin on the Clinical Stability of Patients With Heart Failure and a Reduced Ejection Fraction",
+        "authors": "Milton Packer, Stefan D. Anker, Javed Butler, Gerasimos S Filippatos",
+        "year": "2020",
+        "journal": "Circulation",
+        "doi": "10.1161/circulationaha.120.051783",
+        "url": "https://doi.org/10.1161/circulationaha.120.051783",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Empagliflozin reduces the risk of cardiovascular death or hospitalization for heart failure in patients with heart failure and a reduced ejection fraction, with or without diabetes, but additional data are needed about the effect of the drug on inpatient and outpatient events that reflect worsening heart failure. METHODS: We randomly assigned 3730 patients with class II to IV heart failure with an ejection fraction of ≤40% to double-blind treatment with placebo or empagliflozin (10 mg once daily), in addition to recommended treatments for heart failure, for a median of 16 months. We prospectively collected information on inpatient and outpatient events reflecting worsening heart failure and prespecified their analysis in individual and composite end points. RESULTS: Empagliflozin reduced the combined",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "bad50ba5a8acff512e744330e14dd100a7673361577ec8ff59903b5eedbbcfef"
+      },
+      {
+        "pmid": "30415602",
+        "title": "Dapagliflozin and Cardiovascular Outcomes in Type 2 Diabetes",
+        "authors": "Wiviott SD, et al",
+        "year": "2019",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1812389",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30415602/",
+        "context": "BACKGROUND: The cardiovascular safety profile of dapagliflozin, a selective inhibitor of sodium-glucose cotransporter 2 that promotes glucosuria in patients with type 2 diabetes, is undefined. METHODS: We randomly assigned patients with type 2 diabetes who had or were at risk for atherosclerotic cardiovascular disease to receive either dapagliflozin or placebo. The primary safety outcome was a composite of major adverse cardiovascular events (MACE), defined as cardiovascular death, myocardial infarction, or ischemic stroke. The primary efficacy outcomes were MACE and a composite of cardiovascular death or hospitalization for heart failure. Secondary efficacy outcomes were a renal composite (≥40% decrease in estimated glomerular filtration rate to <60 ml per minute per 1.73 m 2 of body-surface area, new end-stage renal disease, or death from renal or cardiovascular causes) and death from any cause. RESULTS: We evaluated 17,160 patients, including 10,186 without atherosclerotic cardiovascular disease, who were followed for a median of 4.2 years. In the primary safety outcome analysis, dapagliflozin met the prespecified criterion for noninferiority to placebo with respect to MACE (upper boundary of the 95% confidence interval [CI], <1.3; P<0.001 for noninferiority). In the two primary efficacy analyses, dapagliflozin did not result in a lower rate of MACE (8.8% in the dapagliflozin group and 9.4% in the placebo group; hazard ratio, 0.93; 95% CI, 0.84 to 1.03; P=0.17) but did result in a lower rate of cardiovascular death or hospitalization for heart failure (4.9% vs. 5.8%; hazard ratio, 0.83; 95% CI, 0.73 to 0.95; P=0.005), which reflected a lower rate of hospitalization for heart failure (hazard ratio, 0.73; 95% CI, 0.61 to 0.88); there was no between-group difference in cardiovascular death (hazard ratio, 0.98; 95% CI, 0.82 to 1.17). A renal event occurred in 4.3% in the dapagliflozin group and in 5.6% in the placebo group (hazard ratio, 0.76; 95% CI, 0.67 to 0.87), and death from any cause occurred in 6.2% and 6.6%, respectively (hazard ratio, 0.93; 95% CI, 0.82 to 1.04). Diabetic ketoacidosis was more common with dapagliflozin than with placebo (0.3% vs. 0.1%, P=0.02), as was the rate of genital infections that led to discontinuation of the regimen or that were considered to be serious adverse events (0.9% vs. 0.1%, P<0.001). CONCLUSIONS: In patients with type 2 diabetes who had or were at risk for atherosclerotic cardiovascular disease, treatment with dapagliflozin did not result in a higher or lower rate of MACE than placebo but did result in a lower rate of cardiovascular death or hospitalization for heart failure, a finding that reflects a lower rate of hospitalization for heart failure. (Funded by AstraZeneca; DECLARE-TIMI 58 ClinicalTrials.gov number, NCT01730534 .).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "523d4fab15313e1679466fff277a08a1943b41b651c3d0396d898e7169b8dccb"
+      },
+      {
+        "pmid": "31535829",
+        "title": "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction",
+        "authors": "McMurray JJV, et al",
+        "year": "2019",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1911303",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31535829/",
+        "context": "BACKGROUND: In patients with type 2 diabetes, inhibitors of sodium-glucose cotransporter 2 (SGLT2) reduce the risk of a first hospitalization for heart failure, possibly through glucose-independent mechanisms. More data are needed regarding the effects of SGLT2 inhibitors in patients with established heart failure and a reduced ejection fraction, regardless of the presence or absence of type 2 diabetes. METHODS: In this phase 3, placebo-controlled trial, we randomly assigned 4744 patients with New York Heart Association class II, III, or IV heart failure and an ejection fraction of 40% or less to receive either dapagliflozin (at a dose of 10 mg once daily) or placebo, in addition to recommended therapy. The primary outcome was a composite of worsening heart failure (hospitalization or an urgent visit resulting in intravenous therapy for heart failure) or cardiovascular death. RESULTS: Over a median of 18.2 months, the primary outcome occurred in 386 of 2373 patients (16.3%) in the dapagliflozin group and in 502 of 2371 patients (21.2%) in the placebo group (hazard ratio, 0.74; 95% confidence interval [CI], 0.65 to 0.85; P<0.001). A first worsening heart failure event occurred in 237 patients (10.0%) in the dapagliflozin group and in 326 patients (13.7%) in the placebo group (hazard ratio, 0.70; 95% CI, 0.59 to 0.83). Death from cardiovascular causes occurred in 227 patients (9.6%) in the dapagliflozin group and in 273 patients (11.5%) in the placebo group (hazard ratio, 0.82; 95% CI, 0.69 to 0.98); 276 patients (11.6%) and 329 patients (13.9%), respectively, died from any cause (hazard ratio, 0.83; 95% CI, 0.71 to 0.97). Findings in patients with diabetes were similar to those in patients without diabetes. The frequency of adverse events related to volume depletion, renal dysfunction, and hypoglycemia did not differ between treatment groups. CONCLUSIONS: Among patients with heart failure and a reduced ejection fraction, the risk of worsening heart failure or death from cardiovascular causes was lower among those who received dapagliflozin than among those who received placebo, regardless of the presence or absence of diabetes. (Funded by AstraZeneca; DAPA-HF ClinicalTrials.gov number, NCT03036124.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8410e169dc0836d1a191b2d0cb8e7c1a151555d4d2e1a7ab51c30aa95b21a71a"
+      },
+      {
+        "pmid": "29526832",
+        "title": "Canagliflozin and Heart Failure in Type 2 Diabetes Mellitus: Results From the CANVAS Program",
+        "authors": "Rådholm K, et al",
+        "year": "2018",
+        "journal": "Circulation",
+        "doi": "10.1161/CIRCULATIONAHA.118.034222",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29526832/",
+        "context": "BACKGROUND: Canagliflozin is a sodium glucose cotransporter 2 inhibitor that reduces the risk of cardiovascular events. We report the effects on heart failure (HF) and cardiovascular death overall, in those with and without a baseline history of HF, and in other participant subgroups. METHODS: The CANVAS Program (Canagliflozin Cardiovascular Assessment Study) enrolled 10 142 participants with type 2 diabetes mellitus and high cardiovascular risk. Participants were randomly assigned to canagliflozin or placebo and followed for a mean of 188 weeks. The primary end point for these analyses was adjudicated cardiovascular death or hospitalized HF. RESULTS: Participants with a history of HF at baseline (14.4%) were more frequently women, white, and hypertensive and had a history of prior cardiovascular disease (all P<0.001). Greater proportions of these patients were using therapies such as blockers of the renin angiotensin aldosterone system, diuretics, and β-blockers at baseline (all P<0.001). Overall, cardiovascular death or hospitalized HF was reduced in those treated with canagliflozin compared with placebo (16.3 versus 20.8 per 1000 patient-years; hazard ratio [HR], 0.78; 95% confidence interval [CI], 0.67-0.91), as was fatal or hospitalized HF (HR, 0.70; 95% CI, 0.55-0.89) and hospitalized HF alone (HR, 0.67; 95% CI, 0.52-0.87). The benefit on cardiovascular death or hospitalized HF may be greater in patients with a prior history of HF (HR, 0.61; 95% CI, 0.46-0.80) compared with those without HF at baseline (HR, 0.87; 95% CI, 0.72-1.06; P interaction =0.021). The effects of canagliflozin compared with placebo on other cardiovascular outcomes and key safety outcomes were similar in participants with and without HF at baseline (all interaction P values >0.130), except for a possibly reduced absolute rate of events attributable to osmotic diuresis among those with a prior history of HF ( P=0.03). CONCLUSIONS: In patients with type 2 diabetes mellitus and an elevated risk of cardiovascular disease, canagliflozin reduced the risk of cardiovascular death or hospitalized HF across a broad range of different patient subgroups. Benefits may be greater in those with a history of HF at baseline. CLINICAL TRIAL REGISTRATION: URL: https://www.clinicaltrials.gov . Unique identifiers: NCT01032629 and NCT01989754.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f79928e310ccff6cf6f70cd622d203fe2c03e3b15d591272e4d1e53c3421d3a7"
+      },
+      {
+        "pmid": "cr:10.1093/eurheartj/ehag785.1318",
+        "title": "Outcomes of sacubitril/valsartan plus SGLT2 inhibitors versus SGLT2 inhibitors in heart failure with reduced ejection fraction: a propensity-matched real-world analysis",
+        "authors": "Ghaleb A, Alameen O, Abdelmaksoud A, Rahhal A",
+        "year": "2026",
+        "journal": "European Heart Journal",
+        "doi": "10.1093/eurheartj/ehag785.1318",
+        "url": "https://doi.org/10.1093/eurheartj/ehag785.1318",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background In heart failure with reduced ejection fraction (HFrEF), both angiotensin receptor–neprilysin inhibitors (ARNI) and sodium–glucose cotransporter-2 inhibitors (SGLT2i) improve cardiovascular outcomes. The PARADIGM-HF trial establishing the benefit of sacubitril/valsartan (ENTRESTO) in HFrEF preceded SGLT2i foundational therapy. Consequently, contemporary real-world data evaluating the incremental benefit of combining ENTRESTO with SGLT2i versus SGLT2i alone remain limited. Purpose To compare 1-year clinical outcomes between HFrEF patients treated with ENTRESTO plus SGLT2i versus SGLT2i alone. Methods We conducted a retrospective cohort study using the TriNetX US Collaborative Network (64 healthcare organizations). Adults (≥18 years) with HFrEF receiving ENTRESTO plus SGLT2i or SGLT2i alone were identified. Patients with end-stage renal disease, eGFR ≤20 mL/min/1.73m², pregnancy, heart transplantation, and type 1 diabetes were excluded. Outcomes evaluated were 1-year all-cause mortality, major adverse cardiovascular events (MACE), acute kidney injury (AKI), and ventricular arrhythmias. A propensity score–matched model (1:1) was used to adjust for baseline characteristics between the study groups. Cox proportional hazard regression analysis was used to evaluate the outcomes. P-value <0.05 indicated statistical significance. Results Before matching, 8,824 patients received combination therapy and 12,565 received SGLT2i alone. After matching (n=13,724) were included (i.e. 6,862 patients per group). The study population had a mean age was 66 years, 27% were female, 76% White, 48% had diabetes, and 32% chronic kidney disease. Compared with SGLT2i alone, combination therapy of ENTRESTO and SGLT2i was associated with lower all-cause mortality (8.7% vs 9.8%; HR 0.81, 95% CI 0.73–0.91; p<0.001) and lower MACE (28.4% vs 30.6%; HR 0.87, 95% CI 0.82–0.92; p=0.002). However, ENTRESTO plus SGLT2i was associated with higher AKI and ventricular arrhythmias. Conclusion In this large real-world HFrEF cohort, the combined use of ENTRESTO and SGLT2i was associated with lower mortality and MACE but higher risks of AKI and ventricular arrhythmias compared with SGLT2i alone. Our findings warrant careful patient selection for guideline-directed medical therapy in HFrEF.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "c06c4a4d88d500ccdbe2f1aa756607ef4d134a33bb9470dff2b8ab70ffe73e40"
+      },
+      {
+        "pmid": "cr:10.48191/medfarm.v13i2.462",
+        "title": "a literatur review IMPACT SGLT2 INHIBITORS ( Dapagliflozin and Empagliflozin) IN HEART FAILURE WITH REDUCED EJECTION FRACTION (HFrEF): a scoping review",
+        "authors": "Umini Kholistati",
+        "year": "2025",
+        "journal": "MEDFARM: Jurnal Farmasi dan Kesehatan",
+        "doi": "10.48191/medfarm.v13i2.462",
+        "url": "https://doi.org/10.48191/medfarm.v13i2.462",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Dalam Kardiologi modern, inhibitor sodium-glucose cotransporter 2 (SGLT2) merupakan komponen penting dari algoritma penanganan gagal jantung (HF) dengan efek utama mencegah reabsorpsi glukosa dan memperlancar ekskresi urin. Tujuan penelitian ini adalah mengkaji secara sistematis randomized controlled trials (RCT) yang mengkaji efektivitas terapi inhibitor SGLT2, khususnya Dapagliflozin dan Empagliflozin pada pasien reduced fraction ejection heart failure (HFrEF). Pencarian data menggunakan kata kunci heart failure , SGLT2 inhibitors, dan reduced ejection fraction pada 3 (tiga) database jurnal antara lain Pubmed/MEDLINE, JSTOR, dan Cochrane/Wiley online library dengan batasan penelitian 2 (dua) tahun terakhir. Dari total 500 artikel, setelah dilakukan ekstraksi dan analisis data, diperoleh 13 artikel yang sesuai dengan kriteria inklusi (full text, original text, pasien HFrEF dengan inhibitor SGLT2, dan Placebo, RCT). Inhibitor SGLT2 (Dapagliflozin dan Empagliflozin) memiliki efek mengurangi kematian kardiovaskular atau memperburuk gagal jantung sehingga secara signifikan meningkatkan kualitas hidup pada pasien gagal jantung (HFrEF). Dapagliflozin mengurangi risiko kematian kardiovaskular dan memburuknya gagal jantung secara serupa pada pasien kulit hitam atau putih, seperti pada pasien dengan fibrilasi atrium (AF), meningkatkan parameter ekokardiografi, kapasitas fungsional maksimal paru-paru dan hemoglobin, dan menurunkan Asam Urat (UA), sementara Empagliflozin mampu mengurangi kematian kardiovaskular, mengurangi rawat inap gagal jantung dan mengurangi volume darah stres (SBV), menurunkan berat badan dan menurunkan laju Filtrasi Glomerulus (GFR), menurunkan Volume Sistolik Akhir Ventrikular Kiri (LVESV), Volume Diastolik Akhir Ventrikular Kiri (LVEDV) dibandingkan dengan peningkatan faktor diferensiasi pertumbuhan -15 (GDF-15) tanpa perubahan pada biomarker inflamasi hsCRP atau plasma hsTNT (penanda cedera miokard), meningkatkan eritropoesis dan menambah penggunaan zat besi dini.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Scoping Review",
+        "lowMetadata": false,
+        "_sig": "90e4e4553f6bfe027ca2e2392ddf2c9ed2ec3b9c92b628ab204a1ab662470c91"
+      },
+      {
+        "pmid": "doi:10.4081/itjm.2025.2211",
+        "title": "P15 | Heart failure with reduced ejection fraction (HFrEF) and iron deficiency",
+        "authors": "Open Access Authors",
+        "year": "2025",
+        "journal": "Italian Journal of Medicine",
+        "doi": "10.4081/itjm.2025.2211",
+        "url": "https://doi.org/10.4081/itjm.2025.2211",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Premises: Importance of iron deficiency in HFrEF. Materials and Methods: Data review regarding a population of 71 patients admitted between January and August 2023. 42 men and 29 women, average age 62 years. Admission Diagnosis: Heart failure NYHA class II-IV; HFrEF 50 (70%), dyspnea 97%, asthenia 81.6%. All on optimized therapy and with multiple comorbidities; CKD stages II-IV according to KDIGO with a mean eGFR of 35 ml/min; Underweight 15.5%, anemia 14%. Results: Admission Hb between 9 g/dL and 14.9 g/dL, average 11.2 g/dL; serum iron levels between 8 μg/dL and 190 μg/dL, with an average of 35 μg/dL. Ferritin between 18 μg/L and 650 μg/L, with a median of 149 μg/L; ferritin <100 μg/l in 28 patients (39.4%). TSAT between 2.2% and 67.6%, average of 31.8%; TSAT decreased by 20% in 50 patients with HFrEF, which is 84.5% of cases. Symptoms at admission and reassessment at discharge: Dyspnea was present in 69 out of 71 cases at admission (97%) and in 6 out of 71 at discharge (8.4%). Asthenia was present in 58 out of 71 patients at admission (81.6%) and in 8 out of 71 patients at discharge (11%). A total of 49 patients (69%) were treated with an infusion of ferric carboxymaltose (1000 mg + 500 mg IV before discharge). Subsequent hospitalizations during the observation period were 4 (5.6%). On average, at discharge, Hb was found to have increased by at least 0.8 g/dL in treated patients. Conclusions: The martial deficiency is confirmed as an essential factor to be evaluated and treated in this category of patients, regardless of the initial Hb value. The genesis is often multifactorial and plausible. Correction should be considered an additional therapeutic target beyond the use of ACE inhibitors/ARBs, ARNIs, MRAs, and SGLT2 inhibitors, as also indicated by recent guidelines.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "b928f133462df01d43444f860a896ced2ab059ae2483f3e4b684b5848d185585"
+      },
+      {
+        "pmid": "41239197",
+        "title": "SGLT2 inhibitors and left atrial function in heart failure with reduced or mildly reduced ejection fraction",
+        "authors": "Hakan Duman, Hüseyin Durak, Mustafa Çetın, Müjgan Ayşenur Şahin",
+        "year": "2025",
+        "journal": "BMC Cardiovascular Disorders",
+        "doi": "10.1186/s12872-025-05308-0",
+        "url": "https://doi.org/10.1186/s12872-025-05308-0",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Sodium-glucose cotransporter-2 (SGLT2) inhibitors reduce cardiovascular mortality and hospitalizations in heart failure (HF). However, their effects on left atrial (LA) structure and function remain unclear, particularly in patients with reduced or mildly reduced ejection fraction (EF). METHODS: This observational, cross-sectional study included 134 patients with HF and EF < 50%, divided into two groups: those receiving SGLT2 inhibitors (SGLT2+, n = 25) and those not receiving them (SGLT2-, n = 109). Echocardiographic measurements of LA volume index (LAVI), LA emptying fraction (LAEF), LA functional index (LAFI), and passive/active emptying fractions were obtained according to ASE/EACVI guidelines. Clinical, laboratory, and echocardiographic parameters were compared between groups, and correlations with LA indices were analyzed using multivariable linear regression. RESULTS: The prevalence",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "470e6251862eb75a3a1a6f4dc4bc95c8f2b2ad7584b3a8066ec9a46069fce6fe"
+      },
+      {
+        "pmid": "cr:10.21522/tijph.2013.13.01.art042",
+        "title": "The Role of SGLT2 Inhibitors in Cardiovascular Outcomes for Heart Failure Patients with Reduced Ejection Fraction",
+        "authors": "Faraaz Zaveri, Saria Naser",
+        "year": "2025",
+        "journal": "Texila International Journal of Public Health",
+        "doi": "10.21522/tijph.2013.13.01.art042",
+        "url": "https://doi.org/10.21522/tijph.2013.13.01.art042",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "This review article examines the effect of sodium-glucose cotransporter-2 (SGLT2) inhibitors on cardiovascular (CV) outcomes in patients with heart failure with reduced ejection fraction (HFrEF). The SGLT2 inhibitors, while being developed for type 2 diabetes management, are showing great promise in reducing hospitalization for heart failure and major adverse cardiovascular events: benefits shown in major trials like Dapagliflozin in patients with Heart failure and reduced Ejection fraction (DAPA-HF) and Empagliflozin outcome trial in patients with chronic Heart Failure and a Reduced Ejection fraction (EMPEROR-Reduced). The review underlines the therapeutic implications of SGLT2 inhibitors in both diabetic and nondiabetic patients with HFrEF for improving survival rates, the risk of hospitalization, and renal function preservation. These trials had an in-depth methodology and results review, after which a discussion on the clinical implications took place to decide on the wide application of SGLT2 inhibitors in managing HFrEF independent of their diabetes status.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "87763466908e52d7e2c88d7f12d64ab333cba12d7e5c98fe324ff023ecb0d613"
+      },
+      {
+        "pmid": "cr:10.1093/eurheartj/ehad655.2884",
+        "title": "Eligibility and prescribing rates of SGLT2 inhibitors for ambulatory patients with heart failure and reduced ejection fraction in a multidisciplinary heart failure management programme",
+        "authors": "Nadarajah R, Younis A, Aktaa S, Gale C P",
+        "year": "2023",
+        "journal": "European Heart Journal",
+        "doi": "10.1093/eurheartj/ehad655.2884",
+        "url": "https://doi.org/10.1093/eurheartj/ehad655.2884",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Introduction Sodium-glucose cotransporter 2 (SGLT2) inhibitors dapagliflozin or empagliflozin are recommended, in addition to optimal medical therapy (OMT), for patients with heart failure with reduced ejection fraction (HFrEF) regardless of diabetes status.(1) Both have been licensed for use in the UK NHS by NICE,(2,3) but the proportion of 'real world' heart failure (HF) patients for whom these guidelines are applicable is unknown. For those eligible, multidisciplinary HF management programmes (HF-MPs), may enable more rapid translation of guidelines into practice.(1) Purpose We aimed to identify the patients eligible to start, and those prescribed, SGLT2 inhibitors amongst patients attending a HF-MP at a tertiary centre in the UK. We also assessed for variation by age and sex. Methods In this single-centre retrospective study we selected consecutive patients who attended a heart failure clinic appointment between 01 November 2020 - 01 March 2021. We extracted information pertaining to baseline demographics, investigations, and therapies relevant to eligibility for SGLT2 inhibitors, and prescription of SGLT2 inhibitors at baseline and 2-year follow-up. Differences in SGLT2 inhibitor prescription by age and sex were analysed using the χ2 test. All tests were two-sided, and statistical significance was considered as p value <0.05. Results Over this period, 296 stable chronic HF patients attended the centre. The majority of patients had HFrEF (53%),4 and there was a broad age distribution including the very elderly (28% > 80 years) (Table 1). Patients with HFrEF were well optimised [beta blocker (86%), angiotensin-converting enzyme/ angiotensin receptor blocker (61%), sacubitril- valsartan (23%), mineralocorticoid receptor antagonist (50%)] (Table 1). Of the whole cohort, 107 (36%) patients met eligibility for SGLT2 inhibitor prescription, with 24 (8%) already receiving a SGLT2 inhibitor at the point of guideline implementation, of whom 15 (5%) had diabetes mellitus (Figure 1). At 2-year follow-up 64 eligible individuals (22%) were prescribed a SGLT2 inhibitor, meaning that prescription amongst eligible individuals had increased from 22% to 60%, with greater improvement in younger individuals (Figure 1). Age-stratified analysis revealed that at least 30% of clinic attendees in each decile were eligible for SGLT2 inhibitors, and almost half of sexagenarian attendees (47%). Though there was not a disparity in prescription of SGLT2 inhibitors for women compared to men (51% vs 64% p=0.22), those aged ≥80 years less frequently received SGLT2 inhibitors compared with younger individuals (33% vs 69%, p<0.001). Conclusions Among stable HF patients in a ‘real world’ setting, a significant proportion are eligible for SGLT2 inhibitors. Patients attending a HF-MP have benefitted from early implementation of novel guidelines, though there are age-determined gaps in SGLT2 inhibitor prescription that represent an actionable target.Table 1Figure 1",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "5caef82f454e1479334a772f822ecd9a92d8b5b13216fa92751c65be08ec8d7e"
+      },
+      {
+        "pmid": "cr:10.3389/fphar.2021.733681",
+        "title": "Cost-Effectiveness of Adding SGLT2 Inhibitors to Standard Treatment for Heart Failure With Reduced Ejection Fraction Patients in China",
+        "authors": "Jiang Yaohui, Zheng Rujie, Sang Haiqiang",
+        "year": "2021",
+        "journal": "Frontiers in Pharmacology",
+        "doi": "10.3389/fphar.2021.733681",
+        "url": "https://doi.org/10.3389/fphar.2021.733681",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective: To evaluate the economics and effectiveness of adding dapagliflozin or empagliflozin to the standard treatment for heart failure (HF) for patients with reduced ejection fraction (HFrEF) in China. Methods: A Markov model was developed to project the clinical and economic outcomes of adding dapagliflozin or empagliflozin to the standard treatment for 66-year-old patients with HFrEF. A cost-utility analysis was performed based mostly on data from the empagliflozin outcome trial in patients with chronic heart failure and a reduced ejection fraction (EMPEROR-Reduced) study and the dapagliflozin and prevention of adverse outcomes in heart failure (DAPA-HF) trial. The primary outcomes were measured via total and incremental costs and quality-adjusted life years (QALYs) and the incremental cost-effectiveness ratio (ICER). Results: In China, compared to the standard treatment, although adding dapagliflozin to the standard treatment in the treatment of HFrEF was more expensive ($4,870.68 vs. $3,596.25), it was more cost-effective (3.87 QALYs vs. 3.64 QALYs), resulting in an ICER of $5,541.00 per QALY. Similarly, adding empagliflozin was more expensive ($5,021.93 vs. $4,118.86) but more cost-effective (3.66 QALYs vs. 3.53 QALYs), resulting in an ICER of $6,946.69 per QALY. A sensitivity analysis demonstrated the robustness of the model in identifying cardiovascular death as a significant driver of cost-effectiveness. A probabilistic sensitivity analysis indicated that when the willingness-to-pay was $11,008.07 per QALY, the probability of the addition of dapagliflozin or empagliflozin being cost-effective was 70.5 and 55.2%, respectively. A scenario analysis showed that the cost of hospitalization, diabetes status, and time horizon had a greater impact on ICER. Conclusion: Compared with standard treatments with or without empagliflozin, adding dapagliflozin to the standard treatment in the treatment of HFrEF in China was extremely cost-effective.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e350500a8391a7741dac3f734be30d30b1228a1109296b5f6089e3e9018162ef"
+      },
+      {
+        "pmid": "33736819",
+        "title": "Empagliflozin in Patients With Heart Failure, Reduced Ejection Fraction, and Volume Overload",
+        "authors": "Milton Packer, Stefan D. Anker, Javed Butler, Gerasimos S Filippatos",
+        "year": "2021",
+        "journal": "Journal of the American College of Cardiology",
+        "doi": "10.1016/j.jacc.2021.01.033",
+        "url": "https://doi.org/10.1016/j.jacc.2021.01.033",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Investigators have hypothesized that sodium-glucose cotransporter 2 (SGLT2) inhibitors exert diuretic effects that contribute to their ability to reduce serious heart failure events, and this action is particularly important in patients with fluid retention. OBJECTIVES: This study sought to evaluate the effects of the SGLT2 inhibitor empagliflozin on symptoms, health status, and major heart failure outcomes in patients with and without recent volume overload. METHODS: This double-blind randomized trial compared the effects of empagliflozin and placebo in 3,730 patients with heart failure and a reduced ejection fraction, with or without diabetes. Approximately 40% of the patients had volume overload in the 4 weeks before study enrollment. RESULTS: Patients with recent volume overload were more likely to have been hospitalized",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "d9f10c9f78bcd8883b4594afbeac1a4a4a8c821c0f7a6b5e9b8771ce2a96468c"
+      },
+      {
+        "pmid": "32635219",
+        "title": "Estimated Population Prevalence of Heart Failure with Reduced Ejection Fraction in Spain, According to DAPA-HF Study Criteria",
+        "authors": "Anna Camps-Vilaró, Juan F. Delgado, Núria Farré, Helena Tizón‐Marcos",
+        "year": "2020",
+        "journal": "Journal of Clinical Medicine",
+        "doi": "10.3390/jcm9072089",
+        "url": "https://doi.org/10.3390/jcm9072089",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Heart failure (HF) is one of the main causes of morbidity, mortality, and high healthcare costs. Dapagliflozin, a sodium-glucose cotransporter-2 (SGLT2) inhibitor, reduced cardiovascular mortality and hospitalization for HF compared to placebo in patients with chronic HF, and reduced ejection fraction (EF) in the Dapagliflozin and Prevention of Adverse Outcomes in Heart Failure (DAPA-HF) study. Our aim was to estimate the number of patients with DAPA-HF characteristics in Spain. Our literature review identified epidemiological studies whose objective was to quantify the prevalence of HF and its comorbidities in Spain. We estimated the prevalence of HF with reduced EF, of New York Heart Association (NYHA) functional class II-IV, and with a glomerular filtration rate (GFR) ≥ 30 mL/min/1.73 m². In this",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "3cafb2d9ad3e9d35a309eb28dd273404256afd135e628d161899656cdbe3d9a7"
+      },
+      {
+        "pmid": "cr:10.1093/eurheartj/ehaf784.988",
+        "title": "Effects of SGLT2 inhibitors on hyperuricemia in patients with chronic heart failure with reduced ejection fraction",
+        "authors": "Naser N, Dzubur A, Sabanovic - Bajramovic N, Begic E",
+        "year": "2025",
+        "journal": "European Heart Journal",
+        "doi": "10.1093/eurheartj/ehaf784.988",
+        "url": "https://doi.org/10.1093/eurheartj/ehaf784.988",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background In heart failure, hyperuricemia is common, and higher serum uric acid levels are associated with poorer clinical outcomes. Additionally, hyperuricemia can cause gout, which is difficult to manage and can prolong hospitalization in patients with heart failure. In this context, agents that lower UA have even been investigated as potential treatments for heart failure because of their potential effect on SUA. Purpose Among patients with chronic heart failure, our study aimed to determine whether SGLT2 inhibitor empagliflozin influences SUA levels and whether empagliflozin has therapeutic efficacy related to SUA, particularly their effect on reducing mortality, preventing hospitalization, and improving clinical status. Methods In 164 patients, the association between SUA and cardiovascular death or hospitalization for worsening HF and all-cause mortality was investigated. The treatment effect of empagliflozin was studied in relation to SUA as continuous variable, to clinical hyperuricemia (SUA >5.7 mg/dL for women, >7.0 mg/dL for men). Results Hyperuricemia was prevalent in 61% of patients with no sex differences. Elevated SUA (mean SUA 9.42 ± 1.53 mg/dL) was associated with advanced severity of HF and with worst outcome [composite outcome, hazard ratio (HR) 1.67 (95% confidence interval, CI 1.26–2.14); cardiovascular mortality, HR 1.96 (95% CI 1.32–2.89); all-cause mortality, HR 1.8 (95% CI 1.31–2.44). The reduction of SUA after initiating therapy with empagliflozin was observed rapidly (i.e. at 4 weeks) and was maintained throughout the follow-up period. The beneficial effect of empagliflozin on the primary endpoint was independent of baseline SUA [HR 0.78 (95% CI 0.69–0.90), P < 0.001) and of the change in SUA at 4 weeks [HR 0.84 (95% CI 0.71–0.94), P = 0.014]. Conclusion Hyperuricemia is common in HF and is a strong indicator of advanced disease severity and increased mortality. The administration of empagliflozin resulted in rapid and sustained reductions in SUA levels and hyperuricemia-related clinical events. The benefit of empagliflozin on the primary outcome was observed independently of SUA. Patients with elevated SUA levels experienced a significant reduction in cardiovascular mortality and all-cause mortality, whereas patients with lower SUA levels did not experience this reduction. Empagliflozin was most effective in lowering SUA levels in patients with the highest SUA levels at baseline who also showed the highest mortality risks.Treatment effect of empagliflozin Cumulative incidence of hyperur. events",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c2e9e9627d49fd760599e004472f9353d65fdb27d3b59aba802092afaec404f7"
+      },
+      {
+        "pmid": "39421941",
+        "title": "Metabolic Effects of the SGLT2 Inhibitor Dapagliflozin in Heart Failure Across the Spectrum of Ejection Fraction",
+        "authors": "Senthil Selvaraj, Shachi Patel, Andrew J. Sauer, Robert W. McGarrah",
+        "year": "2024",
+        "journal": "Circulation Heart Failure",
+        "doi": "10.1161/circheartfailure.124.011980",
+        "url": "https://doi.org/10.1161/circheartfailure.124.011980",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Mechanisms of benefit with SGLT2is (sodium-glucose cotransporter-2 inhibitors) in heart failure (HF) remain incompletely characterized. Dapagliflozin alters ketone and fatty acid metabolism in HF with reduced ejection fraction though similar effects have not been observed in HF with preserved ejection fraction. We explore whether metabolic effects of SGLT2is vary across the left ventricular ejection fraction spectrum and their relationship with cardiometabolic end points in 2 randomized trials of dapagliflozin in HF. METHODS: Metabolomic profiling of 61 metabolites was performed in 527 participants from DEFINE-HF (Dapagliflozin Effects on Biomarkers, Symptoms and Functional Status in Patients With HF With Reduced Ejection Fraction) and PRESERVED-HF (Dapagliflozin in PRESERVED Ejection Fraction HF; 12-week, placebo-controlled trials of dapagliflozin in HF with reduced ejection fraction",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "414a9c20366c13fc3058266f586d451711b968c90c0538baab285d1da8fee5f1"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 6
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 6,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "heart failure with reduced ejection fraction, NYHA class II-IV SGLT2 inhibitors placebo cardiovascular death or heart failure hospitalization",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

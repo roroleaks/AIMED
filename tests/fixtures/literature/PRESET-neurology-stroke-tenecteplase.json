@@ -1,0 +1,809 @@
+{
+  "id": "PRESET-neurology-stroke-tenecteplase",
+  "recordedAt": "2026-11-26T19:46:21.103Z",
+  "specialty": "neurology",
+  "words": [
+    {
+      "word": "acute ischemic stroke within 4.5 hours of onset",
+      "role": "population"
+    },
+    {
+      "word": "intravenous tenecteplase (0.25 mg/kg)",
+      "role": "intervention"
+    },
+    {
+      "word": "intravenous alteplase (0.9 mg/kg)",
+      "role": "comparator"
+    },
+    {
+      "word": "excellent functional recovery (mRS 0-1) and symptomatic ICH",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "acute ischemic stroke within 4.5 hours of onset",
+        "role": "population"
+      },
+      {
+        "word": "intravenous tenecteplase (0.25 mg/kg)",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous alteplase (0.9 mg/kg)",
+        "role": "comparator"
+      },
+      {
+        "word": "excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "neurology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In acute ischemic stroke within 4.5 hours of onset (P), does intravenous tenecteplase (0.25 mg/kg) (I) compared with intravenous alteplase (0.9 mg/kg) (C) improve excellent functional recovery (mRS 0-1) and symptomatic ICH (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 1 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In acute ischemic stroke within 4.5 hours of onset (P), is intravenous tenecteplase (0.25 mg/kg) (I) superior to intravenous alteplase (0.9 mg/kg) (C) for excellent functional recovery (mRS 0-1) and symptomatic ICH (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of acute ischemic stroke within 4.5 hours of onset (P), does intravenous tenecteplase (0.25 mg/kg) (I) compared with intravenous alteplase (0.9 mg/kg) (C) improve excellent functional recovery (mRS 0-1) and symptomatic ICH (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 15
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In acute ischemic stroke within 4.5 hours of onset (P), is intravenous tenecteplase (0.25 mg/kg) (I) superior to intravenous alteplase (0.9 mg/kg) (C) for excellent functional recovery (mRS 0-1) and symptomatic ICH (O)?"
+    },
+    "words": [
+      {
+        "word": "acute ischemic stroke within 4.5 hours of onset",
+        "role": "population"
+      },
+      {
+        "word": "intravenous tenecteplase (0.25 mg/kg)",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous alteplase (0.9 mg/kg)",
+        "role": "comparator"
+      },
+      {
+        "word": "excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "neurology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "39424558",
+        "title": "Tenecteplase versus alteplase for acute stroke within 4·5 h of onset (ATTEST-2): a randomised, parallel group, open-label trial",
+        "authors": "Muir KW, et al",
+        "year": "2024",
+        "journal": "The Lancet. Neurology",
+        "doi": "10.1016/S1474-4422(24)00377-6",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39424558/",
+        "context": "BACKGROUND: Tenecteplase has potential benefits over alteplase, the standard agent for intravenous thrombolysis in acute ischaemic stroke, because it is administered as a single bolus and might have superior efficacy. The ATTEST-2 trial investigated whether tenecteplase was non-inferior or superior to alteplase within 4·5 h of onset. METHODS: We undertook a prospective, randomised, parallel-group, open-label trial with masked endpoint evaluation in 39 UK stroke centres. Previously independent adults with acute ischaemic stroke, eligible for intravenous thrombolysis less than 4·5 h from last known well, were randomly assigned 1:1 to receive intravenous alteplase 0·9 mg/kg or tenecteplase 0·25 mg/kg, by use of a telephone-based interactive voice response system. The primary endpoint was the distribution of the day 90 modified Rankin Scale (mRS) score and was analysed using ordinal logistic regression in the modified intention-to-treat population. We tested the primary outcome for non-inferiority (odds ratio for tenecteplase vs alteplase non-inferiority limit of 0·75), and for superiority if non-inferiority was confirmed. Safety outcomes were mortality, symptomatic intracranial haemorrhage, radiological intracranial haemorrhage, and major extracranial bleeding. The trial was prospectively registered on ClinicalTrials.gov (NCT02814409). FINDINGS: Between Jan 25, 2017, and May 30, 2023, 1858 patients were randomly assigned to a treatment group, of whom 1777 received thrombolytic treatment and were included in the modified intention-to-treat population (n=885 allocated tenecteplase and n=892 allocated alteplase). The mean age of participants was 70·4 (SD 12·9) years and median National Institutes of Health Stroke Scale was 7 (IQR 5-13) at baseline. Tenecteplase was non-inferior to alteplase for mRS score distribution at 90 days, but was not superior (odds ratio 1·07; 95% CI 0·90-1·27; p value for non-inferiority<0·0001; p=0·43 for superiority). 68 (8%) patients in the tenecteplase group compared with 75 (8%) patients in the alteplase group died, symptomatic intracerebral haemorrhage (defined by SITS-MOST criteria) occurred in 20 (2%) versus 15 (2%) patients, parenchymal haematoma type 2 occurred in 37 (4%) versus 26 (3%) patients, post-treatment intracranial bleed occurred in 94 (11%) versus 78 (9%) patients, significant extracranial haemorrhage occurred in 13 (1%) versus six (1%) patients, respectively, and angioedema occurred in six (1%) participants in both groups. INTERPRETATION: Tenecteplase 0·25 mg/kg was non-inferior to 0·9 mg/kg alteplase within 4·5 h of symptom onset in acute ischaemic stroke. Easier administration of tenecteplase, especially in the context of interhospital transfers, indicates that tenecteplase should be preferred to alteplase for thrombolysis in acute ischaemic stroke. The ATTEST-2 population was large and representative of thrombolysis-eligible patients in the UK and, together with findings from other trials, provides robust evidence supporting the introduction of tenecteplase in preference to alteplase. FUNDING: The Stroke Association and British Heart Foundation.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Comparative Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "b99bc9f63a31f992f059a1eb40b2e7c936fbc3a7ea4538d92552136dc397e391"
+      },
+      {
+        "pmid": "37428494",
+        "title": "Safety and Efficacy of Tenecteplase Compared With Alteplase in Patients With Large Vessel Occlusion Stroke: A Prespecified Secondary Analysis of the ACT Randomized Clinical Trial",
+        "authors": "Bala F, et al",
+        "year": "2023",
+        "journal": "JAMA neurology",
+        "doi": "10.1001/jamaneurol.2023.2094",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37428494/",
+        "context": "IMPORTANCE: It is unknown whether intravenous thrombolysis using tenecteplase is noninferior or preferable compared with alteplase for patients with acute ischemic stroke. OBJECTIVE: To examine the safety and efficacy of tenecteplase compared to alteplase among patients with large vessel occlusion (LVO) stroke. DESIGN, SETTING, AND PARTICIPANTS: This was a prespecified analysis of the Intravenous Tenecteplase Compared With Alteplase for Acute Ischaemic Stroke in Canada (ACT) randomized clinical trial that enrolled patients from 22 primary and comprehensive stroke centers across Canada between December 10, 2019, and January 25, 2022. Patients 18 years and older with a disabling ischemic stroke within 4.5 hours of symptom onset were randomly assigned (1:1) to either intravenous tenecteplase or alteplase and were monitored for up to 120 days. Patients with baseline intracranial internal carotid artery (ICA), M1-middle cerebral artery (MCA), M2-MCA, and basilar occlusions were included in this analysis. A total of 1600 patients were enrolled, and 23 withdrew consent. EXPOSURES: Intravenous tenecteplase (0.25 mg/kg) vs intravenous alteplase (0.9 mg/kg). MAIN OUTCOMES AND MEASURES: The primary outcome was the proportion of modified Rankin scale (mRS) score 0-1 at 90 days. Secondary outcomes were an mRS score from 0 to 2, mortality, and symptomatic intracerebral hemorrhage. Angiographic outcomes were successful reperfusion (extended Thrombolysis in Cerebral Infarction scale score 2b-3) on first and final angiographic acquisitions. Multivariable analyses (adjusting for age, sex, National Institute of Health Stroke Scale score, onset-to-needle time, and occlusion location) were carried out. RESULTS: Among 1577 patients, 520 (33.0%) had LVO (median [IQR] age, 74 [64-83] years; 283 [54.4%] women): 135 (26.0%) with ICA occlusion, 237 (45.6%) with M1-MCA, 117 (22.5%) with M2-MCA, and 31 (6.0%) with basilar occlusions. The primary outcome (mRS score 0-1) was achieved in 86 participants (32.7%) in the tenecteplase group vs 76 (29.6%) in the alteplase group. Rates of mRS 0-2 (129 [49.0%] vs 131 [51.0%]), symptomatic intracerebral hemorrhage (16 [6.1%] vs 11 [4.3%]), and mortality (19.9% vs 18.1%) were similar in the tenecteplase and alteplase groups, respectively. No difference was noted in successful reperfusion rates in the first (19 [9.2%] vs 21 [10.5%]) and final angiogram (174 [84.5%] vs 177 [88.9%]) among 405 patients who underwent thrombectomy. CONCLUSIONS AND RELEVANCE: The findings in this study indicate that intravenous tenecteplase conferred similar reperfusion, safety, and functional outcomes compared to alteplase among patients with LVO.",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4087f92c3567078ed8f9a753cbb3baaff0dda66a3c433455f57db74040e3d57c"
+      },
+      {
+        "pmid": "36774935",
+        "title": "Tenecteplase versus alteplase in acute ischaemic cerebrovascular events (TRACE-2): a phase 3, multicentre, open-label, randomised controlled, non-inferiority trial",
+        "authors": "Wang Y, et al",
+        "year": "2023",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(22)02600-9",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36774935/",
+        "context": "BACKGROUND: There is increasing interest in replacing alteplase with tenecteplase as the preferred thrombolytic treatment for patients with acute ischaemic stroke. We aimed to establish the non-inferiority of tenecteplase to alteplase for these patients. METHODS: In this multicentre, prospective, open-label, blinded-endpoint, randomised controlled, non-inferiority trial, adults with an acute ischaemic stroke who were eligible for standard intravenous thrombolysis but ineligible for endovascular thrombectomy were enrolled from 53 centres in China and randomly assigned (1:1) to receive intravenous tenecteplase (0·25 mg/kg, maximum dose of 25 mg) or intravenous alteplase (0·9 mg/kg, maximum dose of 90 mg). Participants had to be able to receive treatment within 4·5 h of stroke, have a modified Rankin Scale (mRS) score of no more than 1 before enrolment, and have a National Institutes of Health Stroke Scale score of 5-25. Patients and treating clinicians were not masked to group assignment; clinicians evaluating outcomes were masked to treatment type. The primary efficacy outcome was the proportion of participants who had a mRS score of 0-1 at 90 days, assessed in the modified intention-to-treat population (all randomly assigned participants who received the allocated thrombolytic), with a non-inferiority margin of 0·937 for the risk ratio (RR). The primary safety outcome was symptomatic intracranial haemorrhage within 36 h, assessed in all participants who received study drug and had a safety assessment available. The trial is registered with ClinicalTrials.gov, NCT04797013, and has been completed. FINDINGS: Between June 12, 2021, and May 29, 2022, 1430 participants were enrolled and randomly assigned to tenecteplase (n=716) or alteplase (n=714). Six patients assigned to tenecteplase and seven to alteplase did not receive study product, and five participants in the tenecteplase group and 11 in the alteplase group were lost to follow-up at 90 days. The primary outcome in the modified intention-to-treat population occurred in 439 (62%) of 705 in the tenecteplase group versus 405 (58%) of 696 in the alteplase group (RR 1·07, 95% CI 0·98-1·16). The lower limit of the RR's 95% CI was greater than the non-inferiority margin. Symptomatic intracranial haemorrhage within 36 h was observed in 15 (2%) of 711 in the tenecteplase group and 13 (2%) of 706 in the alteplase group (RR 1·18, 95% CI 0·56-2·50). Mortality within 90 days occurred in 46 (7%) individuals in the tenecteplase group versus 35 (5%) in the alteplase group (RR 1·31, 95% CI 0·86-2·01). INTERPRETATION: Tenecteplase was non-inferior to alteplase in people with ischaemic stroke who were eligible for standard intravenous thrombolytic but ineligible for or refused endovascular thrombectomy. FUNDING: National Science and Technology Major Project, Chinese Academy of Medical Sciences Innovation Fund for Medical Sciences, National Natural Science Foundation of China, and China Shijiazhuang Pharmaceutical Company Recomgen Pharmaceutical (Guangzhou).",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't",
+          "Equivalence Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1c6e1e9ad158ee669222fc34d055696be27c3ca7992e96e6adf67f05bacc774b"
+      },
+      {
+        "pmid": "39264623",
+        "title": "Tenecteplase vs Alteplase for Patients With Acute Ischemic Stroke: The ORIGINAL Randomized Clinical Trial",
+        "authors": "Meng X, et al",
+        "year": "2024",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2024.14721",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39264623/",
+        "context": "IMPORTANCE: Tenecteplase is a bioengineered variant of alteplase with greater fibrin specificity and a longer half-life, allowing single-bolus administration. Evidence on the treatment effect of tenecteplase 0.25 mg/kg in Chinese patients with acute ischemic stroke (AIS) is limited. OBJECTIVE: To establish the noninferiority of tenecteplase to alteplase in patients with AIS within 4.5 hours of symptom onset. DESIGN, SETTING, AND PARTICIPANTS: The ORIGINAL study was a multicenter, active-controlled, parallel-group, randomized, open-label, blinded end point, noninferiority trial conducted between July 14, 2021, and July 14, 2023. Participants were recruited from 55 neurology clinics and stroke centers in China and were eligible if they had AIS with a National Institutes of Health Stroke Scale score of 1 to 25 with measurable neurologic deficit and were symptomatic for at least 30 minutes without significant improvement. INTERVENTIONS: Patients were randomized (1:1) within 4.5 hours of symptom onset to receive intravenous tenecteplase (0.25 mg/kg) or intravenous alteplase (0.9 mg/kg). MAIN OUTCOMES AND MEASURES: The primary outcome was the proportion of patients with a modified Rankin Scale (mRS) score of 0 or 1 (no symptoms or no significant disability) at day 90, tested for noninferiority (risk ratio [RR] margin, 0.937). Safety end points included symptomatic intracerebral hemorrhage (per European Cooperative Acute Stroke Study III definition) and 90-day all-cause mortality. RESULTS: Among the 1489 patients randomized, 1465 patients were included in the full analysis set (732 in the tenecteplase group; 733 in the alteplase group) and 446 (30.4%) were female. The primary outcome occurred in 72.7% (532/732) of patients receiving tenecteplase and 70.3% (515/733) receiving alteplase (RR, 1.03 [95% CI, 0.97-1.09]; noninferiority threshold met). Symptomatic intracerebral hemorrhage occurred in 9 patients (1.2%) in each group (RR, 1.01 [95% CI, 0.37-2.70]). The 90-day mortality rate was 4.6% (34/732) in the tenecteplase group and 5.8% (43/736) in the alteplase group (RR, 0.80 [95% CI, 0.51-1.23]). CONCLUSIONS AND RELEVANCE: In patients with AIS eligible for intravenous thrombolysis within 4.5 hours after stroke onset, tenecteplase was noninferior to alteplase with respect to excellent functional outcome (mRS score of 0 or 1) at 90 days and had a similar safety profile. Findings from this study support tenecteplase as a suitable alternative to alteplase in this setting. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT04915729.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Comparative Study",
+          "Equivalence Trial",
+          "Journal Article",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "889bf9f0f86db426045d39f6079b2862fcc914cd534e4431af16d5c3d2a52244"
+      },
+      {
+        "pmid": "35810756",
+        "title": "Thrombectomy alone versus intravenous alteplase plus thrombectomy in patients with stroke: an open-label, blinded-outcome, randomised non-inferiority trial",
+        "authors": "Fischer U, et al",
+        "year": "2022",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(22)00537-2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35810756/",
+        "context": "BACKGROUND: Whether thrombectomy alone is equally as effective as intravenous alteplase plus thrombectomy remains controversial. We aimed to determine whether thrombectomy alone would be non-inferior to intravenous alteplase plus thrombectomy in patients presenting with acute ischaemic stroke. METHODS: In this multicentre, randomised, open-label, blinded-outcome trial in Europe and Canada, we recruited patients with stroke due to large vessel occlusion confirmed with CT or magnetic resonance angiography admitted to endovascular centres. Patients were randomly assigned (1:1) via a centralised web server using a deterministic minimisation method to receive stent-retriever thrombectomy alone or intravenous alteplase plus stent-retriever thrombectomy. In both groups, thrombectomy was initiated as fast as possible with any commercially available Solitaire stent-retriever revascularisation device (Medtronic, Irvine, CA, USA). In the combined treatment group, intravenous alteplase (0·9 mg/kg bodyweight, maximum dose 90 mg per patient) was administered as early as possible after randomisation for 60 min with 10% of the calculated dose given as an initial bolus. Personnel assessing the primary outcome were masked to group allocation; patients and treating physicians were not. The primary binary outcome was a score of 2 or less on the modified Rankin scale at 90 days. We assessed the non-inferiority of thrombectomy alone versus intravenous alteplase plus thrombectomy in all randomly assigned and consenting patients using the one-sided lower 95% confidence limit of the Mantel-Haenszel risk difference, with a prespecified non-inferiority margin of 12%. The main safety endpoint was symptomatic intracranial haemorrhage assessed in all randomly assigned and consenting participants. This trial is registered with ClinicalTrials.gov, NCT03192332, and is closed to new participants. FINDINGS: Between Nov 29, 2017, and May 7, 2021, 5215 patients were screened and 423 were randomly assigned, of whom 408 (201 thrombectomy alone, 207 intravenous alteplase plus thrombectomy) were included in the primary efficacy analysis. A modified Rankin scale score of 0-2 at 90 days was reached by 114 (57%) of 201 patients assigned to thrombectomy alone and 135 (65%) of 207 patients assigned to intravenous alteplase plus thrombectomy (adjusted risk difference -7·3%, 95% CI -16·6 to 2·1, lower limit of one-sided 95% CI -15·1%, crossing the non-inferiority margin of -12%). Symptomatic intracranial haemorrhage occurred in five (2%) of 201 patients undergoing thrombectomy alone and seven (3%) of 202 patients receiving intravenous alteplase plus thrombectomy (risk difference -1·0%, 95% CI -4·8 to 2·7). Successful reperfusion was less common in patients assigned to thrombectomy alone (182 [91%] of 201 vs 199 [96%] of 207, risk difference -5·1%, 95% CI -10·2 to 0·0, p=0·047). INTERPRETATION: Thrombectomy alone was not shown to be non-inferior to intravenous alteplase plus thrombectomy and resulted in decreased reperfusion rates. These results do not support omitting intravenous alteplase before thrombectomy in eligible patients. FUNDING: Medtronic and University Hospital Bern.",
+        "source": "pubmed",
+        "pubType": "Equivalence Trial",
+        "publicationTypes": [
+          "Equivalence Trial",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2a2f32e48879d46e03144f640862b4e0559ec996f8eeb397cbe4483e96eb65a2"
+      },
+      {
+        "pmid": "29171359",
+        "title": "Effects of alteplase for acute stroke according to criteria defining the European Union and United States marketing authorizations: Individual-patient-data meta-analysis of randomized trials",
+        "authors": "Hacke W, et al",
+        "year": "2018",
+        "journal": "International journal of stroke : official journal of the International Stroke Society",
+        "doi": "10.1177/1747493017744464",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29171359/",
+        "context": "Background The recommended maximum age and time window for intravenous alteplase treatment of acute ischemic stroke differs between the Europe Union and United States. Aims We compared the effects of alteplase in cohorts defined by the current Europe Union or United States marketing approval labels, and by hypothetical revisions of the labels that would remove the Europe Union upper age limit or extend the United States treatment time window to 4.5 h. Methods We assessed outcomes in an individual-patient-data meta-analysis of eight randomized trials of intravenous alteplase (0.9 mg/kg) versus control for acute ischemic stroke. Outcomes included: excellent outcome (modified Rankin score 0-1) at 3-6 months, the distribution of modified Rankin score, symptomatic intracerebral hemorrhage, and 90-day mortality. Results Alteplase increased the odds of modified Rankin score 0-1 among 2449/6136 (40%) patients who met the current European Union label and 3491 (57%) patients who met the age-revised label (odds ratio 1.42, 95% CI 1.21-1.68 and 1.43, 1.23-1.65, respectively), but not in those outside the age-revised label (1.06, 0.90-1.26). By 90 days, there was no increased mortality in the current and age-revised cohorts (hazard ratios 0.98, 95% CI 0.76-1.25 and 1.01, 0.86-1.19, respectively) but mortality remained higher outside the age-revised label (1.19, 0.99-1.42). Similarly, alteplase increased the odds of modified Rankin score 0-1 among 1174/6136 (19%) patients who met the current US approval and 3326 (54%) who met a 4.5-h revised approval (odds ratio 1.55, 1.19-2.01 and 1.37, 1.17-1.59, respectively), but not for those outside the 4.5-h revised approval (1.14, 0.97-1.34). By 90 days, no increased mortality remained for the current and 4.5-h revised label cohorts (hazard ratios 0.99, 0.77-1.26 and 1.02, 0.87-1.20, respectively) but mortality remained higher outside the 4.5-h revised approval (1.17, 0.98-1.41). Conclusions An age-revised European Union label or 4.5-h-revised United States label would each increase the number of patients deriving net benefit from alteplase by 90 days after acute ischemic stroke, without excess mortality.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "a94bcb0bf616c1e694c8c8d199188be02a8ec0a87e65e7f0b24f6e134e0c3e31"
+      },
+      {
+        "pmid": "42099212",
+        "title": "Intravenous Tenecteplase Prior to Endovascular Treatment for Ischemic Stroke at 4.5 to 24 Hours: The TNK-PLUS Randomized Clinical Trial",
+        "authors": "Yunyun Xiong, Fengyuan Che, Hao Wang, Manjun Hao",
+        "year": "2026",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2026.4292",
+        "url": "https://doi.org/10.1001/jama.2026.4292",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Whether intravenous tenecteplase prior to endovascular treatment (EVT) for ischemic stroke reduces disability in the late time window is unclear. Objective: To investigate the adverse events and efficacy of tenecteplase prior to EVT in patients 4.5 to 24 hours after ischemic stroke onset due to proximal middle cerebral artery (MCA) occlusion. Design, Setting, and Participants: Multicenter, phase 3, randomized, open-label, blinded end point, superiority trial conducted at 40 centers in China. Adult (≥18 years) patients with acute ischemic stroke 4.5 to 24 hours after last known to be well due to MCA-M1 or proximal M2 occlusion with salvageable brain tissue (ischemic core volume <70 mL, mismatch ratio ≥1.8, and mismatch volume ≥15 mL) identified on computed tomography-perfusion or magnetic",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "c91386d11f2ebd8750503ea40aef6b3b737a4e78b283a96e39d7e3d4ec47cac1"
+      },
+      {
+        "pmid": "41642827",
+        "title": "Tenecteplase for Acute Non–Large Vessel Occlusion 4.5 to 24 Hours After Ischemic Stroke: The OPTION Randomized Clinical Trial",
+        "authors": "Gaoting Ma, Ran Mo, Yingting Zuo, Qingfeng Ma",
+        "year": "2026",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2026.0210",
+        "url": "https://doi.org/10.1001/jama.2026.0210",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: The efficacy and safety of intravenous tenecteplase in non-large vessel occlusion acute ischemic stroke beyond 4.5 hours after symptom onset remain uncertain. Objective: To assess the efficacy and safety of intravenous tenecteplase administered 4.5 to 24 hours after stroke onset in patients with non-large vessel occlusion and salvageable brain tissue. Design, Setting, and Participants: This randomized, open-label, blinded end-point clinical trial was conducted at 48 centers in China. A total of 566 patients with non-large vessel occlusion stroke and evidence of potentially salvageable tissue determined on perfusion imaging presenting within 4.5 to 24 hours of the time last seen well were recruited between June 2, 2023, and August 4, 2025 (final follow-up, October 28, 2025). Interventions: Patients were randomly",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "b3fbc164acbab7a3e8dff8e1cfea28b2ec41b58fe7bb627780832658a9c0b1c5"
+      },
+      {
+        "pmid": "40773205",
+        "title": "Alteplase for Acute Ischemic Stroke at 4.5 to 24 Hours: The HOPE Randomized Clinical Trial",
+        "authors": "Zhou Y, et al",
+        "year": "2025",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2025.12063",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40773205/",
+        "context": "IMPORTANCE: The safety and efficacy of intravenous thrombolytics beyond 4.5 hours after ischemic stroke onset remain inadequately studied. OBJECTIVE: To evaluate the safety and efficacy of intravenous alteplase administered 4.5 to 24 hours after stroke onset in patients with salvageable brain tissue, regardless of the presence of large vessel occlusion. DESIGN, SETTING, AND PARTICIPANTS: This randomized, open-label, blinded end-point trial was conducted at 26 stroke centers across China. A total of 372 patients with acute ischemic stroke and salvageable brain tissue identified by perfusion imaging were enrolled between June 21, 2021, and June 30, 2024 (final follow-up October 2, 2024). Eligibility criteria included stroke onset (or the midpoint between last known well and symptom recognition if onset was unknown) of 4.5 to 24 hours prior to presentation, and no initial plan for endovascular thrombectomy. Data were analyzed from December 2024 to February 2025. INTERVENTIONS: Patients were randomly assigned (1:1) using a minimization algorithm to receive intravenous alteplase (0.9 mg/kg; maximum dose, 90 mg; n = 186) or standard medical treatment (n = 186). MAIN OUTCOMES AND MEASURES: The primary efficacy outcome was functional independence, defined as a modified Rankin Scale score of 0 to 1 at 90 days. Safety outcomes included symptomatic intracranial hemorrhage within 36 hours and all-cause mortality within 90 days. RESULTS: Among 372 patients who were enrolled (median [IQR] age, 72 [64-80] years; 160 [43%] women), all completed the trial. The primary outcome occurred in 75 of 186 patients (40%) in the alteplase group and 49 of 186 (26%) in the control group (adjusted risk ratio, 1.52 [95% CI, 1.14-2.02]; P = .004; unadjusted risk difference, 13.98% [95% CI, 4.50%-23.45%]). The incidence of symptomatic intracranial hemorrhage was higher with alteplase at 3.8% compared with 0.51% with standard treatment (adjusted risk ratio, 7.34 [95% CI, 1.54-34.84]; P = .01; unadjusted risk difference, 3.23% [0.28%-6.19%]), and mortality was 11% in both groups (adjusted risk ratio, 0.91 [95% CI, 0.52-1.62]; P = .76; unadjusted risk difference, 0% [95% CI, -6.30% to 6.30%]). CONCLUSIONS AND RELEVANCE: In patients with acute ischemic stroke with salvageable brain tissue identified by perfusion imaging who did not initially receive thrombectomy, intravenous alteplase administered 4.5 to 24 hours after onset provided functional benefit, despite an increase in symptomatic intracranial hemorrhage. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT04879615.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Research Support, N.I.H., Extramural"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4acc75ee3a70b1e2e5b7a88e2641f3f3b2b6d904e7ad2cf39cf9964260c0e7c8"
+      },
+      {
+        "pmid": "37367978",
+        "title": "Dual Antiplatelet Therapy vs Alteplase for Patients With Minor Nondisabling Acute Ischemic Stroke: The ARAMIS Randomized Clinical Trial",
+        "authors": "Chen HS, et al",
+        "year": "2023",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2023.7827",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37367978/",
+        "context": "IMPORTANCE: Intravenous thrombolysis is increasingly used in patients with minor stroke, but its benefit in patients with minor nondisabling stroke is unknown. OBJECTIVE: To investigate whether dual antiplatelet therapy (DAPT) is noninferior to intravenous thrombolysis among patients with minor nondisabling acute ischemic stroke. DESIGN, SETTING, AND PARTICIPANTS: This multicenter, open-label, blinded end point, noninferiority randomized clinical trial included 760 patients with acute minor nondisabling stroke (National Institutes of Health Stroke Scale [NIHSS] score ≤5, with ≤1 point on the NIHSS in several key single-item scores; scale range, 0-42). The trial was conducted at 38 hospitals in China from October 2018 through April 2022. The final follow-up was on July 18, 2022. INTERVENTIONS: Eligible patients were randomized within 4.5 hours of symptom onset to the DAPT group (n = 393), who received 300 mg of clopidogrel on the first day followed by 75 mg daily for 12 (±2) days, 100 mg of aspirin on the first day followed by 100 mg daily for 12 (±2) days, and guideline-based antiplatelet treatment until 90 days, or the alteplase group (n = 367), who received intravenous alteplase (0.9 mg/kg; maximum dose, 90 mg) followed by guideline-based antiplatelet treatment beginning 24 hours after receipt of alteplase. MAIN OUTCOMES AND MEASURES: The primary end point was excellent functional outcome, defined as a modified Rankin Scale score of 0 or 1 (range, 0-6), at 90 days. The noninferiority of DAPT to alteplase was defined on the basis of a lower boundary of the 1-sided 97.5% CI of the risk difference greater than or equal to -4.5% (noninferiority margin) based on a full analysis set, which included all randomized participants with at least 1 efficacy evaluation, regardless of treatment group. The 90-day end points were assessed in a blinded manner. A safety end point was symptomatic intracerebral hemorrhage up to 90 days. RESULTS: Among 760 eligible randomized patients (median [IQR] age, 64 [57-71] years; 223 [31.0%] women; median [IQR] NIHSS score, 2 [1-3]), 719 (94.6%) completed the trial. At 90 days, 93.8% of patients (346/369) in the DAPT group and 91.4% (320/350) in the alteplase group had an excellent functional outcome (risk difference, 2.3% [95% CI, -1.5% to 6.2%]; crude relative risk, 1.38 [95% CI, 0.81-2.32]). The unadjusted lower limit of the 1-sided 97.5% CI was -1.5%, which is larger than the -4.5% noninferiority margin (P for noninferiority <.001). Symptomatic intracerebral hemorrhage at 90 days occurred in 1 of 371 participants (0.3%) in the DAPT group and 3 of 351 (0.9%) in the alteplase group. CONCLUSIONS AND RELEVANCE: Among patients with minor nondisabling acute ischemic stroke presenting within 4.5 hours of symptom onset, DAPT was noninferior to intravenous alteplase with regard to excellent functional outcome at 90 days. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03661411.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Equivalence Trial",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "c8a8c3cc68f41a5bc155d38b1111ee015263fbc7f0572f09e9a0632855040262"
+      },
+      {
+        "pmid": "37608533",
+        "title": "Intravenous Tenecteplase for Acute Ischemic Stroke Within 4.5–24 Hours of Onset (ROSE-TNK): A Phase 2, Randomized, Multicenter Study",
+        "authors": "Lu Wang, Ying-Jie Dai, Yu Cui, Hong Zhang",
+        "year": "2023",
+        "journal": "Journal of Stroke",
+        "doi": "10.5853/jos.2023.00668",
+        "url": "https://doi.org/10.5853/jos.2023.00668",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND AND PURPOSE: Intravenous tenecteplase (TNK) efficacy has not been well demonstrated in acute ischemic stroke (AIS) beyond 4.5 hours after onset. This study aimed to determine the effect of intravenous TNK for AIS within 4.5 to 24 hours of onset. METHODS: In this pilot trial, eligible AIS patients with diffusion-weighted imaging (DWI)-fluid attenuated inversion recovery (FLAIR) mismatch were randomly allocated to intravenous TNK (0.25 mg/kg) or standard care within 4.5-24 hours of onset. The primary endpoint was excellent functional outcome at 90 days (modified Rankin Scale [mRS] score of 0-1). The primary safety endpoint was symptomatic intracranial hemorrhage (sICH). RESULTS: Of the randomly assigned 80 patients, the primary endpoint occurred in 52.5% (21/40) of TNK group and 50.0% (20/40)",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "7ea9d9df1dbffe40bf3b96e83f3d9f268a8cb9e712b4dbc49160f5754365fe3b"
+      },
+      {
+        "pmid": "29694815",
+        "title": "Tenecteplase versus Alteplase before Thrombectomy for Ischemic Stroke",
+        "authors": "Bruce C.V. Campbell, Peter John Mitchell, Leonid P. Churilov, Nawaf Yassi",
+        "year": "2018",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1716405",
+        "url": "https://doi.org/10.1056/nejmoa1716405",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Intravenous infusion of alteplase is used for thrombolysis before endovascular thrombectomy for ischemic stroke. Tenecteplase, which is more fibrin-specific and has longer activity than alteplase, is given as a bolus and may increase the incidence of vascular reperfusion. METHODS: We randomly assigned patients with ischemic stroke who had occlusion of the internal carotid, basilar, or middle cerebral artery and who were eligible to undergo thrombectomy to receive tenecteplase (at a dose of 0.25 mg per kilogram of body weight; maximum dose, 25 mg) or alteplase (at a dose of 0.9 mg per kilogram; maximum dose, 90 mg) within 4.5 hours after symptom onset. The primary outcome was reperfusion of greater than 50% of the involved ischemic territory or an",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "26a5407f2383c0f16f0573e04abc738a9a8057459df0c0b9fca13a6d3634a0ca"
+      },
+      {
+        "pmid": "cr:10.4103/bc.bc_70_22",
+        "title": "Intravenous thrombolysis for acute ischemic stroke: From alteplase to tenecteplase",
+        "authors": "Yang Nan, Lee Hangil, Wu Chuanjie",
+        "year": "2023",
+        "journal": "Brain Circulation",
+        "doi": "10.4103/bc.bc_70_22",
+        "url": "https://doi.org/10.4103/bc.bc_70_22",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Stroke is one of the primary causes of morbidity and death worldwide. While intravenous (IV) thrombolysis with alteplase has been widely proven to be beneficial for acute ischemic stroke patients, it still has many limitations. Tenecteplase, a revised version of alteplase, is a potential alternative IV thrombolytic agent that has benefits over alteplase. The aim of this mini-review is to summarize the advancements in IV thrombolysis for severe ischemic stroke, specifically the development and transition from alteplase to tenecteplase.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "3336202d9377a1d553d0c2a9c916b5ad44825cdad4c9348c7cdf0d3d97a8ae00"
+      },
+      {
+        "pmid": "37641549",
+        "title": "Cost-effectiveness of tenecteplase versus alteplase for acute ischemic stroke",
+        "authors": "Chi Phuong Nguyen, Maarten M.H. Lahr, Durk-Jouke van der Zee, Henk van Voorst",
+        "year": "2023",
+        "journal": "European Stroke Journal",
+        "doi": "10.1177/23969873231174943",
+        "url": "https://doi.org/10.1177/23969873231174943",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: Alteplase is widely used as an intravenous thrombolytic drug in acute ischemic stroke (AIS). Recently however, tenecteplase, a modified form of tissue plasminogen activator, has been shown to increase early recanalization rate and has proven to be non-inferior with a similar safety profile compared to alteplase. This study aims to evaluate the cost-effectiveness of 0.25 mg/kg tenecteplase versus 0.9 mg/kg alteplase for intravenous thrombolysis in AIS patients from the Dutch healthcare payer perspective. METHODS: A Markov decision-analytic model was constructed to assess total costs, total quality-adjusted life year (QALY), an incremental cost-effectiveness ratio, and incremental net monetary benefit (INMB) of two treatments at willingness-to-pay (WTP) thresholds of €50,000/QALY and €80,000/QALY over a 10-year time horizon. One-way sensitivity analysis, probabilistic",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b045746678e8ddb42fc32a28ad1cfb4aa068c5efcaba943b5e1cbf9ff941c4f8"
+      },
+      {
+        "pmid": "cr:10.36106/ijsr/5203678",
+        "title": "OUTCOME OF INTRAVENOUS THROMBOLYSIS WITH TENECTEPLASE IN ACUTE ISCHEMIC STROKE.",
+        "authors": "Gandhi Shraddha, Pethe Vrajesh, Nidode Pallavi",
+        "year": "2022",
+        "journal": "INTERNATIONAL JOURNAL OF SCIENTIFIC RESEARCH",
+        "doi": "10.36106/ijsr/5203678",
+        "url": "https://doi.org/10.36106/ijsr/5203678",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Tenecteplase is a modied tissue plasminogen activator and newer thrombolytic agent. It has a longer half life ,which is more brin specic, produces less systemic depletion of circulating brinogen, and is more resistant to plasminogen activator inhibitor. Because of its pharmacodynamic properties which results in rapid reperfusion and lower intracranial hemorrhages. Hence the objective is to study the efcacy of tenectaplase in acute ischemic stroke including, neurological and functional outcome at 3 months which is assessed by mRS scale and also to know the complications arising out of thrombolysis with tenectaplase. This is Methods- prospective observational study of 40 cases of acute ischemic stroke undergoing thrombolysis with tenecteplase within 4.5 hours of onset. Dose of 0.2 mg /kg of tenecteplase was used for thrombolysis and outcome was evaluated with improvement in NIHSS score at arrival , 24 hrs, 1 week and at discharge, 1 and 3 month and mRS scale at 1 and 3 months. In our study, 67.5% (27 out of 40) patients met the primary clinical efcacy outc Result- ome by achieving an improvement in NIHSS score of 4 or more points at 24 h and 67% (27out of 40 patients) met the secondary clinical efcacy outcome by having an mRS scale of 0 or 1 at 3 months. Adverse events were noted in 7 patients (17.5%) of which 4 developed ICH and 3 patients showed poor clinical outcome. ConclusionTenecteplase appears to be a safe and effective agent for acute ischemic stroke because of signicant improvement in NIHSS , low disability rates were observed in the present study",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "469ea383ba7017db508fe14f944de1c77db71d8f92b96eda60f1196c6b1eac05"
+      },
+      {
+        "pmid": "38971481",
+        "title": "“Intraosseous administration of tenecteplase for thrombolysis of an acute ischemic stroke”",
+        "authors": "JinJoo Chung, Jonathan Bundy, Sameera Khan, Aaron Hunt",
+        "year": "2024",
+        "journal": "Journal of Stroke and Cerebrovascular Diseases",
+        "doi": "10.1016/j.jstrokecerebrovasdis.2024.107850",
+        "url": "https://doi.org/10.1016/j.jstrokecerebrovasdis.2024.107850",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRO: Current guidelines for acute ischemic stroke recommend timely administration of intravascular thrombolytic therapy to promote functional and neurologic outcomes. Tenecteplase is an emerging off-label therapy for this indication and being utilized by various institutions due to its simpler administration strategy. In emergent situations in which intravenous access cannot be obtained, intraosseous access is a viable option for medication administration. However, there has been minimal published cases to support the efficacy and safety of intraosseous administration of tenecteplase for acute ischemic stroke. CASE: We describe the case of a 51-year-old woman who developed acute ischemic stroke within our institution. Due to difficulty achieving intravenous access and time-dependent efficacy of thrombolytic therapy, the decision was made to administer tenecteplase by the",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e2e2dc4abe115533049578a04d08b3b463bfef69404c7eb865c94bc6312c6cd2"
+      },
+      {
+        "pmid": "cr:10.1097/pec.0000000000001419",
+        "title": "Intravenous Thrombolysis at 3.5 Hours From Onset of Pediatric Acute Ischemic Stroke",
+        "authors": "Waring Elizabeth D., Milling Truman J., Warach Steven",
+        "year": "2018",
+        "journal": "Pediatric Emergency Care",
+        "doi": "10.1097/pec.0000000000001419",
+        "url": "https://doi.org/10.1097/pec.0000000000001419",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Acute thrombolysis has a proven benefit for adults presenting with acute ischemic stroke, but data within the pediatric population are extremely limited. We report the case of a 14-year-old girl who presented with right-sided weakness and ataxia, loss of sensation, and altered mental status. Magnetic resonance imaging with diffusion-weighted imaging showed an acute lesion in the distribution of the left posterior cerebral artery, and magnetic resonance angiogram demonstrated occlusion of the third branch of the left posterior cerebral artery. With parental consent, clinicians decided to infuse an adult dose of weight-adjusted intravenous alteplase at 3.5 hours from onset of symptoms, with subsequent improvement in National Institutes of Health Stroke Scale score from 11 to 3. Computed tomography angiogram at 24 hours showed recanalization of the occluded vessel with no evidence of intracranial hemorrhage. Stroke Scale score at discharge was 3, with modified Rankin Scale scores at discharge of 1 and at 90 days of 0. This case highlights the importance of magnetic resonance imaging in diagnosing pediatric acute ischemic stroke and suggests consideration of thrombolysis in select confirmed pediatric stroke cases. However, a rigorous evidence base is lacking, and clinical trials have not been successful in recruiting patients.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f2089bedd596da0fb6cce50ec8223cb141b24e7318e6e99ed8bf54b22e4bb986"
+      },
+      {
+        "pmid": "15692126",
+        "title": "A Pilot Dose-Escalation Safety Study of Tenecteplase in Acute Ischemic Stroke",
+        "authors": "E. Clarke Haley, Patrick D. Lyden, Karen C. Johnston, Thomas Hemmen",
+        "year": "2005",
+        "journal": "Stroke",
+        "doi": "10.1161/01.str.0000154872.73240.e9",
+        "url": "https://doi.org/10.1161/01.str.0000154872.73240.e9",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND AND PURPOSE: Recombinant tissue-type plasminogen activator (rtPA) is the only approved treatment in acute ischemic stroke. However, intracerebral hemorrhage (ICH) occurs in 6.4% of patients treated with rtPA and limits its use. Tenecteplase (TNK) is a modified form of rtPA, with longer half-life and greater fibrin specificity. Patients after myocardial infarction had fewer systemic hemorrhages when treated with TNK compared with rtPA. This open-label, dose-escalation safety study was conducted to develop initial experience with TNK in the treatment of ischemic stroke. METHODS: Eligible patients were treated with an intravenous bolus infusion of TNK within 3 hours of stroke onset. The dose escalation was conducted in tiers of 25 patients, starting at 0.1 mg/kg, to a planned maximum of 0.6",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5dfc76db240cb64a70ab4afb29209a18775bc2d401998d82311f02f4ee06e3df"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 18,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 15
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 15,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 22,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "acute ischemic stroke within 4.5 hours of onset intravenous tenecteplase (0.25 mg/kg) intravenous alteplase (0.9 mg/kg) excellent functional recovery (mRS 0-1) and symptomatic ICH",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

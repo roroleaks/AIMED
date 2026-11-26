@@ -12,6 +12,20 @@ import { buildWorkflowPdf } from "../../src/lib/pdf-generator.ts";
 import { APP_VERSION, getCommitSha } from "../../src/lib/version.ts";
 import type { CitationStyle } from "../../src/lib/citation-styles.ts";
 
+import type { PicoWord } from "../../src/lib/pico-roles.ts";
+import type { ScreenPayload } from "../../src/lib/deterministic-screen.ts";
+import type { ExploreRecord } from "../../src/lib/explore-scoring.ts";
+
+interface ExportFixture {
+  specialty: string;
+  words: PicoWord[];
+  screenResponse: ScreenPayload;
+  exploreResponse: {
+    records: ExploreRecord[];
+    corpusStats: { retrieved: number; screened: number; blocked: number; returned: number; relaxationLevel: 0 | 1 | 2 };
+  } | null;
+}
+
 function loadJson<T>(relPath: string): T {
   return JSON.parse(fs.readFileSync(path.resolve(relPath), "utf8")) as T;
 }
@@ -22,7 +36,7 @@ const SCENARIOS = ["ONC-1", "ART-2"] as const;
 for (const scenarioId of SCENARIOS) {
   for (const style of STYLES) {
     test(`EXP-DOCX-${scenarioId}-${style}. DOCX structure, styles, table, metadata, and citations`, async () => {
-      const fix = loadJson<any>(`tests/fixtures/literature/${scenarioId}.json`);
+      const fix = loadJson<ExportFixture>(`tests/fixtures/literature/${scenarioId}.json`);
       const records = fix.exploreResponse?.records ?? [];
       const choice = {
         category: "established" as const,
@@ -36,8 +50,7 @@ for (const scenarioId of SCENARIOS) {
         screeningStats: {
           retrieved: fix.exploreResponse?.corpusStats?.retrieved ?? 25,
           screened: fix.exploreResponse?.corpusStats?.screened ?? 25,
-          blocked: fix.exploreResponse?.corpusStats?.blocked ?? 0,
-          excluded: 0,
+          excludedCount: 0,
           relaxationLevel: fix.exploreResponse?.corpusStats?.relaxationLevel ?? 0,
         },
         records,
@@ -47,13 +60,13 @@ for (const scenarioId of SCENARIOS) {
       const payload = buildSummaryPayload(
         fix.words,
         choice,
+        fix.screenResponse,
         {
           records,
           corpusStats: fix.exploreResponse?.corpusStats ?? { retrieved: 25, screened: 25, blocked: 0, returned: records.length, relaxationLevel: 0 },
           hasMore: false,
         },
         { phrase: choice.phrase, category: choice.category, userExcluded: [], seen: [] },
-        fix.screenResponse,
         manuscript,
         fix.specialty
       );
@@ -101,7 +114,7 @@ for (const scenarioId of SCENARIOS) {
     });
 
     test(`EXP-PDF-${scenarioId}-${style}. PDF pages, draft notice, clean text, glyphs, and style`, async () => {
-      const fix = loadJson<any>(`tests/fixtures/literature/${scenarioId}.json`);
+      const fix = loadJson<ExportFixture>(`tests/fixtures/literature/${scenarioId}.json`);
       const records = fix.exploreResponse?.records ?? [];
       const choice = {
         category: "established" as const,
@@ -115,8 +128,7 @@ for (const scenarioId of SCENARIOS) {
         screeningStats: {
           retrieved: fix.exploreResponse?.corpusStats?.retrieved ?? 25,
           screened: fix.exploreResponse?.corpusStats?.screened ?? 25,
-          blocked: fix.exploreResponse?.corpusStats?.blocked ?? 0,
-          excluded: 0,
+          excludedCount: 0,
           relaxationLevel: fix.exploreResponse?.corpusStats?.relaxationLevel ?? 0,
         },
         records,
@@ -126,13 +138,13 @@ for (const scenarioId of SCENARIOS) {
       const payload = buildSummaryPayload(
         fix.words,
         choice,
+        fix.screenResponse,
         {
           records,
           corpusStats: fix.exploreResponse?.corpusStats ?? { retrieved: 25, screened: 25, blocked: 0, returned: records.length, relaxationLevel: 0 },
           hasMore: false,
         },
         { phrase: choice.phrase, category: choice.category, userExcluded: [], seen: [] },
-        fix.screenResponse,
         manuscript,
         fix.specialty
       );
@@ -152,7 +164,7 @@ for (const scenarioId of SCENARIOS) {
       for (let i = 1; i <= pdfDoc.numPages; i++) {
         const page = await pdfDoc.getPage(i);
         const content = await page.getTextContent();
-        pagesText.push(content.items.map((it: any) => it.str).join(" "));
+        pagesText.push(content.items.map((it) => ("str" in it ? it.str : "")).join(" "));
       }
 
       assert.ok(/draft|automated/i.test(pagesText[0]), "First page must contain draft notice");

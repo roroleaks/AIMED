@@ -1,0 +1,833 @@
+{
+  "id": "PRESET-oncology-ovarian-parp",
+  "recordedAt": "2026-11-26T19:42:20.426Z",
+  "specialty": "oncology",
+  "words": [
+    {
+      "word": "advanced BRCA-mutated ovarian cancer, first-line platinum response",
+      "role": "population"
+    },
+    {
+      "word": "olaparib maintenance therapy",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "progression-free survival (PFS)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "advanced BRCA-mutated ovarian cancer, first-line platinum response",
+        "role": "population"
+      },
+      {
+        "word": "olaparib maintenance therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "progression-free survival (PFS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In advanced BRCA-mutated ovarian cancer, first-line platinum response (P), does olaparib maintenance therapy (I) compared with placebo (C) improve progression-free survival (PFS) (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In advanced BRCA-mutated ovarian cancer, first-line platinum response (P), is olaparib maintenance therapy (I) superior to placebo (C) for progression-free survival (PFS) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of advanced BRCA-mutated ovarian cancer, first-line platinum response (P), does olaparib maintenance therapy (I) compared with placebo (C) improve progression-free survival (PFS) (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In advanced BRCA-mutated ovarian cancer, first-line platinum response (P), does olaparib maintenance therapy (I) compared with placebo (C) improve progression-free survival (PFS) (O)?"
+    },
+    "words": [
+      {
+        "word": "advanced BRCA-mutated ovarian cancer, first-line platinum response",
+        "role": "population"
+      },
+      {
+        "word": "olaparib maintenance therapy",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "progression-free survival (PFS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42827527",
+        "title": "PARP inhibitor-based first-line maintenance therapy for newly diagnosed advanced ovarian cancer across molecular subgroups: an updated systematic review and network meta-analysis.",
+        "authors": "Feng J, Qin X, Mo X.",
+        "year": "2026",
+        "journal": "Frontiers in oncology",
+        "doi": "10.3389/fonc.2026.1884407",
+        "url": "https://europepmc.org/article/PMC/PMC13630527",
+        "source": "pmc",
+        "pubType": "Systematic Review, systematic-review, Journal Article",
+        "publicationTypes": [
+          "Systematic Review",
+          "systematic-review",
+          "Journal Article"
+        ],
+        "context": "Background PARP inhibitor-based maintenance has become central to first-line treatment of newly diagnosed advanced ovarian cancer. With expanding therapeutic options, treatment selection increasingly relies on BRCA mutation and homologous recombination deficiency (HRD) status. The 2026 NCCN Guidelines emphasize biomarker-directed maintenance; however, comparative evidence across molecular subgroups remains limited. We conducted an updated network meta-analysis to compare efficacy and safety of PARP inhibitor-based first-line maintenance strategies. Methods We searched major databases and conference proceedings to 1 April 2026 for randomized controlled trials evaluating first-line maintenance in newly diagnosed advanced epithelial ovarian, fallopian tube, or primary peritoneal cancer. Eligible interventions included PARP inhibitor monotherapy, PARP inhibitor plus antiangiogenic therapy, antiangiogenic monotherapy, and placebo. Primary analyses focused on progression-free survival (PFS) in BRCA-mutated and HRD-positive populations; secondary and exploratory analyses covered intention-to-treat, HRD-positive non-BRCA-mutated, and homologous recombination proficient populations. Safety outcomes included grade ≥3 adverse events and treatment discontinuation. A frequentist random-effects model was applied. Results Seven trials involving 3,930 patients were included. PARP inhibitor-based maintenance significantly improved PFS versus placebo, with the strongest benefit in BRCA-mutated and HRD-positive populations. PARP inhibitor monotherapy also significantly improved PFS in the HRD-positive non-BRCA-mutated population, supporting clinical relevance of HRD status beyond BRCA mutation alone. Benefit in the intention-to-treat population was smaller than in biomarker-selected populations. Evidence of benefit in the homologous recombination proficient population was inconsistent. Indirect comparisons showed no statistically significant superiority of one active regimen over another. Within the connected network, no statistically significant incremental PFS benefit was established for adding antiangiogenic therapy to PARP inhibition; this comparison was limited by the restricted evidence base for combination therapy and the inability to incorporate PAOLA-1 into the primary network because of network disconnection. No statistically significant evidence indicated that frontline bevacizumab exposure modified the relative PFS benefit. Sensitivity analyses yielded results consistent with the primary analysis. PARP inhibitor monotherapy increased grade ≥3 adverse events versus placebo; comparative safety of combinations remained limited. Conclusions This network meta-analysis supports biomarker-directed PARP inhibitor-based first-line maintenance in advanced ovarian cancer, with the greatest PFS benefit in BRCA-mutated and HRD-positive populations. No active regimen demonstrated statistically significant superiority within the connected network. The incremental benefit of adding antiangiogenic therapy to PARP inhibition remains uncertain because connected-network evidence for combination strategies was limited and PAOLA-1 could not be incorporated into the primary network. These findings should not be interpreted as evidence against the clinical value of olaparib plus bevacizumab or combination maintenance strategies in general. Treatment selection should integrate molecular status, prior bevacizumab exposure, safety, treatment availability, and patient preference. Systematic review registration https://www.crd.york.ac.uk/PROSPERO/, identifier CRD420261382266.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "12d2ffe0e7d68cda2efc8f32cd39c865029c2825aef77db9e5fcb0787c392d80"
+      },
+      {
+        "pmid": "36082969",
+        "title": "Overall Survival With Maintenance Olaparib at a 7-Year Follow-Up in Patients With Newly Diagnosed Advanced Ovarian Cancer and a BRCA Mutation: The SOLO1/GOG 3004 Trial",
+        "authors": "Paul DiSilvestro, Susana N. Banerjee, Nicoletta Colombo, Giovanni Scambia",
+        "year": "2022",
+        "journal": "Journal of Clinical Oncology",
+        "doi": "10.1200/jco.22.01549",
+        "url": "https://doi.org/10.1200/jco.22.01549",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "PURPOSE: In SOLO1/GOG 3004 (ClinicalTrials.gov identifier: NCT01844986), maintenance therapy with the poly(ADP-ribose) polymerase inhibitor olaparib provided a sustained progression-free survival benefit in patients with newly diagnosed advanced ovarian cancer and a BRCA1 and/or BRCA2 (BRCA) mutation. We report overall survival (OS) after a 7-year follow-up, a clinically relevant time point and the longest follow-up for any poly(ADP-ribose) polymerase inhibitor in the first-line setting. METHODS: This double-blind phase III trial randomly assigned patients with newly diagnosed advanced ovarian cancer and a BRCA mutation in clinical response to platinum-based chemotherapy to maintenance olaparib (n = 260) or placebo (n = 131) for up to 2 years. A prespecified descriptive analysis of OS, a secondary end point, was conducted after a 7-year follow-up.",
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f43d97a3f18976e8c5f9f57c0e696cce033bb10ee19782db6724fc01a83b3dde"
+      },
+      {
+        "pmid": "31157963",
+        "title": "Maintenance Olaparib for Germline BRCA -Mutated Metastatic Pancreatic Cancer",
+        "authors": "Talia Golan, Pascal R. Hammel, Michele Reni, Eric Van Cutsem",
+        "year": "2019",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1903387",
+        "url": "https://doi.org/10.1056/nejmoa1903387",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Patients with a germline BRCA1 or BRCA2 mutation make up a small subgroup of those with metastatic pancreatic cancer. The poly(adenosine diphosphate-ribose) polymerase (PARP) inhibitor olaparib has had antitumor activity in this population. METHODS: We conducted a randomized, double-blind, placebo-controlled, phase 3 trial to evaluate the efficacy of olaparib as maintenance therapy in patients who had a germline BRCA1 or BRCA2 mutation and metastatic pancreatic cancer and disease that had not progressed during first-line platinum-based chemotherapy. Patients were randomly assigned, in a 3:2 ratio, to receive maintenance olaparib tablets (300 mg twice daily) or placebo. The primary end point was progression-free survival, which was assessed by blinded independent central review. RESULTS: Of the 3315 patients who underwent screening, 154",
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "9256afe8990ca2e47736f514d9b29f96263cb486400c52aacae67cce94a8e561"
+      },
+      {
+        "pmid": "37797734",
+        "title": "Maintenance olaparib rechallenge in patients with platinum-sensitive relapsed ovarian cancer previously treated with a PARP inhibitor (OReO/ENGOT-ov38): a phase IIIb trial",
+        "authors": "Éric Pujade-Lauraine, Frédèric Selle, Giovanni Scambia, Bernard Jean Roger Asselain",
+        "year": "2023",
+        "journal": "Annals of Oncology",
+        "doi": "10.1016/j.annonc.2023.09.3110",
+        "url": "https://doi.org/10.1016/j.annonc.2023.09.3110",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Poly(ADP-ribose) polymerase (PARP) inhibitor maintenance therapy is the standard of care for some patients with advanced ovarian cancer. We evaluated the efficacy and safety of PARP inhibitor rechallenge. PATIENTS AND METHODS: This randomized, double-blind, multicenter trial (NCT03106987) enrolled patients with platinum-sensitive relapsed ovarian cancer who had received one prior PARP inhibitor therapy for ≥18 and ≥12 months in the BRCA-mutated and non-BRCA-mutated cohorts, respectively, following first-line chemotherapy or for ≥12 and ≥6 months, respectively, following a second or subsequent line of chemotherapy. Patients were in response following their last platinum-based chemotherapy regimen and were randomized 2 : 1 to maintenance olaparib tablets 300 mg twice daily or placebo. Investigator-assessed progression-free survival (PFS) was the primary endpoint. RESULTS: Seventy four",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "8e4fa0e0fe93294087376c181443f16315f781fb0ccb45d6ffae44fd4fea83c2"
+      },
+      {
+        "pmid": "cr:10.1093/annonc/mdz426.001",
+        "title": "Impact of radiological disease progression on the health status of patients (pts) with BRCA-mutated advanced ovarian cancer (OC) treated with maintenance olaparib (OL) or placebo (PL) after first-line platinum chemotherapy",
+        "authors": "Friedlander M.L., Hettle R., Parkhomenko E.",
+        "year": "2019",
+        "journal": "Annals of Oncology",
+        "doi": "10.1093/annonc/mdz426.001",
+        "url": "https://doi.org/10.1093/annonc/mdz426.001",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 83,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9965588704e250bb131fe13f3399cb402853e5c19f430c27c238d0c3701120cf"
+      },
+      {
+        "pmid": "31851799",
+        "title": "Olaparib plus Bevacizumab as First-Line Maintenance in Ovarian Cancer",
+        "authors": "Isabelle Laure Ray-Coquard, Patricia Pautier, Sandro Pignata, David Pérol",
+        "year": "2019",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1911361",
+        "url": "https://doi.org/10.1056/nejmoa1911361",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Olaparib has shown significant clinical benefit as maintenance therapy in women with newly diagnosed advanced ovarian cancer with a BRCA mutation. The effect of combining maintenance olaparib and bevacizumab in patients regardless of BRCA mutation status is unknown. METHODS: We conducted a randomized, double-blind, international phase 3 trial. Eligible patients had newly diagnosed, advanced, high-grade ovarian cancer and were having a response after first-line platinum-taxane chemotherapy plus bevacizumab. Patients were eligible regardless of surgical outcome or BRCA mutation status. Patients were randomly assigned in a 2:1 ratio to receive olaparib tablets (300 mg twice daily) or placebo for up to 24 months; all the patients received bevacizumab at a dose of 15 mg per kilogram of body weight every",
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "73da8f25fb75f0b53614a865c106ffa2e37ab723e3217eabc2173f1645301781"
+      },
+      {
+        "pmid": "31562800",
+        "title": "Veliparib with First-Line Chemotherapy and as Maintenance Therapy in Ovarian Cancer",
+        "authors": "Robert Louis Coleman, Gini F. Fleming, Mark F. Brady, Elizabeth M. Swisher",
+        "year": "2019",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1909707",
+        "url": "https://doi.org/10.1056/nejmoa1909707",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Data are limited regarding the use of poly(adenosine diphosphate [ADP]-ribose) polymerase inhibitors, such as veliparib, in combination with chemotherapy followed by maintenance as initial treatment in patients with high-grade serous ovarian carcinoma. METHODS: In an international, phase 3, placebo-controlled trial, we assessed the efficacy of veliparib added to first-line induction chemotherapy with carboplatin and paclitaxel and continued as maintenance monotherapy in patients with previously untreated stage III or IV high-grade serous ovarian carcinoma. Patients were randomly assigned in a 1:1:1 ratio to receive chemotherapy plus placebo followed by placebo maintenance (control), chemotherapy plus veliparib followed by placebo maintenance (veliparib combination only), or chemotherapy plus veliparib followed by veliparib maintenance (veliparib throughout). Cytoreductive surgery could be performed before initiation or",
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8adb17e83f86d1da4b21379eb6bdd2d0a35fed94c4dcd830f3cfa82fbdacb8ab"
+      },
+      {
+        "pmid": "43026829",
+        "title": "Comparison of Survival Outcomes with First-Line PARP Inhibitor Maintenance According to <i>BRCA</i> Mutation and Homologous Recombination Deficiency Status in Advanced Ovarian Cancer: A Single-Center Retrospective Cohort Study.",
+        "authors": "Choi YJ, Lee JY, Nam EJ, Kim SW, Kim S, Lee YJ.",
+        "year": "2026",
+        "journal": "Cancers",
+        "doi": "10.3390/cancers18213508",
+        "url": "https://europepmc.org/article/PMC/PMC13761458",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background/Objectives: First-line poly(ADP-ribose) polymerase inhibitor (PARPi) maintenance is standard in advanced ovarian cancer, but direct comparisons between active regimens within biomarker-defined groups are limited. We compared survival outcomes after first-line PARPi maintenance according to BRCA mutation and homologous recombination deficiency (HRD) status. Methods: This single-center retrospective cohort included 218 patients who initiated olaparib, olaparib plus bevacizumab, or niraparib after first-line platinum-based chemotherapy. Progression-free survival (PFS) and overall survival (OS) were measured from maintenance initiation. We compared olaparib with niraparib in BRCA -mutated disease and olaparib plus bevacizumab with niraparib in HRD-positive, BRCA -wild-type disease. Results: Overall, 82 patients received olaparib, 33 olaparib plus bevacizumab, and 103 niraparib. Median follow-up was 23.9 months. In BRCA -mutated disease, 2-year PFS was 68.2% with olaparib ( n = 81) and 69.0% with niraparib ( n = 44; niraparib vs. olaparib: hazard ratio [HR] 1.14, 95% confidence interval [CI] 0.60-2.17; log-rank p = 0.695). In HRD-positive, BRCA -wild-type disease, 2-year PFS was 81.0% with olaparib plus bevacizumab ( n = 22) and 62.6% with niraparib ( n = 51; niraparib vs. combination: HR 1.58, 95% CI 0.61-4.09; log-rank p = 0.338). A bevacizumab-containing induction regimen was more frequent in the combination group (13/22 vs. 2/51), and only seven deaths occurred in this comparison. Conclusions: Neither comparison showed a statistically significant PFS difference, and the study was not powered to evaluate OS or to establish superiority or equivalence. The small HRD-positive comparison and differences in prior treatment preclude a definitive conclusion about the relative efficacy of olaparib plus bevacizumab and niraparib.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "c6c83d42b33ec3cac45288cf795ba8bc09563e7857ddcad1d23a8025b377e525"
+      },
+      {
+        "pmid": "42435644",
+        "title": "Intermittent olaparib with neoadjuvant platinum-based chemotherapy in BRCA-mutated un-resectable ovarian cancer: the NUVOLA trial",
+        "authors": "Vanda Salutari, Cláudia Marchetti, Elena Giudice, Camilla Nero",
+        "year": "2026",
+        "journal": "International Journal of Gynecological Cancer",
+        "doi": "10.1016/j.ijgc.2026.104816",
+        "url": "https://doi.org/10.1016/j.ijgc.2026.104816",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: Maintenance therapy with poly(adenosine diphosphate-ribose) polymerase inhibitors following first-line platinum-based chemotherapy has improved survival outcomes in patients with BRCA-mutated advanced epithelial ovarian cancer. Although pre-clinical data support a synergistic interaction between poly(adenosine diphosphate-ribose) polymerase inhibitors and platinum agents, the clinical value of their concurrent administration in the neoadjuvant setting remains unclear. This study evaluated the feasibility and efficacy of adding olaparib to neoadjuvant chemotherapy in patients with newly diagnosed BRCA-mutated advanced epithelial ovarian cancer. METHODS: This open-label, single-arm phase II study (NCT04261465) enrolled 36 patients with newly diagnosed BRCA-mutated advanced epithelial ovarian cancer. Patients received three cycles of neoadjuvant chemotherapy with weekly carboplatin (area under the curve 2) and paclitaxel (60 mg/m2 on days 1, 8, and 15 of",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e4d592cf8e740c3ac7470d9e8efe06a872e93b8b6e4c54fbe9dd1bd0296a342d"
+      },
+      {
+        "pmid": "42642151",
+        "title": "Olaparib as the first-line maintenance therapy in advanced-stage epithelial ovarian cancer patients with BRCA mutations – Real-world experience from Taiwan",
+        "authors": "Wei-Jiun Tang, Shu-Han Chang, Chen-Bin Chang, Wei‐Chun Chen",
+        "year": "2026",
+        "journal": "Taiwanese Journal of Obstetrics and Gynecology",
+        "doi": "10.1016/j.tjog.2025.01.016",
+        "url": "https://doi.org/10.1016/j.tjog.2025.01.016",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: Advanced epithelial ovarian cancer frequently recurs despite good response to first-line treatment, making maintenance therapy essential. Olaparib, a poly (ADP-ribose) polymerase (PARP) inhibitor, demonstrated significant benefit in BRCA-mutated disease in the SOLO-1 trial; however, real-world data from Taiwan remain limited. MATERIALS AND METHODS: We conducted a retrospective cohort study of patients with stage III/IV BRCA1/2-mutated epithelial ovarian cancer treated at Chang Gung Memorial Hospital, Linkou, between 2019 and 2025. Eligible patients achieved complete or partial response to first-line platinum-based chemotherapy and received olaparib. Primary endpoints were progression-free survival (PFS) and overall survival (OS), with adverse events (AEs) as the secondary endpoint. RESULTS: Forty-one patients were analyzed, with a median follow-up of 30.4 months. The estimated mean PFS was 55.0",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "554b9c1b531b3689a4609fb85200515f24c6d991eacd2bc782d160dd487e8495"
+      },
+      {
+        "pmid": "42774753",
+        "title": "Prognostic and therapeutic implications of BRCA1 and BRCA2 mutations in ovarian cancer.",
+        "authors": "Pawul W, Opoka P, Dusza A, Blajerski B, Orzelska J, Gierulska N, Kułak K, Tarkowski R.",
+        "year": "2026",
+        "journal": "Frontiers in oncology",
+        "doi": "10.3389/fonc.2026.1899836",
+        "url": "https://europepmc.org/article/PMC/PMC13595197",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Introduction Ovarian cancer remains one of the leading causes of cancer-related mortality among women because of its asymptomatic early course, delayed diagnosis, and frequent presentation at advanced stages. Germline and somatic mutations in the BRCA1 and BRCA2 genes significantly increase the risk of ovarian cancer by impairing homologous recombination DNA repair, resulting in genomic instability. Beyond their role in carcinogenesis, BRCA mutations have become important prognostic and predictive biomarkers, influencing treatment response and clinical outcomes. This review summarizes current evidence regarding the impact of BRCA1/2 status on prognosis and therapeutic strategies in ovarian cancer. Methods A literature review was conducted using the PubMed and Scopus databases. English-language articles published between 2016 and 2026 were identified using combinations of the keywords ovarian cancer , BRCA1 , BRCA2 , PARP inhibitors , homologous recombination deficiency , and treatment . Original studies, systematic reviews, meta-analyses, and relevant clinical trials were included. Results The available evidence demonstrates that patients carrying BRCA1 or BRCA2 mutations generally experience improved progression-free survival and, in many studies, prolonged overall survival compared with non-carriers. This survival advantage is largely attributed to increased sensitivity to platinum-based chemotherapy and the efficacy of PARP inhibitors, which exploit synthetic lethality in homologous recombination-deficient tumors. The literature also emphasizes the importance of universal BRCA testing to optimize treatment selection, identify candidates for maintenance PARP inhibitor therapy, and facilitate genetic counseling. In addition, emerging mechanisms of resistance to PARP inhibitors remain a significant therapeutic challenge. Conclusion BRCA1/2 mutation status is a key biomarker in the management of ovarian cancer, supporting personalized treatment strategies and improving patient outcomes. Further research is needed to identify novel predictive biomarkers, overcome therapeutic resistance, and develop more effective targeted therapies.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "21dd0117ca19f48708916885235ad36b192a68bc9dd34dd916dd5af3fc78cc1b"
+      },
+      {
+        "pmid": "doi:10.3389/fonc.2024.1414112",
+        "title": "Poly (ADP-ribose) polymerase inhibitor therapy and mechanisms of resistance in epithelial ovarian cancer",
+        "authors": "Sanat Kulkarni, Ketankumar Gajjar, Srinivasan Madhusudan, Srinivasan Madhusudan",
+        "year": "2024",
+        "journal": "Frontiers in Oncology",
+        "doi": "10.3389/fonc.2024.1414112",
+        "url": "https://doi.org/10.3389/fonc.2024.1414112",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Advanced epithelial ovarian cancer is the commonest cause of gynaecological cancer deaths. First-line treatment for advanced disease includes a combination of platinum-taxane chemotherapy (post-operatively or peri-operatively) and maximal debulking surgery whenever feasible. Initial response rate to chemotherapy is high (up to 80%) but most patients will develop recurrence (approximately 70-90%) and succumb to the disease. Recently, poly-ADP-ribose polymerase (PARP) inhibition (by drugs such as Olaparib, Niraparib or Rucaparib) directed synthetic lethality approach in BRCA germline mutant or platinum sensitive disease has generated real hope for patients. PARP inhibitor (PARPi) maintenance therapy can prolong survival but therapeutic response is not sustained due to intrinsic or acquired secondary resistance to PARPi therapy. Reversion of BRCA1/2 mutation can lead to clinical PARPi resistance in BRCA-germline mutated ovarian cancer. However, in the more common platinum sensitive sporadic HGSOC, the clinical mechanisms of development of PARPi resistance remains to be defined. Here we provide a comprehensive review of the current status of PARPi and the mechanisms of resistance to therapy.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "7f2287752fd3678dd2265f7382ca0f559adaae6d33e2c560c1b1acb5502e0b76"
+      },
+      {
+        "pmid": "33559410",
+        "title": "Cost-effectiveness of olaparib versus routine surveillance in the maintenance setting for patients withBRCA-mutated advanced ovarian cancer after response to first-line platinum-based chemotherapy in Singapore",
+        "authors": "David S.P. Tan, Jack Junjie Chan, Robert Hettle, Wrik Ghosh",
+        "year": "2021",
+        "journal": "Journal of Gynecologic Oncology",
+        "doi": "10.3802/jgo.2021.32.e27",
+        "url": "https://doi.org/10.3802/jgo.2021.32.e27",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To evaluate the cost-effectiveness of olaparib as a maintenance treatment versus routine surveillance (RS) in patients with BRCA mutated (BRCAm) advanced ovarian cancer (OC) following response to first-line platinum-based chemotherapy in Singapore. METHODS: A 4-health state partitioned survival model was developed to simulate the lifetime (50 years) incremental cost-effectiveness ratio (ICER) of olaparib versus RS from a healthcare payer perspective. Progression-free survival, time to second disease progression, and overall survival were estimated using SOLO-1 data and extrapolated beyond the trial period using parametric survival models. Any patient who remained progression-free at year 7 was assumed to be no longer at risk of progression. Mortality rates were based on all-cause mortality, adjusted based on BRCA1/2 mutation. Health state utilities and",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "b8b91142349bc19bcb08d8187b940bda4366fd6b22c98c93f0f6937749420e50"
+      },
+      {
+        "pmid": "33017510",
+        "title": "FDA Approval Summary: Olaparib Monotherapy or in Combination with Bevacizumab for the Maintenance Treatment of Patients with Advanced Ovarian Cancer",
+        "authors": "Shaily Arora, Sanjeeve Balasubramaniam, Hui Zhang, Tara A. Berman",
+        "year": "2020",
+        "journal": "The Oncologist",
+        "doi": "10.1002/onco.13551",
+        "url": "https://doi.org/10.1002/onco.13551",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "On December 19, 2018, the U.S. Food and Drug Administration (FDA) granted approval to olaparib monotherapy for first-line maintenance treatment of BRCA-mutated (BRCAm) advanced ovarian cancer and, on May 8, 2020, expanded the indication of olaparib to include its use in combination with bevacizumab for first-line maintenance treatment of homologous recombination deficient (HRD)-positive advanced ovarian cancer. Both these approvals were based on randomized, double-blind, placebo-controlled trials. Approval for olaparib monotherapy was based on the SOLO-1 trial, comparing the efficacy of olaparib versus placebo in patients with BRCAm advanced ovarian, fallopian tube, or primary peritoneal cancer after surgical cytoreduction and first-line platinum-based chemotherapy. Two companion diagnostic (CDx) tests were approved with this indication: BRACAnalysis CDx, for germline BRCA1/2 alterations, and FoundationOne",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "5d84bfcdfb3f1b0b3d1ff62e5272773a7c2914a6ed5e78c3028c6361c37b64cf"
+      },
+      {
+        "pmid": "43075346",
+        "title": "Bevacizumab in first-line postoperative treatment of advanced ovarian cancer: from high-risk stratification to precision decision-making.",
+        "authors": "Zhong L, Song L.",
+        "year": "2026",
+        "journal": "Frontiers in pharmacology",
+        "doi": "10.3389/fphar.2026.1931140",
+        "url": "https://europepmc.org/article/PMC/PMC13791388",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Bevacizumab is an important component of first-line therapy for advanced epithelial ovarian cancer; however, the precise identification of patients who will benefit and how to optimize its use in the era of poly (ADP-ribose) polymerase inhibitors (PARPi) remains a core challenge in clinical practice. This review systematically revisits the pivotal phase III trials GOG-0218 and ICON7, together with their inherent limitations, with a particular focus on the role of KELIM score as a dynamic marker of chemotherapy sensitivity in predicting bevacizumab efficacy. Based on the interaction test from GOG-0218, the available evidence suggests that BRCA/homologous recombination deficiency (HRD) status does not alter the single-agent activity of bevacizumab; however, these genetic markers remain crucial for guiding PARPi or combination regimens. A key clinical dilemma arises when patients with a BRCA mutation have already received bevacizumab during first-line chemotherapy: should bevacizumab be continued or discontinued during the maintenance phase? This review presents a preference analysis and individualized decision-making factors based on available indirect evidence and current guidelines. Finally, a clinical decision pathway that integrates KELIM assessment with HRD testing is proposed to provide an evidence-based reference framework for the rational use of bevacizumab in first-line advanced ovarian cancer.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "5a5174c48db2a66091abf1715e536bfa8c9c6b8a5f9d486eb1669121ca8f251c"
+      },
+      {
+        "pmid": "42824309",
+        "title": "Biomarker-Driven Treatments for Ovarian Cancer: Moving Beyond HRD?",
+        "authors": "Joseph L, Flynn M, Ledermann JA.",
+        "year": "2026",
+        "journal": "International journal of women's health",
+        "doi": "10.2147/ijwh.s571328",
+        "url": "https://europepmc.org/article/PMC/PMC13627286",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Ovarian cancer is a biologically heterogeneous disease, yet for more than two decades its standard treatment of surgery and platinum-taxane chemotherapy changed little. Only a modest additional benefit was seen with the addition of bevacizumab, a monoclonal antibody targeting vascular endothelial growth factor A (VEGF-A) in selected patients. The recognition that BRCA1/2 mutations impair the repair of DNA double-strand breaks by homologous recombination, and that inhibitors of PARP are highly active in this setting, established the first widely adopted biomarker-driven treatment in this disease. Homologous recombination deficiency (HRD) therefore remains the established predictive biomarker for first-line maintenance therapy, but it is imperfect: benefit is not confined to HRD-positive tumours, assays report historical genomic scars, and most patients ultimately relapse with platinum-resistant disease. This review examines how biomarker-driven treatment in ovarian cancer is developing beyond HRD. We appraise the evidence for strategies that are already clinically established, principally PARP inhibitors, the folate receptor α-directed antibody-drug conjugate mirvetuximab soravtansine, and, more recently, PD-L1-selected immune checkpoint inhibition in platinum-resistant disease and distinguish these from approaches that remain investigational, including antibody-drug conjugates directed at HER2, TROP2, CLDN6, B7-H3/H4 and CDH6, and agents exploiting cell cycle dysregulation and replication stress such as CCNE1-associated, WEE1 and ATR-directed therapies. We also consider the practical obstacles to implementation: tumour heterogeneity and evolution, the complementary roles of tissue and liquid biopsy, when molecular profiling should be repeated, assay standardisation and access, and the limitations of basket trial designs. Progress will depend on expanding the development of practical frameworks for biomarker testing, treatment selection and sequencing.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "1b47c2c207ec704ae925437ad53d28aa4b8f89446211e3e9621285bad7ddceed"
+      },
+      {
+        "pmid": "42723498",
+        "title": "The evolving role of immunotherapy in ovarian cancer.",
+        "authors": "Veneziani AC, Venegas L, Oza AM.",
+        "year": "2026",
+        "journal": "Cancer",
+        "doi": "10.1002/cncr.70581",
+        "url": "https://europepmc.org/article/PMC/PMC13563111",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Ovarian cancer remains a major cause of gynecologic cancer mortality; and, although immune checkpoint inhibitors have transformed treatment in other solid tumors, their activity in ovarian cancer has been limited by tumor heterogeneity, an immunosuppressive tumor microenvironment, and the lack of robust predictive biomarkers. Recent research therefore has shifted toward combination and precision-based strategies, including dual-checkpoint blockade, integration with chemotherapy, antiangiogenic therapy, and poly(adenosine diphosphate-ribose) polymerase inhibitors, as well as adoptive cell therapies, vaccines, and oncolytic viruses. To date, added benefit from checkpoint inhibition has been clearest in chemotherapy-based combinations for programmed death-ligand-positive, platinum-resistant disease, whereas its contribution to maintenance therapy with poly(adenosine diphosphate-ribose) polymerase inhibitors and/or bevacizumab in first-line or platinum-sensitive relapse appears limited. Emerging evidence also supports the role of antibody-drug conjugates as both direct cytotoxic agents and immune modulators. In parallel, biomarkers such as programmed death-ligand 1, tumor mutational burden, microsatellite instability high, and immune-cell infiltrates are being evaluated to improve patient selection, while artificial intelligence and machine learning are increasingly being explored to integrate clinical, pathologic, radiomic, and molecular data for response prediction. Research directions to make ovarian cancer more susceptible to immunotherapy are moving from empiric treatment to more biologically informed, multimodal approaches aimed at overcoming immune suppression, enhancing antitumor immunity, and personalizing treatment for patients with ovarian cancer.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "6ac2782856ae73f3c27285e0eee34bca7ff127eba15e8039e5a401d6b44f0d62"
+      },
+      {
+        "pmid": "34844775",
+        "title": "Olaparib as first line in BRCA-mutated advanced ovarian carcinoma: Is it cost-effective in Spain?",
+        "authors": "Carlota Moya-Alarcón, Almudena González Domínguez, Yoana Ivanova-Markova, Vicente Gimeno‐Ballester",
+        "year": "2021",
+        "journal": "Gynecologic Oncology",
+        "doi": "10.1016/j.ygyno.2021.11.011",
+        "url": "https://doi.org/10.1016/j.ygyno.2021.11.011",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To estimate the cost-effectiveness of olaparib after being funded by the Spanish National Health Service (SNHS) as first-line monotherapy maintenance treatment in patients with advanced high-grade serous ovarian carcinoma (HGSOC) and BRCA mutations in Spain. METHODS: A semi-Markov model with one-month cycles was adapted to the Spanish healthcare setting, using the perspective of the SNHS, and a time horizon of 50 years. Two scenarios were compared: receiving olaparib vs. no maintenance treatment. The model comprised four health states and included the clinical results of the SOLO1 study, along with the direct healthcare costs associated with the use of first-line and subsequent treatment resources (2020 €). A discount rate of 3% was applied for future cost and quality-of-life outcomes. A",
+        "relevancePct": 51,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8b6e5645a4a428b0c8c4f9b51580d2424619e47dddf49a138ffd09f902164890"
+      },
+      {
+        "pmid": "cr:10.1136/ijgc-2024-esgo.596",
+        "title": "224 Real-world experience with a first-line olaparib maintenance monotherapy for advanced BRCA mutated ovarian carcinoma",
+        "authors": "Skof Erik, Gregoric Brigita, Skrbinc Breda, Jansa Vid",
+        "year": "2024",
+        "journal": "International Journal of Gynecological Cancer",
+        "doi": "10.1136/ijgc-2024-esgo.596",
+        "url": "https://doi.org/10.1136/ijgc-2024-esgo.596",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 46,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f28ad0e17401733c16dbc518fbf409c1f9de6edb443a2de23935e47ef8a7f71c"
+      },
+      {
+        "pmid": "cr:10.1016/j.esmoop.2024.102983",
+        "title": "Should all advanced BRCA-mutated patients in response to first-line platinum-based chemotherapy receive PARPi + bevacizumab as maintenance therapy?",
+        "authors": "Turinetto M., Ray-Coquard I., Gourley C.",
+        "year": "2024",
+        "journal": "ESMO Open",
+        "doi": "10.1016/j.esmoop.2024.102983",
+        "url": "https://doi.org/10.1016/j.esmoop.2024.102983",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 46,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "57c68451caf4f0defca5c193f42709c63c8f8d02f1ec4a59cd5efad05257ee9c"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "advanced BRCA-mutated ovarian cancer, first-line platinum response olaparib maintenance therapy placebo progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

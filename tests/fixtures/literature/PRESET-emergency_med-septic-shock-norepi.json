@@ -1,0 +1,836 @@
+{
+  "id": "PRESET-emergency_med-septic-shock-norepi",
+  "recordedAt": "2026-11-26T19:47:59.736Z",
+  "specialty": "emergency_med",
+  "words": [
+    {
+      "word": "adults with fluid-refractory septic shock in emergency department",
+      "role": "population"
+    },
+    {
+      "word": "early continuous norepinephrine infusion within 1 hour",
+      "role": "intervention"
+    },
+    {
+      "word": "standard delayed vasopressor initiation after fluid completion",
+      "role": "comparator"
+    },
+    {
+      "word": "28-day in-hospital mortality",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "adults with fluid-refractory septic shock in emergency department",
+        "role": "population"
+      },
+      {
+        "word": "early continuous norepinephrine infusion within 1 hour",
+        "role": "intervention"
+      },
+      {
+        "word": "standard delayed vasopressor initiation after fluid completion",
+        "role": "comparator"
+      },
+      {
+        "word": "28-day in-hospital mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In adults with fluid-refractory septic shock in emergency department (P), does early continuous norepinephrine infusion within 1 hour (I) compared with standard delayed vasopressor initiation after fluid completion (C) reduce 28-day in-hospital mortality (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (2 favourable, 2 no-difference, 0 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In adults with fluid-refractory septic shock in emergency department (P), is early continuous norepinephrine infusion within 1 hour (I) superior to standard delayed vasopressor initiation after fluid completion (C) for 28-day in-hospital mortality (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of adults with fluid-refractory septic shock in emergency department (P), does early continuous norepinephrine infusion within 1 hour (I) compared with standard delayed vasopressor initiation after fluid completion (C) reduce 28-day in-hospital mortality (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In adults with fluid-refractory septic shock in emergency department (P), is early continuous norepinephrine infusion within 1 hour (I) superior to standard delayed vasopressor initiation after fluid completion (C) for 28-day in-hospital mortality (O)?"
+    },
+    "words": [
+      {
+        "word": "adults with fluid-refractory septic shock in emergency department",
+        "role": "population"
+      },
+      {
+        "word": "early continuous norepinephrine infusion within 1 hour",
+        "role": "intervention"
+      },
+      {
+        "word": "standard delayed vasopressor initiation after fluid completion",
+        "role": "comparator"
+      },
+      {
+        "word": "28-day in-hospital mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "emergency_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "38310764",
+        "title": "Effect of delayed antibiotic use on mortality outcomes in patients with sepsis or septic shock: A systematic review and meta-analysis",
+        "authors": "Tang F, et al",
+        "year": "2024",
+        "journal": "International immunopharmacology",
+        "doi": "10.1016/j.intimp.2024.111616",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38310764/",
+        "context": "BACKGROUND: The use of antibiotics is essential in the treatment of sepsis and septic shock, and delaying their administration may impact patient mortality outcomes. However, there is currently a controversial debate surrounding this issue. In this meta-analysis, we aimed to explore the association between delayed antibiotic use and mortality in patients with sepsis and septic shock. METHODS: A systematic search was conducted on PubMed, EMBASE, Web of Science, and Cochrane Library to identify relevant studies published from 2013 to 2023. These studies focused on patients with sepsis or septic shock and provided information on various antibiotic administration times and mortality rates. Two independent reviewers screened and extracted the data. The quality of each study was assessed using the Newcastle-Ottawa Scale, and the collected data were analyzed using STATA 15.1 software. RESULTS: A total of 29 studies were included, consisting of 17 prospective cohort studies and 12 retrospective cohort studies. The meta-analysis showed that compared to administration of antibiotics within 1 h, each hour of delay in antibiotic administration increased the in-hospital mortality (IHM) (OR = 1.041, 95 % CI: 1.021-1.062), and ministration of antibiotics after 1 h increased the IHM (OR = 1.205, 95 % CI: 1.123-1.293). There was no significant change in the 28-day mortality (OR = 1.297, 95 % CI: 0.882-1.906), 90-day mortality (OR = 1.172, 95 % CI: 0.846-1.622), and 1-year mortality (OR = 0.986, 95 % CI: 0.422-2.303). Administration of antibiotics within 3 h may reduce the IHM (OR = 1.297, 95 % CI: 1.011-1.664, p = 0.041), while administration of antibiotics within 6 h showed no significant association with the IHM. CONCLUSION: The administration of antibiotics beyond 1 h after emergency triage or disease identification is strongly associated with an increased IHM in patients with sepsis or septic shock, and each hour of delay in antibiotic administration may be associated with an increase in the IHM. Furthermore, the use of antibiotics identification beyond 3 h after emergency triage / sepsis or septic shock may also increase the IHM.",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "30b0acc6002320fcbc9ad7607a984e2fa82d735bcf9c99717dcf001b931868f8"
+      },
+      {
+        "pmid": "cr:10.1093/tropej/fmaf045",
+        "title": "Dopamine versus norepinephrine in fluid-refractory septic shock among preterm neonates: a double-blind randomized controlled trial",
+        "authors": "Singh Ravendra, Bandyopadhyay Tapas, Maria Arti",
+        "year": "2025",
+        "journal": "Journal of Tropical Pediatrics",
+        "doi": "10.1093/tropej/fmaf045",
+        "url": "https://doi.org/10.1093/tropej/fmaf045",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract The present study aims to compare the efficacy and safety of norepinephrine (NE) versus dopamine in achieving early (within 45 min of initiation) reversal of fluid-refractory septic shock in preterm neonates. A double-blind randomized controlled trial was conducted in a Level-III tertiary care hospital in Northern India. Fifty neonates born at a gestational age of <37 weeks and diagnosed with fluid-refractory septic shock till 28 days of life were randomly allocated to receive either dopamine infusion (10–20 μg/kg/min) or NE infusion (0.2–0.4 μg/kg/min). We found that the proportion of preterm neonates achieving early (within 45 min of initiation) reversal of septic shock was 11/26 (42.3%) in the dopamine group vs. 15/24 (62.5%) in the NE group, respectively [risk ratio (RR) 0.677; 95% confidence interval (CI) 0.392–1.168]. Among secondary outcomes, the proportion of neonates requiring additional vasoactive drugs was significantly less in the NE group, 8/24 (33.3%) vs. the dopamine group, 16/26 (61.5%), respectively (RR 1.846; 95% CI 1.000–3.509, P=.04). Additionally, the probability of requiring additional vasoactive drugs and remaining alive during the hospital stay were significantly higher in the NE group [hazard ratio (HR) 1.66; 95% CI 1.12–2.45, P=.01 by log-rank test]. There was no significant difference in other clinical outcomes. Among preterm neonates with fluid-refractory septic shock, NE (0.2–0.4 μg/kg/min) and dopamine (10–20 μg/kg/min) had comparable efficacy and safety.",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "fd7009b5e07068e111d4ca6e20f77cd280895a7ed6cf37cd67801e8f9e2f394a"
+      },
+      {
+        "pmid": "30772908",
+        "title": "Effect of a Resuscitation Strategy Targeting Peripheral Perfusion Status vs Serum Lactate Levels on 28-Day Mortality Among Patients With Septic Shock: The ANDROMEDA-SHOCK Randomized Clinical Trial",
+        "authors": "Hernández G, et al",
+        "year": "2019",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2019.0071",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30772908/",
+        "context": "IMPORTANCE: Abnormal peripheral perfusion after septic shock resuscitation has been associated with organ dysfunction and mortality. The potential role of the clinical assessment of peripheral perfusion as a target during resuscitation in early septic shock has not been established. OBJECTIVE: To determine if a peripheral perfusion-targeted resuscitation during early septic shock in adults is more effective than a lactate level-targeted resuscitation for reducing mortality. DESIGN, SETTING, AND PARTICIPANTS: Multicenter, randomized trial conducted at 28 intensive care units in 5 countries. Four-hundred twenty-four patients with septic shock were included between March 2017 and March 2018. The last date of follow-up was June 12, 2018. INTERVENTIONS: Patients were randomized to a step-by-step resuscitation protocol aimed at either normalizing capillary refill time (n = 212) or normalizing or decreasing lactate levels at rates greater than 20% per 2 hours (n = 212), during an 8-hour intervention period. MAIN OUTCOMES AND MEASURES: The primary outcome was all-cause mortality at 28 days. Secondary outcomes were organ dysfunction at 72 hours after randomization, as assessed by Sequential Organ Failure Assessment (SOFA) score (range, 0 [best] to 24 [worst]); death within 90 days; mechanical ventilation-, renal replacement therapy-, and vasopressor-free days within 28 days; intensive care unit and hospital length of stay. RESULTS: Among 424 patients randomized (mean age, 63 years; 226 [53%] women), 416 (98%) completed the trial. By day 28, 74 patients (34.9%) in the peripheral perfusion group and 92 patients (43.4%) in the lactate group had died (hazard ratio, 0.75 [95% CI, 0.55 to 1.02]; P = .06; risk difference, -8.5% [95% CI, -18.2% to 1.2%]). Peripheral perfusion-targeted resuscitation was associated with less organ dysfunction at 72 hours (mean SOFA score, 5.6 [SD, 4.3] vs 6.6 [SD, 4.7]; mean difference, -1.00 [95% CI, -1.97 to -0.02]; P = .045). There were no significant differences in the other 6 secondary outcomes. No protocol-related serious adverse reactions were confirmed. CONCLUSIONS AND RELEVANCE: Among patients with septic shock, a resuscitation strategy targeting normalization of capillary refill time, compared with a strategy targeting serum lactate levels, did not reduce all-cause 28-day mortality. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03078712.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "6869dd8f895b119d12833ce5edf1b2a312d640b03df0d6559f9e427fcc687d0c"
+      },
+      {
+        "pmid": "38240535",
+        "title": "Resuscitation With Early Adrenaline Infusion for Children With Septic Shock: A Randomized Pilot Trial",
+        "authors": "Amanda Harley, Shane George, Natalie T Phillips, Megan King",
+        "year": "2024",
+        "journal": "Pediatric Critical Care Medicine",
+        "doi": "10.1097/pcc.0000000000003351",
+        "url": "https://doi.org/10.1097/pcc.0000000000003351",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: In children with septic shock, guidelines recommend resuscitation with 40-60 mL/kg of fluid boluses, yet there is a lack of evidence to support this practice. We aimed to determine the feasibility of a randomized trial comparing early adrenaline infusion with standard fluid resuscitation in children with septic shock. DESIGN: Open-label parallel randomized controlled, multicenter pilot study. The primary end point was feasibility; the exploratory clinical endpoint was survival free of organ dysfunction by 28 days. SETTING: Four pediatric Emergency Departments in Queensland, Australia. PATIENTS: Children between 28 days and 18 years old with septic shock. INTERVENTIONS: Patients were assigned 1:1 to receive a continuous adrenaline infusion after 20 mL/kg fluid bolus resuscitation (n = 17), or standard care fluid",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "46c7d8667ea8ef1610c9f9e541e1aad0622cb0d2880b7abac0714724b94f0c56"
+      },
+      {
+        "pmid": "42288605",
+        "title": "Steroid administration, timing, and dose in patients with septic shock in the emergency department: retrospective analysis of a multicenter prospective cohort study",
+        "authors": "Sejoong Ahn, Chiwon Ahn, Sung Yeon Hwang, Sang-Min Kim",
+        "year": "2026",
+        "journal": "Scientific Reports",
+        "doi": "10.1038/s41598-026-56521-6",
+        "url": "https://doi.org/10.1038/s41598-026-56521-6",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "The benefit and optimal timing of corticosteroids in septic shock remain debated. Most evidence comes from intensive care unit-based studies, although key treatment decisions are often made early in the emergency department (ED). This study evaluated the association between steroid administration, including hydrocortisone timing and dose, and mortality in patients with septic shock in the ED. This retrospective observational study used an ED-based prospective multicenter septic shock registry from the Korean Shock Society (KoSS). The association between steroid administration and 28-day mortality was evaluated in adult patients with septic shock using multivariable regression models. Among hydrocortisone-treated patients, the associations of time from first vasopressor initiation to first hydrocortisone administration, norepinephrine-equivalent dose, and hydrocortisone dose with mortality were analyzed. From 2015",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "cf95e64712d9ad5761fe8e0ebaa6ff06ca1eb27ece024e9661f1db98c501ebda"
+      },
+      {
+        "pmid": "36171582",
+        "title": "Early administration of hydrocortisone, vitamin C, and thiamine in adult patients with septic shock: a randomized controlled clinical trial",
+        "authors": "Qingquan Lyu, Ruiqiang Zheng, Qihong Chen, Jiangquan Yu",
+        "year": "2022",
+        "journal": "Critical Care",
+        "doi": "10.1186/s13054-022-04175-x",
+        "url": "https://doi.org/10.1186/s13054-022-04175-x",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The combination therapy of hydrocortisone, vitamin C, and thiamine has been proposed as a potential treatment in patients with sepsis and septic shock. However, subsequent trials have reported conflicting results in relation to survival outcomes. Hence, we performed this randomized controlled trial (RCT) to evaluate the efficacy and safety of early combination therapy among adult patients with septic shock. METHODS: This single-center, double-blind RCT enrolled adult patients with diagnosis of septic shock within 12 h from Northern Jiangsu People's Hospital between February 2019 and June 2021. Recruited patients were randomized 1:1 to receive intervention (hydrocortisone 200 mg daily, vitamin C 2 g every 6 h, and thiamine 200 mg every 12 h) or placebo (0.9% saline) for 5 days",
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "91426697f32250f918b39ffcab4e1c52688bb9fa924dff9274768ae7648743df"
+      },
+      {
+        "pmid": "42274006",
+        "title": "Vasopressors or Fluids in Early Septic Shock",
+        "authors": "ARISE FLUIDS Investigators, the ANZICS Clinical Trials Group, and the ACEM Clinical Trials Network, et al",
+        "year": "2026",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2516225",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42274006/",
+        "context": "BACKGROUND: The optimal approach to early resuscitation in septic shock is unknown. Equipoise exists between the use of larger volumes of intravenous fluids to restore perfusion and the use of early vasopressor therapy along with smaller volumes of fluids to minimize potential harm from excess fluid. METHODS: We randomly assigned adult patients who presented to the emergency department with septic shock to receive either fluids at restricted volumes and early vasopressor therapy (vasopressor group) or higher volumes of fluids and later vasopressor therapy (fluids group) for at least 6 hours and up to 24 hours. The primary outcome was days alive and out of the hospital from randomization to day 90. RESULTS: A total of 1000 patients underwent randomization, with 499 assigned to the vasopressor group and 501 to the fluids group. Informed consent was not obtained for 37 patients, which left 963 patients in the intention-to-treat population (481 in the vasopressor group and 482 in the fluids group). Three patients in the fluids group were lost to follow-up for the primary outcome. In the first 24 hours after randomization, patients in the vasopressor group received less intravenous fluid than those in the fluids group (median difference, -1108 ml; 95% confidence interval [CI], -1395 to -850). The percentage of patients who received vasopressors was higher by 18.9 percentage points (95% CI, 13.3 to 24.5) in the vasopressor group. The median number of days alive and out of the hospital at day 90 was 76 (interquartile range, 55 to 83) in the vasopressor group and 76 (interquartile range, 55 to 82) in the fluids group (difference, 0.0 days; 95% CI, -2.7 to 2.7; P = 1.00). Adverse events occurred in similar percentages of patients in the two groups, except for pulmonary edema (0.6% in the vasopressor group vs. 5.0% in the fluids group; P<0.001). CONCLUSIONS: Among adult patients who presented to the emergency department with septic shock, an approach that involved restricted fluid volume and early vasopressors did not result in a greater number of days alive and out of the hospital at day 90 than an approach involving greater fluid volume and later administration of vasopressors. (Funded by the Australian National Health and Medical Council Medical Research Future Fund and the New Zealand Health Research Council; ARISE FLUIDS ClinicalTrials.gov number, NCT04569942.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Comparative Study"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "20e1d7a4893544c1c9b660229da61fe4ea004872e6f96c1178acc412a2d871f7"
+      },
+      {
+        "pmid": "29347874",
+        "title": "Adjunctive Glucocorticoid Therapy in Patients with Septic Shock",
+        "authors": "Venkatesh B, et al",
+        "year": "2018",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1705835",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29347874/",
+        "context": "BACKGROUND: Whether hydrocortisone reduces mortality among patients with septic shock is unclear. METHODS: We randomly assigned patients with septic shock who were undergoing mechanical ventilation to receive hydrocortisone (at a dose of 200 mg per day) or placebo for 7 days or until death or discharge from the intensive care unit (ICU), whichever came first. The primary outcome was death from any cause at 90 days. RESULTS: From March 2013 through April 2017, a total of 3800 patients underwent randomization. Status with respect to the primary outcome was ascertained in 3658 patients (1832 of whom had been assigned to the hydrocortisone group and 1826 to the placebo group). At 90 days, 511 patients (27.9%) in the hydrocortisone group and 526 (28.8%) in the placebo group had died (odds ratio, 0.95; 95% confidence interval [CI], 0.82 to 1.10; P=0.50). The effect of the trial regimen was similar in six prespecified subgroups. Patients who had been assigned to receive hydrocortisone had faster resolution of shock than those assigned to the placebo group (median duration, 3 days [interquartile range, 2 to 5] vs. 4 days [interquartile range, 2 to 9]; hazard ratio, 1.32; 95% CI, 1.23 to 1.41; P<0.001). Patients in the hydrocortisone group had a shorter duration of the initial episode of mechanical ventilation than those in the placebo group (median, 6 days [interquartile range, 3 to 18] vs. 7 days [interquartile range, 3 to 24]; hazard ratio, 1.13; 95% CI, 1.05 to 1.22; P<0.001), but taking into account episodes of recurrence of ventilation, there were no significant differences in the number of days alive and free from mechanical ventilation. Fewer patients in the hydrocortisone group than in the placebo group received a blood transfusion (37.0% vs. 41.7%; odds ratio, 0.82; 95% CI, 0.72 to 0.94; P=0.004). There were no significant between-group differences with respect to mortality at 28 days, the rate of recurrence of shock, the number of days alive and out of the ICU, the number of days alive and out of the hospital, the recurrence of mechanical ventilation, the rate of renal-replacement therapy, and the incidence of new-onset bacteremia or fungemia. CONCLUSIONS: Among patients with septic shock undergoing mechanical ventilation, a continuous infusion of hydrocortisone did not result in lower 90-day mortality than placebo. (Funded by the National Health and Medical Research Council of Australia and others; ADRENAL ClinicalTrials.gov number, NCT01448109 .).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "b612293ca36089259d22d47d561d079a3dba3c8c4cb3bd41d7edcbc9a2f35e44"
+      },
+      {
+        "pmid": "24635772",
+        "title": "Albumin replacement in patients with severe sepsis or septic shock",
+        "authors": "Caironi P, et al",
+        "year": "2014",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1305727",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24635772/",
+        "context": "BACKGROUND: Although previous studies have suggested the potential advantages of albumin administration in patients with severe sepsis, its efficacy has not been fully established. METHODS: In this multicenter, open-label trial, we randomly assigned 1818 patients with severe sepsis, in 100 intensive care units (ICUs), to receive either 20% albumin and crystalloid solution or crystalloid solution alone. In the albumin group, the target serum albumin concentration was 30 g per liter or more until discharge from the ICU or 28 days after randomization. The primary outcome was death from any cause at 28 days. Secondary outcomes were death from any cause at 90 days, the number of patients with organ dysfunction and the degree of dysfunction, and length of stay in the ICU and the hospital. RESULTS: During the first 7 days, patients in the albumin group, as compared with those in the crystalloid group, had a higher mean arterial pressure (P=0.03) and lower net fluid balance (P<0.001). The total daily amount of administered fluid did not differ significantly between the two groups (P=0.10). At 28 days, 285 of 895 patients (31.8%) in the albumin group and 288 of 900 (32.0%) in the crystalloid group had died (relative risk in the albumin group, 1.00; 95% confidence interval [CI], 0.87 to 1.14; P=0.94). At 90 days, 365 of 888 patients (41.1%) in the albumin group and 389 of 893 (43.6%) in the crystalloid group had died (relative risk, 0.94; 95% CI, 0.85 to 1.05; P=0.29). No significant differences in other secondary outcomes were observed between the two groups. CONCLUSIONS: In patients with severe sepsis, albumin replacement in addition to crystalloids, as compared with crystalloids alone, did not improve the rate of survival at 28 and 90 days. (Funded by the Italian Medicines Agency; ALBIOS ClinicalTrials.gov number, NCT00707122.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2f16ac2a6c6a1568ccd2bac6a44d152a028eb66ba494477625a1b6f8765a45cf"
+      },
+      {
+        "pmid": "cr:10.26717/bjstr.2025.62.009735",
+        "title": "Optimal Timing of Vasopressin Addition in Patients with Septic Shock Refractory to Norepinephrine Infusion: A Systematic Review",
+        "authors": "Rosado Alcocer Ligia María",
+        "year": "2025",
+        "journal": "Biomedical Journal of Scientific & Technical Research",
+        "doi": "10.26717/bjstr.2025.62.009735",
+        "url": "https://doi.org/10.26717/bjstr.2025.62.009735",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "46406e841ccc9edc9bc4f8fe2fbf6a43e6b3ff870a9cfae1777e1fb26ecb9b3a"
+      },
+      {
+        "pmid": "cr:10.3390/ijerph18020824",
+        "title": "Norepinephrine Infusion in the Emergency Department in Septic Shock Patients: A Retrospective 2-Years Safety Report and Outcome Analysis",
+        "authors": "Messina Antonio, Milani Angelo, Morenghi Emanuela, Costantini Elena",
+        "year": "2021",
+        "journal": "International Journal of Environmental Research and Public Health",
+        "doi": "10.3390/ijerph18020824",
+        "url": "https://doi.org/10.3390/ijerph18020824",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Hemodynamic optimization during sepsis and septic shock is based on a prompt and large fluid resuscitation strategy associated with early administration of norepinephrine. In our hospital, norepinephrine is administered in the emergency department (ED), within a protocol-guided management context, to reduce norepinephrine infusion timing due to central line insertion. This choice, however, can be associated with side effects. Objectives: We conducted a retrospective analysis regarding the safety of norepinephrine in the ED. We also appraised the association between in-hospital mortality and predefined ED variables and patients’ admission severity scores. Design, settings, and participants: This was a retrospective analysis of electronic sheets of the ED of a tertiary hospital in the North of Italy. Outcomes measure and analysis: Electronic documentation was assessed to identify local and systemic side effects. We considered two subgroups of patients according to the in-hospital clinical paths: (1) those admitted in the intensive care unit (ICU); and (2) those who received a ceiling of care decision. We collected and considered variables related to septic shock treatment in the ED and analyzed their association with in-hospital mortality. Main Results: We considered a two-year period, including 108,033 ED accesses, and ultimately analyzed data from 127 patients. Side effects related to the use of this drug were reported in five (3.9%) patients. Thirty patients (23.6%) were transferred to the ICU from the ED, of whom six (20.0%) died. Twenty-eight patients (22.0%) received a ceiling of care indication, of whom 21 (75.0%) died. Of the 69 (54.3%) finally discharged to either medical or surgical wards, 21 (30.4%) died. ICU admission was the only variable significantly associated to in-hospital mortality in the multivariable analysis [OR (95% CI) = 4.48 (1.52–13.22); p-value = 0.007]. Conclusions: Norepinephrine peripheral infusion in the ED was associated with a low incidence of adverse events requiring discontinuation (3.9%). It could be considered safe within <12 h when a specific line management protocol and pump infusion protocol are adopted. None of the variables related to septic shock management affected in-hospital mortality, except for the patient’s ICU admission.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "88015b1187152ebe3407c72abceab84a70a3ae53d87f8cd9be064b01e60d237b"
+      },
+      {
+        "pmid": "cr:10.1097/shk.0000000000002343",
+        "title": "EARLY FLUID PLUS NOREPINEPHRINE RESUSCITATION DIMINISHES KIDNEY HYPOPERFUSION AND INFLAMMATION IN SEPTIC NEWBORN PIGS",
+        "authors": "Fanous Mina S., de la Cruz Julia E., Michael Olugbenga S., Afolabi Jeremiah M.",
+        "year": "2024",
+        "journal": "Shock",
+        "doi": "10.1097/shk.0000000000002343",
+        "url": "https://doi.org/10.1097/shk.0000000000002343",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "ABSTRACT Sepsis is the most frequent risk factor for acute kidney injury (AKI) in critically ill infants. Sepsis-induced dysregulation of kidney microcirculation in newborns is unresolved. The objective of this study was to use the translational swine model to evaluate changes in kidney function during the early phase of sepsis in newborns and the impact of fluid plus norepinephrine resuscitation. Newborn pigs (3–7-day-old) were allocated randomly to three groups: 1) sham, 2) sepsis (cecal ligation and puncture) without subsequent resuscitation, and 3) sepsis with lactated Ringer plus norepinephrine resuscitation. All animals underwent standard anesthesia and mechanical ventilation. Cardiac output and glomerular filtration rate were measured noninvasively. Mean arterial pressure, total renal blood flow, cortical perfusion, medullary perfusion, and medullary tissue oxygen tension (mtPO 2 ) were determined for 12 h. Cecal ligation and puncture decreased mean arterial pressure and cardiac output by more than 50%, with a proportional increase in renal vascular resistance and a 60–80% reduction in renal blood flow, cortical perfusion, medullary perfusion, and mtPO 2 compared to sham. Cecal ligation and puncture also decreased glomerular filtration rate by ~79% and increased AKI biomarkers. Isolated foci of tubular necrosis were observed in the septic piglets. Except for mtPO 2 , changes in all these parameters were ameliorated in resuscitated piglets. Resuscitation also attenuated sepsis-induced increases in the levels of plasma C-reactive protein, proinflammatory cytokines, lactate dehydrogenase, alanine transaminase, aspartate aminotransferase, and renal NLRP3 inflammasome. These data suggest that newborn pigs subjected to cecal ligation and puncture develop hypodynamic septic AKI. Early implementation of resuscitation lessens the degree of inflammation, AKI, and liver injury.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "0a6a5f441457d440ca103939d1aa89d5a71045024af53a1cafbd02a94887e84b"
+      },
+      {
+        "pmid": "cr:10.21088/ijem.2395.311x.9223.2",
+        "title": "Comparison of Norepinephrine & Terlipressin vs Norepinephrine Alone for Management for Septic Shock",
+        "authors": "Navlekar Madhav, Mehta Harshil",
+        "year": "2023",
+        "journal": "Indian Journal of Emergency Medicine",
+        "doi": "10.21088/ijem.2395.311x.9223.2",
+        "url": "https://doi.org/10.21088/ijem.2395.311x.9223.2",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Sepsis is a clinical syndrome that has physiologic, biologic, and biochemical abnormalities caused by a dysregulated inflammatory response to infection. The present study aimed to estimate the dose of injection of norepinephrine in micrograms/ kg/min after 12 hours of starting the vasopressor infusion to keep an MAP of above 65 mm Hg. Materials & Method: The study was done for the period of two years. Patients who were 18 years and above; who were diagnosed with septic shock during their ICU course and whose relatives gave informed written consent were included in the study. Result: Total of 12 patients were lost during the study period and so in total 100 patients were enrolled for the study. Both the groups were comparable with respect to the MAP (p = 0.655). The norepinephrine dose in group I vs group II at 12 hours was found to be 0.163 ± 0.089 vs 0.396 ± 0.18 μg/kg/min (p <0.001). Reduction in blood lactate concentration in 12 hours was significantly higher in group I [1.479 ± 1.46] than group II [0.08 ± 1.50] mmol/L (p = 0.002). Increase in the urine output of the patients in 12 hours in Group I [0.72 ± 0.44] than group II [0.47 ± 0.460] mL/kg/hour (p = 0.001). Conclusion: A low-dose continuous infusion of terlipressin may have a significant role in ensuring better organ perfusion, preventing renal injury, and improving the SOFA score of the patients when used in adjunct to norepinephrine, early in the management of septic shock.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e49cc72870670a1f6ca4e440ec628587f4c95ebee5f1cbd6bf2fde5bdd02e5e9"
+      },
+      {
+        "pmid": "27829710",
+        "title": "Early norepinephrine decreases fluid and ventilatory requirements in pediatric vasodilatory septic shock",
+        "authors": "Niranjan “Tex” Kissoon, Suchitra Ranjit, Rajeswari Natraj, Sathishkumar Kandath",
+        "year": "2016",
+        "journal": "Indian Journal of Critical Care Medicine",
+        "doi": "10.4103/0972-5229.192036",
+        "url": "https://doi.org/10.4103/0972-5229.192036",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIMS: We previously reported that vasodilatation was common in pediatric septic shock, regardless of whether they were warm or cold, providing a rationale for early norepinephrine (NE) to increase venous return (VR) and arterial tone. Our primary aim was to evaluate the effect of smaller fluid bolus plus early-NE versus the American College of Critical Care Medicine (ACCM) approach to more liberal fluid boluses and vasoactive-inotropic agents on fluid balance, shock resolution, ventilator support and mortality in children with septic shock. Secondly, the impact of early NE on hemodynamic parameters, urine output and lactate levels was assessed using multimodality-monitoring. METHODS: In keeping with the primary aim, the early NE group (N-27) received NE after 30ml/kg fluid, while the ACCM group",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8006870273e8e129ef645a9de78d9dbab53bcb8226733b249893b82a241ab0b4"
+      },
+      {
+        "pmid": "cr:10.1093/milmed/usae369",
+        "title": "Effect of Continuous Infusion Therapy With Low-dose Terlipressin Combined With Norepinephrine on Hemodynamics, Inflammatory Markers, and Prognosis in Patients With Severe Septic Shock",
+        "authors": "Li Wenlong, Deng Jiaqian",
+        "year": "2024",
+        "journal": "Military Medicine",
+        "doi": "10.1093/milmed/usae369",
+        "url": "https://doi.org/10.1093/milmed/usae369",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "ABSTRACT Objective The present study investigated the impact of continuous infusion therapy with low-dose terlipressin (TP) combined with norepinephrine on hemodynamics, inflammatory markers, and prognosis in patients with severe septic shock. Materials and Methods Seventy-four patients with severe septic shock were randomly assigned to either a control group (n = 37) or an observation group (n = 37). Patients in the control group received norepinephrine alone, while those in the observation group received a continuous infusion of low-dose TP in addition to norepinephrine. To assess the effect of treatment, a set of clinical parameters was evaluated in both groups before and after treatment. These parameters included hemodynamic indicators (heart rate [HR], mean arterial pressure [MAP], central venous pressure [CVP], cardiac index [CI], and systemic vascular resistance index [SVRI]), levels of serum inflammatory markers (interleukin-8 [IL-8], tumor necrosis factor-α [TNF-α], and hypersensitivity C-reactive protein [hs-CRP]), renal function indicators (blood urea nitrogen [BUN], serum creatinine [SCr], and cystatin C [Cys-C]), serum procalcitonin (PCT), and lactate, as well as lactate clearance rate (LCR). Additionally, the acute physiology and chronic health evaluation II (APACHE II) score, 28-day mortality rate, multiple organ dysfunction syndrome (MODS) incidence rate, and adverse reaction incidence were also determined. Results Compared to baseline values, MAP, CVP, CI, SVRI, and LCR increased in both groups after treatment, while HR, levels of IL-8, TNF-α, hs-CRP, BUN, SCr, PCT, and lactate all decreased. Additionally, APACHE II scores also decreased. Furthermore, the observation group exhibited higher MAP, CVP, CI, SVRI, and LCR, along with lower HR, levels of IL-8, TNF-α, hs-CRP, BUN, SCr, PCT, and lactate than the control group after treatment. The observation group also had lower APACHE II score, 28-day mortality rate, MODS incidence rate, and adverse reaction incidence than the control group after treatment (P < .05). Conclusion Continuous infusion therapy with low-dose TP combined with norepinephrine was effective in treating patients with severe septic shock, improving hemodynamic parameters, reducing the levels of inflammatory markers, promoting renal function recovery, and reducing the mortality rate.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "23f8cb3a3a95080b55bdf6119fe6db1e41277ed0853f1efb23e94153ac55f3a7"
+      },
+      {
+        "pmid": "25272316",
+        "title": "Goal-Directed Resuscitation for Patients with Early Septic Shock",
+        "authors": "The ARISE Investigators and the ANZICS Clinical Trials Group",
+        "year": "2014",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1404380",
+        "url": "https://doi.org/10.1056/nejmoa1404380",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Early goal-directed therapy (EGDT) has been endorsed in the guidelines of the Surviving Sepsis Campaign as a key strategy to decrease mortality among patients presenting to the emergency department with septic shock. However, its effectiveness is uncertain. METHODS: In this trial conducted at 51 centers (mostly in Australia or New Zealand), we randomly assigned patients presenting to the emergency department with early septic shock to receive either EGDT or usual care. The primary outcome was all-cause mortality within 90 days after randomization. RESULTS: Of the 1600 enrolled patients, 796 were assigned to the EGDT group and 804 to the usual-care group. Primary outcome data were available for more than 99% of the patients. Patients in the EGDT group received",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f7b7eed9e8a7abaeaa87696b8f23bb059eadff5d3ec2f7d998690f43c66d17e2"
+      },
+      {
+        "pmid": "37529784",
+        "title": "Circulatory shock in adults in emergency department",
+        "authors": "Ashok Kumar Pannu",
+        "year": "2023",
+        "journal": "Turkish Journal of Emergency Medicine",
+        "doi": "10.4103/tjem.tjem_271_22",
+        "url": "https://doi.org/10.4103/tjem.tjem_271_22",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Circulatory shock is a common condition that carries high morbidity and mortality. This review aims to update the critical steps in managing common types of shock in adult patients admitted to medical emergency and intensive care units. A literature review was performed by searching PubMed, EMBASE Ovid, and Cochrane Library, using the following search items: (\"shock\" OR \"circulatory shock\" OR \"septic shock\" OR \"cardiogenic shock\") AND (\"management\" OR \"treatment\" OR \"resuscitation\"). The review emphasizes prompt shock identification with tissue hypoperfusion, knowledge of the underlying pathophysiological mechanism, initial fluid resuscitation with balanced crystalloids, norepinephrine as the preferred vasopressor in septic and profound cardiogenic shock, and tailored intervention addressing specific etiologies. Point-of-care ultrasound may help evaluate an undifferentiated shock and determine fluid",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "72b914af2f74699a87c35adbd20d03885aff5475edc31ea91867e16232761fe7"
+      },
+      {
+        "pmid": "36864853",
+        "title": "Vasopressor Administration via Peripheral Intravenous Access for Emergency Department Stabilization in Septic Shock Patients",
+        "authors": "Brian Todd Wessman, Scott Kilian, Aaron Surrey, Weston M. McCarron",
+        "year": "2022",
+        "journal": "Indian Journal of Critical Care Medicine",
+        "doi": "10.5005/jp-journals-10071-24243",
+        "url": "https://doi.org/10.5005/jp-journals-10071-24243",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Septic shock is commonly treated in the emergency department (ED) with vasopressors. Prior data have shown that vasopressor administration through a peripheral intravenous line (PIV) is feasible. Objectives: To characterize vasopressor administration for patients presenting to an academic ED in septic shock. Materials and methods: Retrospective observational cohort study evaluating initial vasopressor administration for septic shock. ED patients from June 2018 to May 2019 were screened. Exclusion criteria included other shock states, hospital transfers, or heart failure history. Patient demographics, vasopressor data, and length of stay (LOS) were collected. Cases were grouped by initiation site: PIV, ED placed central line (ED-CVL), or tunneled port/indwelling central line (Prior-CVL). Results: Of the 136 patients identified, 69 were included. Vasopressors were initiated",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "98c542e52fbf79b72a3b3b1dcbebad441f8b8d8cdc941b3afa80cd04f8578447"
+      },
+      {
+        "pmid": "cr:10.51684/firs.8205",
+        "title": "CENSER: Early norepinephrine in septic shock",
+        "authors": "Morgenstern Justin",
+        "year": "2019",
+        "journal": "First10EM blog",
+        "doi": "10.51684/firs.8205",
+        "url": "https://doi.org/10.51684/firs.8205",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a6c0f71759e4c4942b44d204d06c429c7ce28558a8ec580a984432eee0ceb041"
+      },
+      {
+        "pmid": "cr:10.1097/pec.0b013e3181f196e6",
+        "title": "Use of Ketamine Continuous Infusion for Pediatric Sedation in Septic Shock",
+        "authors": "Barbi Egidio, Rizzello Elisa, Taddio Andrea",
+        "year": "2010",
+        "journal": "Pediatric Emergency Care",
+        "doi": "10.1097/pec.0b013e3181f196e6",
+        "url": "https://doi.org/10.1097/pec.0b013e3181f196e6",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b4c9d568bb8f9db4ce3a565744e068a992683344e154a169123a5b588f985a18"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 29
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 29,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "adults with fluid-refractory septic shock in emergency department early continuous norepinephrine infusion within 1 hour standard delayed vasopressor initiation after fluid completion 28-day in-hospital mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": false
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "id": "PRESET-gastroenterology-mash-resmetirom",
+  "recordedAt": "2026-11-26T19:52:42.125Z",
+  "specialty": "gastroenterology",
+  "words": [
+    {
+      "word": "biopsy-confirmed MASH with stage F2-F3 fibrosis",
+      "role": "population"
+    },
+    {
+      "word": "resmetirom 100 mg once daily",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "MASH resolution and at least 1-stage fibrosis improvement",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "biopsy-confirmed MASH with stage F2-F3 fibrosis",
+        "role": "population"
+      },
+      {
+        "word": "resmetirom 100 mg once daily",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "MASH resolution and at least 1-stage fibrosis improvement",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stage fibrosis improvement (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In biopsy-confirmed MASH with stage F2-F3 fibrosis (P), is resmetirom 100 mg once daily (I) superior to placebo (C) for MASH resolution and at least 1-stage fibrosis improvement (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stage fibrosis improvement (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 22 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stage fibrosis improvement (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "biopsy-confirmed MASH with stage F2-F3 fibrosis",
+        "role": "population"
+      },
+      {
+        "word": "resmetirom 100 mg once daily",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "MASH resolution and at least 1-stage fibrosis improvement",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.20517/mtod.2026.13",
+        "title": "Semaglutide in MASH with F2-F3 fibrosis: a holistic perspective on the ESSENCE phase 3 trial",
+        "authors": "Pirola Carlos Jose, Sookoian Silvia",
+        "year": "2026",
+        "journal": "Metabolism and Target Organ Damage",
+        "doi": "10.20517/mtod.2026.13",
+        "url": "https://doi.org/10.20517/mtod.2026.13",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Metabolic dysfunction-associated steatohepatitis (MASH) with significant fibrosis (F2-F3) is a critical stage of metabolic dysfunction-associated steatotic liver disease (MASLD), during which intervention may avert transition to cirrhosis, hepatocellular carcinoma, and liver-related death. The phase 3 ESSENCE trial (NCT04822181) evaluated once-weekly subcutaneous semaglutide 2.4 mg vs. placebo over 240 weeks in adults with biopsy-confirmed MASH and F2-F3 fibrosis. A prespecified interim histologic assessment was performed at week 72 among the first 800 randomized participants. Semaglutide increased MASH resolution without worsening fibrosis and significantly increased the proportion of individuals achieving ≥ 1-stage fibrosis improvement compared with placebo, with a clinically meaningful number needed to treat. These histologic effects coincided with substantial weight reduction (~10%-11% vs. ~2% with placebo) and broad improvements in cardiometabolic risk profiles, including glycemia, blood pressure, lipid levels, and inflammatory biomarkers. Favorable shifts were also observed in non-invasive assessments, including the enhanced liver fibrosis score, vibration-controlled transient elastography, N-terminal type III Collagen Propeptide (PRO-C3), FibroScan-AST (FAST) score, and aminotransferases. Safety outcomes were consistent with the established semaglutide profile in type 2 diabetes and obesity. Here, we critically appraise ESSENCE from clinical and translational perspectives and consider the relative contributions of weight loss vs. potential weight-independent mechanisms. Semaglutide was also situated among emerging latestage therapies, including resmetirom, a thyroid hormone receptor β agonist with demonstrated antifibrotic and antisteatohepatitic activity. Finally, we outline the implications of adopting semaglutide as a disease-modifying agent in MASH with F2-F3 fibrosis, note the study limitations and remaining questions, and argue that combinatorial approaches targeting complementary metabolic and hepatocentric pathways may define the next phase of MASLD management.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "99f64cdb1860943d56333660f8f20674a531edfec179fad837c44b5288e60259"
+      },
+      {
+        "pmid": "cr:10.2337/db26-3043-lb",
+        "title": "3043-LB: Synergistic Hepatoprotective and Weight-Loss Effects of Vanoglipel and Resmetirom Combination Therapy in a Diet-Induced Obese, Biopsy-Confirmed Mouse Model of MASH",
+        "authors": "CHAE YUNA, KIM TAE HYOUNG, LEE SUJIN, JEONG ILHOON",
+        "year": "2026",
+        "journal": "Diabetes",
+        "doi": "10.2337/db26-3043-lb",
+        "url": "https://doi.org/10.2337/db26-3043-lb",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction and Objective: Vanoglipel (DA-1241), a novel G protein-coupled receptor 119 (GPR119) agonist, completed a Phase 2a trial in patients with presumed metabolic dysfunction-associated steatohepatitis (MASH). To determine whether combining vanoglipel with a thyroid hormone receptor beta (THRβ) agonist enhances efficacy for MASH, this study evaluated their combined effects in a diet-induced obese MASH mouse model. Methods: Male C57BL/6JRj mice were fed a GAN diet for 39 weeks. Biopsy-proven mice (NAFLD activity score (NAS) ≥5, F2-F3) were randomized to 16 weeks of control diet or diet containing vanoglipel (100 mg/kg/day), resmetirom (3 mg/kg/day), or both. Data were analyzed by one-way ANOVA with multiple-comparison tests. Results: Monotherapies had no significant effect on body weight, whereas the combination induced marked weight loss (23.6% vs. control, p<0.05), with endpoint fat mass and epididymal fat weight 43.5% and 42.1% lower than control, respectively (p<0.05). All treatments decreased ALT, with the lowest level in the combination group (83.5% reduction, p<0.05). Histopathologically, vanoglipel improved NAS by ≥1 point in 88.9% of mice (p<0.05), while 81.3% of combination-treated mice achieved a ≥2-point NAS improvement with synergistic reductions in hepatic lipid % area (84.6%, p<0.05). Vanoglipel also showed a trend toward fibrosis improvement. Consistently, α-SMA % area was reduced in the vanoglipel and combination groups (52-54%, p<0.05), suggesting suppression of stellate cell activation. Galectin-3, type I collagen, and hepatic hydroxyproline were also reduced by 43.7%, 33.5%, and 69.6%, respectively (all p<0.05), supporting greater benefit than either monotherapy. Conclusion: When combined with resmetirom, vanoglipel unlocks synergistic benefits, highlighting its potential as a combination strategy for MASH. This study is the first to demonstrate the therapeutic potential of combined targeting of GPR119 and THRβ for MASH. Disclosure Y. Chae: None. T. Kim: None. S. Lee: None. I. Jeong: None. H. Kim: None. M. Kim: None. H.H. Hansen: Employee; Current; Gubra.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Animal Study",
+        "lowMetadata": false,
+        "_sig": "dbae1198d8092984ec6b121e635315a433b99219091fe0c54bf7daa6ce537707"
+      },
+      {
+        "pmid": "cr:10.2337/db24-106-or",
+        "title": "106-OR: Semaglutide Reduces Tumor Burden in the GAN Diet-Induced Obese and Biopsy-Confirmed Mouse Model of MASH with Advanced Fibrosis and HCC",
+        "authors": "FEIGH MICHAEL, TOZZI MARCO, HANSEN HENRIK H.",
+        "year": "2024",
+        "journal": "Diabetes",
+        "doi": "10.2337/db24-106-or",
+        "url": "https://doi.org/10.2337/db24-106-or",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction & Objective: Metabolic dysfunction-associated steatohepatitis (MASH) ncreases the risk for the development of hepatocellular carcinoma (HCC). The present study aimed to evaluate the efficacy of semaglutide, a glucagon-like-receptor (GLP1R) agonist, on disease progression in the translational GAN diet-induced obese (DIO) and biopsy-confirmed mouse model of MASH with advanced fibrosis and HCC. Methods: Male C57BL/6J mice were fed the GAN diet high in fat, fructose, and cholesterol for 54 weeks (DIO-MASH-HCC mice) prior to treatment intervention. Only mice with liver biopsy-confirmed NASH and advanced fibrosis were included and stratified into study groups. DIO-MASH-HCC mice (n=15-16 per group) received vehicle or semaglutide (30 nmol/kg) once daily for 14 weeks. Untreated DIO-NASH-HCC mice (n=10) were terminated at baseline. Endpoints included within-subject change in nonalcoholic fatty liver disease activity score (NAS), fibrosis stage, quantitative histology, tumor classification and macroscopic tumor count/diameter. Results: DIO-MASH-HCC mice demonstrated progressive liver tumor burden over the 14-week study period. Tumors showed consistent architectural, cytologic and molecular features of poor prognostic HCC. Semaglutide promoted ≥2-point improvement in NAS, supported by beneficial changes in quantitative histological markers of steatosis and inflammation. While not improving fibrosis, semaglutide substantial reduced tumor numbers, tumor size and histological markers of proliferation (Ki67) and progenitor cell activation (CK19). Conclusion: Consistent with a recent clinical trial, semaglutide improves MASH while not promoting fibrosis regression in GAN DIO-MASH-HCC mice. Notably, semaglutide markedly lowers HCC burden in the model. Collectively, our data highlights the suitability of GAN DIO-MASH-HCC mice for profiling novel drug therapies targeting MASH-driven HCC. Disclosure M. Feigh: Employee; Gubra. M. Tozzi: None. H.H. Hansen: Employee; Gubra.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "5c87404cbe709d43ef4d50bea08a756ecad73426b74ff36002a36f5a87b991c1"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 39,
+      "screened": 39,
+      "blocked": 0,
+      "returned": 3,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "biopsy-confirmed MASH with stage F2-F3 fibrosis resmetirom 100 mg once daily placebo MASH resolution and at least 1-stage fibrosis improvement",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

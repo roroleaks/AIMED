@@ -1,0 +1,861 @@
+{
+  "id": "PRESET-orthopedics-tka-robotic-manual",
+  "recordedAt": "2026-11-26T19:49:35.873Z",
+  "specialty": "orthopedics",
+  "words": [
+    {
+      "word": "end-stage primary knee osteoarthritis",
+      "role": "population"
+    },
+    {
+      "word": "robotic-assisted total knee arthroplasty",
+      "role": "intervention"
+    },
+    {
+      "word": "conventional manual total knee arthroplasty",
+      "role": "comparator"
+    },
+    {
+      "word": "patient-reported joint function (KOOS / WOMAC) and revision rate",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "end-stage primary knee osteoarthritis",
+        "role": "population"
+      },
+      {
+        "word": "robotic-assisted total knee arthroplasty",
+        "role": "intervention"
+      },
+      {
+        "word": "conventional manual total knee arthroplasty",
+        "role": "comparator"
+      },
+      {
+        "word": "patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "orthopedics"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In end-stage primary knee osteoarthritis (P), does robotic-assisted total knee arthroplasty (I) compared with conventional manual total knee arthroplasty (C) improve patient-reported joint function (KOOS / WOMAC) and revision rate (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 1 no-difference, 0 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In end-stage primary knee osteoarthritis (P), is robotic-assisted total knee arthroplasty (I) superior to conventional manual total knee arthroplasty (C) for patient-reported joint function (KOOS / WOMAC) and revision rate (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of end-stage primary knee osteoarthritis (P), does robotic-assisted total knee arthroplasty (I) compared with conventional manual total knee arthroplasty (C) improve patient-reported joint function (KOOS / WOMAC) and revision rate (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In end-stage primary knee osteoarthritis (P), is robotic-assisted total knee arthroplasty (I) superior to conventional manual total knee arthroplasty (C) for patient-reported joint function (KOOS / WOMAC) and revision rate (O)?"
+    },
+    "words": [
+      {
+        "word": "end-stage primary knee osteoarthritis",
+        "role": "population"
+      },
+      {
+        "word": "robotic-assisted total knee arthroplasty",
+        "role": "intervention"
+      },
+      {
+        "word": "conventional manual total knee arthroplasty",
+        "role": "comparator"
+      },
+      {
+        "word": "patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "orthopedics",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "41037235",
+        "title": "Robotic-assisted total knee arthroplasty: Promise or parity in long-term outcomes?",
+        "authors": "Bulzacki-Bogucki BD, et al",
+        "year": "2026",
+        "journal": "Musculoskeletal surgery",
+        "doi": "10.1007/s12306-025-00922-9",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41037235/",
+        "context": "INTRODUCTION: The purpose of this systematic review of the literature was to evaluate long-term clinical and radiological outcomes, postoperative complications, and implant survivorship of robotic-assisted total knee arthroplasty (RA-TKA) compared to conventional manual total knee arthroplasty (Co-TKA). METHODS: A systematic review of the literature was performed with a primary search on Medline through PubMed. The PRISMA 2009 flowchart and checklist were used to edit the review. Exclusively human studies comparing RA-TKA with Co-TKA, with at least 12-month follow-up, were included. Outcomes assessed included clinical and radiographic results, postoperative complications, and implant survivorship. RESULTS: Twenty-three articles met the inclusion criteria, mostly rated as level II or III evidence. RA-TKA was associated with improved component alignment, better knee balance, reduced blood loss, and soft tissue preservation. These findings were linked to lower postoperative pain and reduced opioid consumption. Regarding long-term outcomes, RA-TKA showed similar rates in post-operative complications compared to Co-TKA, though results varied across studies. Data on implant survivorship were limited, with most studies reporting comparable medium- and long-term survival rates between RA-TKA and Co-TKA. CONCLUSION: Current evidence suggests RA-TKA offers superior short-term outcomes over conventional techniques, but long-term benefits, especially regarding complications and survivorship, are still uncertain. Additional long-term studies are essential to clarify the potential of RA-TKA in improving durability and patient outcomes in knee arthroplasty surgery.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "e5f161d42ccae99410f44997cb41787e9a8c3192135e8cc09a4d57dd5e22513c"
+      },
+      {
+        "pmid": "39052153",
+        "title": "Comparison of robotic-assisted total knee arthroplasty: an updated systematic review and meta-analysis",
+        "authors": "Fu X, et al",
+        "year": "2024",
+        "journal": "Journal of robotic surgery",
+        "doi": "10.1007/s11701-024-02045-y",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39052153/",
+        "context": "This study was conducted to compare the changes in different clinical scores and imaging indexes of patients who underwent robot-assisted total knee arthroplasty (RA-TKA) and manual total knee arthroplasty (M-TKA). PubMed, Web of Science, Cochrane Library and Embase were searched according to PRISMA guidelines in June 2024. Search terms included \"robot-assisted\", \"manual\" and \"total knee arthroplasty\". Outcome indicators included American Knee Society Score (KSS), Western Ontario McMaster Universities Osteoarthritis Index (WOMAC), Oxford Knee Score (OKS), range of motion (ROM), Hospital for Special Surgery (HSS) score, Forgotten Joint Score (FJS), 36-Item Short Form Health Survey (SF-36), operation duration (min), intraoperative blood loss (ml), pain score, patient's satisfaction scores, hip-knee-ankle (HKA) angle, frontal femoral component angle, frontal tibia component angle, lateral femoral component angle and lateral tibia component angle. A total of 1,033 articles were obtained after removing duplicates, and 12 studies involving 2,863 patients (1,449 RA-TKAs and 1,414 M-TKAs) were finally meta-analyzed (22-32). The baseline data of both groups were similar in all results. Meta-analysis suggested a better performance of the RA-TKA group than the M-TKA group regarding the HKA angle. The manual TKA reduced the operation time and significantly improved the range of motion. The results of > 6 months follow-up showed that M-TKA was better than RA-TKA in terms of KSS score and WOMAC. Compared with M-TKA, RA-TKA can produce more accurate prosthetic alignment, but it does not lead to better clinical results. Orthopedic surgeons should choose between two surgical procedures according to their own experience and patients' characteristics.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis",
+          "Comparative Study"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "5fde92070721ef6bb9cb7d729e9326c5e2225d6f96af9b48e8bcbe9059df3892"
+      },
+      {
+        "pmid": "36805771",
+        "title": "Clinical and radiological outcomes of robotic-assisted versus conventional total knee arthroplasty: a systematic review and meta-analysis of randomized controlled trials",
+        "authors": "Ruangsomboon P, et al",
+        "year": "2023",
+        "journal": "Acta orthopaedica",
+        "doi": "10.2340/17453674.2023.9411",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36805771/",
+        "context": "BACKGROUND AND PURPOSE: Robotic-assisted total knee arthroplasty (RATKA) is an alternative surgical treatment method to conventional total knee arthroplasty (COTKA) that may deliver better surgical accuracy. However, its impact on patient outcomes is uncertain. The aim of this systematic review of randomized controlled trials (RCTs) is to evaluate whether RATKA could improve functional and radiological outcomes compared with COTKA in adult patients with primary osteoarthritis of the knee. METHODS: We searched Ovid MEDLINE, EMBASE, Scopus, and the Cochrane Library to identify published RCTs comparing RATKA with COTKA. 2 reviewers independently screened eligible studies, reviewed the full texts, assessed risk of bias using the Risk of Bias 2.0 tool, and extracted data. Outcomes were patient-reported outcomes, range of motion, and mechanical alignment (MA) deviation and outliers, and complications. RESULTS: We included 12 RCTs involving 2,200 patients. RATKA probably results in little to no effect on patient-reported outcomes (mean difference (MD) in the Western Ontario and McMaster Universities Osteoarthritis Index (WOMAC) score of -0.35 (95% confidence interval [CI] -0.78 to 0.07) and range of motion (MD -0.73°; CI -7.5° to 6.0°) compared with COTKA. However, RATKA likely results in a lower degree of MA outliers (risk ratio 0.43; CI 0.27 to 0.67) and less deviation from neutral MA (MD -0.94°; CI -1.1° to -0.73°). There were no differences in revision rate or major adverse effects associated with RATKA. CONCLUSION: Although RATKA likely results in higher radiologic accuracy than COTKA, this may not be clinically meaningful. Also, there is probably no clinically important difference in clinical outcomes between RATKA and COTKA, while it is as yet inconclusive regarding the revision and complication rates due to insufficient evidence.",
+        "source": "pubmed",
+        "pubType": "Meta-Analysis",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "7f966cb94e99b01a58939dc09c7823245d0b30b2b72c9d5a0fc313479ec51138"
+      },
+      {
+        "pmid": "43009893",
+        "title": "Early clinical outcomes and learning curve study of robot-assisted precision osteotomy in total knee arthroplasty in the context of enhanced recovery after surgery.",
+        "authors": "Wang M, Wang H, Tang Z, Tao Q, Wang M, Lan R, Chen C, Lan Y.",
+        "year": "2026",
+        "journal": "BMC musculoskeletal disorders",
+        "doi": "10.1186/s12891-026-09864-0",
+        "url": "https://europepmc.org/article/PMC/PMC13749920",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Objective To compare the early clinical outcomes of robot-assisted total knee arthroplasty (RA-TKA) with those of conventional manual total knee arthroplasty (CM-TKA) and analyse their learning curves. Methods Patients who underwent initial unilateral total knee arthroplasty for osteoarthritis of the knee at Panzhihua Central Hospital between June and November 2023 were included in the study. A total of 130 patients were randomly divided into two groups: RA-TKA group underwent total knee arthroplasty with the HURWA Orthopaedic System (65 patients), and CM-TKA group patients underwent surgery with conventional tools (65 patients). Basic data, surgical information, imaging data and postoperative functional data were compared between the two groups. Surgical time was analysed via the cumulative sum analysis method (CUSUM), and the goodness of fit was assessed via R². Results The baseline data were consistent between the two groups; moreover, the FFC of the patients in RA-TKA group was closer to 90° than that in CM-TKA group (89.1 ± 1.0° vs. 87.6 ± 1.9°, respectively; P Conclusion HURWA robot-assisted TKA with learning curve fixation in approximately 22 patients achieved good lower limb force line reconstruction and precise implantation of the prosthesis, which is a safe and effective surgical procedure for treating osteoarthritis of the knee. Trial registration The study was retrospectively registered on China Clinical Trials Registry (identifcation number: ChiCTR2400086729) on 07/09/2024. https://www.chictr.org.cn/bin/project/edit?pid=201488 .",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8b50f1ea0197272c5b7b9cce50d76522168b2292daad82d6b4b2dfcdd23df2d1"
+      },
+      {
+        "pmid": "42980682",
+        "title": "Robotic-assisted total knee arthroplasty demonstrates superior early functional outcomes compared with conventional total knee arthroplasty: a quasi-randomised controlled trial.",
+        "authors": "Migliorini F, Schäfer L, Nobili A, Kämmer D, Schneider J, Bell A.",
+        "year": "2026",
+        "journal": "Journal of orthopaedics and traumatology : official journal of the Italian Society of Orthopaedics and Traumatology",
+        "doi": "10.1186/s10195-026-00979-7",
+        "url": "https://europepmc.org/article/PMC/PMC13737228",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Background Robotic-assisted total knee arthroplasty (TKA) has gained popularity over the last decade, with claimed advantages in implant positioning accuracy and soft-tissue balance. Whether these technical advantages translate into better clinical outcomes for patients remains debated. This investigation compared 1-year patient-reported outcomes between robotic-assisted and conventional TKA performed within the same institution but following structurally different surgical workflows. Methods This quasi-randomised controlled trial enrolled patients who underwent primary TKA at the Department of Orthopaedic and Trauam Surgery of the Eifelklink St. Brigida (Simmerath, Germany) between 2022 and 2025. Group allocation was determined by surgeon assignment through the institutional digital scheduling system. All patients received the same implant (Smith & Nephew Legion Genesis II, posterior-stabilised). Robotic-assisted procedures were performed using the CORI Robotic System (Smith & Nephew, UK) following a four-dimensional personalised alignment workflow (coronal, sagittal, transversal and balancing) guided intraoperatively by the Knee Balancing Score (KBS). Conventional procedures followed a femur-first technique with adjusted mechanical alignment. Outcomes included WOMAC total and subscores, visual analogue scale (VAS), Tegner activity score and a dedicated functional questionnaire, all assessed at 1-year follow-up. Results A total of 845 patients were included (robotic-assisted: n = 390; conventional: n = 455). At 1-year, 383 and 445 patients completed follow-up, respectively. The two groups were comparable at baseline. The robotic-assisted cohort showed significantly better results across WOMAC and related subscales (P Conclusions Robotic-assisted TKA was associated with superior functional and patient-reported outcomes at the 1-year follow-up. The clinical benefit observed is likely not attributable to robotic precision alone, but reflects the structured, personalised intraoperative workflow that robotic assistance enables. Trial Registry German Registry of Clinical Trials (ID DRKS00030614).",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f4186953d881fcf675e4d46e529a89cf06ef89225130464ec9839add7bcb402d"
+      },
+      {
+        "pmid": "40023458",
+        "title": "The John N. Insall Award: Functional Versus Mechanical Alignment in Total Knee Arthroplasty: A Randomized Controlled Trial",
+        "authors": "Young SW, et al",
+        "year": "2025",
+        "journal": "The Journal of arthroplasty",
+        "doi": "10.1016/j.arth.2025.02.065",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40023458/",
+        "context": "BACKGROUND: Mechanical alignment (MA) in total knee arthroplasty is regarded as a gold standard; however, some patients report dissatisfaction postsurgery. Functional alignment (FA) is a potential alternative, integrating kinematic alignment (KA) principles with preresection bone balancing within defined boundaries. The use of FA aims to improve outcomes by restoring native joint lines and optimizing soft-tissue balance. However, comparative evidence is limited. METHODS: This prospective, randomized controlled trial compared MA (n = 121) and FA (n = 123) in robotic-assisted total knee arthroplasty. For MA, components were positioned perpendicular to the limb mechanical axis, with soft-tissue releases to achieve balance. For FA, initial virtual component positioning was used to match native knee anatomy, with adjustments for soft-tissue balance before bone cuts. The primary outcome was the forgotten joint score (FJS). Outcomes were compared with a mixed-model analysis of variance. RESULTS: At the 2-year follow-up, the mean FJS was comparable (MA: 64.4 ± 30.1 versus FA: 70.1 ± 25.6, P = 0.10). The MA cases had more soft-tissue releases than FA (65 versus 16%, P < 0.001). Compared to MA patients, FA patients had higher Knee Injury and Osteoarthritis Outcome (KOOS) Symptoms (86.6 ± 12.9 versus 82.5 ± 14.0, P = 0.01) and KOOS-Quality of Life scores (76.1 ± 20.3 versus 70.7 ± 22.7, P = 0.03). More FA patients \"would recommend\" the procedure (94 versus 82%, P < 0.01). For patients who had preoperative Coronal Plane Alignment of the Knee Type I, FA had higher FJS (71.3 ± 24.8 versus 56.8 ± 31.6, P = 0.02) and KOOS-Quality of Life (76.4 ± 21.7 versus 64.2 ± 19.2, P = 0.02) than MA. No other differences were seen in patient-reported outcomes (Oxford Knee Score, KOOS, EuroQol-5 Dimensions, Pain Visual Analog Scale), clinical outcomes (length of stay, functional physio tests), reoperations, or implant survivorship (FA: 1 versus MA: 0 revisions). CONCLUSIONS: While FA required fewer soft-tissue releases compared to mechanical alignment, at 2 years patient-reported and clinical outcomes were similar. The use of FA may provide improved outcomes for a specific subgroup of patients based on their preoperative alignment.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Comparative Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "bb6af5b4e23a26e139f0d5f28dcf4125f5cd12e7665c6f94b3e9cea9e1739aef"
+      },
+      {
+        "pmid": "42679216",
+        "title": "Same patient, same total knee arthroplasty, different outcomes? A pilot study comparing conventional vs. OMNIBotics Robotic-Assisted HLS Kneetec<sup>TM</sup> (Corin<sup>®</sup>).",
+        "authors": "Roblot G, Moret M, Seguret Q, Taouli S, Al Hassoun B, Roux O, Mertl P, Laterza C, Raimi M.",
+        "year": "2026",
+        "journal": "SICOT-J",
+        "doi": "10.1051/sicotj/2026057",
+        "url": "https://europepmc.org/article/PMC/PMC13533458",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction Total knee arthroplasty (TKA) is a well-established treatment for end-stage knee osteoarthritis. Robotic-assisted TKA (RA-TKA) has emerged over the past decade, enabling patient-specific implantation, precise bone cuts, and intraoperative control of gap balance and alignment. The HLS Kneetec TM is a third condyle posterior stabilized TKA, initially designed for implantation using conventional manual instrumentation (C-TKA), and intended for use with an adjusted mechanical alignment. It can now also be implanted with robotic assistance. This pilot study aimed to evaluate the association between RA-TKA versus C-TKA and clinical outcomes in patients with bilateral knee osteoarthritis. Materials and methods This was a retrospective cohort of patients operated on by primary RA-TKA in a second osteoarthritic knee after contralateral C-TKA. Twenty-two patients constituted their own control group (44 knees). Mean age was 71.9 ± 7.4 years. The mean time between the two procedures was 22 ± 19 months. Primary outcomes measured were limb alignment (hip-knee-ankle (HKA)), range of motion (ROM), and Forgotten Joint Score (FJS) at one year postoperatively. Secondary outcomes included operating time, hospital stay, incision length, blood loss, and radiographic evaluation (femoral mechanical angle (FMA), tibial mechanical angle (TMA), tibial component slope angle (TSA), patellar tilt angle (PTA), and femoral axial rotation angle (FARA)). Results RA-TKA was associated with an HKA angle significantly closer to the target (177.9° vs. 175.3°, p = 0.012), with higher flexion (+7°, p = 0.032) and a higher FJS (+13.9 points, p Conclusion In this pilot study, RA-TKA was associated with superior frontal alignment and better patient-reported functional outcomes compared to C-TKA. However, given the inherent temporal confounding of the bilateral sequential design and the small sample size, these findings should be interpreted with caution. Further prospective, adequately powered studies are warranted to confirm these results.",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "bffa6744222c1400c4b1f90a8ec319aa9f0eb490b01e0114c474ee0242118db8"
+      },
+      {
+        "pmid": "cr:10.13107/jocr.2023.v13.i03.3562",
+        "title": "Analysis of Gait Ability and Patient Reported Outcome Measurements after Robotic-assisted Total Knee Arthroplasty for Osteoarthritis of the Knee with Windswept Deformity",
+        "authors": "Omata Masaru, Kaneko Takao, Amemiya Kazuki, Igarashi Tadashi",
+        "year": "2023",
+        "journal": "Journal of Orthopaedic Case Reports",
+        "doi": "10.13107/jocr.2023.v13.i03.3562",
+        "url": "https://doi.org/10.13107/jocr.2023.v13.i03.3562",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Windswept deformity (WD) refers to valgus deformity in one knee and varus deformity in the other. We performed robotic-assisted (RA) total knee arthroplasty (TKA) for osteoarthritis of the knee with WD, made patient reported outcome measurements (PROMs), and performed gait analysis based on triaxial accelerometery. Case Report: A 76-year-old woman presented to our hospital with bilateral knee pain. Image-free handheld RA TKA was performed on the left knee with severe varus deformity and severe pain during walking. RA TKA was performed on the right knee with severe valgus deformity 1 month later. The RA technique was used to determine implant positioning and the plan for osteotomy intraoperatively, taking into account soft-tissue balance. This made it possible to use a posterior stabilized implant instead of a semi-constrained implant for severe valgus knee deformity with flexion contracture (Krachow classification Type 2). At 1 year after TKA, PROMs were inferior in the knee with pre-operative valgus deformity. Gait ability improved after surgery. Even with the RA technique, it took 8 months to achieve left-right balance while walking and for the variability of the gait cycle to become equivalent to that of a normal knee. Conclusion: Primary RA TKA is a viable option for osteoarthritis of the knee with WD. It took time for the gait ability of both knees to become equal and PROMs were better with the varus deformity compared to before surgery. Keywords: Windswept deformity, robotic assisted total knee arthroplasty, patient reported outcome measurements, triaxial accelerometer, gait ability.",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "44232cb7cf2181e273f1fac02b9aa75b21e10df7a06cf7a5e8c37e30f8379ce0"
+      },
+      {
+        "pmid": "43079134",
+        "title": "Clinical outcomes of posterior-stabilized versus cruciate-retaining ANTHEM total knee arthroplasty using imageless robotic-assisted personalized alignment: a retrospective comparative cohort study.",
+        "authors": "Albelooshi A, Babikir E, Khan ZA, Elgouhary ARB, Al Thani S.",
+        "year": "2026",
+        "journal": "Journal of robotic surgery",
+        "doi": "10.1007/s11701-026-04219-2",
+        "url": "https://europepmc.org/article/PMC/PMC13796597",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Posterior-stabilized (PS) and cruciate-retaining (CR) total knee arthroplasty (TKA) show no consistent clinical superiority. This study compared 2-year patient-reported outcomes, responder rates, complications, and revisions between PS and CR ANTHEM TKA using imageless robotic-assisted personalized alignment. This retrospective cohort included 858 primary ANTHEM TKAs (167 CR and 691 PS). All procedures used CORI robotic-assisted personalized alignment. Outcomes included the Knee injury and Osteoarthritis Outcome Score for Joint Replacement (KOOS-JR), visual analog scale (VAS) pain, satisfaction, and general health scores. Entropy-balanced inverse probability weighting adjusted for baseline differences. Responder rates and time to patient acceptable symptom state (PASS) were evaluated. After weighting, measured covariates were balanced and KOOS-JR improved substantially in both groups and did not differ at any postoperative time point. At 1 year, adjusted KOOS-JR scores were 84.1 for CR and 84.7 for PS (difference, - 0.61; 95% CI, - 2.80 to 1.58; p = .58); at 2 years, scores were 86.4 and 86.7, respectively (difference, - 0.38; 95% CI, - 2.31 to 1.55; p = .70). VAS pain, general health, satisfaction, and responder rates were also similar after multiplicity correction. CR patients achieved PASS earlier, but both groups exceeded 99% by 2 years. Complications occurred in 2 CR cases (1.2%) and 7 PS cases (1.0%); revisions occurred in 0 and 6 cases (0.9%), respectively. Using imageless robotic-assisted personalized alignment, CR and PS ANTHEM TKA produced substantial and comparable improvements in pain and patient-reported outcomes. CR was associated with earlier PASS achievement, but final outcomes and short-term complication and revision rates did not differ significantly.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "5f24ca6e3c0bcb3cb901ea536206b190c9a04dd1b52ad30d6796cb16e395d8ef"
+      },
+      {
+        "pmid": "42752376",
+        "title": "Functional alignment with robotic-assisted total knee arthroplasty is associated with reduced early postoperative pain and alignment outliers compared to mechanical alignment with conventional total knee arthroplasty: a prospective cohort study.",
+        "authors": "Wong WK, Che-Kamaruddin N, Ng PZE, Chong SY, Chin SL, Chua HS.",
+        "year": "2026",
+        "journal": "SICOT-J",
+        "doi": "10.1051/sicotj/2026058",
+        "url": "https://europepmc.org/article/PMC/PMC13584641",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction Robotic-assisted total knee arthroplasty (RATKA) has been introduced to enhance surgical precision, alignment, and soft-tissue balancing, thus enabling the advent of numerous alignment philosophies including functional alignment (FA). This study aimed to compare early clinical outcomes, patient-reported outcome measures (PROMs), and radiographic accuracy brought about by RATKA using FA principles against the current reference standard of conventional total knee arthroplasty (TKA) and mechanical alignment (MA). Methods This prospective, non-randomized cohort study included 45 patients undergoing primary unilateral TKA (30 RATKA, 15 conventional). Outcomes assessed were Visual Analogue Scale (VAS), Knee Society Score (KSS), and Knee injury and Osteoarthritis Outcome Score (KOOS) preoperatively and up to 1 year postoperatively. Forgotten Joint Score-12 (FJS-12) was evaluated at 1 year. Radiographic parameters included hip-knee-ankle angle (HKA), medial proximal tibial angle (MPTA), lateral distal femoral angle (LDFA), and femoral component rotation. Alignment outliers were defined as a deviation of > ±3° from the target. Statistical significance was set at p Results RATKA resulted in significantly lower VAS pain scores at 2 weeks and 3 months (p Conclusion The adoption of RATKA and functional alignment is associated with reduced early postoperative pain, modest improvements in PROMs, and improved consistency in achieving target alignment, without increased complications.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "76691dda31803fdd95963b8d0915b91ec12e9d4e715abac00fe051a780941916"
+      },
+      {
+        "pmid": "cr:10.1002/ksa.70266",
+        "title": "Patient‐reported outcomes are comparable between imageless robotic‐assisted and computer‐navigated total knee arthroplasty: A retrospective cohort study",
+        "authors": "O'Brien Jacob, Parker David, Raval Pradyumna, Ahedi Harbeer",
+        "year": "2026",
+        "journal": "Knee Surgery, Sports Traumatology, Arthroscopy",
+        "doi": "10.1002/ksa.70266",
+        "url": "https://doi.org/10.1002/ksa.70266",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Purpose The benefits of computer‐navigated total knee arthroplasty (CN‐TKA) are well established, and although early studies have demonstrated some benefits of robotic‐assisted total knee arthroplasty (RA‐TKA), there is limited evidence on the clinical and patient‐reported outcome measures (PROMs) directly compared to CN‐TKA. As RA‐TKA continues to gain popularity, it is important to compare outcomes with the more established technique to justify its use. This study compares PROMs for imageless RA‐TKA versus CN‐TKA, and between RA‐TKA performed with either ROSA or CORI. Methods This was a retrospective study of prospectively collected data of patients who underwent primary TKA for osteoarthritis (OA). The study included consecutive surgeries between December 2021 and April 2023, utilising imageless RA‐TKA (ROSA or CORI) or CN‐TKA. PROMs were obtained preoperatively, at 3 months, and at 12 months, including the Oxford knee score (OKS), Forgotten Joint Score (FJS), Veterans Rand 12‐item mental and physical health survey (VR‐12), pain (visual analogue scale [VAS]) and patient satisfaction scores. Results A total of 399 patients were recruited: 212 underwent RA‐TKA (CORI: n = 104; ROSA: n = 108), and 187 underwent CN‐TKA. There were no significant differences between groups at baseline. At 12 months, patient satisfaction with medical care favoured CN‐TKA (adjusted mean difference: –3.94; 95% CI: –7.44, –0.45). Between ROSA and CORI systems, patients' subjective knee normality score favoured CORI (adjusted mean difference: –8.44; 95% CI: –16.0, –0.90). No other meaningful differences were observed in either comparison. Conclusion This study showed no difference in PROMS (OKS and FJS) between CN‐TKA and RA‐TKA; however, a modest benefit was seen in patient satisfaction with medical care favouring CN‐TKA. Similarly, only a modest difference was identified between ROSA and CORI, with knee joint normality favouring the CORI system. These findings demonstrate no clear short‐term benefit for well‐established navigation surgeons to change to robotic techniques, although further investigations would be valuable. Level of Evidence Level III.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "f6995b7c4d77f1936d091aeed3a45953ba08dd2b47cf0dbe3f13f93766b8f81f"
+      },
+      {
+        "pmid": "cr:10.1002/ksa.70399",
+        "title": "Superior patient‐reported clinical outcomes after patient‐individual total knee arthroplasty compared with off‐the‐shelf robotic‐assisted total knee arthroplasty in valgus knee phenotypes",
+        "authors": "Tuecking Lars‐Rene, Savov Peter, Hold Mara, Stauss Ricarda",
+        "year": "2026",
+        "journal": "Knee Surgery, Sports Traumatology, Arthroscopy",
+        "doi": "10.1002/ksa.70399",
+        "url": "https://doi.org/10.1002/ksa.70399",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Purpose To compare early patient‐reported clinical outcomes of patient‐individual total knee arthroplasty (TKA) with individualized trochlear design versus robotic‐assisted TKA using off‐the‐shelf implants in patients with valgus knee phenotypes and pronounced femoral valgus (lateral distal femoral angle [LDFA] < 85°) at 3 and 12 months postoperatively in a prospective matched case–control study. Methods This prospective matched case–control study based on predefined anatomical criteria included 42 patients who underwent primary TKA between October 2021 and October 2023. Twenty‐one patients received patient‐individual posterior‐stabilized implants. Twenty‐one matched controls underwent robotic‐assisted TKA with off‐the‐shelf implants. All procedures followed restricted kinematic alignment (KA) principles with valgus undercorrection. Primary outcomes were patient‐reported scores (Forgotten Joint Score [FJS], Kujala Score, Oxford Knee Score [OKS] and the Western Ontario and McMaster Universities Arthritis Index [WOMAC]), assessed preoperatively and at 3 and 12 months. Results Both groups demonstrated comparable preoperative clinical status and comparable degrees of preoperative valgus deformity, with no significant differences in hip–knee–ankle angle (HKA, 185.6 ± 6.3° vs. 188.8 ± 4.1°; p = 0.060) or mechanical LDFA (84.0 ± 0.9° vs. 83.7 ± 1.2°; p = 0.261). At 3 and 12 months, patient‐individual total knee arthroplasty (pTKA) demonstrated significantly better scores across all patient‐reported outcome measures (PROMs) ( p < 0.05). The largest difference was observed in the Kujala score at 12 months (79.5 ± 12.8 vs. 59.7 ± 19.0, p = 0.001). FJS improved more rapidly in the pTKA group (from 9.0 to 49.1 at 3 months, and 52.5 at 12 months) compared to robotic‐assisted total knee arthroplasty (rTKA) (26.9 and 36.0, respectively). One revision for suspected infection occurred in the pTKA cohort; none were reported after rTKA. Conclusions Patient‐individual TKA with individualized trochlear design achieved superior early functional outcomes compared to robotic‐assisted TKA with standard implants in severe valgus morphotypes. Individualized trochlear orientation may improve patellofemoral mechanics and facilitate faster recovery in patients with severe femoral valgus. Level of Evidence Level III.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "f3d549896823aa378b424dbde570592cac366621af847cbf37c08e24a0ed65aa"
+      },
+      {
+        "pmid": "39822912",
+        "title": "Patient-Reported Outcomes in Robotic-Assisted vs Manual Cementless Total Knee Arthroplasty",
+        "authors": "Michael J. Stoltz, Nolan Sledge Smith, Sarag Abhari, John Whitaker",
+        "year": "2024",
+        "journal": "Arthroplasty Today",
+        "doi": "10.1016/j.artd.2024.101488",
+        "url": "https://doi.org/10.1016/j.artd.2024.101488",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Robotic-assisted total knee arthroplasty (RA-TKA) was introduced to provide surgeons with virtual preoperative planning and intraoperative information to achieve the desired surgical goals in an effort to improve patient outcomes. The purpose of this study was to compare clinical outcomes and patient-reported outcome measures following primary TKA using RA-TKA vs manual instrumentation. Methods: This was a retrospective cohort review study comparing 393 primary RA-TKAs vs 312 manual TKAs at a minimum 2-year follow-up. The same cementless implant design was utilized in all cases at a single institution. There were no significant differences in age or gender between groups. Outcome measures included range-of-motion, Knee Society (KSS), Western Ontario and McMaster Universities Osteoarthritis Index, Forgotten Joint Score-12, Knee Injury and Osteoarthritis",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "58eb45d5795caaf4e0657c0d4bf3f8ab9837a79c82c9a607d97f54c631119a60"
+      },
+      {
+        "pmid": "36602297",
+        "title": "Comparative assessment of current robotic-assisted systems in primary total knee arthroplasty",
+        "authors": "Simon L.E. Walgrave, Sam I. Oussedik",
+        "year": "2023",
+        "journal": "Bone & Joint Open",
+        "doi": "10.1302/2633-1462.41.bjo-2022-0070.r1",
+        "url": "https://doi.org/10.1302/2633-1462.41.bjo-2022-0070.r1",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Robotic-assisted total knee arthroplasty (TKA) has proven higher accuracy, fewer alignment outliers, and improved short-term clinical outcomes when compared to conventional TKA. However, evidence of cost-effectiveness and individual superiority of one system over another is the subject of further research. Despite its growing adoption rate, published results are still limited and comparative studies are scarce. This review compares characteristics and performance of five currently available systems, focusing on the information and feedback each system provides to the surgeon, what the systems allow the surgeon to modify during the operation, and how each system then aids execution of the surgical plan.Cite this article: Bone Jt Open 2023;4(1):13-18.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "c17b620747bdaa16d1dfbc8edbe565eb12c84649e959de43b497d41ef38ddd96"
+      },
+      {
+        "pmid": "cr:10.1055/s-0040-1712088",
+        "title": "Early Economic Analysis of Robotic-Assisted Unicondylar Knee Arthroplasty May Be Cost Effective in Patients with End-Stage Osteoarthritis",
+        "authors": "Yeroushalmi David, Feng James, Nherera Leo, Trueman Paul",
+        "year": "2020",
+        "journal": "The Journal of Knee Surgery",
+        "doi": "10.1055/s-0040-1712088",
+        "url": "https://doi.org/10.1055/s-0040-1712088",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Unicondylar knee arthroplasty (UKA), as an alternative to total knee arthroplasty (TKA), has been shown to be an effective option for patients with single-compartment end-stage knee osteoarthritis. Implant survival is contingent upon proper alignment, which has been improved with the advent of robotic-assisted surgery (r-UKA), but whether this outweighs the increased cost of the robotic-assist device has not been analyzed in the literature. The purpose of this study was to investigate the mid-term cost-effectiveness of r-UKA compared with UKA with traditional instrumentation (t-UKA) in the United States. A cost-effectiveness analysis using a four-state Markov model was performed using data from the 2018 National Joint Registry of England and Wales and a retrospective multicenter, cohort study on a cohort of 65-year-old patients having undergone r-UKA. The main outcome was cost per revision avoided and sensitivity analyses were conducted to evaluate the impact of using different model assumptions on the results. The Markov model illustrated that the benefit derived from r-UKA versus t-UKA was beneficial from a payer's perspective. The estimated incremental cost-effectiveness ratio (ICER) was $14,737 per revision avoided in a facility seeing 100 patients a year. Case volume was shown to be the primary variable affecting cost-effectiveness, with the value of r-UKA directly increasing with higher case volumes. Cost-effectiveness analyses demonstrated that the use of r-UKA is an effective alternative to t-UKA in patients with single-compartment knee osteoarthritis. While this study could benefit from longer follow-up clinical studies to illustrate the benefits of r-UKAs beyond the current 2 years time horizon, r-UKAs remained cost-effective, even after investigating several different assumptions.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "e5ffb13212a8a13d7a0354e59b5b2be51d611851f799ac3eb02534d4dd24d684"
+      },
+      {
+        "pmid": "33385042",
+        "title": "Robotic Total Knee Arthroplasty vs Conventional Total Knee Arthroplasty: A Nationwide Database Study",
+        "authors": "Sione A. Ofa, Bailey J. Ross, Travis R. Flick, Akshar H. Patel",
+        "year": "2020",
+        "journal": "Arthroplasty Today",
+        "doi": "10.1016/j.artd.2020.09.014",
+        "url": "https://doi.org/10.1016/j.artd.2020.09.014",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: As robot-assisted equipment is continuously being used in orthopaedic surgery, the past few decades have seen an increase in the usage of robotics for total knee arthroplasty (TKA). Thus, the purpose of the present study is to investigate the differences between robotic TKA and nonrobotic TKA on perioperative and postoperative complications and opioid consumption. METHODS: An administrative database was queried from 2010 to Q2 of 2017 for primary TKAs performed via robot-assisted surgery vs non-robot-assisted surgery. Systemic and joint complications and average morphine milligram equivalents were collected and compared with statistical analysis. RESULTS: Patients in the nonrobotic TKA cohort had higher levels of prosthetic revision at 1-year after discharge (P < .05) and higher levels of manipulation under anesthesia",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "e71b2742881e71ab2f81deefff0a550bcdcc47742a43a8158f0a45b391dd33ee"
+      },
+      {
+        "pmid": "cr:10.1007/s00167-022-07227-5",
+        "title": "Functional alignment with robotic‑arm assisted total knee arthroplasty demonstrated better patient‐reported outcomes than mechanical alignment with manual total knee arthroplasty",
+        "authors": "Choi Byung Sun, Kim Sung Eun, Yang Myungho, Ro Du Hyun",
+        "year": "2022",
+        "journal": "Knee Surgery, Sports Traumatology, Arthroscopy",
+        "doi": "10.1007/s00167-022-07227-5",
+        "url": "https://doi.org/10.1007/s00167-022-07227-5",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Purpose Given the improved accuracy of robot‐assisted surgery, robotic‐arm assisted functionally aligned total knee arthroplasty (RFA‐TKA) aims to preserve the native pre‐arthritic knee biomechanics, to achieve balanced flexion–extension gaps. The purpose of this study was to compare the accuracy of the implant position and short‐term clinical outcomes of patients who underwent RFA‐TKA vs. mechanically aligned total knee arthroplasty with manual technique (MA‐TKA). Methods A prospectively collected database was reviewed retrospectively for patients who underwent primary TKA. Sixty patients who underwent RFA‐TKA between February 2020 and July 2020 were included in the RFA‐TKA group. Sixty patients who underwent MA‐TKA were included via 1:1 matching for age, sex, and body mass index based on the RFA‐TKA group. For radiological evaluation, knee X‐rays were used to assess the functional knee phenotype and implant position accuracy by measuring the coronal and sagittal alignment, and these measurements were compared between the two groups. Patient demographic characteristics and patient‐reported outcomes including Knee Society scores, Western Ontario and McMaster Universities Arthritis Index, and forgotten joint score‐12 were compared between the groups. Results Statistically significant differences were observed in postoperative 2‐year clinical outcomes in favor of RFA‐TKA group which showed greater accuracy in the tibial component sagittal alignment than MA‐TKA (1.0 ± 2.3 vs. 0.7 ± 1.6, respectively; P < 0.001). However, outliers in the component positions were more common in the MA‐TKA group, which was statistically significant for the femoral coronal and tibial sagittal alignments ( P = 0.017 and 0.015, respectively). Conclusions Functional alignment in TKA could be accurately obtained with the assistance of a robotic arm, and the results showed greater 2 year postoperative patient‐reported outcome and satisfaction than mechanically aligned TKA using manual instruments. Level of evidence III.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bc4225885bccf13487fb77b005dcb3734d2a8319a3d5206d12f3ba3269337b66"
+      },
+      {
+        "pmid": "42966942",
+        "title": "Comparison of Conventional Total Knee Arthroplasty Versus Robotic-Assisted Total Knee Arthroplasty in Primary Osteoarthritis of the Knee: A Prospective Comparative Pilot Study.",
+        "authors": "Kapoor C, Shah M, Patel KR, Garg D, Das T, Jain SS, Bhagwatkar TA.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.117259",
+        "url": "https://europepmc.org/article/PMC/PMC13722577",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Total knee arthroplasty (TKA) is a highly effective intervention for advanced primary knee osteoarthritis. Conventional TKA (C-TKA) has been the standard of care for decades, while robotic-assisted TKA (RA-TKA) aims to enhance surgical precision and alignment. Prospective Indian data comparing the two are scarce. We therefore conducted a small pilot comparison intended to generate preliminary estimates and inform the design of a future adequately powered randomised controlled trial, rather than to guide current clinical practice. Aim To obtain preliminary comparative estimates for conventional and robotic-assisted TKA in primary knee osteoarthritis with respect to intraoperative parameters, postoperative pain, functional outcomes, range of motion and complications in an Indian tertiary-care setting, as preparatory work for a properly powered randomised trial. Materials and methods A prospective, non-randomised comparative pilot study was conducted on 30 patients with primary knee osteoarthritis (Kellgren-Lawrence grade 3 or 4). Fifteen patients underwent C-TKA with mechanical alignment, and 15 underwent RA-TKA with kinematic alignment; allocation followed patient choice after counselling on both techniques and their costs, and no formal sample-size calculation was performed. Outcomes assessed were tourniquet time, postoperative drain collection, Visual Analogue Scale (VAS) pain score, Knee Society Score (KSS) and knee range of motion in the immediate postoperative period and at 2 weeks and 1, 2 and 3 months. Analysis was performed in IBM SPSS version 26.0, with the Bonferroni method applied to the five repeated time-point comparisons (adjusted significance threshold p Results Knee Society Scores were significantly higher in the RA-TKA group than in the C-TKA group at every early follow-up time point, and all of these differences remained significant after Bonferroni correction. The between-group gap was widest at 2 weeks (76.9 ± 3.3 versus 87.9 ± 3.5; t = 8.86, df = 28, p Conclusion In this pilot cohort, the RA-TKA group had lower drain collection, lower early pain scores, and higher early Knee Society Scores than the C-TKA group despite a longer tourniquet time, with convergence by 3 months. No clinical recommendation follows from these observations. The sample was small and non-randomised; the two groups differed in alignment philosophy as well as in surgical platform, no radiographic alignment data were obtained, and no cost figures were collected, so the economic comparison remains entirely unquantified. The value of this study lies in the preliminary effect estimates it provides for sample-size calculation in an adequately powered randomised controlled trial with radiographic endpoints, formal health-economic evaluation, and follow-up of at least one year.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2ae862546cb8eac1800052814bc14187031bcec1faa0ee78f5d1fb7e12b611f5"
+      },
+      {
+        "pmid": "cr:10.62830/mmj3-02-26c",
+        "title": "A Case Report of Metallosis-Related Aseptic Loosening of Primary Total Knee Arthroplasty Implant Managed with Revision Total Knee Arthroplasty",
+        "authors": "Sarkar Debasish",
+        "year": "2026",
+        "journal": "A Case Report of Metallosis-Related Aseptic Loosening of Primary Total Knee Arthroplasty Implant Managed with Revision Total Knee Arthroplasty",
+        "doi": "10.62830/mmj3-02-26c",
+        "url": "https://doi.org/10.62830/mmj3-02-26c",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Metallosis is a rare but serious long-term complication following total knee arthroplasty (TKA), most commonly resulting from polyethylene insert wear that leads to unintended metal-on-metal articulation and subsequent metallic debris deposition. We present the case of a 70-year-old female who developed progressive pain, stiffness, and instability in her right knee, 19 years after undergoing primary TKA. Radiographic evaluation revealed loosening of both femoral and tibial components, while laboratory investigations ruled out infection. Intraoperatively, extensive metallosis was identified with diffuse, black-stained synovium, metallic debris accumulation, and complete wear of the medial polyethylene insert exposing the tibial tray. Both prosthetic components were found to be loose, accompanied by collateral ligament laxity. Thorough synovectomy and debridement were performed, followed by revision TKA using a constrained condylar knee prosthesis (Zimmer Rotating Hinge Knee [RHK]). Metallosis-associated inflammatory reaction can result in osteolysis, soft tissue destruction, and eventual implant failure, making early diagnosis and timely intervention essential despite the non-specific clinical presentation. Revision arthroplasty with appropriately constrained implants can achieve satisfactory outcomes in cases associated with instability and severe component loosening.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "128d9874a06d6ff14eb27721dadc310748c244757399f8af336b646851aeb510"
+      },
+      {
+        "pmid": "42713448",
+        "title": "Comparative Study of Post-operative Pain and Functional Outcomes in Robotic-assisted Total Knee Replacement versus Cruciate-retaining Manual Total Knee Replacement.",
+        "authors": "Phogaat M, Singh R, Chauhan J, Jain S.",
+        "year": "2026",
+        "journal": "Journal of orthopaedic case reports",
+        "doi": "10.13107/jocr.2026.v16.i09.8108",
+        "url": "https://europepmc.org/article/PMC/PMC13552097",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction Robotic-assisted total knee replacement (TKR) has emerged as an important technological advancement in arthroplasty surgery, designed to overcome the classical limitations of conventional jig-based instrumentation. Traditional manual techniques rely heavily on standard mechanical alignment systems and visual estimation, which introduce a higher margin for component malalignment and suboptimal soft-tissue balancing. By utilizing precise image-dependent or image-free navigation and haptic feedback loops, robotic arthroplasty provides real-time adjustments and micro-millimetric bone resections. The aim of this study was to compare post-operative pain patterns and functional recovery outcomes between robotic-assisted TKR and cruciate-retaining (CR) manual TKR in patients diagnosed with end-stage knee osteoarthritis. Material and methods The study protocol was approved by the Institutional Ethics Committee, and written informed consent was obtained from all patients before inclusion in the study. Fifty patients undergoing unilateral primary TKR for end-stage osteoarthritis were prospectively enrolled and followed. The cohort was distributed evenly into two groups: 25 patients underwent robotic-assisted TKR, and 25 patients underwent traditional manual CR TKR. Post-operative pain trajectories were assessed using the Visual Analog Scale (VAS) preoperatively and on post-operative days (POD) 1, 3, and 5. Immediate physical recovery was quantified using the time taken to achieve first independent ambulation in hours. Short-term functional recovery was documented using the Knee Society Score (KSS) system at 6 weeks and 3 months postoperatively. Result Pre-operative demographics, including age, gender distribution, and baseline body mass index, were statistically comparable across both groups (P > 0.05). The robotic-assisted cohort demonstrated significantly lower VAS scores than the manual group on POD1 (4.1 vs. 6.2; P Conclusion Robotic-assisted TKR provides superior early post-operative recovery compared with conventional CR manual TKR, minimizing early post-operative pain, accelerating mobilization milestones, and enhancing short-term functional outcomes, thereby supporting contemporary enhanced recovery after surgery pathways in orthopedic joint reconstruction.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Protocol",
+        "lowMetadata": false,
+        "_sig": "51fcb64125c9b3f08c8f2e956039c861e780006467e6eec3810ebfd95dd9fbdb"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "end-stage primary knee osteoarthritis robotic-assisted total knee arthroplasty conventional manual total knee arthroplasty patient-reported joint function (KOOS / WOMAC) and revision rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

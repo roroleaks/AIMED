@@ -1,0 +1,856 @@
+{
+  "id": "PRESET-gastroenterology-crohn-il23-antitnf",
+  "recordedAt": "2026-11-26T19:52:07.596Z",
+  "specialty": "gastroenterology",
+  "words": [
+    {
+      "word": "moderate-to-severe active Crohn's disease",
+      "role": "population"
+    },
+    {
+      "word": "risankizumab intravenous induction then subcutaneous maintenance",
+      "role": "intervention"
+    },
+    {
+      "word": "ustekinumab or adalimumab standard maintenance",
+      "role": "comparator"
+    },
+    {
+      "word": "endoscopic mucosal healing and clinical remission at 52 weeks",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "moderate-to-severe active Crohn's disease",
+        "role": "population"
+      },
+      {
+        "word": "risankizumab intravenous induction then subcutaneous maintenance",
+        "role": "intervention"
+      },
+      {
+        "word": "ustekinumab or adalimumab standard maintenance",
+        "role": "comparator"
+      },
+      {
+        "word": "endoscopic mucosal healing and clinical remission at 52 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In moderate-to-severe active Crohn's disease (P), does risankizumab intravenous induction then subcutaneous maintenance (I) compared with ustekinumab or adalimumab standard maintenance (C) improve endoscopic mucosal healing and clinical remission at 52 weeks (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (4 favourable, 0 no-difference, 2 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In moderate-to-severe active Crohn's disease (P), is risankizumab intravenous induction then subcutaneous maintenance (I) superior to ustekinumab or adalimumab standard maintenance (C) for endoscopic mucosal healing and clinical remission at 52 weeks (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of moderate-to-severe active Crohn's disease (P), does risankizumab intravenous induction then subcutaneous maintenance (I) compared with ustekinumab or adalimumab standard maintenance (C) improve endoscopic mucosal healing and clinical remission at 52 weeks (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 11
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In moderate-to-severe active Crohn's disease (P), is risankizumab intravenous induction then subcutaneous maintenance (I) superior to ustekinumab or adalimumab standard maintenance (C) for endoscopic mucosal healing and clinical remission at 52 weeks (O)?"
+    },
+    "words": [
+      {
+        "word": "moderate-to-severe active Crohn's disease",
+        "role": "population"
+      },
+      {
+        "word": "risankizumab intravenous induction then subcutaneous maintenance",
+        "role": "intervention"
+      },
+      {
+        "word": "ustekinumab or adalimumab standard maintenance",
+        "role": "comparator"
+      },
+      {
+        "word": "endoscopic mucosal healing and clinical remission at 52 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "gastroenterology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42216847",
+        "title": "Biologics and small molecules for perianal Crohn's disease: a systematic review and meta-analyses of randomized placebo-controlled trials.",
+        "authors": "Yuan Y, Jairath V, Hanzel J, Hupe M, Sedano R, Shehab M, Nardone OM, Magro F, Hart A, Vuyyuru SK.",
+        "year": "2026",
+        "journal": "Inflammatory bowel diseases",
+        "doi": "10.1093/ibd/izag099",
+        "url": "https://europepmc.org/article/PMC/PMC13722115",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Systematic Review, review-article, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
+        ],
+        "context": "Background Although several advanced therapies (ATs) for luminal Crohn's disease (CD) have been approved, their efficacy for perianal fistulizing Crohn's (pCD) has not been comprehensively reviewed. Methods A literature search was conducted in MEDLINE, Embase, and Cochrane CENTRAL up to October 2, 2025. Placebo-controlled randomized controlled trials (RCTs) evaluating treatment efficacy in pCD were included. Outcomes of interest were fistula response and fistula remission during the induction and maintenance trials. Pooled relative risks (RRs) were calculated using a random-effects model. Results Fourteen studies were eligible; only 4 RCTs were specifically designed for pCD, while the remainder were post hoc analyses of luminal CD studies with moderate to serious risk of bias. In pooled analyses of induction trials (4-28 weeks), ATs were associated with significantly higher induction of fistula response (RR 1.65, 95% CI 1.22-2.22) and remission (RR 1.91, 95% CI 1.37-2.67) compared to placebo. Infliximab and upadacitinib demonstrated significantly greater fistula response and remission, while ustekinumab significantly increased rates of fistula remission. For the maintenance phase (22-52 weeks), ATs were associated with significantly higher maintenance of fistula response (RR 1.54, 95% CI 1.21-1.97) and remission (RR 2.08, 95% CI 1.49-2.90) compared to placebo. Infliximab showed significantly greater maintenance of fistula response and remission compared with placebo, while adalimumab was superior for fistula remission. Conclusion Findings from our meta-analysis indicate that infliximab is effective for pCD, with limited evidence of benefit with adalimumab, ustekinumab, and upadacitinib. Well-designed RCTs investigating newer advanced therapies are needed to better guide targeted treatment strategies for this patient population.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "1bbf88b5a5ea6ea70efc1146afce311caff890b7ff5cb3484e6349168b781faf"
+      },
+      {
+        "pmid": "41553714",
+        "title": "Comparative Efficacy and Safety of Advanced Therapies in Maintenance Treatment of Adult Patients with Moderate-to-Severe Crohn's Disease: A Systematic Literature Review and Network Meta-Analysis.",
+        "authors": "Schreiber S, Danese S, Colombel JF, Hisamatsu T, Irving PM, Park H, Kim DH, Lee YN, Hanauer SB.",
+        "year": "2026",
+        "journal": "Advances in therapy",
+        "doi": "10.1007/s12325-025-03447-6",
+        "url": "https://europepmc.org/article/PMC/PMC12999591",
+        "source": "pmc",
+        "pubType": "Comparative Study, Systematic Review, review-article, Network Meta-Analysis, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "Systematic Review",
+          "review-article",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "context": "Introduction While the therapeutic options for Crohn's disease (CD) have broadened swiftly, direct comparative evidence on treatment efficacy remains limited. This study explored the relative efficacy and safety of available treatments based on current evidence. Methods A network meta-analysis (frequentist random-effect model) evaluated comparative efficacy of licensed advanced therapies for CD using data on efficacy of maintenance therapy from fully published, randomised, controlled phase 3/3b studies with 48-64-week follow-up periods and placebo or active comparator controls, identified through a systematic literature review (PROSPERO number CRD42023413752). Intravenous (IV) and subcutaneous (SC) infliximab, SC adalimumab, IV and SC vedolizumab, SC ustekinumab, SC risankizumab, and oral upadacitinib were included. Clinical remission and endoscopic response rates attained through maintenance regimens were assessed according to line of use (e.g., first-line and second-or-later line). Safety (serious adverse event rates) was also compared. Results Data from nine randomised controlled trials were analysed. SC infliximab 120 mg every 2 weeks (q.2.w.) exhibited the highest risk difference (95% confidence interval) vs. placebo in both first-line and second-or-later-line maintenance treatment for achieving clinical remission (0.38 [0.23-0.53] and 0.51 [0.19-0.83], respectively; 14 and 12 comparator arms, respectively), and endoscopic response (0.39 [0.29-0.49] and 0.35 [0.07-0.63], respectively; 5 comparator arms) compared with other treatments. Differences between therapies did not reach statistical difference. Safety was comparable among treatments in terms of rates of serious adverse events. Conclusions The current NMA integrating recently updated phase 3 data in CD indicated that no single treatment significantly outperformed others in achieving clinical remission and endoscopic response, although SC infliximab 120 mg q.2.w exhibited highest numerical efficacy as both a first-line and second-or-later-line maintenance treatment in adult patients with moderate-to-severe CD.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "f5f7c068ef4c2007fa960734fa345020be712a272c5e8b7f5da07358f660b8d9"
+      },
+      {
+        "pmid": "43042045",
+        "title": "Dose escalation of IL-23 inhibitors in inflammatory bowel disease: a systematic review of efficacy and safety.",
+        "authors": "Coman D, Farkouh A, Dufresne A, Bernard EJ, Orlicka K, Liu J, Leduc R, Battat R.",
+        "year": "2026",
+        "journal": "Crohn's & colitis 360",
+        "doi": "10.1093/crocol/otag113",
+        "url": "https://europepmc.org/article/PMC/PMC13773023",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background IL-23 antagonists have proven effective for induction and maintenance of remission in inflammatory bowel disease (IBD). However, suboptimal response and secondary loss of response are common, and evidence supporting dose-escalation strategies remains limited. We aimed to systematically evaluate the efficacy and safety of IL-23 inhibitor dose escalation in IBD. Methods We conducted a systematic review of studies reporting dose escalation of Risankizumab, Mirikizumab, or Guselkumab in adult patients with Crohn's disease (CD) or ulcerative colitis (UC). MEDLINE, Embase, and Web of Science were searched from inception to November 2025. Dose escalation was defined as interval shortening, dose increase, or intravenous re-induction. Primary outcomes were clinical remission, steroid-free remission, and endoscopic remission. Secondary outcomes included clinical response and endoscopic response, biomarker improvement, and safety. Results Twelve studies met inclusion criteria, including 1694 patients treated with an IL-23 antagonist. Among them, 578 (34.1%) underwent dose escalation. The total study population included 61% UC and 39% CD patients. Among patients undergoing dose escalation, 65.7% had UC. Risankizumab was the most frequently reported agent (10/12 studies), while only one study evaluated mirikizumab and another evaluated guselkumab, both exclusively in UC cohorts. Across nine studies reporting on clinical response ( n = 516), 64% of patients achieved symptomatic improvement following dose escalation (56% CD; 67% UC). Clinical remission rates varied by agent and cohort but ranged from 31.2% in UC cohorts ( n = 359) to 68% in one CD cohort ( n = 24). Endoscopic improvement after dose escalation was reported in 3 studies, reaching 16.8% in UC across 2 cohorts ( n = 340), and 67% in a small CD cohort on Risankizumab ( n = 6). Biomarker outcomes reported in 4 studies showed consistent reductions in CRP and fecal calprotectin, although sample sizes for biomarker analyses were inconsistently reported. No increase in adverse events was associated with dose escalation. Conclusion In this first systematic review of IL-23 inhibitors dose escalation in IBD, dose escalation was effective and well-tolerated, recapturing clinical response in the majority of patients with inadequate primary or secondary response to standard dosing. These findings support dose escalation as a viable strategy in clinical practice, though prospective studies are needed to define optimal escalation protocols and identify predictors of response.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "456fd23cf6335fcb03cebe03962243ff6ea5cf228312a5e237c3e82fb973ec5c"
+      },
+      {
+        "pmid": "42675740",
+        "title": "Efficacy, safety and outcome of selective IL-23 inhibitor risankizumab in induction and maintenance of CD and ulcerative colitis: A systematic review.",
+        "authors": "Afzal MW, Haseeb A, Ali U, Ashraf MR, Mehmood A, Perveen A.",
+        "year": "2026",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000050434",
+        "url": "https://europepmc.org/article/PMC/PMC13529117",
+        "source": "pmc",
+        "pubType": "research-article, Systematic Review, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "context": "Background Crohn disease (CD) and ulcerative colitis (UC) are chronic inflammatory bowel diseases characterized by immune dysregulation. Despite biologic advancements, many patients experience treatment failure. Risankizumab (RZB), a selective interleukin-23 inhibitor, has emerged as a promising therapy for moderate-to-severe inflammatory bowel diseases. This systematic review evaluates its efficacy, safety, and therapeutic outcomes. Methods Following Preferred Reporting Items for Systematic Reviews and Meta-Analyses guidelines, a systematic search of PubMed, Embase, Scopus, and ClinicalTrials.gov was conducted to identify studies published up to 2025. Eligible studies included randomized controlled trials, clinical trials, and retrospective observational studies evaluating RZB in adult patients with CD or UC. Primary outcomes included clinical remission, endoscopic response, hospitalization rates, and adverse events. Results Seventeen studies involving 6602 patients (5627 with CD, 975 with UC) were analyzed. In CD, RZB demonstrated high clinical remission rates, endoscopic healing, and reduced hospitalizations, including in biologic-refractory patients. In UC, it showed significant remission rates and fewer UC-related hospitalizations. RZB was well tolerated, with mostly mild to moderate adverse events such as arthralgia, headache, and nasopharyngitis. Severe adverse events were rare. Conclusion RZB is an effective and well-tolerated treatment for moderate-to-severe CD and UC, showing strong clinical and endoscopic outcomes. It offers a viable option for biologic-refractory patients, but further research is needed to assess long-term efficacy and safety.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "b3138b7b4c03065dfc3ced16699e0ccd0c524415278920c4e7ab4a3d082febaa"
+      },
+      {
+        "pmid": "42571398",
+        "title": "How Biologics Are Changing the Global Burden of Inflammatory Bowel Disease: A Review.",
+        "authors": "Abu Osba Y, Elshebli S, Abureesh A, Al-Shraideh A, Yousef Y, Abu-Shaban M, Abureesh O.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.112332",
+        "url": "https://europepmc.org/article/PMC/PMC13452261",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Inflammatory bowel disease (IBD), comprising Crohn's disease and ulcerative colitis, has evolved from a condition concentrated in high-income Western nations into a global disease. The therapeutic landscape has been transformed by biologic agents, including anti-tumor necrosis factor (anti-TNF) antibodies, anti-integrin therapy (vedolizumab), interleukin (IL)-12/23 blockade (ustekinumab), and selective IL-23 (p19) inhibitors (risankizumab and mirikizumab); more recently, oral small-molecule advanced therapies (Janus kinase (JAK) inhibitors and sphingosine-1-phosphate (S1P) receptor modulators) have broadened the treatment armamentarium further. This narrative review synthesizes contemporary epidemiological data such as incidence, prevalence, mortality, disability, healthcare utilization, and economic burden, and landmark randomized controlled trials (RCTs) to examine how biologic therapy is reshaping the global burden of IBD. We summarize the mechanisms and pivotal efficacy evidence for each major class, and we appraise their measurable impact on hard outcomes, mucosal healing, surgery, hospitalization, disability, and quality of life, alongside the comparative-effectiveness data emerging from head-to-head trials. We then consider an apparent paradox: although biologics reduce complications in trial settings, population-level reductions in surgery and hospitalization have been inconsistent, and the cost of IBD care has shifted toward pharmaceuticals and risen overall. Finally, we address the role of biosimilars in improving affordability and the persistent access divide between high-income and resource-limited settings. Because much of the population-level evidence is ecological or observational, associations between biologic use and improvements in mortality and disability should be interpreted with caution and cannot be regarded as proof of direct causation. Biologics have unquestionably improved the lives of individual patients; whether they reduce the global burden of IBD will depend on equitable access, optimal positioning, and integration with treat-to-target strategies.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "f292d749cb858f47f46e94c3f8d76bb16603f189be88a1d8e0165ac37d2ba06d"
+      },
+      {
+        "pmid": "41339249",
+        "title": "Efficacy and safety of IL-23p19 and IL-12/23p40 inhibitors in moderate-to-severe Crohn's disease: a systematic review and network meta-analysis.",
+        "authors": "Kaneko M, Sakuraba A.",
+        "year": "2025",
+        "journal": "Annals of medicine",
+        "doi": "10.1080/07853890.2025.2595874",
+        "url": "https://europepmc.org/article/PMC/PMC12677037",
+        "source": "pmc",
+        "pubType": "Research Support, Non-U.S. Gov't, research-article, Systematic Review, Network Meta-Analysis, Journal Article",
+        "publicationTypes": [
+          "Research Support, Non-U.S. Gov't",
+          "research-article",
+          "Systematic Review",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "context": "Background Interleukin (IL)-23 inhibitors-including IL-23p19 inhibitors (guselkumab, mirikizumab, risankizumab) and the IL-12/23p40 inhibitor ustekinumab-are emerging treatments for Crohn's disease (CD), but comparative data among them remain limited. Most previous network meta-analyses (NMAs) compared IL-23 inhibitors with other biologic classes or examined a specific IL-23 inhibitor against multiple comparators, often excluding some trials due to design heterogeneity or publication timing. Safety outcomes were also underreported. We conducted the first comprehensive NMA focused exclusively on IL-23 inhibitors to provide practice-oriented evidence. Methods We systematically searched PubMed, Embase, and Cochrane CENTRAL on May 11, 2025, for randomised controlled trials (RCTs) comparing guselkumab, mirikizumab, risankizumab, or ustekinumab in adults with moderate-to-severe CD. We analysed induction (weeks 8-12) and maintenance (weeks 48-64) phases, evaluating approved regimens in the main analysis and all reported regimens in a secondary analysis. Outcomes were clinical and endoscopic efficacy, adverse events, and serious adverse events. Results Fourteen RCTs (induction phase n = 4,834, maintenance phase n = 3,632) were included, enrolling adults with moderate-to-severe CD (mean age 35-40 years; 40-60% male; baseline Crohn's Disease Activity Index [CDAI] around 300). Guselkumab showed the highest induction efficacy among IL-23 inhibitors and versus placebo but had the greatest risk of adverse events than placebo during maintenance. Mirikizumab had the lowest risk of serious adverse events across both phases. Risankizumab ranked highest for endoscopic outcomes with a balanced efficacy-safety profile. Ustekinumab showed modest effects. The differences in efficacy and safety may be interpreted in relation to variations in Fc structure and IgG subclass. Conclusions This is the first NMA comparing IL-23 inhibitors using contemporary evidence. The results offer practical insights for personalized CD treatment: guselkumab may be preferred for rapid response, mirikizumab for safety, and risankizumab for balanced efficacy.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "5ce3d45f038bad7e28b6037cc5fe69f8e8d595163d220a20a0af74d78d36a1f1"
+      },
+      {
+        "pmid": "42479626",
+        "title": "Corticosteroid-sparing effects of risankizumab versus ustekinumab in patients with moderately to severely active Crohn's disease: post hoc results from the phase 3b SEQUENCE trial.",
+        "authors": "Raine T, Danese S, Schreiber S, Gao X, Hanauer S, Torres J, Cunneen C, Kligys K, Huang X, Garrison A, Neimark E, Anschut",
+        "year": "2026",
+        "journal": "Journal of Crohn's & colitis",
+        "doi": "10.1093/ecco-jcc/jjag104",
+        "url": "https://europepmc.org/article/PMC/PMC13387155",
+        "source": "pmc",
+        "pubType": "Clinical Trial, Phase III, Comparative Study, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Comparative Study",
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Background This post hoc analysis evaluated the corticosteroid-sparing effects of risankizumab (RZB) versus ustekinumab (UST) in patients with moderate to severe Crohn's disease (CD) with prior inadequate response or intolerance to ≥ 1 anti-tumor necrosis factor (TNF) therapy. Methods SEQUENCE (NCT04524611) was an open-label, multicenter, randomized, efficacy assessment-blinded study. Patients were randomized 1:1 to receive RZB (intravenous [IV] 600 mg induction dose at weeks 0, 4, and 8, then a subcutaneous [SC] 360 mg maintenance dose every 8 weeks [Q8w] starting at week 12) or UST (single weight-based IV induction dose, then a SC 90 mg maintenance dose Q8w starting at week 8) up to week 48. Patients tapered corticosteroids beginning at week 2. Achievement of clinical, endoscopic, and quality of life outcomes without concomitant use of steroids (\"corticosteroid-free\") and safety were assessed. Results In patients taking corticosteroids at baseline, response rate differences by the week 24 and 48 timepoints with RZB versus UST were 10.5% and 25.4% (P ≤ .01) for corticosteroid-free clinical remission per CD activity index and 20.4% (P ≤ .001) and 29.2% (P ≤ .01) per stool frequency/abdominal pain score, and 23.0% and 20.2% (both P ≤ .01) for corticosteroid-free endoscopic remission. Similar results were also observed for additional corticosteroid-free endpoints, including endoscopic, composite (clinical + endoscopic), and quality of life outcomes. Numerically higher exposure-adjusted event rates of serious infections and hypersensitivity with RZB and UST were observed with corticosteroid use. Conclusion In patients with CD refractory to anti-TNF therapy, higher rates of corticosteroid-free clinical, endoscopic, and quality of life outcomes were achieved with RZB versus UST. Both treatments were well-tolerated. Clinical trial registration number NCT04524611.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "3286f3179fde2e80fd653e79982cb750ec2ae4267d1a0538f03dc8553cd3288d"
+      },
+      {
+        "pmid": "41344313",
+        "title": "Efficacy and safety of risankizumab in patients with moderately to severely active Crohn's disease: interim results from the SEQUENCE open-label extension study.",
+        "authors": "Peyrin-Biroulet L, Atreya R, Danese S, Lindsay JO, Chapman JC, Anschutz T, Huang X, Zambrano J, van Haaren S, Joshi N, D",
+        "year": "2025",
+        "journal": "Journal of Crohn's & colitis",
+        "doi": "10.1093/ecco-jcc/jjaf213",
+        "url": "https://europepmc.org/article/PMC/PMC12726915",
+        "source": "pmc",
+        "pubType": "research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Background and aims Risankizumab, a selective interleukin-23 p19 inhibitor, is approved to treat moderately to severely active Crohn's disease (CD) in adults. We report interim results from part 2 of the ongoing SEQUENCE trial evaluating long-term efficacy and safety of risankizumab in patients with active CD and previous anti-tumor necrosis factor failure. Methods Patients randomized to risankizumab who completed the part 1 Week 48 visit could continue receiving open-label subcutaneous risankizumab 360 mg every 8 weeks (part 2). Patients with inadequate response could receive rescue therapy (intravenous risankizumab 600 mg) before continuing regular treatment. This interim analysis assessed efficacy at Weeks 52, 76, and 100 of treatment; safety was evaluated throughout. Results Overall, 224 patients who received risankizumab 600 mg intravenous induction therapy and 360 mg subcutaneous maintenance therapy entered part 2. Clinical remission rates remained stable through Week 100 (as observed, ≥74.5%; nonresponder and modified non-responder imputation analyses showed similar trends). Most patients (>99%) achieving clinical remission were corticosteroid-free at the corresponding visit. CD-related hospitalization and surgery incidence were low (≤0.03 n/patient year), and Inflammatory Bowel Disease Questionnaire and 36-Item Short Form Health Survey improvements were sustained. Safety data were consistent with the known risankizumab safety profile; the exposure-adjusted serious adverse event rate was 11.8/100 patient-years. Conclusions This interim analysis of continuous open-label risankizumab therapy showed durable long-term clinical efficacy and no new safety signals in patients with moderately to severely active CD. Future analyses will evaluate longer-term clinical and endoscopic outcomes and safety. Clinical trial registration number NCT04524611.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "80b485562f9c4fc7564e71a4e66b58c7574385210756c9c90135ef795be6310d"
+      },
+      {
+        "pmid": "41543995",
+        "title": "A 17-Year-Old Male Adolescent With Refractory Crohn's Disease Managed With Upadacitinib and Risankizumab Combination Therapy: A Case Report and Review of Current Evidence.",
+        "authors": "Alhashemi M, Shehab M.",
+        "year": "2026",
+        "journal": "The American journal of case reports",
+        "doi": "10.12659/ajcr.950174",
+        "url": "https://europepmc.org/article/PMC/PMC12829254",
+        "source": "pmc",
+        "pubType": "research-article, Review, Journal Article, Case Reports",
+        "publicationTypes": [
+          "research-article",
+          "Review",
+          "Journal Article",
+          "Case Reports"
+        ],
+        "context": "BACKGROUND Crohn's disease (CD) is an autoimmune disorder affecting the gastrointestinal tract, particularly the terminal ileum and colon. Moderate-to-severe CD is often managed with advanced therapeutic approaches, including biologics and small molecules. Several studies and reports have shown that new immunosuppressive biologics are effective as second-line therapies in patients with refractory CD, including upadacitinib (a JAK1 inhibitor) and risankizumab (interleukin-23 p19 inhibitor). CASE REPORT We report a case of a 17-year-old male adolescent with a 7-year history of CD. The patient experienced response failure to infliximab and adalimumab, despite both agents being maintained within the therapeutic range. He was steroid-dependent. His infectious workup was repeatedly negative. He was started on ustekinumab, which was stopped after 9 months due to active endoscopic disease. This was followed by an induction course of upadacitinib, which resulted in only a partial response, with a fecal calprotectin level of 500 mcg/g. Finally, he was treated effectively with advanced combined targeted therapy, with oral upadacitinib at a dose of 45 mg daily and risankizumab induction dose of 600 mg intravenously at 0, 4, and 8 weeks, followed by 360 mg subcutaneously every 8 weeks. The patient achieved complete clinical and biochemical remission. At 9 months, his repeat colonoscopy showed quiescent disease, with a Simple Endoscopic Score for Crohn's disease score <4. CONCLUSIONS This report supports recent regulatory approvals, reports, and study findings that have shown the effectiveness of upadacitinib and risankizumab as second-line therapy in patients with refractory inflammatory bowel disease.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "3b5b1108c21413c373a90768d4dab95fe23195cd2b8c5ab4096bd960d3602324"
+      },
+      {
+        "pmid": "cr:10.1093/crocol/otac012",
+        "title": "Case Series: Re-induction of Intravenous, Weight-Based Ustekinumab Is Well Tolerated in Patients With Moderate–Severe Crohn’s Disease",
+        "authors": "Lee Scott David, Kamp Kendra, Clark-Snustad Kindra Dawn",
+        "year": "2022",
+        "journal": "Crohn's & Colitis 360",
+        "doi": "10.1093/crocol/otac012",
+        "url": "https://doi.org/10.1093/crocol/otac012",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Crohn’s disease (CD) patients may benefit from biologic optimization. Methods We retrospectively assessed adverse events (AEs) and clinical/endoscopic response after ustekinumab re-induction in CD patients. Results We identified 28 patients, all with prior biologic exposure. Eight weeks following re-induction, 10.7% reported ≥1 AE. Three serious AEs occurred in a single patient (CD flares). No infusion reactions occurred. 53.8% and 38.5% achieved clinical response and remission, respectively. 42.8% achieved both endoscopic improvement and remission. Conclusions Ustekinumab re-induction was well tolerated. Clinical and endoscopic disease activity improved in some patients. Further larger studies are needed to verify these findings in a broader population.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Series",
+        "lowMetadata": false,
+        "_sig": "fc7b9b9ccc820ee58286e5dd1675c4ac91896e56016be57123aec09da935a089"
+      },
+      {
+        "pmid": "42909122",
+        "title": "Biologic and small-molecule therapies for inflammatory bowel disease: mechanisms, comparative evidence and the emerging pipeline.",
+        "authors": "Wu L, Yang C, Wu J.",
+        "year": "2026",
+        "journal": "Frontiers in pharmacology",
+        "doi": "10.3389/fphar.2026.1948258",
+        "url": "https://europepmc.org/article/PMC/PMC13683838",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Inflammatory bowel disease (IBD), comprising ulcerative colitis (UC) and Crohn's disease (CD), is a chronic immune-mediated disorder of rising global prevalence, with newly industrialised nations now entering the phase of most rapid growth. Its therapeutic landscape has transformed since 2020. Three selective interleukin (IL)-23p19 antagonists have been approved for both UC and CD; two sphingosine-1-phosphate receptor modulators and a second-generation Janus kinase (JAK) inhibitor have entered routine practice; subcutaneous formulations have altered delivery; and the first formal head-to-head trials, together with placebo-controlled trials incorporating an active reference arm, have begun to replace indirect comparison with direct evidence. In parallel, the ORAL Surveillance trial prompted a class-wide boxed warning that recalibrated, but did not eliminate, the role of JAK inhibitors. Three further strategies have generated late-phase data: anti-TL1A antibodies, which target a pathway not previously addressed pharmacologically in IBD; the miR-124 enhancer obefazimod; and the oral IL-23 receptor antagonist peptide icotrokinra. Several of these results are available only from conference presentations or company announcements and await peer review. Despite this expansion, induction remission rates remain clustered between roughly 15% and 50%, and endoscopic remission rates lower still. This review synthesises the mechanistic basis, pivotal evidence, comparative effectiveness, safety and regulatory status of approved and investigational therapies for IBD, and how treat-to-target principles, early advanced therapy and emerging biomarkers are reshaping positioning. It also covers two areas comparable reviews omit: acute severe ulcerative colitis, where advanced therapy is least well evidenced, and positioning in newly industrialised nations, where tuberculosis and hepatitis B endemicity and reimbursement, not efficacy alone, often determine the choice of mechanism.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "a0c3c653ed82906b3804c1fae0d3b9d68829e5331af9ade6d40bef786acc0048"
+      },
+      {
+        "pmid": "42012779",
+        "title": "Interleukin-23 Inhibitors in Inflammatory Bowel Disease.",
+        "authors": "Puca P, Parello S, Colantuono S, Tursi A, Coppola G, Lopetuso LR, Scaldaferri F, Gasbarrini A, Papa A.",
+        "year": "2026",
+        "journal": "BioDrugs : clinical immunotherapeutics, biopharmaceuticals and gene therapy",
+        "doi": "10.1007/s40259-026-00781-1",
+        "url": "https://europepmc.org/article/PMC/PMC13212390",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Selective inhibition of interleukin-23 (IL-23) has emerged as a highly effective therapeutic strategy in inflammatory bowel disease, targeting a central pathway of chronic intestinal inflammation while preserving host defense mechanisms. Across phase II and phase III randomized controlled trials, risankizumab, mirikizumab, and guselkumab consistently demonstrated robust efficacy in both ulcerative colitis and Crohn's disease, achieving clinical remission rates approaching 40-50% in ulcerative colitis and exceeding 50% in Crohn's disease during maintenance, with parallel improvements in endoscopic and histological outcomes. Notably, mirikizumab and guselkumab showed particularly high rates of endoscopic and histological remission in ulcerative colitis, whereas guselkumab achieved some of the highest induction remission rates in Crohn's disease. These benefits were durable over time, with long-term extension studies confirming sustained remission beyond two years in a substantial proportion of patients. Across trials, IL-23 inhibitors displayed a favorable safety profile, with low rates of serious adverse events, infections, and major cardiovascular events, supporting their use in long-term disease management. Real-world evidence further reinforces these findings, demonstrating consistent effectiveness in heavily pretreated and complex patient populations, including those with prior biologic failure, comorbidities, or difficult-to-treat disease phenotypes. In particular, risankizumab has shown strong performance in multi-refractory Crohn's disease cohorts, while emerging data for mirikizumab confirm its effectiveness in real-life ulcerative colitis settings. Beyond clinical outcomes, differences in molecular structure, pharmacokinetics, and Fc-mediated interactions may contribute to subtle distinctions among agents, potentially influencing therapeutic positioning. Ongoing development of oral compounds and combination strategies targeting complementary inflammatory pathways is expected to further expand the role of IL-23 inhibition. Overall, interleukin-23 inhibitors represent a cornerstone of modern inflammatory bowel disease therapy, combining high efficacy, durable responses, and an excellent safety profile, with growing evidence supporting their use across a broad spectrum of patients.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "e686a9b617c5e20d37d9fee9e39438b493842467519090497e583cb5cbcbb6ca"
+      },
+      {
+        "pmid": "cr:10.1093/bjd/ljae360.023",
+        "title": "FC23 High induction dosing of risankizumab in patients with moderate-to-severe plaque leads to marked suppression of resident memory T cell number and function in resolved psoriatic skin",
+        "authors": "Academic Authors",
+        "year": "2024",
+        "journal": "British Journal of Dermatology",
+        "doi": "10.1093/bjd/ljae360.023",
+        "url": "https://doi.org/10.1093/bjd/ljae360.023",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Risankizumab, a humanized monoclonal antibody that specifically inhibits IL-23, is approved to treat moderate-to-severe plaque psoriasis. In Phase 2, double-blinded, single-centre KNOCKOUT (NCT05283135) study, we evaluated higher-than-approved risankizumab induction doses (300 and 600 mg) for efficacy measures and modulation of lesional resident memory T cells (TRM), cells responsible for psoriasis recurrences. A total of 20 patients were enrolled, and 16 patients completed Week 52. Patients were randomized 1:1 to receive subcutaneous risankizumab 300 or 600 mg at Weeks 0, 4, and 16, with no further dosing. Static Physician’s Global Assessment (sPGA) was monitored throughout the study and reported here with modified non-responder imputation. At Week 16, 94.4% [n = 17, 95% confidence interval, CI (72.7, 99.9)] of all patients achieved sPGA 0/1 and 66.7% [n = 12, 95% CI (41.0, 86.7)] achieved sPGA 0. At Week 52, 36 weeks after the last dose, sPGA 0/1 and sPGA 0 responses were achieved by 61.1% [n = 11, 95% CI (35.7, 82.7)] and 44.4% [n = 8, 95% CI (21.5, 69.2)] of all patients, respectively. We also performed single-cell RNA-sequencing of biopsy samples at baseline and at Week 52 from both dose groups. In lesions of patients receiving the higher dose (600 mg) of risankizumab, the number of CD8+ tissue-resident memory T (TRM) cells was markedly reduced, with more marked suppression of the intercellular communication network between TRM and keratinocytes compared with the lower dose (300 mg) group. A shift towards increased crosstalk between Tregs and TRM, was noted, particularly in the 600 mg dose group. Mechanistically, the IL-23 blockade also impaired the expression of IL15 and IL7 in keratinocytes, which are known survival factors for CD8+ TRM. Furthermore, keratinocyte-derived TNFSF15 (TL1A), a known inflammatory signal for TH17 maintenance, was strongly attenuated in the 600 mg dose group compared with the 300 mg dose group. These findings suggest that the high and prolonged therapeutic clinical responses seen with high induction doses of risankizumab may be explained by the marked suppression of TRM number and function.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e34900a42970752bf54f179aa7839983b94ec7ac3211c9a726f3207324e5dc6e"
+      },
+      {
+        "pmid": "cr:10.1093/ecco-jcc/jjad212.0897",
+        "title": "P767 Pharmacokinetics of subcutaneous infliximab induction and maintenance in patients with moderate-to-severely active Crohn’s disease",
+        "authors": "Anjie S, Mâthot R A A, Gecse K B, D'Haens G R A M",
+        "year": "2024",
+        "journal": "Journal of Crohn's and Colitis",
+        "doi": "10.1093/ecco-jcc/jjad212.0897",
+        "url": "https://doi.org/10.1093/ecco-jcc/jjad212.0897",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Since 2021, subcutaneous (SC) infliximab (IFX) has been available for maintenance treatment of Crohn’s disease (CD) after an induction phase of 2 intravenous administrations of 5 mg/kg. The DIRECT-CD study is an ongoing randomised multicentre trial in which CD patients receive SC IFX also during induction. The applied SC IFX doses in the DIRECT-CD are based on population pharmacokinetics derived during maintenance treatment with SC IFX. We aimed to validate our induction regimen and correlate serum concentrations with clinical efficacy. Methods Patients with moderate-to-severe CD (Crohn’s disease activity index [CDAI]) >220 and endoscopic ulceration) received fixed SC IFX induction doses of 240 mg at week 0 and 2, followed by maintenance treatment (120 mg every other week). IFX serum concentrations and CDAI were evaluated at week 2, 4, 8, 14 and 26. Clinical remission was defined as a CDAI ≤150. For this analysis, body weight is defined as low if <80 kg and high if ≥80 kg. Results In total, 48 samples of 12 Crohn’s disease patients were analysed (Table 1). During the induction phase (week 2 and 4), observed IFX serum concentrations were lower than expected by the population pharmacokinetic model for all patients (median 15.0 µg/mL [IQR 9.4-20.0]). Moreover, concentrations were significantly lower in patients with a low versus high body weight (median 20.0 µg/mL [IQR 15.0-21.0] vs median 10.2 µg/mL [IQR 4.4-15.8], resp., P=0.004). During the maintenance phase (week 8, 14 and 26), median IFX serum concentrations were also higher in patients with a low body weight compared to patients with a high body weight (17.5 µg/mL [IQR 14.8-19.5] vs 8.9 µg/mL [IQR 5.8-13.8], P<0.001). No patients in the first quartile of IFX serum concentrations (≤7.0 µg/mL) at week 2 reached clinical remission at Week 8, whereas all patients who had an IFX serum concentration at week 2 of ≥15.0 µg/mL reached clinical remission at week 8. At the end of the study (week 26), clinical remission was reached in 67% of patients with a low body weight whereas only 33% of patients with a high body weight reached clinical remission. Conclusion These data implicate the importance of body weight in SC IFX dosing strategies. Based on these findings, SC IFX induction and maintenance treatment is changed to a weight-based dosing scheme in the ongoing DIRECT-CD trial.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f0e32b5b1cea0945b8aec412849f2f96975f9b59168c00fb0ff8ab737f997d8c"
+      },
+      {
+        "pmid": "cr:10.1093/ecco-jcc/jjab232.024",
+        "title": "OP25 Patients with moderate to severe Crohn’s Disease with and without prior biologic failure demonstrate improved endoscopic outcomes with risankizumab: Results from phase 3 induction and maintenance trials",
+        "authors": "Ferrante M, Cao Q, Fujii T, Rausch A",
+        "year": "2022",
+        "journal": "Journal of Crohn's and Colitis",
+        "doi": "10.1093/ecco-jcc/jjab232.024",
+        "url": "https://doi.org/10.1093/ecco-jcc/jjab232.024",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Risankizumab (RZB), a selective interleukin-23 inhibitor, demonstrated clinically meaningful improvements in endoscopic outcomes in patients with moderate to severe Crohn’s disease (CD) during two phase 3 induction trials (ADVANCE and MOTIVATE) and the maintenance study (FORTIFY). Here, we compared the efficacy of RZB in inducing and maintaining improvements in endoscopic outcomes in patients with CD who demonstrated intolerance and/or inadequate response (IR) to biologic therapies (with prior bio-failure) versus those who demonstrated IR to conventional therapies only (without prior bio-failure). Methods Data included in this subgroup analysis included pooled data from patients randomized to receive intravenous (IV) RZB 600mg (N=527) or placebo (PBO) IV (N=362) every 4 weeks (wks) for 12wks during induction (ADVANCE+MOTIVATE), and data from patients receiving subcutaneous (SC) RZB 360mg (N=141) or withdrawn from RZB IV to receive PBO SC (withdrawal [PBO SC], N=164) every 8wks for 52-wks during maintenance. At Wks 12 and 52, endoscopic response, endoscopic remission, ulcer-free endoscopy (absence of ulceration), and deep remission (Wk52 only) were evaluated both in the overall population and in subpopulations of patients with and without prior bio-failure. (Endpoints are defined in Table footnotes). Safety was assessed throughout the studies. Results Approximately three-quarters of randomized patients included in this subgroup analysis had prior bio-failure (ADVANCE+MOTIVATE: 75.4%; FORTIFY: 73.8%). Higher rates of endoscopic response, endoscopic remission, and ulcer-free endoscopy were observed at Wk12 among patients receiving induction with RZB IV versus PBO IV. Subgroup analysis demonstrated treatment effects with risankizumab in patient subpopulations with and without prior bio-failure, with greater adjusted differences versus PBO in patients without prior bio-failure (Figure). At Wk52, endoscopic response, endoscopic remission, ulcer-free endoscopy, and deep remission rates favored RZB SC compared to withdrawal (PBO SC). Again, treatment effects were observed in patients with and without prior bio-failure, with greater adjusted differences versus withdrawal (PBO SC) in patients without prior bio-failure. RZB maintenance treatment was well-tolerated and no new safety signals were observed. The safety profile of RZB has been reported previously.1,2 Conclusion Induction and maintenance therapy with risankizumab achieved higher rates for endoscopic endpoints in patients with moderate to severe Crohn’s disease versus placebo, regardless of prior bio-failure status. However, numerically higher efficacy rates were observed in patients without prior bio-failure. 1 D’Haens, G. et al. in DDW 2021 2 Ferrante, M. et al. in UEGW 2021",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2936b9bba2194d76fe4bbdb0ede95153a7ad48e785e710cd704b0f1064286819"
+      },
+      {
+        "pmid": "cr:10.1093/ecco-jcc/jjab232.671",
+        "title": "P544 Patients with moderate to severe Crohn’s disease with and without prior biologic failure demonstrated improved clinical outcomes with risankizumab: Results from phase 3 induction and maintenance trials",
+        "authors": "D’Haens G, Beaton M, Bossuyt P, Dotan I",
+        "year": "2022",
+        "journal": "Journal of Crohn's and Colitis",
+        "doi": "10.1093/ecco-jcc/jjab232.671",
+        "url": "https://doi.org/10.1093/ecco-jcc/jjab232.671",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Risankizumab (RZB), a selective interleukin-23 inhibitor, demonstrated superior efficacy over placebo (PBO) as induction and maintenance therapy in patients with moderate to severe Crohn’s disease (CD). Here we compared the efficacy and safety of RZB in inducing and maintaining clinical remission and clinical response in patients with CD who demonstrated intolerance and/or inadequate response (IR) to biologic therapies (with prior bio-failure) versus those who demonstrated IR to conventional therapies only (without prior bio-failure). Methods This subgroup analysis included pooled induction data from patients randomized to receive intravenous (IV) RZB 600mg (N=527) or placebo (PBO) IV (N=362) every 4 weeks (wks) for 12wks in the ADVANCE+MOTIVATE studies, and maintenance data from IV RZB responders who were randomized to subcutaneous (SC) RZB 360mg (N=141) or withdrawn from RZB to receive PBO SC (withdrawal [PBO SC], N=164) every 8wks for 52wks in FORTIFY. Clinical remission (per CDAI and per stool frequency [SF]/abdominal pain score [APS]), CDAI clinical response, enhanced SF/APS clinical response, and maintenance of clinical remission were evaluated in the overall population, and in subgroups with and without prior bio-failure, using non-responder imputation. Only descriptive statistics were used for the subpopulations (Endpoints are defined in Table footnotes). Safety was assessed throughout the studies. Results Approximately three-quarters of randomized patients included in the subgroup analyses had prior bio-failure (ADVANCE+MOTIVATE: 75.4%; FORTIFY: 73.8%). Among the subpopulations, numerically higher rates of clinical remission (CDAI and SF/APS), CDAI clinical response, and enhanced SF/APS clinical response were observed at the end of induction (wk12) among patients receiving RZB 600mg IV versus PBO IV (Figure); rates were numerically higher in the subpopulation without prior bio-failure than with prior bio-failure. FORTIFY Wk52 response rates for these endpoints, along with maintenance of clinical remission, were higher in the RZB 360mg SC arm compared to the withdrawal (PBO SC) arm in both subpopulations, with numerically higher rates observed for the subgroup without prior bio-failure (Figure). RZB maintenance treatment was well-tolerated and no new safety signals were observed. The safety profile of RZB has been reported previously.1,2 Conclusion Across the induction and maintenance studies, compared to PBO, RZB treatment led to greater clinical remission and clinical response in patients with CD independent of prior biologic experience. The subpopulation without prior bio-failure achieved higher rates of symptomatic remission.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "a03ce38a2c454aa3f65e3d998b2189886a24693be8378353252696b83e21dbfa"
+      },
+      {
+        "pmid": "cr:10.1016/s0016-5085(24)02375-8",
+        "title": "Su1811 PHARMACOKINETICS OF SUBCUTANEOUS INFLIXIMAB INDUCTION AND MAINTENANCE IN MODERATE-TO-SEVERELY ACTIVE CROHN'S DISEASE PATIENTS: WEIGHT MATTERS",
+        "authors": "Anjie Suzanne I., Mathot Ron, Gecse Krisztina, D'Haens Geert",
+        "year": "2024",
+        "journal": "Gastroenterology",
+        "doi": "10.1016/s0016-5085(24)02375-8",
+        "url": "https://doi.org/10.1016/s0016-5085(24)02375-8",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f681cdcd4afb256a1db3ff9305b47d443f601c1ef1e2847a7e453de09eb0229d"
+      },
+      {
+        "pmid": "cr:10.1016/s0210-5705(23)00249-2",
+        "title": "117 - 52-WEEKS RISANKIZUMAB SUBCUTANEOUS MAINTENANCE DOSING IS EFFICACIOUS AND WELL TOLERATED IN PATIENTS WITH MODERATE TO SEVERE CROHN’S DISEASE WHO HAD DELAYED RESPONSE TO 12-WEEKS IV RISANKIZUMAB INDUCTION",
+        "authors": "D’Haens Geert, Panaccione Remo, Panés Julián, Hisamatsu Tadakazu",
+        "year": "2023",
+        "journal": "Gastroenterología y Hepatología",
+        "doi": "10.1016/s0210-5705(23)00249-2",
+        "url": "https://doi.org/10.1016/s0210-5705(23)00249-2",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8fb7aacf6a74483d679c6c6096837bd53ea5c430ebb63c4f96499915148c4233"
+      },
+      {
+        "pmid": "cr:10.1053/j.gastro.2022.07.082",
+        "title": "Risankizumab for Induction and Maintenance of Remission in Crohn’s Disease",
+        "authors": "Khanna Reena",
+        "year": "2022",
+        "journal": "Gastroenterology",
+        "doi": "10.1053/j.gastro.2022.07.082",
+        "url": "https://doi.org/10.1053/j.gastro.2022.07.082",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "cc42a020d89978a611bc6408d6a915415b2270d07a28dbaaa02dbb9d7c20b16a"
+      },
+      {
+        "pmid": "cr:10.14309/01.ajg.0000859492.75431.51",
+        "title": "S713 Induction and Maintenance Treatment with Risankizumab Leads to Symptomatic Relief in Patients With Moderate to Severe Crohn’s Disease",
+        "authors": "Louis Edouard, Torres Joana, Lindsay James, Schreiber Stefan",
+        "year": "2022",
+        "journal": "American Journal of Gastroenterology",
+        "doi": "10.14309/01.ajg.0000859492.75431.51",
+        "url": "https://doi.org/10.14309/01.ajg.0000859492.75431.51",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "33a92d0d7a069d64bdb5e5083f1e37c3d17394ea66ad54c67b580ca5f9bde593"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "moderate-to-severe active Crohn's disease risankizumab intravenous induction then subcutaneous maintenance ustekinumab or adalimumab standard maintenance endoscopic mucosal healing and clinical remission at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

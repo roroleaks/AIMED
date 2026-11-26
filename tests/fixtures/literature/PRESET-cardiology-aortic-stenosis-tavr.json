@@ -1,0 +1,847 @@
+{
+  "id": "PRESET-cardiology-aortic-stenosis-tavr",
+  "recordedAt": "2026-11-26T19:41:48.106Z",
+  "specialty": "cardiology",
+  "words": [
+    {
+      "word": "severe symptomatic aortic stenosis, intermediate surgical risk",
+      "role": "population"
+    },
+    {
+      "word": "transcatheter aortic valve replacement (TAVR)",
+      "role": "intervention"
+    },
+    {
+      "word": "surgical aortic valve replacement (SAVR)",
+      "role": "comparator"
+    },
+    {
+      "word": "all-cause mortality or disabling stroke at 2 years",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "severe symptomatic aortic stenosis, intermediate surgical risk",
+        "role": "population"
+      },
+      {
+        "word": "transcatheter aortic valve replacement (TAVR)",
+        "role": "intervention"
+      },
+      {
+        "word": "surgical aortic valve replacement (SAVR)",
+        "role": "comparator"
+      },
+      {
+        "word": "all-cause mortality or disabling stroke at 2 years",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In severe symptomatic aortic stenosis, intermediate surgical risk (P), does transcatheter aortic valve replacement (TAVR) (I) compared with surgical aortic valve replacement (SAVR) (C) reduce all-cause mortality or disabling stroke at 2 years (O)?",
+        "basis": "Screened literature contains 6 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In severe symptomatic aortic stenosis, intermediate surgical risk (P), is transcatheter aortic valve replacement (TAVR) (I) superior to surgical aortic valve replacement (SAVR) (C) for all-cause mortality or disabling stroke at 2 years (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of severe symptomatic aortic stenosis, intermediate surgical risk (P), does transcatheter aortic valve replacement (TAVR) (I) compared with surgical aortic valve replacement (SAVR) (C) reduce all-cause mortality or disabling stroke at 2 years (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In severe symptomatic aortic stenosis, intermediate surgical risk (P), does transcatheter aortic valve replacement (TAVR) (I) compared with surgical aortic valve replacement (SAVR) (C) reduce all-cause mortality or disabling stroke at 2 years (O)?"
+    },
+    "words": [
+      {
+        "word": "severe symptomatic aortic stenosis, intermediate surgical risk",
+        "role": "population"
+      },
+      {
+        "word": "transcatheter aortic valve replacement (TAVR)",
+        "role": "intervention"
+      },
+      {
+        "word": "surgical aortic valve replacement (SAVR)",
+        "role": "comparator"
+      },
+      {
+        "word": "all-cause mortality or disabling stroke at 2 years",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42538860",
+        "title": "Delay and attrition in severe aortic stenosis: a four-checkpoint systematic review of pathway bottlenecks and interventions.",
+        "authors": "Fanous N, Zubrzycki N, Weir L, Mohammed F, Pomeroy A, Meredith T, Roy D, Roy A, Kovacic J, Muller D, Feneley M, Elmariah",
+        "year": "2026",
+        "journal": "European heart journal. Quality of care & clinical outcomes",
+        "doi": "10.1093/ehjqcco/qcag123",
+        "url": "https://europepmc.org/article/PMC/PMC13783172",
+        "source": "pmc",
+        "pubType": "Systematic Review, review-article, Journal Article",
+        "publicationTypes": [
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
+        ],
+        "context": "The care pathway for severe aortic stenosis (AS) remains vulnerable to diagnostic delay, referral inertia, under treatment, and procedural waiting times despite the availability of definitive intervention with surgical or transcatheter aortic valve replacement. This systematic review with narrative synthesis aimed to identify where delay and attrition occur across the contemporary severe AS pathway and to summarize evidence for digital, organizational, and workflow interventions designed to improve timely care. Randomized and non-randomized studies examining diagnostic, referral, treatment-decision, or procedural-access delays in adults with severe AS were eligible. Findings were mapped onto a four-checkpoint framework: pre-echocardiographic recognition, echocardiographic detection, post-diagnostic referral and decision-making, and procedural access. Nineteen studies met inclusion criteria. After de-duplication of overlapping registries and exclusion of studies without a verifiable unique severe-AS or severe-AS pathway denominator, the synthesis represented ∼52 000 patients. Evidence was unevenly distributed, with no included study providing severe-AS-specific data before echocardiography. At echocardiographic detection, missed or delayed recognition was concentrated in low-gradient phenotypes and women; an artificial-intelligence-assisted alert system increased severe-AS detection from 2.4% to 4.1%. After diagnosis, under treatment persisted despite guideline indications, and non-cardiology ordering of the diagnostic echocardiogram was associated with lower early follow-up or AVR and higher mortality. Electronic provider notification increased 1-year AVR rates from 37.2% to 48.2%, with the largest observed effects in women, patients older than 80 years, and inpatient echocardiography. At procedural access, wait-list mortality was ∼4.5-5.8%, with deaths occurring early after referral. Risk-based triage reduced modelled wait-list mortality, while decentralized pre-procedural work-up shortened referral-to-TAVI time from 126 to 32 days. Severe AS care is characterized by measurable delay and attrition across multiple post-diagnostic transitions, while pre-echocardiographic recognition remains an important evidence gap. A four-checkpoint framework may support benchmarking and targeted pathway improvement through structured reporting, electronic referral prompts, risk-based triage, and decentralized workflows.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "8d8f36f1d667ae7dbb28358be48b75bb3a7fecdc065f30d4e7f11005be9574b1"
+      },
+      {
+        "pmid": "37121526",
+        "title": "Surgical vs transcatheter aortic valve replacement in bicuspid aortic valve stenosis: A systematic review and meta-analysis",
+        "authors": "Kang JJ, et al",
+        "year": "2024",
+        "journal": "Trends in cardiovascular medicine",
+        "doi": "10.1016/j.tcm.2023.04.004",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37121526/",
+        "context": "This systematic review and meta-analysis aim to provide a comprehensive analysis of the literature directly comparing the outcomes of surgical aortic valve replacement (SAVR) and TAVR in patients with BAV stenosis. Medline, PubMed, and Scopus were systematically searched for articles published between 2000 and 2023, 1862 studies were screened, and 6 retrospective studies met the inclusion criteria. We included 6550 patients in the final analyses: 3,292 and 3,258 in the SAVR and TAVR groups, respectively. Both groups have similar rates of in-hospital mortality (odds ratio (OR) 1.11; 95% CI 0.59-2.10; p = 0.75) and stroke (OR 1.25; 95% CI 0.85-1.86; p = 0.26. Patients who underwent SAVR experienced lower rates of permanent pacemaker implantation (OR 0.54; 95% CI 0.35-0.83; p = 0.005) and paravalvular leak (OR 0.47; 95% CI 0.26-0.86; p = 0.02). On the other hand, patients who underwent TAVR displayed lower rates of acute kidney injury (OR 1.81; 95% CI 1.15-2.84; p = 0.010), major bleeding (OR 3.76; 95% CI 2.18-6.49; p < 0.00001), and pulmonary complications (OR 7.68; 95% CI 1.21-48.84; p = 0.03). Despite the early mortality data suggesting that TAVR may be a reasonable strategy for patients with bicuspid AS with low to intermediate surgical risk, the increased risk of PPI and PVL is concerning. A prospective, randomized, controlled trial reporting long-term outcomes with pre-defined subgroup analyses based on BAV morphology is paramount. In the interim, caution should be exercised in the widespread adoption of TAVR in lower surgical-risk patients.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "2af5d86c3fabf8fe7a304c53b6b0d1bf51f5d16c1d085876c0ff3f5195a76496"
+      },
+      {
+        "pmid": "31666501",
+        "title": "A meta-analysis of ≥5-year mortality after transcatheter versus surgical aortic valve replacement",
+        "authors": "Takagi H, et al",
+        "year": "2020",
+        "journal": "The Journal of cardiovascular surgery",
+        "doi": "10.23736/S0021-9509.19.11030-0",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31666501/",
+        "context": "INTRODUCTION: It remains unclear whether long-term survival is superior following transcatheter aortic valve implantation (TAVI) than following surgical aortic valve replacement (SAVR). We performed a meta-analysis of mortality with ≥5-year follow-up in randomized controlled trials (RCTs) and propensity-score matched (PSM) studies of TAVI versus SAVR. EVIDENCE ACQUISITION: MEDLINE, EMBASE, and the Cochrane Central Register of Controlled Trials were searched through March 2019. Eligible studies were RCTs or PSM studies of TAVI versus SAVR enrolling patients with severe aortic stenosis and reporting all-cause mortality with ≥5-year follow-up as an outcome. A hazard ratio of mortality for TAVI versus SAVR was extracted from each individual study. EVIDENCE SYNTHESIS: Our search identified 3 RCTs and 7 PSM studies enrolling 5498 patients. A pooled analysis of all 10 studies demonstrated a statistically significant 38% increase in mortality with TAVI relative to SAVR. A subgroup meta-analysis showed no statistically significant difference between TAVI and AVR in RCTs and a statistically significant 68% increase with TAVI relative to SAVR in PSM studies. CONCLUSIONS: On the basis of a meta-analysis of 7 PSM studies, TAVI is associated with greater all-cause mortality with ≥5-year follow-up than SAVR. However, another meta-analysis of 3 RCTs suggests no difference in mortality between TAVI and SAVR.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "d4fd542bd82f2cc28251a1c8330676d3bbf0b843495987df234189ae2dcdea85"
+      },
+      {
+        "pmid": "32541522",
+        "title": "Incidence, predictors, and outcome of prosthesis-patient mismatch after transcatheter aortic valve replacement: A meta-analysis",
+        "authors": "He S, Fang Z",
+        "year": "2020",
+        "journal": "Medicine",
+        "doi": "10.1097/MD.0000000000020717",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32541522/",
+        "context": "BACKGROUND: Prosthesis-patient mismatch (PPM) following transcatheter aortic valve replacement (TAVR) is common, but the incidence, predictors and outcome of PPM are still controversial. METHODS: A total of 18 articles incorporating 72,016 patients were identified form PubMed and Embase online database. RESULTS: The pooled incidences of overall, and severe PPM following TAVR were 32.0% and 10.0% separately. Comparing to surgical aortic valve replacement (SAVR), TAVR had lower incidence of overall (OR, 0.31, 95% CI, 0.20-0.50) and severe PPM (OR, 0.38, 95% CI, 0.28-0.52). PPM was associated with a larger body surface area (BSA), larger body mass index (BMI) and previous myocardial infarction in comparison with those patients without PPM. Although PPM was not rare after TAVR, no significant differences were observed both in short- and mid-term all-cause mortality (30 day: OR: 1.51, 95% CI, 0.79-2.87, 1 year: OR: 1.02, 95% CI, 0.96-1.08, and 2 years: OR: 0.99, 95% CI, 0.79-1.24) between patients with PPM and those without PPM. CONCLUSIONS: Despite the fact that the incidence of PPM was lower than that of SAVR, PPM was not seen to have an impact on short- and mid-term survival.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "f98b2720be1713f75c1638105cf897c5c7b392d6433f2e2445eb5362524c8daa"
+      },
+      {
+        "pmid": "32280013",
+        "title": "Outcomes of Transcatheter Versus Surgical Aortic Valve Replacement in Low-Risk Patients",
+        "authors": "Koshy AN, et al",
+        "year": "2020",
+        "journal": "Heart, lung & circulation",
+        "doi": "10.1016/j.hlc.2020.03.003",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32280013/",
+        "context": "BACKGROUND: Transcatheter aortic valve replacement (TAVR) has revolutionised the treatment of severe aortic stenosis (AS), though its safety and efficacy in low-risk patients remains to be established. METHODS: A systematic review of PubMed, Medline and EMBASE identified four randomised controlled trials (RCTs) in patients at low surgical risk comparing TAVR to surgical aortic valve replacement (SAVR). A meta-analysis was performed with a primary outcome of a composite of all-cause mortality and stroke at longest available follow-up. RESULTS: A total of four RCTs with 2,836 patients was included in the final analysis. 1,363 patients were randomised to SAVR and 1,473 to TAVR. The composite of all-cause mortality and stroke was significantly lower in patients undergoing TAVR compared with SAVR (OR 0.59, 95%CI 0.37-0.95, p=0.03) with low heterogeneity (I 2 =31%). The difference in the primary composite outcome was driven by a difference in mortality (OR 0.66, 95%CI 0.44-0.98, p=0.04; I 2 =0%) without significant differences in stroke (OR 0.75 95%CI 0.45-1.26, p=0.28; I 2 =37%). Weighted absolute risk difference (ARD) of the primary composite outcome also favoured TAVR (ARD -2.0% 95%CI -3.3 to -0.7%, p=0.002) with a number needed to treat (NNT) of 50 to prevent one death or stroke. Patients undergoing TAVR had a significantly higher risk of permanent pacemaker implantation (OR 3.9, 95%CI 1.8-8.4, p<0.001, I 2 =84%) and moderate or severe paravalvular leak (OR 5.0, 95%CI 1.6-15.7, p=0.01; I2=19%). CONCLUSIONS: In patients with severe AS at low surgical risk, the rate of the composite of death and stroke was significantly lower with TAVR than with SAVR. Longer term follow-up with a focus on the impact of permanent pacemaker (PPM) implantation, paravalvular leak (PVL) and structural valve deterioration is essential before the use of TAVR can be generalised to the broader population of patients with AS.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "4ca43c60c4a369b42b9cf31fdd1431792f1b8a9a092fcf075705f812717899ea"
+      },
+      {
+        "pmid": "27272666",
+        "title": "Transcatheter Aortic Valve Implantation Versus Surgical Aortic Valve Replacement: A Systematic Review and Meta-analysis",
+        "authors": "Gargiulo G, et al",
+        "year": "2016",
+        "journal": "Annals of internal medicine",
+        "doi": "10.7326/M16-0060",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27272666/",
+        "context": "BACKGROUND: The comparative benefits and harms of transcatheter aortic valve implantation (TAVI) and surgical aortic valve replacement (SAVR) for patients with aortic stenosis are unclear. PURPOSE: To compare clinical outcomes, including early (≤30-day) and midterm (≤1-year) mortality, in adults with severe aortic stenosis undergoing either TAVI or SAVR. DATA SOURCES: MEDLINE, Cochrane, and Scopus databases (without language restrictions) from April 2002 to 5 April 2016; multiple registries and Web sites; scientific meeting presentations. STUDY SELECTION: Five randomized trials and 31 observational matched studies comparing mortality outcomes after TAVI or SAVR. DATA EXTRACTION: Two investigators independently extracted study data and rated risk of bias. DATA SYNTHESIS: 16 638 patients were analyzed. Overall, there was no statistically significant difference between TAVI and SAVR in early (odds ratio [OR], 1.01 [95% CI, 0.81 to 1.26]) or midterm (OR, 0.96 [CI, 0.81 to 1.14]) all-cause mortality. Analyses restricted to trials (early: OR, 0.80 [CI, 0.51 to 1.25]; midterm: OR, 0.90 [CI, 0.64 to 1.26]) were inconclusive, with wide CIs, whereas analyses of matched studies were similar to the overall results. Transfemoral TAVI provided mortality benefits over SAVR in trials. Analyses restricted to studies of patients at low to intermediate risk showed statistically nonsignificant reductions in early (OR, 0.67 [CI, 0.42 to 1.07]) and midterm (OR, 0.91 [CI, 0.67 to 1.23]) mortality with TAVI. Incidence of periprocedural myocardial infarction, major bleeding, acute kidney injury, and new-onset atrial fibrillation was lower with TAVI, but risk for pacemaker implantation, vascular complications, and paravalvular leak increased. Overall, there was a statistically nonsignificant increased risk in long-term (2- to 5-year) all-cause mortality with TAVI (OR, 1.28 [CI, 0.97 to 1.69]), whereas long-term mortality outcomes in patients at low to intermediate risk were inconclusive, with wide CIs (OR, 1.06 [CI, 0.59 to 1.91]). LIMITATION: The number of trials was limited, and study designs and patient characteristics were heterogeneous. CONCLUSION: Compared with SAVR, TAVI may have similar or better early and midterm outcomes for adults with aortic stenosis, including those at low to intermediate risk. PRIMARY FUNDING SOURCE: None.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "09eb90cb23c6f80cd38105b7cb038ef62339c0aec1fdd0b5b275bf4216b6becb"
+      },
+      {
+        "pmid": "31995682",
+        "title": "Five-Year Outcomes of Transcatheter or Surgical Aortic-Valve Replacement",
+        "authors": "Raj Makkar, Vinod H. Thourani, Michael J. Mack, Susheel Kodali",
+        "year": "2020",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1910555",
+        "url": "https://doi.org/10.1056/nejmoa1910555",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: There are scant data on long-term clinical outcomes and bioprosthetic-valve function after transcatheter aortic-valve replacement (TAVR) as compared with surgical aortic-valve replacement in patients with severe aortic stenosis and intermediate surgical risk. METHODS: We enrolled 2032 intermediate-risk patients with severe, symptomatic aortic stenosis at 57 centers. Patients were stratified according to intended transfemoral or transthoracic access (76.3% and 23.7%, respectively) and were randomly assigned to undergo either TAVR or surgical replacement. Clinical, echocardiographic, and health-status outcomes were followed for 5 years. The primary end point was death from any cause or disabling stroke. RESULTS: At 5 years, there was no significant difference in the incidence of death from any cause or disabling stroke between the TAVR group and the",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "baddbc47ee68f94b389b8365d1572e52d505aff59605c24118cdd0e90b09bded"
+      },
+      {
+        "pmid": "28304219",
+        "title": "Surgical or Transcatheter Aortic-Valve Replacement in Intermediate-Risk Patients",
+        "authors": "Michael J. Reardon, Nicolas M. Van Mieghem, Jeffrey J. Popma, Neal S. Kleiman",
+        "year": "2017",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1700456",
+        "url": "https://doi.org/10.1056/nejmoa1700456",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Although transcatheter aortic-valve replacement (TAVR) is an accepted alternative to surgery in patients with severe aortic stenosis who are at high surgical risk, less is known about comparative outcomes among patients with aortic stenosis who are at intermediate surgical risk. METHODS: We evaluated the clinical outcomes in intermediate-risk patients with severe, symptomatic aortic stenosis in a randomized trial comparing TAVR (performed with the use of a self-expanding prosthesis) with surgical aortic-valve replacement. The primary end point was a composite of death from any cause or disabling stroke at 24 months in patients undergoing attempted aortic-valve replacement. We used Bayesian analytical methods (with a margin of 0.07) to evaluate the noninferiority of TAVR as compared with surgical valve replacement. RESULTS:",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "c98ea1e59bcbf382a9c6a680aa276d76e2710401911f5ff618c83019ae5967e7"
+      },
+      {
+        "pmid": "cr:10.1532/hsf.2913",
+        "title": "Comparison of Short and Mid-Term Mortality and Morbidity in Patients With Severe Aortic Stenosis (Intermediate/High Risk) Who Underwent Transcatheter Aortic Valve Replacement and Surgical Aortic Valve Replacement",
+        "authors": "Yesiltas Mehmet Ali, Haberal İsmail, Kuserli Yusuf, Yildiz Ahmet",
+        "year": "2020",
+        "journal": "The Heart Surgery Forum",
+        "doi": "10.1532/hsf.2913",
+        "url": "https://doi.org/10.1532/hsf.2913",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Treatment protocols for severe aortic valve stenosis include surgical aortic valve replacement (SAVR), balloon valvuloplasty, transcatheter aortic valve replacement (TAVR), and medical treatment. Because the success rates are getting higher with both SAVR and TAVR, making the right treatment decision is important. This study retrospectively shows the short- (1 month) and mid-term (6 months) mortality and morbidity rate differences between 2 groups of patients, who arrived to our hospital from January 2014 through October 2018. The first group consists of 54 patients who underwent mid-high risk SAVR operations at Istanbul University-Cerrahpasa, Institute of Cardiology, Department of Cardiovascular Surgery. The second group consists of 57 patients who underwent TAVR at the Cardiology Department. Preoperative evaluation showed that the mean age of the SAVR group (71.5 years) was higher than the TAVR group (80 years). Also, the history of previous cardiac valve replacement surgery significantly was higher in the SAVR group than the TAVR group (P = .028). There were no significant differences between the remaining preoperative tests and diagnostic procedures. Of the patients who underwent SAVR, 3.7% experienced postoperative cardiac arrhythmias, while the 17.5% of patients from the TAVR group experienced cardiac arrhythmias after the procedure. This difference between the groups were statistically significant. Mortality rate was 9.3% in the SAVR group and 5.3% in the TAVR group. The mortality rate was not statistically different between the groups. There was no significant difference between the groups in the means of neurological incidents. The TAVR group had more vascular complications (17.9% to none) and pacemaker implantations (21.4% to 1.9%). Minor or major bleeding was the most common reason for admission to the hospital after SAVR. Seven out of 10 patients experienced bleeding. Aortic regurgitation was more common in the TAVR group at the first and sixth month following the procedure. Ratios between the gradient values were higher in the SAVR group (P < .001). Peak gradient values at the sixth month following the procedure were lower than the values of the first month (P < .040). Aortic regurgitation symptoms increased with patients at the mid-term follow-up appointment. To prevent the vascular complications in the TAVR group, preoperative peripheral vascular examination thoroughly should be performed. Considering that bleeding disorders are the main reason the SAVR group arrived to the hospital, INR values should closely be monitored. There seems to be no mortality difference between the groups at the six-month follow up, but studies should continue with more patients and long-term results.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "49f73077483715e2f5e6de01ea1ff330304573caa4acc0cf4fbdd145ac5e6173"
+      },
+      {
+        "pmid": "doi:10.3904/kjim.2025.256",
+        "title": "Transcatheter aortic valve implantation for symptomatic severe aortic stenosis and its expanding clinical indications",
+        "authors": "Hyungdon Kook, Young-Hyo Lim",
+        "year": "2026",
+        "journal": "The Korean Journal of Internal Medicine",
+        "doi": "10.3904/kjim.2025.256",
+        "url": "https://doi.org/10.3904/kjim.2025.256",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Transcatheter aortic valve implantation (TAVI) is a minimally invasive treatment for symptomatic severe aortic stenosis (AS) that was initially developed for patients with prohibitive surgical risk. Since the first-in-human procedure in 2002, TAVI has gained global acceptance owing to its favorable clinical outcomes and faster recovery than those associated with surgical aortic valve replacement. Landmark trials have demonstrated the noninferiority or superiority of TAVI across high-, intermediate-, and low-surgical risk populations, leading to guideline endorsement as a recommended option for appropriately selected patients across all surgical risk groups. Furthermore, long-term follow-up data support the durability of contemporary TAVI devices. Beyond its current established indications, TAVI is being explored for broader applications such as asymptomatic severe AS, moderate AS with heart failure, and pure aortic regurgitation; however, these uses remain investigational and are not yet part of formal guidelines. This review summarizes TAVI’s historical evolution, pivotal clinical trial evidence, and procedural innovations that have enabled its widespread use. We explore Korea-specific experiences with TAVI implementation, highlighting national registry data, healthcare policy considerations, and institutional adoption. Future perspectives include long-term device performance, lifetime valve management strategies, and the integration of artificial intelligence into transcatheter valve therapy.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "8681e09ec2f76a6c26224047ac9e2f1418c5dcf72bc8f4aa3269dd474c586353"
+      },
+      {
+        "pmid": "cr:10.57187/s.3558",
+        "title": "Transcatheter aortic valve implantation with SAPIEN 3 versus surgical aortic valve replacement in patients with symptomatic severe aortic stenosis at low risk of surgical mortality: a cost-utility analysis for Switzerland",
+        "authors": "Wyss Christophe Alain, Corti Roberto, Nestelberger Thomas, Candolfi Pascal",
+        "year": "2024",
+        "journal": "Swiss Medical Weekly",
+        "doi": "10.57187/s.3558",
+        "url": "https://doi.org/10.57187/s.3558",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "AIMS OF THE STUDY: The 2021 European Society of Cardiology Guidelines on valvular heart disease recommend transcatheter aortic valve implantation (TAVI) for patients with symptomatic severe aortic stenosis at low surgical risk and age ≥75 years who are suitable for a transfemoral approach (recommendation class IA) based on two large randomised controlled trials (PARTNER 3 and Evolut Low Risk) comparing transcatheter aortic valve implantation with surgical aortic valve replacement (SAVR). Whether such an approach is cost-effective in Switzerland remains unclear. The aim of this cost-utility analysis was to compare transcatheter aortic valve implantation with SAPIEN 3 versus surgical aortic valve replacement in symptomatic severe aortic stenosis patients at low risk of surgical mortality from the perspective of Swiss compulsory health insurance using data from the PARTNER 3 trial (reflecting specifically the safety and efficacy of the SAPIEN 3 TAVI device). METHODS: A previously published two-stage Markov-based model that captured clinical outcomes from the PARTNER 3 trial was adapted from the perspective of the Swiss compulsory health insurance system, using local or geographically close general population mortality and utility data, unit costs and medical resource use from publicly available sources and based on expert opinion. The model had a lifetime horizon with a 3% yearly discounting factor. The cost–utility analysis estimated changes in both direct healthcare costs and health-related quality-adjusted life years for transcatheter aortic valve implantation compared with surgical aortic valve replacement in patients with symptomatic severe aortic stenosis at low risk of surgical mortality. RESULTS: Overall, transcatheter aortic valve implantation with SAPIEN 3 resulted in lifetime costs per patient of CHF 79,534 and quality-adjusted life years per patient of 9.64, compared with surgical aortic valve replacement lifetime costs and quality-adjusted life years per patient of CHF 76,891 and 8.96, respectively. Compared with surgical aortic valve replacement, transcatheter aortic valve implantation was estimated to offer an incremental improvement of +0.68 quality-adjusted life years per patient at an increased cost of +CHF 2643 per patient over a lifetime horizon. The incremental cost-effectiveness ratio was CHF 3866 per quality-adjusted life year gained and remained below CHF 50,000 per quality-adjusted life year gained across several sensitivity analyses. CONCLUSIONS: This analysis suggests that transcatheter aortic valve implantation using the SAPIEN 3 device is likely to be a highly cost-effective alternative for symptomatic severe aortic stenosis patients at a low risk of surgical mortality, treated in the contemporary Swiss setting. These findings may help to inform a holistic approach when making policy decisions for the management of this patient group.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "1ace304916cac51bb6423b73c9577537f47191c6883fc0c920525523ab49902b"
+      },
+      {
+        "pmid": "doi:10.2478/jce-2018-0022",
+        "title": "Role of Multidetector Computed Tomography in Transcatheter Aortic Valve Implantation – from Pre-procedural Planning to Detection of Post-procedural Complications",
+        "authors": "Maurovich-Horvat Pál, Vecsey-Nagy Milán, Simon Judit, Szilveszter Bálint",
+        "year": "2018",
+        "journal": "Journal of Cardiovascular Emergencies",
+        "doi": "10.2478/jce-2018-0022",
+        "url": "https://doi.org/10.2478/jce-2018-0022",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Transcatheter aortic valve implantation (TAVI) is an effective treatment option for patients suffering from symptomatic, severe aortic valve stenosis. Previously, only patients with prohibitive or high surgical risk were TAVI candidates; however, current guidelines already recommend TAVI as a treatment alternative for patients with intermediate surgical risk. Multidetector computed tomography (MDCT) has gained great importance in the periprocedural assessment of patients who undergo TAVI. Due to the three-dimensional image visualization, MDCT allows the evaluation of anatomical structures in a more comprehensive manner compared to echocardiography, the traditional tool used in TAVI patient work-up. By providing accurate measurements of the aortic root, MDCT helps to avoid potential patient-prosthesis mismatch throughout transcatheter valve sizing. Moreover, MDCT is also a feasible tool for access route evaluation and to determine the optimal projection angles for the TAVI procedure. Although the routine MDCT follow-up of patients is currently not recommended in clinical practice, if performed, it could provide invaluable information about valve integrity and asymptomatic leaflet thrombosis. Post-procedural MDCT can provide details about the position of the prosthesis and complications such as leaflet-thrombosis, aortic regurgitation, coronary occlusion, and other vascular complications that can represent major cardiac emergencies. The aim of the current review is to overview the role of MDCT in the pre- and post-procedural assessment of TAVI patients. In the first part, the article presents the role of pre-TAVI imaging in the complex anatomical assessment of the aortic valve and the selection of the most appropriate device. The second part of the review describes the role of MDCT in patients who underwent TAVI to assess potential complications, some of them leading to a major cardiovascular emergency.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "59c779ad20eed1ea21f42d02d1886b4578b3b0fa41b9cf313fc5890e5d14b667"
+      },
+      {
+        "pmid": "42981174",
+        "title": "State of Art of Transcatheter Aortic Valve Implantation for the Treatment of Aortic Stenosis in Low-Risk Patients: A Perspective on Brazilian Contributions and Implementation Challenges.",
+        "authors": "Saadi EK, Saadi RP, Tagliari AP.",
+        "year": "2026",
+        "journal": "Brazilian journal of cardiovascular surgery",
+        "doi": "10.21470/1678-9741-2026-0079",
+        "url": "https://europepmc.org/article/PMC/PMC13741509",
+        "source": "pmc",
+        "pubType": "research-article, Review, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Transcatheter aortic valve implantation (TAVI) has profoundly changed the management of severe aortic stenosis (AS), evolving from a treatment reserved for inoperable and high-risk patients to an established therapeutic option across a wide surgical risk spectrum. Although the expansion of TAVI indications has been largely supported by randomized clinical trials conducted in high-income countries, real-world experience and technological contributions from distinct healthcare systems are increasingly relevant. Brazil has played a significant role in the early adoption, structured implementation, and clinical evaluation of TAVI in Latin America. Since the first procedures performed in 2008, Brazilian centers have developed Heart Team models, contributed to national and regional registries, and generated real-world evidence demonstrating procedural safety and effectiveness comparable to international benchmarks, despite the presence of resource limitations and a higher prevalence of complex clinical and anatomical scenarios. The incorporation of TAVI into the Brazilian public health system in 2022 marked a major milestone in expanding access to minimally invasive therapy for patients with severe AS. In parallel, Brazilian scientific societies have adapted international guideline recommendations to local practice, supporting evidence-based patient selection across different surgical risk categories. Notably, Brazil has also emerged as a developer of locally engineered transcatheter valve technologies, highlighting its transition from a technology consumer to an active contributor in the field of structural heart disease. This review summarizes the historical evolution, national experience, clinical outcomes, guideline integration, technological innovation, and health economic considerations of TAVI in Brazil.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "c480aa28f5494b96b8d439a374a672c1b0add90a88e8bf2dc8bd11bcd564b5fc"
+      },
+      {
+        "pmid": "42881914",
+        "title": "Transcatheter Aortic Valve Implantation in Complex Anatomy: An Anatomy-Driven Framework for Bicuspid Stenosis, Pure Aortic Regurgitation, and the Small Annulus in the Era of Lifetime Management.",
+        "authors": "Brie DM, Mornoș C, Popescu R, Brie AD.",
+        "year": "2026",
+        "journal": "Journal of clinical medicine",
+        "doi": "10.3390/jcm15197452",
+        "url": "https://europepmc.org/article/PMC/PMC13665837",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background : Transcatheter aortic valve implantation is established for severe calcific tricuspid aortic stenosis, but its application in bicuspid aortic valve (BAV) stenosis, pure native aortic regurgitation (AR), and small aortic annulus anatomy remains limited by heterogeneous morphology, device-specific constraints, and uncertain long-term outcomes. These settings require decisions that extend beyond immediate procedural success to encompass coronary access, reintervention, valve durability, and associated aortopathy. This review synthesizes current evidence and proposes an anatomy-driven framework integrating imaging, device selection, procedural planning, and lifetime management. Methods : A structured narrative review was conducted in accordance with the Scale for the Assessment of Narrative Review Articles (SANRA) criteria. PubMed/MEDLINE, Embase, and the Cochrane Central Register of Controlled Trials were searched from 1 January 2010 to 31 March 2026 for studies addressing TAVI in BAV stenosis, pure native AR, and small aortic annulus anatomy. Randomized trials, meta-analyses, multicenter registries, pivotal device studies, and guideline or consensus documents were prioritized. After screening 2663 records and assessing 330 full-text reports, 101 records were retained for qualitative synthesis. Evidence was appraised by anatomical substrate, imaging phenotype, device strategy, procedural hazards, and implications for lifetime management. Results : In BAV stenosis, contemporary registry and prospective cohort data support high device success and acceptable early and mid-term outcomes in carefully selected patients; however, calcified raphe, bulky asymmetric leaflet or left ventricular outflow tract calcification, annular eccentricity, and concomitant aortopathy identify higher-risk phenotypes that often favor surgery. Randomized evidence in younger low-risk BAV patients remains limited and exploratory, with the NOTION-2 trial showing a numerically higher 3-year composite event rate after TAVI than surgical aortic valve replacement (20.4% vs. 7.8%; hazard ratio 2.9, 95% confidence interval 0.9-9.0) in the small bicuspid subgroup. In pure native AR, lack of annular calcification and frequent root dilatation impair anchoring of conventional transcatheter heart valves, increasing risks of migration, embolization, residual AR, and second-valve implantation. Dedicated leaflet-anchoring devices have improved outcomes: in ALIGN-AR, the JenaValve Trilogy system achieved procedural success above 95% in high-surgical-risk patients, although evidence remains single-arm and nonrandomized. In small annuli, the strongest comparative evidence comes from the SMART trial, in which supra-annular self-expanding valves were non-inferior to balloon-expandable valves for the 12-month clinical composite and reduced moderate/severe prosthesis-patient mismatch at 30 days (11.2% vs. 35.3%). Across all three phenotypes, electrocardiography-gated computed tomography is fundamental for defining anchoring, sizing, calcium distribution, root and coronary anatomy, anticipated coronary re-access, and the feasibility of redo-TAVI. Surgery remains particularly relevant when aortic repair, annular/root enlargement, or a more durable lifetime strategy is required. Conclusions : TAVI is feasible in selected patients with BAV stenosis, pure native AR, and small aortic annuli, but the evidentiary strength and optimal procedural strategy differ substantially across these anatomies. Treatment should be guided by an anatomy-driven, computed-tomography-based Heart Team assessment that integrates immediate procedural feasibility with age, surgical candidacy, aortopathy, prosthesis-patient mismatch risk, coronary access, durability, and future reintervention options. Surgery remains the more established strategy for many younger, operable patients with unfavorable BAV morphology or aortopathy, AR with root dilatation, or very small annuli amenable to enlargement. Dedicated randomized trials, standardized imaging criteria, and long-term durability data are needed to refine lifetime management in complex aortic valve anatomy.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "7320bdbaaf69404bb97477be6601b613d01e1ee9d7383ed976dae59feed05dc5"
+      },
+      {
+        "pmid": "cr:10.22399/ijcesen.616",
+        "title": "Surgery and risks of transcatheter aortic valve replacement (TAVR) in Low Surgical Risk patients with aortic stenosis",
+        "authors": "Çakmak Abdülkadir",
+        "year": "2024",
+        "journal": "International Journal of Computational and Experimental Science and Engineering",
+        "doi": "10.22399/ijcesen.616",
+        "url": "https://doi.org/10.22399/ijcesen.616",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Transcatheter aortic valve replacement (TAVR) has been shown to be a valid alternative to surgical aortic valve replacement (SAVR) in high operative risk patients with severe aortic stenosis (AS). Evidence on the benefits and harms of TAVR in patients at low risk of surgery, however, is still scarce. In this study, we planned to review the literature on all aspects of transcatheter aortic valve replacement (TAVR) as a newly introduced method. In our review, TAVR was found to be safe in low-risk patients with symptomatic severe aortic stenosis in terms of low procedural complication rates, short hospital stays, zero mortality and risk of stroke that may leave 3 permanent sequelae. TAVR, both TAVR and SAVR carry similar stroke risks for intermediate-risk patients, suggesting that no procedure is inherently safer. Healthcare providers should take this into account when counselling individual patients, considering the benefits and disadvantages of each procedure. The present study focusses specifically on low-risk individuals, so the results for the intermediate-risk patients who may come before us may not be universally applicable.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "8b7746d367c78b115c8c0796fc770ac831d2b9ee92979814c6096ca967c63029"
+      },
+      {
+        "pmid": "cr:10.3390/jcm13185592",
+        "title": "Sutureless Aortic Prosthesis Valves versus Transcatheter Aortic Valve Implantation in Intermediate Risk Patients with Severe Aortic Stenosis: A Literature Review",
+        "authors": "Asta Laura, Sbrigata Adriana, Pisano Calogera",
+        "year": "2024",
+        "journal": "Journal of Clinical Medicine",
+        "doi": "10.3390/jcm13185592",
+        "url": "https://doi.org/10.3390/jcm13185592",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Aortic stenosis remains the most frequently occurring valvular pathology in the elderly population of Western countries. According to the latest guidelines, the therapeutic choice of aortic stenosis depends on the age of the patient (<75 years or >75 years) and the risk class (STS-Prom/Euroscore II < o >4%). Therefore, if the surgical indication is clear in young and low-risk patients and percutaneous treatment is the gold standard in older and high-risk patients, the therapeutic choice is still debated in intermediate-risk patients. In this group of patients, aortic valve stenosis treatment depends on the patient’s global evaluation, the experience of the center, and, no less importantly, the patient’s will. Two main therapeutic options are debated: surgical aortic valve replacement with sutureless prosthesis versus transcatheter aortic valve implantation. In addition, the progressive development of mininvasive techniques for aortic valve surgery (right-anterior minithoracotomy) has also reduced the peri- and post-operative risk in this group of patients. The purpose of this review is to compare sutureless aortic valve replacement (SuAVR) versus TAVI in intermediate-risk patients with severe aortic stenosis.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "726e6a683b056b6a96ece5f97f5a473a29620fc86fadeae542bbd76d1b815a4e"
+      },
+      {
+        "pmid": "38588025",
+        "title": "Transcatheter or Surgical Treatment of Aortic-Valve Stenosis",
+        "authors": "Stefan Blankenberg, Moritz Seiffert, Reinhard Vonthein, Helmut Baumgartner",
+        "year": "2024",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa2400685",
+        "url": "https://doi.org/10.1056/nejmoa2400685",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Among low-risk patients with severe, symptomatic aortic stenosis who are eligible for both transcatheter aortic-valve implantation (TAVI) and surgical aortic-valve replacement (SAVR), data are lacking on the appropriate treatment strategy in routine clinical practice. METHODS: In this randomized noninferiority trial conducted at 38 sites in Germany, we assigned patients with severe aortic stenosis who were at low or intermediate surgical risk to undergo either TAVI or SAVR. Percutaneous- and surgical-valve prostheses were selected according to operator discretion. The primary outcome was a composite of death from any cause or fatal or nonfatal stroke at 1 year. RESULTS: A total of 1414 patients underwent randomization (701 to the TAVI group and 713 to the SAVR group). The mean (±SD) age",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f9530a09da0cb47fa33fb5e2b267d3f975f20574bcae508e1f5cf3eca27e78ba"
+      },
+      {
+        "pmid": "doi:10.31928/2305-3127-2023.3-4.515",
+        "title": "Patient selection criteria for transcatheter implantation of aortic valve",
+        "authors": "M.B. Todurov, O.V. Zelenchuk, A.V. Khokhlov, M.V. Stan",
+        "year": "2023",
+        "journal": "Кардіохірургія та інтервенційна кардіологія",
+        "doi": "10.31928/2305-3127-2023.3-4.515",
+        "url": "https://doi.org/10.31928/2305-3127-2023.3-4.515",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "The aim – to conduct a literature review, analyze and, based on our own results, present an algorithm for choosing the tactics of surgical treatment of patients with severe aortic stenosis. Materials and methods. In this prospective study, the medical records of adult patients (from 18 years of age) who underwent surgical or transcatheter aortic valve replacement at the Heart Institute of the Ministry of Health of Ukraine, between 2018 and 2023 were analyzed. Results. The algorithm for the selection of surgical treatment of patients included in the study was built based on a thorough analysis of the anamnesis, clinical, laboratory and instrumental examination data. An important stage in choosing the optimal surgical tactics is the assessment of the development of intraoperative and postoperative complications according to the EuroSCORE and STS SCORE scales, which are most widely used in cardiac surgery practice and allow predicting the complicated course of the early postoperative period in patients with acquired valvular heart defects. Although there is an increasing trend towards TAVI in younger, lower-risk patients, the more frequent possibility of residual paravalvular insufficiency and the need for permanent pacemaker implantation should be considered. As the experience of interventional cardiologists increases and new valve designs and delivery systems are developed, better clinical outcomes and lower complication rates can be expected, which will contribute to the expansion of indications for TAVI. Conclusions. Today, TAVI remains the only way to correct aortic valve defects for inoperable patients with severe symptomatic aortic stenosis. Based on the results of several randomized controlled trials, TAVI is associated with a much lower rate of postoperative complications and a faster recovery, and should be the method of choice in all high surgical risk patients and a competitive alternative to aortic valve replacement in intermediate risk patients.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Prospective Study",
+        "lowMetadata": false,
+        "_sig": "7b1a49350d85bb8e0140f8237ab0dcc74aade22e02ae9fa231d017fb6ab16dbb"
+      },
+      {
+        "pmid": "doi:10.3389/fcvm.2020.608158",
+        "title": "Transcatheter Aortic Valve Replacement in Young Low-Risk Patients With Severe Aortic Stenosis: A Review",
+        "authors": "Pier Paolo Bocchino, Filippo Angelini, Brunilda Alushi, Brunilda Alushi",
+        "year": "2020",
+        "journal": "Frontiers in Cardiovascular Medicine",
+        "doi": "10.3389/fcvm.2020.608158",
+        "url": "https://doi.org/10.3389/fcvm.2020.608158",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "In the last decades, transcatheter aortic valve replacement (TAVR) revolutionized the treatment of symptomatic severe aortic stenosis. The efficacy and safety of TAVR were first proven in inoperable and high-risk patients. Then, subsequent randomized clinical trials showed non-inferiority of TAVR as compared to surgical aortic valve replacement also in intermediate- and low-risk populations. As TAVR was progressively studied and clinically used in lower-risk patients, issues were raised questioning its opportunity in a younger population with a longer life-expectancy. As long-term follow-up data mainly derive from old studies with early generation devices on high or intermediate surgical risk patients, results can hardly be extended to most of currently treated patients who often show a low surgical risk and are treated with newer generation prostheses. Thus, in this low-risk younger population, decision making is difficult due to the lack of supporting data. The aim of the present review is to revise current literature regarding TAVR in younger patients.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "343f084cd783b9ebb20b5423ab56d1d35057a65fed32c62396d65009599c1671"
+      },
+      {
+        "pmid": "27680583",
+        "title": "Transcatheter or surgical aortic valve replacement for patients with severe, symptomatic, aortic stenosis at low to intermediate surgical risk: a clinical practice guideline",
+        "authors": "Per Olav Vandvik, Catherine M Otto, Reed Alexander Cunningham Siemieniuk, Rodrigo Bagur",
+        "year": "2016",
+        "journal": "BMJ",
+        "doi": "10.1136/bmj.i5085",
+        "url": "https://doi.org/10.1136/bmj.i5085",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "In patients with symptomatic severe aortic stenosis but at lower risk of perioperative death, how do minimally invasive techniques compare with open surgery? Prompted by a recent trial, an expert panel produced these recommendations based on three linked rapid systematic reviews",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "afe76d22b67af1864f444875dfe09b466ac0ae15a4fa588ac1e4420b0c1ea6c0"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "severe symptomatic aortic stenosis, intermediate surgical risk transcatheter aortic valve replacement (TAVR) surgical aortic valve replacement (SAVR) all-cause mortality or disabling stroke at 2 years",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

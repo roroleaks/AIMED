@@ -25,6 +25,7 @@ test("LIVE-SCI-05. ADV-HOMEO against live PubMed concludes insufficient direct e
     words,
     category: "gap",
     phrase: screen.phrases.gap.phrase,
+    screeningStats: { retrieved: arts.length, screened: arts.length, excludedCount: 0, relaxationLevel: 0 },
     records: eligible,
     style: "vancouver",
   });

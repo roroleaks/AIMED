@@ -1,0 +1,823 @@
+{
+  "id": "PRESET-surgery-hernia-lap-open",
+  "recordedAt": "2026-11-26T19:44:45.777Z",
+  "specialty": "surgery",
+  "words": [
+    {
+      "word": "adult primary unilateral inguinal hernia",
+      "role": "population"
+    },
+    {
+      "word": "laparoscopic repair (TEP or TAPP)",
+      "role": "intervention"
+    },
+    {
+      "word": "open Lichtenstein tension-free mesh repair",
+      "role": "comparator"
+    },
+    {
+      "word": "chronic postoperative groin pain and recurrence",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "adult primary unilateral inguinal hernia",
+        "role": "population"
+      },
+      {
+        "word": "laparoscopic repair (TEP or TAPP)",
+        "role": "intervention"
+      },
+      {
+        "word": "open Lichtenstein tension-free mesh repair",
+        "role": "comparator"
+      },
+      {
+        "word": "chronic postoperative groin pain and recurrence",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In adult primary unilateral inguinal hernia (P), does laparoscopic repair (TEP or TAPP) (I) compared with open Lichtenstein tension-free mesh repair (C) reduce chronic postoperative groin pain and recurrence (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In adult primary unilateral inguinal hernia (P), is laparoscopic repair (TEP or TAPP) (I) superior to open Lichtenstein tension-free mesh repair (C) for chronic postoperative groin pain and recurrence (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of adult primary unilateral inguinal hernia (P), does laparoscopic repair (TEP or TAPP) (I) compared with open Lichtenstein tension-free mesh repair (C) reduce chronic postoperative groin pain and recurrence (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In adult primary unilateral inguinal hernia (P), does laparoscopic repair (TEP or TAPP) (I) compared with open Lichtenstein tension-free mesh repair (C) reduce chronic postoperative groin pain and recurrence (O)?"
+    },
+    "words": [
+      {
+        "word": "adult primary unilateral inguinal hernia",
+        "role": "population"
+      },
+      {
+        "word": "laparoscopic repair (TEP or TAPP)",
+        "role": "intervention"
+      },
+      {
+        "word": "open Lichtenstein tension-free mesh repair",
+        "role": "comparator"
+      },
+      {
+        "word": "chronic postoperative groin pain and recurrence",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "35777031",
+        "title": "Surgical outcomes of laparoscopic total extraperitoneal (TEP) inguinal hernia repair compared with Lichtenstein tension-free open mesh inguinal hernia repair: A prospective randomized study",
+        "authors": "Shah MY, et al",
+        "year": "2022",
+        "journal": "Medicine",
+        "doi": "10.1097/MD.0000000000029746",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35777031/",
+        "context": "Inguinal hernia repair is one of the most frequently performed surgery. The ideal procedure for inguinal hernia repair remains controversial. Open Lichtenstein tension-free mesh repair (LMR) is one of the most preferred open techniques with satisfactory outcomes. Laparoscopic approach in inguinal hernia surgery remains controversial, especially in comparison with open procedures. In this study, we have reported a comparison of laparoscopic total extraperitoneal (TEP) inguinal hernia repair with LMR. Postoperative pain, operative time, complications like seroma, wound infection, chronic groin pain, and recurrence rate were parameters to evaluate the outcome. One hundred seventy-four patients were included in the study by consecutive randomized prospective sampling. The patients were divided into 2 groups: group A, laparoscopic TEP inguinal hernia repair, and group B, LMR. The procedures were performed by experienced surgeons. The primary outcomes were evaluated based on postoperative pain and recurrence rate. Secondary outcomes considered for evaluation were operative time, complications like seroma, infection, and chronic groin pain. Severe pain was reported in group A (7.9%) compared to group B (15.1%), which was statistically significant (P < .001). Moderate pain was reported more in group B (70.9%) compared to group A (29.5%) (P < .001). The mean operative time in group A was 84.6 ± 32.2, which was significantly higher than that in group B, 59.2 ± 14.8. There was no major complication in both groups. The chronic pain postoperatively was significantly in higher number of patients in group B vs group A (22.09% vs 3.4%). The postoperative hospital stay period was significantly lesser for group A vs for group B (2.68 ± 1.52 vs 3.86 ± 6.16). Time duration taken to resume normal activities was significantly lower in group A (13.6 ± 6.8) vs (19.8 ± 4.6) in group B (P < .001). Although there is definite evidence of longer operative time and learning curve, laparoscopic TEP has added advantages like less postoperative pain, early resumption of normal activities, less chronic groin pain, and comparable recurrence rate compared to open Lichtenstein repair. Laparoscopic TEP can be performed with acceptable outcomes and less postoperative complications if performed by experienced hands.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "9b6c45e33afff748fb5b7d1900eacdc4bc743235f1bbdb2d82a7e3f459dd6f4d"
+      },
+      {
+        "pmid": "41247692",
+        "title": "Comparison of Open Mesh Repair and Laparoscopic (TEP/TAPP) Techniques in Primary Unilateral Inguinal Hernia Repair",
+        "authors": "Ali Sapmaz, Serhan Yılmaz, Cenk Ozkan, Canbert Çelik",
+        "year": "2025",
+        "journal": "Journal of College of Physicians And Surgeons Pakistan",
+        "doi": "10.29271/jcpsp.2025.11.1476",
+        "url": "https://doi.org/10.29271/jcpsp.2025.11.1476",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To evaluate the safety and effectiveness of treatment for inguinal hernia and to compare the short- and long-term outcomes of open mesh repair (OMR) and laparoscopic total extraperitoneal (TEP) and transabdominal preperitoneal (TAPP) techniques in primary unilateral inguinal hernia. STUDY DESIGN: Retrospective study. Place and Duration of the Study: Department of General Surgery, University of Health Sciences, Training and Research Hospital, from January 2018 to September 2023. METHODOLOGY: The authors analysed patients aged 18 years and older who were diagnosed with primary unilateral inguinal hernia and underwent surgery. Patients were divided into three groups according to the surgical techniques used: OMR, TEP, or TAPP. Demographic data, intraoperative and postoperative outcomes, postoperative visual analogue scale (VAS) scores, chronic groin pain",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "00d3b2aa41882cb572b9dd596e7a53e31ebbc19b34a8b35259e51a57313f4d73"
+      },
+      {
+        "pmid": "cr:10.36106/ijar/6800527",
+        "title": "LAPAROSCOPIC INGUINAL HERNIA REPAIR IN OBESE PATIENTS: IS TEP SUPERIOR TO TAPP?",
+        "authors": "Chouhan Vishvata, Krishnanand Krishnanand",
+        "year": "2025",
+        "journal": "INDIAN JOURNAL OF APPLIED RESEARCH",
+        "doi": "10.36106/ijar/6800527",
+        "url": "https://doi.org/10.36106/ijar/6800527",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Laparoscopic inguinal hernia repair offers significant advantages for obese patients, but debate persists regarding the optimal approach between Totally Extraperitoneal (TEP) and Transabdominal Preperitoneal (TAPP) techniques. This study aims to compare perioperative outcomes, complications, and quality of life in obese patients undergoing TEP versus TAPP inguinal hernia repair. Methods: This prospective randomized study was conducted at JK Hospital, Bhopal, between June 2023 and January 2024. Thirty obese patients (BMI ≥30 kg/m²) with inguinal hernias were randomized into TEP (n=15) or TAPP (n=15) groups. Primary outcomes included operative time, technical feasibility, conversion rate, and perioperative complications. Secondary outcomes were postoperative pain, hospital stay, return to activities, chronic pain, and recurrence at 6-month follow-up. Results: Both groups were comparable in terms of demographic characteristics and hernia types. Mean operative time was shorter in the TAPP group (65.7±12.3 min vs. 78.3±14.8 min, p=0.017). Peritoneal breaches occurred in 4 (26.7%) TEP cases. Conversion to open repair was required in 1 (6.7%) TEP case and none in the TAPP group. Postoperative pain scores at 24 hours were similar (VAS 3.8±1.1 vs. 3.7±1.2, p=0.802), as was hospital stay (1.3±0.5 vs. 1.5±0.6 days, p=0.334). Seroma formation was higher in the TAPP group (20% vs. 13.3%, p=0.624). At 6-month follow-up, chronic pain was reported in 1 (6.7%) TEP patient and 2 (13.3%) TAPP patients. No recurrences were observed in either group.Conclusion: In obese patients, TAPP offers advantages of shorter operative time and lower technical complexity, while TEP demonstrates a trend toward fewer access-related complications. Both approaches provide comparable postoperative outcomes and patient satisfaction. The choice between TEP and TAPP in obese patients should consider surgeon experience, patient characteristics, and individual risk factors.",
+        "relevancePct": 88,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "90838319288532934ea3542933102dab5f810a38aad283d63b95ea2dc8ee4124"
+      },
+      {
+        "pmid": "30758474",
+        "title": "SYSTEMIZATION OF LAPAROSCOPIC INGUINAL HERNIA REPAIR (TAPP) BASED ON A NEW ANATOMICAL CONCEPT: INVERTED Y AND FIVE TRIANGLES",
+        "authors": "Marcelo Lopes Furtado, Christiano Marlo Paggi Claus, Leandro Totti Cavazzola, Flavio Malcher",
+        "year": "2019",
+        "journal": "ABCD Arquivos Brasileiros de Cirurgia Digestiva (São Paulo)",
+        "doi": "10.1590/0102-672020180001e1426",
+        "url": "https://doi.org/10.1590/0102-672020180001e1426",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Laparoscopic inguinal hernia repair has been shown to be superior than open repairs with faster return to daily activities and decrease in the occurrence of chronic pain. However, higher direct costs and mandatory use of general anesthesia are arguments against their use. In addition, increased complexity of surgery resulting from an anatomy that is unusual to general surgeons prevents the widespread adoption of laparoscopic approach. AIM: To propose a technical systematization for transabdominal laparoscopic repair (TAPP) of inguinal hernias based on anatomical concepts. METHOD: To offer a systematization of TAPP repair based on well defined anatomic landmarks, describing the concept of \"inverted Y\", identification of five triangles and three zones of dissection, to achieve the \"critical view of safety\"",
+        "relevancePct": 88,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9e1bafee32a9274b174dad8b40a15cba57e5fe5719f7621089c5de44ddc31586"
+      },
+      {
+        "pmid": "38963034",
+        "title": "Transabdominal pre-peritoneal (TAPP) versus totally extraperitoneal (TEP) laparoscopic techniques for inguinal hernia repair",
+        "authors": "Beverly L Wake, Kirsty McCormack, Cynthia M. Fraser, Luke David Vale",
+        "year": "2005",
+        "journal": "Cochrane Database of Systematic Reviews",
+        "doi": "10.1002/14651858.cd004703.pub3",
+        "url": "https://doi.org/10.1002/14651858.cd004703.pub3",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: An inguinal hernia occurs when part of the intestine protrudes through the abdominal muscles. In adults, this common condition is much more likely in men than in women. Inguinal hernia can be monitored by 'watchful waiting', but if symptoms persist or worsen, surgery is usually required, which can be open or laparoscopic. Laparoscopic (keyhole) repair of inguinal hernias in adults is generally performed using either the transabdominal preperitoneal (TAPP) or the totally extraperitoneal (TEP) method. Both methods include the use of mesh placed in front of the peritoneal lining of the abdominal wall, but for the TAPP technique, the abdominal cavity needs to be entered to place the mesh, and for the TEP technique, the whole procedure is done",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d3be97617f91453cfeb020c1c8639c990ce9174107737908ce887e14e68e6a8a"
+      },
+      {
+        "pmid": "26490771",
+        "title": "TEP versus Lichtenstein: Which technique is better for the repair of primary unilateral inguinal hernias in men?",
+        "authors": "Ferdin KÖckerling, B. Stechemesser, Martin Hukauf, Andreas Kuthe",
+        "year": "2015",
+        "journal": "Surgical Endoscopy",
+        "doi": "10.1007/s00464-015-4603-1",
+        "url": "https://doi.org/10.1007/s00464-015-4603-1",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: In the update of the guidelines of the European Hernia Society, open Lichtenstein and endoscopic techniques continue to be recommended as the surgical technique of choice for repair of unilateral primary inguinal hernias in men despite the fact that a meta-analysis had identified a higher recurrence rate for TEP compared with Lichtenstein operation. The Guidelines Group had taken that decision because one surgeon in one of the randomized controlled trials included in the meta-analysis had had a very high recurrence rate. Therefore, this study based on registry data now compares the outcome of TEP versus Lichtenstein repair. PATIENTS AND METHODS: The analysis of the Herniamed Registry compares the prospective data collected for male patients undergoing primary unilateral inguinal hernia",
+        "relevancePct": 84,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "bdcf16dc6d791e7b9db1df8bef78b27080d7485663e40d2cae4acb569f1cee2f"
+      },
+      {
+        "pmid": "cr:10.1007/s10029-025-03515-4",
+        "title": "Laparoscopic totally extraperitoneal (TEP) versus laparoscopic transabdominal preperitoneal (TAPP) for bilateral inguinal hernia repair: a systematic review and meta-analysis",
+        "authors": "Oliveira Carneiro Alexandre, Rocca W. Rodrigo Calmet, Gonçalves Leonardo Braga, Mazzola Poli de Figueiredo Sergio",
+        "year": "2026",
+        "journal": "Hernia",
+        "doi": "10.1007/s10029-025-03515-4",
+        "url": "https://doi.org/10.1007/s10029-025-03515-4",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "04e03681ab718eb9d6e898be4796a09555ce3b84386e38d7e4f45d18de1783a2"
+      },
+      {
+        "pmid": "37601986",
+        "title": "A Prospective Comparative Study of Laparoscopic Totally Extraperitoneal (TEP) and Laparoscopic Transabdominal Preperitoneal (TAPP) Inguinal Hernial Repair",
+        "authors": "Ratnesh K Jaiswal, N K Pandey, Aditya Tolat, Dheer Singh Kalwaniya",
+        "year": "2023",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.42209",
+        "url": "https://doi.org/10.7759/cureus.42209",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction Inguinal hernia is a common surgical problem throughout the world. Currently, the management options available are open mesh hernioplasty and laparoscopic mesh repair. Laparoscopic mesh repair can be performed by either transabdominal preperitoneal (TAPP) repair or totally extraperitoneal (TEP) repair. Many studies comparing the two procedures have been unable to establish the superiority of one procedure over the other and have yielded conflicting results. Thus, we performed this study to compare TAPP and TEP. Aim The aim of this study is to compare the clinical outcomes and safety of laparoscopic TEP and laparoscopic TAPP for inguinal hernia repair. Materials and methods Patients were randomly divided into two groups on the basis of surgical procedures. The first group of patients",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "498307ecc2dcc00caeae70dd1decffa8cd9fd475798a5624e90098f9aaaf534c"
+      },
+      {
+        "pmid": "37674142",
+        "title": "Bilateral inguinal hernia repair by laparoscopic totally extraperitoneal (TEP) vs. laparoscopic transabdominal preperitoneal (TAPP)",
+        "authors": "Nils Jimmy Hidalgo, Salvador Guillaumes, Irene Bachero, Eugenia Butori",
+        "year": "2023",
+        "journal": "BMC Surgery",
+        "doi": "10.1186/s12893-023-02177-2",
+        "url": "https://doi.org/10.1186/s12893-023-02177-2",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The guidelines recommend laparoscopic repair for bilateral inguinal hernia. However, few studies compare the totally extraperitoneal (TEP) and transabdominal preperitoneal (TAPP) techniques in bilateral inguinal hernias. This study aimed to compare the outcomes of TEP and TAPP in bilateral inguinal hernia. METHODS: We conducted a retrospective cohort study of patients operated on for bilateral inguinal hernia by TEP and TAPP repair from 2016 to 2020. Intraoperative complications, operative time, acute postoperative pain, hospital stay, postoperative complications, chronic inguinal pain, and recurrence were compared. RESULTS: A total of 155 patients were included in the study. TEP was performed in 71 patients (46%) and TAPP in 84 patients (54%). The mean operative time was longer in the TAPP group than in",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "5fe972ed71987d6d49b0a9589cbffe49e401d9f134fb9a51edae5fdb6941b096"
+      },
+      {
+        "pmid": "21187994",
+        "title": "Causes of recurrence in laparoscopic inguinal hernia repair",
+        "authors": "Jan F. Kukleta",
+        "year": "2006",
+        "journal": "Journal of Minimal Access Surgery",
+        "doi": "10.4103/0972-9941.27736",
+        "url": "https://doi.org/10.4103/0972-9941.27736",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIM: The analysis of possible mechanisms of repair failure is a necessary instrument and the best way to decrease the recurrence rate and improve the overall results. Avoiding historical errors and learning from the reported pitfalls and mistakes helps to standardize the relatively new laparoscopic techniques of trans-abdominal preperitoneal and total extraperitoneal. MATERIALS AND METHODS: The video tapes of all primary laparoscopic repairs done by the author that led to recurrence were retrospectively analyzed and compared with findings at the second laparoscopic repair. A review of the available cases of recurrences occurring between 1994 and 2003 is the basis of this report. SUMMARY: Adequate mesh size, porosity of mesh material, slitting of the mesh, correct and generous dissection of preperitoneal",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "733a6248297a16f2cf209d6892e7d998240622a0a7e8c3b26b7afaa05be3937b"
+      },
+      {
+        "pmid": "9164809",
+        "title": "Comparison of Conventional Anterior Surgery and Laparoscopic Surgery for Inguinal-Hernia Repair",
+        "authors": "Mike S.L. Liem, Yolanda van der Graaf, Cees J. van Steensel, Roelof U. Boelhouwer",
+        "year": "1997",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejm199705293362201",
+        "url": "https://doi.org/10.1056/nejm199705293362201",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Inguinal hernias can be repaired by laparoscopic techniques, which have had better results than open surgery in several small studies. METHODS: We performed a randomized, multicenter trial in which 487 patients with inguinal hernias were treated by extraperitoneal laparoscopic repair and 507 patients were treated by conventional anterior repair. We recorded information about postoperative recovery and complications and examined the patients for recurrences one and six weeks, six months, and one and two years after surgery. RESULTS: Six patients in the open-surgery group but none in the laparoscopic-surgery group had wound abscesses (P=0.03), and the patients in the laparoscopic-surgery group had a more rapid recovery (median time to the resumption of normal daily activity, 6 vs. 10 days; time",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "4b13e417f063a90754e259ca217504d34319913b3da00eade6e38c1183d2ca3e"
+      },
+      {
+        "pmid": "cr:10.1097/sle.0000000000000890",
+        "title": "Bilateral Inguinal Hernia Repair: Robotic TAPP Versus Laparoscopic TEP",
+        "authors": "Gundogdu Emre, Guldogan Cem E., Ozmen Mehmet Mahir",
+        "year": "2020",
+        "journal": "Surgical Laparoscopy, Endoscopy & Percutaneous Techniques",
+        "doi": "10.1097/sle.0000000000000890",
+        "url": "https://doi.org/10.1097/sle.0000000000000890",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: As the advantages of minimally invasive techniques in general surgery have been shown, we prefer laparoscopic total extraperitoneal (LTEP) inguinal hernia repair or robotic transabdominal preperitoneal (RTAPP) inguinal hernia repair in patients diagnosed especially with a bilateral inguinal hernia in our practice. The present study aims to evaluate the early/midterm outcomes and complications in patients who underwent LTEP and RTAPP because of bilateral inguinal hernia. Materials and Methods: In total, 189 patients underwent inguinal hernia repair between June 2016 and June 2019 in our department. Data of 49 (2F) patients (33 LTEP/16 RTAPP) who had undergone bilateral inguinal hernia repair were evaluated retrospectively. Univariate analysis was performed to identify the relations between the techniques (LTEP vs. RTAPP), outcomes, and complications. Results: Patient demographics and comorbidities were similar in both groups. There was no difference between the groups in terms of American Society of Anesthesiologists (ASA) scores ( P =0.09). Operative time was longer in the RTAPP group ( P =0.001). Length of hospital stay was similar in both groups ( P =0.11). No recurrence was observed in both groups. Mean pain scores were significantly less for the RTAPP group ( P =0.05). When general complications were compared, it was found that the RTAPP group had a statistically significant lower complication rate ( P =0.02). Mean follow-up was longer in the LTEP group ( P =0.04). Total hospital costs for RTAPP and LTEP were 3968$ and 2506$, respectively. Conclusions: We conclude that RTAPP seems to have better results in terms of general complications and postoperative pain score when compared with LTAPP. Robotic surgery might be safely recommended for bilateral inguinal hernia repair.",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1ea6acb9b103097b8fc47af76bc452c996bc83b8d585a333a0c2300dcff1e180"
+      },
+      {
+        "pmid": "29299648",
+        "title": "Has Shouldice Repair in a Selected Group of Patients with Inguinal Hernia Comparable Results to Lichtenstein, TEP and TAPP Techniques?",
+        "authors": "Ferdin KÖckerling, A. Koch, Daniela Adolf, Thomas Keller",
+        "year": "2018",
+        "journal": "World Journal of Surgery",
+        "doi": "10.1007/s00268-017-4433-5",
+        "url": "https://doi.org/10.1007/s00268-017-4433-5",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: In the new international guidelines only the mesh-based Lichtenstein, TEP and TAPP techniques are recommended. This present analysis of data from the Herniamed Registry compares the outcome for Shouldice versus Lichtenstein, TEP and TAPP. METHODS: Propensity score matching analyses were performed to obtain homogeneous comparison groups for Shouldice versus Lichtenstein (n = 2115/2608; 81.1%), Shouldice versus TEP (n = 2225/2608; 85.3%) and Shouldice versus TAPP (2400/2608; 92.0%). RESULTS: The most important characteristics of the Shouldice patient collective were younger patients with a mean age of 40 years, a large proportion of women of 30%, a mean BMI value of 24 and a proportion of defect sizes up to 3 cm of over 85%. For this selected patient collective, propensity",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "0ca1c0b65a1287d6b0e1dd6bb27920b34917e1c349c351a093524f8f7c2427d9"
+      },
+      {
+        "pmid": "34660065",
+        "title": "Comparison of Common Postoperative Complications Between Lichtenstein Open Repair and Laparoscopic Transabdominal Pre-peritoneal (TAPP) Repair for Unilateral Inguinal Hernia",
+        "authors": "Zaka Ullah Jan, Sajid Ali, Nisar Ahmed, Muhammad Assam Sarwar",
+        "year": "2021",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.17863",
+        "url": "https://doi.org/10.7759/cureus.17863",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction Laparoscopic transabdominal pre-peritoneal (TAPP) repair is a minimally invasive technique that is becoming the procedure of choice among surgeons for inguinal hernia repair and research work is still going on comparing TAPP repair with Lichtenstein open mesh repair. The objective of our study is to compare common postoperative complications in Lichtenstein mesh repair and laparoscopic TAPP repair for unilateral inguinal hernia in our unit. Methods Between August 2016 and August 2018, patients with unilateral inguinal hernia and ASA grade I/II were selected in the surgical outpatient department (OPD) and prospectively randomized into two equal groups. Lichtenstein open mesh repair was done in Group-I and laparoscopic TAPP repair in Group-II. The visual analog scale (VAS) was used for the assessment",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c70745f435f82f91735e010a719864ba9fda6d020fadf6eb3a26d3bc0b8c7bad"
+      },
+      {
+        "pmid": "28160069",
+        "title": "TEP or TAPP for recurrent inguinal hernia repair—register-based comparison of the outcome",
+        "authors": "Ferdin KÖckerling, R. Bittner, Andreas Kuthe, Martin Hukauf",
+        "year": "2017",
+        "journal": "Surgical Endoscopy",
+        "doi": "10.1007/s00464-017-5416-1",
+        "url": "https://doi.org/10.1007/s00464-017-5416-1",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: The guidelines of the international hernia societies recommend laparo-endoscopic inguinal hernia repair for recurrent hernias after open primary repair. To date, no randomized trials have been conducted to compare the TEP vs TAPP outcome for recurrent inguinal hernia repair. A Swiss registry study identified only minor differences between the two techniques, thus suggesting the equivalence of the two procedures. MATERIALS AND METHODS: Between September 1, 2009 and August 31, 2013 data were entered into the Herniamed Registry on a total of 2246 patients with recurrent inguinal hernia repair following previous open primary operation in either TAPP (n = 1,464) or TEP technique (n = 782). RESULTS: Univariable and multivariable analysis did not find any significant difference between TEP and",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "3d820ce00eeaf0f4df6c990a85611b76c880ed002ee717da058c3c4573ba0e81"
+      },
+      {
+        "pmid": "40375378",
+        "title": "A Retrospective Analysis of Laparoscopic Totally Extraperitoneal (TEP) and Transabdominal Preperitoneal (TAPP) Techniques in the Treatment of Unilateral Inguinal Hernias",
+        "authors": "Yahya Özel, Muhammer Ergenç, Servet Emir, Yalcin Burak Kara",
+        "year": "2025",
+        "journal": "Annali Italiani di Chirurgia",
+        "doi": "10.62713/aic.3852",
+        "url": "https://doi.org/10.62713/aic.3852",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIM: Inguinal hernia is a common surgical issue, with laparoscopic techniques such as totally extraperitoneal (TEP) and transabdominal preperitoneal (TAPP) being widely used. However, there is no clear consensus on the superiority of either method for unilateral primary or recurrent inguinal hernias. This study compares TEP and TAPP, focusing on efficacy, safety, and clinical outcomes. METHODS: This study included patients who underwent elective laparoscopic surgery for unilateral inguinal hernias between April 2009 and May 2024. Patients who underwent inguinal hernia repair were divided into two groups according to whether the TAPP or TEP procedure was used. Primary and recurrent cases were analyzed, with data on demographic features such as age, gender, body mass index (BMI), operative duration, hospital stay, and",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "de1ede0a402875ba6aa53c03a9b2089178d9c9a027e3567b98b03986126a194a"
+      },
+      {
+        "pmid": "25398194",
+        "title": "Update of guidelines on laparoscopic (TAPP) and endoscopic (TEP) treatment of inguinal hernia (International Endohernia Society)",
+        "authors": "R. Bittner, M. A. Montgomery, E. Arregui, Devanshu Bansal",
+        "year": "2014",
+        "journal": "Surgical Endoscopy",
+        "doi": "10.1007/s00464-014-3917-8",
+        "url": "https://doi.org/10.1007/s00464-014-3917-8",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Guidelines are the bridge between science and clinical practice [1]. Science is a dynamic process and it is continuously evolving. Consequently, there is a continual development of new insights necessitation updates of existing guidelines. For this update, the authors concentrated on studies with level of 1 and 2 evidence. All references are marked with the level of evidence, according to the Oxford classification. In general “Recommendation Grade D” does not constitute a recommendation, but in some instances it is shown in the text to indicate lack of quality data. We recommended all readers to download the original statements and recommendations [2], for fully appreciation of the Update Guidelines on Laparoscopic Hernia Surgery.",
+        "relevancePct": 51,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e969dc711ffb72433be1029c5e18b32b25e7d4996b18c7c97c4787204249ecab"
+      },
+      {
+        "pmid": "cr:10.21275/mr25515155557",
+        "title": "Comparative Study of Laparoscopic Extended Totally Extra Peritoneal (e-TEP) Repair of Inguinal Hernia Versus Laparoscopic Totally Extra Peritoneal (TEP) Repair of Inguinal Hernia",
+        "authors": "P S Shakya J, Lavania Prashant, Tiwari Utkarsha",
+        "year": "2025",
+        "journal": "International Journal of Science and Research (IJSR)",
+        "doi": "10.21275/mr25515155557",
+        "url": "https://doi.org/10.21275/mr25515155557",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "67ee8a63798a7236c43826f9b183524994f373b5704f22f41da07a87012ccfba"
+      },
+      {
+        "pmid": "cr:10.7759/cureus.69134",
+        "title": "Comparison of Clinical Outcomes of Laparoscopic Totally Extraperitoneal (TEP) and Transabdominal Preperitoneal (TAPP) Techniques in Bilateral Inguinal Hernia Repair: A Retrospective Study",
+        "authors": "Ozel Yahya, Kara Yalcin Burak",
+        "year": "2024",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.69134",
+        "url": "https://doi.org/10.7759/cureus.69134",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "31ec9e74630179a015c9e0ea2bee4b97814e9f96973e139c8d490ac8ae260a3e"
+      },
+      {
+        "pmid": "cr:10.7759/cureus.49790",
+        "title": "Comparative Review of Outcomes of Totally Extraperitoneal (TEP) and Transabdominal Preperitoneal (TAPP) Primary Inguinal Hernia Repair",
+        "authors": "Verheij Martin, Abdalla Alaa E, Chandran Pradeep",
+        "year": "2023",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.49790",
+        "url": "https://doi.org/10.7759/cureus.49790",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "21592b5384af2de2d7a61801172cdc100c10096adf8a12f076df544a86f88ab8"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "adult primary unilateral inguinal hernia laparoscopic repair (TEP or TAPP) open Lichtenstein tension-free mesh repair chronic postoperative groin pain and recurrence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

@@ -1,0 +1,510 @@
+{
+  "id": "PRESET-pulmonology-ipf-antifibrotic",
+  "recordedAt": "2026-11-26T19:51:33.330Z",
+  "specialty": "pulmonology",
+  "words": [
+    {
+      "word": "idiopathic pulmonary fibrosis, mild-to-moderate restriction",
+      "role": "population"
+    },
+    {
+      "word": "nintedanib 150 mg twice daily",
+      "role": "intervention"
+    },
+    {
+      "word": "pirfenidone titrated to 2403 mg daily",
+      "role": "comparator"
+    },
+    {
+      "word": "annual rate of decline in forced vital capacity (FVC)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "idiopathic pulmonary fibrosis, mild-to-moderate restriction",
+        "role": "population"
+      },
+      {
+        "word": "nintedanib 150 mg twice daily",
+        "role": "intervention"
+      },
+      {
+        "word": "pirfenidone titrated to 2403 mg daily",
+        "role": "comparator"
+      },
+      {
+        "word": "annual rate of decline in forced vital capacity (FVC)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), is nintedanib 150 mg twice daily (I) superior to pirfenidone titrated to 2403 mg daily (C) for annual rate of decline in forced vital capacity (FVC) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual rate of decline in forced vital capacity (FVC) (O)?"
+    },
+    "words": [
+      {
+        "word": "idiopathic pulmonary fibrosis, mild-to-moderate restriction",
+        "role": "population"
+      },
+      {
+        "word": "nintedanib 150 mg twice daily",
+        "role": "intervention"
+      },
+      {
+        "word": "pirfenidone titrated to 2403 mg daily",
+        "role": "comparator"
+      },
+      {
+        "word": "annual rate of decline in forced vital capacity (FVC)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "40387033",
+        "title": "Nerandomilast in Patients with Idiopathic Pulmonary Fibrosis",
+        "authors": "Richeldi L, et al",
+        "year": "2025",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2414108",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40387033/",
+        "context": "BACKGROUND: Nerandomilast (BI 1015550) is an orally administered preferential inhibitor of phosphodiesterase 4B with antifibrotic and immunomodulatory effects. In a phase 2 trial involving patients with idiopathic pulmonary fibrosis, treatment with nerandomilast stabilized lung function over a period of 12 weeks. METHODS: In this phase 3, double-blind trial, we randomly assigned patients with idiopathic pulmonary fibrosis in a 1:1:1 ratio to receive nerandomilast at a dose of 18 mg twice daily, nerandomilast at a dose of 9 mg twice daily, or placebo, with stratification according to background antifibrotic therapy (nintedanib or pirfenidone vs. none). The primary end point was the absolute change from baseline in forced vital capacity (FVC), measured in milliliters, at week 52. RESULTS: A total of 1177 patients underwent randomization, of whom 77.7% were taking nintedanib or pirfenidone at enrollment. Adjusted mean changes in FVC at week 52 were -114.7 ml (95% confidence interval [CI], -141.8 to -87.5) in the nerandomilast 18-mg group, -138.6 ml (95% CI, -165.6 to -111.6) in the nerandomilast 9-mg group, and -183.5 ml (95% CI, -210.9 to -156.1) in the placebo group. The adjusted difference between the nerandomilast 18-mg group and the placebo group was 68.8 ml (95% CI, 30.3 to 107.4; P<0.001), and the adjusted difference between the nerandomilast 9-mg group and the placebo group was 44.9 ml (95% CI, 6.4 to 83.3; P = 0.02). The most frequent adverse event in the nerandomilast groups was diarrhea, reported in 41.3% of the 18-mg group and 31.1% of the 9-mg group, as compared with 16.0% in the placebo group. Serious adverse events were balanced across trial groups. CONCLUSIONS: In patients with idiopathic pulmonary fibrosis, treatment with nerandomilast resulted in a smaller decline in the FVC than placebo over a period of 52 weeks. (Funded by Boehringer Ingelheim; FIBRONEER-IPF ClinicalTrials.gov number, NCT05321069.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Clinical Trial, Phase III"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "88d6fd2ae0d057815d5f1422e869d4593922669021c17701e941100181250844"
+      },
+      {
+        "pmid": "40461817",
+        "title": "A generative AI-discovered TNIK inhibitor for idiopathic pulmonary fibrosis: a randomized phase 2a trial",
+        "authors": "Xu Z, et al",
+        "year": "2025",
+        "journal": "Nature medicine",
+        "doi": "10.1038/s41591-025-03743-2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40461817/",
+        "context": "Despite substantial progress in artificial intelligence (AI) for generative chemistry, few novel AI-discovered or AI-designed drugs have reached human clinical trials. Here we present the results of the first phase 2a multicenter, double-blind, randomized, placebo-controlled trial testing the safety and efficacy of rentosertib (formerly ISM001-055), a first-in-class AI-generated small-molecule inhibitor of TNIK, a first-in-class target in idiopathic pulmonary fibrosis (IPF) discovered using generative AI. IPF is an age-related progressive lung condition with no current therapies available that reverse the degenerative course of disease. Patients were randomized to 12 weeks of treatment with 30 mg rentosertib once daily (QD, n = 18), 30 mg rentosertib twice daily (BID, n = 18), 60 mg rentosertib QD (n = 18) or placebo (n = 17). The primary endpoint was the percentage of patients who have at least one treatment-emergent adverse event, which was similar across all treatment arms (72.2% in patients receiving 30 mg rentosertib QD (n = 13/18), 83.3% for 30 mg rentosertib BID (n = 15/18), 83.3% for 60 mg rentosertib QD (n = 15/18) and 70.6% for placebo (n = 12/17)). Treatment-related serious adverse event rates were low and comparable across treatment groups, with the most common events leading to treatment discontinuation related to liver toxicity or diarrhea. Secondary endpoints included pharmacokinetic dynamics (C max , C trough , t max , AUC 0-t/τ/∞ and t 1/2 ), changes in lung function as measured by forced vital capacity, diffusion capacity of the lung for carbon monoxide, forced expiry in 1 s and change in the Leicester Cough Questionnaire score, change in 6-min walk distance and the number and hospitalization duration of acute exacerbations of IPF. We observed increased forced vital capacity at the highest dosage with a mean change of +98.4 ml (95% confidence interval 10.9 to 185.9) for patients in the 60 mg rentosertib QD group, compared with -20.3 ml (95% confidence interval -116.1 to 75.6) for the placebo group. These results suggest that targeting TNIK with rentosertib is safe and well tolerated and warrants further investigation in larger-scale clinical trials of longer duration. ClinicalTrials.gov registration number: NCT05938920 .",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase II",
+          "Multicenter Study"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "6491e3e06f524dfa18a4feccd8ca503c9f543e9261b96142b66560f63e11c6b1"
+      },
+      {
+        "pmid": "39393084",
+        "title": "Efficacy and Safety of Admilparant, an LPA(1) Antagonist, in Pulmonary Fibrosis: A Phase 2 Randomized Clinical Trial",
+        "authors": "Corte TJ, et al",
+        "year": "2025",
+        "journal": "American journal of respiratory and critical care medicine",
+        "doi": "10.1164/rccm.202405-0977OC",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39393084/",
+        "context": "Rationale: Idiopathic pulmonary fibrosis (IPF) and progressive pulmonary fibrosis (PPF) have high morbidity and mortality; thus, novel treatments are needed. Objectives: Assess efficacy and safety of admilparant (BMS-986278), an oral lysophosphatidic acid receptor 1 antagonist, in patients with IPF and PPF. Methods: This phase 2, randomized, double-blind, placebo-controlled trial included parallel cohorts of patients with IPF ( n = 278 randomized, n = 276 treated) or PPF ( n = 125 randomized, n = 123 treated) who received 30 mg of admilparant, 60 mg of admilparant, or placebo (1:1:1) twice daily for 26 weeks. Background antifibrotics (both cohorts) and immunosuppressants (PPF only) were permitted. Measurements and Main Results: Rates of change in percentage of predicted FVC over 26 weeks for IPF were -2.7% (placebo), -2.8% (30 mg), and -1.2% (60 mg) and for PPF were -4.3% (placebo), -2.9% (30 mg), and -1.1% (60 mg). Treatment differences between 60-mg admilparant and placebo were 1.4% (95% confidence interval, -0.1 to 3.0) for IPF and 3.2% (95% confidence interval, 0.7 to 5.7) for PPF. Treatment effect was observed with or without background antifibrotics in both cohorts. Diarrhea occurred at similar frequencies in admilparant arms versus placebo. Transient Day 1 postdose blood pressure reductions were observed in all arms in both cohorts but were greater with admilparant. Treatment discontinuations because of adverse events were similar across IPF arms and lower with admilparant (2.5% [30 mg]; 0% [60 mg]) versus placebo (17.1%) for PPF. Conclusions: In this first phase 2 study to evaluate antifibrotic treatment in parallel IPF and PPF cohorts, 60-mg admilparant slowed lung function decline and was safe and well tolerated, supporting further evaluation in phase 3 trials. Clinical trial registered with clinicaltrials.gov identifier (NCT04308681).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Clinical Trial, Phase II",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "cb9fbf1bfc843b717c045a95c6fba38fa47e6ca6b923b5b7590dfa3e2563e668"
+      },
+      {
+        "pmid": "31566307",
+        "title": "Nintedanib in Progressive Fibrosing Interstitial Lung Diseases",
+        "authors": "Flaherty KR, et al",
+        "year": "2019",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1908681",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31566307/",
+        "context": "BACKGROUND: Preclinical data have suggested that nintedanib, an intracellular inhibitor of tyrosine kinases, inhibits processes involved in the progression of lung fibrosis. Although the efficacy of nintedanib has been shown in idiopathic pulmonary fibrosis, its efficacy across a broad range of fibrosing lung diseases is unknown. METHODS: In this double-blind, placebo-controlled, phase 3 trial conducted in 15 countries, we randomly assigned patients with fibrosing lung disease affecting more than 10% of lung volume on high-resolution computed tomography (CT) to receive nintedanib at a dose of 150 mg twice daily or placebo. All the patients met criteria for progression of interstitial lung disease in the past 24 months despite treatment and had a forced vital capacity (FVC) of at least 45% of the predicted value and a diffusing capacity of the lung for carbon monoxide ranging from 30 to less than 80% of the predicted value. Randomization was stratified according to the fibrotic pattern (a pattern of usual interstitial pneumonia [UIP] or other fibrotic patterns) on high-resolution CT. The primary end point was the annual rate of decline in the FVC, as assessed over a 52-week period. The two primary populations for analysis were the overall population and patients with a UIP-like fibrotic pattern. RESULTS: A total of 663 patients were treated. In the overall population, the adjusted rate of decline in the FVC was -80.8 ml per year with nintedanib and -187.8 ml per year with placebo, for a between-group difference of 107.0 ml per year (95% confidence interval [CI], 65.4 to 148.5; P<0.001). In patients with a UIP-like fibrotic pattern, the adjusted rate of decline in the FVC was -82.9 ml per year with nintedanib and -211.1 ml per year with placebo, for a difference of 128.2 ml (95% CI, 70.8 to 185.6; P<0.001). Diarrhea was the most common adverse event, as reported in 66.9% and 23.9% of patients treated with nintedanib and placebo, respectively. Abnormalities on liver-function testing were more common in the nintedanib group than in the placebo group. CONCLUSIONS: In patients with progressive fibrosing interstitial lung diseases, the annual rate of decline in the FVC was significantly lower among patients who received nintedanib than among those who received placebo. Diarrhea was a common adverse event. (Funded by Boehringer Ingelheim; INBUILD ClinicalTrials.gov number, NCT02999178.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d7c59fb6e9e747c2ac3034ca8d9ac2c520a81939fa4d96d752cbd3fcbc4e461e"
+      },
+      {
+        "pmid": "24836310",
+        "title": "Efficacy and safety of nintedanib in idiopathic pulmonary fibrosis",
+        "authors": "Richeldi L, et al",
+        "year": "2014",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1402584",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24836310/",
+        "context": "BACKGROUND: Nintedanib (formerly known as BIBF 1120) is an intracellular inhibitor that targets multiple tyrosine kinases. A phase 2 trial suggested that treatment with 150 mg of nintedanib twice daily reduced lung-function decline and acute exacerbations in patients with idiopathic pulmonary fibrosis. METHODS: We conducted two replicate 52-week, randomized, double-blind, phase 3 trials (INPULSIS-1 and INPULSIS-2) to evaluate the efficacy and safety of 150 mg of nintedanib twice daily as compared with placebo in patients with idiopathic pulmonary fibrosis. The primary end point was the annual rate of decline in forced vital capacity (FVC). Key secondary end points were the time to the first acute exacerbation and the change from baseline in the total score on the St. George's Respiratory Questionnaire, both assessed over a 52-week period. RESULTS: A total of 1066 patients were randomly assigned in a 3:2 ratio to receive nintedanib or placebo. The adjusted annual rate of change in FVC was -114.7 ml with nintedanib versus -239.9 ml with placebo (difference, 125.3 ml; 95% confidence interval [CI], 77.7 to 172.8; P<0.001) in INPULSIS-1 and -113.6 ml with nintedanib versus -207.3 ml with placebo (difference, 93.7 ml; 95% CI, 44.8 to 142.7; P<0.001) in INPULSIS-2. In INPULSIS-1, there was no significant difference between the nintedanib and placebo groups in the time to the first acute exacerbation (hazard ratio with nintedanib, 1.15; 95% CI, 0.54 to 2.42; P=0.67); in INPULSIS-2, there was a significant benefit with nintedanib versus placebo (hazard ratio, 0.38; 95% CI, 0.19 to 0.77; P=0.005). The most frequent adverse event in the nintedanib groups was diarrhea, with rates of 61.5% and 18.6% in the nintedanib and placebo groups, respectively, in INPULSIS-1 and 63.2% and 18.3% in the two groups, respectively, in INPULSIS-2. CONCLUSIONS: In patients with idiopathic pulmonary fibrosis, nintedanib reduced the decline in FVC, which is consistent with a slowing of disease progression; nintedanib was frequently associated with diarrhea, which led to discontinuation of the study medication in less than 5% of patients. (Funded by Boehringer Ingelheim; INPULSIS-1 and INPULSIS-2 ClinicalTrials.gov numbers, NCT01335464 and NCT01335477.).",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "0cc29ede625748afff254056419e65cb04106a64708475a051c5efb92d9f9b86"
+      },
+      {
+        "pmid": "35371648",
+        "title": "Acute Exacerbation of Idiopathic Pulmonary Fibrosis With Pirfenidone and Nintedanib: A Friend or Foe.",
+        "authors": "Kaushal M, Talwar D, Prajapat D, Kumar S, Acharya S, Talwar D.",
+        "year": "2022",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.22606",
+        "url": "https://europepmc.org/article/PMC/PMC8957895",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Acute exacerbation (AE) in idiopathic pulmonary fibrosis (IPF) is unfortunate a deadly event with a very high mortality rate. Its occurrence is highly unpredictable, though few baseline risk factors have been identified. The revised definition of AE is more precise with clarity on defined parameters. However, no clear guidelines exist on treatment, with most therapies showing inconsistent benefits. Both the approved anti-fibrotic (pirfenidone and nintedanib) have shown equal efficacy in reducing the decline in lung functions, with few studies suggesting a drop in AE. We report a case of a patient with IPF with mildly impaired lung functions who was initiated on pirfenidone with dose titrated on a weekly basis but developed AE-IPF on day 10 of starting pirfenidone and after four days of doubling the dose from 600 mg/day to 1,200 mg/day. This raised the suspicion of whether pirfenidone played any role in this unfortunate event. With no response to conventional therapy of steroids and non-invasive ventilation for AE-IPF, initialization of nintedanib led to recovery with discharge of the patient in two weeks of hospitalization. This case highlights inadequacy in knowledge about the effects of these anti-fibrotics in IPF and recommends close monitoring in the future.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "C"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "587c01d35167d84c2221496bf686d9b1ec4d073aa3346013fe29c5595986f647"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 42,
+      "screened": 42,
+      "blocked": 0,
+      "returned": 6,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "idiopathic pulmonary fibrosis, mild-to-moderate restriction nintedanib 150 mg twice daily pirfenidone titrated to 2403 mg daily annual rate of decline in forced vital capacity (FVC)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      }
+    ],
+    "hasMore": true
+  }
+}

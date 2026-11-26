@@ -1,0 +1,712 @@
+{
+  "id": "PRESET-oncology-nsclc-io-chemo",
+  "recordedAt": "2026-11-26T19:41:57.120Z",
+  "specialty": "oncology",
+  "words": [
+    {
+      "word": "advanced non-small cell lung cancer, wild-type EGFR/ALK",
+      "role": "population"
+    },
+    {
+      "word": "pembrolizumab plus platinum chemotherapy",
+      "role": "intervention"
+    },
+    {
+      "word": "platinum chemotherapy alone",
+      "role": "comparator"
+    },
+    {
+      "word": "overall survival (OS)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "advanced non-small cell lung cancer, wild-type EGFR/ALK",
+        "role": "population"
+      },
+      {
+        "word": "pembrolizumab plus platinum chemotherapy",
+        "role": "intervention"
+      },
+      {
+        "word": "platinum chemotherapy alone",
+        "role": "comparator"
+      },
+      {
+        "word": "overall survival (OS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In advanced non-small cell lung cancer, wild-type EGFR/ALK (P), does pembrolizumab plus platinum chemotherapy (I) compared with platinum chemotherapy alone (C) improve overall survival (OS) (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In advanced non-small cell lung cancer, wild-type EGFR/ALK (P), is pembrolizumab plus platinum chemotherapy (I) superior to platinum chemotherapy alone (C) for overall survival (OS) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of advanced non-small cell lung cancer, wild-type EGFR/ALK (P), does pembrolizumab plus platinum chemotherapy (I) compared with platinum chemotherapy alone (C) improve overall survival (OS) (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In advanced non-small cell lung cancer, wild-type EGFR/ALK (P), does pembrolizumab plus platinum chemotherapy (I) compared with platinum chemotherapy alone (C) improve overall survival (OS) (O)?"
+    },
+    "words": [
+      {
+        "word": "advanced non-small cell lung cancer, wild-type EGFR/ALK",
+        "role": "population"
+      },
+      {
+        "word": "pembrolizumab plus platinum chemotherapy",
+        "role": "intervention"
+      },
+      {
+        "word": "platinum chemotherapy alone",
+        "role": "comparator"
+      },
+      {
+        "word": "overall survival (OS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42529281",
+        "title": "Efficacy of first-line treatment in driver gene-negative non-small cell lung cancer with liver metastases: a Bayesian network meta-analysis.",
+        "authors": "Wu W, Guo X, Dong X, Liang H, Zhang L.",
+        "year": "2026",
+        "journal": "Frontiers in immunology",
+        "doi": "10.3389/fimmu.2026.1791664",
+        "url": "https://europepmc.org/article/PMC/PMC13416637",
+        "source": "pmc",
+        "pubType": "Research Support, Non-U.S. Gov't, Systematic Review, systematic-review, Network Meta-Analysis, Journal Article",
+        "publicationTypes": [
+          "Research Support, Non-U.S. Gov't",
+          "Systematic Review",
+          "systematic-review",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "context": "Objective This study aimed to evaluate the first-line treatment patterns and prognostic factors associated with survival in patients with driver gene-negative non-small cell lung cancer (NSCLC) and liver metastases, in order to identify the optimal treatment strategy. Methods A Bayesian network meta-analysis was performed using R software (version 4.2.3) and RevMan (version 5.4) to systematically compare the efficacy of various first-line treatment regimens, including chemotherapy, immunotherapy, and combination therapy, in patients with driver gene-negative NSCLC with liver metastases. Results A total of 20 randomized controlled trials were included. Among patients with driver gene-negative NSCLC and liver metastases: (1) PD-1 inhibitor plus chemotherapy significantly improved progression-free survival (PFS) (HR = 0.572, 95% CI: 0.435-0.754) and overall survival (OS) (HR = 0.681, 95% CI: 0.559-0.830) compared with chemotherapy alone. (2) In the patients with non-squamous NSCLC, PD-1/PD-L1 inhibitor plus chemotherapy resulted in a greater PFS benefit than chemotherapy alone. (3) A similar PFS advantage was observed in patients with squamous NSCLC receiving PD-1 inhibitor plus chemotherapy versus chemotherapy alone (HR = 0.583, 95% CI: 0.386-0.882). (4) Camrelizumab plus chemotherapy (CAM+CT) ranked highest in the network meta-analysis, with the top SUCRA values for both PFS (84.18%) and OS (96.38%). Conclusion In treatment-naive driver gene-negative NSCLC with liver metastases: PD-1 inhibitor plus chemotherapy conferred more significant PFS and OS benefits than chemotherapy alone. CAM+CT appeared to rank favorably among the evaluated regimens, particularly in patients with squamous NSCLC and liver metastases, suggesting it may represent a candidate treatment strategy. However, given that these findings were derived from a network meta-analysis based on indirect comparisons, they should be interpreted with caution. Systematic review registration https://www.crd.york.ac.uk/PROSPERO/view/CRD42025632364, identifier CRD42025632364.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "115586e5ebf9f6e777b570df819bacfd83c3ecb38928ee5bb06e87318e9b1964"
+      },
+      {
+        "pmid": "40531080",
+        "title": "PD-1/PD-L1 inhibitors plus chemotherapy versus chemotherapy alone for TKIs-resistant, EGFR-mutant, advanced non-small-cell lung cancer: a phase 3 RCTs based meta-analysis",
+        "authors": "Chen X, et al",
+        "year": "2025",
+        "journal": "Expert review of anticancer therapy",
+        "doi": "10.1080/14737140.2025.2522980",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40531080/",
+        "context": "BACKGROUND: Immunotherapy combined with chemotherapy has emerged as a potential strategy to overcome tyrosine kinase inhibitors (TKIs)-resistant for advanced non-small-cell lung cancer (NSCLC); however, the efficacy and safety of PD-1/PD-L1 inhibitors plus chemotherapy (PIC) compared to chemotherapy alone require further investigation. RESEARCH DESIGN AND METHODS: Phase III randomized controlled trials (RCTs) were systematically searched from 6 databases. Pooled hazard ratios (HRs) for survival outcomes and risk ratios (RRs) for responses and adverse events (AEs) were calculated. RESULTS: Three phase III RCTs were included in the final analysis. The PIC therapy significantly improved overall survival (OS) (HR: 0.86, 95% CI: 0.75-1.00, p = 0.04) and progression-free survival (PFS) (HR: 0.78, 95% CI: 0.68-0.90, p = 0.0005) compared to chemotherapy alone. While PIC therapy improved survival in the overall population, no significant benefit was observed for patients with brain metastases and non-sensitizing EGFR mutations. However, the incidence of immune-related AEs (irAEs) (RR: 2.02, 95% CI: 1.45-2.81, p < 0.0001) and grade 3-5 irAEs (RR: 2.02, 95% CI: 1.03-3.98, p = 0.04) were increased. CONCLUSIONS: PIC therapy may provide a survival benefit for patients with TKIs-resistant, EGFR-mutant advanced NSCLC. Moreover, this potential benefit should be weighed against the increased risk of irAEs. REGISTRATION: PROSPERO (CRD42024615907).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Comparative Study",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "a347f07390f6953ba837ef605f07d85671b9990d0fa41294395516525cc0c261"
+      },
+      {
+        "pmid": "33581821",
+        "title": "Cemiplimab monotherapy for first-line treatment of advanced non-small-cell lung cancer with PD-L1 of at least 50%: a multicentre, open-label, global, phase 3, randomised, controlled trial",
+        "authors": "Sezer A, et al",
+        "year": "2021",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(21)00228-2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33581821/",
+        "context": "BACKGROUND: We aimed to examine cemiplimab, a programmed cell death 1 inhibitor, in the first-line treatment of advanced non-small-cell lung cancer with programmed cell death ligand 1 (PD-L1) of at least 50%. METHODS: In EMPOWER-Lung 1, a multicentre, open-label, global, phase 3 study, eligible patients recruited in 138 clinics from 24 countries (aged ≥18 years with histologically or cytologically confirmed advanced non-small-cell lung cancer, an Eastern Cooperative Oncology Group performance status of 0-1; never-smokers were ineligible) were randomly assigned (1:1) to cemiplimab 350 mg every 3 weeks or platinum-doublet chemotherapy. Crossover from chemotherapy to cemiplimab was allowed following disease progression. Primary endpoints were overall survival and progression-free survival per masked independent review committee. Primary endpoints were assessed in the intention-to-treat population and in a prespecified PD-L1 of at least 50% population (per US Food and Drug Administration request to the sponsor), which consisted of patients with PD-L1 of at least 50% per 22C3 assay done according to instructions for use. Adverse events were assessed in all patients who received at least one dose of the assigned treatment. This study is registered with ClinicalTrials.gov, NCT03088540 and is ongoing. FINDINGS: Between June 27, 2017 and Feb 27, 2020, 710 patients were randomly assigned (intention-to-treat population). In the PD-L1 of at least 50% population, which consisted of 563 patients, median overall survival was not reached (95% CI 17·9-not evaluable) with cemiplimab (n=283) versus 14·2 months (11·2-17·5) with chemotherapy (n=280; hazard ratio [HR] 0·57 [0·42-0·77]; p=0·0002). Median progression-free survival was 8·2 months (6·1-8·8) with cemiplimab versus 5·7 months (4·5-6·2) with chemotherapy (HR 0·54 [0·43-0·68]; p<0·0001). Significant improvements in overall survival and progression-free survival were also observed with cemiplimab in the intention-to-treat population despite a high crossover rate (74%). Grade 3-4 treatment-emergent adverse events occurred in 98 (28%) of 355 patients treated with cemiplimab and 135 (39%) of 342 patients treated with chemotherapy. INTERPRETATION: Cemiplimab monotherapy significantly improved overall survival and progression-free survival compared with chemotherapy in patients with advanced non-small-cell lung cancer with PD-L1 of at least 50%, providing a potential new treatment option for this patient population. FUNDING: Regeneron Pharmaceuticals and Sanofi.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d3c9d2f445767091c22bf28641bc84c9bd2a06be38361a82506a920182d71fa3"
+      },
+      {
+        "pmid": "32035514",
+        "title": "Patient-reported outcomes following pembrolizumab or placebo plus pemetrexed and platinum in patients with previously untreated, metastatic, non-squamous non-small-cell lung cancer (KEYNOTE-189): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial",
+        "authors": "Garassino MC, et al",
+        "year": "2020",
+        "journal": "The Lancet. Oncology",
+        "doi": "10.1016/S1470-2045(19)30801-0",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32035514/",
+        "context": "BACKGROUND: Pembrolizumab plus pemetrexed-platinum led to superior overall survival and progression-free survival, and a higher proportion of patients with a confirmed complete or partial response over placebo plus pemetrexed-platinum in the KEYNOTE-189 study. We aimed to evaluate prespecified exploratory patient-reported outcomes (PROs) in patients in KEYNOTE-189. METHODS: In the multicentre, double-blind, randomised, placebo-controlled, phase 3 KEYNOTE-189 study done at 126 cancer centres in 16 countries, eligible patients aged 18 years or older with histologically or cytologically confirmed metastatic non-squamous non-small-cell lung cancer without sensitising EGFR or ALK alterations, measurable disease as per Response Evaluation Criteria in Solid Tumors (version 1.1), and an Eastern Cooperative Oncology Group performance status of 0 or 1 were enrolled. Patients were randomly assigned (2:1) to receive intravenous pembrolizumab (200 mg) or saline placebo every 3 weeks for up to 2 years (35 cycles); all patients received four cycles of intravenous pemetrexed (500 mg/m 2 ) with carboplatin (5 mg/mL per min) or cisplatin (75 mg/m 2 ; investigator's choice) every 3 weeks for four cycles, followed by pemetrexed maintenance therapy every 3 weeks. Permuted block randomisation (block size six) was done with an interactive voice-response system and stratified by PD-L1 expression, choice of platinum, and smoking status. Patients, investigators, and other study personnel were unaware of treatment assignment. The European Organisation for Research and Treatment of Cancer Quality-of-Life Questionnaire-Core 30 (QLQ-C30) and Lung Cancer 13 (QLQ-LC13) were administered at cycles 1-5, every three cycles thereafter during year 1, and every four cycles during years 2-3. The primary endpoints (overall survival and progression-free survival) have been published previously. Key PRO endpoints were change from baseline to week 12 (during chemotherapy) and week 21 (following chemotherapy) in QLQ-C30 global health status/quality of life (GHS/QOL) score, and time to deterioration in cough, chest pain, or dyspnoea. PROs were analysed in all randomly assigned patients who received at least one dose of study medication and who completed at least one PRO assessment, and the results are provided with two-sided, nominal p values. This ongoing study is registered with ClinicalTrials.gov, number NCT02578680. FINDINGS: Between Feb 26, 2016, and March 6, 2017, 616 patients were enrolled; median follow-up was 10·5 months (range 0·2-20·4) as of data cutoff on Nov 8, 2017. 402 (99%) of 405 patients in the pembrolizumab plus pemetrexed-platinum group and 200 (99%) of 202 patients in the placebo plus pemetrexed-platinum-treated group completed at least one PRO assessment. At baseline, 359 (89%) of 402 patients in the pembrolizumab plus pemetrexed-platinum group and 180 (90%) of 200 in the placebo plus pemetrexed-platinum group were compliant with QLQ-C30; at week 12, 319 (90%) of 354 and 149 (89%) of 167 patients were compliant, respectively; and at week 21, 249 (76%) of 326 and 91 (64%) of 143 patients were compliant, respectively. From baseline to week 12, GHS/QOL scores were maintained with both pembrolizumab plus pemetrexed-platinum (least-squares mean change: 1·0 point [95% CI -1·3 to 3·2] increase) and placebo plus pemetrexed-platinum (-2·6 points [-5·8 to 0·5] decrease; between-group difference: 3·6 points [-0·1 to 7·2]; p=0·053). From baseline to week 21, GHS/QOL scores were better maintained with pembrolizumab plus pemetrexed-platinum (least-squares mean change: 1·3 points [95% CI -1·2 to 3·6] increase) than with placebo plus pemetrexed-platinum (-4·0 points [-7·7 to -0·3] decrease; between-group difference: 5·3 points [1·1 to 9·5]; p=0·014). Median time to deterioration in cough, chest pain, or dyspnoea was not reached (95% CI 10·2 months to not reached) with pembrolizumab plus pemetrexed-platinum, and was 7·0 months (4·8 months to not reached) with placebo plus pemetrexed-platinum (hazard ratio 0·81 [95% CI 0·60-1·09], p=0·16). INTERPRETATION: The addition of pembrolizumab to standard chemotherapy maintained GHS/QOL, with improved GHS/QOL scores at week 21 in the pembrolizumab plus chemotherapy group compared with the placebo plus chemotherapy group. These data further support use of pembrolizumab plus pemetrexed-platinum as first-line therapy for patients with metastatic non-squamous non-small-cell lung cancer. FUNDING: Merck Sharp & Dohme.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "c141c7983637c8557d5a2cd1f70b5021b448a7947f79519aedf8798299ee9743"
+      },
+      {
+        "pmid": "24933332",
+        "title": "Ramucirumab plus docetaxel versus placebo plus docetaxel for second-line treatment of stage IV non-small-cell lung cancer after disease progression on platinum-based therapy (REVEL): a multicentre, double-blind, randomised phase 3 trial",
+        "authors": "Garon EB, et al",
+        "year": "2014",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(14)60845-X",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24933332/",
+        "context": "BACKGROUND: Ramucirumab is a human IgG1 monoclonal antibody that targets the extracellular domain of VEGFR-2. We aimed to assess efficacy and safety of treatment with docetaxel plus ramucirumab or placebo as second-line treatment for patients with stage IV non-small-cell-lung cancer (NSCLC) after platinum-based therapy. METHODS: In this multicentre, double-blind, randomised phase 3 trial (REVEL), we enrolled patients with squamous or non-squamous NSCLC who had progressed during or after a first-line platinum-based chemotherapy regimen. Patients were randomly allocated (1:1) with a centralised, interactive voice-response system (stratified by sex, region, performance status, and previous maintenance therapy [yes vs no]) to receive docetaxel 75 mg/m(2) and either ramucirumab (10 mg/kg) or placebo on day 1 of a 21 day cycle until disease progression, unacceptable toxicity, withdrawal, or death. The primary endpoint was overall survival in all patients allocated to treatment. We assessed adverse events according to treatment received. This study is registered with ClinicalTrials.gov, number NCT01168973. FINDINGS: Between Dec 3, 2010, and Jan 24, 2013, we screened 1825 patients, of whom 1253 patients were randomly allocated to treatment. Median overall survival was 10·5 months (IQR 5·1-21·2) for 628 patients allocated ramucirumab plus docetaxel and 9·1 months (4·2-18·0) for 625 patients who received placebo plus docetaxel (hazard ratio 0·86, 95% CI 0·75-0·98; p=0·023). Median progression-free survival was 4·5 months (IQR 2·3-8·3) for the ramucirumab group compared with 3·0 months (1·4-6·9) for the control group (0·76, 0·68-0·86; p<0·0001). We noted treatment-emergent adverse events in 613 (98%) of 627 patients in the ramucirumab safety population and 594 (95%) of 618 patients in the control safety population. The most common grade 3 or worse adverse events were neutropenia (306 patients [49%] in the ramucirumab group vs 246 [40%] in the control group), febrile neutropenia (100 [16%] vs 62 [10%]), fatigue (88 [14%] vs 65 [10%]), leucopenia (86 [14%] vs 77 [12%]), and hypertension (35 [6%] vs 13 [2%]). The numbers of deaths from adverse events (31 [5%] vs 35 [6%]) and grade 3 or worse pulmonary haemorrhage (eight [1%] vs eight [1%]) did not differ between groups. Toxicities were manageable with appropriate dose reductions and supportive care. INTERPRETATION: Ramucirumab plus docetaxel improves survival as second-line treatment of patients with stage IV NSCLC. FUNDING: Eli Lilly.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8d8158cba5819120614f0794b51ed0e13fc34e8dbd50d715f625f015a9be79cd"
+      },
+      {
+        "pmid": "42738389",
+        "title": "Real-World Treatment Patterns and Clinical Outcomes After First-Line Therapy in Patients with KRAS G12C-Mutant Advanced Non-Small-Cell Lung Cancer in the United States.",
+        "authors": "Sheffield KM, Puri T, Thoele K, Karu H, Mansharamani A, Uprety D.",
+        "year": "2026",
+        "journal": "Cancers",
+        "doi": "10.3390/cancers18172869",
+        "url": "https://europepmc.org/article/PMC/PMC13565047",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Approximately 13% of NSCLC cases have KRAS G12C mutations. As therapeutic strategies targeting KRAS G12C-mutant NSCLC evolve, it is important to understand clinical presentation and current outcomes for these patients. Methods This retrospective study used data from two US nationwide databases, an electronic health records (EHR) database and a clinico-genomic database (CGDB) of EHR data linked to data from comprehensive genomic profiling tests. Eligible patients had advanced NSCLC, initiated first-line therapy from August 2018 to December 2022, and had KRAS test results. Clinicopathologic characteristics, treatments, real-world progression-free survival (rwPFS), and overall survival (OS) were analyzed. Results There were 1227 patients with KRAS G12C-mutant NSCLC in the EHR database and 447 in the CGDB. First-line regimen was platinum-based chemotherapy plus pembrolizumab for 46% and pembrolizumab monotherapy for 20%. Less than 40% of patients received second-line therapy. Median (95% CI) OS for KRAS G12C-mutant NSCLC patients in the EHR was 17.0 (15.2-18.9) months. Variables significantly associated with shorter OS included PD-L1 Conclusions These data provide a real-world benchmark of outcomes for patients with KRAS G12C-mutant NSCLC receiving the current standard of care and indicate an unmet need for more effective first-line therapies.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "a977ddbee7b4f19dee22079b335b901d53770fa4473cc6e13a8f3c92f25479d1"
+      },
+      {
+        "pmid": "38820549",
+        "title": "Ivonescimab Plus Chemotherapy in Non–Small Cell Lung Cancer With EGFR Variant: A Randomized Clinical Trial",
+        "authors": "HARMONi-A Study Investigators, Wen‐Feng Fang, Yuanyuan Zhao, Yongzhong Luo",
+        "year": "2024",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2024.10613",
+        "url": "https://doi.org/10.1001/jama.2024.10613",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: For patients with non-small cell lung cancer whose disease progressed while receiving EGFR tyrosine kinase inhibitor (EGFR-TKI) therapy, particularly third-generation TKIs, optimal treatment options remain limited. Objective: To compare the efficacy of ivonescimab plus chemotherapy with chemotherapy alone for patients with relapsed advanced or metastatic non-small cell lung cancer with the epidermal growth factor receptor (EGFR) variant. Design, Setting, and Participants: Double-blind, placebo-controlled, randomized, phase 3 trial at 55 sites in China enrolled participants from January 2022 to November 2022; a total of 322 eligible patients were enrolled. Interventions: Participants received ivonescimab (n = 161) or placebo (n = 161) plus pemetrexed and carboplatin once every 3 weeks for 4 cycles, followed by maintenance therapy of ivonescimab plus pemetrexed",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3ebf00a0d4f59ad15ce14a85e4b18c32dc93f0861c92732364d80c10ccf76ae7"
+      },
+      {
+        "pmid": "31239797",
+        "title": "Combination pembrolizumab plus chemotherapy: a new standard of care for patients with advanced non-small-cell lung cancer",
+        "authors": "Frank D. Weinberg, Shirish M. Gadgeel",
+        "year": "2019",
+        "journal": "Lung Cancer Targets and Therapy",
+        "doi": "10.2147/lctt.s176391",
+        "url": "https://doi.org/10.2147/lctt.s176391",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Until recently, the treatment of patients with advanced non-small-cell lung cancer (NSCLC) whose tumors did not have a targetable genetic alteration was cytotoxic chemotherapy alone. This treatment provided only modest survival benefit. The introduction of immune checkpoint inhibitors targeting programmed cell death 1 protein (PD-1) signaling pathway in the treatment of patients with NSCLC has had significant effect on patient survival. Atezolizumab, nivolumab and pembrolizumab have been shown to be superior to chemotherapy in patients with recurrent NSCLC. Recently, pembrolizumab has been combined with chemotherapy in the front-line setting and has demonstrated an improvement in overall survival in NSCLC patients as compared to chemotherapy alone. In this review we will focus on the clinical trials that led to approval of",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "fe97cf7b4a8ac3a6c12ae728143bf3900e0eae06501e581ab4066f4e1aeabefa"
+      },
+      {
+        "pmid": "43026778",
+        "title": "Precision Perioperative Treatment for Resectable Non-Small Cell Lung Cancer: Current Status and Perspectives.",
+        "authors": "Isaacs DJ, Park CJ, Zha L, Liang R, Godoy LA, Stollenwerk NS, Wei D, Chang KY, Rajappa P, Li T.",
+        "year": "2026",
+        "journal": "Cancers",
+        "doi": "10.3390/cancers18213456",
+        "url": "https://europepmc.org/article/PMC/PMC13762224",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "The treatment paradigm for resectable non-small cell lung cancer (NSCLC) continues to evolve toward precision perioperative strategies. Despite curative-intent surgery, disease recurrence remains common. Adjuvant tyrosine kinase inhibitors have substantially improved disease-free survival and, in selected populations, overall survival, particularly for patients with sensitizing EGFR mutations or ALK rearrangements. Targeted therapies for other actionable genomic alterations (AGAs), including RET fusions, remain investigational. Adequate tissue acquisition and comprehensive molecular profiling before treatment initiation are therefore essential for optimal treatment selection. For patients without sensitizing EGFR mutations or ALK rearrangements, neoadjuvant or perioperative PD-(L)1 blockade combined with platinum-based chemotherapy has become a standard of care for eligible patients with resectable stage II-III NSCLC, improving pathological response, event-free survival, and, in select trials, overall survival. Multidisciplinary reassessment of resectability following neoadjuvant treatment is particularly important for borderline-resectable disease. Patients subsequently deemed unresectable require individualized management, potentially including definitive chemoradiotherapy followed by consolidation immunotherapy. Although cross-trial comparisons suggest advantages of neoadjuvant chemoimmunotherapy over adjuvant-only immunotherapy, direct randomized comparisons are lacking. The incremental benefit of postoperative immunotherapy after neoadjuvant chemoimmunotherapy remains uncertain for selected patients. Future priorities include optimizing treatment sequencing, improving pathological complete response rates, refining radiographic and molecular response assessment, investigating resistance mechanisms, and integrating circulating tumor DNA-based minimal residual disease detection into individualized postoperative treatment. Whether surgery can be safely omitted in exceptional responders also warrants prospective investigation. Together, these advances support a biomarker-driven, response-adapted approach to precision perioperative NSCLC management.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "2171ff3a1d325ca76d81ab9db52b9163d9990b8e75b6c04eb13378a16ded1d50"
+      },
+      {
+        "pmid": "26412456",
+        "title": "Nivolumab versus Docetaxel in Advanced Nonsquamous Non–Small-Cell Lung Cancer",
+        "authors": "Hossein Borghaei, Luis G Paz-Ares, Leora Horn, David Robert Spigel",
+        "year": "2015",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1507643",
+        "url": "https://doi.org/10.1056/nejmoa1507643",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Nivolumab, a fully human IgG4 programmed death 1 (PD-1) immune-checkpoint-inhibitor antibody, disrupts PD-1-mediated signaling and may restore antitumor immunity. METHODS: In this randomized, open-label, international phase 3 study, we assigned patients with nonsquamous non-small-cell lung cancer (NSCLC) that had progressed during or after platinum-based doublet chemotherapy to receive nivolumab at a dose of 3 mg per kilogram of body weight every 2 weeks or docetaxel at a dose of 75 mg per square meter of body-surface area every 3 weeks. The primary end point was overall survival. RESULTS: Overall survival was longer with nivolumab than with docetaxel. The median overall survival was 12.2 months (95% confidence interval [CI], 9.7 to 15.0) among 292 patients in the nivolumab group and",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3b4efdae6d71492339266e0c12102349970ecfff4071156beb1a8641b5d0084c"
+      },
+      {
+        "pmid": "39243945",
+        "title": "Durvalumab With or Without Tremelimumab in Combination With Chemotherapy in First-Line Metastatic NSCLC: Five-Year Overall Survival Outcomes From the Phase 3 POSEIDON Trial",
+        "authors": "Peters S, et al",
+        "year": "2025",
+        "journal": "Journal of thoracic oncology : official publication of the International Association for the Study of Lung Cancer",
+        "doi": "10.1016/j.jtho.2024.09.1381",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39243945/",
+        "context": "INTRODUCTION: The primary analysis (median follow-up 34.9 mo across all arms) of the phase 3 POSEIDON study revealed a statistically significant overall survival (OS) improvement with first-line tremelimumab plus durvalumab and chemotherapy (T+D+CT) versus CT in patients with EGFR and ALK wild-type metastatic NSCLC (mNSCLC). D+CT had a trend for OS improvement versus CT that did not reach statistical significance. This article reports prespecified OS analyses after long-term follow-up (median >5 y). METHODS: A total of 1013 patients were randomized (1:1:1) to T+D+CT, D+CT, or CT, stratified by tumor cell programmed cell death ligand-1 (PD-L1) expression (≥50% versus <50%), disease stage (IVA versus IVB), and tumor histologic type (squamous versus nonsquamous). Serious adverse events were collected during follow-up. RESULTS: After a median follow-up of 63.4 months across all arms, T+D+CT had sustained OS benefit versus CT (hazard ratio [HR] = 0.76, 95% confidence interval [CI]: 0.64-0.89; 5-y OS: 15.7% versus 6.8%). OS improvement with D+CT versus CT (HR = 0.84, 95% CI: 0.72-1.00; 5-y OS: 13.0%) was consistent with the primary analysis. OS benefit with T+D+CT versus CT remained more pronounced in nonsquamous (HR = 0.69, 95% CI: 0.56-0.85) versus squamous (HR = 0.85, 95% CI: 0.65-1.10) mNSCLC. OS benefit with T+D+CT versus CT was still evident regardless of PD-L1 expression, including patients with PD-L1 tumor cell less than 1%, and remained evident in STK11-mutant (nonsquamous), KEAP1-mutant, and KRAS-mutant (nonsquamous) mNSCLC. No new safety signals were identified. CONCLUSIONS: After a median follow-up of more than 5 years, T+D+CT had durable long-term OS benefit versus CT, supporting its use as first-line treatment in mNSCLC, including in patient subgroups with harder-to-treat disease.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2cc5e46fd5b2e0d3cb9806987c8a0fb67ee9a1c4489db3eb99ea28222380f4da"
+      },
+      {
+        "pmid": "34478166",
+        "title": "JASPER: Phase 2 trial of first‐line niraparib plus pembrolizumab in patients with advanced non–small cell lung cancer",
+        "authors": "Suresh S. Ramalingam, Eddie Thara, Mark Magdi Awad, Afshin Dowlati",
+        "year": "2021",
+        "journal": "Cancer",
+        "doi": "10.1002/cncr.33885",
+        "url": "https://doi.org/10.1002/cncr.33885",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Poly(ADP-ribose) polymerase (PARP) inhibitors may synergize with programmed cell death receptor-1 (PD-1) inhibitors to enhance adaptive and innate antitumor immune responses. In the phase 2 JASPER study (NCT04475939), the PARP inhibitor niraparib was evaluated in combination with the PD-1 inhibitor pembrolizumab in patients with metastatic and/or locally advanced non-small cell lung cancer (NSCLC). METHODS: Patients whose tumors had programmed cell death ligand 1 (PD-L1) tumor proportion scores (TPS) ≥50% (cohort 1) or 1%-49% (cohort 2) received first-line niraparib (200 mg once daily) plus pembrolizumab (200 mg every 3 weeks). The primary end point was investigator-assessed objective response rate (ORR). Secondary end points included duration of response (DoR), progression-free survival (PFS), overall survival (OS), safety, and pharmacokinetics. RESULTS: Thirty-eight patients",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "1d95a269ebb6eeca5fd4b8ab1f621c187ae2d0d6eab3438d60a8a44cbf7bf26e"
+      },
+      {
+        "pmid": "30370103",
+        "title": "Atezolizumab in non-squamous non-small cell lung cancer",
+        "authors": "Takaki Akamine, Gouji Toyokawa, Tetsuzo Tagawa, Takashi Seto",
+        "year": "2018",
+        "journal": "Journal of Thoracic Disease",
+        "doi": "10.21037/jtd.2018.07.92",
+        "url": "https://doi.org/10.21037/jtd.2018.07.92",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Immune therapy opened a new era in treatment of advanced non-small cell lung cancer (NSCLC).Immune checkpoint inhibitors (ICIs) targeting the programmed deathligand 1 (PD-L1)/programmed death-1 (PD-1) pathway have achieved great success over conventional cytotoxic chemotherapy.Several anti-PD-1 antibodies, including nivolumab and pembrolizumab, were approved by the Food and Drug Administration (FDA) in 2015 for use as second-line therapy for advanced NSCLC.The drugs were approved after demonstrating both clinical efficacy and an improved safety profile compared with standard docetaxel for the treatment of non-squamous NSCLC (1,2).Pembrolizumab received FDA approval in 2016 as a firstline treatment for patients with advanced NSCLC and high PD-L1 expressing tumors (3,4).The PD-L1 antibody, atezolizumab (Tecentriq, F. Hoffmann-La Roche/Genentech), is a selective humanized monoclonal IgG1 antibody, which was",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8d82376c7c903a4173eb55518994216579d3defc2269ad25cc3ecb2d2878fab0"
+      },
+      {
+        "pmid": "cr:10.1097/01.cot.0000615248.89966.60",
+        "title": "Pembrolizumab Plus Chemo for Advanced Non-Small Cell Lung Cancer",
+        "authors": "Simoneaux Richard",
+        "year": "2019",
+        "journal": "Oncology Times",
+        "doi": "10.1097/01.cot.0000615248.89966.60",
+        "url": "https://doi.org/10.1097/01.cot.0000615248.89966.60",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "ec6ebd6a08ade59640b9c652ffc36b52702771bfddd7ffe3f6c0485fb982f958"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 14,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 29
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 29,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 22,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "advanced non-small cell lung cancer, wild-type EGFR/ALK pembrolizumab plus platinum chemotherapy platinum chemotherapy alone overall survival (OS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

@@ -1,0 +1,763 @@
+{
+  "id": "PRESET-infectious_disease-mrsa-bacteremia-combination",
+  "recordedAt": "2026-11-26T19:54:19.846Z",
+  "specialty": "infectious_disease",
+  "words": [
+    {
+      "word": "adults with persistent MRSA bacteremia",
+      "role": "population"
+    },
+    {
+      "word": "high-dose daptomycin plus ceftaroline combination",
+      "role": "intervention"
+    },
+    {
+      "word": "standard vancomycin monotherapy",
+      "role": "comparator"
+    },
+    {
+      "word": "time to bacteremia clearance and 30-day mortality",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "adults with persistent MRSA bacteremia",
+        "role": "population"
+      },
+      {
+        "word": "high-dose daptomycin plus ceftaroline combination",
+        "role": "intervention"
+      },
+      {
+        "word": "standard vancomycin monotherapy",
+        "role": "comparator"
+      },
+      {
+        "word": "time to bacteremia clearance and 30-day mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In adults with persistent MRSA bacteremia (P), does high-dose daptomycin plus ceftaroline combination (I) compared with standard vancomycin monotherapy (C) improve time to bacteremia clearance and 30-day mortality (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 1 no-difference, 0 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In adults with persistent MRSA bacteremia (P), is high-dose daptomycin plus ceftaroline combination (I) superior to standard vancomycin monotherapy (C) for time to bacteremia clearance and 30-day mortality (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of adults with persistent MRSA bacteremia (P), does high-dose daptomycin plus ceftaroline combination (I) compared with standard vancomycin monotherapy (C) improve time to bacteremia clearance and 30-day mortality (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In adults with persistent MRSA bacteremia (P), is high-dose daptomycin plus ceftaroline combination (I) superior to standard vancomycin monotherapy (C) for time to bacteremia clearance and 30-day mortality (O)?"
+    },
+    "words": [
+      {
+        "word": "adults with persistent MRSA bacteremia",
+        "role": "population"
+      },
+      {
+        "word": "high-dose daptomycin plus ceftaroline combination",
+        "role": "intervention"
+      },
+      {
+        "word": "standard vancomycin monotherapy",
+        "role": "comparator"
+      },
+      {
+        "word": "time to bacteremia clearance and 30-day mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "41705840",
+        "title": "Preclinical and clinical evaluation of vancomycin plus delpazolid combination therapy for MRSA bacteremia: a multicenter, double-blinded, randomized, parallel design, phase IIa clinical trial.",
+        "authors": "Park K-H, Jung J, Shin SU, Jeong SJ, Park DW, Kim D-M, Choi SJ, Moon SM, Park JS, Song K-H, Kim ES, Cho YL, Bae S, Kim H",
+        "year": "2026",
+        "journal": "Microbiology spectrum",
+        "doi": "10.1128/spectrum.03361-25",
+        "url": "https://europepmc.org/article/PMC/PMC13055365",
+        "source": "pmc",
+        "pubType": "Clinical Trial, Phase II, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Clinical Trial, Phase II",
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia is a serious clinical challenge due to limited treatments and high mortality. We conducted both preclinical and clinical studies to assess the potential role of delpazolid in combination with vancomycin. Synergistic effects of delpazolid with vancomycin or daptomycin were evaluated in vitro using checkerboard and time-kill assays, and in vivo using a Galleria mellonella model. A multicenter, double-blind, randomized, Phase IIa trial was conducted at six Korean hospitals between 26 April 2022 and 18 March 2024. Patients with MRSA bacteremia were randomized 1:1 to receive vancomycin monotherapy or vancomycin plus delpazolid for 14 to 42 days. The primary outcome was overall cure at day 14 (microbiological clearance and symptom resolution). Secondary endpoints included safety, adverse events, and delpazolid pharmacokinetics. In vitro checkerboard assays showed no interaction between delpazolid and vancomycin or daptomycin, while time-kill assays revealed antagonism only when delpazolid was combined with vancomycin. In the Galleria mellonella model, combination therapy improved survival over monotherapy. In the clinical study, 40 patients were enrolled, 38 received ≥1 dose (safety set), and 34 (monotherapy: 19; combination: 15) were included in the full analysis set. On day 14, overall cure was 52.6% in the monotherapy and 60.0% in the combination group ( P = 0.6675). Adverse event rates were similar across groups, with no significant safety concerns. In pharmacokinetic analyses, delpazolid showed favorable plasma levels when co-administered. These preliminary findings warrant further investigation in adequately powered trials to define the role of delpazolid plus vancomycin in the treatment of MRSA bacteremia.CLINICAL TRIALSThe study is registered with ClinicalTrial.gov as NCT05225558. Importance Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia presents a serious clinical challenge due to limited treatments and high mortality. This study evaluated the potential role of delpazolid, an oral oxazolidinone, in combination with vancomycin for MRSA bacteremia. Preclinical studies demonstrated delpazolid's antimicrobial activity comparable to vancomycin and daptomycin, and in the Galleria mellonella infection model, combination therapy significantly improved survival rates over monotherapy. The early-terminated Phase IIa clinical study showed that the combination regimen had an acceptable safety profile, with no apparent increase in adverse events compared to vancomycin monotherapy. While overall cure rates and bacteremia clearance were numerically higher in the combination group, these differences were not statistically significant. These preliminary findings underscore the need for larger, adequately powered clinical trials to clarify the clinical role of delpazolid combination therapy in MRSA infections.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "94c180a433178755c871b69c8c0f43cf14a3f146c98bd004ca72e7878fc4731f"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofab466.406",
+        "title": "204. Clinical Outcomes with Ceftaroline Monotherapy versus Daptomycin-Ceftaroline Combination Therapy in the Treatment of Methicillin-Resistant Staphylococcus aureus Bacteremia",
+        "authors": "Andonie Gabriela, Hand Elizabeth O, Reveles Kelly R, Traugott Kristi A",
+        "year": "2021",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofab466.406",
+        "url": "https://doi.org/10.1093/ofid/ofab466.406",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia is associated with poor outcomes and increased mortality. Daptomycin (DAP) and ceftaroline (CPT) in combination has been explored as a potential treatment option and showed improved outcomes compared to vancomycin/standard therapy. CPT monotherapy has been evaluated as salvage therapy for MRSA bacteremia but, to our knowledge, not as a comparator to DAP-CPT combination therapy. The purpose of this study is to compare the clinical outcomes of DAP and CPT combination therapy to CPT monotherapy in the setting of MRSA bacteremia. Methods A retrospective chart review of adult patients (≥ 18 years of age) admitted to University Health from January 2017 to December 2020 with a diagnosis of MRSA bacteremia was performed. Patients received either CPT monotherapy or DAP-CPT combination therapy for a minimum of 48 hours during their course of therapy. Results Thirty-two patients met inclusion criteria and were evaluated. Primary source of infection was pulmonary in the CPT monotherapy group (n=7/24; 29.2%) and osteomyelitis in the DAP-CPT combination group (n= 4/8; 50.0%). Median duration of bacteremia was 8 days and 9 days in the CPT monotherapy and DAP-CPT combination group, respectively. Microbiological cure was achieved in 95.8% (n=23/24) of patients in the CPT monotherapy and 100% (n=8/8) of patients in the DAP-CPT combination group. Bacteremia relapse (30 day, p=0.62; 60 day, p=0.63), readmission rates (30 day, p=0.62; 60 day, p=0.63), and mortality rates (30 day, p=0.70; 90 day, p=0.85) were similar in both groups. There was no statistically significant difference in safety parameters, including incidence of acute kidney injury (p=1.00) and creatine kinase elevations (p=1.00). Bone marrow suppression after at least 72 hours of therapy, including anemia, leukopenia, and thrombocytopenia, was also not statistically significant between groups. Conclusion This study was unable to find a statistically significant difference in clinical outcomes between patients receiving CPT monotherapy or DAP-CPT combination therapy. A large prospective, randomized controlled trial to assess CPT monotherapy and DAP-CPT combination therapy for the treatment of persistent MRSA bacteremia is warranted. Disclosures All Authors: No reported disclosures",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "cd8f67c784fcd3f54c298ae484144cf8682a8f1f73daa3cb10e4a9effe98122b"
+      },
+      {
+        "pmid": "29859132",
+        "title": "A randomized phase 2B trial of vancomycin versus daptomycin for the treatment of methicillin-resistant Staphylococcus aureus bacteremia due to isolates with high vancomycin minimum inhibitory concentrations - results of a prematurely terminated study",
+        "authors": "Kalimuddin S, et al",
+        "year": "2018",
+        "journal": "Trials",
+        "doi": "10.1186/s13063-018-2702-8",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29859132/",
+        "context": "BACKGROUND: Studies have suggested the reduced effectiveness of vancomycin against methicillin-resistant Staphylococcus aureus (MRSA) bloodstream infections with high vancomycin minimum inhibitory concentrations. Alternative agents such as daptomycin may be considered. We conducted a randomized controlled study comparing daptomycin against vancomycin in the treatment of MRSA bloodstream infections with high vancomycin minimum inhibitory concentrations. METHODS: Patients were randomized to receive vancomycin or daptomycin for a minimum of 14 days. The primary end point was the rate of all-cause mortality at day 60. RESULTS: A total of 14 patients were randomized in this study, with 7 patients in each treatment arm. The study was terminated early due to slow patient accrual. At day 60, there was one death in the vancomycin arm and none in the daptomycin arm. The median time to microbiological clearance was 4 days in both arms (IQR 3-5 days in the vancomycin arm and 3-7 days in daptomycin arm). Only one patient in the vancomycin arm had recurrence of bacteremia. Rates of adverse events were similar in both arms. There was one case of musculoskeletal toxicity and one case of drug-related nephrotoxicity - both events occurred in the daptomycin arm. None of the patients in either treatment arm required cessation of study treatment or addition of a second anti-MRSA agent because of worsening infection. CONCLUSION: Based on the limited number of patients evaluated in this study, it remains unclear if alternative, more expensive agents such as daptomycin are superior to vancomycin in the treatment of high vancomycin minimum inhibitory concentration MRSA bloodstream infections. More studies are urgently needed but investigators may wish to consider employing novel, alternative trial methodologies to ensure a greater chance of success. TRIAL REGISTRATION: ClinicalTrials.gov, NCT01975662 . Registered on 5 November 2013.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase II",
+        "publicationTypes": [
+          "Clinical Trial, Phase II",
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "de0c6fc8c1ef44e8d4e49a8e717c4eb39da5162654dc0993b4b8b60c3f316e8e"
+      },
+      {
+        "pmid": "cr:10.1177/87551225241227796",
+        "title": "A Retrospective Cohort Study Comparing Dual Therapy With Ceftaroline With Vancomycin or Daptomycin Monotherapy for High-Grade or Persistent MRSA Bacteremia",
+        "authors": "Cabanilla M. Gabriela, Bernauer Michael L., Briski Matthew J., Atallah Liana M.",
+        "year": "2024",
+        "journal": "Journal of Pharmacy Technology",
+        "doi": "10.1177/87551225241227796",
+        "url": "https://doi.org/10.1177/87551225241227796",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia is a serious clinical infection associated with a high risk of mortality. Dual therapy is often used in patients with persistent bacteremia. Objective: This study aimed to compare the outcomes of vancomycin or daptomycin monotherapy with those of dual therapy with ceftaroline in high-grade or persistent MRSA bacteremia. Methods: We conducted a retrospective cohort study at a university teaching hospital between January 2014 and June 2021, involving adults initially treated with vancomycin or daptomycin. Patients were categorized into monotherapy and dual therapy groups. The primary outcome was 30-day mortality. Secondary outcomes included microbiological relapse and antibiotic-related adverse events. Results: In a group of 155 patients, 30-day mortality rates were similar between the monotherapy (23.4%) and dual therapy (22.6%) groups, with comparable microbiological relapse rates (6.5%). In inverse probability of treatment weighting analysis, we found no significant association between dual therapy and mortality (adjusted risk ratio [ARR] 1.38, 95% CI 0.64-2.41, P = 0.38) or microbiological relapse (ARR 0.95, 95% CI 0.31-2.73, P = 0.93). Dual therapy was associated with a lower risk of antibiotic-related adverse events (ARR 0.45, 95% CI 0.21-0.89, P = 0.02). Infectious diseases (ID) consultation was associated with a reduced mortality risk (ARR 0.27, 95% CI 0.07-0.95, P = 0.04). Conclusions: Dual therapy with ceftaroline did not reduce mortality risk compared with monotherapy in patients with MRSA bacteremia. However, patients with ID consultations showed a 73% reduction in mortality rates. Large-scale, prospective, and randomized controlled trials are needed to provide conclusive evidence regarding the potential benefits of dual therapy with ceftaroline for MRSA bacteremia.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "66e67c434b0ab7f99c60ec09380b9ece4db37a817324ba571478fb21cb91523d"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofac492.1464",
+        "title": "1834. Evaluation of De-Escalation Options after Combination Daptomycin and Ceftaroline Therapy for Persistent MRSA Bacteremia",
+        "authors": "Carroll Ryan D, Brown Matthew L, Edwards William S, Stripling Joshua",
+        "year": "2022",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofac492.1464",
+        "url": "https://doi.org/10.1093/ofid/ofac492.1464",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia carries high mortality with limited treatment options. Studies over the last decade support glycolipopeptide and beta-lactam combination therapy with daptomycin (DAP) and ceftaroline (CFT) combination gaining prominence. While data supports de-escalation to monotherapy after bacteremia clearance it does not guide the choice of agent. With barriers including accessibility, cost, and tolerability of these agents, data is needed to optimize treatment. This study aims to evaluate de-escalation options after combination DAP/CFT therapy for persistent MRSA bacteremia. Methods A single-center, retrospective review of cases of persistent MRSA bacteremia (defined as greater than 72 hours on appropriate therapy) requiring escalation to DAP/CFT between 2014 and 2021 was performed. Details of bacteremia, source of infection, and comorbidities were assessed, and outcomes including recurrence of infection, infection-associated mortality, and tolerability were compared using exact Chi-square testing and univariant analysis. Results Sixty-six cases were identified of which 7 were de-escalated to vancomycin (VAN), 48 to DAP, 4 to CFT, and 7 continued DAP/CFT combination. Demographics and details of bacteremia such as prior anti-MRSA therapy, duration prior to DAP/CFT therapy, and source identification were similar between groups. Differences included higher rates of hemodialysis patients in the VAN group, higher rates of immunocompromised hosts in the DAP group, higher average Pitt bacteremia score in the DAP/CFT group, and lower rates of source control in the VAN group. Recurrence of infection (29% VAN, 13% DAP, 25% CFT) and infection-related mortality (14% VAN, 8% DAP) were higher in the VAN group (p=0.0452). In the DAP group 23% required change in therapy during their course. Univariant analysis assessing for confounding from comorbidities and source control yielded no significant associations. Conclusion This study is limited by small, uneven sample sizes but the results identify a trend of increased recurrence rates and mortality with de-escalation to VAN but tolerability concerns with DAP. More study is needed to guide clinical care and this data provides framework for future research. Disclosures All Authors: No reported disclosures.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "f3d2182e59f47f2fbaf4a451419e542381265fced77044872b83f2d6b0eaec11"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofaa439.1804",
+        "title": "1624. Real World Experience with Daptomycin (DAP) and Ceftaroline (CPT) Combination Therapy for Methicillin-resistant Staphylococcus aureus (MRSA) bacteremia",
+        "authors": "Zidaru Andrei, Russo Hannah Ryan, Phe Kady",
+        "year": "2020",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofaa439.1804",
+        "url": "https://doi.org/10.1093/ofid/ofaa439.1804",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Methicillin-resistant Staphylococcus aureus bacteremia is associated with significant mortality rates up to 30%. Guideline-recommended first-line therapy includes monotherapy with either vancomycin or DAP. Alternative regimens are recommended for persistent MRSA bacteremia of ≥ 7 days or earlier if evident clinical deterioration. The combination of DAP plus CPT has been investigated as salvage therapy due to its synergistic mechanism potential, but real-world data with the combination therapy is limited. The aim of this study was to evaluate the efficacy of DAP plus CPT combination therapy for the treatment of MRSA bacteremia and identify independent predictors of 30-day mortality. Methods This was a single center retrospective study of patients receiving DAP-CPT at any point in therapy for the treatment of MRSA bacteremia. Univariable and multivariable analyses were performed to identify independent predictors of 30-day mortality. Results Sixty-five unique patients received DAP-CPT with a median time to combination therapy of 7 days. There were no significant independent predictors of 30-day mortality. The most common reason for combination therapy was persistent bacteremia (80%, 52/65). Bacteremia was cleared in 90.8% (59/65) of patients and the 30-day mortality rate was 15.4% (10/65). Median time to bacteremia clearance after combination switch was 3 days. Eleven patients received DAP-CPT within 72 hours of index culture. Median time to bacteremia clearance for patients switched to DAP-CPT within 72 hours versus after 72 hours did not differ (2 vs 3 days; P = 0.526), however the overall median duration of bacteremia was 4 and 11 days (P = 0.018). In a sub analysis, the median time of bacteremia clearance following combination therapy was significantly longer for patients receiving renal replacement therapy (5 vs 2 days; P = 0.04). Conclusion There were no independent predictors of 30-day mortality identified. DAP-CPT combination therapy resulted in clearance of persistent bacteremia and may serve as an effective salvage therapy. Disclosures All Authors: No reported disclosures",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "faf61718db99717d4c759966e0c9d036e178639abf096e47ed6c04754387b6d6"
+      },
+      {
+        "pmid": "cr:10.1371/journal.pone.0304103",
+        "title": "Short versus long duration of ceftaroline combination therapy and outcomes in persistent or high-grade MRSA bacteremia: A retrospective single-center study",
+        "authors": "Cabanilla M. Gabriela, Bernauer Michael L., Atallah Liana M., Briski Matthew J.",
+        "year": "2024",
+        "journal": "PLOS ONE",
+        "doi": "10.1371/journal.pone.0304103",
+        "url": "https://doi.org/10.1371/journal.pone.0304103",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background Methicillin-resistant Staphylococcus aureus (MRSA) is associated with high mortality rates. Despite antibiotic therapy, persistent bacteremia is challenging to treat. Combination therapy with ceftaroline has emerged as a potential treatment option; however, the optimal duration and clinical implications after bacteremia clearance are unknown. Methods This retrospective cohort study examined patients with high-grade or persistent MRSA bacteremia who were treated with ceftaroline combination therapy at the University of New Mexico Hospital between January 2014 and June 2021. Patients were categorized into short- (<7 days) or long-duration (≥7 days) groups based on the duration of combination therapy after bacteremia clearance. Outcomes included 30-day all-cause mortality, bacteremia recurrence, post-bacteremia clearance length of stay, and adverse events. Results A total of 32 patients were included in this study. The most common sources of bacteremia were bone/joint and endovascular (28.1%, 9/32 each). The median duration of combination therapy after clearance was seven days (IQR 2.8, 11). Patients in the long-duration group had a lower Charlson comorbidity index (1.0 vs 5.5, p = 0.017) than those in the short-duration group. After adjusting for confounders, there was no significant difference in the 30-day all-cause mortality between the groups (AOR 0.17, 95% CI 0.007–1.85, p = 0.18). No association was found between combination therapy duration and recurrence (OR 2.53, 95% CI 0.19–inf, p = 0.24) or adverse drug events (OR 3.46, 95% CI 0.39–74.86, p = 0.31). After controlling for total hospital length of stay, there was no significant difference in the post-bacteremia clearance length of stay between the two groups (p = 0.37). Conclusions Prolonging ceftaroline combination therapy after bacteremia clearance did not significantly improve outcomes in patients with persistent or high-grade MRSA bacteremia. The limitations of this study warrant cautious interpretation of its results. Larger studies are needed to determine the optimal duration and role of combination therapy for this difficult-to-treat infection.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "e61f0fbb83c12984a6b2df9554b74116dbaf18f1723307c7d51f09dcc4d53d93"
+      },
+      {
+        "pmid": "26497475",
+        "title": "Vancomycin Trough Concentration as a Predictor of Clinical Outcomes in Patients with Staphylococcus aureus Bacteremia: A Meta-analysis of Observational Studies",
+        "authors": "Prybylski JP",
+        "year": "2015",
+        "journal": "Pharmacotherapy",
+        "doi": "10.1002/phar.1638",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26497475/",
+        "context": "STUDY OBJECTIVE: To determine the strength of evidence for better clinical outcomes in patients with Staphylococcus aureus bacteremia who had vancomycin trough levels of 15-20 mg/L. DESIGN: Meta-analysis of 14 observational cohort studies. PATIENTS: A total of 1677 patients, representing geriatric and unspecified inpatients, who received standard dosing of vancomycin for the treatment of S. aureus bacteremia and who had trough level goals of 15-20 mg/L. MEASUREMENTS AND MAIN RESULTS: The treatment variables examined in the analysis were vancomycin trough concentrations and 24-hour area under the concentration-time curve to minimum inhibitory concentration ratio (AUC:MIC) values. The outcomes of interest were mortality, persistent bacteremia, and treatment failure. Mortality was defined as 30-day mortality, in-hospital mortality, or a comparable measure; persistent bacteremia was defined as bacteremia lasting at least 7 days after the initiation of vancomycin; treatment failure was defined as a composite end point that included at least persistent bacteremia and mortality, as previously defined. Higher vancomycin trough levels (15 mg/L or greater or based on MIC) were not associated with significantly reduced treatment failure, persistent bacteremia, or mortality. Higher AUC:MIC values were associated with significantly reduced treatment failure (odds ratio [OR] 0.41, 95% confidence interval [CI] 0.31-0.53), persistent bacteremia (OR 0.53, 95% CI 0.33-0.86), and mortality (OR 0.47, 95% CI 0.33-0.65). The weighted mean ± SD AUC:MIC threshold defined by regression analyses in the included studies was 418 ± 88 hours, which supports the current goal of 400 hours or more. CONCLUSION: Vancomycin trough concentrations do not have sufficient evidence to support their use as the primary guide in vancomycin dosing. Dosing should instead focus on AUC:MIC values, which have strong evidence of benefit.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "4c73ae76c649b1b7d14f73958277383e8e186558434a64b4e4766ed7262f48d3"
+      },
+      {
+        "pmid": "40558207",
+        "title": "Use of Daptomycin to Manage Severe MRSA Infections in Humans.",
+        "authors": "Fiore M, Alfieri A, Fiore D, Iuliano P, Spatola FG, Limone A, Pezone I, Leone S.",
+        "year": "2025",
+        "journal": "Antibiotics (Basel, Switzerland)",
+        "doi": "10.3390/antibiotics14060617",
+        "url": "https://europepmc.org/article/PMC/PMC12190081",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Methicillin-resistant Staphylococcus aureus (MRSA) represents a major therapeutic challenge due to its multidrug-resistance and the associated clinical burden. Daptomycin (DAP), a cyclic lipopeptide antibiotic, has become a key agent for the treatment of severe MRSA infections owing to its rapid bactericidal activity and favourable safety profile. In this narrative review, we examine studies published between 2010 and April 2025. The data suggest that treatment with high-dose (8-10 mg kg⁻ 1 ) DAP shortened the time to blood-culture sterilisation by a median of 2 days compared with standard-dose vancomycin without increasing toxicity when model-informed area-under-the-curve monitoring was employed. Particular attention is given to the synergistic effects of DAP combined with fosfomycin or β-lactams, especially ceftaroline and ceftobiprole, in overcoming persistent and refractory MRSA infections; this approach results in a reduction in microbiological failure relative to monotherapy. Resistance remains uncommon ( mprF , liaFSR , and walK underscore the need for proactive genomic surveillance. Despite promising preclinical and clinical evidence supporting combination strategies, further randomized controlled trials are necessary to establish their definitive role in clinical practice, as are head-to-head cost-effectiveness evaluations. DAP remains a critical option in the evolving landscape of MRSA management, provided its use is integrated with precision dosing, resistance surveillance, and antimicrobial-stewardship frameworks.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "0c64827fad88a1c08359dcfa7edefb8f9044b7dd125424ac4dc724611e7d71c3"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofad500.247",
+        "title": "174. Impact of Ceftaroline Duration after Bacteremia Clearance When Used in Combination Therapy for Persistent or High-grade MRSA Bacteremia",
+        "authors": "Cabanilla M Gabriela, Atallah Liana, Bernauer Michael, Briski Matthew",
+        "year": "2023",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofad500.247",
+        "url": "https://doi.org/10.1093/ofid/ofad500.247",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Methicillin resistant Staphylococcus aureus (MRSA) bacteremia is a clinically relevant syndrome with high mortality. Combination therapy with beta-lactam antibiotics has been employed in persistent MRSA bacteremia with reported clinical success. Ceftaroline is a beta-lactam antibiotic with activity against MRSA, which has been commonly used in combination therapy for this indication. However, adequate ceftaroline duration after bacteremia clearance continues to be elucidated. Thus, we aimed to evaluate clinical outcomes of patients receiving short vs. long duration of ceftaroline after persistent or high-grade bacteremia clearance. Methods This was a single-center, retrospective cohort study conducted from January 1, 2014, to June 30, 2021. Patients were included if ≥18 years of age, with high grade or persistent MRSA bacteremia, who received combination therapy with ceftaroline. The primary outcome was 30-day mortality. Secondary outcomes included hospital length of stay, time to bacteremia clearance, antibiotic-related adverse events and microbiological relapse. Results A total of 32 patients were included (mean age: 51.5 years; 71.9% white; 61.3% male). 96.9% had high-grade MRSA bacteremia and 68.8% had persistent bacteremia. The most common bacteremia source was bone and joint infections (28.1%). 56.3% of patients received ceftaroline in combination with vancomycin; mean duration was 8 days. Multivariable analysis showed increasing the duration of combination therapy after bacteremia clearance was not associated with a lower risk of 30-day mortality after controlling for Charlson comorbidity index and Pitt bacteremia scores (OR 0.75, 95% CI 0.94-2.45; p=0.07). Similarly, no association was observed with microbiological relapse (OR 1.03, 95% CI 0.92-1.16; p=0.73), antibiotic-related adverse event (OR 0.97, 95% CI 0.78-1.10; p=0.75), time to bacteremia clearance (p=0.88) or hospital length of stay (p=0.06). Conclusion Longer durations of ceftaroline in combination therapy after bacteremia clearance was not associated with lower rates of 30-day mortality, microbiological relapse, or higher rates of antibiotic-related adverse events. Larger studies are needed to determine the appropriate duration of combination therapy. Disclosures Cecilia Thompson, PhD, D(ABMM), MLS (ASCP), Roche Diagnostics: Honoraria",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "18bc1155833141df00a4133e25f7e8a35ca5278f5702391ea3ffa04f13bba152"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofy210.901",
+        "title": "1064. Clinical Outcomes of Daptomycin in Combination With Ceftaroline or Anti-Staphylococcal Penicillins for Patients With Persistent MRSA Bacteremia",
+        "authors": "Bouchard Jeannette, Oleksiuk Louise-Marie, Shields Ryan K",
+        "year": "2018",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofy210.901",
+        "url": "https://doi.org/10.1093/ofid/ofy210.901",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Daptomycin-β-lactam (DAP-BL) combinations demonstrate in vitro synergy against MRSA; however, the clinical efficacy of combo is limited. Our objective was to compare the outcomes of patients with persistent MRSA bacteremia treated with DAP-BL combinations. Methods Retrospective, cohort study of hospitalized patients receiving DAP with ceftaroline (CPT) or oxacillin (OXA) between March 2012 and February 2018. Patients with persistent MRSA bacteremia despite ≥4 days of vancomycin therapy were included. Clinical success was defined as resolution of signs and symptoms of infection, microbiological eradication and in hospital survival. Results Thirty-two patients included. Forty-four percent were male, median age was 61 (range: 26–78), and the median Charlson score was 2 (range: 0–11). Sixteen percent were IVDU. Sources of bacteremia included endocarditis (31%), bone/joint (31%), skin soft tissue (28%), and catheter (25%); 53% had more than one source. At the onset of combo therapy, median Pitt Bacteremia score was 1 (0–7). ID was consulted in all patients. Twenty-three and nine patients received DAP in combo with CPT or OXA, respectively. Baseline demographics, underlying disease, and clinical characteristics were comparable between groups. Patients receiving DAP-CPT had higher median Pitt Bacteremia scores (2 vs. 1; P = 0.04) and shorter median durations of prior vancomycin (8 vs. 10 days; P = 0.02) than did patients receiving DAP-OXA. Source control was pursued equally between groups. Median time to clearance of bacteremia following combo therapy was 3 (0–24) vs. 2 (−1–16) days in the DAP-CPT and DAP-OXA groups, respectively (P = 0.45). Corresponding rates of clinical success (43% vs. 56%) and microbiologic eradication (78% for both) did not vary between groups (figure). In hospital mortality occurred in 39% of patients receiving DAP-CPT and 0% of patients receiving DAP-OXA (P = 0.03). Adverse events occurred in 35% and 44% of patients, respectively. Conclusion We have demonstrated high rates of microbiologic eradication and reasonable clinical success rates with DAP-BL combination therapy. Patients receiving DAP-CPT had higher severity of illness at baseline, which paralleled with higher mortality. These data provide compelling evidence for future studies designed to determine the optimal BL in combination with DAP for persistent MRSA bacteremia. Disclosures R. K. Shields, Allergan: Grant Investigator, Research grant. Pfizer: Consultant and Scientific Advisor, Speaker honorarium. Shionogi: Scientific Advisor, Consulting fee. Roche: Grant Investigator, Research grant. Venatorx: Grant Investigator, Research grant. Medicines Company: Grant Investigator and Scientific Advisor, Consulting fee and Research grant. Accelerate Diagnostics: Scientific Advisor, Consulting fee.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "ee03503fe29787cde4d52a6cfb8a60c7e899c00c786df457c741b37cb437e00b"
+      },
+      {
+        "pmid": "cr:10.5863/1551-6776-23.6.490",
+        "title": "Ceftaroline Plus Daptomycin for Refractory Methicillin- Resistant Staphylococcus aureus Bacteremia in a Child",
+        "authors": "Hall Alan M., McTigue Sean M.",
+        "year": "2018",
+        "journal": "The Journal of Pediatric Pharmacology and Therapeutics",
+        "doi": "10.5863/1551-6776-23.6.490",
+        "url": "https://doi.org/10.5863/1551-6776-23.6.490",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Persistent methicillin-resistant Staphylococcus aureus (MRSA) bacteremia can be difficult to treat, with growing adult literature supporting the combination of ceftaroline and daptomycin for these patients. Here, we report a pediatric patient with persistent MRSA bacteremia with associated cellulitis, fasciitis, myositis, and a deep venous thrombosis causing septic pulmonary emboli. After being unable to clear the bacteremia on vancomycin and then daptomycin monotherapy, the bacteremia cleared quickly with rapid clinical improvement after the addition of ceftaroline to daptomycin. In support of this case, we also review the adult literature supporting treatment with this combination of antibiotics.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "b9c3931da19af922c67d5ce8b0012f8c369deabf87f03edc976c670c1f013a75"
+      },
+      {
+        "pmid": "41404634",
+        "title": "Successful treatment of methicillin-resistant Staphylococcus aureus osteomyelitis and persistent bacteremia using adjunctive ceftaroline fosamil to vancomycin: A case report.",
+        "authors": "Alomair SM, Sulaiman KA, Khayyat T, Wali H, Bosaeed M.",
+        "year": "2025",
+        "journal": "IDCases",
+        "doi": "10.1016/j.idcr.2025.e02437",
+        "url": "https://europepmc.org/article/PMC/PMC12704323",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Background Ceftaroline fosamil is a novel cephalosporin antibiotic effective against methicillin-resistant Staphylococcus aureus (MRSA). The FDA approved it in 2010 for the treatment of community-acquired pneumonia and acute bacterial skin and skin structure infections. However, there is a lack of comprehensive data evaluating its effectiveness in treating osteomyelitis. Therefore, we report a case of MRSA osteomyelitis with persistent bacteremia, initially treated with vancomycin, where ceftaroline fosamil was subsequently added due to persistently positive blood cultures. Case report We report a case of a 47-year-old male with a medical history of ischemic heart disease, heart failure with reduced ejection fraction, schizophrenia, hypertension, and type 2 diabetes mellitus who was admitted to the ICU with septic shock. Empiric treatment was initiated with meropenem and vancomycin. Vancomycin was given as 1000 mg IV every 24 h (18.8 mg/kg). Dosing was guided by serum vancomycin concentrations, with adjustments made by critical care clinical pharmacists to maintain target levels of 15-20 µg/mL (10-14 µmol/L). Over the following days, the patient was diagnosed with osteomyelitis, confirmed through CT and MRI imaging. Blood cultures subsequently grew MRSA. Despite 18 days of vancomycin therapy, he had persistent bacteremia, and the infectious disease team recommended the addition of ceftaroline fosamil to vancomycin to address the persistent bacteremia. Blood cultures turned negative within 24 h of initiating combination therapy. Conclusion Ceftaroline fosamil shows promise as an adjunct therapy alongside vancomycin for treating osteomyelitis complicated by persistent bacteremia caused by MRSA. Further studies with a larger sample size are needed to refine its application in the management of MRSA osteomyelitis.",
+        "relevancePct": 55,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "3b7e63c6ffbc36c3a5441ebcd34d0caaa74dbd0f8905a54d93539699b655ae0d"
+      },
+      {
+        "pmid": "cr:10.1002/ccr3.8486",
+        "title": "Daptomycin plus ceftaroline salvage therapy for persistent Staphylococcus epidermidis bacteremia",
+        "authors": "Zhang Hayden, Tran Kylie, Lindley Richard, Dotel Ravindra",
+        "year": "2024",
+        "journal": "Clinical Case Reports",
+        "doi": "10.1002/ccr3.8486",
+        "url": "https://doi.org/10.1002/ccr3.8486",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Key Clinical Message Initial antibiotics for true Staphylococcus epidermidis bacteremia include vancomycin or linezolid, but if bacteremia persists, consideration should be made for salvage combination therapy regimes such as daptomycin with ceftaroline.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8621fc356707070f5ff44642bb1d246580b6ac0eb568d23a622d8648c1cc28c6"
+      },
+      {
+        "pmid": "cr:10.1016/j.chest.2024.06.1543",
+        "title": "DISSEMINATED MRSA BACTEREMIA TREATED WITH A COMBINATION THERAPY OF CEFTAROLINE AND DAPTOMYCIN",
+        "authors": "GUPTA NIKITA, DEVAKUMAR SAHANA, KAUL VIREN",
+        "year": "2024",
+        "journal": "CHEST",
+        "doi": "10.1016/j.chest.2024.06.1543",
+        "url": "https://doi.org/10.1016/j.chest.2024.06.1543",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "aa5bd2903286950c3eb9ecd960e158f66838f0ec891e234bd2008347b1361e57"
+      },
+      {
+        "pmid": "cr:10.1097/01.ccm.0000907508.28131.c2",
+        "title": "445: DAPTOMYCIN PLUS CEFTAROLINE VERSUS MONOTHERAPY FOR PERSISTENT MRSA BACTEREMIA",
+        "authors": "Jones Timothy, Anderson Daniel, Forehand Christy, Eudy Joshua",
+        "year": "2022",
+        "journal": "Critical Care Medicine",
+        "doi": "10.1097/01.ccm.0000907508.28131.c2",
+        "url": "https://doi.org/10.1097/01.ccm.0000907508.28131.c2",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5496fd5e32f0e39b20c9cea34e00a070735ccbbd466696985f28510e0c70bc1a"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofy210.2056",
+        "title": "2403. Comparison of Daptomycin Combination Therapy With Ceftaroline or Oxacillin Against Methicillin-Resistant Staphylococcus aureus (MRSA) Isolates Causing Persistent Bacteremia",
+        "authors": "Bouchard Jeannette, Jones Chelsea, Kline Ellen, Oleksiuk Louise-Marie",
+        "year": "2018",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofy210.2056",
+        "url": "https://doi.org/10.1093/ofid/ofy210.2056",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "0d11e0975c39db58a869f723682c51849da72691cc3b8f41f3ae93cbb32a4566"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 17,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 4
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 4,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "adults with persistent MRSA bacteremia high-dose daptomycin plus ceftaroline combination standard vancomycin monotherapy time to bacteremia clearance and 30-day mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

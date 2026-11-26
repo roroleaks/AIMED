@@ -1,0 +1,732 @@
+{
+  "id": "PRESET-internal_med-sepsis-fluids",
+  "recordedAt": "2026-11-26T19:45:31.906Z",
+  "specialty": "internal_med",
+  "words": [
+    {
+      "word": "critically ill septic adults in emergency/intensive care",
+      "role": "population"
+    },
+    {
+      "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+      "role": "intervention"
+    },
+    {
+      "word": "0.9% normal saline",
+      "role": "comparator"
+    },
+    {
+      "word": "major adverse kidney events within 30 days (MAKE30)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "critically ill septic adults in emergency/intensive care",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+        "role": "intervention"
+      },
+      {
+        "word": "0.9% normal saline",
+        "role": "comparator"
+      },
+      {
+        "word": "major adverse kidney events within 30 days (MAKE30)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In critically ill septic adults in emergency/intensive care (P), does balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) compared with 0.9% normal saline (C) improve major adverse kidney events within 30 days (MAKE30) (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (0 favourable, 1 no-difference, 2 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In critically ill septic adults in emergency/intensive care (P), is balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) superior to 0.9% normal saline (C) for major adverse kidney events within 30 days (MAKE30) (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of critically ill septic adults in emergency/intensive care (P), does balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) compared with 0.9% normal saline (C) improve major adverse kidney events within 30 days (MAKE30) (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 21
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In critically ill septic adults in emergency/intensive care (P), is balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) superior to 0.9% normal saline (C) for major adverse kidney events within 30 days (MAKE30) (O)?"
+    },
+    "words": [
+      {
+        "word": "critically ill septic adults in emergency/intensive care",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+        "role": "intervention"
+      },
+      {
+        "word": "0.9% normal saline",
+        "role": "comparator"
+      },
+      {
+        "word": "major adverse kidney events within 30 days (MAKE30)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42028918",
+        "title": "Balanced Fluid or 0.9% Saline in Children Treated for Septic Shock",
+        "authors": "Balamuth F, et al",
+        "year": "2026",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2601969",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42028918/",
+        "context": "BACKGROUND: Whether treatment with balanced crystalloid fluid leads to better outcomes than 0.9% saline in children treated for septic shock is debated. METHODS: In this pragmatic clinical trial conducted at 47 emergency departments in five countries, patients (2 months to <18 years of age) with suspected septic shock and abnormal perfusion were randomly assigned to receive fluid resuscitation with either balanced fluid or 0.9% saline for up to 48 hours. The primary outcome was a major adverse kidney event (a composite of death, new renal-replacement therapy, or persistent kidney dysfunction) at 30 days after enrollment or hospital discharge, whichever occurred first. RESULTS: Of 9041 enrolled patients, 277 (6.1%) in the balanced-fluid group and 282 (6.2%) in the 0.9%-saline group withdrew from the trial, leaving 4235 and 4247 patients, respectively, for analysis. A primary-outcome event occurred in 137 patients (3.4%) in the balanced-fluid group and in 124 (3.0%) in the 0.9%-saline group (difference, 0.4 percentage points; 95% confidence interval [CI], -0.5 to 1.3; risk ratio, 1.10; 95% CI, 0.88 to 1.40; P = 0.85). The median number of hospital-free days during 28 days after enrollment was 23 (interquartile range, 19 to 25) in both groups. Hyperchloremia occurred in 868 patients (31.4%) in the balanced-fluid group and in 1383 (49.0%) in the 0.9%-saline group; hypernatremia in 52 (1.8%) and 89 (3.1%), respectively; and hyperlactatemia in 260 (19.8%) and 228 (16.7%). No differences in other safety outcomes or adverse events were seen. CONCLUSIONS: Among children treated for septic shock, no significant difference was seen in the incidence of death, new renal-replacement therapy, or persistent kidney dysfunction when fluid resuscitation was administered with balanced fluid as compared with 0.9% saline. (Funded by Eunice Kennedy Shriver National Institute of Child Health and Human Development and others; PRoMPT BOLUS ClinicalTrials.gov number, NCT04102371.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study",
+          "Pragmatic Clinical Trial",
+          "Comparative Study"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2a5e9e896231bd8a706887636f6416d0e5275dccd4d07ffaf4f51dc3780514e0"
+      },
+      {
+        "pmid": "38043564",
+        "title": "Balanced crystalloids versus saline for critically ill patients (BEST-Living): a systematic review and individual patient data meta-analysis",
+        "authors": "Zampieri FG, et al",
+        "year": "2024",
+        "journal": "The Lancet. Respiratory medicine",
+        "doi": "10.1016/S2213-2600(23)00417-4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38043564/",
+        "context": "BACKGROUND: The effect of balanced crystalloids compared with that of saline in critically ill patients overall and in specific subgroups is unclear. We aimed to assess whether use of balanced solutions, compared with 0·9% sodium chloride (saline), decreased in-hospital mortality in adult patients in intensive care units (ICUs). METHODS: For this systematic review and individual patient data meta-analysis, we searched PubMed, Embase, and CENTRAL databases from inception until March 1, 2022 (updated Sept 1, 2023) for individually randomised and cluster-randomised trials comparing balanced solutions with saline for adult patients in the ICU. Eligible trials were those that allocated patients to receive balanced solutions or saline for fluid resuscitation and maintenance fluids, or for maintenance fluids only; and administered the allocated fluid throughout ICU admission or, for trials using landmark mortality as their primary outcome, until the timepoint at which mortality was assessed (if ≥28 days). Authors of eligible trials were contacted to request individual patient data. Data obtained from eligible trials were merged, checked for accuracy, and centrally analysed by use of Bayesian regression models. The primary outcome was in-hospital mortality. Prespecified subgroups included patients with traumatic brain injury. This study was registered with PROSPERO (CRD42022299282). FINDINGS: Our search identified 5219 records, yielding six eligible randomised controlled trials. Data obtained for 34 685 participants from the six trials, 17 407 assigned to receive balanced crystalloids and 17 278 to receive saline, were included in the analysis. The mean age of participants was 58·8 years (SD 17·5). Of 34 653 participants with available data, 14 579 (42·1%) were female and 20 074 (57·9%) were male. Among patients who provided consent to report in-hospital mortality, 2907 (16·8%) of 17 313 assigned balanced solutions and 2975 (17·3%) of 17 166 assigned saline died in hospital (odds ratio [OR] 0·962 [95% CrI 0·909 to 1·019], absolute difference -0·4 percentage points [-1·5 to 0·2]). The posterior probability that balanced solutions reduced mortality was 0·895. In patients with traumatic brain injury, 191 (19·1%) of 999 assigned balanced and 141 (14·7%) of 962 assigned saline died (OR 1·424 [1·100 to 1·818], absolute difference 3·2 percentage points [0·7 to 8·7]). The probability that balanced solutions increased mortality in patients with traumatic brain injury was 0·975. In an independent risk of bias assessment, two trials were deemed to be at low risk of bias and four at high risk of bias. INTERPRETATION: The probability that using balanced solutions in the ICU reduces in-hospital mortality is high, although the certainty of the evidence was moderate and the absolute risk reduction was small. In patients with traumatic brain injury, using balanced solutions was associated with increased in-hospital mortality. FUNDING: HCor (Brazil) and The George Institute for Global Health (Australia).",
+        "source": "pubmed",
+        "pubType": "Systematic Review",
+        "publicationTypes": [
+          "Systematic Review",
+          "Meta-Analysis",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "ca7e1b0431b6ad47c46bfbfaab46c52740d126b0f4651fe474d2a61058377130"
+      },
+      {
+        "pmid": "39969246",
+        "title": "Lactated Ringer's or Normal Saline for Initial Fluid Resuscitation in Sepsis-Induced Hypotension",
+        "authors": "Gelbenegger G, et al",
+        "year": "2025",
+        "journal": "Critical care medicine",
+        "doi": "10.1097/CCM.0000000000006601",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39969246/",
+        "context": "OBJECTIVES: To assess whether initial fluid resuscitation with lactated Ringer's solution compared with 0.9% saline is associated with improved clinical outcomes in patients with sepsis-induced hypotension. DESIGN: Secondary analysis of the randomized controlled Crystalloid Liberal or Vasopressors Early Resuscitation in Sepsis (CLOVERS) trial. SETTING: ICUs and emergency departments in 60 U.S. centers from March 2018 to January 2022. PATIENTS: Participants from the CLOVERS trial. Adult patients with a suspected or confirmed infection and hypotension caused by sepsis. INTERVENTIONS: Participants received 1-3 L of crystalloid fluid for initial fluid resuscitation before randomization. In this analysis, participants were categorized into a lactated Ringer's group and a 0.9% saline group based on the fluid type predominantly used for the initial fluid resuscitation (i.e., ≥ 95% of pre-randomization fluid). MEASUREMENTS AND MAIN RESULTS: Of 1563 participants with sepsis-induced hypotension included in the CLOVERS trial, 622 (39.8%) received lactated Ringer's solution and 690 (44.1%) received 0.9% saline as solution for the initial fluid bolus. Death before discharge home by day 90 occurred in 76 of 622 participants (12.2%) in the lactated Ringer's group and in 110 of 690 participants (15.9%) in the 0.9% saline group, resulting in an adjusted hazard ratio of 0.71 (95% CI, 0.51-0.99; p = 0.043). Patients receiving lactated Ringer's solution had more hospital-free days at 28 days than those receiving 0.9% saline (16.6 ± 10.8 vs. 15.4 ± 11.4, respectively; adjusted mean difference, 1.6 d [95% CI, 0.4-2.8 d; p = 0.009]). Treatment with 0.9% saline was associated with higher levels of serum chloride and decreased levels of serum bicarbonate. CONCLUSIONS: Initial fluid resuscitation with lactated Ringer's solution, compared with 0.9% saline, might be associated with improved survival in patients with sepsis-induced hypotension.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Multicenter Study"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "af9bda33f221ab4ea1f60c809754a80d1b7c5083e6de6fccbfc7cc2ad3e50e72"
+      },
+      {
+        "pmid": "38369528",
+        "title": "ACETATE RINGER'S SOLUTION VERSUS NORMAL SALINE SOLUTION IN SEPSIS: A RANDOMIZED, CONTROLLED TRIAL",
+        "authors": "Zhang J, et al",
+        "year": "2024",
+        "journal": "Shock (Augusta, Ga.)",
+        "doi": "10.1097/SHK.0000000000002324",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38369528/",
+        "context": "Background: Normal saline solution (NSS) and Ringer's acetate solution (RAS) are commonly given to critically ill patients as a fundamental fluid therapy. However, the effect of RAS and NSS on sepsis patient outcomes remains unknown. Methods: We conducted a single-center prospective open-label parallel controlled trial to enroll adult patients (>18 years old) diagnosed with sepsis. Participants received either RAS or NSS for intravenous infusion for 5 days. The primary outcome was the incidence of major adverse kidney events within 28 days (MAKE28). Secondary outcomes included 30-/90-day mortality, acute kidney injury, and hyperchloremia. The patients were then reclassified as NSS-only, RAS-only, and RAS + NSS groups according to the type of fluid they had received before enrollment. Thereafter, a secondary post hoc analysis was performed. Results: Two hundred fifty-five septic patients were screened, and 143 patients (51.0% in RAS group and 49.0% in NSS group) were enrolled in the study. Each group received a median of 2 L of fluid administration during five interventional days. Of the patients, 39.3% had received 500 mL (500-1,000 mL) of balanced salt solutions (BSSs) before intensive care unit (ICU) admission. There was no statistical difference among the RAS and NSS group on the primary outcome MAKE28 in the initial analysis (23.3% vs. 20.0%; OR, 1.2 [0.6 to 2.2]; P = 0.69). MAKE28 was observed in 23.3% of RAS-only versus 27.3% of NSS-only group patients (0.82 [0.35-1.94], P = 0.65) in the secondary post hoc analysis. The patients in the NSS-only group had a longer invasive mechanical ventilation days and a trend toward the accumulation of serum chloride. Conclusion: This study observed no statistically significant difference on MAKE28 and secondary outcomes among sepsis patients receiving RAS and NSS. However, it is unclear whether the large amount of fluid resuscitation before ICU admission and carrier NSS narrowed the difference between BSSs and NSSs.",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "002f82022511d3b15a0c58a1e20886905a35f00286f0fcadd0d1dfbdb884dd87"
+      },
+      {
+        "pmid": "35041780",
+        "title": "Balanced Multielectrolyte Solution versus Saline in Critically Ill Adults",
+        "authors": "Finfer S, et al",
+        "year": "2022",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2114464",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35041780/",
+        "context": "BACKGROUND: Whether the use of balanced multielectrolyte solution (BMES) in preference to 0.9% sodium chloride solution (saline) in critically ill patients reduces the risk of acute kidney injury or death is uncertain. METHODS: In a double-blind, randomized, controlled trial, we assigned critically ill patients to receive BMES (Plasma-Lyte 148) or saline as fluid therapy in the intensive care unit (ICU) for 90 days. The primary outcome was death from any cause within 90 days after randomization. Secondary outcomes were receipt of new renal-replacement therapy and the maximum increase in the creatinine level during ICU stay. RESULTS: A total of 5037 patients were recruited from 53 ICUs in Australia and New Zealand - 2515 patients were assigned to the BMES group and 2522 to the saline group. Death within 90 days after randomization occurred in 530 of 2433 patients (21.8%) in the BMES group and in 530 of 2413 patients (22.0%) in the saline group, for a difference of -0.15 percentage points (95% confidence interval [CI], -3.60 to 3.30; P = 0.90). New renal-replacement therapy was initiated in 306 of 2403 patients (12.7%) in the BMES group and in 310 of 2394 patients (12.9%) in the saline group, for a difference of -0.20 percentage points (95% CI, -2.96 to 2.56). The mean (±SD) maximum increase in serum creatinine level was 0.41±1.06 mg per deciliter (36.6±94.0 μmol per liter) in the BMES group and 0.41±1.02 mg per deciliter (36.1±90.0 μmol per liter) in the saline group, for a difference of 0.01 mg per deciliter (95% CI, -0.05 to 0.06) (0.5 μmol per liter [95% CI, -4.7 to 5.7]). The number of adverse and serious adverse events did not differ meaningfully between the groups. CONCLUSIONS: We found no evidence that the risk of death or acute kidney injury among critically ill adults in the ICU was lower with the use of BMES than with saline. (Funded by the National Health and Medical Research Council of Australia and the Health Research Council of New Zealand; PLUS ClinicalTrials.gov number, NCT02721654.).",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "71136964e58a96fbface0d019efa55b860c3ab6809bc5a15611c4c89d1478143"
+      },
+      {
+        "pmid": "33546622",
+        "title": "Effect of balanced crystalloids versus saline on urinary biomarkers of acute kidney injury in critically ill adults",
+        "authors": "for the Isotonic Solutions and Major Adverse Renal Events Trial (SMART) Investigators, Blake E. Funke, Karen E. Jackson, Wesley H. Self",
+        "year": "2021",
+        "journal": "BMC Nephrology",
+        "doi": "10.1186/s12882-021-02236-x",
+        "url": "https://doi.org/10.1186/s12882-021-02236-x",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Recent trials have suggested use of balanced crystalloids may decrease the incidence of major adverse kidney events compared to saline in critically ill adults. The effect of crystalloid composition on biomarkers of early acute kidney injury remains unknown. METHODS: From February 15 to July 15, 2016, we conducted an ancillary study to the Isotonic Solutions and Major Adverse Renal Events Trial (SMART) comparing the effect of balanced crystalloids versus saline on urinary levels of neutrophil gelatinase-associated lipocalin (NGAL) and kidney injury molecule-1 (KIM-1) among 261 consecutively-enrolled critically ill adults admitted from the emergency department to the medical ICU. After informed consent, we collected urine 36 ± 12 h after hospital admission and measured NGAL and KIM-1 levels using commercially",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "479daf937f83cb66606323d1681fb164c52f64033c9ab4c3f77c62ad6a465c10"
+      },
+      {
+        "pmid": "cr:10.1097/01.ccm.0000645812.22056.52",
+        "title": "1476: BALANCED CRYSTALLOIDS VERSUS SALINE IN CRITICALLY ILL ADULTS: A SYSTEMATIC REVIEW AND META-ANALYSIS",
+        "authors": "Hammond Drayton, Lam Simon, Rech Megan, Smith Melanie",
+        "year": "2020",
+        "journal": "Critical Care Medicine",
+        "doi": "10.1097/01.ccm.0000645812.22056.52",
+        "url": "https://doi.org/10.1097/01.ccm.0000645812.22056.52",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "8c8fb231dc920d1041627916630e3820f0e0df143b536f1d72ecff2c70293c2a"
+      },
+      {
+        "pmid": "33196806",
+        "title": "Clinical Effects of Balanced Crystalloids vs Saline in Adults With Diabetic Ketoacidosis: A Subgroup Analysis of Cluster Randomized Clinical Trials",
+        "authors": "Wesley H. Self, Christopher S. Evans, Cathy A. Jenkins, Ryan M. Brown",
+        "year": "2020",
+        "journal": "JAMA Network Open",
+        "doi": "10.1001/jamanetworkopen.2020.24596",
+        "url": "https://doi.org/10.1001/jamanetworkopen.2020.24596",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Saline (0.9% sodium chloride), the fluid most commonly used to treat diabetic ketoacidosis (DKA), can cause hyperchloremic metabolic acidosis. Balanced crystalloids, an alternative class of fluids for volume expansion, do not cause acidosis and, therefore, may lead to faster resolution of DKA than saline. Objective: To compare the clinical effects of balanced crystalloids with the clinical effects of saline for the acute treatment of adults with DKA. Design, Setting, and Participants: This study was a subgroup analysis of adults with DKA in 2 previously reported companion trials-Saline Against Lactated Ringer's or Plasma-Lyte in the Emergency Department (SALT-ED) and the Isotonic Solutions and Major Adverse Renal Events Trial (SMART). These trials, conducted between January 2016 and March 2017 in an",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3fcf95b11f54265aef8ee8d55ac40bbf767706511332b856c7d1e303ba502139"
+      },
+      {
+        "pmid": "cr:10.1186/s40560-018-0320-x",
+        "title": "Balanced crystalloids versus isotonic saline in critically ill patients: systematic review and meta-analysis",
+        "authors": "Zayed Yazan Z. M., Aburahma Ahmed M. Y., Barbarawi Mahmoud O., Hamid Kewan",
+        "year": "2018",
+        "journal": "Journal of Intensive Care",
+        "doi": "10.1186/s40560-018-0320-x",
+        "url": "https://doi.org/10.1186/s40560-018-0320-x",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "2040cb3988cc9955a1d6ffd0c3dbf9e3c0445dfabebc7f0619ce0bac09010e9e"
+      },
+      {
+        "pmid": "29485925",
+        "title": "Balanced Crystalloids versus Saline in Critically Ill Adults",
+        "authors": "Matthew W. Semler, Wesley H. Self, Jonathan P. Wanderer, Jesse Menachem Ehrenfeld",
+        "year": "2018",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1711584",
+        "url": "https://doi.org/10.1056/nejmoa1711584",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Both balanced crystalloids and saline are used for intravenous fluid administration in critically ill adults, but it is not known which results in better clinical outcomes. METHODS: In a pragmatic, cluster-randomized, multiple-crossover trial conducted in five intensive care units at an academic center, we assigned 15,802 adults to receive saline (0.9% sodium chloride) or balanced crystalloids (lactated Ringer's solution or Plasma-Lyte A) according to the randomization of the unit to which they were admitted. The primary outcome was a major adverse kidney event within 30 days - a composite of death from any cause, new renal-replacement therapy, or persistent renal dysfunction (defined as an elevation of the creatinine level to ≥200% of baseline) - all censored at hospital discharge",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "b38aae6f5743d7df5d2f3f88c9bdc4beb0fe70e45f9eedb88e7745ff23748a71"
+      },
+      {
+        "pmid": "cr:10.1097/md.0000000000013683",
+        "title": "Balanced crystalloids for intravenous fluid therapy in critically ill and non-critically ill patients",
+        "authors": "Ma Peifen, Wang Bo, Zhang Jun, Shen Xiping",
+        "year": "2018",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000013683",
+        "url": "https://doi.org/10.1097/md.0000000000013683",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background: The balanced crystalloids have become a substitute for saline for fluid resuscitation. Some studies have investigated the clinical effect and adverse event of differently balanced crystalloids, but they have no consistent conclusions. This study aims to assess and compare the effect of differently balanced crystalloids for intravenous fluid therapy in critically ill and non-critically ill patients using network meta-analysis (NMA). Methods: Electronic databases including PubMed, EMBASE, Cochrane Library, Web of Science, Clinical Trials.gov, and the International Clinical Trials Registry Platform (ICTRP) will be searched from inception to April 2018. We will include randomized controlled trials (RCTs) that reported the effect and adverse event of balanced crystalloids. Risk of bias assessment of the included RCTs will be conducted according to the Cochrane Handbook 5.1.0. A Bayesian NMA will be performed using R software. GRADE will be used to explore the quality of evidence. Results: The results of this NMA will be published in a peer-reviewed journal. Conclusion: This NMA will summarize the direct and indirect evidence to assess the effect of differently balanced crystalloids. Ethics and dissemination: Ethics approval and patient consent are not required as this study is an NMA based on published studies. PROSPERO registration number: CRD42018093818.",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "6f17358170da0220aacb8cee5b06904925efff8e68c0a4dba0c96960d91d484b"
+      },
+      {
+        "pmid": "37529784",
+        "title": "Circulatory shock in adults in emergency department",
+        "authors": "Ashok Kumar Pannu",
+        "year": "2023",
+        "journal": "Turkish Journal of Emergency Medicine",
+        "doi": "10.4103/tjem.tjem_271_22",
+        "url": "https://doi.org/10.4103/tjem.tjem_271_22",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Circulatory shock is a common condition that carries high morbidity and mortality. This review aims to update the critical steps in managing common types of shock in adult patients admitted to medical emergency and intensive care units. A literature review was performed by searching PubMed, EMBASE Ovid, and Cochrane Library, using the following search items: (\"shock\" OR \"circulatory shock\" OR \"septic shock\" OR \"cardiogenic shock\") AND (\"management\" OR \"treatment\" OR \"resuscitation\"). The review emphasizes prompt shock identification with tissue hypoperfusion, knowledge of the underlying pathophysiological mechanism, initial fluid resuscitation with balanced crystalloids, norepinephrine as the preferred vasopressor in septic and profound cardiogenic shock, and tailored intervention addressing specific etiologies. Point-of-care ultrasound may help evaluate an undifferentiated shock and determine fluid",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "f0d1c196a4208462203bcfdc6cd0eb10c56d5bda7e0ed734f977524f3d9b2b8a"
+      },
+      {
+        "pmid": "36474179",
+        "title": "Electrolyte derangements in critically ill children receiving balanced versus unbalanced crystalloid fluid resuscitation",
+        "authors": "Natalja L. Stanski, Katja M. Gist, Kaci L. Pickett, John T. Brinton",
+        "year": "2022",
+        "journal": "BMC Nephrology",
+        "doi": "10.1186/s12882-022-03009-w",
+        "url": "https://doi.org/10.1186/s12882-022-03009-w",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Adult studies have demonstrated potential harm from resuscitation with 0.9% sodium chloride (0.9%NaCl), resulting in increased utilization of balanced crystalloids like lactated ringers (LR). The sodium and potassium content of LR has resulted in theoretical safety concerns, although limited data exists in pediatrics. We hypothesized that use of LR for resuscitation would not be associated with increased electrolyte derangements compared to 0.9%NaCl. METHODS: A prospective, observational cohort study of critically ill children who received ≥ 20 ml/kg of fluid resuscitation and were admitted to two pediatric intensive care units from November 2017 to February 2020. Fluid groups included patients who received > 75% of fluids from 0.9%NaCl, > 75% of fluids from LR, and a mixed group. The primary",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "2f29da6cfa9d23e080ebaff2b55ca0b61b93f9afb5745daa15526062c13edf9b"
+      },
+      {
+        "pmid": "cr:10.1177/1751143718808463",
+        "title": "Balanced crystalloid versus saline in critically ill adults",
+        "authors": "Academic Authors",
+        "year": "2018",
+        "journal": "Journal of the Intensive Care Society",
+        "doi": "10.1177/1751143718808463",
+        "url": "https://doi.org/10.1177/1751143718808463",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1e953581a045b77a199747ab53c8d3b63993ba69eea56145f0fd6f27aa6b7f25"
+      },
+      {
+        "pmid": "cr:10.1016/j.chest.2017.09.009",
+        "title": "Balanced Crystalloids vs Saline for Critically Ill Adults",
+        "authors": "Semler Matthew, Self Wesley, Rice Todd",
+        "year": "2017",
+        "journal": "Chest",
+        "doi": "10.1016/j.chest.2017.09.009",
+        "url": "https://doi.org/10.1016/j.chest.2017.09.009",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c919e12748366f403b44a2882012cbed218d641c80d587843f6709037d9ce29b"
+      },
+      {
+        "pmid": "cr:10.1016/j.chest.2017.09.016",
+        "title": "Balanced Crystalloids vs Saline for Noncritically Ill Adults in the Emergency Department",
+        "authors": "Self Wesley, Semler Matthew, Rice Todd",
+        "year": "2017",
+        "journal": "Chest",
+        "doi": "10.1016/j.chest.2017.09.016",
+        "url": "https://doi.org/10.1016/j.chest.2017.09.016",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1fa98d626956c47081cba4333e5a7b3521eae8569fc5bff275db2a5ac7d500a2"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 16,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 21
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 21,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

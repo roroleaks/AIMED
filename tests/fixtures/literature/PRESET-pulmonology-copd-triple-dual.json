@@ -1,0 +1,619 @@
+{
+  "id": "PRESET-pulmonology-copd-triple-dual",
+  "recordedAt": "2026-11-26T19:50:39.036Z",
+  "specialty": "pulmonology",
+  "words": [
+    {
+      "word": "symptomatic COPD with history of >= 1 exacerbation",
+      "role": "population"
+    },
+    {
+      "word": "single-inhaler triple therapy (ICS/LABA/LAMA)",
+      "role": "intervention"
+    },
+    {
+      "word": "dual bronchodilator therapy (LABA/LAMA)",
+      "role": "comparator"
+    },
+    {
+      "word": "annualized rate of moderate or severe COPD exacerbations",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "symptomatic COPD with history of >= 1 exacerbation",
+        "role": "population"
+      },
+      {
+        "word": "single-inhaler triple therapy (ICS/LABA/LAMA)",
+        "role": "intervention"
+      },
+      {
+        "word": "dual bronchodilator therapy (LABA/LAMA)",
+        "role": "comparator"
+      },
+      {
+        "word": "annualized rate of moderate or severe COPD exacerbations",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In symptomatic COPD with history of >= 1 exacerbation (P), does single-inhaler triple therapy (ICS/LABA/LAMA) (I) compared with dual bronchodilator therapy (LABA/LAMA) (C) improve annualized rate of moderate or severe COPD exacerbations (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In symptomatic COPD with history of >= 1 exacerbation (P), is single-inhaler triple therapy (ICS/LABA/LAMA) (I) superior to dual bronchodilator therapy (LABA/LAMA) (C) for annualized rate of moderate or severe COPD exacerbations (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of symptomatic COPD with history of >= 1 exacerbation (P), does single-inhaler triple therapy (ICS/LABA/LAMA) (I) compared with dual bronchodilator therapy (LABA/LAMA) (C) improve annualized rate of moderate or severe COPD exacerbations (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 24 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of symptomatic COPD with history of >= 1 exacerbation (P), does single-inhaler triple therapy (ICS/LABA/LAMA) (I) compared with dual bronchodilator therapy (LABA/LAMA) (C) improve annualized rate of moderate or severe COPD exacerbations (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "symptomatic COPD with history of >= 1 exacerbation",
+        "role": "population"
+      },
+      {
+        "word": "single-inhaler triple therapy (ICS/LABA/LAMA)",
+        "role": "intervention"
+      },
+      {
+        "word": "dual bronchodilator therapy (LABA/LAMA)",
+        "role": "comparator"
+      },
+      {
+        "word": "annualized rate of moderate or severe COPD exacerbations",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pulmonology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "39900091",
+        "title": "Dupilumab for chronic obstructive pulmonary disease with type 2 inflammation: a pooled analysis of two phase 3, randomised, double-blind, placebo-controlled trials",
+        "authors": "Bhatt SP, et al",
+        "year": "2025",
+        "journal": "The Lancet. Respiratory medicine",
+        "doi": "10.1016/S2213-2600(24)00409-0",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39900091/",
+        "context": "BACKGROUND: Dupilumab, a fully human monoclonal antibody, blocks the shared receptor component for IL-4 and IL-13, which are key drivers of type 2 inflammation. We aimed to characterise the efficacy and safety of dupilumab in patients with COPD and type 2 inflammation. METHODS: For this pooled analysis, we pooled and analysed data from all patients in the intention-to-treat populations of the phase 3, randomised, double-blind, placebo-controlled BOREAS and NOTUS trials, which comprised 206 hospitals and clinics in BOREAS and 217 in NOTUS in 38 countries across Europe, Asia, North America, South America, Africa, and Australia. Eligible patients were current or former smokers with 10 pack-years or more of smoking history, were aged 40-85 years, had physician-diagnosed COPD for at least 12 months before randomisation, had a post-bronchodilator FEV 1 /forced vital capacity (FVC) ratio of less than 0·7, had a post-bronchodilator percentage predicted FEV 1 of 30-70%, had documented evidence of two moderate or one severe exacerbations of COPD in the previous year (at least one exacerbation had to have occurred on triple therapy), and had blood eosinophil counts 300 cells per μL or more during screening. Patients had to have symptomatic COPD and a reported chronic productive cough for at least 3 months in the previous year. Key exclusion criteria were history of asthma, pulmonary disease other than COPD, or other diagnosed pulmonary or systemic disease associated with elevated blood eosinophil. In both trials, eligible patients were randomly assigned (1:1) via block randomisation with block size 4 to receive subcutaneous dupilumab 300 mg or matching placebo once every 2 weeks for 52 weeks, alongside established background therapy with inhaled corticosteroids, a long-acting β2-agonist, and a long-acting muscarinic antagonist. The primary endpoint was the annualised rate of moderate or severe exacerbations over 52 weeks. FINDINGS: 1874 patients were randomly assigned in BOREAS and NOTUS from May 9, 2019, to May 23, 2023; 938 (50·1%) were randomly assigned to the dupilumab groups and 936 (49·9%) were randomly assigned to the placebo groups. Mean age across both groups was 65·1 years (SD 8·2). 622 (33·2%) of 1874 patients were female and 1252 (66·8%) were male. 1628 (86·9%) patients were White, 719 (38·4%) were from Eastern Europe, and 1316 (70·2%) were former smokers. During the 52-week treatment period, 559 moderate or severe exacerbations were reported in 338 (36·0%) of 938 patients in the dupilumab group and 774 exacerbations were reported in 394 (42·1%) of 936 patients in the placebo group. There was a reduction in the annualised rate of moderate or severe exacerbations compared with placebo (annualised exacerbation rate 0·794 in the dupilumab group and 1·156 in the placebo group; incidence rate ratio 0·687, 95% CI 0·595-0·793; p<0·0001). In the dupilumab group, the time to first severe exacerbation was longer than in the placebo group (0·611, 0·409-0·912; p=0·016). However, there was no reduction in the annualised rate of severe exacerbations (annualised exacerbation rate 0·084 in the dupilumab group and 0·124 in the placebo group; 0·674, 0·438-1·037; p=0·073). Treatment-emergent adverse events, serious adverse events, adverse events that led to permanent treatment discontinuation, and adverse events that led to death were similar between the two groups. INTERPRETATION: Dupilumab, as an add-on to standard triple therapy, reduced the annualised rate of moderate or severe exacerbations compared with placebo, highlighting its potential for personalised treatment approaches in patients with COPD with specific clinical endotypes. FUNDING: Sanofi and Regeneron Pharmaceuticals.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Clinical Trial, Phase III",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4b622fa030802c6dd6a53bd3b6591cd486a76093c5916dc5a916cea4832c181e"
+      },
+      {
+        "pmid": "doaj:21e4c7137b974f58aa2265a94fb94712",
+        "title": "Benefit/Risk Profile of Single-Inhaler Triple Therapy in COPD",
+        "authors": "Bourbeau J, Bafadhel M, Barnes NC, Compton C",
+        "year": "2021",
+        "journal": "International Journal of COPD",
+        "url": "https://www.dovepress.com/benefitrisk-profile-of-single-inhaler-triple-therapy-in-copd-peer-reviewed-article-COPD",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Jean Bourbeau,1 Mona Bafadhel,2 Neil C Barnes,3,4 Chris Compton,3 Valentina Di Boscio,3 David A Lipson,5,6 Paul W Jones,3,7 Neil Martin,3,8 Gudrun Weiss,3 David MG Halpin9 1Respiratory Epidemiology and Clinical Research Unit, Department of Medicine, McGill University and Research Institute of the McGill University Health Centre, Montreal, QC, Canada; 2Nuffield Department of Medicine, University of Oxford, Oxford, Oxfordshire, UK; 3Respiratory Therapy Area, GlaxoSmithKline, Brentford, Middlesex, UK; 4William Harvey Institute, Bart&rsquo;s and the London School of Medicine and Dentistry, London, UK; 5Clinical Sciences, GlaxoSmithKline, Collegeville, PA, USA; 6Pulmonary, Allergy and Critical Care Division, Department of Medicine, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA, USA; 7Institute of Infection and Immunity, St George&rsquo;s, University of London, London, UK; 8University of Leicester, Leicester, UK; 9University of Exeter Medical School, College of Medicine and Health, University of Exeter, Exeter, UKCorrespondence: Jean BourbeauMcGill University Health Centre (MUHC), 1001 Decarie Boulevard, Montreal, QC, H4A 3J1, CanadaTel +1 514 934-1934Fax +1 514 934-8577Email jean.bourbeau@mcgill.caAbstract: Chronic obstructive pulmonary disease (COPD) is associated with major healthcare and socioeconomic burdens. International consortia recommend a personalized approach to treatment and management that aims to reduce both symptom burden and the risk of exacerbations. Recent clinical trials have investigated single-inhaler triple therapy (SITT) with a long-acting muscarinic antagonist (LAMA), long-acting &beta;2-agonist (LABA), and inhaled corticosteroid (ICS) for patients with symptomatic COPD. Here, we review evidence from randomized controlled trials showing the benefits of SITT and weigh these against the reported risk of pneumonia with ICS use. We highlight the challenges associated with cross-trial comparisons of benefit/risk, discuss blood eosinophils as a marker of ICS responsiveness, and summarize current treatment recommendations and the position of SITT in the management of COPD, including potential advantages in terms of improving patient adherence. Evidence from trials of SITT versus dual therapies in symptomatic patients with moderate to very severe airflow limitation and increased risk of exacerbations shows benefits in lung function and patient-reported outcomes. Moreover, the key benefits reported with SITT are significant reductions in exacerbations and hospitalizations, with data also suggesting reduced all-cause mortality. These benefits outweigh the ICS-class effect of higher incidence of study-reported pneumonia compared with LAMA/LABA. Important differences in trial design, baseline population characteristics, such as exacerbation history, and assessment of outcomes, have significant implications for interpreting data from cross-trial comparisons. Current understanding interprets the blood eosinophil count as a continuum that can help predict response to ICS and has utility alongside other clinical factors to aid treatment decision-making. We conclude that treatment decisions in COPD should be guided by an approach that considers benefit versus risk, with early optimization of treatment essential for maximizing long-term benefits and patient outcomes.Keywords: all-cause mortality, exacerbations, hospitalizations, ICS, LABA, LAMA",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "c724a7fad0564b9ced3c0994482a4793c0ded010c20b4c32fbc8cb42f35a63d7"
+      },
+      {
+        "pmid": "29750142",
+        "title": "Single-inhaler triple therapy in symptomatic COPD patients: FULFIL subgroup analyses",
+        "authors": "David M.G. Halpin, Ruby Birk, Noushin Brealey, Gerard J. Criner",
+        "year": "2018",
+        "journal": "ERJ Open Research",
+        "doi": "10.1183/23120541.00119-2017",
+        "url": "https://doi.org/10.1183/23120541.00119-2017",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Triple inhaled corticosteroid (ICS)/long-acting muscarinic antagonist (LAMA)/long-acting β2-agonist (LABA) therapy is recommended for symptomatic patients with chronic obstructive pulmonary disease (COPD) and at risk of exacerbations. However, the benefits versus side-effects of triple inhaled therapy for COPD, based on distinct patient clinical profiles, are unclear. FULFIL, a phase III, randomised, double-blind study, compared 24 weeks of once-daily fluticasone furoate/umeclidinium/vilanterol (FF/UMEC/VI) 100/62.5/25 µg using the Ellipta inhaler with twice-daily budesonide/formoterol (BUD/FOR) 400/12 µg using the Turbuhaler. Subgroup analyses of forced expiratory volume in 1 s (FEV1), St George's Respiratory Questionnaire (SGRQ) Total score and exacerbation rates were carried out. Subgroups were defined by COPD medication at screening (ICS+LABA, BUD+FOR, ICS+LABA+LAMA, LAMA alone, tiotropium alone and LAMA+LABA), by disease severity (lung function",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e8a1a74cbf2852f9eb28b051fcef34826875718f6f3c39b0f215bf3ddc15832b"
+      },
+      {
+        "pmid": "33780994",
+        "title": "Inhalative Therapie der COPD – alle Patienten auf „fixed triple“?",
+        "authors": "Henrik Watz",
+        "year": "2021",
+        "journal": "DMW - Deutsche Medizinische Wochenschrift",
+        "doi": "10.1055/a-1219-0708",
+        "url": "https://doi.org/10.1055/a-1219-0708",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Inhaled maintenance therapies in chronic obstructive pulmonary disease (COPD) are based on bronchodilators and inhaled corticosteroids (ICS). Inhaled bronchodilator therapies consist of long-acting beta-2 agonists (LABA) and long-acting muscarinic antagonists (LAMA). LABA or LAMA treatment is recommended in symptomatic COPD patients. In case of a history of exacerbations LAMA is superior to LABA in the prevention of exacerbations. LABA LAMA combination therapies are used in patients who are highly symptomatic. Adding ICS to bronchodilator treatment is recommended in COPD patients with repeated exacerbations. Recently, fixed triple therapies consisting of LABA, LAMA and ICS in single inhalers became available.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "496e52ca51e2019add9160708ac3bceeba850ef5597b25ef6ce0382750bb2f1f"
+      },
+      {
+        "pmid": "31105560",
+        "title": "Single Inhaler LABA/LAMA for COPD",
+        "authors": "Mario Malerba, Valentina Foci, Filippo Patrucco, Patrizia Pochetti",
+        "year": "2019",
+        "journal": "Frontiers in Pharmacology",
+        "doi": "10.3389/fphar.2019.00390",
+        "url": "https://doi.org/10.3389/fphar.2019.00390",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Chronic obstructive pulmonary disease (COPD) is a common disabling disease characterized by progressive airflow obstruction. Great efforts were spent in the development of drugs able to improve symptoms, quality of life, reduce exacerbations, hospitalizations and the frequency of death of patients with COPD. The cornerstones of treatment are bronchodilator drugs of two different classes: beta agonists and muscarinic antagonists. Currently the Global initiative for COPD suggests the use of long acting beta agonists (LABAs) and long acting muscarinic antagonists (LAMAs) in combination for the majority of COPD patients, thus great interest is associated with the developing of LAMA/LABA fixed combination in the maintenance treatment of stable COPD. Many LAMA/LABA fixed dose combinations have been licensed in different countries and the",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "12f3aeef5dc57afd8e484b94aa7480e0adebc632426501e1f4f6d1770c6e0260"
+      },
+      {
+        "pmid": "39653044",
+        "title": "Efficacy and safety of tezepelumab versus placebo in adults with moderate to very severe chronic obstructive pulmonary disease (COURSE): a randomised, placebo-controlled, phase 2a trial",
+        "authors": "Singh D, et al",
+        "year": "2025",
+        "journal": "The Lancet. Respiratory medicine",
+        "doi": "10.1016/S2213-2600(24)00324-2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39653044/",
+        "context": "BACKGROUND: Tezepelumab is a human monoclonal antibody that blocks thymic stromal lymphopoietin, which has shown increased expression in patients with chronic obstructive pulmonary disease (COPD) compared with healthy individuals. We aimed to assess the efficacy and safety of tezepelumab in patients with moderate to very severe COPD despite receiving triple inhaled therapy. METHODS: COURSE was a double-blind, randomised, placebo-controlled, phase 2a trial across 90 sites in ten countries in Asia, Europe, and North America. Eligible participants were aged 40-80 years, had moderate to very severe airflow limitation, were receiving triple inhaled maintenance therapy, and had at least two moderate to severe COPD exacerbations in the 12 months before enrolment. Patients were randomly assigned (1:1) to receive tezepelumab 420 mg or placebo subcutaneously every 4 weeks for up to 52 weeks. Randomisation was stratified by geographical region and by number of exacerbations in the 12 months before enrolment. Participants, investigators, site staff, and the study sponsor were masked to treatment assignment. The primary endpoint was the annualised rate of moderate or severe COPD exacerbations over 52 weeks. A prespecified subgroup analysis assessed the primary endpoint in patients grouped by baseline blood eosinophil counts (BECs). Efficacy and safety were assessed in all patients who received at least one dose of study drug. This trial is registered with ClinicalTrials.gov, NCT04039113 (completed). FINDINGS: Between July 30, 2019, and Oct 4, 2022, 333 patients (mean age 67·2 years [SD 7·0]; 145 [44%] female and 188 [56%] male; 293 [88%] White, 34 [10%] Asian, and four [1%] Black or African American) were randomly assigned and treated with tezepelumab (n=165) or placebo (n=168). The annualised rate of moderate or severe COPD exacerbations over 52 weeks was 1·75 for tezepelumab versus 2·11 for placebo (rate ratio 0·83 [90% CI 0·64-1·06]; p=0·10 [one-sided]; the primary endpoint was not met). In prespecified subgroup analyses, the annualised rate of moderate or severe COPD exacerbations over 52 weeks was 2·04 with tezepelumab versus 1·71 with placebo (rate ratio 1·19 [95% CI 0·75-1·90]) in patients with a baseline BEC of less than 150 cells per μL, 1·64 versus 2·47 (0·66 [0·42-1·04]) in patients with a baseline BEC of 150 cells per μL to less than 300 cells per μL, and 1·20 versus 2·24 (0·54 [0·25-1·15]) in patients with a baseline BEC of 300 cells per μL or higher. Adverse events occurred in 133 (81%) of 165 patients in the tezepelumab group and 126 (75%) of 168 patients in the placebo group. Serious adverse events occurred in 49 (30%) patients in the tezepelumab group and 50 (30%) patients in the placebo group. Five patients died while receiving study treatment: two in the tezepelumab group and three in the placebo group. No deaths were determined to be causally related to study treatment by investigator assessment. INTERPRETATION: A significant reduction was not observed in the annualised rate of moderate or severe COPD exacerbations with tezepelumab versus placebo. Further studies are required to evaluate the efficacy of tezepelumab in patients with moderate to very severe COPD, particularly in patients with a baseline BEC of 150 cells per μL or higher. Tezepelumab was well tolerated, with no safety concerns identified. FUNDING: AstraZeneca and Amgen.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase II",
+          "Multicenter Study"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "0c5c70cb2716832972c1ed31ac15eb56eda7664313cdaa14601626a60579c7bb"
+      },
+      {
+        "pmid": "40305712",
+        "title": "Mepolizumab to Prevent Exacerbations of COPD with an Eosinophilic Phenotype",
+        "authors": "Sciurba FC, et al",
+        "year": "2025",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2413181",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40305712/",
+        "context": "BACKGROUND: Mepolizumab is a humanized monoclonal antibody that targets interleukin-5, a cytokine that plays a central role in eosinophilic inflammation, which is present in 20 to 40% of patients with chronic obstructive pulmonary disease (COPD). METHODS: In a phase 3, double-blind, randomized, placebo-controlled trial, patients with COPD, a history of exacerbations, and a blood eosinophil count of at least 300 cells per microliter who were receiving triple inhaled therapy were assigned, in a 1:1 ratio, to receive mepolizumab (at a dose of 100 mg) or placebo subcutaneously every 4 weeks for 52 to 104 weeks. The primary end point was the annualized rate of moderate or severe exacerbations. Secondary end points, tested hierarchically to control for multiplicity, were moderate or severe exacerbation as assessed in a time-to-first-event analysis, measures of health-related quality of life and symptoms, and the annualized rate of exacerbations leading to an emergency department visit, hospitalization, or both. RESULTS: Of the 804 patients who underwent randomization, 403 were assigned to receive mepolizumab and 401 to receive placebo. The annualized rate of moderate or severe exacerbations was significantly lower with mepolizumab than with placebo (0.80 vs. 1.01 events per year; rate ratio, 0.79; 95% confidence interval [CI], 0.66 to 0.94; P = 0.01). The time to the first moderate or severe exacerbation was longer with mepolizumab than with placebo (Kaplan-Meier median time to the first moderate or severe exacerbation, 419 vs. 321 days; hazard ratio, 0.77; 95% CI, 0.64 to 0.93; P = 0.009). Between-group differences in measures of health-related quality of life and symptoms were not significant; thus, no statistical inferences regarding subsequent secondary end points in the statistical testing hierarchy were made. The incidence of adverse events was similar in the mepolizumab and placebo groups. CONCLUSIONS: Treatment with mepolizumab led to a lower annualized rate of moderate or severe exacerbations when added to background triple inhaled therapy among patients with COPD and an eosinophilic phenotype. (Funded by GSK; MATINEE ClinicalTrials.gov number, NCT04133909.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "18b51cc0763790937cd65944e6d83cd81efae7949cc5579ba11a91616883610b"
+      },
+      {
+        "pmid": "38227034",
+        "title": "Nurse and Social Worker Palliative Telecare Team and Quality of Life in Patients With COPD, Heart Failure, or Interstitial Lung Disease: The ADAPT Randomized Clinical Trial",
+        "authors": "Bekelman DB, et al",
+        "year": "2024",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2023.24035",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38227034/",
+        "context": "IMPORTANCE: Many patients with chronic obstructive pulmonary disease (COPD), heart failure (HF), and interstitial lung disease (ILD) endure poor quality of life despite conventional therapy. Palliative care approaches may benefit this population prior to end of life. OBJECTIVE: Determine the effect of a nurse and social worker palliative telecare team on quality of life in outpatients with COPD, HF, or ILD compared with usual care. DESIGN, SETTING, AND PARTICIPANTS: Single-blind, 2-group, multisite randomized clinical trial with accrual between October 27, 2016, and April 2, 2020, in 2 Veterans Administration health care systems (Colorado and Washington), and including community-based outpatient clinics. Outpatients with COPD, HF, or ILD at high risk of hospitalization or death who reported poor quality of life participated. INTERVENTION: The intervention involved 6 phone calls with a nurse to help with symptom management and 6 phone calls with a social worker to provide psychosocial care. The nurse and social worker met weekly with a study primary care and palliative care physician and as needed, a pulmonologist, and cardiologist. Usual care included an educational handout developed for the study that outlined self-care for COPD, ILD, or HF. Patients in both groups received care at the discretion of their clinicians, which could include care from nurses and social workers, and specialists in cardiology, pulmonology, palliative care, and mental health. MAIN OUTCOMES AND MEASURES: The primary outcome was difference in change in quality of life from baseline to 6 months between the intervention and usual care groups (FACT-G score range, 0-100, with higher scores indicating better quality of life, clinically meaningful change ≥4 points). Secondary quality-of-life outcomes at 6 months included disease-specific health status (Clinical COPD Questionnaire; Kansas City Cardiomyopathy Questionnaire-12), depression (Patient Health Questionnaire-8) and anxiety (Generalized Anxiety Disorder-7) symptoms. RESULTS: Among 306 randomized patients (mean [SD] age, 68.9 [7.7] years; 276 male [90.2%], 30 female [9.8%]; 245 White [80.1%]), 177 (57.8%) had COPD, 67 (21.9%) HF, 49 (16%) both COPD and HF, and 13 (4.2%) ILD. Baseline FACT-G scores were similar (intervention, 52.9; usual care, 52.7). FACT-G completion was 76% (intervention, 117 of 154; usual care, 116 of 152) at 6 months for both groups. Mean (SD) length of intervention was 115.1 (33.4) days and included a mean of 10.4 (3.3) intervention calls per patient. In the intervention group, 112 of 154 (73%) patients received the intervention as randomized. At 6 months, mean FACT-G score improved 6.0 points in the intervention group and 1.4 points in the usual care group (difference, 4.6 points [95% CI, 1.8-7.4]; P = .001; standardized mean difference, 0.41). The intervention also improved COPD health status (standardized mean difference, 0.44; P = .04), HF health status (standardized mean difference, 0.41; P = .01), depression (standardized mean difference, -0.50; P < .001), and anxiety (standardized mean difference, -0.51; P < .001) at 6 months. CONCLUSIONS AND RELEVANCE: For adults with COPD, HF, or ILD who were at high risk of death and had poor quality of life, a nurse and social worker palliative telecare team produced clinically meaningful improvements in quality of life at 6 months compared with usual care. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT02713347.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "a4e34d36af13c97978dc962b297fc7714bd11c2c2dc5376f8dda5d56fcb0e3ab"
+      },
+      {
+        "pmid": "cr:10.1016/j.ejim.2026.107110",
+        "title": "Particle engineering, aerosol physics, and pulmonary deposition of single-inhaler triple ICS/LABA/LAMA therapies in obstructive airway diseases",
+        "authors": "Sorino Claudio, Virchow Johann Christian, Spanevello Antonio, Buscemi Agata",
+        "year": "2026",
+        "journal": "European Journal of Internal Medicine",
+        "doi": "10.1016/j.ejim.2026.107110",
+        "url": "https://doi.org/10.1016/j.ejim.2026.107110",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "2effe22b4cffd9d36f4a3a435e784da5ffe1cfa7a7d8230432f6f5af97c15a98"
+      },
+      {
+        "pmid": "cr:10.2147/copd.s185975",
+        "title": "Triple therapy (ICS/LABA/LAMA) in COPD: time for a reappraisal",
+        "authors": "Vanfleteren Lowie, Fabbri Leonardo M, Papi Alberto, Petruzzelli Stefano",
+        "year": "2018",
+        "journal": "International Journal of Chronic Obstructive Pulmonary Disease",
+        "doi": "10.2147/copd.s185975",
+        "url": "https://doi.org/10.2147/copd.s185975",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "42ceb5b8004ed7b042c12ce1b0f07db54e6874140784a1caa092998a4800fb19"
+      },
+      {
+        "pmid": "cr:10.2147/copd.s72858",
+        "title": "LAMA/LABA vs ICS/LABA in the treatment of COPD in Japan based on the disease phenotypes",
+        "authors": "Hizawa Nobuyuki",
+        "year": "2015",
+        "journal": "International Journal of Chronic Obstructive Pulmonary Disease",
+        "doi": "10.2147/copd.s72858",
+        "url": "https://doi.org/10.2147/copd.s72858",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "65122b39f288678de9f0e735d921649f4152eecc313201dce7afcb524605e7e5"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 11,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 3,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "symptomatic COPD with history of >= 1 exacerbation single-inhaler triple therapy (ICS/LABA/LAMA) dual bronchodilator therapy (LABA/LAMA) annualized rate of moderate or severe COPD exacerbations",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}
