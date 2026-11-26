@@ -1476,14 +1476,27 @@ table.pico td:first-child {
 }
 
 /* Footer */
-footer a {
+footer a,
+.tap-link {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
 }
 
+/* Touch targets: 44px on phones for every button, chip and standalone link. */
 @media (max-width: 767px) {
-  footer a {
+  footer a,
+  .tap-link {
+    min-height: 44px;
+  }
+
+  .btn,
+  .btn--sm {
+    height: auto;
+    min-height: 44px;
+  }
+
+  .chip {
     min-height: 44px;
   }
 }

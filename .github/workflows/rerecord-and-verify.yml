@@ -1,7 +1,7 @@
 name: Re-record fixtures and run every layer (one-off)
 
 # One-off helper for PR #1. It re-records the literature fixtures with the current engine, then runs
-# every test layer WITHOUT stopping at the first failure, so one run shows the true state of all of
+# (re-recording all 54 incl. presets via --all) every test layer WITHOUT stopping at the first failure, so one run shows the true state of all of
 # them. It commits only tests/fixtures/literature back to the branch. Delete this file after use.
 
 on:
@@ -27,7 +27,7 @@ jobs:
       - name: Re-record literature fixtures (live PubMed etc.)
         id: record
         continue-on-error: true
-        run: node --import ./tests/api/_loader.mjs scripts/record-fixtures.mjs
+        run: node --import ./tests/api/_loader.mjs scripts/record-fixtures.mjs --all
 
       - name: Commit re-recorded fixtures
         if: steps.record.outcome == 'success'
