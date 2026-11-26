@@ -11,7 +11,7 @@ import { Modal } from "@/components/Modal";
 import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
 import { PresetCard } from "@/components/PresetCard";
-import type { PicoPreset } from "@/lib/specialties";
+import { keywordsPlaceholderFor, type PicoPreset } from "@/lib/specialties";
 import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
@@ -20,6 +20,14 @@ import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 function sessionPicoSnapshot(): string {
   if (typeof window === "undefined") return "";
   try {
+    // The keywords box is saved as the user types or picks a preset, so a reload restores exactly
+    // what was on screen. It wins over the words saved at the last "Save & Screen", which are only
+    // the fallback for a session that never typed in the box.
+    const savedText = window.sessionStorage.getItem(KEYS.inputText);
+    if (savedText !== null) {
+      const parsed = JSON.parse(savedText);
+      if (typeof parsed === "string") return parsed;
+    }
     const savedPico = window.sessionStorage.getItem(KEYS.picoWords);
     if (savedPico) {
       const parsed = JSON.parse(savedPico);
@@ -29,10 +37,6 @@ function sessionPicoSnapshot(): string {
           .filter(Boolean)
           .join(", ");
       }
-    }
-    const savedText = window.sessionStorage.getItem(KEYS.inputText);
-    if (savedText) {
-      return JSON.parse(savedText);
     }
   } catch {}
   return "";
@@ -95,7 +99,10 @@ export default function DashboardPage() {
   const restoredInput = useSyncExternalStore(subscribeToNothing, sessionPicoSnapshot, serverSnapshot);
   const [draft, setDraft] = useState<string | null>(null);
   const rawInput = draft ?? restoredInput;
-  const setRawInput = useCallback((v: string) => setDraft(v), []);
+  const setRawInput = useCallback((v: string) => {
+    setDraft(v);
+    sset(KEYS.inputText, v);
+  }, []);
   const [savedNotice, setSavedNotice] = useState<string | null>(null);
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
@@ -203,7 +210,7 @@ export default function DashboardPage() {
       </header>
 
       {/* Workflow Stepper: Step 1 Active */}
-      <div style={{ maxWidth: 1380, margin: "12px auto 0 auto", padding: "0 24px", width: "100%" }}>
+      <div style={{ maxWidth: "var(--content-max)", margin: "12px auto 0 auto", padding: "0 24px", width: "100%" }}>
         <WorkflowStepper currentStep={1} />
       </div>
 
@@ -283,7 +290,7 @@ export default function DashboardPage() {
                 data-testid="keywords-input"
                 className="aimed-textarea textarea"
                 rows={3}
-                placeholder="e.g. women with endometriosis, laparoscopic surgery, medical therapy, pain score reduction"
+                placeholder={keywordsPlaceholderFor(currentSpecialty)}
                 value={rawInput}
                 onChange={(e) => {
                   setRawInput(e.target.value);
@@ -334,7 +341,7 @@ export default function DashboardPage() {
                             background: cfg.badgeBg,
                             color: "#fff",
                             fontSize: "var(--fs-badge)",
-                            fontWeight: 800,
+                            fontWeight: 700,
                             padding: "2px 5px",
                             borderRadius: "var(--radius-sm)"
                           }}

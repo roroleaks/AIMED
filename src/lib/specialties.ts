@@ -1413,6 +1413,19 @@ export const SPECIALTY_CATEGORIES = [
   "Dermatology"
 ] as const;
 
+/**
+ * Example text for the Step 1 keywords box. Obs/Gyn keeps its original example; every other
+ * specialty shows its own first example question, so an orthopaedics user is never prompted with
+ * an endometriosis example.
+ */
+export function keywordsPlaceholderFor(spec: SpecialtyDefinition): string {
+  if (spec.id === "obgyn") {
+    return "e.g. women with endometriosis, laparoscopic surgery, medical therapy, pain score reduction";
+  }
+  const first = spec.presets[0]?.raw;
+  return first ? `e.g. ${first}` : "e.g. condition, intervention, comparator, outcome";
+}
+
 export function getSpecialtyDefinition(id: string): SpecialtyDefinition {
   if (id in SPECIALTIES) {
     return SPECIALTIES[id];

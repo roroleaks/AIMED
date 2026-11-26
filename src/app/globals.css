@@ -25,7 +25,7 @@
 
   /* Colour — ONE teal accent */
   --accent: #0f766e; --accent-hover: #0d5f59; --accent-subtle: #f0fdfa; --accent-border: #99f6e4;
-  --ink: #0f172a; --ink-2: #334155; --muted: #475569; --muted-2: #64748b;
+  --ink: #0f172a; --ink-2: #334155; --muted: #475569; --muted-2: #5f6e84;
   --surface: #ffffff; --canvas: #f6f8fa; --border: #d8dee6; --border-strong: #cbd5e1;
   --success: #15803d; --success-bg: #ecfdf5;
   --warning: #b45309; --warning-bg: #fef3c7;
@@ -146,10 +146,18 @@ button {
   background: var(--accent-hover);
 }
 
-.btn--primary:disabled,
 .btn:disabled {
   background: var(--border-strong);
   color: var(--muted-2);
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* The primary button keeps the one accent colour when disabled and is dimmed instead. */
+.btn--primary:disabled {
+  background: var(--accent);
+  color: #ffffff;
+  opacity: 0.45;
   cursor: not-allowed;
   border-color: transparent;
 }
@@ -498,6 +506,13 @@ button {
   }
 }
 
+/* Two-column layout (640-1023px): an odd last card spans the row instead of leaving a hole. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .preset-grid > .preset-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .preset-card {
   display: grid;
   grid-template-columns: 20px 1fr;
@@ -553,16 +568,18 @@ button {
   font-size: var(--fs-label);
   font-weight: 600;
   color: var(--ink);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
+  hyphens: manual;
 }
 
 .preset-card__comparison {
   font-size: var(--fs-caption);
   color: var(--muted);
   margin-top: 2px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
+  hyphens: manual;
 }
 
 .preset-vs {
@@ -570,7 +587,7 @@ button {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted-2);
-  margin: 0 4px;
+  margin: 0 2px;
 }
 
 @media (max-width: 767px) {
@@ -811,7 +828,7 @@ button:active,
 }
 
 .solo {
-  max-width: 1380px;
+  max-width: var(--content-max);
   margin: 26px auto;
   padding: 0 24px;
   width: 100%;
@@ -1459,6 +1476,18 @@ table.pico td:first-child {
 }
 
 /* Footer */
+footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+@media (max-width: 767px) {
+  footer a {
+    min-height: 44px;
+  }
+}
+
 footer {
   text-align: center;
   color: var(--muted);
@@ -1674,7 +1703,7 @@ footer {
 
 .aimed-hero-title {
   font-size: var(--fs-display);
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   line-height: 1.25;
   margin-bottom: 12px;
@@ -1780,7 +1809,7 @@ footer {
   background: none;
   border: none;
   font-size: var(--fs-body-sm);
-  color: #94a3b8;
+  color: var(--muted-2);
   cursor: pointer;
   padding: 4px;
 }

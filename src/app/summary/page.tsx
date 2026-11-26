@@ -607,7 +607,7 @@ export default function SummaryPage() {
                       background: conf.badgeBg,
                       color: "#fff",
                       fontSize: "var(--fs-badge)",
-                      fontWeight: 800,
+                      fontWeight: 700,
                       padding: "1px 5px",
                       borderRadius: "var(--radius-sm)"
                     }}
@@ -803,7 +803,7 @@ export default function SummaryPage() {
               <h2
                 style={{
                   fontSize: "var(--fs-section)",
-                  fontWeight: 800,
+                  fontWeight: 700,
                   color: "var(--ink)",
                   lineHeight: "var(--lh-heading)",
                   margin: 0,
