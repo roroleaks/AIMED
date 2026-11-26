@@ -63,6 +63,7 @@ test.describe("L5 End-to-End Clinical Workflow", () => {
 
       // Step 3 checks
       const paperCards = page.getByTestId("paper-card");
+      await expect(paperCards.first()).toBeVisible({ timeout: 30_000 });
       const paperCount = await paperCards.count();
       expect(paperCount).toBeGreaterThanOrEqual(1);
 
