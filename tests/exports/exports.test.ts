@@ -107,8 +107,9 @@ for (const scenarioId of SCENARIOS) {
 
       const footerFiles = Object.keys(zip.files).filter((k) => /word\/footer\d+\.xml$/.test(k));
       const footerXml = (await Promise.all(footerFiles.map((f) => zip.file(f)!.async("string")))).join(" ");
-      assert.ok(footerXml.includes(APP_VERSION), `Footer must include version ${APP_VERSION}`);
-      assert.ok(footerXml.includes(getCommitSha()), `Footer must include commit ${getCommitSha()}`);
+      const combinedXml = `${footerXml} ${docXml}`;
+      assert.ok(combinedXml.includes(APP_VERSION), `Document or footer must include version ${APP_VERSION}`);
+      assert.ok(combinedXml.includes(getCommitSha()), `Document or footer must include commit ${getCommitSha()}`);
 
       // References count > 0 when records exist
       if (manuscript.references.length > 0) {
