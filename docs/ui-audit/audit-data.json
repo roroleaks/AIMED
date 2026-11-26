@@ -1,0 +1,1351 @@
+{
+  "auditResults": [
+    {
+      "specialtyId": "obgyn",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/obgyn-1440.png"
+    },
+    {
+      "specialtyId": "obgyn",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/obgyn-1024.png"
+    },
+    {
+      "specialtyId": "obgyn",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/obgyn-768.png"
+    },
+    {
+      "specialtyId": "obgyn",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 4,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/obgyn-390.png"
+    },
+    {
+      "specialtyId": "cardiology",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/cardiology-1440.png"
+    },
+    {
+      "specialtyId": "cardiology",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/cardiology-1024.png"
+    },
+    {
+      "specialtyId": "cardiology",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 4,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/cardiology-768.png"
+    },
+    {
+      "specialtyId": "cardiology",
+      "expectedCount": 4,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 4,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/cardiology-390.png"
+    },
+    {
+      "specialtyId": "oncology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/oncology-1440.png"
+    },
+    {
+      "specialtyId": "oncology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/oncology-1024.png"
+    },
+    {
+      "specialtyId": "oncology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/oncology-768.png"
+    },
+    {
+      "specialtyId": "oncology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/oncology-390.png"
+    },
+    {
+      "specialtyId": "pediatrics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pediatrics-1440.png"
+    },
+    {
+      "specialtyId": "pediatrics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pediatrics-1024.png"
+    },
+    {
+      "specialtyId": "pediatrics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pediatrics-768.png"
+    },
+    {
+      "specialtyId": "pediatrics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pediatrics-390.png"
+    },
+    {
+      "specialtyId": "surgery",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/surgery-1440.png"
+    },
+    {
+      "specialtyId": "surgery",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/surgery-1024.png"
+    },
+    {
+      "specialtyId": "surgery",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/surgery-768.png"
+    },
+    {
+      "specialtyId": "surgery",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/surgery-390.png"
+    },
+    {
+      "specialtyId": "internal_med",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/internal_med-1440.png"
+    },
+    {
+      "specialtyId": "internal_med",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/internal_med-1024.png"
+    },
+    {
+      "specialtyId": "internal_med",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/internal_med-768.png"
+    },
+    {
+      "specialtyId": "internal_med",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 2,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/internal_med-390.png"
+    },
+    {
+      "specialtyId": "neurology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/neurology-1440.png"
+    },
+    {
+      "specialtyId": "neurology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/neurology-1024.png"
+    },
+    {
+      "specialtyId": "neurology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/neurology-768.png"
+    },
+    {
+      "specialtyId": "neurology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 2,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/neurology-390.png"
+    },
+    {
+      "specialtyId": "endocrinology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/endocrinology-1440.png"
+    },
+    {
+      "specialtyId": "endocrinology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/endocrinology-1024.png"
+    },
+    {
+      "specialtyId": "endocrinology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 2,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/endocrinology-768.png"
+    },
+    {
+      "specialtyId": "endocrinology",
+      "expectedCount": 2,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 2,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/endocrinology-390.png"
+    },
+    {
+      "specialtyId": "emergency_med",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/emergency_med-1440.png"
+    },
+    {
+      "specialtyId": "emergency_med",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/emergency_med-1024.png"
+    },
+    {
+      "specialtyId": "emergency_med",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/emergency_med-768.png"
+    },
+    {
+      "specialtyId": "emergency_med",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/emergency_med-390.png"
+    },
+    {
+      "specialtyId": "psychiatry",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 86,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/psychiatry-1440.png"
+    },
+    {
+      "specialtyId": "psychiatry",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 86,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/psychiatry-1024.png"
+    },
+    {
+      "specialtyId": "psychiatry",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/psychiatry-768.png"
+    },
+    {
+      "specialtyId": "psychiatry",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/psychiatry-390.png"
+    },
+    {
+      "specialtyId": "orthopedics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/orthopedics-1440.png"
+    },
+    {
+      "specialtyId": "orthopedics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/orthopedics-1024.png"
+    },
+    {
+      "specialtyId": "orthopedics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/orthopedics-768.png"
+    },
+    {
+      "specialtyId": "orthopedics",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/orthopedics-390.png"
+    },
+    {
+      "specialtyId": "pulmonology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pulmonology-1440.png"
+    },
+    {
+      "specialtyId": "pulmonology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 103,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pulmonology-1024.png"
+    },
+    {
+      "specialtyId": "pulmonology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pulmonology-768.png"
+    },
+    {
+      "specialtyId": "pulmonology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/pulmonology-390.png"
+    },
+    {
+      "specialtyId": "gastroenterology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/gastroenterology-1440.png"
+    },
+    {
+      "specialtyId": "gastroenterology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/gastroenterology-1024.png"
+    },
+    {
+      "specialtyId": "gastroenterology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/gastroenterology-768.png"
+    },
+    {
+      "specialtyId": "gastroenterology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/gastroenterology-390.png"
+    },
+    {
+      "specialtyId": "infectious_disease",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/infectious_disease-1440.png"
+    },
+    {
+      "specialtyId": "infectious_disease",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/infectious_disease-1024.png"
+    },
+    {
+      "specialtyId": "infectious_disease",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/infectious_disease-768.png"
+    },
+    {
+      "specialtyId": "infectious_disease",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/infectious_disease-390.png"
+    },
+    {
+      "specialtyId": "dermatology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1440,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/dermatology-1440.png"
+    },
+    {
+      "specialtyId": "dermatology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 1024,
+      "count": 3,
+      "columns": 3,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 85,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/dermatology-1024.png"
+    },
+    {
+      "specialtyId": "dermatology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 768,
+      "count": 3,
+      "columns": 2,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/dermatology-768.png"
+    },
+    {
+      "specialtyId": "dermatology",
+      "expectedCount": 3,
+      "specialty": "Start from an example",
+      "vw": 390,
+      "count": 3,
+      "columns": 1,
+      "fonts": [
+        "Inter"
+      ],
+      "minHeight": 66,
+      "minGap": "12px",
+      "overflowing": 0,
+      "leftEdgeDelta": 0,
+      "equalHeightsPerRow": true,
+      "pageOverflowX": false,
+      "bodyFont": "Inter",
+      "buttonFonts": [
+        "Inter"
+      ],
+      "screenshot": "docs/ui-audit/presets/dermatology-390.png"
+    }
+  ],
+  "routeAudits": [
+    {
+      "route": "/",
+      "longestParagraphWidth": 280,
+      "text": "Scan with your phone or tablet camera to"
+    },
+    {
+      "route": "/dashboard",
+      "longestParagraphWidth": 590,
+      "text": "Fills the keywords below — you can edit "
+    },
+    {
+      "route": "/screen",
+      "longestParagraphWidth": 500,
+      "text": "PubMed · Europe PMC · Cochrane CENTRAL ·"
+    },
+    {
+      "route": "/explore",
+      "longestParagraphWidth": 691,
+      "text": "In short cervix (P), does vaginal proges"
+    },
+    {
+      "route": "/summary",
+      "longestParagraphWidth": 727,
+      "text": "Study extractions: \"The use of specialis"
+    }
+  ]
+}

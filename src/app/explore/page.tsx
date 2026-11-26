@@ -389,10 +389,11 @@ export default function ExplorePage() {
               padding: "var(--space-3) var(--space-4)",
               borderLeft: `4px solid ${meta.borderColor}`,
               backgroundColor: "var(--canvas)",
-              borderRadius: "0 var(--radius-md) var(--radius-md) 0"
+              borderRadius: "0 var(--radius-md) var(--radius-md) 0",
+              maxWidth: "var(--reading-max)"
             }}
           >
-            <p style={{ margin: 0, fontWeight: 700, fontSize: "var(--fs-subsection)", color: "var(--ink)", lineHeight: "var(--lh-snug)" }}>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: "var(--fs-subsection)", color: "var(--ink)", lineHeight: "var(--lh-snug)", maxWidth: "var(--reading-max)" }}>
               {choice.phrase}
             </p>
           </div>
