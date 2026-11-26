@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useAimedContext } from "@/context/AimedContext";
 import { SPECIALTIES } from "@/lib/specialties";
 import { ALL_LITERATURE_SOURCES } from "@/lib/literature-sources";
-import { APP_VERSION } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 import { AppQrCode } from "@/components/AppQrCode";
@@ -46,7 +45,7 @@ export default function Home() {
               priority
             />
             <span className="title-main">
-              AIMed <span className="version-badge">v{APP_VERSION}</span>
+              AIMed
             </span>
           </div>
           <div className="hdr-center">

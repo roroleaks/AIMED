@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { APP_VERSION, getCommitSha } from "@/lib/version";
 
 export function AuthorHeaderRight() {
   return (
@@ -14,9 +13,6 @@ export function AuthorHeaderRight() {
           priority
         />
         Dr Raouf Roshdy
-      </span>
-      <span className="version-tag" style={{ fontSize: "var(--fs-caption)", color: "rgba(255, 255, 255, 0.75)", fontWeight: 600 }}>
-        v{APP_VERSION} ({getCommitSha()})
       </span>
     </div>
   );

@@ -292,7 +292,7 @@ export default function ExplorePage() {
           <div className="hdr-inner">
             <div className="hdr-left">
               <span className="title-main">
-                AIMed <span className="version-badge">v4.2.0</span>
+                AIMed
               </span>
             </div>
             <div className="hdr-center">
@@ -389,10 +389,11 @@ export default function ExplorePage() {
               padding: "var(--space-3) var(--space-4)",
               borderLeft: `4px solid ${meta.borderColor}`,
               backgroundColor: "var(--canvas)",
-              borderRadius: "0 var(--radius-md) var(--radius-md) 0"
+              borderRadius: "0 var(--radius-md) var(--radius-md) 0",
+              maxWidth: "var(--reading-max)"
             }}
           >
-            <p style={{ margin: 0, fontWeight: 700, fontSize: "var(--fs-subsection)", color: "var(--ink)", lineHeight: "var(--lh-snug)" }}>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: "var(--fs-subsection)", color: "var(--ink)", lineHeight: "var(--lh-snug)", maxWidth: "var(--reading-max)" }}>
               {choice.phrase}
             </p>
           </div>
@@ -610,7 +611,7 @@ export default function ExplorePage() {
                     </h3>
 
                     {/* Authors and Journal */}
-                    <p style={{ margin: "0 0 var(--space-2) 0", fontSize: "var(--fs-caption)", color: "var(--muted)", lineHeight: "var(--lh-snug)" }}>
+                    <p style={{ margin: "0 0 var(--space-2) 0", fontSize: "var(--fs-caption)", color: "var(--muted)", lineHeight: "var(--lh-snug)", maxWidth: "var(--reading-max)" }}>
                       {r.authors ? `${r.authors}. ` : ""}
                       {r.journal ? <em>{r.journal}</em> : ""}
                       {r.pmid ? ` (PMID: ${r.pmid})` : r.doi ? ` (DOI: ${r.doi})` : ""}

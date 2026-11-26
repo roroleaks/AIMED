@@ -349,10 +349,10 @@ export default function ScreenPage() {
                       </button>
                     </div>
 
-                    <p style={{ fontWeight: 700, fontSize: "var(--fs-subsection)", lineHeight: "var(--lh-snug)", margin: "var(--space-1) 0 var(--space-2) 0", color: "var(--ink)" }}>
+                    <p style={{ fontWeight: 700, fontSize: "var(--fs-subsection)", lineHeight: "var(--lh-snug)", margin: "var(--space-1) 0 var(--space-2) 0", color: "var(--ink)", maxWidth: "var(--reading-max)" }}>
                       {item.phrase}
                     </p>
-                    <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", margin: 0, lineHeight: "var(--lh-normal)" }}>
+                    <p style={{ fontSize: "var(--fs-body-sm)", color: "var(--muted)", margin: 0, lineHeight: "var(--lh-normal)", maxWidth: "var(--reading-max)" }}>
                       {item.basis}
                     </p>
                     {isUnavailable && (

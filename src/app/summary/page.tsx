@@ -19,7 +19,7 @@ import {
   type ExploreSnapshot,
   type ChoiceState
 } from "@/lib/summary-payload";
-import { DRAFT_DISCLAIMER, APP_VERSION } from "@/lib/version";
+import { DRAFT_DISCLAIMER } from "@/lib/version";
 import { getSourceLabel } from "@/lib/literature-sources";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
@@ -450,7 +450,7 @@ export default function SummaryPage() {
           <div className="hdr-inner">
             <div className="hdr-left">
               <span className="title-main">
-                AIMed <span className="version-badge">v{APP_VERSION}</span>
+                AIMed
               </span>
             </div>
             <div className="hdr-center">

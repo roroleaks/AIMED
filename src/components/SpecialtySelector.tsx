@@ -3,6 +3,7 @@
 import React from "react";
 import { useAimedContext } from "@/context/AimedContext";
 import type { SpecialtyDefinition, PicoPreset } from "@/lib/specialties";
+import { PresetCard } from "@/components/PresetCard";
 
 interface SpecialtySelectorProps {
   onSelectSpecialty?: (specialtyId: string) => void;
@@ -147,19 +148,17 @@ export function SpecialtySelector({ onSelectSpecialty, onSelectPreset, compact =
 
                 {/* Quick Presets Showcase */}
                 {s.presets.length > 0 && (
-                  <div className="specialty-presets-wrap">
-                    <span className="presets-heading">Clinical Presets:</span>
-                    <div className="presets-list">
-                      {s.presets.slice(0, 3).map((p) => (
-                        <button
+                  <div className="specialty-presets-wrap" style={{ marginTop: "var(--space-2)" }}>
+                    <span className="presets-heading" style={{ fontSize: "var(--fs-caption)", fontWeight: 600, color: "var(--muted)", display: "block", marginBottom: "var(--space-2)" }}>
+                      Clinical Presets:
+                    </span>
+                    <div className="presets-list" style={{ display: "grid", gap: "var(--space-2)", gridTemplateColumns: "1fr" }}>
+                      {s.presets.map((p) => (
+                        <PresetCard
                           key={p.id}
-                          type="button"
-                          className="specialty-preset-pill"
+                          preset={p}
                           onClick={(e) => handlePresetClick(e, s, p)}
-                          title={`${p.name} — ${p.description}`}
-                        >
-                          ⚡ {p.name}
-                        </button>
+                        />
                       ))}
                     </div>
                   </div>

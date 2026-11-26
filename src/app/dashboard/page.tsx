@@ -10,9 +10,9 @@ import { SpecialtySelector } from "@/components/SpecialtySelector";
 import { Modal } from "@/components/Modal";
 import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
+import { PresetCard } from "@/components/PresetCard";
 import type { PicoPreset } from "@/lib/specialties";
 import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
-import { APP_VERSION } from "@/lib/version";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 
@@ -98,6 +98,7 @@ export default function DashboardPage() {
   const setRawInput = useCallback((v: string) => setDraft(v), []);
   const [savedNotice, setSavedNotice] = useState<string | null>(null);
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
+  const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const quickSwitchTriggerRef = useRef<HTMLButtonElement>(null);
   const sourcesTriggerRef = useRef<HTMLButtonElement>(null);
 
@@ -149,6 +150,7 @@ export default function DashboardPage() {
     setActivePresetId(preset.id);
     setRawInput(preset.raw);
     setSavedNotice(null);
+    setHasAttemptedSubmit(false);
     if (workspaceRef.current) {
       workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -158,6 +160,7 @@ export default function DashboardPage() {
     setActivePresetId(null);
     setSpecialty(id);
     setSavedNotice(null);
+    setHasAttemptedSubmit(false);
     if (workspaceRef.current) {
       workspaceRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -166,6 +169,7 @@ export default function DashboardPage() {
   // Submit ("Save words") — persists specialty and words, and navigates directly to /screen
   const start = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
+    setHasAttemptedSubmit(true);
     if (!canSubmit) return;
     sset(KEYS.specialty, specialty);
     sset(KEYS.picoWords, picoWords);
@@ -187,12 +191,12 @@ export default function DashboardPage() {
               priority
             />
             <span className="title-main">
-              Aimed <span className="version-badge">v{APP_VERSION}</span>
+              AIMed
             </span>
           </div>
           <div className="hdr-center">
             <h1>Clinical Intelligence Dashboard</h1>
-            <p>Step 1 · Formulate PICO Questions with Multi-Source Literature Retrieval</p>
+            <p>Step 1 · Enter clinical keywords</p>
           </div>
           <AuthorHeaderRight />
         </div>
@@ -207,7 +211,7 @@ export default function DashboardPage() {
       <main className="solo" ref={workspaceRef}>
         <section className="card">
           {/* Active Domain Status Banner with Change Specialty trigger */}
-          <div className="aimed-active-banner" style={{ marginBottom: 18 }}>
+          <div className="aimed-active-banner" style={{ marginBottom: "var(--space-5)", maxWidth: "var(--form-max)", width: "100%" }}>
             <div className="aimed-banner-left">
               <span className="aimed-banner-icon">{currentSpecialty.icon}</span>
               <div>
@@ -243,34 +247,32 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <form onSubmit={start} className="aimed-form">
+          <form onSubmit={start} className="aimed-form" style={{ width: "100%", maxWidth: "var(--form-max)" }}>
             {/* Presets Bar */}
             <div className="aimed-preset-strip">
-              <div className="aimed-preset-label overline">
-                Quick start presets <span style={{ textTransform: "none", fontWeight: 400, color: "var(--muted)" }}>({currentSpecialty.shortName})</span>
-              </div>
-              <div className="aimed-preset-chips">
+              <h2 className="aimed-preset-heading">
+                Start from an example
+              </h2>
+              <p className="aimed-preset-hint">
+                Fills the keywords below — you can edit them.
+              </p>
+              <div className="preset-grid" data-count={activePresets.length}>
                 {activePresets.map((preset) => {
                   const isPressed = activePresetId === preset.id;
                   return (
-                    <button
+                    <PresetCard
                       key={preset.id}
-                      type="button"
-                      className={`aimed-preset-chip chip ${isPressed ? "active" : ""}`}
-                      aria-pressed={isPressed}
+                      preset={preset}
+                      isActive={isPressed}
                       onClick={() => applyPreset(preset)}
-                      title={preset.description}
-                    >
-                      <span style={{ color: "var(--accent)" }} aria-hidden="true">⚡</span>
-                      <span>{preset.name}</span>
-                    </button>
+                    />
                   );
                 })}
               </div>
             </div>
 
             {/* Keyword Input Area */}
-            <div className="input-group" style={{ marginBottom: "var(--space-4)", maxWidth: "var(--form-max)" }}>
+            <div className="input-group" style={{ marginBottom: "var(--space-5)", maxWidth: "var(--form-max)", width: "100%" }}>
               <label htmlFor="raw-pico-input" style={{ fontWeight: 600, display: "block", marginBottom: "var(--space-2)", fontSize: "var(--fs-label)" }}>
                 Clinical keywords (3 to 5 terms):
               </label>
@@ -286,8 +288,8 @@ export default function DashboardPage() {
                 }}
                 style={{ width: "100%", maxWidth: "var(--form-max)" }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "var(--space-1)" }}>
-                <span className={`count-hint ${canSubmit ? "ok" : "warn"}`} style={{ fontSize: "var(--fs-caption)", color: canSubmit ? "var(--success)" : "var(--warning)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "var(--space-2)" }}>
+                <span className={`count-hint ${canSubmit ? "ok" : hasAttemptedSubmit ? "warn" : "rest"}`} style={{ fontSize: "var(--fs-caption)" }}>
                   {countHint}
                 </span>
                 <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
@@ -298,7 +300,7 @@ export default function DashboardPage() {
 
             {/* Live Interactive PICO Role Chips Strip */}
             {picoWords.length > 0 && (
-              <div className="aimed-chips-container" style={{ marginBottom: "var(--space-4)", padding: "var(--space-3) var(--space-4)", background: "var(--canvas)", borderRadius: "var(--radius-md)", border: "1px solid var(--border)", maxWidth: "var(--form-max)" }}>
+              <div className="aimed-chips-container" style={{ marginBottom: "var(--space-5)", padding: "var(--space-3) var(--space-4)", background: "var(--canvas)", borderRadius: "var(--radius-md)", border: "1px solid var(--border)", maxWidth: "var(--form-max)", width: "100%" }}>
                 <div style={{ fontSize: "var(--fs-caption)", fontWeight: 600, color: "var(--muted)", marginBottom: "var(--space-2)" }}>
                   🏷️ Classified PICO Parameters:
                 </div>
@@ -369,12 +371,14 @@ export default function DashboardPage() {
               <div
                 className="advisory notice notice--info"
                 style={{
-                  marginBottom: "var(--space-4)",
+                  marginBottom: "var(--space-5)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
                   flexWrap: "wrap",
-                  gap: "var(--space-2)"
+                  gap: "var(--space-2)",
+                  maxWidth: "var(--form-max)",
+                  width: "100%"
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)" }}>
@@ -394,8 +398,7 @@ export default function DashboardPage() {
             {/* Literature Search Databases Bar */}
             <div
               style={{
-                marginTop: "var(--space-4)",
-                marginBottom: "var(--space-2)",
+                marginBottom: "var(--space-5)",
                 padding: "var(--space-3) var(--space-4)",
                 background: "var(--canvas)",
                 borderRadius: "var(--radius-md)",
@@ -404,7 +407,9 @@ export default function DashboardPage() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 flexWrap: "wrap",
-                gap: "var(--space-2)"
+                gap: "var(--space-2)",
+                maxWidth: "var(--form-max)",
+                width: "100%"
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
@@ -433,9 +438,11 @@ export default function DashboardPage() {
             </div>
 
             {/* Patient Privacy Notice */}
-            <PhiNotice />
+            <div style={{ marginBottom: "var(--space-5)", maxWidth: "var(--form-max)", width: "100%" }}>
+              <PhiNotice />
+            </div>
 
-            <div className="row" style={{ marginTop: "var(--space-4)", display: "flex", gap: "var(--space-3)", alignItems: "center", flexWrap: "wrap" }}>
+            <div className="row" style={{ display: "flex", gap: "var(--space-3)", alignItems: "center", flexWrap: "wrap", maxWidth: "var(--form-max)", width: "100%" }}>
               <button
                 className="btn btn--primary btn--lg"
                 onClick={start}
