@@ -345,8 +345,7 @@ export default function Home() {
                     }}
                     style={{
                       width: "100%",
-                      minHeight: "var(--control-sm)",
-                      fontSize: "var(--fs-caption)",
+                                            fontSize: "var(--fs-caption)",
                       fontWeight: 700,
                       justifyContent: "center"
                     }}

@@ -890,7 +890,7 @@ button:active,
 /* Badges, Pills & Hints */
 .pill {
   display: inline-block;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1160,7 +1160,7 @@ button.link {
   color: #fff;
   border-radius: 999px;
   padding: 2px 10px;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -1253,7 +1253,7 @@ button.link {
 .v-num {
   font-weight: 700;
   color: var(--accent);
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -1505,8 +1505,7 @@ footer a,
 }
 
 /* Reading width: keep running prose within a comfortable measure. */
-main p,
-.card p {
+p {
   max-width: 760px;
 }
 
@@ -1714,7 +1713,7 @@ footer {
   background: rgba(15, 118, 110, 0.1);
   color: var(--accent);
   border: 1px solid rgba(15, 118, 110, 0.25);
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -2079,7 +2078,7 @@ footer {
 
 .specialty-dropdown-header {
   padding: 10px 14px;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   color: #64748b;
@@ -2164,7 +2163,7 @@ footer {
 }
 
 .pipeline-step-tag {
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   display: block;
@@ -2443,7 +2442,7 @@ footer {
 }
 
 .evidence-category-tag {
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   border-radius: 999px;
   padding: 3px 10px;

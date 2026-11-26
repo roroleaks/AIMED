@@ -289,7 +289,7 @@ function FormattedMethodsParagraph({ para }: { para: string }) {
                   <td style={{ padding: "var(--space-1) var(--space-2)", fontWeight: 600, color: "var(--ink-2)", whiteSpace: "nowrap" }}>
                     {getSourceLabel(q.source)}
                   </td>
-                  <td style={{ padding: "var(--space-1) var(--space-2)", fontFamily: "monospace", fontSize: "var(--fs-badge)", color: "var(--ink-2)" }}>
+                  <td style={{ padding: "var(--space-1) var(--space-2)", fontSize: "var(--fs-badge)", wordBreak: "break-word", color: "var(--ink-2)" }}>
                     {q.query || q.source}
                   </td>
                   <td style={{ padding: "var(--space-1) var(--space-2)", whiteSpace: "nowrap", color: "var(--muted)" }}>
