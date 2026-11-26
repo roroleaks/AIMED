@@ -1,0 +1,847 @@
+{
+  "id": "SURG-1",
+  "recordedAt": "2026-11-26T19:40:12.814Z",
+  "specialty": "surgery",
+  "words": [
+    {
+      "word": "uncomplicated appendicitis",
+      "role": "population"
+    },
+    {
+      "word": "antibiotics",
+      "role": "intervention"
+    },
+    {
+      "word": "appendectomy",
+      "role": "comparator"
+    },
+    {
+      "word": "treatment failure",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "uncomplicated appendicitis",
+        "role": "population"
+      },
+      {
+        "word": "antibiotics",
+        "role": "intervention"
+      },
+      {
+        "word": "appendectomy",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In uncomplicated appendicitis (P), does antibiotics (I) compared with appendectomy (C) reduce treatment failure (O)?",
+        "basis": "Screened literature contains 3 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In uncomplicated appendicitis (P), is antibiotics (I) superior to appendectomy (C) for treatment failure (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of uncomplicated appendicitis (P), does antibiotics (I) compared with appendectomy (C) reduce treatment failure (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 9
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In uncomplicated appendicitis (P), does antibiotics (I) compared with appendectomy (C) reduce treatment failure (O)?"
+    },
+    "words": [
+      {
+        "word": "uncomplicated appendicitis",
+        "role": "population"
+      },
+      {
+        "word": "antibiotics",
+        "role": "intervention"
+      },
+      {
+        "word": "appendectomy",
+        "role": "comparator"
+      },
+      {
+        "word": "treatment failure",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "surgery",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "doi:10.7322/2026comuabc51.mon04",
+        "title": "Antibiotic therapy versus appendectomy for uncomplicated acute appendicitis",
+        "authors": "Isabella Di Pietro Carneiro, Heloisa Bragato Jacob, Milenna Tadeu Zvonimir Bernhardt, Marina da Penha de Oliveira Teixeira",
+        "year": "2026",
+        "journal": "ABCS Health Sciences",
+        "doi": "10.7322/2026comuabc51.mon04",
+        "url": "https://doi.org/10.7322/2026comuabc51.mon04",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BACKGROUND: Acute appendicitis is one of the most common surgical emergencies worldwide. Although appendectomy remains the current gold standard, emerging evidence suggests that conservative management with antibiotics is a viable alternative for uncomplicated cases, despite its underutilization in Brazil. This approach may reduce hospital length of stay and surgical complications, albeit carrying a risk of recurrence. METHODS: This systematic review was registered in PROSPERO (CRD420261345149) and conducted in accordance with the PRISMA 2020 guidelines. A comprehensive search was performed across PubMed, SciELO, LILACS, and the Cochrane Library for studies published between 2006 and 2026. Study selection, managed via the Rayyan platform, was restricted to randomized controlled trials (RCTs) comparing both therapeutic approaches. Studies involving specific populations (pregnant women, immunocompromised patients, the elderly > 60 years, and children < 5 years) or complicated appendicitis (abscesses and perforations) were excluded. RESULTS: A total of 18 RCTs were included from 3,684 retrieved records. The initial success rate of pharmacological treatment ranged from 72.7% to 90.8%. However, recurrence rates were 27.3% at one year and reached 39.1% at five years. The presence of an appendicolith increased the risk of therapeutic failure to 41%. Overall hospital length of stay was comparable between groups (mean of 3 days), although outpatient antibiotic protocols demonstrated a significant reduction to approximately 16 hours. DISCUSSION: The pharmacological approach significantly reduces immediate complications (6.5% vs. 24.4% for surgery) and direct hospital costs. Nevertheless, the high recurrence rate - particularly in pediatric populations, where failure rates can exceed 33% - raises concerns regarding the long-term efficacy of conservative management as a definitive treatment. While surgery provides a higher rate of definitive resolution, the risk of recurrence associated with clinical treatment introduces the potential for hospital readmissions. CONCLUSION: Non-operative management demonstrates efficacy in achieving initial symptom resolution and reducing immediate complications. Nonetheless, the substantial long-term risk of recurrence necessitates a shared decision-making process between physician and patient, grounded in an individualized assessment of risks and benefits.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "56f8489c991949babcc51ded29d736a2f9abb639863f5b326852685aa10a3aa9"
+      },
+      {
+        "pmid": "doi:10.18502/sjms.v21i1.19782",
+        "title": "Antibiotics Versus Appendectomy for Adults with Suspected Uncomplicated Appendicitis: A Systematic Review and Meta-analysis of Randomized Trials (with Cohort Sensitivity Analyses)",
+        "authors": "Roba Alatawy, Hyder Osman Mirghani",
+        "year": "2026",
+        "journal": "Sudan Journal of Medical Sciences",
+        "doi": "10.18502/sjms.v21i1.19782",
+        "url": "https://doi.org/10.18502/sjms.v21i1.19782",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Acute appendicitis is a common serious medical condition, and antibiotics are increasingly used for uncomplicated appendicitis (UA) management. Previous metaanalyses comparing antibiotics and appendectomy are limited by a high risk of bias. This meta-analysis assessed complications, reoperation after 1 year, and quality of life (QoL) among patients with UA. The two authors systematically searched the Web of Science, PubMed, and the Cochrane Library from inception to January 2025. The keywords “appendectomy,” “antibiotics,” “complications,” “failure rate,” and “quality of life” were used; 1090 studies were retrieved, 51 full texts were reviewed, and 13 studies were included in the meta-analysis. Complications and QoL were not different between the appendectomy and antibiotics groups; RR = 1.06; 95% CI = 0.96 to 1.16; and mean difference (MD) = –0.00; 95% CI = –0.0 to 02.01. However, reoperation (appendectomy) after 1 year is higher in the antibiotics group; RR = 0.86, 95% CI = 0.76 to 0.98. In a subgroup analysis, the complication rate and reoperation rate (appendectomy) at 1 year were higher in the appendectomy group than in the antibiotics group. Appendectomy and antibiotic treatment of acute appendicitis were similar in terms of total complications and QoL, with significant reoperation in the antibiotics group. Further controlled trials using sensitive imaging to improve the diagnosis of UA are needed.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "99112f493ebd2d324fdf313107b7cf9e48fd51c5132652ecbbb8754f3241740e"
+      },
+      {
+        "pmid": "42105101",
+        "title": "Effect of antibiotic therapy versus no antibiotics on nonoperative management outcomes in uncomplicated appendicitis: A systematic review and meta-analysis.",
+        "authors": "Lin WT, Huang YN, Wang JH, Lin YK.",
+        "year": "2026",
+        "journal": "International journal of colorectal disease",
+        "doi": "10.1007/s00384-026-05147-1",
+        "url": "https://europepmc.org/article/PMC/PMC13323108",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Comparative Study, Systematic Review, review-article, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Comparative Study",
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
+        ],
+        "context": "Purpose Although antibiotics are a recognized alternative to appendectomy for uncomplicated appendicitis, their specific benefit over observation alone remains unclear. This systematic review and meta-analysis aimed to isolate the antibiotic effect by directly contrasting antibiotics with observation in patients receiving nonoperative management (NOM) for uncomplicated appendicitis. Methods We systematically searched PubMed, Embase (Ovid), the Cochrane Central Register of Controlled Trials, ClinicalTrials.gov, the International Clinical Trials Registry Platform, and the International Standard Randomized Controlled Trial Number Registry from inception to October 5, 2025, to identify randomized or quasi-randomized trials comparing antibiotics versus observation (no antibiotics) for NOM. We defined treatment success at 30 days as the primary endpoint. To assess the potential risk-of-bias (ROB), the Cochrane RoB 2 instrument was employed, while the overall certainty of our findings was determined through the Grading of Recommendations Assessment, Development, and Evaluation (GRADE) framework. Results Three trials involving 437 participants were included: two randomized controlled trials (RCTs) and one quasi-RCT. Analysis restricted to RCTs demonstrated no significant effect of antibiotics on initial treatment success (RR: 1.03, 95% CI: 0.92-1.15). Analysis across three studies showed no significant differences in recurrence (RR: 1.38, 95% CI: 0.68-2.80) or the need for appendectomy during follow-up (RR: 0.98, 95% CI: 0.66-1.47). Evidence certainty was low for the primary outcome and very low for secondary outcomes. Conclusion Current evidence is insufficient to determine whether antibiotics provide additional benefit over observation for uncomplicated appendicitis. Larger, adequately powered trials are needed to establish the comparative effectiveness of these approaches.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "6b577989cdce9d7d30d57420fb3706e44ac179400b21fb596b7121ee9fd823ab"
+      },
+      {
+        "pmid": "41044518",
+        "title": "The safety and efficacy of appendectomy, endoscopic retrograde appendicitis therapy, and antibiotic treatment for acute uncomplicated appendicitis: a systematic review and network meta-analysis of randomized controlled trials.",
+        "authors": "Wang J, Yin J, Wang C, Zhu Y.",
+        "year": "2025",
+        "journal": "BMC surgery",
+        "doi": "10.1186/s12893-025-03176-1",
+        "url": "https://europepmc.org/article/PMC/PMC12495716",
+        "source": "pmc",
+        "pubType": "Systematic Review, review-article, Network Meta-Analysis, Journal Article",
+        "publicationTypes": [
+          "Systematic Review",
+          "review-article",
+          "Network Meta-Analysis",
+          "Journal Article"
+        ],
+        "context": "Background Appendicitis, as a prevalent acute abdominal condition in general surgery, has established a comprehensive diagnostic and therapeutic framework. However, significant academic debate persists regarding the optimal treatment strategy. With advancements in minimally invasive techniques, endoscopic retrograde appendicitis therapy (ERAT) has emerged as an innovative therapeutic approach, providing new options for clinical decision-making. This study employed network meta-analysis to systematically evaluate and compare the clinical efficacy and safety profiles of three treatment modalities: conventional appendectomy, the ERAT, and pharmacological conservative therapy. Methods We systematically reviewed randomized controlled trials (RCTs) published through 2024 that evaluated the three treatment strategies for acute uncomplicated appendicitis. Databases searched included PubMed, Web of Science, Embase, CNKI, Cochrane Central Register of Controlled Trials, and Wanfang. The surface under the cumulative ranking curve (SUCRA) was used to rank the comparative effectiveness of each intervention. Results A total of 23 RCTs were included. Regarding complications, the ERAT group (SUCRA, 99.7%) demonstrated significantly lower rates than antibiotics (SUCRA, 37.8%; OR, 0.20; 95% CI, 0.06-0.67), while appendectomy (SUCRA, 12.5%) showed significantly higher rates versus the ERAT (OR, 6.33; 95% CI, 2.35-17.03), with no significant difference between appendectomy and antibiotics. For recurrence, appendectomy (SUCRA, 99.9%) exhibited lower rates than both antibiotics (SUCRA, 2.2%; OR, 0.06; 95% CI, 0.03-0.11) and the ERAT (SUCRA, 53.2%; OR, 0.27; 95% CI, 0.12-0.64), while the ERAT showed significantly lower recurrence than antibiotics (OR, 0.22; 95% CI, 0.08-0.57). Treatment failure analysis revealed appendectomy (SUCRA, 94.6%) had significantly lower rates than antibiotics (SUCRA, 2.2%; OR, 0.05; 95% CI, 0.02-0.15), with no other significant intergroup differences. Hospital stay showed no statistical differences. Cochrane RoB 2.0 assessment indicated overall sound methodological quality. Network meta-analysis demonstrated good consistency (P > 0.05) with low heterogeneity (τ² low-to-moderate; I² Conclusion Each treatment modality demonstrates unique value in specific clinical scenarios. Conventional appendectomy remains the most reliable definitive treatment approach at present. As a minimally invasive alternative, the ERAT shows promising potential in select patient populations, though broader clinical implementation requires further evidentiary support. While antibiotic therapy avoids surgical intervention, it carries significantly higher risks of recurrence and treatment failure. Additional rigorously designed multicenter randomized controlled trials are needed to optimize current therapeutic decision-making frameworks. Trial registration The network meta-analysis and systematic review were registered in PROSPERO on December 2, 2024. (CRD42024616515).",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "bfa8ad2d4f67867f3e6149136e43d228663dbfd74fa0f29e6110afcb27a5199f"
+      },
+      {
+        "pmid": "28346589",
+        "title": "Comparison of Antibiotic Therapy and Appendectomy for Acute Uncomplicated Appendicitis in Children: A Meta-analysis",
+        "authors": "Libin Huang, Yuan Yin, Lie Yang, Cun Wang",
+        "year": "2017",
+        "journal": "Archives of Pediatrics and Adolescent Medicine",
+        "doi": "10.1001/jamapediatrics.2017.0057",
+        "url": "https://doi.org/10.1001/jamapediatrics.2017.0057",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Antibiotic therapy for acute uncomplicated appendicitis is effective in adult patients, but its application in pediatric patients remains controversial. Objective: To compare the safety and efficacy of antibiotic treatment vs appendectomy as the primary therapy for acute uncomplicated appendicitis in pediatric patients. Data Sources: The PubMed, MEDLINE, EMBASE, and Cochrane Library databases and the Cochrane Controlled Trials Register for randomized clinical trials were searched through April 17, 2016. The search was limited to studies published in English. Search terms included appendicitis, antibiotics, appendectomy, randomized controlled trial, controlled clinical trial, randomized, placebo, drug therapy, randomly, and trial. Study Selection: Randomized clinical trials and prospective clinical controlled trials comparing antibiotic therapy with appendectomy for acute uncomplicated appendicitis in pediatric patients (aged",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "f79d072dfb7b85c79818adbd328cc6a1fd679f2df4f6679a63a890a4b3621419"
+      },
+      {
+        "pmid": "doi:10.3393/ac.2023.00192.0027",
+        "title": "Clinical outcomes and optimal indications for nonoperative management of acute appendicitis in adult patients: a comprehensive literature review",
+        "authors": "Hyun Gu Lee, In Ja Park",
+        "year": "2025",
+        "journal": "Annals of Coloproctology",
+        "doi": "10.3393/ac.2023.00192.0027",
+        "url": "https://doi.org/10.3393/ac.2023.00192.0027",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Appendectomy as the standard treatment for acute appendicitis has been challenged by accumulating evidence supporting nonoperative management with antibiotics as a potential primary treatment. This review aimed to summarize the clinical outcomes and the optimal indications for nonoperative management of acute appendicitis in adults. Current evidence suggests that uncomplicated and complicated appendicitis have different pathophysiologies and should be treated differently. Nonoperative management for uncomplicated appendicitis was not inferior to appendectomy in terms of complications and length of stay, with less than a 30% failure rate at 1 year. The risk of perforation and postoperative complications did not increase even if nonoperative management failed. Complicated appendicitis with localized abscess or phlegmon could also be treated conservatively, with a success rate of more than 80%. An interval appendectomy following successful nonoperative management is recommended only for patients over the age of 40 years to exclude appendiceal malignancy. The presence of appendicoliths increased the risk of treatment failure and complications; thus, it may be an indication for appendectomy. Nonoperative management is a safe and feasible option for both uncomplicated and complicated appendicitis. Patients should be informed that nonoperative management may be a safe alternative to surgery, with the possibility of treatment failure.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "9000e55522272fc3df2d2086c89e9d12dacd4f73e864b8cb2df48b3ae1a8e622"
+      },
+      {
+        "pmid": "33534226",
+        "title": "A Randomized Clinical Trial Evaluating the Efficacy and Quality of Life of Antibiotic-only Treatment of Acute Uncomplicated Appendicitis",
+        "authors": "Donal Peter O’Leary, Siun M. Walsh, Jarlath Christopher Bolger, Chwanrow Karim Baban",
+        "year": "2021",
+        "journal": "Annals of Surgery",
+        "doi": "10.1097/sla.0000000000004785",
+        "url": "https://doi.org/10.1097/sla.0000000000004785",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: Evaluate the efficacy and quality of life associated with conservative treatment of acute uncomplicated appendicitis. SUMMARY BACKGROUND DATA: Conservative management with antibiotics only has emerged as a potential treatment option for acute uncomplicated appendicitis. However the reported failure rates are highly variable and there is a paucity of data in relation to quality of life. METHODS: Symptomatic patients with radiological evidence of acute, uncomplicated appendicitis were randomized to either intravenous antibiotics only or undergo appendectomy. RESULTS: One hundred eighty-six patients underwent randomization. In the antibiotic-only group, 23 patients (25.3%) experienced a recurrence within 1 year following randomization. There was a significantly better EQ-VAS quality of life score in the surgery group compared with the antibiotic-only group at 3 months",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "b25683676533c6f73f3583bad8163f6bb0c42b3afe7388a5f2933154f007f8fc"
+      },
+      {
+        "pmid": "doi:10.1017/cts.2018.279",
+        "title": "2412 Cost effectiveness analysis of operative Versus antibiotic management for uncomplicated appendicitis",
+        "authors": "Eric Stulberg, Alexander Zheutlin, Raymond Strobel, Katherine He",
+        "year": "2018",
+        "journal": "Journal of Clinical and Translational Science",
+        "doi": "10.1017/cts.2018.279",
+        "url": "https://doi.org/10.1017/cts.2018.279",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "OBJECTIVES/SPECIFIC AIMS: (1) Evaluate the relative incremental cost-effectiveness [cost per quality-adjusted life year (QALY) gained] of antibiotics, laparotomy, and laparascopy for the initial treatment of uncomplicated appendicitis. (2) Detect if the relative incremental cost-effectiveness of each treatment differs by age, namely in pediatric patients, adult patients, and geriatric patients. (3) Use deterministic and probabilistic sensitivity analyses to assess the robustness of our findings when varying multiple model parameters. METHODS/STUDY POPULATION: Study Population and Analytic Approach: The population under analysis is a simulated population of those aged 1–90 diagnosed with uncomplicated appendicitis with computed tomography (CT) in the emergency department. Pregnant women and those younger than 1 year old were excluded from our analysis. We simulated our population through a Markov state-transition simulation model. Using this model, we estimated the lifelong costs and effects on QALYs from the use of antibiotics, laparoscopy, and laparotomy for a given hypothetical individual with uncomplicated appendicitis. This model allowed for the incorporation of both the short-term and long-term effects of each respective treatment option. The primary outcome of the model was the cost per additional QALY gained. The analysis was conducted using a healthcare perspective. A 100 age-year time horizon was used. A 3% discount rate was applied to both the costs and effects in the model. Transition states are depicted. Surgical state rates were derived from HCUP. Treatment failure of antibiotics was defined as recurrent appendicitis within one year of antibiotic treatment. This was determined using results from prior RCTs and a Cochrane review of antibiotic management for uncomplicated appendicitis. Recurrent appendicitis was defined as recurrent appendicitis after 1 year of antibiotic treatment, using rates of appendicitis applied to the general population by age group. National age-adjusted mortality rates were applied to account for death due to causes unrelated to appendicitis. To assess differential results by age, different acute and long-term outcome, cost, and state transition rates were applied to 3 age groups: a pediatric group (1–17 years old), an adult group (18–64 years old), and a geriatric group (65+ years old). As an individual progressed through the model until age 100, the respective parameters would change to adjust for the transitions between the 3 life stages. Outcomes After Appendicitis: Lifetime QALYs were incorporated throughout the study for short-term and long-term health states. There is limited availability of QALY data in the literature pertaining to the health states specific to appendicitis. Due to this limitation, however, calculated quality of life (QoL) indices for 2015 created by Wu et al. were utilized for this study. QALYs were subsequently derived by multiplying QoL by the appropriate duration of time spent in a respective health status. Transition rates between health states were abstracted from the existing literature. Costs: Direct medical costs were obtained from HCUP statistics from the 2014 fiscal year for all age groups in the nationwide network. This database contains all costs of care related to surgical appendicitis intervention, however it lacks costs associated with antibiotic-only management. To account for these costs, data was extracted from current available literature, and the resulting average was applied to our model. Sensitivity Analysis: One-way analyses by cost of procedure and effectiveness of antibiotic protocol were undertaken to account for regional variation in costs and improvements in antibiotic therapy, respectively. For cost of procedure sensitivity analysis, costs were varied by 1 standard deviation below and above the mean cost per treatment group per age. These costs were then compared to a designated reference group. Antibiotic sensitivity analysis was conducted by reducing the effectiveness of antibiotics from the maximum reported effectiveness down to 0, with the goal of obtaining a level of effectiveness at which antibiotics were no longer cost-effective. A probabilistic Monte-Carlo sensitivity analysis was then employed to determine the percent likelihood of each treatment arm being cost-effective at a level of $100,000 per additional QALY. The probabilistic sensitivity analysis was then repeated to determine the percent likelihood of each treatment arm being the dominant option, in that it lowers costs and adds QALYs. RESULTS/ANTICIPATED RESULTS: Our model examined the cost-effectiveness of 3 different treatment options for patients with acute uncomplicated appendicitis: laparoscopic appendectomy, laparotomy appendectomy, and an antibiotic regimen. We first examined the cost-effectiveness of each of these strategies in comparison to laparotomy. Laparoscopic appendectomy was shown to be superior to laparotomy in regards to costs and QALYs for patients ages 18 to 65+, while there was very little difference for patients ages 1–17. For those aged 1–17, laparoscopy had an additional cost of $90.00 with an associated gain of 0.1 QALYs compared with laparotomy. For those aged 18–64, laparoscopy had a net cost-savings of $3437.03 with an associated gain of 0.13 QALYs compared with laparotomy. For those aged 65+, laparoscopy had a net cost-savings of $5713.55 with an associated gain of 0.13 QALYs compared to laparotomy. Antibiotic management was superior to laparotomy as it relates to both costs and QALYs for all 3 age cohorts. For those aged 1–17, antibiotic management had a net cost-savings of $5972.55, with an associated gain of 0.6 QALYs compared with laparotomy. For those aged 18–64, antibiotic management had a net cost-savings of $6621.00 with an associated gain of 0.5 QALYs compared with laparotomy. For those aged 65+, antibiotic management had a net cost-savings of $11,953.00 with an associated gain of 0.21 QALYs compared with laparotomy. We then assessed the cost-effectiveness of antibiotics relative to laparoscopy. In all 3 age groups, antibiotics added QALYs and were cost-saving. For those aged 1–17, antibiotic management had a net cost-savings of $6062.55, with an associated gain of 0.6 QALYs compared with laparotomy. For those aged 18–64, antibiotic management had a net cost-savings of $3183.97 with an associated gain of 0.5 QALYs compared with laparotomy. For those aged 65+, antibiotic management had a net cost-savings of $6239.45 with an associated gain of 0.21 QALYs compared with laparotomy. Sensitivity Analysis: We first examined the effect of varying costs on our results. Costs for all interventions were varied by 1 standard deviation above and below the average costs used in our original model, yielding 3 cost estimate levels: high cost (1 standard deviation above), middle cost (average cost reported in model), low cost (1 standard deviation below). For all 3 cost estimate levels of antibiotics, antibiotics persistently dominated laparotomy for all 3 age groups. Laparoscopy dominated at all cost levels in age groups 18–64 and 65+ but had a positive ICER for both high and medium cost levels in the 1–17 age group. We then varied effectiveness (one minus the failure rate) of antibiotic treatment in each age group to assess at what level of effectiveness to antibiotics become dominant relative to laparotomy. In ages 1–17, antibiotic treatment became dominant at 43.8%; in ages 18–64, antibiotic treatment became dominant at 33%; and in ages 65+, there was no level of antibiotic effectiveness that did not result in this therapy being dominant over laparotomy. Probabilistic Monte-Carlo sensitivity analysis is pending, but we anticipate antibiotics having a high likelihood of being both cost-effective and dominant relative to the other 2 treatment options. DISCUSSION/SIGNIFICANCE OF IMPACT: We performed a cost-effective analysis comparing surgery versus antibiotic management for uncomplicated appendicitis. Our study found that antibiotic therapy was the dominant strategy in all age groups as it yielded lower costs and additional QALYs gained compared with laparotomy and laparoscopy. Appendicitis is the most common surgical emergencies worldwide, with a lifetime risk of 6.9% in females and 8.6% in males (Körner 1997). For over 100 years, open appendectomy had been the established treatment for appendicitis, but current management has evolved with the advent of laparoscopy and now growing use of antibiotics for treatment of appendicitis. There is growing interest in nonoperative management of uncomplicated appendicitis, given both an aging population that is increasingly frail and vulnerable to surgical complications and concerns over skyrocketing medical costs. Our model showed that antibiotic-only management was cost-effective in all age groups. This has important implications for management of appendicitis, where current management is to offer antibiotic-only management only in the “rare cases” where the patient is unfit for surgery or refuses surgery. Our data show that medical management of appendicitis not only is cheaper, but also provides more QALYs in all age groups. Our study has several limitations. First, we conducted our analysis under the assumption that all patients will be cured of appendicitis following surgical intervention. Some patients following appendectomy will develop symptoms of appendicitis and be diagnosed with “stump appendicitis,” which can occur in stumps as short as 0.5cm and can present as late as 50 years following initial surgery (Kanona, 2012). Additionally, any intraperitoneal surgery can lead to late complications such as small bowel obstruction from adhesions following surgery. Thus, our assumption that patients following appendectomy will return to the general population’s QALYs and mortality rate is not necessarily an accurate reflection of all clinical courses. However, the overwhelming majority of appendectomy patients recover fully post-surgery and we do not believe the above complications would significantly change our analysis. We also assumed that all patients with recurrent appendicitis following medical management would undergo surgery. However, patients who underwent nonoperative management at initial appendicitis may be more likely to be ineligible for surgery or refuse surgery during this second case of appendicitis. In addition, data were sparse for QALYs for the complications of open and laparoscopic surgery. We estimated these numbers from the EQ-5D, which while perhaps not accurate, we believe to be the best approximation given the available data. The next steps in evaluating the use of nonoperative management in uncomplicated appendicitis would be to validate the use of nonoperative management in elderly populations and to develop more accurate diagnostic criteria for uncomplicated Versus complicated appendicitis. Additionally, with increasing attention on antibiotic-resistant micro-organisms, policy decisions on the use of nonoperative management must also consider antibiotic stewardship. While one dose of perioperative antibiotics is indicated for appendectomy, treatment strategies from trial protocols for antibiotic-only management require significantly more antibiotics—some protocols require 1–3 days of IV antibiotics followed by up to 10 days of oral antibiotics. This study provides a cost-effectiveness analysis of treatment options for acute uncomplicated appendicitis among varying age groups. Our analysis demonstrates the benefit of antibiotics for initial therapy in the management of acute uncomplicated appendicitis. While the historic gold standard of laparotomy still is present as the first line treatment option in many physicians’ minds, new evidence indicates that the advancement of other methods, whether surgical via laparoscopic removal of the appendix or medical via improved antibiotic regimens, suggests better alternatives exist. Our study builds upon a growing body of literature supporting initial treatment of acute uncomplicated appendicitis with antibiotics, before surgical intervention.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "4b232bc236860f59cd3263113bb8cbc74199d277a0155e3246a13ec78cd44878"
+      },
+      {
+        "pmid": "28925502",
+        "title": "Randomized clinical trial of antibiotic therapy for uncomplicated appendicitis",
+        "authors": "Hyoung‐Chul Park, M J Kim, Byung‐Chul Lee",
+        "year": "2017",
+        "journal": "British journal of surgery",
+        "doi": "10.1002/bjs.10660",
+        "url": "https://doi.org/10.1002/bjs.10660",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Uncomplicated appendicitis may resolve spontaneously or require treatment with antibiotics or appendicectomy. The aim of this randomized trial was to compare the outcome of a non-antibiotic management strategy with that of antibiotic therapy in uncomplicated appendicitis. METHODS: Patients presenting to a university teaching hospital with CT-verified uncomplicated simple appendicitis (appendiceal diameter no larger than 11 mm and without any signs of perforation) were randomized to management with a no-antibiotic regimen with supportive care (intravenous fluids, analgesia and antipyretics as necessary) or a 4-day course of antibiotics with supportive care. The primary endpoint was rate of total treatment failure, defined as initial treatment failure within 1 month and recurrence of appendicitis during the follow-up period. RESULTS: Some 245 patients were",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "26b3cfb5cf602902f61c200f51e9d3b9881b24b247e3d189ddd0f14e8f5d0683"
+      },
+      {
+        "pmid": "doi:10.21608/zumj.2025.400051.4034",
+        "title": "Evaluation of Conservative Management versus Appendectomy in Non-Complicated Acute Appendicitis",
+        "authors": "Mostafa ELAidy, Mohamed Sultan, Mohamed Elbadawy Ibrahim, Mohamed Almeniawy",
+        "year": "2025",
+        "journal": "Zagazig University Medical Journal",
+        "doi": "10.21608/zumj.2025.400051.4034",
+        "url": "https://doi.org/10.21608/zumj.2025.400051.4034",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background: Acute appendicitis is one of the most common surgical emergencies worldwide. Traditionally, appendectomy has been considered the gold standard treatment. However, conservative management with antibiotics has recently gained attention for non-complicated cases. This study aimed to get the better management and improving outcomes of patients with acute non complicated appendicitis (regarding efficacy and complication rate). Methods: A prospective cohort study was conducted at the General Surgery Department, Zagazig University Hospitals, on 32 patients with acute uncomplicated appendicitis. Patients were divided equally into two groups: Group A (conservative management, n=16) 56.3% females, 43.8% males. Group B (appendectomy, n=16) 31.3% females and 68.8% males. Results: Found that in non-operative management group (Group A), 12 patients (75%) had successful outcomes. Two patients (12.5%) experienced treatment failure and underwent appendectomy. One patient (6.25%) experienced recurrence that was managed conservatively, while another (6.25%) had a recurrent complicated attack requiring surgical intervention. In the surgical group (Group B), 11 patients (68.75%) had successful outcomes. Two patients (12.5%) had a normal appendix upon surgery (negative appendectomy), two patients (12.5%) developed deep surgical site infections, and one patient (6.25%) developed an incisional hernia. Notably, there were no negative appendectomies among the failed cases in the conservative group, whereas the rate of negative appendectomy in the surgical group was 12.5%. Conclusion: that the use of antibiotic conservative therapy as a primary treatment for the selected criteria of uncomplicated acute appendicitis is the best way to confirm diagnosis and get proper treatment.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "acfcfc533f715927d83e060e7da86858a50d84d25d84fc41cd5aa3832e1a1c36"
+      },
+      {
+        "pmid": "doi:10.4103/singaporemedj.smj-2021-406",
+        "title": "Feasibility of nonoperative treatment of acute appendicitis in children: a prospective cohort study",
+        "authors": "Shazia Perveen, Jamshed Akhtar, Sajid Ali, Abdul Jabbar",
+        "year": "2025",
+        "journal": "Singapore Medical Journal",
+        "doi": "10.4103/singaporemedj.smj-2021-406",
+        "url": "https://doi.org/10.4103/singaporemedj.smj-2021-406",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction: The management of acute appendicitis is a matter of debate even in contemporary era. Non-operative management is proposed as a valid treatment option for acute appendicitis in children. Methods: A prospective cohort study was conducted from April 2020 to September 2021 at the National Institute of Child Health, Jinnah Sindh Medical University, Karachi, Pakistan, in children aged ≤ 12 years who were suspected of having acute appendicitis. Children with diffuse peritonitis and complex mass on ultrasonography were excluded. All children were kept nil per oral and started on intravenous fluid hydration and antibiotics. Statistical analyses were performed using IBM SPSS version 20. Chi-square test and Fisher’s exact test were applied to determine the statistical significance. Results: A total of 190 patients were admitted with a diagnosis of acute appendicitis. Thirty-two children with advanced disease underwent surgery. The remaining 158 patients were managed with nonoperative treatment. In 138 (87.3%) patients, resolution of symptoms occurred. Twenty (12.7%) patients underwent operation during the same admission (non-responders). Thirteen (9.4%) patients had recurrence of symptoms and underwent appendectomy. A total of 33 (20.9%) patients had appendectomy either at the primary admission or after discharge. Non-operative treatment was more likely to be successful in patients with symptoms of ≤ 24 h duration (P = 0.02), total leucocyte count of <12 × 109 cells/L (P = 0.005) and smaller size of the appendix on ultrasound (P = 0.001). Conclusion: Among children with uncomplicated acute appendicitis, a non-operative approach resulted in resolution of symptoms in 87.3% of patients at the initial admission. Failure of non-operative treatment and recurrence of disease after discharge from the hospital occurred in 9.4% of patients after successful initial treatment. Thus, the overall success rate at a mean follow-up of 3 months was about 78%.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "b852c65cc1cb9add31a8e814a9031ebcc5a35c0646924207fd3ab556badd0e9d"
+      },
+      {
+        "pmid": "cr:10.37699/2308-7005.5-6.2019.19",
+        "title": "MODERN VIEWS FOR THE TREATMENT OF ACUTE UNCOMPLICATED APPENDICITIS: APPENDECTOMY OR ANTIBIOTICS?",
+        "authors": "Vashchuk V.V., Andrushchenko V.P., Khomchenko T.V., Kyryk T.P.",
+        "year": "2019",
+        "journal": "Kharkiv Surgical School",
+        "doi": "10.37699/2308-7005.5-6.2019.19",
+        "url": "https://doi.org/10.37699/2308-7005.5-6.2019.19",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Summary. The paper reviews the results of randomized controlled trials and meta-analysis data from comparisons of antibiotics and appendectomy in the treatment of acute uncomplicated appendicitis ) is carried. It has been shown that appendectomy remains in most cases the gold standard for the treatment of acute uncomplicated appendicitis is proved. At the same time, it is noted that in separate groups of patients with no risk of development of complications and / or with high operational risk in persons with critical violations of vital functions of the body, in case of impossibility to perform an operation, antibiotic therapy can be a highly effective and safe method of treatment is established. Preparations of choice are carbapenems (mepenes), fluoroquinolones III (levofloxacin) and metronidazos/ornizol is indicated.",
+        "relevancePct": 84,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "2324ea1cc462ba0ecceb814b8e1beac83d440c1ea32a2e1174815b138e0df8db"
+      },
+      {
+        "pmid": "cr:10.1016/j.surg.2011.08.018",
+        "title": "Use of antibiotics alone for treatment of uncomplicated acute appendicitis: A systematic review and meta-analysis",
+        "authors": "Liu Katherine, Fogg Louis",
+        "year": "2011",
+        "journal": "Surgery",
+        "doi": "10.1016/j.surg.2011.08.018",
+        "url": "https://doi.org/10.1016/j.surg.2011.08.018",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "dedb91f505929ed466e08556591f345f90ae4612d2d72ebeb3c13cd4294137ab"
+      },
+      {
+        "pmid": "42251306",
+        "title": "Non-operative versus operative management of uncomplicated acute appendicitis: a randomized controlled study in Sierra Leone.",
+        "authors": "Cummings-John C, Bah AJ, Lebbie A, Ogundiran T.",
+        "year": "2026",
+        "journal": "BMC surgery",
+        "doi": "10.1186/s12893-026-03894-0",
+        "url": "https://europepmc.org/article/PMC/PMC13464393",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Background Acute appendicitis is the leading cause of acute abdomen in young adults, typically managed by appendectomy. A growing body of evidence supports non-operative management as an alternative for uncomplicated cases. This study aimed to compare the effectiveness of non-operative management (NOM) versus operative management (OM) for uncomplicated acute appendicitis. Methods A prospective, longitudinal, randomized controlled trial was conducted at Connaught Hospital, Sierra Leone. Sixty patients were randomized: 30 to NOM and 30 to OM. NOM patients received intravenous metronidazole and ceftriaxone for 48 h, followed by oral metronidazole and ciprofloxacin for 5 days. OM patients underwent open appendectomy. NOM patients were monitored for symptom resolution or progression; failure required appendectomy. Both groups were followed up on days 7, 10, 30, 60, and 90 post-admissions to assess recurrence, cost of care, and quality of life (QoL). Results The median age was 26 years (IQR 14-42) for NOM and 27 years (IQR 18-54) for OM. Most patients were males (NOM: 66.7%, OM: 63.3%). Antibiotic treatment was successful in 18 (60%) NOM patients. Failure occurred in 12 (40%) NOM patients, 11 during the index admission, with 1 (3.3%) experiencing recurrence within a week of discharge. Successful NOM resulted in a significantly improved QoL score (5.98), a shorter mean hospital stays (4 days), a lower mean cost of care (NLe 482.29; $49.08), and no catastrophic health expenditure, compared to both OM and failed NOM. Statistically significant differences were observed in favor of successful NOM over surgery (including OM and failed NOM requiring surgery) for the cost of care and time to return to normal activities. Conclusion NOM for uncomplicated acute appendicitis achieved a 60% success rate with a low recurrence rate (3.3%). It is associated with lower costs, reduced risk of catastrophic health expenditure, shorter hospital stays, faster return to normal activities, and improved QoL compared to operative management. Trial registration The Pan African Clinical Trials Registry (PACTR). Clinical trial number PACTR202605655002550. Date of registration:20 th April 2026. \"Retrospectively registered\".",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2451fc8cbf336542b65bb5fda9aefc6b94c695999513fa9d14d4044fac12cbf5"
+      },
+      {
+        "pmid": "34905026",
+        "title": "Diagnosis and Management of Acute Appendicitis in Adults: A Review",
+        "authors": "Dimitrios Moris, Erik Karl Paulson, Theodore Nick Pappas",
+        "year": "2021",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2021.20502",
+        "url": "https://doi.org/10.1001/jama.2021.20502",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "IMPORTANCE: Acute appendicitis is the most common abdominal surgical emergency in the world, with an annual incidence of 96.5 to 100 cases per 100 000 adults. OBSERVATIONS: The clinical diagnosis of acute appendicitis is based on history and physical, laboratory evaluation, and imaging. Classic symptoms of appendicitis include vague periumbilical pain, anorexia/nausea/intermittent vomiting, migration of pain to the right lower quadrant, and low-grade fever. The diagnosis of acute appendicitis is made in approximately 90% of patients presenting with these symptoms. Laparoscopic appendectomy remains the most common treatment. However, increasing evidence suggests that broad-spectrum antibiotics, such as piperacillin-tazobactam monotherapy or combination therapy with either cephalosporins or fluroquinolones with metronidazole, successfully treats uncomplicated acute appendicitis in approximately 70% of patients. Specific imaging",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "0717c75f70e706dfc4009ed6852305a0dd54e93660c096a3bcc8c3432537ece7"
+      },
+      {
+        "pmid": "doi:10.33695/jss.v6i1.258",
+        "title": "Antibiotics in acute appendicitis. When and how? A general review",
+        "authors": "L. Alecu, C. Niţipir, Iulian Slavu, V. Braga",
+        "year": "2019",
+        "journal": "Journal of Surgical Sciences",
+        "doi": "10.33695/jss.v6i1.258",
+        "url": "https://doi.org/10.33695/jss.v6i1.258",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction: An increasing interest exits towards the use of antibiotics in the treatment of uncomplicated acute appendicitis.Discussion: For a long period of time, surgery was the only treatment for acute appendicitis. Due to recent research in the etiology of acute appendicitis which seems to be driven by intraluminal bacterial proliferation, new data suggests that for non-perforated appendicitis confirmed with the help of CT, antibiotics may play a central role in the treatment. As relapse rates amount in some cases to only 5% after antibiotic treament, a discussion is required regarding the risks of interval appendectomy and its use. The debate regarding the optimal antibiotic course is on-going as some surgeons advocate for amoxicillin/clavulanic while others, due to acquired resistance recommend Ertapenem.Conclusion: Selective antibiotic treatment for selected forms of acute appendicitis, uncomplicated without perforation is safe and has a relatively low complication rate. However, certain mentions must be made: surgery must not be delayed if failure of antibiotics exists as it can lead to higher rates of peritonitis. Close clinical surveillance is of utmost importance",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "68e0aa86c893f693a15028059aff0ff3c750a92df1dba506e386fae0651a7291"
+      },
+      {
+        "pmid": "29322168",
+        "title": "Patient Preferences for Surgery or Antibiotics for the Treatment of Acute Appendicitis",
+        "authors": "Alexis L. Hanson, Ross D. Crosby, Marc D. Basson",
+        "year": "2018",
+        "journal": "JAMA Surgery",
+        "doi": "10.1001/jamasurg.2017.5310",
+        "url": "https://doi.org/10.1001/jamasurg.2017.5310",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Studies have compared surgical with nonsurgical therapy for acute uncomplicated appendicitis, but none of these studies have a patient-centered perspective. Objectives: To evaluate how patients might choose between surgical and nonsurgical therapy for acute uncomplicated appendicitis and to identify targets to make antibiotic treatment more appealing. Design, Setting, and Participants: This study comprised an online survey and an in-person sensitivity analysis survey. For the web survey, a convenience sample of 1728 respondents were asked to imagine that they or their child had acute uncomplicated appendicitis, provided information about laparoscopic and open appendectomy and antibiotic treatment alone, and asked which treatment they might choose. The web survey was open from April 17, 2016, through June 16, 2016, and was disseminated",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Survey Study",
+        "lowMetadata": false,
+        "_sig": "59e674e8a17597b7bc0f48fefaec1545f3e0a0fa4c8c8fe53685d0a1644c6b58"
+      },
+      {
+        "pmid": "25019230",
+        "title": "The outcome of antibiotic therapy for uncomplicated appendicitis with diameters ≤10 mm",
+        "authors": "Hyoung‐Chul Park, Min Jeong Kim, Bong Hwa Lee",
+        "year": "2014",
+        "journal": "International Journal of Surgery",
+        "doi": "10.1016/j.ijsu.2014.07.011",
+        "url": "https://doi.org/10.1016/j.ijsu.2014.07.011",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "PURPOSE: Although many patients receive antibiotic therapy for uncomplicated appendicitis, the relatively high treatment failure and recurrence rates are problematic. We assumed that patients with appendicitis and appendiceal diameters ≤ 10 mm, have better outcomes. The purpose of this prospective non-randomized study was to assess the outcomes of antibiotic therapy in patients with uncomplicated appendicitis and appendiceal diameters ≤ 10 mm. METHODS: Over 2 years, we enrolled 119 patients who initially received antibiotic therapy. The failure of antibiotic therapy was defined as the need for appendectomy and true appendicitis. Peritonitis was defined as either complicated appendicitis or intra-abdominal abscess postoperatively. We evaluated the rates of treatment failure, peritonitis, and recurrence. RESULTS: Nine patients (7.6%) failed to respond to initial antibiotic",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Non-Randomized Controlled Trial",
+        "lowMetadata": false,
+        "_sig": "10aab22fcc0c976f90117d1f6477f26ff5479e954531be89d81b23329e9f6d4e"
+      },
+      {
+        "pmid": "cr:10.18535/jmscr/v8i5.64",
+        "title": "Antibiotics versus a emergency open appendectomy conservative management- A primary treatment of uncomplicated acute appendicitis: A randomized controlled trial",
+        "authors": "A Dr Chauhan",
+        "year": "2020",
+        "journal": "Journal of Medical Science And clinical Research",
+        "doi": "10.18535/jmscr/v8i5.64",
+        "url": "https://doi.org/10.18535/jmscr/v8i5.64",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "003e4a45317a9e77b258b6fc769c6f866265eff48d76372189af659a5268f9a5"
+      },
+      {
+        "pmid": "30238081",
+        "title": "Is surgical treatment necessary for uncomplicated acute appendicitis?",
+        "authors": "Chu Matsuda, Masakazu Ikenaga",
+        "year": "2018",
+        "journal": "Annals of Gastroenterological Surgery",
+        "doi": "10.1002/ags3.12192",
+        "url": "https://doi.org/10.1002/ags3.12192",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Since McBurney advocated early surgical intervention, appendectomy has been the mainstay for the treatment of appendicitis. For simple and nonperforated appendicitis, however, conservative treatment with antibiotics has been proposed. Several randomized controlled trials and systematic reviews show conflicting results with regard to the safety and efficacy of nonsurgical treatment with antibiotics. Generally, complicated appendicitis was defined as the presence of peritonitis, perforation, abscess, or suspicion of a tumor on a computed tomography (CT) scan.1 In France, 243 patients with uncomplicated acute appendicitis assessed by CT imaging were randomized to antibiotics and appendectomy groups, and the 30-day peritonitis rate was more frequent in the antibiotics group (AG) (8%) than in the appendectomy group (OG) (2%). Furthermore, in AG, 14 of 120",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "295daa6c425dd934fc29eed2fbfff8697d25e1a6f0972d356f29162ead021eb8"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 9
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 9,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "uncomplicated appendicitis antibiotics appendectomy treatment failure",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

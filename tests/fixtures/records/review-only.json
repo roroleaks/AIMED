@@ -1,0 +1,15 @@
+[
+  {
+    "pmid": "38001122",
+    "doi": "10.1016/j.lungcan.2023.107300",
+    "title": "Perioperative immunotherapy in resectable non-small cell lung cancer: a narrative review",
+    "authors": "Wakelee H, Reck M",
+    "year": "2023",
+    "journal": "Lung Cancer",
+    "pubType": "Review",
+    "context": "This narrative review summarizes recent developments in perioperative immunotherapy for early-stage resectable NSCLC.",
+    "relevancePct": 45,
+    "matchedElements": ["P", "I"],
+    "source": "pubmed"
+  }
+]

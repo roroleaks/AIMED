@@ -1,0 +1,832 @@
+{
+  "id": "OB-1",
+  "recordedAt": "2026-11-26T19:39:53.362Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "high-risk pregnancy",
+      "role": "population"
+    },
+    {
+      "word": "low-dose aspirin",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "preterm preeclampsia",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "high-risk pregnancy",
+        "role": "population"
+      },
+      {
+        "word": "low-dose aspirin",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "preterm preeclampsia",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In high-risk pregnancy (P), does low-dose aspirin (I) compared with placebo (C) reduce preterm preeclampsia (O)?",
+        "basis": "Screened literature contains 2 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In high-risk pregnancy (P), is low-dose aspirin (I) superior to placebo (C) for preterm preeclampsia (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of high-risk pregnancy (P), does low-dose aspirin (I) compared with placebo (C) reduce preterm preeclampsia (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In high-risk pregnancy (P), does low-dose aspirin (I) compared with placebo (C) reduce preterm preeclampsia (O)?"
+    },
+    "words": [
+      {
+        "word": "high-risk pregnancy",
+        "role": "population"
+      },
+      {
+        "word": "low-dose aspirin",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "preterm preeclampsia",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "doi:10.1186/s12884-025-08525-9",
+        "title": "Network meta-analysis: comparative efficacy of diverse aspirin dosages and heparin in mitigating placenta-mediated pregnancy complications",
+        "authors": "Zhihui Xiong, Shenglin Jiang, Zhouhui Yuan, Lijie Li",
+        "year": "2025",
+        "journal": "BMC Pregnancy and Childbirth",
+        "doi": "10.1186/s12884-025-08525-9",
+        "url": "https://doi.org/10.1186/s12884-025-08525-9",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Objective This study aimed to assess the comparative efficacy of different low-dose aspirin (ASA) dosages, either alone or in combination with heparin, in preventing placenta-mediated pregnancy complications (PMPC) among high-risk pregnant women using a network meta-analysis (NMA). Methods PubMed, Embase, Cochrane Library, and Web of Science were systematically searched for randomized controlled trials (RCTs) up to August 15, 2025. Studies evaluating ASA (< 100 mg/day, ≥ 100 mg/day), unfractionated heparin (UFH), low-molecular-weight heparin (LMWH), and their combinations in high-risk populations were included. Data from 63 RCTs (20,325 participants) were analyzed using Bayesian random-effects NMAs and trial sequential analysis (TSA). Results All anticoagulant regimens significantly reduced preeclampsia (PE) risk by 24–95% compared to placebo/no treatment. The combination of < 100 mg/day ASA + LMWH notably decreased severe PE (odds ratio [OR] = 0.05, 95% confidence interval [CI] = 0.00–0.59) and miscarriage and stillbirth or perinatal death (OR = 0.50, 95% CI = 0.32–0.77). TSA confirmed that ≥ 100 mg/day ASA + LMWH significantly reduced PMPC risk. While LMWH alone showed efficacy in reducing placental abruption, combined regimens outperformed monotherapies in overall PMPC prevention. No significant differences in bleeding risk or neonatal outcomes (e.g., preterm delivery) were observed across regimens. Conclusions Anticoagulant therapies, particularly combinations of ASA and LMWH, effectively mitigate PMPC. The < 100 mg/day ASA + LMWH regimen demonstrates optimal efficacy in reducing severe PE and fetal loss, while ≥ 100 mg/day ASA + LMWH is strongly supported by TSA. These findings inform clinical decisions for PMPC prophylaxis.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "ece5d141547681ca42285a7120693bb55a2760308c67cf3696e33f4eaf7be65d"
+      },
+      {
+        "pmid": "doi:10.1080/0167482x.2024.2344079",
+        "title": "Impact of low-dose aspirin exposure on obstetrical outcomes: a meta-analysis",
+        "authors": "Xiaoyan Lin, Jingchao Yong, Ming Gan, Shaowen Tang",
+        "year": "2024",
+        "journal": "Journal of Psychosomatic Obstetrics and Gynecology",
+        "doi": "10.1080/0167482x.2024.2344079",
+        "url": "https://doi.org/10.1080/0167482x.2024.2344079",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Objective To assess the impact of low-dose aspirin (LDA) on obstetrical outcomes through a meta-analysis of placebo-controlled randomized controlled trials (RCTs).Methods A systematic search of the PubMed, Cochrane Library, Web of Science and Embase databases from inception to January 2024 was conducted to identify studies exploring the role of aspirin on pregnancy, reporting obstetrical-related outcomes, including preterm birth (PTB, gestational age 20 weeks).Results Forty-seven studies involving 59,124 participants were included. Compared with placebo, LDA had a more significant effect on low-risk events such as SGA, PTB and LBW. Specifically, LDA significantly reduced the risk of SGA (RR = 0.91, 95% CI: 0.87–0.95), PTB (RR = 0.93, 95% CI: 0.89–0.97) and LBW (RR = 0.94, 95% CI: 0.89–0.99). For high-risk events, LDA significantly lowered the risk of NICU admission (RR = 0.93, 95% CI: 0.87–0.99). On the other hand, LDA can significantly increase the risk of placental abruption (RR = 1.72, 95% CI: 1.23–2.43). Subgroup analyses showed that LDA significantly reduced the risk of SGA (RR = 0.86, 95% CI: 0.77–0.97), PTB (RR = 0.93, 95% CI: 0.88–0.98) and PND (RR = 0.65, 95% CI: 0.48–0.88) in pregnant women at high risk of PE, whereas in healthy pregnant women LDA did not significantly improve obstetrical outcomes, but instead significantly increased the risk of placental abruption (RR = 5.56, 95% CI: 1.92–16.11). In pregnant women at high risk of PE, LDA administered at doses ≥100 mg significantly reduced the risk of SGA (RR = 0.77, 95% CI: 0.66–0.91) and PTB (RR = 0.56, 95% CI: 0.32–0.97), but did not have a statistically significant effect on reducing the risk of NICU, PND and LBW. LDA started at ≤20 weeks significantly reduced the risk of SGA (RR = 0.76, 95% CI: 0.65–0.89) and PTB (RR = 0.56, 95% CI: 0.32–0.97).Conclusions To sum up, LDA significantly improved neonatal outcomes in pregnant women at high risk of PE without elevating the risk of placental abruption. These findings support LDA’s clinical application in pregnant women, although further research is needed to refine dosage and timing recommendations.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "3185931ed0c18d61f7b51179a43996859e0c372c910c6bb30680a7c9103ac2d2"
+      },
+      {
+        "pmid": "28657417",
+        "title": "Aspirin versus Placebo in Pregnancies at High Risk for Preterm Preeclampsia",
+        "authors": "Daniel L. Rolnik, David E. Wright, Liona C. Poon, Neil O’Gorman",
+        "year": "2017",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1704559",
+        "url": "https://doi.org/10.1056/nejmoa1704559",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Preterm preeclampsia is an important cause of maternal and perinatal death and complications. It is uncertain whether the intake of low-dose aspirin during pregnancy reduces the risk of preterm preeclampsia. METHODS: In this multicenter, double-blind, placebo-controlled trial, we randomly assigned 1776 women with singleton pregnancies who were at high risk for preterm preeclampsia to receive aspirin, at a dose of 150 mg per day, or placebo from 11 to 14 weeks of gestation until 36 weeks of gestation. The primary outcome was delivery with preeclampsia before 37 weeks of gestation. The analysis was performed according to the intention-to-treat principle. RESULTS: A total of 152 women withdrew consent during the trial, and 4 were lost to follow up, which left",
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "06d1e03b601845325d039e0c418ebb1a168760927f8334fdadee917062c70f19"
+      },
+      {
+        "pmid": "doi:10.1186/s12884-017-1312-x",
+        "title": "A description of the methods of the aspirin supplementation for pregnancy indicated risk reduction in nulliparas (ASPIRIN) study",
+        "authors": "Matthew K. Hoffman, Shivaprasad S. Goudar, Bhalachandra S. Kodkany, Norman Goco",
+        "year": "2017",
+        "journal": "BMC Pregnancy and Childbirth",
+        "doi": "10.1186/s12884-017-1312-x",
+        "url": "https://doi.org/10.1186/s12884-017-1312-x",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Preterm birth (PTB) remains the leading cause of neonatal mortality and long term disability throughout the world. Though complex in its origins, a growing body of evidence suggests that first trimester administration of low dose aspirin (LDA) may substantially reduce the rate of PTB. Methods Hypothesis: LDA initiated in the first trimester reduces the risk of preterm birth. Study Design Type: Prospective randomized, placebo-controlled, double-blinded multi-national clinical trial conducted in seven low and middle income countries. Trial will be individually randomized with one-to-one ratio (intervention/control) Population: Nulliparous women between the ages of 14 and 40, with a singleton pregnancy between 6 0/7 weeks and 13 6/7 weeks gestational age (GA) confirmed by ultrasound prior to enrollment, no more than two previous first trimester pregnancy losses, and no contraindications to aspirin. Intervention: Daily administration of low dose (81 mg) aspirin, initiated between 6 0/7 weeks and 13 6/7 weeks GA and continued to 36 0/7 weeks GA, compared to an identical appearing placebo. Compliance and outcomes will be assessed biweekly. Outcomes Primary outcome: Incidence of PTB (birth prior to 37 0/7 weeks GA). Secondary outcomes Incidence of preeclampsia/eclampsia, small for gestational age and perinatal mortality. Discussion This study is unique as it will examine the impact of LDA early in pregnancy in low-middle income countries with preterm birth as a primary outcome. The importance of developing low-cost, high impact interventions in low-middle income countries is magnified as they are often unable to bear the financial costs of treating illness. Trial registration ClinicalTrials.gov identifier: NCT02409680 Date: March 30, 2015",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f0a575e1ddcbdad84c015767e0c4349b25b9c40c454f486d6bafe9aac5a8dedb"
+      },
+      {
+        "pmid": "28973614",
+        "title": "Prophylactic Low-Dose Aspirin Reduces Risk of Preterm Preeclampsia",
+        "authors": "Anita Slomski",
+        "year": "2017",
+        "journal": "JAMA",
+        "doi": "10.1001/jama.2017.13073",
+        "url": "https://doi.org/10.1001/jama.2017.13073",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Women at high risk of preterm preeclampsia who took low-dose aspirin during their pregnancy had a significantly lower incidence of the disease compared with a placebo group, found a trial in the New England Journal of Medicine.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "407432a79edd7a5643aa925b5506d91e0c1030d1dadb6c70664f4ae120f2bc4d"
+      },
+      {
+        "pmid": "doi:10.3389/fphar.2026.1792975",
+        "title": "Comparative effectiveness of pharmacological treatments for fetal growth restriction: a network meta-analysis",
+        "authors": "Yanting Wei, Ying Zhou, Xin Yu, Leilei Gong",
+        "year": "2026",
+        "journal": "Frontiers in Pharmacology",
+        "doi": "10.3389/fphar.2026.1792975",
+        "url": "https://doi.org/10.3389/fphar.2026.1792975",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BackgroundFetal growth restriction (FGR) is a common pregnancy complication associated with adverse maternal and fetal outcomes. Effective pharmacological interventions are essential for enhancing fetal growth and mitigating related complications. This study aimed to evaluate and compare the efficacy of various pharmacological treatments for FGR using a network meta-analysis (NMA).ObjectiveTo systematically evaluate and compare the effectiveness of different pharmacological interventions for FGR via a network meta-analysis (NMA).StrategyA comprehensive literature search was performed in PubMed, Medline, Embase, PsycINFO, the Cochrane Central Register of Controlled Trials, and Web of Science. The search was updated through 31 January 2026, to ensure the inclusion of the most recent evidence.Selection CriteriaEligible studies included singleton pregnancies at high risk of FGR. Studies were excluded if they involved multiple pregnancies, fetal genetic abnormalities, or maternal comorbidities such as drug or alcohol abuse.Data Collection and AnalysisA systematic review and network meta-analysis were conducted in strict accordance with the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) guidelines to ensure methodological rigor.Main ResultsCompared with the control group and low-dose aspirin (LDA) alone, low-molecular-weight heparin (LMWH) and the combination of LMWH + LDA significantly reduced the incidence of intrauterine growth restriction (IUGR) (odds ratio [OR] = 0.40, 95% confidence interval [CI] = 0.26–0.62; OR = 0.37, 95% CI = 0.15–0.93, respectively). Additionally, LMWH monotherapy significantly decreased the risk of several pregnancy complications, including preeclampsia (OR = 0.21, 95% CI = 0.05–0.93), preterm birth (OR = 0.61, 95% CI = 0.45–0.81), miscarriage (OR = 0.42, 95% CI = 0.19–0.91), and cesarean section (OR = 0.34, 95% CI = 0.18–0.67). The combination of LMWH + LDA significantly improved the live birth rate (OR = 7.08, 95% CI = 2.16–23.22) and reduced the incidence of preeclampsia (OR = 0.22, 95% CI = 0.08–0.59).ConclusionLMWH and LMWH combined with LDA are effective in reducing IUGR, preventing preeclampsia, and improving live birth rates in high-risk pregnancies complicated by FGR. These findings provide robust evidence supporting the use of LMWH and LMWH + LDA as promising therapeutic options for the management of FGR.Clinical Trial RegistrationPROSPERO registration: CRD420251142968.",
+        "relevancePct": 84,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "8a8ffd4dd452fd43b6bc14ffc49d78ae7cd982444b4838c75c0e7686654273e2"
+      },
+      {
+        "pmid": "doi:10.1186/s12884-025-07471-w",
+        "title": "Antiphospholipid syndrome in pregnancy: a comprehensive literature review",
+        "authors": "Viorela Romina Murvai, Radu Galiș, Anca Panaitescu, Casandra Maria Radu",
+        "year": "2025",
+        "journal": "BMC Pregnancy and Childbirth",
+        "doi": "10.1186/s12884-025-07471-w",
+        "url": "https://doi.org/10.1186/s12884-025-07471-w",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Antiphospholipid syndrome (APS) is an autoimmune disorder associated with thrombotic events and adverse obstetric outcomes, particularly in its obstetric form (OAPS). Affecting approximately 0.5% of the population, APS is a leading contributor to recurrent pregnancy loss (RPL), preeclampsia (PE), and fetal growth restriction ((FGR). Despite advancements in understanding its pathophysiology and management, optimal treatment strategies for APS in pregnancy remain challenging and require systematic evaluation. This review synthesizes current evidence on APS mechanisms, diagnostic criteria, and therapeutic interventions, with a focus on maternal and fetal outcomes in OAPS. Methods A comprehensive search of PubMed, was conducted to identify studies exploring APS pathogenesis, diagnostic standards, and treatment efficacy in obstetric settings. Inclusion criteria prioritized randomized controlled trials, cohort studies, and systematic reviews with a clear focus on APS and pregnancy. Results The review confirmed that APS current accepted pathogenesis is governed by a “two-hit” model, where antiphospholipid antibodies (aPLs) initiate endothelial damage, culminating in thrombosis and placental insufficiency. Epidemiological analysis underscores the prevalence and severity of APS in obstetric contexts, with lupus anticoagulant (LA) emerging as a significant predictor of adverse outcomes. Evidence supports the use of low-dose aspirin (LDA) and heparin to reduce miscarriage rates, while adjunctive treatments, such as hydroxychloroquine (HCQ), have shown promise in improving live birth rates and reducing preterm delivery in high-risk cases. Emerging therapies, including tumoral necrosis factor (TNF-alpha) inhibitors and nitric oxide modulators, may offer additional benefits in refractory cases. Conclusion APS remains a critical determinant of adverse pregnancy outcomes, necessitating precise diagnostic criteria and tailored management approaches. This systematic review emphasizes the importance of individualized therapeutic regimens to optimize maternal and fetal health in OAPS and highlights areas for future research, particularly regarding novel pharmacological approaches. Further studies are essential to refine treatment protocols and improve clinical guidelines for managing APS in pregnancy.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "a153712f94d1903a2ed8043681ab1ef4552b110538b62a1eabee20f7503daef7"
+      },
+      {
+        "pmid": "doi:10.1016/j.tjog.2025.10.011",
+        "title": "First trimester pre-eclampsia screening using FMF-UtA-PAPPA algorithm in Hong Kong: A low-cost alternative to PlGF",
+        "authors": "Suet Yin Ho, Linus Lin Tai Lee, Lin Wai Chan",
+        "year": "2026",
+        "journal": "Taiwanese Journal of Obstetrics & Gynecology",
+        "doi": "10.1016/j.tjog.2025.10.011",
+        "url": "https://doi.org/10.1016/j.tjog.2025.10.011",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Objective: To evaluate the effectiveness of Fetal Medicine Foundation-based first-trimester preeclampsia (PE) screening using maternal factors, mean arterial pressure, uterine artery Doppler and pregnancy-associated plasma protein-A, without placental growth factor (FMF-UtA-PAPPA), versus the maternal history approach (National Institute for Health and Care Excellence criteria – NICE approach), when implemented in a public non-academic setting with a predominantly East Asian population. Materials and methods: Retrospective, non-intervention study involving 1860 pregnancies who received PE screening from 1/5/2022 to 31/12/2023 and subsequently delivered within our system. The NICE approach was retrospectively applied to the cohort. For those who received aspirin, adjustments were made for its effect in reducing preterm PE. Primary outcomes were detection rates of preterm and term PE, while secondary outcomes were delivery outcomes of those with preterm PE. Results: The FMF-UtA-PAPPA approach was superior to the NICE approach in preterm PE detection (80% vs 55%, p = 0.031) and in total PE detection (67.8% vs 45.8%, p = 0.015). Those that eventually developed preterm PE had significantly worse fetal outcomes including lower gestational ages (32.3 vs 38.8 weeks, p < 0.001), lower birth weights (1499 vs 3044 g, p < 0.001), and higher rates of neonatal unit admission (66.7% vs 15.4%, p < 0.001). Conclusion: First trimester PE screening by the FMF-UtA-PAPPA approach provides superior detection rates compared to the existing NICE approach in our predominantly East Asian population. This add-on to combined first trimester trisomy screening is low-cost and does not require laboratory investment, but still identifies many more high-risk pregnancies that would benefit from low-dose aspirin, thereby preventing many cases of preterm PE and their maternal–fetal complications.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "623780dba1b711c513c64b5e4805a785746471ae1d5e8a0df7274ef1077659a4"
+      },
+      {
+        "pmid": "doi:10.1016/j.xagr.2024.100352",
+        "title": "Aspirin for preeclampsia prevention in low- and middle-income countries: mind the gaps",
+        "authors": "Ellen Kupka, MD, James M. Roberts, MD, Zaleha A. Mahdy, MD, FRCOG, Carlos Escudero, MD, PhD",
+        "year": "2024",
+        "journal": "AJOG Global Reports",
+        "doi": "10.1016/j.xagr.2024.100352",
+        "url": "https://doi.org/10.1016/j.xagr.2024.100352",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Preeclampsia is a syndrome that continues to be a major contributor to maternal and neonatal mortality, especially in low-income countries. Low-dose aspirin reduces the risk of preeclampsia, but the mechanism is still unknown. Risk factors to identify women at risk of preeclampsia are based on clinical characteristics. Women identified as high-risk would benefit from aspirin treatment initiated, preferably at the end of the first trimester. Current efforts have largely focused on developing screening algorithms that incorporate clinical risk factors, maternal biomarkers, and uterine artery Doppler evaluated in the first trimester. However, most studies on preeclampsia are conducted in high-income settings, raising uncertainties about whether the information gained can be totally applied in low-resource settings. In low- and middle-income countries, lack of adequate antenatal care and late commencement of antenatal care visits pose significant challenges for both screening for preeclampsia and initiating aspirin treatment. Furthermore, the preventive effect of first-trimester screening based on algorithms and subsequent aspirin treatment is primarily seen for preterm preeclampsia, and reviews indicate minimal or no impact on reducing the risk of term preeclampsia. The lack of evidence regarding the effectiveness of aspirin in preventing term preeclampsia is a crucial concern, as 75% of women will develop this subtype of the syndrome. Regarding adverse outcomes, low-dose aspirin has been linked to a possible higher risk of postpartum hemorrhage, a condition as deadly as preeclampsia in many low- and middle-income countries. The increased risk of postpartum hemorrhage among women in low-income settings should be taken into consideration when discussing which pregnant women would benefit from the use of aspirin and the ideal aspirin dosage for preventing preeclampsia. In addition, women's adherence to aspirin during pregnancy is crucial for determining its effectiveness and complications, an aspect often overlooked in trials. In this review, we analyze the knowledge gaps that must be addressed to safely increase low-dose aspirin use in low- and middle-income countries, and we propose directions for future research.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "6882575ac6f26d2ea351241578ec2cf11ffa26da36ea6006e2a16d5f22124989"
+      },
+      {
+        "pmid": "33345910",
+        "title": "Low-dose aspirin for preeclampsia prevention: efficacy by ethnicity and race",
+        "authors": "Mary Catherine Tolcher, Haleh Sangi‐Haghpeykar, Hector Mendez Figueroa, Kjersti Marie Aagaard",
+        "year": "2020",
+        "journal": "American Journal of Obstetrics & Gynecology MFM",
+        "doi": "10.1016/j.ajogmf.2020.100184",
+        "url": "https://doi.org/10.1016/j.ajogmf.2020.100184",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Low-dose aspirin is recommended for the prevention of preeclampsia among women at a high risk of developing the disease. Aspirin undergoes polymorphic metabolism, and it is well known that common genetic polymorphisms are related to aspirin intolerance. We hypothesized that the efficacy of aspirin prophylaxis may differ by ethnicity and race. OBJECTIVE: This study aimed to compare the rates of preeclampsia among low- and high-risk women who received aspirin compared with placebo, stratifying results by ethnicity and race as a first-pass approximation of genomic polymorphisms. STUDY DESIGN: This is a secondary analysis of 2 randomized controlled trials previously performed by the Maternal-Fetal Medicine Units Network: the Low-Risk Aspirin trial and the High-Risk Aspirin trial. For the Low-Risk Aspirin trial,",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "8470cf22e2c45853b2f211ddb58d1bcf8374d52ecbac5ff6f4fce7153cae0109"
+      },
+      {
+        "pmid": "9494145",
+        "title": "Low-Dose Aspirin to Prevent Preeclampsia in Women at High Risk",
+        "authors": "Steve N. Caritis, Baha M. Sibai, John C. Hauth, Marshall D. Lindheimer",
+        "year": "1998",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejm199803123381101",
+        "url": "https://doi.org/10.1056/nejm199803123381101",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Whether low-dose aspirin prevents preeclampsia is unclear. It is not recommended as prophylaxis in women at low risk for preeclampsia but may reduce the incidence of the disease in women at high risk. METHODS: We conducted a double-blind, randomized, placebo-controlled trial in four groups of pregnant women at high risk for preeclampsia, including 471 women with pregestational insulin-treated diabetes mellitus, 774 women with chronic hypertension, 688 women with multifetal gestations, and 606 women who had had preeclampsia during a previous pregnancy. The women were enrolled between gestational weeks 13 and 26 and received either 60 mg of aspirin or placebo daily. RESULTS: Outcome data were obtained on all but 36 of the 2539 women who entered the study. The",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "1ddbe1c809d310f65cabb6ca12409a8c38e4c18477f2d40061a1fdf4bf3d8fe8"
+      },
+      {
+        "pmid": "doi:10.3390/medicina62010186",
+        "title": "The Role of Ophthalmic Artery Doppler in Predicting Preeclampsia: A Review of the Literature",
+        "authors": "Nicoleta Gana, Ancuța Năstac, Livia Mihaela Apostol, Iulia Huluță",
+        "year": "2026",
+        "journal": "Medicina",
+        "doi": "10.3390/medicina62010186",
+        "url": "https://doi.org/10.3390/medicina62010186",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background and Objectives: Preeclampsia (PE) complicates 2–8% of pregnancies globally, with a higher incidence in developing countries. This condition poses significant risks to maternal and fetal health, contributing substantially to maternal and perinatal mortality, particularly in cases of early-onset PE, which is associated with severe complications. This review aims to synthesize current evidence regarding the predictive utility of ophthalmic artery Doppler for preeclampsia. Current strategies focus on early prediction and prevention to mitigate adverse outcomes and reduce the economic burden of hypertensive disorders in pregnancy. The International Federation of Gynecology and Obstetrics (FIGO) recommends first-trimester screening combining maternal risk factors, mean arterial pressure, serum placental growth factor (PlGF), and uterine artery pulsatility index (UtA-PI). High-risk women are advised to take low-dose aspirin (150 mg daily) until 36 weeks of gestation. Materials and Methods: This review explores an innovative predictive tool for PE: ophthalmic artery (OA) Doppler. Results: As a non-invasive and easily accessible method, OA Doppler provides valuable insights into intracranial vascular resistance, offering potential advantages in early risk assessment, particularly for preterm PE, the most severe form of the disease. Conclusions: Our findings suggest that OA Doppler may serve as a promising adjunct in PE screening, enhancing the early identification of high-risk pregnancies and improving clinical outcomes. Further research is warranted to validate its role in routine prenatal care.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "03f4a5fe577be66b284c54e854f36a9b1d6719df199dbf1a836a7cd19aa04f9c"
+      },
+      {
+        "pmid": "doi:10.3389/fimmu.2025.1631323",
+        "title": "Case Report: The case of atypical OAPS complicated by positive anti-SSA and anti-SSB antibodies",
+        "authors": "Chunyan Huang, Daorong Hong, Xiaoqing Chen",
+        "year": "2025",
+        "journal": "Frontiers in Immunology",
+        "doi": "10.3389/fimmu.2025.1631323",
+        "url": "https://doi.org/10.3389/fimmu.2025.1631323",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Antiphospholipid syndrome (APS) is a systemic autoimmune disease. When pathological pregnancy manifestations—such as recurrent miscarriage, stillbirth, preeclampsia, and preterm birth—predominate, the condition is called obstetric APS (OAPS). OAPS can be typical or atypical. Pregnant women positive for anti-Ro/SSA and SSB antibodies may develop fetal congenital heart block (CHB). Meanwhile, antiphospholipid antibodies (aPL) can cause preeclampsia, fetal growth restriction, intrauterine fetal death, and other adverse outcomes through mechanisms including disruption of trophoblast function. Here, we describe a case of atypical OAPS complicated with anti-Ro/SSA and SSB antibody positivity during pregnancy, who developed a subchorionic hematoma. At presentation, the hematoma was progressively enlarging, yet the patient had only one moderate-to-high titer of anti-β2-GP1 antibody and a transient low titer of ACL-IgM, not meeting clinical or laboratory criteria for OAPS. Delaying diagnosis and treatment to wait for repeat aPL testing after 12 weeks would increase risk of poor outcomes. Facing overtreatment and undertreatment challenges, we chose high-dose corticosteroids, hydroxychloroquine, and intravenous immunoglobulin therapy. When the hematoma shrank, low-molecular-weight heparin (LMWH) and aspirin were added with close monitoring, and after two weeks, both the hematoma and placental blood sinuses resolved. During pregnancy follow-up, multiple anti-β2-GP1 antibody tests showed moderate-to-high titers (over 12 weeks apart), confirming our diagnosis. Besides these immunological abnormalities, the patient was also positive for anti-SSA and anti-SSB antibodies and had a prior pregnancy complicated by suspected fetal ventricular septal defect, a high-risk factor. In light of this risk, the patient was treated with hydroxychloroquine. As a preventive strategy, two courses of intravenous immunoglobulin (IVIG) were also initiated at 16 weeks of gestation to support maternal-fetal immune tolerance. After treatment, no fetal cardiac abnormalities were observed, and a healthy female infant was vaginally delivered at 38 + 4 weeks. Diagnosing such cases and correct timing and choice of medication are critical for women of childbearing age. Most women with immune-related antibody positivity can achieve successful pregnancy and delivery with appropriate treatment.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "8165214827b8e24bc6fe576ae8d698bebf6b75227109851ee02e321b99b8116c"
+      },
+      {
+        "pmid": "doi:10.1097/fm9.0000000000000215",
+        "title": "First Trimester Preeclampsia Screening and Prevention: Perspective in Chinese Mainland",
+        "authors": "Jiao Liu, Yunyu Chen, Sin Ting Tai, Long Nguyen-Hoang",
+        "year": "2024",
+        "journal": "Maternal-Fetal Medicine",
+        "doi": "10.1097/fm9.0000000000000215",
+        "url": "https://doi.org/10.1097/fm9.0000000000000215",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract. Preeclampsia (PE), a multisystem disorder in pregnancy, is one of the leading causes of perinatal morbidity and mortality that poses financial and physical burdens worldwide. Preterm PE with delivery at <37 weeks of gestation is associated with a higher risk of adverse maternal and perinatal outcomes than term PE with delivery at ≥37 weeks of gestation. A myriad of first trimester screening models have been developed to identifying women at risk of preterm PE. In fact, the Fetal Medicine Foundation (FMF) first trimester prediction model has undergone successful internal and external validation. The FMF triple test enables the estimation of patient-specific risks, using Bayes theorem to combine maternal characteristics and medical history together with measurements of mean arterial pressure, uterine artery pulsatility index, and serum placental growth factor. Establishing a quality control process for regular monitoring and to ensure data standardization, reliability, and accuracy is key to maintaining optimal screening performance. The rate of preterm PE can be reduced by 62% by using the FMF prediction model, followed by the administration of low-dose aspirin. Recent evidence has also demonstrated that metformin has the potential for preventing PE in patients at high-risk of the disorder. In this article, we will summarize the existing literature on the different screening methods, different components of risk assessment, therapeutic interventions, and clinical implementation of the first trimester screening and prevention program for PE with specific considerations for Chinese mainland.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "845c1757018234d8e384ac5413a7fae6692da245b17543b1d7a8c73f537f6b15"
+      },
+      {
+        "pmid": "doi:10.3389/fendo.2023.1193271",
+        "title": "Management of type 2 diabetes in pregnancy: a narrative review",
+        "authors": "Lore Raets, Anne Ingelbrecht, Katrien Benhalima",
+        "year": "2023",
+        "journal": "Frontiers in Endocrinology",
+        "doi": "10.3389/fendo.2023.1193271",
+        "url": "https://doi.org/10.3389/fendo.2023.1193271",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "The prevalence of type 2 diabetes (T2DM) at reproductive age is rising. Women with T2DM have a similarly high risk for pregnancy complications as pregnant women with type 1 diabetes. To reduce adverse pregnancy and neonatal outcomes, such as preeclampsia and preterm delivery, a multi-target approach is necessary. Tight glycemic control together with appropriate gestational weight gain, lifestyle measures, and if necessary, antihypertensive treatment and low-dose aspirin is advised. This narrative review discusses the latest evidence on preconception care, management of diabetes-related complications, lifestyle counselling, recommendations on gestational weight gain, pharmacologic treatment and early postpartum management of T2DM.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "1a0134d0ba457f4010cfd82b2584c6378e20cb79357020e67295ef31f9ba3572"
+      },
+      {
+        "pmid": "doi:10.3390/cells11152428",
+        "title": "Non-Coding RNAs and Prediction of Preeclampsia in the First Trimester of Pregnancy",
+        "authors": "Manabu Ogoyama, Hironori Takahashi, Hirotada Suzuki, Akihide Ohkuchi",
+        "year": "2022",
+        "journal": "Cells",
+        "doi": "10.3390/cells11152428",
+        "url": "https://doi.org/10.3390/cells11152428",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Preeclampsia (PE) is a major cause of maternal and perinatal morbidity and mortality. The only fundamental treatment for PE is the termination of pregnancy. Therefore, not only severe maternal complications but also perinatal complications due to immaturity of the infant associated with early delivery are serious issues. The treatment and prevention of preterm onset preeclampsia (POPE) are challenging. In 2017, the ASPRE trial showed that a low oral dose of aspirin administered to POPE high-risk women in early pregnancy reduced POPE by 62%. A prediction algorithm at 11–13 weeks of gestation identifies POPE with 75% sensitivity when the false positive rate is set at 10%. New biomarkers to increase the accuracy of the prediction model for POPE high-risk women in early pregnancy are needed. In this review, we focused on non-coding RNAs (ncRNAs) as potential biomarkers for the prediction of POPE. Highly expressed ncRNAs in the placenta in early pregnancy may play crucial roles in placentation. Furthermore, placenta-specific ncRNAs have been detected in maternal blood. In this review, we summarized ncRNAs that were highly expressed in the primary human placenta in early pregnancy. We also presented highly expressed ncRNAs in the placenta that were associated with or predictive of the development of PE in an expression analysis of maternal blood during the first trimester of pregnancy. These previous studies showed that the chromosome 19 microRNA (miRNA) -derived miRNAs (e.g., miR-517-5p , miR-518b , and miR-520h ), the hypoxia-inducible miRNA ( miR-210 ), and long non-coding RNA H19 , were not only highly expressed in the early placenta but were also significantly up-regulated in the blood at early gestation in pregnant women who later developed PE. These maternal circulating ncRNAs in early pregnancy are expected to be possible biomarkers for POPE.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "6d45c33c6c79d0388525b324e5155b8b6d796900c77e0ecb203a06bd4a9b17dc"
+      },
+      {
+        "pmid": "oax:W4297548537",
+        "title": "Use of Daily Low-Dose Aspirin in Pregnancy for Women at High Risk of Preeclampsia at Georgetown Public Hospital Corporation",
+        "authors": "Sabrina Gittens, Janie Pak",
+        "year": "2022",
+        "journal": "International Journal of Research and Review",
+        "doi": "10.52403/ijrr.20220937",
+        "url": "https://doi.org/10.52403/ijrr.20220937",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objective: To Determine what proportion of eligible high-risk women diagnosed with preeclampsia received low dose aspirin during antepartum care. Design & Methods: This was a retrospective chart review of all patients who delivered at Georgetown Public Hospital Corporation between September to December 2017 and were diagnosed with a hypertensive disorder in pregnancy. The primary outcome was the fraction of women diagnosed with preeclampsia, eclampsia or HELLP syndrome who met the U.S. Preventive Task Force criteria to be started on aspirin and were started on aspirin between 12 and 28 weeks of gestation. Maternal secondary outcomes included: Intensive care unit admissions, end organ injury, placental abruption and death. Neonatal secondary outcomes included: Neonatal intensive care unit admissions, fetal growth restriction, preterm",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "679b984b95f24384307decf206d5b7ca8e4f79bbfbbce1f3ed11cd02fb3041fc"
+      },
+      {
+        "pmid": "23004922",
+        "title": "Chronotherapy With Low-Dose Aspirin for Prevention of Complications in Pregnancy",
+        "authors": "Diana E. Ayala, Rafael Ucieda, Ramón C. Hermida",
+        "year": "2012",
+        "journal": "Chronobiology International",
+        "doi": "10.3109/07420528.2012.717455",
+        "url": "https://doi.org/10.3109/07420528.2012.717455",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Preeclampsia and gestational hypertension are major contributors to perinatal morbidity and mortality. Several studies aimed to test the effects of low-dose aspirin (ASA) in the prevention of preeclampsia concluded that the beneficial effects of such treatment outweigh adverse ones. Such benefits have not been fully corroborated by larger randomized trials usually carried out in low-risk women, testing a dose of 60 mg/d ASA presumably ingested in the morning, and including women randomized as late as at 26-32 wks of gestation. The authors conducted a prospective, randomized, double-blind, placebo-controlled, chronotherapy trial on 350 high-risk pregnant women (183 nulliparous), 30.7 ± 5.3 (mean ± SD) yrs of age, and 13.5 ± 1.4 wks of gestation at the time of recruitment. Women were",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "253f5eae2370752d35b09b141cd5ef865cf578b0c27d7aed50bdc8d30d643e91"
+      },
+      {
+        "pmid": "doi:10.1055/s-0043-1761250",
+        "title": "A Comparison of Changes in the Mean Arterial Blood Pressure and Mean Uterine Artery Pulsatility Index from 11–14 to 19–24 + 6 Gestation Weeks in Low-Risk and High-Risk Asian Indian Pregnant Women",
+        "authors": "Akanksha Baghel, Tejashree Y. Patekar, Rijo M. Choorakuttil, Lalit K. Sharma",
+        "year": "2023",
+        "journal": "Indian Journal of Radiology and Imaging",
+        "doi": "10.1055/s-0043-1761250",
+        "url": "https://doi.org/10.1055/s-0043-1761250",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Aim The aim of this study was to determine the changes in the mean arterial blood pressure (MAP) and mean uterine artery (UtA) pulsatility index (PI) from 11-14 to 19-24 + 6 gestation weeks in Asian Indian pregnant women. Methods Clinical and demographic details, MAP, and mean UtA PI measures were ascertained for pregnant women at 11 to 14 gestation weeks and 19–24 + 6 gestation weeks. Women were categorized as a high-or-low risk for preterm preeclampsia using the Fetal Medicine Foundation algorithm and 1 in 150 cutoff. High-risk pregnant women were recommended low-dose aspirin 150 mg daily at bedtime. Changes in MAP and mean UtA PI were compared for gestational age intervals and high-and-low risk women using nonparametric tests. Results The study analyzed the results of 1,163 pregnant women. Both MAP (mean difference: 5.14, p < 0.001) and mean UtA PI (mean difference: 0.14, p < 0.001) remained significantly higher at the second-trimester assessment in high-risk pregnant women compared to low-risk pregnant women. Seventy-seven (35.16%) of the 219 pregnant women with abnormal mean UtA PI in the first trimester had an abnormal mean UtA PI in the second-trimester assessment. One hundred (10.59%) of the 944 pregnant women with normal mean UtA PI in the first trimester had an abnormal mean UtA PI in the 19-24 + 6 weeks assessment. Seventy-seven pregnant women (6.62% of 1,163 women, 95% confidence interval: 5.33, 8.20) had an abnormal mean UtA PI at both gestation age intervals. High-risk pregnant women taking low-dose aspirin daily showed a larger reduction in mean UtA PI compared to high-risk pregnant women that did not report the use of low-dose aspirin (0.89 vs. 0.62, p <0.001) Conclusion MAP and mean UtA PI decreased significantly from the first to the second trimester of pregnancy. Sequential assessment of the MAP and mean UtA PI in the first and second trimesters of pregnancy will be useful for fetal radiologists in India to identify a subgroup of women with abnormal mean UtA PI at both trimesters that may need more intense surveillance and follow-up till childbirth.",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "69fc233bd737c522f62998adefcb58eec9e7b43c04547dcfb27fa9e23b9c509b"
+      },
+      {
+        "pmid": "doi:10.1016/j.eurox.2024.100340",
+        "title": "Perinatal outcomes in indian women with Antiphospholipid Antibody Syndrome (APS): Five year experience from a tertiary care centre",
+        "authors": "Minakshi Rohilla, Mahak Bhardwaj, Vanita Jain",
+        "year": "2024",
+        "journal": "European Journal of Obstetrics & Gynecology and Reproductive Biology: X",
+        "doi": "10.1016/j.eurox.2024.100340",
+        "url": "https://doi.org/10.1016/j.eurox.2024.100340",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background: Antiphospholipid Syndrome (APS) is a systemic autoimmune thrombophilic condition characterized by obstetric manifestations, including pregnancy loss, preeclampsia and fetal growth restriction. Early diagnosis and management are key to improve maternal and neonatal outcomes. Objective: The aim of this study is to assess the perinatal outcomes in APS, the development of various adverse pregnancy outcomes (APO), and their association with specific antibody profiles. Material methods: This observational study was carried out on booked cases of singleton pregnancy and diagnosed cases of primary APS in our High-Risk Pregnancy (HRP) clinic from January 2018 to December 2022 after approval from institutional ethics committee. Forty-three confirmed cases of primary APS were enrolled and started on low-dose aspirin and low-molecular-weight heparin (LMWH) as per the patient's body weight after confirmation of fetal heart activity radiologically until 36 weeks of gestation as a standard of care. Results: Forty patients (93 %) had obstetric APS, and three patients (7 %) had thrombotic APS. During the course of the current pregnancy, adverse pregnancy outcomes (APO) developed in 12 (30 %) out of 40 cases of obstetric APS and in all 3 patients with thrombotic APS. Preeclampsia was seen in 11 (25.5 %), FGR in 12 (27.9 %), and preterm birth in 7 (16.2 %) cases. Patients with an antibody profile showing the presence of Anti-β2 GP-I positivity and ACL positivity had fewer APOs (20 % and 29 %) in comparison to patients with a LA and triple positive antibody profile (55 % and 50 %). Conclusion: Treatment of pregnant women with APS causes significant improvement in the live birth rate. The late pregnancy complications like preeclampsia, FGR, and premature birth, occurring despite treatment still remains a challenge and emphasizes the need for stringent antepartum surveillance and timely delivery.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "fba2f30fcc52fb497c08e5710b852e8ac9d1045eac3651b897376d2bef636d9c"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "high-risk pregnancy low-dose aspirin placebo preterm preeclampsia",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

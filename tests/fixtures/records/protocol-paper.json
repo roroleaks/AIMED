@@ -1,0 +1,15 @@
+[
+  {
+    "pmid": "39123456",
+    "doi": "10.1016/j.cllc.2024.01.001",
+    "title": "DESTINY-Lung06: A phase 3 randomized trial of trastuzumab deruxtecan plus pembrolizumab in NSCLC",
+    "authors": "Peters S, Smit EF",
+    "year": "2024",
+    "journal": "Clin Lung Cancer",
+    "pubType": "Clinical Trial Protocol",
+    "context": "Background: Trial in progress. Methods: Planned enrollment of approximately 650 patients with advanced non-small cell lung cancer randomized to trastuzumab deruxtecan plus pembrolizumab versus platinum chemotherapy. Primary endpoint is progression-free survival and overall survival.",
+    "relevancePct": 0,
+    "matchedElements": ["P", "I", "C", "O"],
+    "source": "pubmed"
+  }
+]

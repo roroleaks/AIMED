@@ -1,0 +1,824 @@
+{
+  "id": "IM-1",
+  "recordedAt": "2026-11-26T19:39:55.167Z",
+  "specialty": "internal_med",
+  "words": [
+    {
+      "word": "sepsis",
+      "role": "population"
+    },
+    {
+      "word": "balanced crystalloids",
+      "role": "intervention"
+    },
+    {
+      "word": "saline",
+      "role": "comparator"
+    },
+    {
+      "word": "mortality",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "sepsis",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids",
+        "role": "intervention"
+      },
+      {
+        "word": "saline",
+        "role": "comparator"
+      },
+      {
+        "word": "mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In sepsis (P), does balanced crystalloids (I) compared with saline (C) reduce mortality (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (8 favourable, 0 no-difference, 3 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In sepsis (P), is balanced crystalloids (I) superior to saline (C) for mortality (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of sepsis (P), does balanced crystalloids (I) compared with saline (C) reduce mortality (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 14
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In sepsis (P), is balanced crystalloids (I) superior to saline (C) for mortality (O)?"
+    },
+    "words": [
+      {
+        "word": "sepsis",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids",
+        "role": "intervention"
+      },
+      {
+        "word": "saline",
+        "role": "comparator"
+      },
+      {
+        "word": "mortality",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "doi:10.1186/s13054-020-03419-y",
+        "title": "Resuscitation fluid types in sepsis, surgical, and trauma patients: a systematic review and sequential network meta-analyses",
+        "authors": "Chien-Hua Tseng, Tzu-Tao Chen, Mei-Yi Wu, Ming-Cheng Chan",
+        "year": "2020",
+        "journal": "Critical Care",
+        "doi": "10.1186/s13054-020-03419-y",
+        "url": "https://doi.org/10.1186/s13054-020-03419-y",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Crystalloids and different component colloids, used for volume resuscitation, are sometimes associated with various adverse effects. Clinical trial findings for such fluid types in different patients’ conditions are conflicting. Whether the mortality benefit of balanced crystalloid than saline can be inferred from sepsis to other patient group is uncertain, and adverse effect profile is not comprehensive. This study aims to compare the survival benefits and adverse effects of seven fluid types with network meta-analysis in sepsis, surgical, trauma, and traumatic brain injury patients. Methods Searched databases (PubMed, EMBASE, and Cochrane CENTRAL) and reference lists of relevant articles occurred from inception until January 2020. Studies on critically ill adults requiring fluid resuscitation were included. Intervention studies reported on balanced crystalloid, saline, iso-oncotic albumin, hyperoncotic albumin, low molecular weight hydroxyethyl starch (L-HES), high molecular weight HES, and gelatin. Network meta-analyses were conducted using random-effects model to calculate odds ratio (OR) and mean difference. Risk of Bias tool 2.0 was used to assess bias. Confidence in Network Meta-Analysis (CINeMA) web application was used to rate confidence in synthetic evidence. Results Fifty-eight trials (n = 26,351 patients) were identified. Seven fluid types were evaluated. Among patients with sepsis and surgery, balanced crystalloids and albumin achieved better survival, fewer acute kidney injury, and smaller blood transfusion volumes than saline and L-HES. In those with sepsis, balanced crystalloids significantly reduced mortality more than saline (OR 0.84; 95% CI 0.74–0.95) and L-HES (OR 0.81; 95% CI 0.69–0.95) and reduced acute kidney injury more than L-HES (OR 0.80; 95% CI 0.65–0.99). However, they required the greatest resuscitation volume among all fluid types, especially in trauma patients. In patients with traumatic brain injury, saline and L-HES achieved lower mortality than albumin and balanced crystalloids; especially saline was significantly superior to iso-oncotic albumin (OR 0.55; 95% CI 0.35–0.87). Conclusions Our network meta-analysis found that balanced crystalloids and albumin decreased mortality more than L-HES and saline in sepsis patients; however, saline or L-HES was better than iso-oncotic albumin or balanced crystalloids in traumatic brain injury patients. Trial registration PROSPERO website, registration number: CRD42018115641).",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "b201655d20670f82090b556df18677adac2d9cf43a727b9f21e9e25071e6d7ea"
+      },
+      {
+        "pmid": "doi:10.3389/fmed.2025.1543586",
+        "title": "Fluid resuscitation in adults with severe infection and sepsis: a systematic review and network meta-analysis",
+        "authors": "Binglin Song, Kangrui Fu, Xiangde Zheng, Chun Liu",
+        "year": "2025",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2025.1543586",
+        "url": "https://doi.org/10.3389/fmed.2025.1543586",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "IntroductionThe choice of optimal resuscitation fluid for patients with septic shock remains a controversial topic. The 2021 Sepsis Surviving Campaign Guidelines strongly recommend using crystalloids as the first-line resuscitation fluid for adults with sepsis or septic shock, with balanced crystalloids as a weak recommendation. However, two large-scale network meta-analyses in 2020 concluded that balanced crystalloids are most advantageous. This study reevaluates the efficacy and safety of different resuscitation fluids in septic shock through a network meta-analysis (NMA).MethodsDatabases including PubMed, EMBASE, and WOS were searched, and reference lists of relevant literature up to September 2024 were reviewed. Studies involving adult patients with sepsis requiring fluid resuscitation were selected. The fluids covered include balanced crystalloid (BC), saline, iso-oncotic albumin (Iso-Alb), hyper-oncotic albumin (Hyper-Alb), low molecular weight hydroxyethyl starch (L-HES), high molecular weight hydroxyethyl starch (HES), and gelatin. A network meta-analysis was conducted to assess the effects of different fluid types.ResultsA total of 32 RCTs were included in the analysis. The NMA probability ranking results show that balanced crystalloid (BC) had the lowest all-cause mortality rate, with the highest SUCRA value (83.1%). Gelatin was shown to confer the greatest advantage in terms of kidney injury, with the highest SUCRA value (80.7%). Hyper-oncotic albumin had the lowest occurrence of renal replacement therapy events, showing the highest SUCRA value (94.1%). Patients treated with balanced crystalloids had the shortest ICU stays and hospital lengths of stay.ConclusionBalanced solutions (BS) are the preferred resuscitation fluids for septic shock. High molecular weight hydroxyethyl starch (H-HES) is associated with increased risks of mortality, acute kidney injury (AKI), and renal replacement therapy (RRT), as well as prolonged hospital stays, and its use is advised against. Gelatin is associated with poorer outcomes in terms of mortality, continuous renal replacement therapy (CRRT), and length of hospital stay.Systematic review registrationRegistration ID: INPLASY2024100049 https://doi.org/10.37766/inplasy2024.10.0049.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "64fc65e7070f157c4b7a7a9ff5b9f9d3260dcdfa4d45c849895d34d28c7f8436"
+      },
+      {
+        "pmid": "doaj:8966d37d517e40a4a30b0ae8f062c682",
+        "title": "Comparison of Balanced Crystalloids versus Normal Saline in Critically Ill Patients: A Systematic Review with Meta-Analysis and Trial Sequential Analysis of Randomized Controlled Trials",
+        "authors": "Chen Y, Gao Y",
+        "year": "2023",
+        "journal": "Therapeutics and Clinical Risk Management",
+        "url": "https://www.dovepress.com/comparison-of-balanced-crystalloids-versus-normal-saline-in-critically-peer-reviewed-fulltext-article-TCRM",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Yi Chen,1– 3 Yongli Gao1– 3 1Emergency Department of West China Hospital, Sichuan University/West China School of Nursing, Sichuan University, Chengdu City, Sichuan Province, People’s Republic of China; 2Institute of Disaster Medicine, Sichuan University, Chengdu City, Sichuan Province, People’s Republic of China; 3Nursing Key Laboratory of Sichuan Province, Chengdu City, Sichuan Province, People’s Republic of ChinaCorrespondence: Yongli Gao, Emergency Department of West China Hospital, Sichuan University/West China School of Nursing, Sichuan University, No. 37 Guoxue Alley, Wuhou District, Chengdu, Sichuan Province, 610041, People’s Republic of China, Email gaoyongli0320@163.comBackground: Fluid resuscitation is routinely needed for critically ill patients. However, the optimal choice between crystalloids and normal saline is in heat debate.Objective: To conduct a meta-analysis comparing normal saline and balanced crystalloids in the treatment of critically ill patients with composite mortality as the primary outcome.Methods: PubMed, Embase, Medline, Web of Science, and Cochrane Library were searched from inception up to March 2022. Studies of critically ill adult patients assigned to receive normal saline or balanced crystalloids were included. We conducted a meta-analysis using an inverse variance, random-effects model in addition to trial sequential analysis (TSA). The primary outcome was composite mortality. Subgroup analyses were also conducted.Results: Eighteen full-text studies (n=36,224) were included. Balanced crystalloids were associated with lower mortality compared with normal saline (risk ratio [RR]=0.96; 95% confidential interval [CI] 0.93, 1; p=0.03; I2=0) and lower incidence of acute kidney injury/acute renal failure (RR =0.93; 95% CI = 0.87, 0.99; p=0.03). No significant difference was observed in other outcomes. In the sepsis patients, the balanced crystalloid showed a lower composite mortality rate compared with normal saline (RR =0.91; 95% CI = 0.85, 0.99; p=0.02). TSA analysis demonstrated that, with 80% power, the effect of balanced crystalloid is not larger than a 10% relative decrease in composite mortality compared with normal saline.Conclusion and Relevance: This study demonstrated that balanced crystalloids could be an optimal choice over normal saline in critically ill patients to a reduced composite mortality rate. In patients with sepsis, the difference is especially significant. Nonetheless, the optimal resuscitation fluid option between saline and balanced crystalloid solutions should be investigated further with more evidence.Keywords: balanced crystalloids, normal saline, critically ill, systematic review, meta-analysis",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "8459a0f76fe0dfdbbb94b8fe1ed94dcd6c97d40b23f510b7893f61c3db6a30f8"
+      },
+      {
+        "pmid": "doi:10.3389/fmed.2023.1071741",
+        "title": "A retrospective analysis of normal saline and lactated ringers as resuscitation fluid in sepsis",
+        "authors": "Shahin Isha, Parthkumar H. Satashia, Siva Naga S. Yarrarapu, Austin B. Govero",
+        "year": "2023",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2023.1071741",
+        "url": "https://doi.org/10.3389/fmed.2023.1071741",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BackgroundThe Surviving Sepsis Campaign suggested preferential resuscitation with balanced crystalloids, such as Lactated Ringer’s (LR), although the level of recommendation was weak, and the quality of evidence was low. Past studies reported an association of unbalanced solutions, such as normal saline (NS), with increased AKI risks, metabolic acidosis, and prolonged ICU stay, although some of the findings are conflicting. We have compared the outcomes with the preferential use of normal saline vs. ringer’s lactate in a cohort of sepsis patients.MethodWe performed a retrospective cohort analysis of patients visiting the ED of 19 different Mayo Clinic sites between August 2018 to November 2020 with sepsis and receiving at least 30 mL/kg fluid in the first 6 h. Patients were divided into two cohorts based on the type of resuscitation fluid (LR vs. NS) and propensity-matching was done based on clinical characteristics as well as fluid amount (with 5 ml/kg). Single variable logistic regression (categorical outcomes) and Cox proportional hazards regression models were used to compare the primary and secondary outcomes between the 2 groups.ResultsOut of 2022 patients meeting our inclusion criteria; 1,428 (70.6%) received NS, and 594 (29.4%) received LR as the predominant fluid (>30 mL/kg). Patients receiving predominantly NS were more likely to be male and older in age. The LR cohort had a higher BMI, lactate level and incidence of septic shock. Propensity-matched analysis did not show a difference in 30-day and in-hospital mortality rate, mechanical ventilation, oxygen therapy, or CRRT requirement. We did observe longer hospital LOS in the LR group (median 5 vs. 4 days, p = 0.047 and higher requirement for ICU post-admission (OR: 0.70; 95% CI: 0.51–0.96; p = 0.026) in the NS group. However, these did not remain statistically significant after adjustment for multiple testing.ConclusionIn our matched cohort, we did not show any statistically significant difference in mortality rates, hospital LOS, ICU admission after diagnosis, mechanical ventilation, oxygen therapy and RRT between sepsis patients receiving lactated ringers and normal saline as predominant resuscitation fluid. Further large-scale prospective studies are needed to solidify the current guidelines on the use of balanced crystalloids.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "fabe08ba3a9e8cb4e07e8e51d8b794aaf5af33281aa7abb5887dd041218c59d7"
+      },
+      {
+        "pmid": "doi:10.3390/microorganisms11092231",
+        "title": "Management of Sepsis and Septic Shock: What Have We Learned in the Last Two Decades?",
+        "authors": "Shiwani Kamath, Hiba Hammad Altaq, Tony Abdo",
+        "year": "2023",
+        "journal": "Microorganisms",
+        "doi": "10.3390/microorganisms11092231",
+        "url": "https://doi.org/10.3390/microorganisms11092231",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Sepsis is a clinical syndrome encompassing physiologic and biological abnormalities caused by a dysregulated host response to infection. Sepsis progression into septic shock is associated with a dramatic increase in mortality, hence the importance of early identification and treatment. Over the last two decades, the definition of sepsis has evolved to improve early sepsis recognition and screening, standardize the terms used to describe sepsis and highlight its association with organ dysfunction and higher mortality. The early 2000s witnessed the birth of early goal-directed therapy (EGDT), which showed a dramatic reduction in mortality leading to its wide adoption, and the surviving sepsis campaign (SSC), which has been instrumental in developing and updating sepsis guidelines over the last 20 years. Outside of early fluid resuscitation and antibiotic therapy, sepsis management has transitioned to a less aggressive approach over the last few years, shying away from routine mixed venous oxygen saturation and central venous pressure monitoring and excessive fluids resuscitation, inotropes use, and red blood cell transfusions. Peripheral vasopressor use was deemed safe and is rising, and resuscitation with balanced crystalloids and a restrictive fluid strategy was explored. This review will address some of sepsis management’s most important yet controversial components and summarize the available evidence from the last two decades.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "ba981082f394bc6ee7f34cbf81806a1673157ea887fe15dcedba3a0c580a89d9"
+      },
+      {
+        "pmid": "doi:10.1186/s13613-019-0506-y",
+        "title": "Effects of chloride content of intravenous crystalloid solutions in critically ill adult patients: a meta-analysis with trial sequential analysis of randomized trials",
+        "authors": "Ming Xue, Xiwen Zhang, Feng Liu, Wei Chang",
+        "year": "2019",
+        "journal": "Annals of Intensive Care",
+        "doi": "10.1186/s13613-019-0506-y",
+        "url": "https://doi.org/10.1186/s13613-019-0506-y",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Intravenous crystalloid solutions are administered commonly for critically ill patients. We performed this meta-analysis of randomized trials with trial sequential analysis (TSA) to evaluate effects of chloride content of intravenous crystalloid solutions on clinical outcomes among critically ill adult patients. Methods Electronic databases were searched up to June 1, 2018, for randomized trials of use of balanced crystalloids versus 0.9% saline solutions in critically ill adult patients. The outcome variables included mortality, renal outcomes, serum content alterations and organ function. Subgroup analysis was conducted according to patient settings, types or volume of crystalloid fluid, or among sepsis versus non-sepsis, TBI versus non-TBI or subpopulations by the categories of baseline kidney function. Random errors were evaluated by trial sequential analysis. Results Eight studies with 19,301 patients were analyzed. A trend of in-hospital survival benefit with no statistical difference could be observed with balanced crystalloids compared with 0.9% saline (RR 0.92, 95% CI 0.85–1.0, p = 0.06). The use of balanced crystalloid solutions was associated with longer RRT-free days (SMD 0.09, 95% CI 0.06–0.12, p < 0.001), less risk of increase in serum concentrations of chloride (SMD − 1.23, 95% CI − 1.59 to − 0.87, p < 0.001) and sodium (SMD − 1.28, 95% CI − 1.65 to − 0.92, p < 0.001), less risk of decline in serum base deficit (SMD − 0.58, 95% CI − 0.98 to − 0.18, p = 0.004), longer ventilator-free days (SMD 0.08, 95% CI 0.05–0.11, p < 0.001) and vasopressor-free days (SMD 0.04, 95% CI 0.00–0.07, p = 0.02). Subgroup analysis showed that balanced crystalloid solutions were associated with a reduced in-hospital mortality rate among septic patients (RR 0.86, 95% CI 0.75–0.98; p = 0.02) and non-traumatic brain injury patients (RR 0.90, 95% CI 0.82–0.99, p = 0.02), while the TSA results indicated a larger sample size is still in need. Conclusions Limited evidence supported statistical survival benefit with balanced crystalloid solutions, while it benefited in reducing organ support duration and fluctuations in serum electrolyte and base excess and was associated with decreased in-hospital mortality in subpopulation with sepsis and non-TBI. Large-scale rigorous randomized trials with better designs are needed to provide robust evidence for clinical management. Trial registration The protocol for this meta-analysis was registered on PROSPERO: International prospective register of systematic reviews (CRD42018102661), https://www.crd.york.ac.uk/prospero/#recordDetails",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "541d22e51124c5f94494efacea39a245fff5ad0e918ca1d31ee445bccd51244c"
+      },
+      {
+        "pmid": "doi:10.1590/s1679-45082015rw3273",
+        "title": "Fluid therapy for septic shock resuscitation: which fluid should be used?",
+        "authors": "Thiago Domingos Corrêa, Leonardo Lima Rocha, Camila Menezes Souza Pessoa, Eliézer Silva",
+        "year": "",
+        "journal": "Einstein (São Paulo)",
+        "doi": "10.1590/s1679-45082015rw3273",
+        "url": "https://doi.org/10.1590/s1679-45082015rw3273",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Early resuscitation of septic shock patients reduces the sepsis-related morbidity and mortality. The main goals of septic shock resuscitation include volemic expansion, maintenance of adequate tissue perfusion and oxygen delivery, guided by central venous pressure, mean arterial pressure, mixed or central venous oxygen saturation and arterial lactate levels. An aggressive fluid resuscitation, possibly in association with vasopressors, inotropes and red blood cell concentrate transfusion may be necessary to achieve those hemodynamic goals. Nonetheless, even though fluid administration is one of the most common interventions offered to critically ill patients, the most appropriate type of fluid to be used remains controversial. According to recently published clinical trials, crystalloid solutions seem to be the most appropriate type of fluids for initial resuscitation of septic shock patients. Balanced crystalloids have theoretical advantages over the classic solutions, but there is not enough evidence to indicate it as first-line treatment. Additionally, when large amounts of fluids are necessary to restore the hemodynamic stability, albumin solutions may be a safe and effective alternative. Hydroxyethyl starches solutions must be avoided in septic patients due to the increased risk of acute renal failure, increased need for renal replacement therapy and increased mortality. Our objective was to present a narrative review of the literature regarding the major types of fluids and their main drawbacks in the initial resuscitation of the septic shock patients.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": true,
+        "_sig": "45253ba7dfaede11466708043876578c445017491ddac70322b751128dd23abb"
+      },
+      {
+        "pmid": "38912884",
+        "title": "Albumin Versus Balanced Crystalloid for the Early Resuscitation of Sepsis: An Open Parallel-Group Randomized Feasibility Trial— The ABC-Sepsis Trial*",
+        "authors": "Alasdair James Gray, Katherine Oatey, Julia Grahamslaw, S. Rodman Irvine",
+        "year": "2024",
+        "journal": "Critical Care Medicine",
+        "doi": "10.1097/ccm.0000000000006348",
+        "url": "https://doi.org/10.1097/ccm.0000000000006348",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: International guidelines recommend IV crystalloid as the primary fluid for sepsis resuscitation, with 5% human albumin solution (HAS) as the second line. However, it is unclear which fluid has superior clinical effectiveness. We conducted a trial to assess the feasibility of delivering a randomized controlled trial comparing balanced crystalloid against 5% HAS as sole early resuscitation fluid in patients with sepsis presenting to hospital. DESIGN: Multicenter, open, parallel-group randomized feasibility trial. SETTING: Emergency departments (EDs) in 15 U.K. National Health Service (NHS) hospitals. PATIENTS: Adult patients with sepsis and a National Early Warning Score 2 greater than or equal to five requiring IV fluids withing one hour of randomization. INTERVENTIONS: IV fluid resuscitation with balanced crystalloid or 5% HAS",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "9477fa43e44794fcf8a81883feecaaba786e50291e77dff8cfd11c68641e2b44"
+      },
+      {
+        "pmid": "39292459",
+        "title": "The Precision Resuscitation With Crystalloids in Sepsis (PRECISE) Trial",
+        "authors": "Sivasubramanium V. Bhavani, Andre L. Holder, Danielle Miltz, Rishikesan Kamaleswaran",
+        "year": "2024",
+        "journal": "JAMA Network Open",
+        "doi": "10.1001/jamanetworkopen.2024.34197",
+        "url": "https://doi.org/10.1001/jamanetworkopen.2024.34197",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Importance: Intravenous fluids are an essential part of treatment in sepsis, but there remains clinical equipoise on which type of crystalloid fluids to use in sepsis. A previously reported sepsis subphenotype (ie, group D) has demonstrated a substantial mortality benefit from balanced crystalloids compared with normal saline. Objective: To test the hypothesis that targeting balanced crystalloids to patients with group D sepsis through an electronic health record (EHR) alert will reduce 30-day inpatient mortality. Design, Setting, and Participants: The Precision Resuscitation With Crystalloids in Sepsis (PRECISE) trial is a parallel-group, multihospital, single-blind, pragmatic randomized clinical trial to be conducted at 6 hospitals in the Emory Healthcare system. Patients with suspicion of group D infection in whom a clinician initiates an",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "133f002a02ceae946aa762c98d28cf4ac117ada56129937f9cdd3f39fd3f2b2c"
+      },
+      {
+        "pmid": "doi:10.1007/s44349-026-00043-7",
+        "title": "Advancements in the management of septic shock: a multidimensional approach for enhanced patient outcomes",
+        "authors": "Mohammed Misbah Ul Haq, Mohammed Fareedullah, Afaaf Arif, Mohammed Munaf Ur Razzak",
+        "year": "2026",
+        "journal": "Egyptian Journal of Critical Care Medicine",
+        "doi": "10.1007/s44349-026-00043-7",
+        "url": "https://doi.org/10.1007/s44349-026-00043-7",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Sepsis remains a major global health concern, with septic shock being the most severe manifestation, associated with high morbidity and mortality rates. This review article underscores the importance of a multidimensional approach to septic shock management, encompassing early recognition, fluid resuscitation, hemodynamic monitoring, and adjunctive therapies. By staying updated on evidence-based guidelines and individualizing treatment strategies, healthcare professionals can improve patient outcomes in this life-threatening condition. Continued research and advancements in septic shock management further contribute to the evolving understanding of optimal approaches and treatment strategies. Main take-home points 1. Multidimensional Management Approach: The review emphasizes a comprehensive, multidimensional strategy for managing septic shock, which includes early recognition, timely fluid resuscitation, hemodynamic monitoring, and adjunctive therapies. This approach aims to improve patient outcomes by ensuring timely and tailored interventions. 2. Fluid Resuscitation: Crystalloids, such as isotonic saline and balanced solutions, are recommended as the first-line choice for fluid resuscitation due to their availability, cost-effectiveness, and favorable safety profile. The guidelines suggest initiating fluid resuscitation within the first three hours of recognizing septic shock, targeting 30 mL/kg of crystalloids to restore intravascular volume and improve tissue perfusion. 3. Hemodynamic Monitoring: Effective management of septic shock relies heavily on hemodynamic monitoring. Techniques such as central venous pressure (CVP) measurement, arterial catheterization, and bedside ultrasound provide critical information on cardiac function and fluid responsiveness, aiding in the precise management of fluid therapy. 4. Vasopressor Therapy: Noradrenaline (norepinephrine) is identified as the first-line vasopressor due to its potent vasoconstrictive properties and favorable hemodynamic effects. Vasopressors are crucial when hypotension persists despite adequate fluid resuscitation, helping to maintain mean arterial pressure and organ perfusion. 5. Emerging Therapies and Future Directions: The review highlights ongoing research into new vasopressor agents, immunomodulatory therapies, and the application of precision medicine in septic shock. These emerging approaches aim to enhance the efficacy of current treatments, minimize side effects, and provide personalized care based on individual patient characteristics. Graphical abstract",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "ffb26633c6f45c9ae06ee36df19a3a45410abf58ac2be404cc36610e719ca3b4"
+      },
+      {
+        "pmid": "doi:10.3389/fmed.2026.1906761",
+        "title": "Balanced crystalloid versus saline for resuscitation in adult sepsis: a systematic review and meta-analysis",
+        "authors": "Lipeng Liu, Lipeng Liu, Binrong Cai, Binrong Cai",
+        "year": "2026",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2026.1906761",
+        "url": "https://doi.org/10.3389/fmed.2026.1906761",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BackgroundFluid resuscitation is the cornerstone of sepsis management, however, the choice between balanced crystalloid solutions and normal saline remains debated. This meta-analysis aimed to compare the efficacy of balanced solutions versus saline for fluid resuscitation in adult patients with sepsis.MethodsA systematic literature search was performed in PubMed, Embase, Scopus, and other relevant sources. Retrieved studies were rigorously screened according to predefined inclusion and exclusion criteria. Data from the included studies were extracted for analysis. The primary outcome was defined as mortality rate. Secondary outcomes included acute kidney injury (AKI), hyperchloremia, renal replacement therapy (RRT), ICU-free days, ventilator-free days, vasopressor-free days. The study protocol was registered with PROSPERO (CRD420261368142).ResultsA total of eight studies (8,173 patients; 4,056 assigned to balanced solutions, 4,117 to saline) met the inclusion criteria. In the primary analysis restricted to seven randomized controlled trials, balanced solutions were associated with significantly lower mortality than saline (RR 0.92; 95% CI 0.86–0.98; P = 0.01; I2 = 37%), and a sensitivity analysis incorporating a post-hoc observational study yielded consistent results (RR 0.91; 95% CI 0.85–0.97). Balanced solutions were also associated with lower incidences of AKI (RR 0.86; 95% CI 0.78–0.96; P = 0.004), hyperchloremia (RR 0.68; 95% CI 0.52–0.90; P = 0.007), and RRT requirement (RR 0.74; 95% CI 0.56–1.00; P = 0.05), and with a greater number of ICU-free, ventilator-free, and vasopressor-free days (all P < 0.05).ConclusionIn adult patients with sepsis, treatment with balanced crystalloid solutions for fluid resuscitation significantly reduces mortality (moderate certainty), decreases kidney-related adverse events, and better maintains electrolyte balance, thereby improving patient outcomes. These findings support the preferential use of balanced crystalloids over saline in this population.Systematic review registrationhttps://www.crd.york.ac.uk/PROSPERO/view/CRD420261368142, identifier CRD420261368142.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Protocol",
+        "lowMetadata": false,
+        "_sig": "b03f33e31e5fac731a1e6954565609bc43835708755456a3dbc33b64b2998980"
+      },
+      {
+        "pmid": "doi:10.3390/life16010151",
+        "title": "Chloremia Disturbances in Critical Care: A Narrative Review of Pathophysiology, Clinical Impact and Management Strategies",
+        "authors": "Nicola Sinatra, Giuseppe Cuttone, Tarek Senussi Testa, Luigi La Via",
+        "year": "2026",
+        "journal": "Life",
+        "doi": "10.3390/life16010151",
+        "url": "https://doi.org/10.3390/life16010151",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Chloride, the leading extracellular anion, plays a crucial role in acid-base balance, fluid homeostasis, and neuromuscular function. Despite historical underrecognition, emerging evidence demonstrates significant associations between chloremia disturbances and critical care outcomes. This paper aims to narratively review the pathophysiology, clinical features, and management strategies of chloremia disturbances in critically ill patients. Chloremia disturbances are common in ICU patients, with both hypochloremia ( 106 mEq/L) independently associated with increased mortality, prolonged ICU length of stay, and organ dysfunction. In sepsis, chloride levels exhibit a prognostic value, with threshold effects around 105 mEq/L. Hyperchloremia particularly increases acute kidney injury risk, while hypochloremia correlates with prolonged mechanical ventilation. The choice of resuscitation fluids significantly influences clinical outcomes, with balanced crystalloids potentially reducing adverse events if compared to normal saline solutions. Recent large-scale trials demonstrate lower rates of major adverse kidney events with chloride-restrictive strategies. Optimal management requires careful patient monitoring along with acid-base assessment. Treatment approaches must identify underlying causes to avoid complications. Prevention strategies include protocol-based fluid therapy, medication selection consideration, and early intervention in high-risk patients. Emerging technologies, including continuous monitoring systems and machine learning algorithms, offer promising advances for predicting and managing chloride disturbances.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "7400aedbfe999e727c3663e47c672570fce88dc38d845626b27af384ab8d6948"
+      },
+      {
+        "pmid": "doi:10.12775/jehs.2026.92.72701",
+        "title": "Goal-Directed Fluid Therapy in Sepsis and Septic Shock: A Review of Current Therapeutic Strategies and Outcomes",
+        "authors": "Maciej Dobrucki, Katarzyna Jolanta Kuc, Krzysztof Brzezicki, Katarzyna Zegadło",
+        "year": "2026",
+        "journal": "Journal of Education, Health and Sport",
+        "doi": "10.12775/jehs.2026.92.72701",
+        "url": "https://doi.org/10.12775/jehs.2026.92.72701",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction and purpose: Sepsis induces profound microvascular derangements, making prompt fluid resuscitation a management cornerstone. Historically guided by Early Goal-Directed Therapy (EGDT), landmark trials have refuted EGDT's rigidity, driving a shift toward individualized hemodynamics. The purpose of this review is to systematically evaluate goal-directed fluid therapy in septic shock, contrasting fluid composition, timing, and volume dosing to delineate clinical strategies that optimize survival. Description of the state of knowledge: Guidelines recommend crystalloids as first-line therapy and restrict synthetic colloids due to severe acute kidney injury (AKI) risks. Balanced crystalloids demonstrate marginal or comparable efficacy in reducing mortality rates relative to normal saline, the administration of which is often associated with the development of hyperchloremic metabolic acidosis. Hyperoncotic albumin appears to mitigate the risk of renal injury. The 30 mL/kg fluid mandate faces scrutiny, as non-individualized dosing may increase the risk of severe fluid overload. Current management utilizes the ROSE framework, favoring restrictive strategies and de-escalation. Obese patients require Ideal Body Weight dosing to prevent miscalculations. Summary: Meticulous fluid stewardship is essential to mitigate organ failure and maximize survival. Dynamic physiological indices outperform static parameters in predicting fluid responsiveness. Integrating personalized targets like capillary refill time normalization improves clinical outcomes. Individualized resuscitation appears to mitigate pathological venous congestion, which is often associated with improved long-term prognostic benefits.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "695be70382963f9deee6e2daa39834cb0e952cad2555d16f4da29e16ffdd54f7"
+      },
+      {
+        "pmid": "42762986",
+        "title": "Impact of Pre-ICU Balanced Crystalloids vs Saline on Mortality in Sepsis",
+        "authors": "Tae Wan Kim, Yumi Kim, Moon Seong Baek, Gyungah Kim",
+        "year": "2026",
+        "journal": "CHEST Journal",
+        "doi": "10.1016/j.chest.2026.09.008",
+        "url": "https://doi.org/10.1016/j.chest.2026.09.008",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The optimal crystalloids for initial fluid resuscitation in sepsis remain uncertain. Most previous studies have focused on the ICU, leaving the pre-ICU admission impact of crystalloid type unclear. RESEARCH QUESTION: Is there an association between pre-ICU admission crystalloid type administration and clinical outcomes in patients with sepsis? STUDY DESIGN AND METHODS: This nationwide multicenter retrospective cohort study analyzed adult patients with sepsis between September 2019 and December 2023. Patients receiving initial fluid resuscitation before ICU admission were categorized into balanced crystalloid or 0.9% sodium chloride (saline) groups. The primary outcome was 30-day mortality. RESULTS: Among 3,688 patients (mean age ± SD, 71.9 ± 13.8 years; 58% male), 1,381 (37.4%) received balanced crystalloids, and 2,307 (62.6%) received saline before ICU",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "fff7db320855def4d3027e71fd6b788965c3af339dfcf0078a57c1ea28daa2a5"
+      },
+      {
+        "pmid": "doi:10.1177/20503121261481481",
+        "title": "Timing of lactated Ringer’s administration relative to Sepsis-3 diagnosis and 28-day mortality: A retrospective propensity score-matched cohort study",
+        "authors": "Yujie Huang, Jiayue Zou",
+        "year": "2026",
+        "journal": "SAGE Open Medicine",
+        "doi": "10.1177/20503121261481481",
+        "url": "https://doi.org/10.1177/20503121261481481",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background Balanced crystalloids are preferentially recommended over saline for sepsis resuscitation; however, the optimal timing of administration remains to be defined. Methods This retrospective cohort study utilized the Medical Information Mart for Intensive Care IV (MIMIC-IV) database to analyze adult patients meeting Sepsis-3 criteria. Patients were stratified by Lactated Ringer’s (LR) administration timing relative to documented Sepsis-3 onset: Group A (LR initiation ≤24 h after onset), Group B (LR initiation ≤24 h before onset), Group C (LR initiation 24-48 h after onset), and Group D (reference: no LR exposure during intensive care unit [ICU] admission). The primary outcome was 28-day all-cause mortality. To address confounding, Group B patients were 1:1 Propensity-Score Matched (PSM) with Group D counterparts, followed by multivariable Cox regression and sensitivity analyses. Results PSM generated a balanced cohort of 3,876 patients (1,938 in Group B vs. 1,938 untreated Group D counterparts). Multivariable Cox regression analysis showed that pre-onset LR exposure remained associated with lower 28-day mortality after adjustment for clinical covariates. In additional post-PSM sensitivity analyses, this association persisted after further adjustment for elective surgery and total recorded fluid volume during the 24 hours preceding Sepsis-3 onset. To address timing-related bias, we also compared the ICU admission-to-SOFA time interval and performed a 24-hour ICU-admission landmark analysis; the association remained in the landmark cohort. Kidney outcomes were mixed: any acute kidney injury (AKI) was more frequent in Group B, whereas Kidney Disease: Improving Global Outcomes (KDIGO) stage 3 AKI and renal replacement therapy were less frequent. Conclusion Pre-diagnosis LR exposure within 24 hours before Sepsis-3 onset was associated with lower 28-day mortality in adult patients with sepsis. These observational findings are hypothesis-generating and should not be interpreted as evidence supporting prophylactic LR administration before Sepsis-3 onset.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "85c5fa397874803c3b78b215482f94019bcfb8bd8439eb3d8b3038497cfba584"
+      },
+      {
+        "pmid": "31454263",
+        "title": "Balanced Crystalloids versus Saline in Sepsis. A Secondary Analysis of the SMART Clinical Trial",
+        "authors": "Ryan M. Brown, Li Wang, Taylor D. Coston, Nathan I. Krishnan",
+        "year": "2019",
+        "journal": "American Journal of Respiratory and Critical Care Medicine",
+        "doi": "10.1164/rccm.201903-0557oc",
+        "url": "https://doi.org/10.1164/rccm.201903-0557oc",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Rationale: Administration of intravenous crystalloid solutions is a fundamental therapy for sepsis, but the effect of crystalloid composition on patient outcomes remains unknown.Objectives: To compare the effect of balanced crystalloids versus saline on 30-day in-hospital mortality among critically ill adults with sepsis.Methods: Secondary analysis of patients from SMART (Isotonic Solutions and Major Adverse Renal Events Trial) admitted to the medical ICU with an International Classification of Diseases, 10th Edition, Clinical Modification System code for sepsis, using multivariable regression to control for potential confounders.Measurements and Main Results: Of 15,802 patients enrolled in SMART, 1,641 patients were admitted to the medical ICU with a diagnosis of sepsis. A total of 217 patients (26.3%) in the balanced crystalloids group experienced 30-day in-hospital morality",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "9bef85bd307660a5bda4f123ef695982d5f6095ec50e370bf06576ac7fcb89fa"
+      },
+      {
+        "pmid": "24674927",
+        "title": "Association Between the Choice of IV Crystalloid and In-Hospital Mortality Among Critically Ill Adults With Sepsis*",
+        "authors": "Karthik Raghunathan, Andrew Shaw, Brian Harris Nathanson, Til Stürmer",
+        "year": "2014",
+        "journal": "Critical Care Medicine",
+        "doi": "10.1097/ccm.0000000000000305",
+        "url": "https://doi.org/10.1097/ccm.0000000000000305",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: Isotonic saline is the most commonly used crystalloid in the ICU, but recent evidence suggests that balanced fluids like Lactated Ringer's solution may be preferable. We examined the association between choice of crystalloids and in-hospital mortality during the resuscitation of critically ill adults with sepsis. DESIGN: A retrospective cohort study of patients admitted with sepsis, not undergoing any surgical procedures, and treated in an ICU by hospital day 2. We used propensity score matching to control for confounding and compared the following outcomes after resuscitation with balanced versus with no-balanced fluids: in-hospital mortality, acute renal failure with and without dialysis, and hospital and ICU lengths of stay. We also estimated the dose-response relationship between receipt of increasing proportions of",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "0132523496c61a47b0e419840f36acf3bd0e71bdedcb3521e2cf10d25cb53cbe"
+      },
+      {
+        "pmid": "doi:10.1371/journal.pone.0093863",
+        "title": "Modulation of early inflammatory response by different balanced and non-balanced colloids and crystalloids in a rodent model of endotoxemia.",
+        "authors": "Stefanie Voigtsberger, Martin Urner, Melanie Hasler, Birgit Roth Z'Graggen",
+        "year": "2014",
+        "journal": "PLoS ONE",
+        "doi": "10.1371/journal.pone.0093863",
+        "url": "https://doi.org/10.1371/journal.pone.0093863",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "The use of hydroxyethyl starch (HES) in sepsis has been shown to increase mortality and acute kidney injury. However, the knowledge of the exact mechanism by which several fluids, especially starch preparations may impair end-organ function particularly in the kidney, is still missing. The aim of this study was to measure the influence of different crystalloid and colloid fluid compositions on the inflammatory response in the kidney, the liver and the lung using a rodent model of acute endotoxemia. Rats were anesthetized and mechanically ventilated. Lipopolysaccharide (5 mg/kg) was administered intravenously. After one hour crystalloids [lactate-buffered (RLac) or acetate-buffered (RAc)] were infused i.v. (30 ml/kg) in all groups. At 2 hours rats either received different crystalloids (75 ml/kg of RLac or RAc) or colloids (25 ml/kg of HES in saline or HES in RAc or gelatin in saline). Expression of messenger RNA for cytokine-induced neutrophil chemoattractant-1 (CINC-1), monocyte chemotactic protein-1 (MCP-1), necrosis factor α (TNFα) and intercellular adhesion molecule 1 (ICAM-1) was assessed in kidney, liver and lung tissue by real-time PCR after 4 hours. The use of acetate-buffered solutions was associated with a significantly higher expression of CINC-1 and TNFα mRNA in the liver, in the kidney and in the lung. Only marginal effects of gelatin and hydroxyethyl starch on mRNA expression of inflammatory mediators were observed. The study provides evidence that the type of buffering agent of different colloidal and crystalloid solutions might be a crucial factor determining the extent of early end-organ inflammatory response in sepsis.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Animal Study",
+        "lowMetadata": false,
+        "_sig": "71106790bcc1ac1895bb53648a58f22d12c9c023208c144f537bcaf74f72b13e"
+      },
+      {
+        "pmid": "doi:10.1186/1471-230x-12-179",
+        "title": "Effects of crystalloids and colloids on liver and intestine microcirculation and function in cecal ligation and puncture induced septic rodents",
+        "authors": "Schick Martin Alexander, Isbary Jobst Tobias, Stueber Tanja, Brugger Juergen",
+        "year": "2012",
+        "journal": "BMC Gastroenterology",
+        "doi": "10.1186/1471-230x-12-179",
+        "url": "https://doi.org/10.1186/1471-230x-12-179",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Septic acute liver and intestinal failure is associated with a high mortality. We therefore investigated the influence of volume resuscitation with different crystalloid or colloid solutions on liver and intestine injury and microcirculation in septic rodents. Methods Sepsis was induced by cecal ligation and puncture (CLP) in 77 male rats. Animals were treated with different crystalloids (NaCl 0.9% (NaCl), Ringer’s acetate (RA)) or colloids (Gelafundin 4% (Gel), 6% HES 130/0.4 (HES)). After 24 h animals were re-anesthetized and intestinal (n = 6/group) and liver microcirculation (n = 6/group) were obtained using intravital microscopy, as well as macrohemodynamic parameters were measured. Blood assays and organs were harvested to determine organ function and injury. Results HES improved liver microcirculation, cardiac index and DO 2 -I, but significantly increased IL-1β, IL-6 and TNF-α levels and resulted in a mortality rate of 33%. Gel infused animals revealed significant reduction of liver and intestine microcirculation with severe side effects on coagulation (significantly increased PTT and INR, decreased haemoglobin and platelet count). Furthermore Gel showed severe hypoglycemia, acidosis and significantly increased ALT and IL-6 with a lethality of 29%. RA exhibited no derangements in liver microcirculation when compared to sham and HES. RA showed no intestinal microcirculation disturbance compared to sham, but significantly improved the number of intestinal capillaries with flow compared to HES. All RA treated animals survided and showed no severe side effects on coagulation, liver, macrohemodynamic or metabolic state. Conclusions Gelatine 4% revealed devastated hepatic and intestinal microcirculation and severe side effects in CLP induced septic rats, whereas the balanced crystalloid solution showed stabilization of macro- and microhemodynamics with improved survival. HES improved liver microcirculation, but exhibited significantly increased pro-inflammatory cytokine levels. Crystalloid infusion revealed best results in mortality and microcirculation, when compared with colloid infusion.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9a804203c78dae521a1a409877c3b8c852eb4e8d6f91ba824e707590aa532954"
+      },
+      {
+        "pmid": "42852446",
+        "title": "Impact of Balanced Crystalloids vs Saline by Resuscitation Strategy in Sepsis",
+        "authors": "Akram Khan, Elizabeth S. Munroe, Seiji Koike, Olivia F. Krol",
+        "year": "2025",
+        "journal": "CHEST Critical Care",
+        "doi": "10.1016/j.chstcc.2025.100226",
+        "url": "https://doi.org/10.1016/j.chstcc.2025.100226",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The optimal crystalloid for sepsis resuscitation and whether choice should differ under restrictive vs liberal strategy remains uncertain. RESEARCH QUESTION: Do outcomes differ by fluid type within liberal vs restrictive resuscitation strategies? STUDY DESIGN AND METHODS: We performed a secondary analysis of the Crystalloid Liberal or Vasopressor Early Resuscitation in Sepsis study. Patients were categorized by the predominant crystalloid in the first 24 hours (> 80%; balanced crystalloids [BCs], normal saline [NS], or mixed) and were stratified by randomized resuscitation strategy (liberal vs restrictive). The primary outcome was death before discharge by day 90. Secondary outcomes included new renal replacement therapy (RRT), organ support-free days, and adverse events. Analysis used inverse probability weighting with covariate balancing and tested a",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9471d4d05b13a81b2329935a9f14051c9739c527502608fe75fd2375718749c6"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 14
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 23,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 14,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "sepsis balanced crystalloids saline mortality",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

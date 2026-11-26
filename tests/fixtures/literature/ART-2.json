@@ -1,0 +1,534 @@
+{
+  "id": "ART-2",
+  "recordedAt": "2026-11-26T19:39:49.365Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "women aged 35-40 undergoing IVF",
+      "role": "population"
+    },
+    {
+      "word": "PGT-A",
+      "role": "intervention"
+    },
+    {
+      "word": "morphology-based blastocyst selection",
+      "role": "comparator"
+    },
+    {
+      "word": "cumulative live birth rate",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "women aged 35-40 undergoing IVF",
+        "role": "population"
+      },
+      {
+        "word": "PGT-A",
+        "role": "intervention"
+      },
+      {
+        "word": "morphology-based blastocyst selection",
+        "role": "comparator"
+      },
+      {
+        "word": "cumulative live birth rate",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In women aged 35-40 undergoing IVF (P), is PGT-A (I) superior to morphology-based blastocyst selection (C) for cumulative live birth rate (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 22 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of women aged 35-40 undergoing IVF (P), does PGT-A (I) compared with morphology-based blastocyst selection (C) improve cumulative live birth rate (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "women aged 35-40 undergoing IVF",
+        "role": "population"
+      },
+      {
+        "word": "PGT-A",
+        "role": "intervention"
+      },
+      {
+        "word": "morphology-based blastocyst selection",
+        "role": "comparator"
+      },
+      {
+        "word": "cumulative live birth rate",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "oax:W7167686614",
+        "title": "L26/O-032 Clinical outcomes following non-invasive preimplantation genetic testing in IVF: A systematic review and meta-analysis",
+        "authors": "A.N. Kovilveettil, A. Abdulah, E. Bailie, K. Jayaprakasan",
+        "year": "2026",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deag083.032",
+        "url": "https://doi.org/10.1093/humrep/deag083.032",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Study question Among women undergoing IVF, does embryo selection using non-invasive preimplantation genetic testing (niPGT) improve live birth and other clinical outcomes compared with conventional embryo selection? Summary answer niPGT was associated with higher cumulative live birth and clinical pregnancy rates compared with morphology-based selection in one large cohort, but evidence remains limited. What is known already niPGT analyses embryonic cell-free DNA from spent culture medium or blastocoel fluid, avoiding embryo biopsy. While diagnostic accuracy studies have demonstrated variable concordance with trophectoderm biopsy, the impact of niPGT on clinically meaningful outcomes such as live birth remains uncertain. Most published studies focus on laboratory performance rather than reproductive outcomes, and there is no consensus on whether niPGT improves IVF success compared",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "f4c601712d946052ed95988afaca193c06ec468042f670ff63d4b48991fd2bfb"
+      },
+      {
+        "pmid": "40725861",
+        "title": "Preimplantation Genetic Testing for Aneuploidy Versus Morphological Selection in Women Aged 35–42: Results of a Pilot Randomized Controlled Trial",
+        "authors": "Yusuf Beebeejaun, Daniela N. Bakalova, Anastasia Mania, Timothy P. Copeland",
+        "year": "2025",
+        "journal": "Journal of Clinical Medicine",
+        "doi": "10.3390/jcm14145166",
+        "url": "https://doi.org/10.3390/jcm14145166",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background/Objectives: Embryo selection in IVF is traditionally based on morphology, yet many high-quality embryos fail to implant. Preimplantation genetic testing for aneuploidy (PGT-A) using next-generation sequencing (NGS) has been proposed to improve selection by identifying euploid embryos. However, its effectiveness in women of advanced maternal age remains unclear due to limited randomized data. This pilot trial assessed the feasibility of a full-scale RCT comparing PGT-A to morphology-based selection in women aged 35-42. Methods: This single-centre, two-arm parallel RCT (NCT05009745) enrolled women aged 35-42 undergoing IVF/ICSI with ≥3 good-quality day-3 embryos. Participants were randomized (1:1) to either embryo selection by morphology with fresh transfer or PGT-A with frozen transfer of a single euploid embryo. Allocation concealment was achieved via a secure",
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "33609400dbdab81d37dfa610622fa1352180c2a23e94cdca58bd48286062de71"
+      },
+      {
+        "pmid": "oax:W7153611460",
+        "title": "Invasive versus non-invasive PGT-A: A retrospective comparative study of embryo selection and IVF outcomes in women with recurrent IVF failure",
+        "authors": "Prerana Shah, Anand Patel",
+        "year": "2026",
+        "journal": "International Journal of Clinical Obstetrics and Gynaecology",
+        "doi": "10.33545/gynae.2026.v10.i2m.2147",
+        "url": "https://doi.org/10.33545/gynae.2026.v10.i2m.2147",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Recurrent IVF failure remains a significant clinical challenge, frequently attributed to embryonic aneuploidy. While invasive preimplantation genetic testing for aneuploidy (PGT-A) via trophectoderm biopsy is well established, non-invasive PGT-A using cell-free DNA from spent blastocyst culture media has emerged as a promising alternative. However, real-world comparative outcome data remain limited. Objective: To compare embryo assessment and clinical pregnancy outcomes between invasive and non-invasive PGT-A in women with recurrent IVF failure. Materials and Methods: This retrospective comparative study included 50 IVF cycles (30 invasive PGT-A, 20 non-invasive PGT-A) conducted from January 2023 to December 2024 at a single tertiary IVF centre. Women aged >30 years with ?2 failed IVF cycles, normal hysteroscopic findings, hormonal profile, and endometrial parameters were included.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "8a66cc08371901dfdfbe686f1b34bacb457ed4661afcd1b69c503cabb5d39f73"
+      },
+      {
+        "pmid": "34027546",
+        "title": "Pregnancy outcomes following in vitro fertilization frozen embryo transfer (IVF-FET) with or without preimplantation genetic testing for aneuploidy (PGT-A) in women with recurrent pregnancy loss (RPL): a SART-CORS study",
+        "authors": "S J Bhatt, Nicole M. Marchetto, Jason Roy, Sara Sinha Morelli",
+        "year": "2021",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deab117",
+        "url": "https://doi.org/10.1093/humrep/deab117",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "STUDY QUESTION: Can preimplantation genetic testing for aneuploidy (PGT-A) improve the live birth rate in patients with recurrent pregnancy loss (RPL)? SUMMARY ANSWER: PGT-A use was associated with improved live birth rates in couples with recurrent pregnancy loss undergoing frozen embryo transfer (IVF-FET). WHAT IS KNOWN ALREADY: Euploid embryo transfer is thought to optimize outcomes in some couples with infertility. There is insufficient evidence, however, supporting this approach to management of recurrent pregnancy loss. STUDY DESIGN, SIZE, DURATION: This study included data collected by the Society of Assisted Reproductive Technologies Clinical Outcomes Reporting System (SART-CORS) for IVF-FET cycles between years 2010 through 2016. A total of 12 631 FET cycles in 10 060 couples were included in this analysis designed",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e1255e23bdae446604f6cbe211af42c79130c8cb8559a619818f4ff796f4ad85"
+      },
+      {
+        "pmid": "oax:W4317765086",
+        "title": "Does Pgt-A Increase the Live Birth Rate in Cases with Advanced Maternal Age?",
+        "authors": "Sevinç ÖZMEN, Esra Nur Tola",
+        "year": "2022",
+        "journal": "Türk Üreme Tıbbı ve Cerrahisi Dergisi",
+        "doi": "10.24074/tjrms.2022-93484",
+        "url": "https://doi.org/10.24074/tjrms.2022-93484",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objective: It has been suggested that preimplantation genetic testing for aneuploidi (PGT-A) of embryos may increase the success of in vitro fertilization (IVF). However, since PGT is an invasive procedure, there is a concern that it may harm the embryo, Therefore, some clinicians are hesitant to perform this procedure. Based on this thought, we compared the pregnancy outcomes of women with advanced age, normal ovarian reserve, and good quality blastocyst who underwent PGD with those who did not. Materials and Methods: 85 cases aged ≥37 years and undergoing frozen good quality blastocyst transfer were retrospectively included in the study, Cases were divided into 2 groups according to the reason for freezing the blasts. The group whose embryos were frozen due",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "22c2ef4fcbf0d05070a653a10a57f34561f200e719e3c9b97d78d1bdfe617ffd"
+      },
+      {
+        "pmid": "doi:10.3389/fendo.2026.1959981",
+        "title": "Cell-free DNA in human ovarian follicular fluid as a potential biomarker of embryo quality in IVF cycles: a pilot study",
+        "authors": "Eun-Hye Jo, Tae Hyung Kim, Jin Hee EUM, Jihye Jeong",
+        "year": "2026",
+        "journal": "Frontiers in Endocrinology",
+        "doi": "10.3389/fendo.2026.1959981",
+        "url": "https://doi.org/10.3389/fendo.2026.1959981",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "IntroductionThere is growing interest in evaluating cell-free DNA (cfDNA) in follicular fluid (FF) as a molecular feature of the follicular microenvironment and examining its association with subsequent embryo development. This exploratory pilot study aimed to investigate the association between FF cfDNA integrity, measured by the Arthrobacter luteus (ALU) 247/115 ratio, and morphology-based embryo quality in IVF cycles.MethodsThis observational study analyzed 106 follicular fluid samples from patients undergoing IVF with intracytoplasmic sperm injection (ICSI) at a single fertility center. FF samples were collected during ovum pick-up, and cfDNA concentrations were quantified using ALU-quantitative PCR. To evaluate the ALU247/115 ratio in relation to age, participants were categorized into three age groups.ResultsThe ALU247/115 ratio showed a significant but weak positive correlation with embryo quality score across all patients (n = 106, r = 0.23, p = 0.016). Subgroup analysis revealed stronger correlations in women under 35 years (n = 31, r = 0.38, p = 0.035) and those aged 35–39 years (n =40, r = 0.32, p = 0.044). No significant correlation was observed in women aged 40 or older (n = 35, r = 0.21, p = 0.225).ConclusionsIn women under 40, increased cfDNA fragmentation in FF was associated with lower morphology-based embryo quality. However, the observed correlations were modest, and the absence of preimplantation genetic testing for aneuploidy (PGT-A), implantation, clinical pregnancy, and live birth outcomes limits clinical interpretation. These exploratory findings do not establish FF cfDNA as a clinically validated predictive biomarker or demonstrate that it improves embryo selection. Larger prospective studies incorporating embryo ploidy and clinically relevant reproductive outcomes are warranted.",
+        "relevancePct": 60,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "0ad376d5fb996a772b07f8e48288d68e4950710aed79ab83b7d382ad39ee995c"
+      },
+      {
+        "pmid": "41607608",
+        "title": "Thalassemia does not significantly affect embryo ploidy outcomes in women undergoing IVF with preimplantation genetic testing",
+        "authors": "Li Fan, Wenjie Huang, Zhetao Li, Li Wugao",
+        "year": "2026",
+        "journal": "Frontiers in Cell and Developmental Biology",
+        "doi": "10.3389/fcell.2025.1651060",
+        "url": "https://doi.org/10.3389/fcell.2025.1651060",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Thalassemia is a common autosomal recessive disorder that may impact reproductive health and embryo development. However, limited information is available regarding the impact of thalassemia carrier status on embryo euploidy, developmental competence, and embryo availability. Therefore, this study aims to evaluate the effects on women with thalassemia by analyzing data from women undergoing IVF with PGT-A. Methods: This retrospective cohort study included 2,110 women undergoing IVF with trophectoderm biopsy and PGT-A at Guangzhou Women and Children's Medical Center Liuzhou Hospital between January 2019 and December 2024. Women were grouped by thalassemia status (955 with thalassemia vs. 1,155 without). Statistical analyses included the use of the Mann-Whitney U test for continuous variables, Chi-square test for categorical variables, and regression models",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "cd8fbcf1b1150b824db47854a3bdc2b7f4c44c4dc4589875fa75ae50b6c44933"
+      },
+      {
+        "pmid": "37145374",
+        "title": "Antimüllerian hormone (AMH) and age as predictors of preimplantation genetic testing for aneuploidies (PGT-A) cycle outcomes and blastocyst quality on day 5 in women undergoing in vitro fertilization (IVF)",
+        "authors": "Ana Arnanz, Aşina Bayram, Ibrahim Elkhatib, Andrea Abdala",
+        "year": "2023",
+        "journal": "Journal of Assisted Reproduction and Genetics",
+        "doi": "10.1007/s10815-023-02805-z",
+        "url": "https://doi.org/10.1007/s10815-023-02805-z",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5c0ed7002db97c78116d2de616a8163f20f40e3efc4e15289555b5288a5ea2ef"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 56,
+      "screened": 56,
+      "blocked": 0,
+      "returned": 8,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "women aged 35-40 undergoing IVF PGT-A morphology-based blastocyst selection cumulative live birth rate",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}
