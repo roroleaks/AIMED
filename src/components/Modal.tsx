@@ -33,7 +33,7 @@ export function Modal({
     document.body.style.overflow = "hidden";
 
     // Focus the first focusable element or the dialog container
-    const timer = setTimeout(() => {
+    const focusInitial = () => {
       if (dialogRef.current) {
         const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -50,7 +50,10 @@ export function Modal({
           dialogRef.current.focus();
         }
       }
-    }, 50);
+    };
+    // Move focus into the dialog as soon as it is mounted (no delay), so keyboard
+    // and screen-reader users are never left on the page behind the backdrop.
+    focusInitial();
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -88,7 +91,6 @@ export function Modal({
     return () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
-      clearTimeout(timer);
       if (triggerEl) {
         triggerEl.focus();
       }

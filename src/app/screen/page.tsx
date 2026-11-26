@@ -320,16 +320,7 @@ export default function ScreenPage() {
                     data-category={cat.key}
                     data-available={String(!isUnavailable)}
                     className={`variant-card${isSelected ? " selected" : ""}`}
-                    role="radio"
-                    aria-checked={isSelected}
-                    tabIndex={0}
                     onClick={() => handleSelectFocus(cat.key)}
-                    onKeyDown={e => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleSelectFocus(cat.key);
-                      }
-                    }}
                     style={{
                       borderLeft: isSelected ? `4px solid ${cat.selectedBorderColor}` : `4px solid ${cat.borderColor}`,
                       backgroundColor: isSelected ? cat.bgColor : undefined
