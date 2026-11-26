@@ -1,0 +1,79 @@
+name: Re-record fixtures and run every layer (one-off)
+
+# One-off helper for PR #1. It re-records the literature fixtures with the current engine, then runs
+# every test layer WITHOUT stopping at the first failure, so one run shows the true state of all of
+# them. It commits only tests/fixtures/literature back to the branch. Delete this file after use.
+
+on:
+  push:
+    branches: [fix/open-defects-2026-11-26]
+    paths: [".github/workflows/rerecord-and-verify.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  rerecord-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      - name: Re-record literature fixtures (live PubMed etc.)
+        id: record
+        continue-on-error: true
+        run: node --import ./tests/api/_loader.mjs scripts/record-fixtures.mjs
+
+      - name: Commit re-recorded fixtures
+        if: steps.record.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/fixtures/literature
+          if git diff --cached --quiet; then echo "fixtures unchanged"; else
+            git commit -m "test(fixtures): re-record literature fixtures with the fixed screen engine"
+            git push
+          fi
+
+      - name: test:science
+        if: always()
+        continue-on-error: true
+        run: npm run test:science
+      - name: test:api
+        if: always()
+        continue-on-error: true
+        run: npm run test:api
+      - name: test:exports
+        if: always()
+        continue-on-error: true
+        run: npm run test:exports
+      - name: test:e2e
+        if: always()
+        continue-on-error: true
+        run: npm run test:e2e
+      - name: test:ui
+        if: always()
+        continue-on-error: true
+        run: npm run test:ui
+      - name: test:a11y
+        if: always()
+        continue-on-error: true
+        run: npm run test:a11y
+      - name: test:visual
+        if: always()
+        continue-on-error: true
+        run: npm run test:visual
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-rerecord
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
