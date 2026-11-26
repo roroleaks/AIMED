@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "test": "node --test src/lib/*.test.ts src/app/api/*.test.ts",
     "test:science": "node --test tests/science/*.test.ts",
-    "test:api": "node scripts/run-env.mjs AIMED_OFFLINE_LITERATURE=1 -- node --test tests/api/*.test.ts",
+    "test:api": "node scripts/run-env.mjs AIMED_OFFLINE_LITERATURE=1 -- node --import ./tests/api/_loader.mjs --test tests/api/*.test.ts",
     "test:exports": "node --test tests/exports/*.test.ts",
     "test:e2e": "playwright test tests/e2e",
     "test:ui": "playwright test tests/ui",
