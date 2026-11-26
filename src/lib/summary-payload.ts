@@ -91,6 +91,18 @@ export const ELEMENT_LABELS: Record<string, string> = {
  * Builds the canonical workflow export data from session snapshots.
  * Single source of truth for both display and document export.
  */
+/** The export routes refuse a phrase over 240 characters; the on-screen phrase can run longer. */
+export const MAX_EXPORT_PHRASE_LENGTH = 240;
+
+/** Shorten a phrase for an export request between whole words, never mid-word. */
+export function fitExportPhrase(phrase: string, max: number = MAX_EXPORT_PHRASE_LENGTH): string {
+  const clean = phrase.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  let cut = clean.slice(0, max - 1);
+  if (clean.charAt(max - 1) !== " ") cut = cut.replace(/\s+\S*$/, "");
+  return `${cut.replace(/[\s,;:(\-\/]+$/, "")}\u2026`;
+}
+
 export function buildSummaryPayload(
   words: PicoWord[],
   choice: ChoiceState,
@@ -136,7 +148,7 @@ export function buildSummaryPayload(
       role: w.role
     })),
     category: choice.category,
-    phrase: choice.phrase,
+    phrase: fitExportPhrase(choice.phrase),
     specialty: specId,
     specialtyLabel: specLabel,
     screeningStats: {

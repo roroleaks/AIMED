@@ -16,6 +16,7 @@ import {
 } from "@/lib/manuscript-composer";
 import {
   buildSummaryPayload,
+  fitExportPhrase,
   type ExploreSnapshot,
   type ChoiceState
 } from "@/lib/summary-payload";
@@ -496,7 +497,7 @@ export default function SummaryPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: choice.phrase,
+          title: fitExportPhrase(choice.phrase),
           workflow: summaryData
         })
       });
