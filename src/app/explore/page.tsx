@@ -601,7 +601,7 @@ export default function ExplorePage() {
                         aria-label={`Exclude paper: ${r.title}`}
                         className="btn btn--ghost btn--sm"
                         style={{
-                          height: "var(--control-sm)",
+                          minHeight: "var(--control-sm)",
                           fontSize: "var(--fs-caption)",
                           padding: "0 var(--space-2)"
                         }}

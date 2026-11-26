@@ -1496,9 +1496,18 @@ footer a,
     min-height: 44px;
   }
 
-  .chip {
+  .chip,
+  .specialty-preset-pill,
+  .mode-tab,
+  .category-pill {
     min-height: 44px;
   }
+}
+
+/* Reading width: keep running prose within a comfortable measure. */
+main p,
+.card p {
+  max-width: 760px;
 }
 
 footer {

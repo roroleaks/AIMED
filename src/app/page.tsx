@@ -271,7 +271,6 @@ export default function Home() {
                     color: isSelected ? "#ffffff" : "var(--muted)",
                     borderColor: isSelected ? "var(--accent)" : "var(--border)",
                     fontWeight: isSelected ? 700 : 500,
-                    minHeight: "36px",
                     cursor: "pointer"
                   }}
                 >
@@ -346,7 +345,7 @@ export default function Home() {
                     }}
                     style={{
                       width: "100%",
-                      height: "var(--control-sm)",
+                      minHeight: "var(--control-sm)",
                       fontSize: "var(--fs-caption)",
                       fontWeight: 700,
                       justifyContent: "center"

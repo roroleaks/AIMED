@@ -108,10 +108,10 @@ export async function seedWorkflowToSummary(page: Page, scenarioId = "ONC-1") {
   await page.evaluate(
     ({ fix, screen, explore, choice }) => {
       sessionStorage.setItem("aimed_specialty", JSON.stringify(fix.specialty));
-      sessionStorage.setItem("aimed_pico_words", JSON.stringify(fix.words));
-      sessionStorage.setItem("aimed_input_text", JSON.stringify(fix.words.map((w) => w.word).join(", ")));
+      sessionStorage.setItem("cq_pico_words", JSON.stringify(fix.words));
+      sessionStorage.setItem("cq_input_text", JSON.stringify(fix.words.map((w) => w.word).join(", ")));
       sessionStorage.setItem(
-        "aimed_screen",
+        "cq_screen",
         JSON.stringify({
           inputWords: fix.words.map((w) => w.word),
           source: "deterministic",
@@ -121,9 +121,9 @@ export async function seedWorkflowToSummary(page: Page, scenarioId = "ONC-1") {
           sources: screen.sources,
         })
       );
-      sessionStorage.setItem("aimed_choice", JSON.stringify(choice));
+      sessionStorage.setItem("cq_choice", JSON.stringify(choice));
       sessionStorage.setItem(
-        "aimed_explore",
+        "cq_explore",
         JSON.stringify({
           ...explore,
           phrase: choice.phrase,
@@ -132,7 +132,7 @@ export async function seedWorkflowToSummary(page: Page, scenarioId = "ONC-1") {
         })
       );
       sessionStorage.setItem(
-        "aimed_excluded",
+        "cq_excluded",
         JSON.stringify({
           phrase: choice.phrase,
           category: choice.category,
