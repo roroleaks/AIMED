@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="wrap">
       {/* Header */}
-      <header className="hdr">
+      <header className="hdr" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <Image
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="badge badge--neutral" style={{ display: "inline-flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-3)", padding: "var(--space-1) var(--space-3)" }}>
           <span>🩺 Multi-source retrieval · draft output — verify before use</span>
         </div>
-        <h2 className="aimed-hero-title" style={{ fontSize: "var(--fs-display)", fontWeight: 800, marginBottom: "var(--space-2)", color: "var(--ink)" }}>
+        <h2 className="aimed-hero-title" style={{ fontSize: "var(--fs-display)", fontWeight: 700, marginBottom: "var(--space-2)", color: "var(--ink)" }}>
           Select Your Clinical <span>Specialty Domain</span>
         </h2>
         <p className="aimed-hero-subtitle" style={{ maxWidth: "var(--reading-max)", margin: "0 auto", fontSize: "var(--fs-subsection)", color: "var(--muted)", lineHeight: "var(--lh-reading)" }}>
@@ -271,7 +271,6 @@ export default function Home() {
                     color: isSelected ? "#ffffff" : "var(--muted)",
                     borderColor: isSelected ? "var(--accent)" : "var(--border)",
                     fontWeight: isSelected ? 700 : 500,
-                    minHeight: "36px",
                     cursor: "pointer"
                   }}
                 >
@@ -346,8 +345,7 @@ export default function Home() {
                     }}
                     style={{
                       width: "100%",
-                      height: "var(--control-sm)",
-                      fontSize: "var(--fs-caption)",
+                                            fontSize: "var(--fs-caption)",
                       fontWeight: 700,
                       justifyContent: "center"
                     }}

@@ -1,0 +1,837 @@
+{
+  "id": "PRESET-cardiology-afib-doac-warfarin",
+  "recordedAt": "2026-11-26T22:59:44.473Z",
+  "specialty": "cardiology",
+  "words": [
+    {
+      "word": "non-valvular atrial fibrillation, elevated thromboembolic risk",
+      "role": "population"
+    },
+    {
+      "word": "direct oral anticoagulants (DOACs)",
+      "role": "intervention"
+    },
+    {
+      "word": "warfarin",
+      "role": "comparator"
+    },
+    {
+      "word": "stroke or systemic embolism",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "non-valvular atrial fibrillation, elevated thromboembolic risk",
+        "role": "population"
+      },
+      {
+        "word": "direct oral anticoagulants (DOACs)",
+        "role": "intervention"
+      },
+      {
+        "word": "warfarin",
+        "role": "comparator"
+      },
+      {
+        "word": "stroke or systemic embolism",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In non-valvular atrial fibrillation, elevated thromboembolic risk (P), does direct oral anticoagulants (DOACs) (I) compared with warfarin (C) reduce stroke or systemic embolism (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (7 favourable, 2 no-difference, 0 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In non-valvular atrial fibrillation, elevated thromboembolic risk (P), is direct oral anticoagulants (DOACs) (I) superior to warfarin (C) for stroke or systemic embolism (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of non-valvular atrial fibrillation, elevated thromboembolic risk (P), does direct oral anticoagulants (DOACs) (I) compared with warfarin (C) reduce stroke or systemic embolism (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In non-valvular atrial fibrillation, elevated thromboembolic risk (P), is direct oral anticoagulants (DOACs) (I) superior to warfarin (C) for stroke or systemic embolism (O)?"
+    },
+    "words": [
+      {
+        "word": "non-valvular atrial fibrillation, elevated thromboembolic risk",
+        "role": "population"
+      },
+      {
+        "word": "direct oral anticoagulants (DOACs)",
+        "role": "intervention"
+      },
+      {
+        "word": "warfarin",
+        "role": "comparator"
+      },
+      {
+        "word": "stroke or systemic embolism",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "cardiology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "36180856",
+        "title": "Efficacy and safety of novel oral anticoagulants in patients with atrial nonvalvular atrial fibrillation and diabetes mellitus: a systematic review and meta-analysis",
+        "authors": "Jia X, et al",
+        "year": "2022",
+        "journal": "Journal of translational medicine",
+        "doi": "10.1186/s12967-022-03652-9",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36180856/",
+        "context": "OBJECTIVE: This study incorporates the results of subgroup analyses of currently published randomized controlled trials (RCTs) and real-world cohort studies to compare the effectiveness and safety of new direct oral anticoagulants (NOACs) and warfarin among nonvalvular atrial fibrillation patients with diabetes. METHODS: The PubMed, Embase, Cochrane Library, Web of Science and ClinicalTrials.gov databases were searched. Five retrospective cohort studies and four subgroup analyses of RCTs were included in this meta-analysis. RESULTS: A meta-analysis of the data of 26,7272 patients showed that for patients with nonvalvular atrial fibrillation and diabetes, NOACs can significantly reduce the incidence of stroke/systemic embolism (SSE), ischaemic stroke, and haemorrhagic stroke compared with warfarin, with no significant difference in major bleeding and all-cause mortality. Additionally, NOACs were superior to warfarin in the incidence of intracranial bleeding, gastrointestinal bleeding, myocardial infarction, and vascular death. CONCLUSIONS: Among nonvalvular atrial fibrillation patients with diabetes, NOACs were associated with a lower risk of SSE versus warfarin, with no significant difference in major bleeding. Therefore, NOACs may be a better clinical choice.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "711b69910a8360d5d22bb16f20ed20fe7d8f5924d45803cdf450b5e80e0f2081"
+      },
+      {
+        "pmid": "23338902",
+        "title": "Novel oral anticoagulants in atrial fibrillation: a meta-analysis of large, randomized, controlled trials vs warfarin",
+        "authors": "Dogliotti A, et al",
+        "year": "2013",
+        "journal": "Clinical cardiology",
+        "doi": "10.1002/clc.22081",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23338902/",
+        "context": "BACKGROUND: Warfarin reduces ischemic stroke in atrial fibrillation, but has numerous limitations. Novel oral anticoagulants provide more predictable anticoagulation with fewer shortcomings. HYPOTHESIS: Novel oral anticoagulants are superior to warfarin to prevent stroke or systemic embolism. METHODS: Phase III randomized warfarin-controlled trials enrolling >3000 patients that reported clinical efficacy and safety of novel oral anticoagulants in patients with atrial fibrillation were identified from MEDLINE, Embase, and Cochrane Central Register of Controlled Trials through October 2012. Two reviewers extracted data; differences were resolved by consensus. The end points analyzed were stroke or systemic embolism (primary efficacy composite); all-cause mortality, ischemic stroke, systemic embolism (individually, secondary efficacy); and hemorrhagic stroke, major bleeding (individually, safety). The Mantel-Haenszel method was used to calculate pooled relative risk (RR) and 95% confidence intervals (CI) from fixed-effects (if homogenous) or random-effects models (if heterogeneous). RESULTS: In 5 studies of 51895 patients, the composite of stroke or systemic embolism (RR: 0.82; 95% CI: 0.69-0.98; P = 0.03) and all-cause mortality (RR: 0.91; 95% CI: 0.85-0.96; P = 0.0026, respectively) were reduced with the novel agents. Factor Xa inhibitors significantly reduced the primary composite (RR: 0.84; 95% CI: 0.74-0.94; P = 0.004) and all-cause mortality (RR: 0.91; 95% CI: 0.84 - 0.98; P = 0.01). Direct thrombin inhibitor achieved results similar to the overall meta-analysis (drug class-outcome interactions P = 0.47 for primary outcome, P = 1.00 for mortality). Compared with warfarin, novel anticoagulants markedly reduced hemorrhagic stroke (RR: 0.51; 95% CI: 0.41-0.64; P < 0.0001). CONCLUSIONS: Novel oral anticoagulants may be superior to warfarin in patients with atrial fibrillation, reducing the composite of stroke or systemic embolism and lowering all-cause mortality. The benefit is largely due to fewer hemorrhagic strokes.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "c5c34820e16304c81f0dff480f10bd114ab42097873effa12e34584d0af95c3f"
+      },
+      {
+        "pmid": "38095004",
+        "title": "Dementia Risk of Direct Oral Anticoagulants Versus Warfarin for Atrial Fibrillation",
+        "authors": "Khi Yung Fong, Yiong Huak Chan, Yue Wang, Colin Yeo",
+        "year": "2023",
+        "journal": "JACC Asia",
+        "doi": "10.1016/j.jacasi.2023.07.012",
+        "url": "https://doi.org/10.1016/j.jacasi.2023.07.012",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Direct-acting oral anticoagulants (DOACs) have demonstrated superior efficacy in preventing stroke and death compared with warfarin in patients with atrial fibrillation (AF), but their influence on dementia risk remains unclear. Objectives: The purpose of this study was to evaluate the relative risks of dementia in DOAC vs warfarin in patients with AF. Methods: An electronic literature search was conducted to retrieve studies reporting comparisons of dementia incidence between patients treated with DOACs and warfarin for AF. HRs and 95% CI were pooled in a random-effects meta-analysis. Meta-regression was performed to identify prognostic baseline variables. Network meta-analysis was performed to determine dementia risk between individual DOACs and warfarin. Results: Ten studies (n = 342,624) were retrieved. DOAC was associated with",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "b5a263a28a21d68cc0ba49b3df5b89432d2f9aaf6db31d31986070e5a0b53694"
+      },
+      {
+        "pmid": "cr:10.1097/fjc.0000000000000925",
+        "title": "Association of Risk of Dementia With Direct Oral Anticoagulants Versus Warfarin Use in Patients With Non-valvular Atrial Fibrillation: A Systematic Review and Meta-analysis",
+        "authors": "Lee Zong Xuan, Ang Eshen, Lim Xin Tian, Arain Salman Javed",
+        "year": "2021",
+        "journal": "Journal of Cardiovascular Pharmacology",
+        "doi": "10.1097/fjc.0000000000000925",
+        "url": "https://doi.org/10.1097/fjc.0000000000000925",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract: Atrial fibrillation (AF) is associated with an increased risk of dementia. Studies have shown the beneficial effects of anticoagulants in preventing dementia in this population. However, evidence around the use of direct oral anticoagulants (DOACs) versus warfarin in AF-related dementia prevention remains sparse. This systematic review and meta-analysis aimed to evaluate the use of DOACs versus warfarin in dementia prevention in this population. MEDLINE, EMBASE, PsycINFO, and the CENTRAL databases were systematically searched from its inception until May 2020. Nine studies (n = 611,069) were included for quantitative meta-analysis. DOACs use was associated with a lower risk of composite dementia outcomes compared with warfarin use [odds ratio (OR) 0.56, 95% confidence interval (CI) 0.34–0.94, P = 0.03]. No significant difference was found in subtypes of dementia (vascular dementia, Alzheimer's disease, and cognitive disorder) between both groups. No significant difference in the risk of composite dementia outcomes between the dabigatran and warfarin groups (OR 0.97, 95% CI 0.88–1.08, P = 0.61). Apixaban (OR 0.58, 95% CI 0.50–0.67, P < 0.00001) and rivaroxaban (OR 0.67, 95% CI 0.61–0.75, P < 0.00001) use were both associated with a significantly lower risk of composite dementia outcomes compared with warfarin use. Findings need to be interpreted with caution because of low certainty of evidence. In conclusion, this systematic review and meta-analysis of 9 comparative studies demonstrated the superiority of DOACs over warfarin in prevention of dementia in AF. Future prospective trials with adequate follow-up period are warranted to ascertain its causal relationship.",
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "b17346cbdea761798a7ad3aba05a48ca59600d795c1d340040a36785ad2a9a18"
+      },
+      {
+        "pmid": "doi:10.1177/10760296261459709",
+        "title": "Left Atrial Appendage Closure versus Oral Anticoagulants in Patients with Atrial Fibrillation: Systematic Review",
+        "authors": "Heng Liu, Zhangbin Li, Xiaoqing Chen, Junjie Zhou",
+        "year": "2026",
+        "journal": "Clinical and Applied Thrombosis/Hemostasis",
+        "doi": "10.1177/10760296261459709",
+        "url": "https://doi.org/10.1177/10760296261459709",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background Oral anticoagulants (OACs) remain the standard strategy for stroke prevention in atrial fibrillation (AF) but are limited by bleeding risk, intolerance, and long-term adherence challenges. Left atrial appendage closure (LAAC) has emerged as a catheter-based alternative for thromboembolic prevention in non-valvular AF. This systematic review evaluated the comparative efficacy and safety of LAAC versus OAC therapy in patients with AF. Methods PubMed and Embase were systematically searched for randomized controlled trials (RCTs) comparing percutaneous LAAC with OACs, including direct oral anticoagulants (DOACs) and warfarin, in patients with AF. Results Four pivotal randomized trials (PROTECT AF, PREVAIL, PRAGUE-17, and OPTION) were included. Compared with DOAC therapy, LAAC demonstrated non-inferiority for the composite endpoint of all-cause death, stroke, or systemic embolism in OPTION and for the primary composite outcome in PRAGUE-17. LAAC was associated with significantly lower non-procedural bleeding compared with DOACs in OPTION and PRAGUE-17. Compared with warfarin, LAAC achieved non-inferiority for ischemic stroke or systemic embolism beyond 7 days after randomization in PREVAIL and reduced long-term cardiovascular mortality in PROTECT AF. Procedure-related complications declined with increasing operator experience. Conclusion LAAC provides non-inferior thromboembolic protection compared with OAC therapy while reducing long-term bleeding events in selected patients with AF. LAAC represents an important alternative for patients at elevated bleeding risk or with contraindications to long-term anticoagulation.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "f62d111fadeaee0d71f66e50cdceb7c042a6e8ee474406c46377ccda49426575"
+      },
+      {
+        "pmid": "39019498",
+        "title": "Sex-specific comparative outcomes between oral anticoagulants in patients with atrial fibrillation: a systematic review and meta-analysis",
+        "authors": "Chobanov JD, et al",
+        "year": "2024",
+        "journal": "Open heart",
+        "doi": "10.1136/openhrt-2024-002792",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39019498/",
+        "context": "AIMS: Women with atrial fibrillation (AF) are under-represented in randomised controlled trials (RCTs) of direct oral anticoagulants (DOACs). This systematic review and meta-analysis of RCTs and observational studies examined sex-specific outcomes of DOACs in AF. METHODS: PubMed, Embase, Web of Science and Cochrane Library were searched from January 2008 to November 2022. Sex-specific comparative outcomes of stroke/systemic embolism (SE), major bleeding, intracranial haemorrhage (ICH) and gastrointestinal bleeding (GIB) between oral anticoagulants were pooled using random effects models. P values for interaction were calculated to examine differences in results between sexes. RCTs and observational studies were meta-analysed separately. RESULTS: 5 RCTs and 33 observational studies were included, totalling 1 085 931 women and 1 387 123 men. Meta-analyses showed that for both sexes, DOAC versus warfarin was generally associated with lower risk of stroke/SE, major bleeding and ICH; in DOAC-DOAC comparisons, rivaroxaban versus dabigatran had higher GIB risk. The only sex-specific difference observed was that when compared with warfarin, women had higher GIB risk with rivaroxaban (women: pooled risk ratio (pRR)=1.34, 95% CI=1.18 to 1.51; men: pRR=0.97, 95% CI=0.85 to 1.10; p value for interaction (p for interaction)<0.001) and possibly dabigatran (women: pRR=1.25, 95% CI=0.92 to 1.70; men: pRR=0.83, 95% CI=0.72 to 0.97; p-for-interaction=0.02). The sex difference in GIB remained for rivaroxaban when a Bonferroni-corrected significance level was used (α=0.003). No sex-specific GIB data for apixaban and edoxaban was available for the meta-analysis. CONCLUSIONS: For both sexes, DOACs generally demonstrated favourable effectiveness and safety over warfarin. However, observational data suggested that women may have higher GIB risk with rivaroxaban and possibly dabigatran than warfarin. Further studies are warranted to verify our findings and elucidate sex-specific GIB risk with apixaban and edoxaban, of which the data is currently lacking. PROSPERO REGISTRATION NUMBER: CRD42022325027.",
+        "source": "pubmed",
+        "pubType": "Systematic Review",
+        "publicationTypes": [
+          "Systematic Review",
+          "Journal Article",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "72fe7d3afdb23ebe739984255f6543ce62e6b20368f174394e3c5fa68b3a4580"
+      },
+      {
+        "pmid": "34949473",
+        "title": "Meta-Analysis Comparing Apixaban Versus Rivaroxaban for Management of Patients With Nonvalvular Atrial Fibrillation",
+        "authors": "Mamas MA, et al",
+        "year": "2022",
+        "journal": "The American journal of cardiology",
+        "doi": "10.1016/j.amjcard.2021.11.021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34949473/",
+        "context": "To compare the efficacy and safety of apixaban and rivaroxaban for the prevention of stroke in patients with nonvalvular atrial fibrillation (NVAF) by way of a meta-analysis informed by real-world evidence. Systematic review and meta-analysis of observational studies including patients with NVAF on apixaban and rivaroxaban, which reported stroke/systemic embolism and/or major bleeding. Prospero registration number: CRD42021251719. Estimates of relative treatment effect (based on hazard ratios[HRs]) were pooled using the inverse variance method. Fixed-effects and random effect analyses were conducted. Exploratory meta-regression analyses that included study-level covariates were conducted using the metareg (meta-regression) command of Stata Statistical Software: Release 15.1 (College Station, Texas. StataCorp LLC.). Study level covariates explored in the meta-regression analyses were CHA 2 DS 2 -VASc and HAS-BLED scores. A total of 10 unique retrospective real-world evidence studies reported comparative estimates for apixaban versus rivaroxaban in patients with NVAF and were included in the meta-analysis. Adjusted HR was 0.88 (95% [confidence interval] CI 0.81 to 0.95), indicating a significantly lower hazard of stroke/systemic embolism associated with apixaban versus rivaroxaban. Pairwise meta-analysis for a major bleeding episode was significantly lower with apixaban compared with rivaroxaban (HR 0.62; 95% CI 0.56 to 0.69), whereas apixaban was associated with a lower risk of gastrointestinal bleeding compared with rivaroxaban (HR 0.57; 95% CI 0.50 to 0.64). In conclusion, this study suggests that patient CHA 2 DS 2 -VASc and HAS-BLED scores might be an important factor when selecting which direct oral anticoagulants to use, given the relation these scores have on treatment outcomes. Apixaban is associated with lower rates of both major and gastrointestinal bleeding than rivaroxaban, with no loss of efficacy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "fd0fbd661646e75aab15e077e2a616f0701f8e7d2a4f9d0f19fcf944a9a9a292"
+      },
+      {
+        "pmid": "34547386",
+        "title": "Net clinical benefit of a reduced dose of DOACs in non-valvular atrial fibrillation: A meta-analysis of randomized trials",
+        "authors": "Thomopoulos C, et al",
+        "year": "2022",
+        "journal": "Pharmacological research",
+        "doi": "10.1016/j.phrs.2021.105902",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34547386/",
+        "context": "BACKGROUND: In standard dosing, direct Oral Anticoagulants (DOACs) are used as an alternative to warfarin to prevent ischemic stroke and systemic embolism in non-valvular Atrial Fibrillation (AF). However, randomized comprehensive evidence considering the efficacy and safety of the low-dose DOACs in the same setting is still lacking. Toward this end, we conducted a meta-analysis of randomized trials to estimate the risk/benefit ratio, in terms of net clinical benefit, by comparing a reduced dose of DOACs and warfarin. METHODS: We searched three electronic databases, covering the period until end-February 2021. All-cause death, non-fatal stroke/systemic embolism, and major bleeding events, with or without the inclusion of myocardial infarction, were used to define two different net clinical benefit outcomes. In addition, we evaluated different component outcomes of net clinical benefit as secondary outcomes. Finally, risk ratios and 95% Confidence Intervals (CI) of each outcome were calculated (random-effects model). RESULTS: In the four randomized trials included (n = 29,779 patients), the net clinical benefit - with or without the inclusion of myocardial infarction - of low-dose DOACs, compared to warfarin, was a 12% (95% CI, 7%-16%) or a 10% (95% CI, 5%-13%) reduction of events, respectively. Compared to warfarin, the reduced dose of DOACs decreased death outcomes, major bleeding events, and hemorrhagic stroke, whereas all thrombotic outcomes were not different among the groups. CONCLUSIONS: DOACs at low dosing present a more favorable net clinical benefit profile compared to warfarin.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Systematic Review"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "ed02a164f944b95baac79faf4e90037a4b4e27b08eb9657eb6af17d27e6f637c"
+      },
+      {
+        "pmid": "34793880",
+        "title": "Net clinical benefit of direct oral anticoagulants in atrial fibrillation patients with or without diabetes mellitus: A meta-analysis of outcome trials",
+        "authors": "Drogkaris S, et al",
+        "year": "2021",
+        "journal": "Diabetes research and clinical practice",
+        "doi": "10.1016/j.diabres.2021.109147",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34793880/",
+        "context": "AIM: To evaluate the net clinical benefit following direct oral anticoagulants (DOACs) vs warfarin by diabetes status in patients with non-valvular atrial fibrillation. METHODS: We searched 3 electronic databases through end-February 2021 to identify relevant outcome trials in patients with and without diabetes mellitus (DM). All-cause death, non-fatal stroke/systemic embolism and major bleedings defined net clinical benefit. Outcome risk ratios and 95% confidence interval (CI), and absolute risk outcome reduction per 1000 treated patients were assessed. RESULTS: Four trials of DOACs vs warfarin compared 22,087 patients with DM to 49,592 patients without DM. CHADS2 and 10-year fatal cardiovascular risk were higher in patients with vs those without DM (3.7 vs 2.5 and 28.4% vs 23.4%, respectively). DOACs were associated with more favorable net clinical benefit compared to warfarin in patients with and without DM (relative risk reduction, 0.85 [95% CI, 0.81-0.89] and 0.87 [95% CI, 0.79-0.96]; absolute risk reduction per 1000 patients treated, -33 [95% CI, -45, -21]) and -24 [95% CI, -43, -5]), but interaction test was not significant by relative and absolute numbers (P = 0.68 and P = 0.44, respectively). CONCLUSION: Net clinical benefit following DOACs was not different between patients with and without DM over a period of 2.2 years.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "1226fc4dd0258de67f4187baaa65653b4cd2adca65dec90e5fea72782eca6eb6"
+      },
+      {
+        "pmid": "cr:10.1182/blood-2019-123870",
+        "title": "Bleeding Risk in Non-Valvular Atrial Fibrillation Patients Receiving Direct Oral Anticoagulants and Warfarin: A Systematic Review and Meta-Analysis of Observational Studies",
+        "authors": "Wang Yimin Pearl, Kehar Rohan, Iansavitchene Alla, Lazo-Langner Alejandro",
+        "year": "2019",
+        "journal": "Blood",
+        "doi": "10.1182/blood-2019-123870",
+        "url": "https://doi.org/10.1182/blood-2019-123870",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: The standard oral anticoagulant therapy administered to non-valvular AF patients has typically been Vitamin K Antagonists (VKA) particularly warfarin. In recent years, Direct Oral Anticoagulants (DOACs) including Direct Thrombin Inhibitors (DTI) and Direct Factor Xa inhibitors (FXa inhibitors) have become an alternative to warfarin. Randomized trials comparing warfarin and DOACs showed comparable effectiveness without significant additional major bleeding risk. However, bleeding events in RCTs may differ from those in daily use due to the routine exclusion of patients with a higher risk of bleeding from many studies. We aimed to assess bleeding risk between DOACs and warfarin in AF patients in observational studies and we also sought to determine differences between patients that were experienced or naïve to oral anticoagulants. Methods: A systematic literature search was conducted in the OVID MEDLINE® and EMBASE® electronic databases. Observational studies and randomized control trials (RCT) from 1990 to January 2019 were retrieved and examined by two independent reviewers. A pooled effect hazard ratio (HR) was calculated using a random effects model using the generic inverse variance method. Subgroup analyses according to previous exposure to anticoagulants, study type, funding type and DOAC type were conducted. The primary outcome was major bleeding risk. The secondary outcome was clinically relevant non-major bleeding. All studies must have used an established or validated definition of major bleeding. Results: The initial literature search identified 3359 potentially eligible citations. After primary screening, 150 articles were eligible for full text review and there were 35 studies including 2,356,201 patients that met the inclusion criteria. Overall, patients on DOACs were less likely to experience a bleeding event compared to warfarin (HR 0.78, 95%CI 0.71, 0.85, P<0.001). The results were consistent when analyzing patients receiving DTIs or FXa inhibitors (DTI: HR 0.76, 95% CI 0.67,0.87; FXa inhibitors: HR 0.79, 95% CI 0.69,0.89). However, among patients receiving factor Xa inhibitors, there was a significant difference in the risk of bleeding according to individual drug. Among patients receiving rivaroxaban the risk of bleeding was similar to warfarin (HR 0.98, 95%CI 0.91,1.06, p=0.60) whereas in those receiving apixaban there was a 40% reduction in the risk of bleeding compared to warfarin (HR 0.60, 95%CI 0.50,0.71, p<0.001) (Figure 1). Three studies reported information according to previous anticoagulant exposure. The overall pooled hazard ratio was 0.68 (95% CI 0.55, 0.82 p<0.001) in favor of patients on DOACs. In the subgroup analysis of previous anticoagulant use, the risk of bleeding was lower for DOACs compared to warfarin in both the experienced population (HR 0.70, 95%CI 0.51, 0.96) and the naïve population (HR 0.64, 95% CI 0.47,0.87). However, heterogeneity was moderate to high among both subgroups. Conclusion: This review and meta-analysis of observational studies including over 2.3 million patients showed that overall DOACs have a lower risk of major bleeding and clinically relevant non-major bleeding compared to warfarin. Most importantly, although the pooled effect estimate did not differ between DTIs and FXa inhibitors, among patients receiving FXa inhibitors there was a significant difference between individual agents. Patients on apixaban had a significantly lower risk of bleeding compared to warfarin in contrast to patients on rivaroxaban who had a similar risk. Disclosures No relevant conflicts of interest to declare.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "ddc5b39868bcd85bad028172438a45851897248b978283f732e2016a3594ec56"
+      },
+      {
+        "pmid": "28029216",
+        "title": "Safety and efficacy of nonvitamin K antagonist oral anticoagulants versus warfarin in diabetic patients with atrial fibrillation: A study-level meta-analysis of phase III randomized trials",
+        "authors": "Patti G, et al",
+        "year": "2017",
+        "journal": "Diabetes/metabolism research and reviews",
+        "doi": "10.1002/dmrr.2876",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28029216/",
+        "context": "In patients with atrial fibrillation (AF), the safety and efficacy of nonvitamin K antagonist oral anticoagulants (NOACs) vs warfarin according to diabetes mellitus (DM) status are not completely characterized. We performed a meta-analysis to clarify whether in these patients the strategy of oral anticoagulation should be tailored to diabetes status. In this study-level meta-analysis, we included 4 randomized phase III trials comparing NOACs and warfarin in patients with nonvalvular AF; a total of 18 134 patients with DM and 40 454 without DM were overall considered. Incidence of the following outcome measures was evaluated during the follow-up: stroke or systemic embolism, ischemic stroke, major bleeding, intracranial bleeding, and vascular death. Use of NOACs compared with warfarin reduced stroke/systemic embolism in diabetic (Risk Ratios [RR] 0.80, 95% CI 0.68-0.93; P = .004) and nondiabetic patients (RR 0.83, 0.73-0.93; P = .001) (P for interaction .72). No interaction between diabetes status and benefits of NOACs was found for the occurrence of ischemic stroke, major bleeding, or intracranial bleeding (P for interaction >.05 for each comparison). Reduction of vascular death rates with NOACs was significant in diabetic patients (4.97% vs 5.99% with warfarin; RR 0.83, 0.72-0.96; P = .01), in whom absolute the reduction of this outcome measure was higher than in nondiabetics (1.02% vs 0.27%), although no interaction was present (P = .23). Results of this meta-analysis support the safety and efficacy of NOACs compared with warfarin in diabetic patients with nonvalvular AF.",
+        "source": "pubmed",
+        "pubType": "Comparative Study",
+        "publicationTypes": [
+          "Comparative Study",
+          "Journal Article",
+          "Meta-Analysis",
+          "Review"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "52d0dd5afd31f89b756efa5c030317a6b846d72e037fe75c3554941dfb0aaf52"
+      },
+      {
+        "pmid": "cr:10.1177/10760296261416892",
+        "title": "Effectiveness and Safety of Direct Oral Anticoagulants versus Aspirin in Patients with Non-Valvular Atrial Fibrillation and Intermediate Stroke Risk",
+        "authors": "Park Susin, Je Nam Kyung",
+        "year": "2026",
+        "journal": "Clinical and Applied Thrombosis/Hemostasis",
+        "doi": "10.1177/10760296261416892",
+        "url": "https://doi.org/10.1177/10760296261416892",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Aims This study compared the effectiveness and safety of direct oral anticoagulants (DOACs) versus aspirin for stroke prevention in patients with non-valvular atrial fibrillation (NVAF) and intermediate stroke risk, defined by a CHA 2 DS 2 -VASc score of 1 in men and 2 in women. Method This retrospective cohort study used Korean Health Insurance Review and Assessment Service claims data. Patients diagnosed with NVAF between January 1, 2017, and December 31, 2019, who initiated DOACs or aspirin, were included. Eligibility was restricted by CHA 2 DS 2 -VASc score, and patients were matched by age and sex to reduce confounding. The observation period extended until November 30, 2021. The primary outcomes were the incidence of ischemic stroke (effectiveness) and major bleeding events (safety). Results Of the 2234 patients included, 977 (43.7%) were treated with DOACs, and 1257 (56.3%) received aspirin. After matching, no statistically significant differences were observed between the DOAC and aspirin groups in ischemic stroke incidence (1.46 vs 0.92 per 100 person-years, P = .060) or major bleeding events (2.26 vs 2.10 per 100 person-years, P = .100). Notably, rheumatic disease was associated with an increased risk of ischemic stroke, while liver disease was linked to a higher risk of major bleeding. Conclusion In NVAF patients with intermediate stroke risk, no statistically significant differences were observed in ischemic stroke or major bleeding between DOACs and aspirin. These results should not be interpreted as therapeutic equivalence but highlight the need for further real-world research, particularly in Asian populations, to inform optimal antithrombotic strategies in this subgroup.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "a62a4b72f6e4839779e7a6396ceb340db003936d1c8277f98c23f279811d5c50"
+      },
+      {
+        "pmid": "41147381",
+        "title": "Development and Validation of Dynamic Prediction Model for Thromboembolic and Bleeding Risk in Patients With Atrial Fibrillation Initiating Direct Oral Anticoagulants",
+        "authors": "Kyu‐Nam Heo, Jonghyun Jeong, J.H. Shin, Jaekyu Shin",
+        "year": "2025",
+        "journal": "Journal of the American Heart Association",
+        "doi": "10.1161/jaha.125.043979",
+        "url": "https://doi.org/10.1161/jaha.125.043979",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Current tools for assessing ischemic stroke and bleeding risks in patients with atrial fibrillation focus on warfarin users and initial therapy decisions; however, dynamic models for reassessing these risks in direct oral anticoagulant (DOAC) users are lacking. We aimed to develop a tool that enables the dynamic evaluation of thromboembolic and bleeding risks in patients with atrial fibrillation receiving DOAC therapy. METHODS: Using a national claims database, we included 42 450 patients with atrial fibrillation who were newly prescribed DOACs and divided them into development (2018) and temporal-validation (2019) cohorts. We applied a landmarking approach and developed dynamic prediction models incorporating time-dependent variables. The Fine-Gray subdistribution hazard model, which accounts for death as a competing risk, was used to",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "533d6fbafc08e3aff6a780b6eba1b21f152995609811b6c66cd0788560ca730a"
+      },
+      {
+        "pmid": "cr:10.1093/europace/euaa162.117",
+        "title": "P472Cerebral thromboembolic risk in atrial fibrillation ablation: a direct comparison of vitamin K antagonists versus non-vitamin K-dependent oral anticoagulants",
+        "authors": "Petzl A M, Derndorfer M, Kollias G, Moroka K",
+        "year": "2020",
+        "journal": "EP Europace",
+        "doi": "10.1093/europace/euaa162.117",
+        "url": "https://doi.org/10.1093/europace/euaa162.117",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Aims Cerebral thromboembolic events are well-known complications of pulmonary vein isolation (PVI) and can manifest as stroke or silent cerebral embolic lesions. Over the last years, the preferred oral anticoagulation in atrial fibrillation (AF) shifted from vitamin K antagonists (VKA) to non-vitamin K-dependent oral anticoagulants (NOAC). The aim of this study was to compare the incidence of cerebral embolic lesions after AF ablation in patients on VKA versus patients on NOAC, and to identify corresponding clinical and procedural risk factors. Methods A total of 421 patients undergoing PVI (by radiofrequency catheter or cryoballoon) were prospectively included into the study. Of these, 43.7% were on VKA and 56.3% on NOAC treatment. In the NOAC group 38% of patients had an interruption of anticoagulation for 24-36 hours. All patients underwent pre- and postprocedural cerebral magnetic resonance imaging. Results Periprocedural cerebral lesions occurred in 13.1% overall. Of these, three (0.7%) resulted in symptomatic cerebrovascular accidents. Incidence of cerebral lesions was significantly higher in patients on NOAC compared to VKA (16% vs. 9.2% respectively, p = 0.04), as well as in patients that had intraprocedural cardioversions compared to no cardivoersions (19.5% vs. 10.4% respectively, p = 0.03). In multivariate analysis both parameters were found to be independent risk factors for cerebral embolism. No significant difference between interrupted and uninterrupted NOAC administration could be detected. Conclusions In patients undergoing AF ablation, we identified the use of NOAC and intraprocedural cardioversion as independent risk factors for the occurrence of periprocedural cerebral embolic lesions. Abstract Figure. Incidence of cerebral embolic lesions",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e90caf0a284d73d261ddfd72516fe465c2d7554391c61debf2888a4d9bab580a"
+      },
+      {
+        "pmid": "cr:10.48047/hm.v8.i2.2022.807-812",
+        "title": "EFFICACY OF DIRECT ORAL ANTICOAGULANTS IN NON-VALVULAR ATRIAL FIBRILLATION: A HEAD-TO-HEAD TRIAL ANALYSIS",
+        "authors": "Academic Authors",
+        "year": "2025",
+        "journal": "History of medicine",
+        "doi": "10.48047/hm.v8.i2.2022.807-812",
+        "url": "https://doi.org/10.48047/hm.v8.i2.2022.807-812",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "e21a340642703b84db2f6e27d03a28907eb2f7e0fe2c3bfb3993c14b38e3fb6f"
+      },
+      {
+        "pmid": "36947331",
+        "title": "Ischemic Stroke and Systemic Embolism Among One-and-Done Direct Oral Anticoagulant Users with Non-valvular Atrial Fibrillation",
+        "authors": "Mark J. Alberts, Maryia Zhdanava, Dominic Pilon, Gabrielle Caron‐Lapointe",
+        "year": "2023",
+        "journal": "Advances in Therapy",
+        "doi": "10.1007/s12325-023-02483-4",
+        "url": "https://doi.org/10.1007/s12325-023-02483-4",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: Direct oral anticoagulants (DOACs) are essential in ischemic stroke/systemic embolism (SE) prevention among patients with nonvalvular atrial fibrillation (NVAF). This study compared the risk of ischemic stroke/SE among patients with NVAF who discontinued DOACs following the first fill (\"one-and-done\") relative to patients who continued DOACs beyond the first fill (\"continuers\"). METHODS: De-identified data from Symphony Health, an ICON plc Company, PatientSource®, April 1, 2017 to October 31, 2020, were used to identify adults with NVAF initiated on DOACs (index date). Patients with only one DOAC claim during the 90-day landmark period starting on the index date were classified as one-and-done and the remaining as continuers. Inverse probability of treatment weighting was used to balance baseline characteristics in the cohorts.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d03b63a1a8734b288e4c58b390573e22d7e184a23448601288b90272d554e01d"
+      },
+      {
+        "pmid": "36346063",
+        "title": "Trends in Oral Anticoagulant Use Among 436 864 Patients With Atrial Fibrillation in Community Practice, 2011 to 2020",
+        "authors": "Ann Marie Návar, Ahmed A. Kolkailah, Robert A. Overton, Nishant P. Shah",
+        "year": "2022",
+        "journal": "Journal of the American Heart Association",
+        "doi": "10.1161/jaha.122.026723",
+        "url": "https://doi.org/10.1161/jaha.122.026723",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background Among patients with nonvalvular atrial fibrillation (AF) and an elevated stroke risk, guidelines recommend direct oral anticoagulants (DOACs) over warfarin for stroke prevention. Changes in DOAC use over the past decade have not been well described. Methods and Results We evaluated trends in use of DOACs and warfarin from 2011 to 2020 among adults with AF and a CHA2DS2-VASc score ≥2 based on electronic health record data from 88 health systems in the United States contributing to Cerner Real World Data. The use of DOACs and warfarin was described over time, by age, sex, race, and ethnicity, and at the health-system level. We identified 436 864 patients with AF at risk for stroke (median age, 78 years; 52.1% men).",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bc14b49888acfb412bcb08f6aa2b7b2c5dcba14c1a79d513361e45736008da4a"
+      },
+      {
+        "pmid": "33895845",
+        "title": "2021 European Heart Rhythm Association Practical Guide on the Use of Non-Vitamin K Antagonist Oral Anticoagulants in Patients with Atrial Fibrillation",
+        "authors": "Jan Steffel, Rónán Collins, Matthias Antz, Pieter Cornu",
+        "year": "2021",
+        "journal": "EP Europace",
+        "doi": "10.1093/europace/euab065",
+        "url": "https://doi.org/10.1093/europace/euab065",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Abbreviations 1613 Introduction 1614 NOAC eligibility and dosing 1615 Practical considerations for initiation and follow-up 1618 Pharmacokinetics and drug–drug interactions of NOACs 1621 NOACs in patients with chronic kidney disease or advanced liver disease 1633 NOAC plasma level measurements: Technical approach, indications, pitfalls 1636 Management of bleeding under NOAC therapy 1638 Patients requiring an urgent surgical intervention 1644 Patients undergoing a planned invasive procedure, surgery, or ablation 1644 Patients with atrial fibrillation and coronary artery disease 1647 Cardioversion in a NOAC-treated patient 1651 AF patients presenting with acute stroke while on NOACs 1652 NOACs in advanced age and frailty 1656 NOACs in high- and low body weights 1658 NOACs in other special populations 1660 NOACs in patients with atrial fibrillation",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "fc7ef7f5b6e2e22463ed2c7ef0e86703e5bc1a415282ef9e32747790cd2f9587"
+      },
+      {
+        "pmid": "32539675",
+        "title": "Comparative Safety and Effectiveness of Oral Anticoagulants in Nonvalvular Atrial Fibrillation: The NAXOS Study",
+        "authors": "Eric H. Van Ganse, Nicolas Danchin, Isabelle Mahé, Olivier Hanon",
+        "year": "2020",
+        "journal": "Stroke",
+        "doi": "10.1161/strokeaha.120.028825",
+        "url": "https://doi.org/10.1161/strokeaha.120.028825",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND AND PURPOSE: The effects of direct oral anticoagulants in nonvalvular atrial fibrillation should be assessed in actual conditions of use. France has near-universal healthcare coverage with a unified healthcare information system, allowing large population-based analyses. NAXOS (Evaluation of Apixaban in Stroke and Systemic Embolism Prevention in Patients With Nonvalvular Atrial Fibrillation) aimed to compare the safety, effectiveness, and mortality of apixaban with vitamin K antagonists (VKAs), rivaroxaban, and dabigatran, in oral anticoagulant-naive patients with nonvalvular atrial fibrillation. METHODS: This was an observational study using French National Health System claims data and including all adults with nonvalvular atrial fibrillation who initiated oral anticoagulant between 2014 and 2016. Outcomes of interest were major bleeding events leading to hospitalization (safety), stroke and",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "de854e9c57590bed1bf863523af3027d9ff2259c1a855151f29a990a860067e3"
+      },
+      {
+        "pmid": "42625891",
+        "title": "An Uninterrupted DOAC plus Single Antiplatelet Strategy for Carotid Artery Stenting in Patients with Atrial Fibrillation",
+        "authors": "Koichiro Suzuki, Yoshinobu Horio, Ritsuro Inoue, Naoki Wakuta",
+        "year": "2026",
+        "journal": "Journal of Neuroendovascular Therapy",
+        "doi": "10.5797/jnet.oa.2026-0068",
+        "url": "https://doi.org/10.5797/jnet.oa.2026-0068",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Objective: Periprocedural antithrombotic management in patients with non-valvular atrial fibrillation (NVAF) undergoing carotid artery stenting (CAS) remains controversial. Although dual antiplatelet therapy is the standard regimen for CAS, its combination with a direct oral anticoagulant (DOAC) as triple therapy increases bleeding risk. On the other hand, interruption of DOAC therapy may increase thromboembolic risk. We evaluated the clinical outcomes and feasibility of an uninterrupted dual antithrombotic therapy (DAT) strategy consisting of a DOAC and single antiplatelet therapy (SAPT). Methods: We retrospectively reviewed a case series of 10 patients with NVAF treated between 2018 and 2025 who underwent CAS while continuing DOAC plus SAPT without interruption. In all cases, SAPT (clopidogrel, aspirin, or prasugrel) was initiated at least 2 weeks before",
+        "relevancePct": 60,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Case Series",
+        "lowMetadata": false,
+        "_sig": "13cf37abefd7f36471eba5b58ef638d76a220857ca92e59f5638cd389eb05368"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "non-valvular atrial fibrillation, elevated thromboembolic risk direct oral anticoagulants (DOACs) warfarin stroke or systemic embolism",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

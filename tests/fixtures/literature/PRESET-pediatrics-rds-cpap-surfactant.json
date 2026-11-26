@@ -1,0 +1,796 @@
+{
+  "id": "PRESET-pediatrics-rds-cpap-surfactant",
+  "recordedAt": "2026-11-26T23:01:00.234Z",
+  "specialty": "pediatrics",
+  "words": [
+    {
+      "word": "extremely preterm infants 24-28 weeks gestation",
+      "role": "population"
+    },
+    {
+      "word": "early continuous positive airway pressure (CPAP)",
+      "role": "intervention"
+    },
+    {
+      "word": "prophylactic intubation and surfactant administration",
+      "role": "comparator"
+    },
+    {
+      "word": "death or bronchopulmonary dysplasia (BPD)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "extremely preterm infants 24-28 weeks gestation",
+        "role": "population"
+      },
+      {
+        "word": "early continuous positive airway pressure (CPAP)",
+        "role": "intervention"
+      },
+      {
+        "word": "prophylactic intubation and surfactant administration",
+        "role": "comparator"
+      },
+      {
+        "word": "death or bronchopulmonary dysplasia (BPD)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In extremely preterm infants 24-28 weeks gestation (P), is early continuous positive airway pressure (CPAP) (I) superior to prophylactic intubation and surfactant administration (C) for death or bronchopulmonary dysplasia (BPD) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?",
+        "basis": "8 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administration (C) reduce death or bronchopulmonary dysplasia (BPD) (O)?"
+    },
+    "words": [
+      {
+        "word": "extremely preterm infants 24-28 weeks gestation",
+        "role": "population"
+      },
+      {
+        "word": "early continuous positive airway pressure (CPAP)",
+        "role": "intervention"
+      },
+      {
+        "word": "prophylactic intubation and surfactant administration",
+        "role": "comparator"
+      },
+      {
+        "word": "death or bronchopulmonary dysplasia (BPD)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "doi:10.7363/060236",
+        "title": "Selected Abstracts of the 2nd Congress of joint European Neonatal Societies (jENS 2017); Venice (Italy); October 31-November 4, 2017; Session \"Neonatal Pulmonology, Neonatal Respiratory Support, Resuscitation\"",
+        "authors": "--- Various Authors",
+        "year": "2017",
+        "journal": "Journal of Pediatric and Neonatal Individualized Medicine",
+        "doi": "10.7363/060236",
+        "url": "https://doi.org/10.7363/060236",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Selected Abstracts of the 2nd Congress of joint European Neonatal Societies (jENS 2017); Venice (Italy); October 31-November 4, 2017 58th ESPR Annual Meeting, 7th International Congress of UENPS, 3rd International Congress of EFCNI ORGANIZING INSTITUTIONS European Society for Paediatric Research (ESPR), European Society for Neonatology (ESN), Union of European Neonatal & Perinatal Societies (UENPS), European Foundation for the Care of Newborn Infants (EFCNI) ORGANIZING COMMITTEE Luc Zimmermann (President of ESPR), Morten Breindahl (President of ESN), Manuel Sánchez Luna (President of UENPS), Silke Mader (Chairwoman of the Executive Board and Co-Founder of EFCNI) SCIENTIFIC COMMITTEE Virgilio P. Carnielli (Congress President Chair), Pierre Gressens (Past Scientific President), Umberto Simeoni, Manon Benders, Neil Marlow, Ola D. Saugstad, Petra Hüppi, Agnes van den Hoogen Session \"Neonatal Pulmonology, Neonatal Respiratory Support, Resuscitation\" ABS 1. HOW SAFE IS NASAL CANNULAE OXYGEN THERAPY DURING NEONATAL TRANSPORT? • A. Brunton, J. O’Shea, A. Jackson ABS 2. WEANING PREMATURE INFANTS FROM NASAL CONTINUOUS POSITIVE AIRWAY PRESSURE – CURRENT PRACTICE IN GERMANY • A. Kidszun, C. Arnold, J. Winter, C. Whybra-Trümpler, E. Mildenberger ABS 3. TIMING OF KEY EVENTS IN NEONATAL RE­SUSCITATION • A. Heathcote, J. Jones, P. Clarke ABS 4. COMPARING NON-INVASIVE VENTILATION METHODS IN RESPIRATORY SUPPORT OF PRETERM NEONATES WITH RESPIRATORY DISEASES • A.S. Farhat, A. Mohammadzadeh, G.A. Mamuri, R. Saeidi, S. Noorizadeh ABS 5. PREDICTORS AND OUTCOMES OF CONTINU­OUS POSITIVE AIRWAY PRESSURE AND NA­SAL HIGH-FLOW TREATMENT FAILURE IN PRE­TERM INFANTS: A SECONDARY ANALYSIS OF A RANDOMIZED TRIAL • B. Manley, C. Roberts, D. Frøisland, L. Doyle, P. Davis, L. Owen ABS 6. NEONATAL NON-INVASIVE RESPIRATORY SUPPORT APPROACH: A TWO COUNTRIES COMPARISON • I. Bresesti, S. Zivanovic, G. Lista, C. Roehr ABS 7. PREDICTORS OF EARLY CPAP FAILURE IN VERY LOW BIRTH WEIGHT PRETERM INFANTS • W.A. Gonçalves-Ferri, F.P. Martins-Celini, G.H. Seribeli, E. Sacramento, C. Calixto, M. Bertoldi, D.C. Aragon ABS 8. CHARACTERIZATION OF PORACTANT ALFA AND BUDESONIDE EXTEMPORANEOUS COM­BINATION FOR SAFE AND EFFECTIVE INTRA­TRACHEAL ADMINISTRATION • F. Ricci, C. Catozzi, F. Ravanetti, F. D’Aló, N. Machidani, E. Sgarbi, V. Di Lallo, F. Saccani, M. Pertile, A. Cacchioli, P. Puccini, S. Catinella, G. Villetti, M. Civelli, F. Amadei, G. Aquino, F.F. Stellari, B. Pioselli, F. Salomone ABS 9. LENGTH OF MECHANICAL VENTILATION AND CLINICAL FEATURES AT BIRTH IN PREMA­TURE INFANTS • A.M. Nakato, R.P.G.V.C. Silva, N. Rosario Filho ABS 10. CONGENITAL LOBAR EMPHYSEMA MIS­DIAG­NOSED AS PNEUMOTHORAX • I. Bakalli, E. Kola, R. Lluka, E. Celaj, D. Sala, I. Gjeta, S. Sallabanda ABS 11. SECRETORY PHOSPHOLIPASE A2 AND IN­FLAMMATION PROFILE IN PRETERM BABIES WITH RDS RECEIVING ONE OR MULTIPLE SURFACTANT DOSES • S. Shankar-Aguilera, C. Fitting, L. Vedovelli, V. Dell’Orto, V.P. Carnielli, L. Touqui, D. De Luca, M. Simonato ABS 12. SURFACTANT ADMINISTRATION AND NON-INVASIVE VENTILATION IN SURFACTANT DEFICIENCY NEWBORN PIGLETS • C. Rey-Santano, V. Mielgo, M. Gomez-Solaetxe, F. Ricci, F. Bianco, F. Salomone, B. Loureiro, J. López-de-Heredia ABS 13. THE EFFECT OF MINIMALLY INVASIVE SURFACTANT THERAPY ON DIAPHRAGMATIC ACTIVITY • C.G. de Waal, G.J. Hutten, F.H.C. de Jongh, A.H.L.C. van Kaam ABS 14. RELIABILITY AND ACCURACY OF PULSE OXIMETRY TO DETERMINE SaO2 AND PaO2 IN PRETERM INFANTS • D. Wackernagel, M. Blennow, A. Hellström ABS 15. CAN WE ASSESS THE SEVERITY OF NEONATAL RESPIRATORY DISTRESS BY ULTRASOUND? A COMPARISON OF THREE METHODS • F. Raimondi, F. Migliaro, L. Verdoliva, D. Gragnaniello, G. Poggi, C. Sansone, R. Kosova, L. Capasso ABS 16. MATERNAL PREECLAMPSIA AND THE RISK OF RESPIRATORY DISTRESS SYNDROME IN VLBW INFANTS • T.A. Yen, Y.H. Wen, H.I. Yang, W.S. Hsieh, H.C. Chou, C.Y. Chen, K.I. Tsou, P.N. Tsao ABS 17. EFFECT OF COMMERCIALLY AVAILABLE SUR­FACTANTS ON MORTALITY AND RESPIRA­TORY OUTCOMES IN PRETERM NEONATES WITH RDS: SYSTEMATIC REVIEWS AND META-ANALYSIS • L. De Martino, D. De Luca ABS 18. A CLINICAL CASE OF A CHILD WITH CON­GENITAL CENTRAL HYPOVENTILATION SYN­DROME (CCHS) IN THE EARLY NEONATAL PERIOD • R. Maslarska, M. Kalaydzhieva, S. Deneva, V. Konstantinova, S. Kontilska, I. Ilieva, J. Ivanova, V. Ivanova, E. Kerinova, R. Georgieva, T. Todorov ABS 19. HEALTHCARE BURDEN OF BRONCHO­PUL­MO­NARY DYSPLASIA AMONG EXTREMELY PRETERM INFANTS IN THE UNITED STATES • M. Mowitz, S. Sarda, A. Mangili, R. Ayyagari, W. Gao, J. Zhao ABS 20. NCPAP PRESSURE AT INITIATION: IS HIGHER PRESSURE BETTER? • S. Bhisikar, S. Goel, S. Manerkar, J. Mondkar ABS 21. TRANSPORT OF HIGH-RISK NEONATES WITH RESPIRATORY FAILURE: A SINGLE CENTER COHORT ANALYSIS BASED ON THE TRANSPORT RISK INDEX OF PHYSIOLOGIC STABILITY VERSION II (TRIPS-II) • M. Klemme, A. Staffler, K.M. Förster, A. Schulze, S. Herber-Jonat, J. Kappeler, A.W. Flemmer ABS 22. RETROSPECTIVE AUDIT OF POSTNATAL OUTCOME OF ANTENATALLY DIAGNOSED RENAL PELVIS DILATATION • S. Vora, N. Kavalloor, T.L. Yap, P.C. Khoo, V. Rajadurai ABS 23. CONTINUOUS POSITIVE AIRWAY PRESSURE IS NOT WELL TRANSMITTED DURING LESS INVASIVE SURFACTANT ADMINISTRATION: A PHYSIOLOGIC STUDY • G. Jourdain, M. De Tersant, V. Dell’Orto, G. Conti, D. De Luca ABS 24. TGFβ SIGNALING IS CRITICAL FOR REGULATING A PROXIMAL DIFFERENTIATION PROGRAM AND LUNG BRANCHING MORPHOGENESIS THROUGH ACTIVATING NOTCH SIGNALING • P.N. Tsao, H.K. Chen, T.Y. Ling, W.V. Cardoso ABS 25. CHANGES IN EXPRESSION OF CONNECTIVE TISSUE GROWTH FACTOR (CTGF) IN NEW­BORN RAT LUNGS AFTER VENTILATION • A. Remesal, E. Gutierrez, L. San Feliciano, M. Mateos, A. García-Sánchez, M. Isidoro-García, D. Ludeña ABS 26. ANTENATAL GLUCOCORTICOIDS ATTENUATE CHANGES BY VENTILATION IN EXPRESSION OF CONNECTIVE TISSUE GROWTH FACTOR (CTGF) IN NEWBORN RAT LUNG • M. Mateos, E. Gutierrez, L. San Feliciano, A. Remesal, M. Isidoro-García, A. García-Sánchez, D. Ludeña ABS 27. RELATIONSHIP BETWEEN SECRETORY PHOS­PHOLIPASE A2 PATHWAY AND SHORT TERM OUTCOMES IN PRETERM NEONATES WITH RDS • S. Shankar-Aguilera, C. Fitting, R. Raschetti, M. Sminato, V. Dell’Orto, L. Vedovili, V.P. Carnielli, L. Touqui, D. De Luca ABS 28. THE EFFECT OF ANTENATAL STEROID ON DIFFERENT GESTATIONAL AGE OF VLBW INFANT – A POPULATION STUDY • Y.T. Chen, S.Y. Liu, H.I. Yang, C.Y. Chen, H.C. Chou, W.S. Hsieh, K.I. Tsou, P.N. Tsao ABS 29. IDENTIFICATION OF A REGULATORY ALVEO­GENESIS GENE CLUSTER USING A NOVEL GENETIC APPROACH • F. Gao, C. Li, R. Ramanathan, P. Minoo ABS 30. A COST IMPROVEMENT PROJECT: REVIEW OF THE USE OF INHALED NITRIC OXIDE (iNO) IN A NEONATAL INTENSIVE CARE • B. Zanetti, R. Roy ABS 31. IMPROVED SURVIVAL AND DECREASED IN­CIDENCE OF BRONCHOPULMONARY DYS­PLASIA IN INFANTS LESS THAN 27 WEEKS GESTATION AFTER A RESPIRATORY CARE BUNDLE • J. Soliz, A. Soliz ABS 32. VOLUME-TARGETED VERSUS PRESSURE-LIMITED VENTILATION IN NEONATES – A COCHRANE SYSTEMATIC REVIEW AND META-ANALYSIS UPDATED 2017 • C. Klingenberg, K.I. Wheeler, N. McCallion, C.J. Morley, P.G. Davis ABS 33. OXYGEN SATURATION TARGETING USING AUTOMATED VERSUS MANUAL CONTROL OF INSPIRED OXYGEN IN PRETERM INFANTS: A SYSTEMATIC REVIEW AND META-ANALYSIS • S. Mitra, B. Singh, W. El-Naggar, D. McMillan ABS 34. DROPS IN SATURATION AND HEART RATE IN HEALTHY NEWBORNS: MORE THAN WE THINK • S.J.A. Balink, R.C.J. de Jonge, T.G. Goos, R.H.T. van Beek ABS 35. LUNG FUNCTION AND IgE RESPONSE ARE REDUCED IN 9 TO 10 YEARS OLD ASTHMATIC CHILDREN WITH PRETERM BIRTH • L.C. Fang, J.Y. Wang, S.D. Shyur, S.H. Chu, Y.H. Kao, W.T. Lei ABS 36. TRANSFUSION-RELATED ACUTE LUNG IN­JURY IN PRETERM INFANTS IN THE NEO­NATAL INTENSIVE CARE • M. van Tuyl, L. Snoek, R.M. Wösten-van Asperen, A.H.L.C. van Kaam, W. Onland ABS 37. PRETERM BIRTH REDUCES ATOPIC SEN­SITIZATION IN PRESCHOOL CHILDREN WITH ALLERGIC DISEASE • J.Y. Wang, L.C. Fang ABS 38. THE INCIDENCE OF RESPIRATORY MORBIDITY IN LATE PRETERM INFANT • G. Olariu, S. Olariu, M. Tunescu ABS 39. HELPING BABIES BREATHE, SECOND EDI­TION: STRENGTHENING THE PROGRAM TO INCREASE GLOBAL NEWBORN SURVIVAL • B. Kamath-Rayne, M. Visick, W. Keenan, G. Little, N. Singhal, S. Niermeyer ABS 40. EXPRESSION OF THE HYALURONAN RECEPTOR RHAMM IN BRONCHIOLAR EPITHELIUM OF NEONATES NEGATIVELY CORRELATES WITH AIR CONTENT IN THE LUNG • L. Markasz, G. Sedin, R.C. Savani, R. Sindelar ABS 41. SUDDEN VERSUS PRESSURE WEAN FROM NASAL CPAP IN VERY PRETERM INFANTS: A MULTICENTER RANDOMIZED CONTROLLED TRIAL • C.F. Jensen, F. Ebbesen, A.S. Sørensen, T.B. Henriksen ABS 42. BIPAP REDUCES EXTUBATION FAILURE IN THE FIRST WEEK COMPARED TO CPAP IN NEONATES < 30 WEEK OF GESTATIONAL AGE WITHOUT INCREASED RISK OF PNEUMO­THORAX • L. Capasso, A.C. Borrelli, M.A. Caiazzo, C. Parrella, R. Albachiara, F. Raimondi ABS 43. RISK FACTORS ASSOCIATED WITH CPAP FAILURE IN VERY LOW BIRTH WEIGHT INFANTS • D. Dobryanskyy, O. Borysiuk, L. Sekretar, S.Yaremchuk, S. Vereshchak, Z. Salabay ABS 44. EFFECTS OF PASSIVE SMOKING ON LUNG FUNCTION TESTS IN PRESCHOOL CHILDREN BORN LATE-PRETERM • A. Günlemez, I. Er, C. Baydemir, A.E. Arısoy, A.S. Gökalp ABS 45. THE EFFECT OF SUSTAINED LUNG INFLATION ON EARLY RESPIRATORY OUTCOMES IN TERM INFANTS • M. Cetinkaya, D. Kilic, S.Y. Semerci, B. Cebeci, O. Saglam ABS 46. PCO2 LEVELS AND CLINICAL AND NEURO­DEVELOPMENTAL OUTCOMES OF EXTREMELY LOW BIRTH WEIGHT INFANTS • U.H. Thome, J. Dreyhaupt, O. Genzel-Boroviczeny, B. Bohnhorst, M. Schmid, H. Fuchs, O. Rohde, S. Avenarius, H.G. Topf, A. Zimmermann, D. Faas, K. Timme, B. Kleinlein, H. Buxmann, W. Schenk, H. Segerer, N. Teig, F. Pulzer, R. Hentschel, M. Heckmann, R. Schlösser, J. Peters, R. Rossi, W. Rascher, R. Böttger, J. Seidenberg, G. Hansen, M. Zernickel, R. Muche, H.D. Hummler, for the PHELBI Study Group ABS 47. AIR RETRIEVAL OF A NEWBORN BABY BORN WITH SEVERE CONGENITAL CARDIAC DEFECT • B. Carter, J. Tan, D. Wagh, J. Davis, R. Pal ABS 48. COMPARISON OF NIPPV AND NCPAP FOR THE MANAGEMENT OF RDS BY USING INSURE APPROACH IN PRETERM INFANTS • S.A. Ozdemir, E.Y. Ergon, R. Çolak, M. Yıldız, F. Kulalı, K. Çelik, Ö. Olukman, Ş. Çalkavur ABS 49. PERINATAL FACTORS ASSOCIATED TO THE FAILURE OF EARLY NASAL CONTINUOUS POSITIVE PRESSURE IN VERY LOW BIRTH WEIGHT INFANTS • T.S. Souza, A.A.Vieira, C. Morcelli-Tovar ABS 50. VENTFIRST: A MULTICENTER RCT OF AS­SISTED VENTILATION DURING DELAYED CORD CLAMPING FOR EXTREMELY PRETERM INFANTS • K. Fairchild, S. Niermeyer, J. Winter, C. Chisholm, J. Kattwinkel, on behalf of the Vent First Steering Committee (J. Fang, C. Colby – Mayo Clinic; J. Barry – University of Colorado; M. Al-Hosni, M. Strand – St. Louis University; T. Gorman, L. vanMarter – Brigham and Women’s Hospital; R. Schelonka, J. Warren – Oregon Health Sciences University; S. Thomas – University of Calgary; G. Schmolzer – University of Alberta; A. Camblos, S. Fowler, M. Haynes, G. Petroni, M. Thielen – University of Virginia) ABS 51. IS THE DOUBLE LUNG POINT AN ACCU­RATE DIAGNOSTIC MARKER FOR TRANSIENT TACHYPNEA OF THE NEONATE? A PRO­SPECTIVE, INTERNATIONAL STUDY • F. Migliaro, N. Yousef, J. Rodriguez Fanjul, D. De Luca, I. Corsini, C. Dani, V. Di Guardo, M. Giampietri, L. Capasso, A. Sodano, F. Raimondi ABS 52. BEDSIDE LUNG ULTRASONOGRAPHY FOR THE DIAGNOSIS OF NEONATAL RESPIRATORY DISTRESS IN THE FIRST 24 HOURS OF LIFE • I. Corsini, N. Parri, E. Gozzini, C. Coviello, V. Leonardi, C. Poggi, M. Giacalone, T. Bianconi, L. Tofani, C. Dani ABS 53. IMPACT OF THE USE OF HIGH POSITIVE END EXPIRATORY PRESSURE ON EXTUBATION OF PREMATURE INFANTS WITH SEVERE BRONCHOPULMONARY DYSPLASIA • W.A. Gonçalves-Ferri, F. Pereira Martins-Celini, C. Danieli Troiano, D.C. Aragon ABS 54. THE USE OF DEXAMETHASONE IN PRETERM INFANTS FOR LUNG DISEASE IN A TERTIARY NICU • K.M. Sun, H. Gowda ABS 55. CONSULTANT PRESENCE AT DELIVERY: A RETROSPECTIVE AUDIT OF DEMOGRAPHICS AND OUTCOMES IN A TERTIARY UK CENTRE • L. Mahoney, T. Hunt, H. Rabe, P. Amess, N. Aiton, N. Bhat, R. Bomont, N. Drenchev, C. Garland, C. Lawn, B. Reulecke, R. Watkins, R. Fernandez ABS 56. THE COMPARISON OF HEATED HUMIDIFIED HIGH-FLOW NASAL CANNULA VERSUS NASAL CONTINUOUS POSITIVE AIRWAY PRESSURE FOR RESPIRATORY SUPPORT IN NICU • K.Y. Chao, C.E. Chiang, Y.L. Chen, L.Y. Tsai, Y.H. Chien, S.C. Mu ABS 57. COMPARISON BETWEEN OUTCOMES OF MINIMALLY INVASIVE TECHNIQUE AND IN­TUBATION SURFACTANT EXTUBATION IN PRE­TERM INFANTS LESS THAN 1,500 GRAMS IN A DEVELOPING COUNTRY • W.A. Gonçalves-Ferri, P. Paiva, L. Scalioni, E. Sacramento, C. Calixto, A.C. Hallak, D.C. Aragon ABS 58. PREMATURE INFANTS WITH VERY LOW WEIGHT WITH APNEA HAVE POOR RESULTS DESPITE TREATMENT • A.B. Gonçalves, M.M. Lourenço, L. Scacioli, E. Sacramento, C. Calixto, D.C. Aragon, W.A. Gonçalves-Ferri ABS 59. BOCHDALEK HERNIA WITH INTRATHORACIC KIDNEY ASSOCIATED WITH AORTIC COARC­TATION • B. Skenderi Mustafa, H. Ismaili, F. Kajtazi, G. Hazbahta, F. Krasniqi ABS 60. INHALED NITRIC OXIDE IN CONGENITAL DIAPHRAGMATIC HERNIA – RESULTS FROM THE EUROPEAN INHALED NITRIC OXIDE REGISTRY • R. Kettle, N.V. Subhedar ABS 61. EARLY HIGH FREQUENCY VENTILATION – A PROMISE OF PROTECTIVE VENTILATION? • W.A. Gonçalves-Ferri, M. Bertoldi, A.B. Gonçalves, E. Sacramento, C. Calixto, D.C. Aragon ABS 62. INHALED NITRIC OXIDE AND PRETERMS: DOOM, GLOOM OR RIGHT? 11 YEARS’ EX­PERIENCE AT TERTIARY CENTRE • E. Syrimi, H. Warwick, P. Satodia, P. Nath ABS 63. IS APGAR SCORE A PREDICTOR OF SEVERITY IN PRETERM INFANTS? • W.A. Gonçalves-Ferri, P.P. Paiva, A.B. Gouvea, E. Sacramento, C. Calixto, D.C. Aragon ABS 64. CURRENT PRACTICE OF NEURALLY AD­JUSTED VENTILATOR ASSIST IN THE NEONATAL INTENSIVE CARE UNIT: A TAIWAN SURVEY • C.E. Chiang, Y.L. Chen, L.Y. Tsai, Y.H. Chien, S.C. Mu, K.Y. Chao ABS 65. LUNG ULTRASOUND FOR THE DIAGNOSIS OF PULMONARY CONSOLIDATIONS IN PATIENTS WITH BRONCHOPULMONARY DYSPLASIA • I. Koltunov, M. Degtyareva, A. Mazaev, A. Gorbunov, A. Erokhina ABS 66. NON-INVASIVE HIGH FREQUENCY OSCIL­LATORY VENTILATION IN PRETERM INFANTS: A RANDOMISED CONTROLLED CROSSOVER TRIAL • D. Klotz, H. Schneider, S. Schumann, B. Mayer, H. Fuchs ABS 67. THE EFFECT OF HYDROCHLOROTHIAZIDE WITH SPIRONOLACTONE TREATMENT ON BRON­CHOPULMONARY DYSPLASIA DE­VEL­OPMENT IN VERY-LOW-BIRTH-WEIGHT IN­FANTS • M. Buyuktiryaki, E. Alyamac Dizdar, N. Uras, N. Okur, O. Ertekin, S.S. Oguz ABS 68. OUTCOMES OF POSTNATAL HYDRO­COR­TI­SONE THERAPY IN PRETERM INFANTS WITH BRONCHOPULMONARY DYSPLASIA: EX­PE­RI­ENCE IN A TERTIARY CENTER • M. Buyuktiryaki, E. Alyamac Dizdar, N. Okur, H. Bezirganoglu, F.N. Sari, N. Uras, F.E. Canpolat, S.S. Oguz ABS 69. NONINVASIVE RESPIRATORY SUPPORT VIA NASAL CANNULA IN PREMATURE INFANTS: IS IT REALLY SAFE? • M. Buyuktiryaki, N. Okur, G. Kadioglu Simsek, H.G.Kanmaz, F.E. Canpolat ABS 70. THE LARYNGEAL MASK AIRWAY AND ITS USE IN NEONATAL RESUSCITATION – A CRITICAL REVIEW OF WHERE WE ARE IN 2017 • S.C. Bansal, S. Caoci, D. Trevisanuto, C.C. Roehr, E.M. Dempsey ABS 71. BRADYPREM STUDY: IS HEART RATE THE MOST VITAL OF ALL VITAL SIGNS DURING PRETERM RESUSCITATION? • V. Kapadia, J. Oei, O. Saugstad, Y. Rabi, N. Finer, I. Wright, W. Tarnow-Mordi, W. Rich, D. Rook, J. Smyth, K. Lui, S. Brown, M. Vento ABS 72. PHYSIOLOGICAL BASIS OF THE NICHD BPD CLASSIFICATION: A PROSPECTIVE OB­SERVATIONAL STUDY IN VERY PRETERM INFANTS • J. Svedenkrans, B. Stoecklin, J.G. Jones, A.W. Gill, D. Doherty, J.J. Pillow ABS 73. USING THE COMBINATION OF SURFACTANT AND BUDESONIDE IN THE PREVENTION OF CHRONIC LUNG DISEASE IN PRETERM INFANTS WITH RDS • O. Sapun, E. Kleshchenko, O. Shishkina, T. Senyuk, N. Petrukhina, D. Kryuchko ABS 74. NASAL TRAUMA IN PRETERM INFANTS RECEIVING BINASAL NON-INVASIVE RES­PIRATORY SUPPORT: A SYSTEMATIC REVIEW • D. Imbulana, B. Manley, P. Davis, L. Owen ABS 75. EVALUATION OF EFFECT OF CAFFEINE ONSET TIME ON SURFACTANT SYNTHESIS OF PREMATURE INFANTS ≤ 30 WEEKS OF GESTATIONAL AGE WITH RESPIRATORY DISTRESS • N. Okur, M. Buyuktiryaki, H. Bezirganoglu, O. Ertekin, E.D. Alyamac, F.E. Canpolat, S.S. Oguz ABS 76. OCTREOTIDE FOR CHYLOTHORAX? A SYS­TEMATIC APPROACH TO ANSWERING THE QUESTION • G. Zuanetti, G. Cavallaro, G. Raffaeli, M. Colnaghi, F. Ciralli, I. Amodeo, S. Gulden, E. Leva, L. Pugni, F. Mosca ABS 77. PERINATAL INFLAMMATION AND INTRA­UTER­INE GROWTH RETARDATION ARE BOTH ASSOCIATED WITH LUNG FUNCTION IM­PAIRMENT AT 12 YEARS OF AGE IN VERY PRETERM INFANTS • C. Hagman, L.J. Björklund, E. Tufvesson, I. Hansen Pupp ABS 78. ALVEOLAR SURFACTANT COMPOSITION IN PRETERM INFANTS WITH RESPIRATORY DIS­TRESS SYNDROME BEFORE EXOGENOUS SURFACTANT ADMINISTRATION: EFFECT OF GESTATIONAL AGE AND INFLAMMATION • G. Verlato, M. Simonato, E. Bassi, M. Fantinato, A. Correani, I. Giretti, E. Baraldi, P. Cogo, V. Carnielli ABS 79. BLOOD GLUCOSE LEVEL AND CEREBRAL OXYGENATION IN NEONATES IMMEDIATELY AFTER BIRTH • B. Urlesberger, Ch. Matterberger, N. Baik-Schneditz, B. Schwaberger, G.M. Schmölzer, L. Mileder, G. Pichler ABS 80. EARLY PREDICTIVE FACTORS FOR INSURE FAILURE IN THE MANAGEMENT OF PRETERM INFANTS WITH NEONATAL RESPIRATORY DISTRESS SYNDROME: A SYSTEMATIC RE­VIEW • B. De Bisschop, F. Derriks, F. Cools ABS 81. OUTCOMES OF POSTNATAL DEXAMETHA­SONE USE IN EXTREME PRETERM NEO­NATES IN A TERTIARY NEONATAL UNIT • A. Holt, L. Osborne, P. Satodia ABS 82. A RANDOMISED CONTROLLED TRIAL OF NEEDLE ASPIRATION OR CHEST DRAIN INSERTION FOR PNEUMOTHORAX IN NEWBORNS (THE NORD TRIAL), ISRCTN65161530 • M. Murphy, C. Heiring, N. Doglioni, D. Trevisanuto, M. Blennow, K. Bohlin, G. Lista, I. Stucchi, C. O’Donnell ABS 83. VALIDATION OF A TRANSCUTANEOUS TCPO2/TCPCO2 SENSOR WITH AN OPTICAL OXYGEN MEASUREMENT IN PRETERM NEONATES • W. van Weteringen, T.G. Goos, T. van Essen, N.H. Gangaram-Panday, R.C.J. de Jonge, I.K.M. Reiss ABS 84. SUCCESSFUL VENTILATION VIA ACCIDENTAL OESOPHAGEAL INTUBATION IN A CASE OF FLOYD TYPE III/FARO TYPE B TRACHEAL AGENESIS IN A DISCORDANT MONOZYGOTIC TWIN • M. Noureldein, A. Olariu, J. Egyepong ABS 85. PROTOCOLIZED WEANING IN MECHANICAL VENTILATION • B. Bol, H. van Zanten, J. Wielenga, A. vd Hoogen, P. Mansvelt, B. Blackwood, O.K. Helder ABS 86. WHAT IS THE IDEAL TARGET PRETERM POPULATION THAT MIGHT BENEFIT FROM THE EXPENSIVE PALIVIZUMAB PROPHYLAXIS? • S. Tsilika, D. Batra ABS 87. EVALUATION OF OXIDATIVE STRESS IN NEONATES • M. Matyas, M. Hășmășanu, D. Leucuta, L. Blaga, G. Zaharie ABS 88. ACCURACY OF OBTAINING NEONATAL HEART RATE FROM A NOVEL HAT MOUNTED, GREEN WAVELENGTH OPTICAL DEVICE • C. Henry, L. Shipley, C. Ward, S. Mirahamdi, B. Hayes-Gill, J. Carpenter, D. McCartney, D. Sharkey ABS 89. EFFECTS OF SURFACTANT REPLACEMENT THERAPY WITH PORCINE VS. BOVINE PREPA­RATIONS ON CEREBRAL OXYGENATION AND BIOELECTRIC ACTIVITY OF PRETERM IN­FANTS • T. Szczapa, L. Karpinski, H. Szczapa-Krenz, B. Witoslaw, A. Adamczak, J. Moczko, I. Miechowicz, P. Niedbalski, J. Gadzinowski, J. Mazela ABS 90. INCIDENCE AND OUTCOME OF PNEUMO­THORACES IN A TERTIARY NEONATAL IN­TENSIVE CARE UNIT • R.C. Ramaswamy, M.K. Brom, S.V. Rasiah ABS 91. CLINICAL IMPACT OF THE RESPIRATORY SYNCYTIAL VIRUS INFECTION IN INFANTS WITH A HISTORY OF PREMATURITY BETWEEN 32-34 WEEKS • N. Ramos, C.M. Martín, G. Uclés, R.C. Raynero, I. Pérez, M. González-Valcárcel, M.D. Sánchez-Redondo, A. Pantoja, J. Cobas, A. Escobar, A. Martínez ABS 92. VOLUME CONTROLLED OR VOLUME GUAR­ANTEE VENTILATION IN PRETERM IN­FANTS: A RANDOMISED CONTROLLED TRIAL • H. Chitty, W. Tin, D. Stocken, R. Agbeko, J. Vormoor, S. Sinha ABS 93. LATE PRETERM INFANTS: WHAT IS THEIR REAL RESPIRATORY MORBIDITY? • A.M. Gil Fenoy, F.J. Pacheco Sánchez La Fuente, P. Miranda Romera, L. Serrano López, E. Martín Álvarez, J.A. Hurtado Suazo ABS 94. REVIEW OF OUTCOMES IN PRETERM NEO­NATES FOLLOWING CHANGE OF VEN­TILATORY PRACTICE TO VOLUME-TARGETED VENTILATION IN A NEONATAL INTENSIVE CARE UNIT • I. Fernando, H. McDermott, A. Singh, S. Rasiah ABS 95. OXYGEN SATURATION TRENDS IN LATE PRETERM INFANTS • L.Z.J. Williams, D. McNamara, J.M. Alsweiler ABS 96. INHALED NITRIC OXIDE IMPROVES SURVIVAL IN PRETERM INFANTS DIAGNOSED WITH PULMONARY HYPOPLASIA • K. Ellsworth, M. Ellsworth, L. Sangaralingham, R. Clark, G. Asay, C. Colby, W.A. Carey ABS 97. NORMALISATION OF PULMONARY GAS EXCHANGE CAPACITY IN VERY PRETERM INFANTS FOLLOWING INITIAL HOSPITAL DISCHARGE DEFINED BY SHIFT OF THE SPO2-PIO2 CURVE • Y.J. Choi, B. Stoecklin, J.J. Pillow ABS 98. SIMPLIFIED AUSTRALIAN AND NEW ZEALAND NEONATAL NETWORK (ANZNN) SHIFT TEST ACCURATELY PREDICTS RIGHTWARD SHIFT OF THE SPO2-PIO2 CURVE IN AN EXTREMELY PRETERM INFANT POPULATION • Y.J. Choi, B. Stoecklin, M.A. Hakeem, P. Woods, J.J. Pillow ABS 99. CORRELATION BETWEEN BODY TEM­PERA­TURE AND CEREBRAL OXYGENATION IN NEONATES DURING TRANSITION AFTER BIRTH • L.P. Mileder, A. Richter, N. Baik-Schneditz, B. Schwaberger, C. Binder-Heschl, B. Urlesberger, G. Pichler ABS 100. A NEONATAL RESUSCITATION ALGORITHM FOR MID-TO-LOW RESOURCE SETTINGS IN MÉDECINS SANS FRONTIÈRES’ PROGRAMS • L. Umphrey, M. Blennow, M. Breindahl, A. Brown, O. Saugstad, M. ThioLluch, D. Trevisanuto, C. Roehr ABS 101. NASAL HIGH-FLOW THERAPY AS PRIMARY RESPIRATORY SUPPORT FOR PRETERM INFANTS WITHOUT USE OF NASAL CON­TINUOUS POSITIVE AIRWAYS PRESSURE • S. Zivanovic, A. Scrivens, R. Panza, P. Reynolds, K. Ives, N. Laforgia, C.C. Roehr ABS 102. DIURETICS FOR EVOLVING CHRONIC LUNG DISEASE OF PREMATURITY: WHO ARE WE TREATING? • A.K. Linklater, R. Cuzzilla, S.E. Jacobs ABS 103. NEO (NEONATAL ESOPHAGEAL OBSERVA­TION) TUBE – A FEEDING TUBE WITH MONITORING FUNCTION • P. Simmen, B. Jesacher, P.-A. Tran, L. Suter, A. Haeberlin, S.M. Schulzke, T. Niederhauser, K. Jost ABS 104. CAN TcPCO2 MONITORIZATION IN THE DE­LIVERY ROOM BE HELPFUL FOR DIF­FER­ENTIATING TERM NEWBORNS IN NEED OF HOSPITALIZATION FOR RESPIRATORY MOR­BIDITIES? • I. Mungan Akin, E. Bocu, M. Uygun, S. Sevuk Ozumut, D. Buyukkayhan, S. Arslanoglu, F. Ovali ABS 105. HIGH FREQUENCY OSCILLATORY VEN­TI­LATION COMBINED WITH VOLUME GUAR­ANTEE USING VERY LOW TIDAL VOLUMES TO PREVENT LUNG DAMAGE IN IMMATURE NEWBORNS • N. González-Pacheco, A. Rodríguez-Sánchez de la Blanca, C. Ramos-Navarro, M. Velilla-Aparicio, I. Marsinyach-Ros, I. Pescador-Chamorro, M. Sánchez-Luna ABS 106. MANAGEMENT OF PNEUMOTHORAX IN NEW­BORNS: A NEONATAL INTENSIVE CARE UNIT EXPERIENCE IN TUNISIA • K. Ben Ameur, T. Khemis, A. Ben Salem, H. Ben Hamida, F.Z. Chioukh, K. Monastiri ABS 107. THE SAFE PROTOCOL: A SONOGRAPHIC AL­GORITHM FOR LIFE-THREATENING EMER­GENCIES IN THE NEONATAL INTENSIVE CARE UNIT • N. Yousef, S. Shankar-Aguilera, D. De Luca ABS 108. MACROLIDE THERAPY AND INCREASED PA­TENT DUCTUS ARTERIOSUS TREATMENT IN UREAPLASMA-POSITIVE PREMATURE IN­FANTS • S. Kim, E. Jung, H. Kim, W.S. Song, J.H. Hwang, C.Y. Kim, B.S. Lee, E.A.-R. Kim, K.-S. Kim ABS 109. MALIGNANT PERTUSSIS. IS IT TIME FOR EXCHANGE TRANSFUSION? • R. Roldán, M. Huescar, M.G. Espinosa, A. Morales, E. Salguero ABS 110. DELAYED CORD CLAMPING DURING RE­SUSCITATION – A RANDOMIZED TRIAL • O. Andersson, A. KC, N. Rana, U. Ewald, M. Målqvist ABS 111. PERI-OPERATIVE MANAGEMENT OF NEO­NATES WITH ESOPHAGEAL ATRESIA IN LOW-INCOME COUNTRIES: EXPERIENCE OF TUNISIA • F.Z. Chioukh, K. Ben Ameur, T. Khemis, A. Ksia, A. Ben Salem, H. Ben Hamida, K. Monastiri ABS 112. LESS INVASIVE SURFACTANT AD­MIN­IS­TRATION IN PRETERM INFANTS. REVIEW AFTER 4 YEARS OF IMPLEMENTATION • C. Ramos-Navarro, S. Zeballos-Sarrato, N. Gonzalez-Pacheco, A. Rodriguez-De la Blanca, M. Arriaga-Redondo, S. Villar-Castro, I. Pescador-Chamorro, N. Navarro-Patiño ABS 113. COMPARISON OF RSV HOSPITALISATION IN PRETERM INFANTS WITH CHRONIC LUNG DISEASE WHO DO NOT QUALIFY FOR PALIVIZUMAB PROPHYLAXIS WITH THOSE WHO QUALIFY IN NOTTINGHAM, UK • S. Tsilika, D. Batra ABS 114. AN UNUSUAL CAUSE OF RESPIRATORY DISTRESS IN NEONATES: CONGENITAL PULMONARY LYMPHANGIECTASIA (TWO CASE REPORTS) • S. Nouri Merchaoui, N. Mahdhaoui, H. Ayache, M. Bellalah, I. Kacem, H. Barbouche, A. Ghith, M.T. Yacoubi, J. Methlouthi, H. Seboui ABS 115. ETIOLOGICAL AND PATHOLOGICAL COR­RELATIONS IN PERSISTENT PULMONARY HYPERTENSION OF THE NEWBORN • M.L. Ognean, R. Dumitra, O. Boantă, C. Zgârcea, E. Olariu, S. Kovacs ABS 116. BRONCHOPULMONARY DYSPLASIA – ARE THERE NEW RISK FACTORS IN VERY PRE­TERM INFANTS? • M.L. Ognean, O. Boantă, E. Olariu, S. Kovacs, C. Zgârcea, R. Dumitra, D. Andreicuţ ABS 117. OUTCOMES OF PRETERM INFANTS LESS THAN 26 WEEKS GESTATION AT BIRTH WHO RECEIVED CHEST COMPRESSION OR ADRENALINE DURING RESUSCITATION AT BIRTH • H. Shing, H. Gowda ABS 118. EVALUATION OF SURFACTANT DOSE AD­MINISTERED IN CLINICAL PRACTICE FOR THE TREATMENT OF RESPIRATORY DISTRESS SYNDROME (RDS): RETROSPECTIVE OB­SERVATIONAL STUDY. SURPRAIS STUDY • H. Boix, D. Elorza, S. Rite, L. Arruza, C. Fernández, I. Serrano, I. Baquedano, A. Sanchez, E. Ferreira, V. Martinez, P. Fernandez, R. Gonzalez ABS 119. LUNG ULTRASOUND TO ASSESS PERSISTENT PULMONARY HYPERTENSION OF THE NEW­BORN ETIOLOGY • B. del Rey Hurtado de Mendoza, J. Moreno Hernando, J. Sánchez-de-Toledo, J. Rodríguez-Fanjul ABS 120. IMPROVEMENT OF FACE MASK VENTILATION TECHNIQUE USING A LIVE FEEDBACK SYSTEM • S. Bhayat, H. Gowda ABS 121. NEURALLY ADJUSTED VENTILATION IN PATIENTS WITH CONGENITAL DIAPHRAG­MATIC HERNIA • A.M. Sanchez-Torres, H. Peinado, R. Madero, M.D. Elorza ABS 122. NON-INVASIVE NEURALLY ADJUSTED VEN­TILATION IN THE NEWBORN • H. Peinado, H. Sánchez-Torres, R. Madero, M.D. Elorza ABS 123. IMPACT OF PRETERM BIRTH ON RES­PIRA­TORY MUSCLE FUNCTION IN CHILDHOOD • S. Fouzas, A. Vervenioti, G. Dimitriou ABS 124. THE NON-INVASIVE RESPIRATORY SUPPORT FAILURES IN PRETERM INFANTS. RISK FAC­TORS AND OUTCOMES • C. Ramos-Navarro, I. Marsinyach Ross, G. Zeballos-Sarrato, P. Chimenti-Camacho, A. Perez-Perez, R. Gregorio-Hernández, M. Sánchez-Luna ABS 125. SELECTIVE LUNG VENTILATION: A THERA­PEUTIC STRATEGY FOR ACQUIRED LUNG COLLAPSE IN A TERM INFANT • H. Gowda, S. Bhayat ABS 126. SUDDEN UNEXPECTED COLLAPSE OF NEWBORN INFANTS: INCIDENCE, RISK FACTORS AND ROLE OF PERINATAL TRANSITION • E. Herlenius, D. Forsberg, G. Drevin, N.J. Pejovic ABS 127. INCIDENCE OF RESPIRATORY MORBIDITY IN LATE PRETERM AND TERM INFANTS IN RESPECT TO DELIVERY MODE • J. Gromann, T. Burkhardt, R. Arlettaz, S. Wellmann ABS 128. PREVENTION OF HYPOCAPNIA WITH IN­HALATIVE CO2 IN NEONATES WITH HYPOXIC-ISCHEMIC ENCEPHALOPATHY – THE HENRIC STUDY • E. Szakmar, K. Kovacs, U. Meder, Cs. Andorka, K. Kaila, M. Szabo, A. Jermendy ABS 129. RISK FACTORS ASSOCIATED TO SURVIVAL FREE BRONCHOPULMONARY DYSPLASIA ACCORDING TO GESTATIONAL AGE • C. Ramos-Navarro, S. Zeballos-Sarrato, E. Sanz-Lopez, E. Maderuelo-Rodriguez, N. Gonzalez-Pacheco, M. Sánchez-Gómez de Orgaz, M. Sánchez-Luna ABS 130. OUTCOME OF INFANTS BORN AFTER MID-TRIMESTER RUPTURE OF MEMBRANES • T. Hurley, J. Miletin, A. Martin, C. Fitzpatrick, J. Semberova ABS 131. NEURALLY ADJUSTED MECHANICAL VEN­TILATION (MV-NAVA) IN THE NEWBORN • A.M. Sánchez Torres, H. Peinado, R. Madero, M.D. Elorza ABS 132. CHYLOTHORAX: CASE SERIES OF 20 YEARS • M. Rosário, A. Reis e Melo, S. Pissarra, G. Rocha, H. Guimarães ABS 133. NEONATAL CHYLOTHORAX: 20 YEARS EX­PERIENCE IN A TERTIARY NEONATAL UNIT • H. Sharp, C. Kortsalioudaki, M. Sellwood, G. Kendall ABS 134. IN VITRO ANALYSES OF GASTRIC ASPIRATES FROM PRETERM NEONATES AFTER COR­TICOSTEROID THERAPY • V. Milov, D. Manoylov, A. Jordanova, A. Tsanova, V. Stoyanova, E. Stoimenova, D. Petrova, E. Hristova, Z. Lalchev ABS 135. WHICH NASAL CPAP SYSTEM TO USE IN PRETERM NEWBORNS WITH RESPIRATORY DISTRESS SYNDROME • E. Jazexhiu-Postoli, E. Vevecka, E. Petrela, D. Bujari, E. Rapushi ABS 136. PREDICTIVE AND RISK FACTORS FOR EARLY NON-INVASIVE RESPIRATORY SUPPORT FAIL­URE IN A COHORT OF PRETERM INFANTS: A RETROSPECTIVE STUDY • I. Bresesti, F. Viaroli, F. Castoldi, F. Scopesi, B. Roviglione, L. Ramenghi, F. Cerritelli, G. Lista ABS 137. MEASURING OXYGEN DIFFUSION AT 36 WEEKS’ PMA IN PRETERM INFANTS: ANALYSIS OF THE SatO2/FIO2 RATIO AND ITS CORRELATION WITH EARLY RESPIRATORY PATTERNS OF DISEASE • S. Nobile, P. Marchionni, F. Porcarelli, A. Boria, V. Carnielli ABS 138. RELIABILITY OF MANUALLY COLLECTED CARDIO-PULMONARY PARAMETERS IN PA­TIENTS’ CHARTS • P. Marchionni, L. Scalise, L. Antognoli, S. Nobile, E. Tomasini, V. Carnielli ABS 139. ASSESSMENT OF CARDIO-RESPIRATORY RATES BY NON-INVASIVE MEASUREMENT METHODS IN HOSPITALIZED PRETERM NEONATES • L. Antognoli, P. Marchionni, L. Scalise, S. Nobile, E.P. Tomasini, V.P. Carnielli ABS 140. RESPIRATORY DISTRESS SYNDROME: GE­NETIC POLYMORPHISM OF GENES ENCODING SURFACTANT PROTEIN B AND XENOBIOTIC BIOTRANSFORMATION ENZYMES • G. Shishko, M. Artsiusheuskaya, A. Sukharava, E. Mikhalenka, K. Hamolko, I. Valentsiukevich, A. Kilchevski",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "75c4d933e1d9afcc3c4d469143ea6583f6837cb204c72d817d927e59b0e8ed54"
+      },
+      {
+        "pmid": "20472939",
+        "title": "Early CPAP versus Surfactant in Extremely Preterm Infants",
+        "authors": "SUPPORT Study Group of the Eunice Kennedy Shriver NICHD Neonatal Research Network",
+        "year": "2010",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa0911783",
+        "url": "https://doi.org/10.1056/nejmoa0911783",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: There are limited data to inform the choice between early treatment with continuous positive airway pressure (CPAP) and early surfactant treatment as the initial support for extremely-low-birth-weight infants. METHODS: We performed a randomized, multicenter trial, with a 2-by-2 factorial design, involving infants who were born between 24 weeks 0 days and 27 weeks 6 days of gestation. Infants were randomly assigned to intubation and surfactant treatment (within 1 hour after birth) or to CPAP treatment initiated in the delivery room, with subsequent use of a protocol-driven limited ventilation strategy. Infants were also randomly assigned to one of two target ranges of oxygen saturation. The primary outcome was death or bronchopulmonary dysplasia as defined by the requirement for supplemental oxygen",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "a12c9d4a5e89f9d7d47e6c97811b2658a630b1277fef1480740b8fccc2db447d"
+      },
+      {
+        "pmid": "42608615",
+        "title": "Initial CPAP of 5 versus 8 cmH<sub>2</sub>O during delivery room stabilisation of very preterm infants: the PHILODENDROOM pilot randomised trial.",
+        "authors": "Cavigioli F, Bresesti I, Castoldi F, Gatto S, Lupo E, Rossi S, La Verde A, Bianchi S, Meneghin F, Viaroli F, Pivetti V, ",
+        "year": "2026",
+        "journal": "European journal of pediatrics",
+        "doi": "10.1007/s00431-026-07322-6",
+        "url": "https://europepmc.org/article/PMC/PMC13481490",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "The objective was to evaluate the feasibility and safety of conducting a randomised controlled trial comparing two initial continuous positive airway pressure (CPAP) levels during delivery room (DR) stabilisation of very preterm infants at risk for respiratory distress syndrome (RDS) and to explore their early physiological respiratory effects. In this pilot randomised controlled trial conducted at a tertiary neonatal intensive care unit, preterm infants born between 26 + 0 and 29 + 6 weeks' gestation requiring respiratory support at birth were randomised to receive CPAP at either 5 cmH 2 O or 8 cmH 2 O via face mask and T-piece resuscitator during the first 15 minutes of life. The primary objective was to assess trial feasibility and safety. Pre-specified exploratory outcomes included the preductal SpO 2 /FiO 2 (S/F) ratio at 15 minutes after birth, need for positive pressure ventilation (PPV), surfactant administration, respiratory support requirements and respiratory morbidity. Fifty-six infants were enrolled and equally randomised between groups. The pre-defined sample size was achieved, protocol adherence was completed, and no participant was lost to follow-up, confirming the feasibility of trial conduct. Baseline characteristics were comparable. No significant differences were observed in pre-defined safety outcomes, including pneumothorax, pulmonary interstitial emphysema, or DR intubation. The S/F ratio at 15 min was similar between groups (271 ± 101 vs. 269 ± 111; p = 0.95). The proportion of infants requiring PPV was identical in both groups (35%). Although the overall surfactant administration rate did not differ, infants receiving 5 cmH 2 O reached surfactant treatment threshold earlier than those receiving 8 cmH 2 O (2.2 ± 1.7 vs 3.5 ± 2.1 h; p = 0.03). Trends towards shorter MV duration and lower BPD incidence were observed in the 8 cmH 2 O group, without statistical significance. Conclusion This pilot randomised trial demonstrated that comparing two initial CPAP strategies during DR stabilisation of very preterm infants is feasible and no significant adverse events have been reported. While higher initial CPAP was associated with delayed achievement of the FiO 2 threshold for surfactant administration, exploratory physiological and clinical findings should be considered hypothesis-generating. Adequately powered multicentre trials incorporating physiological bedside assessment of lung aeration are needed to determine the optimal initial CPAP strategy during neonatal transition. What is known • CPAP is a cornerstone of respiratory support for very preterm infants in the DR, but the optimal initial distending pressure remains uncertain. • Higher CPAP levels may improve lung recruitment, although concerns persist regarding air leaks and potential harm. What is new • In this pilot trial, both 5 and 8 cmH2O initial CPAP levels were feasible and safe during DR stabilisation of very preterm infants. • Higher initial CPAP was associated with delayed surfactant threshold achievement, highlighting the potential role of additional tools such as lung ultrasound to tailor and guide individualised respiratory support.",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "b41053ad5bb9e9e2bfb19a0ba3b4346828b1ae4437b5607b732f9ffd6d90d9a5"
+      },
+      {
+        "pmid": "42377961",
+        "title": "Nasal Continuous Positive Airway Pressure vs Nasal Intermittent Positive Pressure Ventilation in Preterm Infants With Respiratory Distress Syndrome: A Randomized Clinical Trial.",
+        "authors": "Zhang H, Zhang Y, Zeng L, Tong X, Piao M, He H, Zhao C, Xie H, Zheng Z, Cui Q, Lai Y, Wang H, Wang L, Liu H, Tian X, Wu ",
+        "year": "2026",
+        "journal": "JAMA network open",
+        "doi": "10.1001/jamanetworkopen.2026.19785",
+        "url": "https://europepmc.org/article/PMC/PMC13320649",
+        "source": "pmc",
+        "pubType": "Equivalence Trial, Research Support, Non-U.S. Gov't, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Equivalence Trial",
+          "Research Support, Non-U.S. Gov't",
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Importance Respiratory distress syndrome (RDS) remains a leading cause of morbidity and mortality in preterm infants. Evidence regarding the optimal initial noninvasive ventilation (NIV) mode for extremely preterm infants ( Objective To determine whether nasal continuous positive airway pressure (NCPAP) is noninferior to nasal intermittent positive pressure ventilation (NIPPV) as primary respiratory support before minimally invasive surfactant administration (MISA) for reducing intubation within 72 hours in preterm infants with RDS. Design, setting, and participants This multicenter, noninferiority randomized clinical trial was conducted across 11 tertiary neonatal intensive care units in China from December 2021 to October 2024. The trial was designed to enroll 960 infants but was stopped early after enrolling 312 (32.5% of the target) based on prespecified stopping criteria. The enrolled participants were spontaneously breathing preterm infants at 24 to 29+6 weeks' gestation with a diagnosis of RDS requiring noninvasive respiratory support after birth. Data were analyzed from January 7 to May 9, 2025. Intervention Infants were randomized 1:1 to receive NCPAP or NIPPV as initial respiratory support. All received MISA within 120 minutes after birth via a 1.67-mm catheter. Main outcomes and measures The primary outcome was NIV failure, defined as requiring intubation and invasive mechanical ventilation within 72 hours after birth. The noninferiority margin was set at a 10% risk difference. Secondary outcomes included NIV failure within 7 days, surfactant redosing, and major complications (eg, pneumothorax, bronchopulmonary dysplasia). Results A total of 312 preterm infants (median [IQR] gestational age, 28.0 [28.6-29.4] weeks; 174 boys [55.8%]) were randomized to the NCPAP group (153 infants) or the NIPPV group (159 infants). NIV failure within 72 hours occurred in 40 infants (26.1%) in the NCPAP group vs 21 infants (13.2%) in the NIPPV group (adjusted risk difference, 12.8%; 95% CI, 4.2%-21.6%; P = .004; O'Brien-Fleming adjusted α = .005), exceeding the noninferiority margin and conclusively demonstrating inferiority of NCPAP. NIV failure within 7 days was also higher in the NCPAP group (42 infants [27.5%] vs 24 infants [15.1%]; risk difference, 12.4%; 95% CI, 3.4%-21.4%; P = .008). No significant differences were observed between groups for most complications. Conclusions and relevance In this randomized clinical trial of preterm infants with RDS, NIPPV with MISA as initial respiratory support significantly reduced NIV failure within 72 hours compared with NCPAP. These findings suggest that NIPPV may be the preferred primary respiratory strategy for this high-risk population, although further evaluation of long-term outcomes is warranted due to early trial termination. Trial registration ClinicalTrials.gov Identifier: NCT05137340.",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "0264e2ee5a3c29245f95c9661158b4bb5c077572c43f53369b8d3aa7e94131b7"
+      },
+      {
+        "pmid": "cr:10.1093/tropej/fmac062",
+        "title": "Post-INSURE Administration of Heated Humidified High-Flow Therapy Versus Nasal Continuous Positive Airway Pressure in Preterm Infants More Than 28 Weeks Gestation with Respiratory Distress Syndrome: A Randomized Non-Inferiority Trial",
+        "authors": "Singh Srijan, Ananthan Anitha, Nanavati Ruchi",
+        "year": "2022",
+        "journal": "Journal of Tropical Pediatrics",
+        "doi": "10.1093/tropej/fmac062",
+        "url": "https://doi.org/10.1093/tropej/fmac062",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract In preterm infants with respiratory distress syndrome (RDS), non-invasive ventilation (NIV) is usually provided using nasal continuous positive airway pressure (NCPAP) or non-invasive mechanical ventilation after surfactant administration by INtubation-SURfactant-Extubation (INSURE) method. Heated humidified high-flow nasal cannula (HHHFNC) is a mode of NIV with advantages of ease of application, less grades of nasal injury and easy handling. This study was done to compare the effectiveness of HHHFNC therapy administration as post-INSURE respiratory support in preterm infants as compared to NCPAP. The primary outcome was to compare the rate of treatment failure within 7 days of randomization to HHHFNC or NCPAP as a post-INSURE ventilatory modality. It was a pilot trial wherein all preterm infants more than 1 kg and more than 28 weeks gestational age with RDS who required surfactant were randomized to receive NCPAP or HHHFNC. Infants with an urgent need for intubation and mechanical ventilation were considered to have treatment failure. Thirty babies were enrolled—15 in each group. Baseline demographic characteristics were comparable. There was no significant difference in the primary outcome of early failure rate, i.e. mechanical ventilation rate within 7 days of starting treatment. There were no significant differences in other outcomes except nasal injury which was significantly lesser in the HHHFNC group. In conclusion, HHHFNC appears to be non-inferior to NCPAP when used in preterm infants more than 28 weeks gestation with RDS as a post-INSURE ventilatory modality.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Pilot Study",
+        "lowMetadata": false,
+        "_sig": "70272a05289870cc2053a4539b66df7c4cbe0d25995f7490cd880c4a093301e1"
+      },
+      {
+        "pmid": "doi:10.7363/040103",
+        "title": "Selected Abstracts of the 4th International Congress of UENPS; Athens (Greece); December 11th-14th 2014",
+        "authors": "--- Various Authors",
+        "year": "2014",
+        "journal": "Journal of Pediatric and Neonatal Individualized Medicine",
+        "doi": "10.7363/040103",
+        "url": "https://doi.org/10.7363/040103",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Selected Abstracts of the 4th International Congress of UENPS • Athens (Greece) • December 11th-14th 2014 The Congress has been organized by the Union of European Neonatal and Perinatal Societies (UENPS). Guest Editor: Giuseppe Buonocore ABS 1. COMPARISON OF PRENATAL CARE AND PREGNANCY RELATED MATERNAL RISK FACTORS BETWEEN WOMEN WHOSE BABIES ARE ADMITTED OR NOT ADMITTED TO NEONATAL INTENSIVE CARE UNIT • S.M. Avci, M. Çöl, Y. Genç, E.A. Yilmaz, Ç. Gulumser; Ankara (Turkey) ABS 2. APPEARANCE AND DISTRIBUTION OF GENES AND GENE PROTEINS IN CLEFT AFFECTED TISSUE • M. Pilmane, I. Akota; Riga (Latvia) ABS 3. MANAGEMENT OF PARENTAL STRESS IN A NEONATAL INTENSIVE CARE UNIT. A RANDOMIZED CONTROL TRIAL • A. Fotiou, K. Papagaroufalis, G. Bakoyannis, C. Bakoula; Athens (Greece) and Indianapolis (IN, USA) ABS 4. A CASE OF LARYNGEAL ATRESIA ACCOMPANIED BY PERSISTENT PHARYNGOTRACHEAL DUCTUS IN NEWBORN • L. Korkmaz, I. Guneş, H. Halis, I. Ketenci, O. Baştuğ, M.S. Doğan; Kayseri (Turkey) ABS 5. DIFFERENTIAL REGULATION OF IRISIN AT THE EXTREMES OF FETAL GROWTH • D.D. Briana, S. Baka, M. Boutsikou, Th. Boutsikou, A. Marmarinos, D. Hassiakos, D. Gourgiotis, A. Malamitsi-Puchner; Athens (Greece) ABS 6. COPEPTIN UPREGULATION IN EARLY HUMAN MILK: POSSIBLE ROLE IN POSTNATAL ADAPTATION • D.D. Briana, Th. Boutsikou, M. Boutsikou, S. Baka, D. Piatopoulou, D. Hassiakos, D. Gourgiotis, A. Malamitsi-Puchner; Athens (Greece) ABS 7. ADROPIN ABUNDANCE IN BREAST MILK: RELATION TO MATERNAL SERUM CONCENTRATIONS AND PERINATAL FACTORS • D.D. Briana, Th. Boutsikou, M. Boutsikou, S. Baka, A. Ristani, D. Hassiakos, D. Gourgiotis, A. Malamitsi-Puchner; Athens (Greece) ABS 8. INFECTIVE ENDOCARDITIS IN NON-CATHETERISED PRETERM NEWBORN • K. Demova, F. Bauer; Nove Zamky (Slovakia) ABS 9. INCIDENCE AND RISK FACTORS FOR RETINOPATHY OF PREMATURITY • L. Banjac, S. Borovic, D. Dakić, G. Banjac; Podgorica (Montenegro) ABS 10. CASE REPORT OF NEWBORN WITH CUTIS MARMORATA TELANGIECTASICA CONGENITA • Ch. Spanoudaki, M. Lykogeorgou, N. Gezerli, V. Delivoria; Athens (Greece) ABS 11. THIRTY-FIVE YEARS OF EXPERIENCE IN A PRIVATE NICU IN GREECE • M. Saklamaki-Kontos, K. Stafylakis, M. Daniilidou, A. Thomas, I. Kontogianni; Athens (Greece) ABS 12. DYNAMICS OF DEVELOPMENTAL OUTCOMES IN VERY LOW BIRTH WEIGHT PREMATURE INFANTS IN RUSSIAN FEDERATION FROM 2003 TO 2013 • E. Sakharova, E. Keshishian, G. Alyamovskaya; Moscow (Russian Federation) ABS 13. POSTDISCHARGE FORMULA FEEDING AND DEVELOPMENTAL OUTCOMES AT 12 MONTHS OF LIFE IN VERY LOW BIRTH WEIGHT PREMATURE INFANTS • G. Alyamovskaya, E. Keshishian, E. Sakharova; Moscow (Russian Federation) ABS 14. HYPOXIC-ISCHEMIC ENTEROCOLITIS (HIEnt): A PROPOSAL FOR THE DEFINITION OF EARLY NEC AND ITS SEROLOGICAL EVIDENCE • O. Surmeli-Onay, A. Korkmaz, S. Yigit, M. Yurdakok; Ankara (Turkey) ABS 15. CHANGES IN THE PREVALENCE OF CONGENITAL DEVELOPMENTAL ABNORMALITIES IN LITHUANIA BETWEEN 2002 AND 2011 • D. Stoniene, R. Tameliene, E. Vaitkute; Kaunas (Lithuania) ABS 16. MATERNAL FAT MASS, ANTENATAL STEROIDS AND RESPIRATORY DISTRESS SYNDROME: COMPLEX RELATIONS • H.T. Çelik, A. Korkmaz, Ş. Yiğit, M. Yurdakök; Ankara (Turkey) ABS 17. INCIDENCE OF RETINOPATHY OF PREMATURITY IN PREMATURE WITH VERY LOW WEIGHT IN A GENERAL HOSPITAL IN SÃO JOSÉ DOS CAMPOS, BETWEEN 2010 AND 2013 • A.M. Puppio Querido; São José dos Campos (Brazil) ABS 18. DETERMINANTS OF LOW WEIGHT (< 3‰) IN PREMATURE INFANTS (< 32 WEEKS OF GESTATION) • R. Tamelienė, J. Garčinskienė, V. Šnipaitis, D. Stonienė; Kaunas (Lithuania) ABS 19. QUANTIFIED OXYGENATION IMPAIRMENT ACCORDING TO CATEGORIES OF SEVERITY IN BRONCHOPULMONARY DYSPLASIA • A. Davis, R. Ross-Russell, T. Dassios; Cambridge (UK) ABS 20. PLACENTAL INFARCTION IS ASSOCIATED WITH CEREBRAL PALSY: A PROSPECTIVE COHORT STUDY • M-T. Vinnars, B. Vollmer, J. Nasiell, N. Papadogiannakis, M. Westgren; Stockholm and Ornskoldsvik (Sweden) ABS 21. THE VARIABILITY IN CYSTATIN C REFERENCE VALUES IN NEONATES CAN PARTLY BE EXPLAINED BY THE USED ASSAY (TURBI- VS NEPHELOMETRY) • K. Allegaert, A. Raaijmakers, J. van den Anker, D. Mekahli, E. Levtchenko, J. vande Walle; Leuven and Ghent (Belgium), Washington (DC, USA), Rotterdam (the Netherlands), Basel (Switzerland) ABS 22. RESPIRATORY DISORDERS AND CONSEQUENT MORBIDITY OF THE “LATE PRETERM” INFANTS (GESTATIONAL AGE: 34-36+6 WEEKS) • G. Mitsiakos, K. Tsepis, E. Gkiougki, A.E. Papathanasiou, E. Lazaridou, A. Georgiadou, I. Chatzioannidis; Thessaloniki (Greece) and Liege (Belgium) ABS 23. ASYNCHRONOUS CHEST COMPRESSIONS vs SYNCHRONOUS IMPROVE 2-HOUR SURVIVAL IN AN EXPERIMENTAL NEONATAL PIGLET MODEL OF ASPHYXIAL CARDIAC ARREST • N. Iacovidou, A. Aggelina, A. Papalois, P. Pliatsika, A. Douvanas, G. Gkiokas, T. Xanthos; Athens (Greece) ABS 24. HISTORY OF BREASTFEEDING • M. Papastavrou, S. Genitsaridi, E. Komodiki, S. Paliatsou S, A. Kontogeorgou, N. Iacovidou; Athens (Greece) ABS 25. BREASTFEEDING IN PUBLIC • E. Komodiki, A. Kontogeorgou, M. Papastavrou, P. Volaki, S. Genitsaridi, N. Iacovidou; Athens (Greece) ABS 26. SURVEILLANCE OF NEONATAL SEPSIS INCIDENCE IN A PRIVATE NICU IN ATHENS, GREECE • M. Saklamaki-Kontos, P. Boka, C. Neri, A. Sideris, H. Kallimorou, M. Safiolea, V. Syriopoulou; Athens (Greece) ABS 27. LEAD AND MERCURY LEVELS IN PRETERM INFANTS BEFORE AND AFTER BLOOD TRANSFUSIONS • S. Takci, S. Yigit, A. Asci, P. Erkekoglu, A. Korkmaz-Toygar, B. Kocer-Gumusel, M. Yurdakok; Ankara (Turkey) ABS 28. THE OBSTETRICIAN AND PEDIATRICIAN BEFORE COURT: A CRITICAL CASE STUDY ON (SUB)STANDARD PERINATAL CARE • M. Eggermont; Ghent (Belgium) ABS 29. THE EFFECT OF MELATONIN TREATMENT ON OXIDANT STATUS, ANTIOXIDANT CAPACITY, LIPID PEROXIDATION AND APOPTOSIS AFTER HYPOXIC ISCHEMIC BRAIN INJURY IN NEWBORN RATS • H. Yapicioglu Yildizdas, B. Mutlu, S. Erdogan, S. Zorludemir, F. Ozlu, M. Satar, N. Narli; Adana (Turkey) ABS 30. GROWTH OF PRETERM NEONATES WITH BRONCHOPULMONARY DYSPLASIA AND ITS LONG TERM IMPLICATIONS IN RESPIRATORY FUNCTION • A. Gounaris, R. Sokou, P. Panagiotounakou, D. Bleco, M. Papadopoulou, J. Labadaridis; Larissa, Piraeus and Athens (Greece) ABS 31. THE SIGNIFICANCE OF UMBILICAL ARTERY BLOOD PH, BASE DEFICIT, BICARBONATE, AND LACTATE LEVELS FOR RESUSCITATION NEEDS IN FULL-TERM NEONATES, THEIR CEREBRAL BLOOD CIRCULATION CHANGES, AND HYPOXIC-ISCHEMIC ENCEPHALOPATHY • A. Kudreviciene, A. Basevicius, S. Lukosevicius, J. Laurynaitiene, R. Tameliene; Kaunas (Lithuania) ABS 32. GROSS MOTOR PATHS IN GREEK “HEALTHY” PRETERM INFANTS ASSESSED BY THE ALBERTA INFANT MOTOR SCALE (AIMS): COMPARISON WITH FULL-TERM INFANTS AND INFLUENCE OF NEONATAL MORBIDITY FACTORS • D. Syrengelas, V. Kalampoki, P. Kleisiouni, V. Manta, S. Mellos, T. Siahanidou; Athens (Greece) ABS 33. PERINATAL OUTCOME IN PREGNANT WOMEN WITH GESTATIONAL AND OVERT DIABETES AND ACCORDING TO WHO AND/OR IADPSG CRITERIA • J. Djelmis, M. Ivanisevic, M. Pavic; Zagreb (Croatia) ABS 34. SURVIVAL AND NEONATAL COMPLICATIONS IN EXTREMELY PREMATURE NEONATES 22+0-27+0 WEEKS OF GESTATION. COMPARISON OF TWO TIME PERIODS • I. Nikaina, M. Taliadourou, I. Stavrakas, G. Liosis, M. Tzaki; Athens (Greece) ABS 35. NEONATAL CREATINEMIA TRENDS IN RELATION TO BAYLEY SCALES OF INFANT DEVELOPMENT® IN FORMER EXTREMELY LOW BIRTH WEIGHT (ELBW) NEONATES • A. Raaijmakers, E. Ortibus, T.P. van Tienoven, C. Vanhole, E. Levtchenko, K. Allegaert; Leuven and Brussels (Belgium) ABS 36. IS A SMALL PLATELET MASS ASSOCIATED WITH INTRAVENTRICULAR HEMORRHAGE IN EXTREMELY LOW BIRTH WEIGHT INFANTS? • G. Mitsiakos, E. Chatziioannidis, K. Tsepis, A.E. Papathanasiou, I. Dorka, E. Lazaridou, N. Nikolaidis; Thessaloniki (Greece) ABS 37. A CASE OF SEVERE HEMOLYTIC DISEASE OF NEWBORN CAUSED BY ALLOANTIBODIES AGAINST ANTIGENS D AND E TO THE SYSTEM RHESUS TREATED WITH INTRAUTERINE TRANSFUSIONS AND EX-UTERO EXCHANGE TRANSFUSIONS • G. Mitsiakos, E. Babatseva, B. Papageorgiou, I. Chatziioannidis, K. Tsepis, A. Athanasiadis, A. Kioumi, N. Nikolaidis; Thessaloniki (Greece) ABS 38. EVALUATION OF SERUM HEPCIDIN LEVELS AND HEMATOLOGICAL PARAMETERS IN PRETERM INFANTS BEFORE AND AFTER THE TRANSFUSION OF PACKED RED BLOOD CELLS • F. Stripeli1, J. Kapetanakis, D. Gourgiotis, T. Anastasiou, L. Kossiva; Athens (Greece) ABS 39. PLATELET MASS IN PRETERM INFANTS OF PREECLAMPTIC MOTHERS AND ASSOCIATION WITH NEONATAL MORBIDITIES • D. Anuk-Ince, S. Takcı, R. Gumuser, B. Cakmak; Tokat (Turkey) ABS 40. ADVERSE EVENTS RECORDED DURING URGENT NEONATAL TRANSPORT IN GREECE OVER A PERIOD OF ONE YEAR • S. Mouskou, P. Troizos-Papavasileiou, N. Iacovidou; Athens (Greece) ABS 41. NEONATAL MORTALITY AND MORBIDITY AFTER URGENT NEONATAL TRANSPORT IN GREECE • S. Mouskou, P. Troizos-Papavasileiou, N. Iacovidou; Athens (Greece) ABS 42. CASES REVIEW OF CENTRAL HYPOVENTILATION SYNDROME IN A NICU: A 10 YEARS SURVEY • M. Dasopoulou, M. Vizirakis, F. Anatolitou, E. Papathoma, M. Koumenidou; Athens (Greece) ABS 43. DURATION OF HOSPITALIZATION IN A TERTIARY LEVEL NICU: A COMPARATIVE STUDY BETWEEN TWO TIME PERIODS AS A RESULT OF CHANGING FEEDING PROTOCOL • F. Anatolitou, C. Zaharioudaki, M. Dasopoulou, P. Loukeri, E. Papathoma; Athens (Greece) ABS 44. GROUP B STREPTOCOCCUS POREFORMING TOXIN INDUCES INTRA-AMNIOTIC INFLAMMATION AND NEUTROPHIL RECRUITMENT IN A MURINE MODEL OF CHORIOAMNIONITIS • T.M. Randis, S.E. Gelber, J.A. Baker, T.A. Hooven, R.G. Abellar, M. Sackeim, E.L. Lewis, A.J. Ratner; New York (NY, USA) ABS 45. DESCRIPTION OF NEURODEVELOPMENTAL DELAYS AT TWO YEARS CORRECTED AGE IN A COHORT OF HIGH RISK PREMATURE NEONATES • C. Petropoulou, H. Bouza; Athens (Greece) ABS 46. THE IMPACT OF HUMAN BREAST MILK ON VERY LOW BIRTH WEIGHT INFANTS’ OUTCOMES • K. Dritsakou, G. Liosis, A. Tsilia, G. Karanatsi, A. Tzortzi, M. Tzaki, M. Skouroliakou; Athens (Greece) ABS 47. RAW HUMAN MILK AND EXCLUSIVE BREASTFEEDING IMPACT ON HEALTH CARE SYSTEM COSTS • K. Dritsakou, G. Liosis, M. Skouroliakou; Athens (Greece) ABS 48. PRENATAL ULTRASOUND EXAMINATION OF NEONATAL CRANIOSPINAL AND CRANIOFACIAL MALFORMATIONS • A. Beke, F.R. Erős, I. Szabó, B. Pete, J. Jr. Rigó; Budapest (Hungary) ABS 49. NASAL CONTINUOUS POSITIVE AIRWAY PRESSURE (nCPAP) OR O2 THERAPY TO TREAT TRANSIENT TACHYPNEA OF THE NEWBORN (TTN)? A COMPARATIVE RETROSPECTIVE NON-RANDOMIZED STUDY • S.S. Aguilera, M.G. Pattumelli, L. Massenzi, C. Gizzi, D. De Luca; Paris (France) and Rome (Italy) ABS 50. RENAL AND HEPATIC FUNCTION IN IUGR PREPUBERTAL CHILDREN • E.J. Sidiropoulou, G. Paltoglou, G. Valsamakis, E. Kouskouni, D. Hassiakos, G. Mastorakos, N. Iacovidou; Athens (Greece) ABS 51. SYSTEMIC MASTOCYTOSIS – REPORT OF A RARE CONDITION IN NEWBORN • K. Piperkova, N. Zdravevska, A. Papazovska Cherepnalkovski; Skopje (FYROM) ABS 52. TRANSFUSION-RELATED ACUTE LUNG INJURY IN NEONATES • E. Tzimou, A.E. Papathanasiou, I. Chatziioannidis, G. Mitsiakos; Thessaloniki (Greece) ABS 53. EARLY-ONSET NEONATAL INFECTION IN LITHUANIA • R. Tameliene, D. Stoniene, L. Russetti, A. Kudreviciene, A. Bulaukiene, V. Gedviliene, R. Tvarijonaviciene; Kaunas, Klaipeda, Siauliai and Panevezys (Lithuania) ABS 54. LONG-TERM TRENDS IN SURVIVAL AND CEREBRAL PALSY AMONG INFANTS BORN PREMATURELY (< 31 WEEKS) IN NORTHWEST GREECE • A. Drougia, A. Zeki, M. Papassava, I. Nakou, M. Tzoufi, V. Giapros; Ioannina (Greece) ABS 55. NEONATAL RESUSCITATION TRAINING COURSES. FROM PRACTICE TO RESEARCH • S. Zeballos Sarrato, G. Zeballos Sarrato, N. Navarro, M. Arriaga, I. Pescador, A. Rogriguez, E. Sanz, C. Ramos, P. Chimenti, S. Villar; Madrid (Spain) ABS 56. SURVIVAL RATES IN PREMATURE INFANTS DEPEND ON INCLUSION CRITERIA • S. Zeballos Sarrato, S. Villar Castro, C. Ramos Navarro, G. Zeballos Sarrato, P. Chimenti Camacho, N. Navarro Patiño, N. González Pacheco, M. Arriaga Redondo, M. del Carmen Sánchez, M. Sánchez Luna; Madrid (Spain) ABS 57. RISK FACTORS ASSOCIATED WITH INTRAPARTUM STILLBIRTHS IN PREMATURE INFANTS • S. Zeballos Sarrato, M. Arriaga Redondo, G. Zeballos Sarrato, S. Villar Castro, C. Ramos Navarro, N. González Pacheco, P. Chimenti Camacho, N. Navarro Patiño, M. del Carmen Sánchez, M. Sánchez Luna; Madrid (Spain) ABS 58. URINE METABOLOMIC ANALYSIS IN NEONATES WITH LATE-ONSET SEPSIS. PRELIMINARY RESULTS • K. Sarafidis, G. Theodoridis, A. Thomaidou, H. Gika, O. Deda, M. Lyssikatou, A. Kontou, E. Diamanti, V. Soubasi, C. Agakidis, V. Drossou; Thessaloniki (Greece) ABS 59. URINE METABOLOMIC ANALYSIS IN PRETERM NEONATES WITH NECROTIZING ENTEROCOLITIS. PRELIMINARY RESULTS • K. Sarafidis, G. Theodoridis, A. Thomaidou, H. Gika, O. Deda, M. Lyssikatou, E. Diamanti, V. Soubasi, C. Agakidis, V. Drossou; Thessaloniki (Greece) ABS 60. THE PROPRE-SAVE STUDY: THE EFFECTS OF PROBIOTICS AND PREBIOTICS ALONE OR COMBINED (SYNBIOTICS) ON PREVENTION OF NECROTIZING ENTEROCOLITIS IN VERY LOW BIRTH WEIGHT INFANTS: A MULTICENTER, RANDOMIZED, CONTROLLED TRIAL • D. Dilli, B. Aydin, N. Dinlen Fettah, E. Özyazıcı, S. Beken, A. Zenciroğlu, et al.; Ankara, Diyarbakır, Bursa and Istanbul (Turkey) ABS 61. INDIVIDUALIZED MATERNAL MILK FORTIFICATION BASED ON MOTHER’S MILK ANALYSIS. EFFECT ON NUTRITIONAL INTAKE AND EARLY NUTRITIONAL STATUS • E. Parlapani, E. Diamanti, C. Agakidis, D. Fleturis, K. Sarafidis, Th. Karagiozoglou-Lampoudi, V. Drossou-Agakidou; Thessaloniki (Greece) ABS 62. LESS INVASIVE SURFACTANT ADMINISTRATION. FEASIBILITY STUDY • C. Ramos-Navarro, S. Villar-Castro, M. Arriaga-Redondo, S. Zeballos-Sarrato, N. Navarro-Patiño, A. Rodriguez-de la Blanca, P. Chimenti-Camacho, G. Zeballos-Sarrato, N. Gonzalez-Pacheco, C. López-Sagunto, M. Sanchez-Luna; Madrid (Spain) ABS 63. SYNCHRONIZED NON-INVASIVE VENTILATION IN PRETERM. OUR EXPERIENCE • C. Ramos Navarro, M. Sanchez Luna, M. Arriaga Redondo, S. Villar-Castro, S. Zeballos Sarrato, N. Navarro Patiño, P. Chimenti Camacho, G. Zeballos Sarrato, A. Rodriguez de la Blanca, N. Gonzalez-Pacheco; Madrid (Spain) ABS 64. RESPIRATORY MANAGEMENT IN PRETERMS. ARE WE LESS INVASIVE NOW THAN 10 YEARS AGO? • C. Ramos-Navarro, S. Zeballos-Sarrato, E. Sanz-López, E. Maderuelo-Rodriguez, S. Villar-Castro, M. Arriaga-Redondo, I. Pescador-Camacho, N. Navarro-Patiño, A. Rodriguez de la Blanca, M. Sanchez-Luna; Madrid (Spain) ABS 65. KLEBSIELLA INFECTION IN AN EUROPEAN SURVEILLANCE NEONATAL NETWORK (neonIN: http://www.neonin.org.uk) • C. Kortsalioudaki, A. Kent, J. Kopsidas, T. Watts, T. Scorrer, I. Lutsar, M. Turner, P. Clarke, K. Karachristou, A. Collinson, J. Chang, G. Dimitriou, N. Spyridis, T. Zaoutis, PT. Heath; on behalf of the Neonatal Infection Surveillance Network (neonIN); London, Portsmouth, Liverpool, Norwich and Truro (UK), Athens (Greece) and Tartu (Estonia) ABS 66. EPIDEMIOLOGY OF NEONATAL BACTEREMIA IN GREECE – DATA FROM A EUROPEAN SURVEILLANCE NETWORK (neonIN: www.neonin.org.uk) • J. Kopsidas, C. Kortsalioudaki, K. Zannikos, K. Karachristou, G. Kοurlaba, F. Anatolitou, N. Lipsou, T. Siachanidou, A. Kent, D. Gkentzi, G. Dimitriou, TE. Zaoutis, PT. Heath, N. Spyridis; on behalf of the Neonatal Infection Surveillance Network (neonIN); Athens and Patras (Greece), London (UK) and Philadelphia (PA, USA) ABS 67. CRP ELEVATION ASSOCIATED WITH A POSITIVE BLOOD CULTURE IN INFANTS PARTICIPATING IN THE neonIN SURVEILLANCE NETWORK (www.neonin.org.uk) • J. Kopsidas, C. Kortsalioudaki, K. Zannikos, G. Kοurlaba, F. Anatolitou, A. Kent, T. Metsvaht, I. Lutsar, P. Clarke, A. Bedford-Russell, S. Pattnayak, T. Scorrer, T. Zaoutis, PT. Heath, N. Spyridis; on behalf of the Neonatal Infection Surveillance Network (neonIN); London, Norwich, Birmingham, Medway and Portsmouth (UK), Athens (Greece), Tartu (Estonia) and Philadelphia (PA, USA) ABS 68. A NEWBORN BABY WITH SEVERE NONIMMUNE NEONATAL HYDROPS AND CHYLOTHORAX – IS IT NOONAN’S SYNDROME? • S. Balogun, A. Gupta, B. Reichert; Stockton on Tees (UK) ABS 69. LOW BIRTH WEIGHT INFANTS OUTCOMES IN THE FEDERATION OF BOSNIA AND HERZEGOVINA • F. Skokić, S. Muratović, M. Skokić, D. Hadžić, A. Čosičkić, A. Selimović, E. Zulić, A. Mršić, A. Merić, A. Halilbašić; Tuzla (Bosnia and Herzegovina) ABS 70. SUPPLEMENTATION OF VITAMIN D IN PRETERM INFANTS – MONITORING THERAPY • A. Kołodziejczyk, M.K. Borszewska-Kornacka; Warsaw (Poland) ABS 71. CITROBACTER DIVERSUS MULTIPLE BRAIN ABSCESSES IN A 28-WEEK PREMATURE FEMALE’S CASE REPORT • M. Lechowicz, R. Bokiniec, M.K. Borszewska-Kornacka; Warsaw (Poland) ABS 72. EPIDEMIOLOGY OF ANTIMICROBIAL RESISTANCE IN NEONATES WITH CENTRAL LINE ASSOCIATED BLOODSTREAM INFECTIONS (CLABSIs) IN GREECE • K. Mougkou, F. Anatolitou, G. Baroutis, A. Charitou, G. Dimitriou, C. Giannakopoulou, A. Gounaris, J. Kapetanakis, G. Liosis, S. Mellos, G. Nyktari, J. Kopsidas, G. Kourlaba, S. Coffin, T. Zaoutis; Athens, Patras, Heraklion and Larissa (Greece), and Philadelphia (PA, USA) ABS 73. CIRCULATING LIPID ALTERATIONS IN NEONATAL INFECTION/SEPSIS: PRELIMINARY RESULTS • V. Bourika, A. Margeli, I. Papassotiriou, T. Siahanidou; Athens (Greece) ABS 74. TAIL IN A NEWBORN: A RARE FEATURE OF AMNIOTIC BAND SYNDROME • V. Bourika, A. Margeli, I. Papassotiriou, T. Siahanidou; Athens (Greece) ABS 75. THE EARLY NEONATAL MORTALITY AFTER CESAREAN SECTION • M. Petronijević, S. Vrzić Petronijević, D. Bratić, D. Plecas; Belgrade (Serbia) ABS 76. MODE OF DELIVERY AND DEVELOPMENT OF ATOPIC DISORDERS DURING THE FIRST THREE YEARS OF LIFE • E. Papathoma, M. Trigka, S. Fouzas, G. Dimitriou; Patras (Greece) ABS 77. GRADES I-II INTRAVENTRICULAR HEMORRHAGE IN VERY LOW BIRTH WEIGHT INFANTS: EFFECTS ON NEURODEVELOPMENT • K. Georgiou, C. Petropoulou, H. Bouza; Athens (Greece) ABS 78. PSYCHOLOGICAL CONSEQUENCES OF PREMATURITY ON THE INFANT-MOTHER DYAD • A. Karkani; Athens (Greece) ABS 79. ROLE OF PARACETAMOL IN THE CLOSURE OF PATENT DUCTUS ARTERIOSUS IN PRETERM NEONATES • D. Konstantinou, M. Klavdianou, M. Antoniadis; Athens (Greece) ABS 80. ACTIVE SURVEILLANCE FOR CENTRAL LINE ASSOCIATED BLOODSTREAM INFECTIONS IN HOSPITALIZED NEONATES IN GREECE • K. Mougkou, N. Anagnostatou, L. Baglatzi, M. Dilanas, D. Gkentzi, I. Grivea, K. Kaffe, K. Karachristou, A. Kontogianni, L. Lianou, A. Mpilali, C. Petropoulou, Z. Stratiki, I. Zorou, J. Kopsidas, G. Kourlaba, S. Coffin, T. Zaoutis; Athens, Heraklion, Patras and Larissa (Greece), and Philadelphia (PA, USA) ABS 81. ASSESSMENT OF RISK FACTORS FOR NECROTIZING ENTEROCOLITIS IN PRETERM INFANTS • Z. Zvizdic, S. Heljic; Sarajevo, Bosnia and Herzegovina ABS 82. FACTORS ASSOCIATED WITH THE PROVISION OF HUMAN MILK IN THE PRETERM INFANT IN GREECE • Ch. Sidiropoulou, M. Daglas, A. Nika, P. Galanis, A. Bilali, E. Antoniou, I. Kapetanakis; Athens (Greece) ABS 83. SAFETY AND EFFICACY OF LINEZOLID IN NEONATES: AN INDIAN EXPERIENCE • S. Desai, B. Jasani, A. Gokhale, R. Nanavati, N. Kabra; Mumbai (India) ABS 84. GREEK AND FOREIGN PARENTAL SATISFACTION BY THE CARE PROVIDED TO NEONATES • K. Pouliou, V. Matziou, M. Daglas, P. Galanis; Athens (Greece) ABS 85. THE NURSES’ PERCEPTIONS ON GIVEN SUPPORT TO PARENTS OF NEONATAL PATIENTS • J. Retpap, S. Keerdo, D. Vassiljeva, K. Lepla, M. Raig, M. Maigre, H. Varendi; Tartu (Estonia) ABS 86. DIAGNOSTIC MARKERS OF MECHANICAL VENTILATION-ASSOCIATED PNEUMONIA IN NEWBORNS • M. Cernada, A. Sánchez-Illana, A. Nuñez, J. Escobar, M.Vento, J. Kuligowski; Valencia (Spain) ABS 87. CESAREAN SECTION EPIDEMIOLOGY IN A PROVINCIAL GREEK MATERNITY UNIT • A. Giakoumogiannaki, V. Picha, E. Karavitakis, N. Theodoraki, M. Varanaki, C-A. Chaziraki, A.Tsopelas, E. Apazidou; Chania (Greece) ABS 88. FETAL AND NEONATAL ALLOIMMUNE THROMBOCYTOPENIA (FNATP) IN CROATIA DURING THE PERIOD 2009-2013: CLINICAL AND LABORATORY CHARACTERISTICS • M. Starčević, M. Tomičić, J. Tumbri, B. Golubić-Čepulić, K. Gojčeta, Z. Mustapić; Zagreb (Croatia) ABS 89. IS LOCALIZED NEC A DIFFERENT CONDITION FROM CLASSIC NEC? • Y. Chen, C.C.P. Ong, Y. Low; Singapore ABS 90. EPIDEMIOLOGICAL DATA ON BIRTHS IN A GREEK PROVINCIAL HOSPITAL MATERNITY, DURING THE LAST DECADE • A. Kotta, N. Theodoraki, P. Tsichlaki, V. Picha, M. Varanaki, A. Giakoumogiannaki, A. Petrocheilou, E. Karavitakis, A. Tsopelas, E. Apazidou; Chania (Greece) ABS 91. LEPTIN WAS NOT ALTERED AS A RESULT OF PREBIOTICS SUPPLEMENTATION IN A PRETERM POPULATION • M. Dasopoulou, D. Briana, T Boutsikou, E. Karakasidou, E. Roma, C. Costalos, A. Malamitsi-Puchner; Athens (Greece) ABS 92. ADAMS-OLIVER SYNDROME: A SEVERE PRESENTATION • V. Baptista, A. Silva, C. Sá, J. Dias, A.R. Martins, A. Osório, N. Teixeira, A. Pereira; Braga (Portugal) ABS 93. STUDY ON BIRTHS IN YEAR 2013 AT A PROVINCIAL GREEK MATERNITY UNIT • M. Varanaki, E. Apazidou, V. Picha, A. Giakoumogiannaki, N. Theodoraki, E. Karavitakis, A. Tsopelas, A. Petrocheilou; Chania (Greece) ABS 94. THE EFFICACY OF PROPRANOLOL IN PREMATURE RETINOPATHY AND ITS CORRELATION WITH PLATELET MASS INDEX • L. Korkmaz, O. Baştuğ, A. Özdemir, S. Korkut, C. Karaca, M. Ali Akın, T. Güneş, S. Kurtoğlu, A. Öztürk; Kayseri (Turkey) ABS 95. BREAST MILK LEVELS OF MMP-9/NGAL COMPLEX IN WOMEN WITH INSULIN-DEPENDENT GESTATIONAL DIABETES MELLITUS DURING THE FIRST POSTPARTUM DAYS • D. Metallinou, A. Lykeridou, D. Rizos, G. Liosis, I. Papassotiriou; Athens (Greece) ABS 96. CARDIOPULMONARY HEMODYNAMICS IN PRETERM INFANTS WITH RESPIRATORY DISTRESS SYNDROME • S. Alkan Ozdemir, E. Arun Ozer, O. Ilhan, S. Sutcuoglu, M. Tatli; Izmir (Turkey) ABS 97. COLLODION BABY – A RARE FORM OF CONGENITAL ICHTHYOSIS: PRESENTATION OF A CASE WITH GOOD OUTCOME • N. Zdraveska, K. Piperkova, S. Palcevska-Kocevska, A. Papazovska-Cherepnalkovski, N. Aluloska; Skopje (FYROM) ABS 98. NECROTIZING ENTEROCOLITIS AND RISK FACTORS • Z. Özduvan, Ü. Vatansever, B. Acunaş, R. Duran, Ü.N. Başaran; Edirne (Turkey) ABS 99. NEONATAL OVARIAN TORSION IN FOUR NEWBORN INFANTS • O. Surmeli-Onay, A. Api, B. Mutlu Ozyurt; Mersin (Turkey) ABS 100. NEONATAL AORTIC THROMBOSIS MIMICKING CONGENITAL HEART DISEASE • D. Ninković, Z. Mustapić, J. Stipanović-Kastelić, E. Bilić, A. Dasović-Buljević, V. Benjak, R. Grizelj, B. Filipović-Grčić; Zagreb (Croatia) ABS 101. INDICATIONS FOR ACUTE DIALYSIS IN NEONATES OVER THE PAST THREE DECADES AT UNIVERSITY HOSPITAL CENTER ZAGREB • Ž. Mustapić, J. Slaviček, Z. Puretić, D. Bartoniček, S. Galić, M. Cvitković, M. Novak, V. Benjak, A. Dasović Buljević, R. Grizelj, R. Kmet, H. Kniewald, D. Ninković, J. Stipanović Kastelić, A. Antabak, M. Bogović, S. Čavar, T. Luetić, S. Sršen Medančić, D. Batinić, B. Filipović Grčić; Zagreb (Croatia) ABS 102. TRENDS IN MORTALITY AND MAJOR MORBIDITY AT DISCHARGE AMONG VERY LOW BIRTH WEIGHT INFANTS (22-25 WEEKS OF GESTATION). REVIEW OF SIX YEARS (2008-2013) • S. Villar Castro, S. Zeballos Sarrato, N. González Pacheco, G. Zeballos Sarrato, M. Arriaga Redondo, C. Ramos Navarro, N. Navarro Patiño, I. Pescador Chamorro, M. Sánchez Luna; Madrid (Spain) ABS 103. MANAGEMENT OF HYPERBILIRUBINEMIA IN PRETERM INFANTS IN TURKEY: A SURVEY STUDY • N. Guzoglu, A. Tandirci, D. Aliefendioglu; Kirikkale (Turkey) ABS 104. HEALTHCARE-ASSOCIATED INFECTIONS • M. Ferreira, C. Fernandes, T. Marques, R. Barroso; Amadora (Lisbon) (Portugal) ABS 105. APGAR SCORE – HOW OBJECTIVE COULD WE BE? • I. Bilic Cace, B. Peter, K. Manestar Rukavina, I. Babic Bozovic, O. Petrovic, H. Haller; Rijeka (Croatia) ABS 106. DIGITAL AND ANALOG RADIOGRAPHIC IMAGING OF NEONATES: DOSE AND IMAGE QUALITY EVALUATION • E. Taktikou, A. Karatza, C. Kalogeropoulou, H. Delis, S. Skiadopoulos, G. Messaris, G. Dimitriou, G. Panayiotakis; Patras (Greece) ABS 107. HOW TO ASSESS NEONATAL PAIN • C.V. Bellieni, M.G. Alagna, M. Tei, G. Buonocore; Siena (Italy) ABS 108. DEVELOPING A QUESTIONNAIRE FOR THE MEASUREMENT OF PATIENT SATISFACTION IN A NICU • I. Chatziioannidis, P. Karagianni, E. Papaioannou, E. Babatseva, P. Chouchou, I. Michailidou, N. Nikolaidis; Thessaloniki (Greece) ABS 109. SURGICAL ANOMALIES IN A COHORT OF TWINS: THE ROLE OF ASSISTED REPRODUCTION TECHNOLOGY • O. Panagiotopoulou, S. Fouzas, C. Papadopoulou, X. Sinopidis, G. Dimitriou, A. Karatza; Patras (Greece) ABS 110. HOW PAINFUL IS A HEEL PRICK OR A VENIPUNCTURE IN A NEWBORN? • C.V. Bellieni, M. Tei, G. Stazzoni, M.G. Alagna, F. Iacoponi, S. Cornacchione, S. Bertrando, G. Buonocore; Siena and Rome (Italy) ABS 111. HIGH-DOSE IBUPROFEN FOR PATENT DUCTUS ARTERIOSUS IN TERM AND PRETERM NEONATES • F. Stripeli, K. Zannikos, M. Dasopoulou, K. Karachristou, S. Loukopoulou, F. Anatolitou; Athens (Greece) ABS 112. CARDIAC TAMPONADE AS A COMPLICATION OF PERIPHERALLY INSERTED CENTRAL CATHETER IN PRETERM INFANTS: A RETROSPECTIVE REVIEW OF THE CASES REPORTED AT AN ITALIAN LEVEL III NEONATAL UNIT • C. Zivelonghi, M. Ventola, M. Magnani, L. Pecoraro, M.P. Gentile, M. Castellani, E. Bonafiglia, B. Ficial, C. Richelli, R. Beghini, E.M. Padovani; Verona (Italy) ABS 113. POSTOPERATIVE C-REACTIVE PROTEIN COURSE IN NEONATAL POPULATION AFTER MAJOR CARDIOVASCULAR OPERATIONS • L. Lianou, K. Zannikos, G. Gika, A. Vontzalidis, E. Yatrakou, K. Karachristou, K. Katehi, N. Papamihalopoulos, S. Mellos; Athens (Greece) ABS 114. THE DIAGNOSIS OF TOXOPLASMOSIS IN PREGNANT WOMEN PROVIDES GOOD RESULTS OF TREATMENT OF CONGENITAL TOXOPLASMOSIS • B. Mise, S. Roglic; Zagreb (Croatia) ABS 115. CONGENITAL CMV INFECTION: SEVERE DISEASE OR ADDITIONAL INFECTION? • B. Mise, L. Stemberger, G. Tesovic; Zagreb (Croatia) ABS 116. HEMATOLOGICAL PROFILE OF NEONATAL HEMOLYTIC JAUNDICE • A. Papazovska Cherepnalkovski, K. Piperkova, S. Palcevska Kocevska, N. Najdanovska Aluloska, N. Zdravevska, T. Gruev, V. Krzelj; Skopje (FYROM) and Split (Croatia) ABS 117. FEASIBILITY OF USING LOW DELIVERED TIDAL VOLUMES AND HIGHER FREQUENCIES IN HIGH-FREQUENCY OSCILLATORY VENTILATION AS LUNG PROTECTION STRATEGY • N. González-Pacheco, C. Ramos-Navarro, I. Pescador-Chamorro, P. Chimenti-Camacho, A. Rodríguez-Sánchez de la Blanca, M. Arriaga-Redondo, N. Navarro-Patiño, S. Villar-Castro, S. Zeballos-Sarrato, M. Sánchez-Luna; Madrid (Spain) ABS 118. HELIUM TO PROTECT THE IMMATURE LUNG FROM OXYGEN TOXICITY • E. Maderuelo, E. Sanz, C. Ramos, P. Chimenti, S. Villar, M. Ariaga, A. Navarro, A. Rodriguez, R. Rodriguez, M. Sanchez Luna; Madrid (Spain) ABS 119. CEREBELLAR HAEMORRHAGE AND SIGNIFICANT SUBSEQUENT ATROPHY IN AN EXTREMELY LOW-BIRTH WEIGHT (ELBW) INFANT • C. Thomou, M. Polychronaki, I. Tritou, K. Skopetou, M. Chatzakis, M. Koropouli, G. Niotakis; Heraklion (Greece) ABS 120. RISK FACTORS OF CATHETER-RELATED BLOODSTREAM INFECTIONS IN NEONATES WITH CENTRAL VENOUS CATHETERS • D. Rallis, E. Mylona, I. Papakotoula, C. Tsakalidis, P. Karagianni, N. Nikolaidis; Thessaloniki (Greece) ABS 121. LIMB ARTERIAL THROMBOSIS IN NEONATES: SINGLE CENTRE EXPERIENCE • M. Miliaraki, M. Papadimas, M. Koropouli, M. Chatzakis; Heraklion (Greece) ABS 122. CASE REPORT: POSTNATAL DIAGNOSIS OF RING CHROMOSOME 18 – R(18) • K. Skopetou, G. Niotakis, I. Tritou, M. Theodoraki, M. Koropouli; Heraklion (Greece) ABS 123. MATERNAL RISK FACTORS FOR NEONATAL NECROTIZING ENTEROCOLITIS: a RETROSPECTIVE STUDY • K. Skopetou, M. Miliaraki, V. Valari, C Thomou, M. Polichronaki, M. Papadimas, M. Koropouli; Heraklion (Greece) ABS 124. NEONATAL RISK FACTORS FOR NEONATAL NECROTIZING ENTEROCOLITIS: A RETROSPECTIVE STUDY • K. Skopetou, M. Miliaraki, V. Valari, C. Thomou, M. Theodoraki, E. Chatzakis, M. Koropouli; Heraklion (Greece) ABS 125. UNEXPLAINED APNOEAS IN AN OTHERWISE HEALTHY APPEARING TERM NEONATE: HADDAD SYNDROME • G. Niotakis, C. Giatzakis, M. Polichronaki, M Theodoraki, M. Koropouli; Heraklion (Greece) ABS 126. CASE REPORT: CONGENITAL CNS TOXOPLASMOSIS AFTER APPROPRIATE ANTIMICROBIAL TREATMENT DURING PREGNANCY AND NEGATIVE AMNIOTIC FLUID PCR • G. Niotakis, M. Miliaraki, I. Tritou, M. Papadimas, M. Koropouli; Heraklion (Greece) ABS 127. THE ANALYSIS OF SUCKING AND SWALLOWING VIA A NEW METHOD IN TERM INFANTS: PRELIMINARY REPORT • D. Anuk Ince, A. Ecevit, B. Oskay Acar, A. Saracoglu, A. Kurt, M. Agah Tekindal, A. Tarcan; Ankara (Turkey) ABS 128. NEONATAL ABSTINENCE SYNDROME DUE TO OPIOID ABUSE IN PREGNANCY • B. Mutlu Ozyurt, O. Surmeli Onay; Mersin (Turkey) ABS 129. TUBEROUS SCLEROSIS COMPLEX: LIMITATIONS OF THE ANTENATAL GENETIC STUDY • P. Santos, C. Aguiar, T. Martins, A. Vilan, C. Moura, R. Rocha, H. Soares, P. Soares, R. Gustavo, G. Silva, H. Guimarães; Oporto (Portugal) ABS 130. ASPECTS OF HEMOLYTIC DISEASE OF THE NEWBORN IN CLINICAL HOSPITAL SKB MOSTAR DURING THE PERIOD 2008-2013 • M. Jerkovic Raguz, D. Sumanovic Glamuzina, J. Brzica, I. Letica; Mostar (Bosnia and Herzegovina) ABS 131. CONGENITAL STEINERT DYSTROPHY: WHEN SHOULD WE CONSIDER IT? • P. Santos, F. Flor-de-Lima, P. Soares, A. Vilan, R. Rocha, G. Rocha, G. Silva, H. Guimarães; Oporto (Portugal) ABS 132. USE OF HUMAN MILK DURING NEONATAL INTENSIVE CARE HOSPITALIZATION • M. Janeiro, I. Periquito, C. Fernandes, M. Ferreira, R. Barroso; Amadora (Lisbon) (Portugal) ABS 133. PLACENTAL HISTOLOGICAL PATTERNS AND NEONATAL MORBIDITY/MORTALITY • M.L. Tataranno, S. Perrone, A. Santacroce, S. Toti Maria, M.G. Alagna, M.S. Cori, G. Stazzoni, S. Negro, G. Buonocore; Siena (Italy) ABS 134. LONG-TERM IMPACT OF VLBW ON PSYCHO-NEUROLOGICAL DEVELOPMENT IN YOUNG ADULTS: A SINGLE CENTRE POPULATION-LINKAGE STUDY • S. Negro, M.L. Tataranno, E. Becucci, M.G. Gatti, D. Urilli, A. Santacroce, S. Perrone, G. Buonocore; Siena (Italy) ABS 135. EVALUATION OF BONE MINERAL DENSITY BY QUANTITATIVE ULTRASOUND IN ADOLESCENTS AND YOUNG ADULTS BORN PRETERM • S. Perrone, M.L. Conte, S. Badii, M.S. Toti, E. Becucci, M. Longini, S. Cecchi, M.L. Tataranno, G. Buonocore; Siena (Italy) ABS 136. SERUM PROCALCITONIN IN HEALTHY NEONATES • A. Karastaneva, M. Krasteva-Vilmosh, M. Bosheva, T. Deneva, D. Davcheva; Plovdiv (Bulgaria) ABS 137. EFFECT OF MODE OF DELIVERY ON BIOMARKERS OF NEONATAL CARDIAC INJURY AND INFLAMMATION • E. Gkiougki, H. Rouatbi, G. Biondollilo, C. van Linthout, K. Schumacher, M-C. Seghaye; Liège (Belgium) ABS 138. PERINATAL BRAIN INJURY AND DYNAMICS OF THE CLINICAL SYMPTOMATOLOGY • D. Šumanović-Glamuzina, J. Mi",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Non-Randomized Controlled Trial",
+        "lowMetadata": false,
+        "_sig": "1e783d27743feea882e1d2e665d039bedb8d706db40a95ea7390332e89cc52c6"
+      },
+      {
+        "pmid": "25164872",
+        "title": "The OPTIMIST-A trial: evaluation of minimally-invasive surfactant therapy in preterm infants 25–28 weeks gestation",
+        "authors": "Peter Anderson Dargaville, C. Omar F. Kamlin, Antonio G De Paoli, John B. Carlin",
+        "year": "2014",
+        "journal": "BMC Pediatrics",
+        "doi": "10.1186/1471-2431-14-213",
+        "url": "https://doi.org/10.1186/1471-2431-14-213",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: It is now recognized that preterm infants ≤28 weeks gestation can be effectively supported from the outset with nasal continuous positive airway pressure. However, this form of respiratory therapy may fail to adequately support those infants with significant surfactant deficiency, with the result that intubation and delayed surfactant therapy are then required. Infants following this path are known to have a higher risk of adverse outcomes, including death, bronchopulmonary dysplasia and other morbidities. In an effort to circumvent this problem, techniques of minimally-invasive surfactant therapy have been developed, in which exogenous surfactant is administered to a spontaneously breathing infant who can then remain on continuous positive airway pressure. A method of surfactant delivery using a semi-rigid surfactant instillation catheter",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "4687c12f55c79e5c8fe3e7196766dfca078a368c23df4fb76be33a32359649f0"
+      },
+      {
+        "pmid": "36965348",
+        "title": "Respiratory and non-respiratory outcomes of bronchopulmonary dysplasia in adolescents: A systematic review",
+        "authors": "Carregã M, et al",
+        "year": "2023",
+        "journal": "Early human development",
+        "doi": "10.1016/j.earlhumdev.2023.105756",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36965348/",
+        "context": "BACKGROUND: There is lack of evidence synthesis on the global consequences of bronchopulmonary dysplasia (BPD) in adolescence. AIM: Assess the impact of bronchopulmonary dysplasia on respiratory and non-respiratory outcomes in adolescents. METHODS: A systematic review of studies assessing the outcomes of adolescents aged 10 to 19 years-old with BPD was conducted. We independently screened studies published until 6th March 2023 in PubMed® and Scopus® databases. Data on methodologic design, sample descriptive and findings were extracted from each study. Risk of bias was assessed using quality assessment tools. RESULTS: Thirty-one studies were included. Adolescents with a history of BPD present with more respiratory symptoms (wheezing, respiratory exacerbations, need for respiratory medication) and twenty-five studies showed a reduction in pulmonary function, with varying impact according to BPD severity and no differences before and after the surfactant era. Spirometry evaluation throughout the years is not consensual, but methacholine and salbutamol response in BPD groups is increased compared to non-BPD groups. Markers of eosinophilic airway inflammation are not increased as in asthma patients. Exercise potential is identical, but data regarding physical capacity and activity are inconsistent. More frequent radiologic abnormalities translate into higher high-resolution computed tomography scores, with linear (72.2 %) and triangular subpleural opacities (58.3 %) as the most common findings. There is a higher risk for special needs in education, but quality of life seems to be equal to non-BPD adolescents. CONCLUSIONS: BPD negatively impacts both pulmonary and non-pulmonary outcomes in adolescents.",
+        "source": "pubmed",
+        "pubType": "Systematic Review",
+        "publicationTypes": [
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "e3929019dc7d38b815aea88050b93857cf80640f57d895dacdb0b0d2c0275f4f"
+      },
+      {
+        "pmid": "doi:10.3389/fped.2026.1780241",
+        "title": "Minimally invasive surfactant administration in extremely preterm infants <28 weeks gestation with spontaneous breathing: a retrospective quality improvement study on reducing invasive ventilation burden",
+        "authors": "Wenxin Dong, Hui Zhang, Xinyue Li, Hua Zhang",
+        "year": "2026",
+        "journal": "Frontiers in Pediatrics",
+        "doi": "10.3389/fped.2026.1780241",
+        "url": "https://doi.org/10.3389/fped.2026.1780241",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BackgroundInvasive surfactant delivery via endotracheal intubation increases exposure to invasive mechanical ventilation (IMV) in extremely preterm infants (EPIs, <28 weeks). This quality improvement (QI) initiative aimed to evaluate whether minimally invasive surfactant administration (MISA) was associated with a reduced IMV burden in EPIs.MethodsA single-center retrospective QI study (2013–2024) included 115 infants (24–27⁺⁶ weeks) with spontaneous breathing diagnosed with respiratory distress syndrome (RDS). Controls (2013–2019, n = 55) received surfactant via intubation; the MISA group (2020–2024, n = 60) received surfactant via thin catheter during nasal continuous positive airway pressure/nasal intermittent positive pressure ventilation (NCPAP/NIPPV). Apart from the structured implementation of MISA, background respiratory and supportive care practices evolved gradually over time without other major structural changes. Multivariable regression and interrupted time-series analyses were performed to account for potential confounding and secular trends.ResultsBaseline infant characteristics were comparable. The median duration of IMV within the first 72 h after birth was 0 h (IQR: 0–0) in the MISA group compared to 71.0 h (IQR: 19.0–72.0) in the control group (P < 0.001), and the difference remained significant after adjustment. Additionally, total IMV duration was reduced [0 h (IQR: 0–14) vs. 111 h (IQR: 39–264); P < 0.001], while non-invasive ventilation (NIV) duration was longer [51.5d (IQR: 41–57) vs. 37d (IQR 30–50); P < 0.001]. Lower incidences of hemodynamically significant patent ductus arteriosus (hsPDA) (35.0% vs. 69.1%; P < 0.001) and nosocomial pneumonia (18.9% vs. 67.9%; P < 0.001) were observed during the MISA implementation period, with consistent findings after multivariable adjustment. No significant differences were observed in severe intraventricular hemorrhage (IVH grade 3–4) (8.33% vs. 20.4%; P = 0.123), mortality (6.7% vs. 16.4%; P = 0.101), or other secondary outcomes (all P > 0.05). Interrupted time-series analysis demonstrated an immediate reduction in early IMV duration following MISA implementation, whereas changes in secondary outcomes did not reach statistical significance.ConclusionMISA was associated with reduced early and overall IMV exposure in EPIs <28 weeks, and with lower observed incidences of hsPDA and nosocomial pneumonia. These associations warrant confirmation in prospective multicenter studies.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "995a2fead0e46b85dec657d89df00a48e3cbebd66e634938bcd00bd420e51fd4"
+      },
+      {
+        "pmid": "cr:10.1542/peds.113.6.e560",
+        "title": "Early Extubation and Nasal Continuous Positive Airway Pressure After Surfactant Treatment for Respiratory Distress Syndrome Among Preterm Infants <30 Weeks’ Gestation",
+        "authors": "Dani Carlo, Bertini Giovanna, Pezzati Marco, Cecchi Alessandra",
+        "year": "2004",
+        "journal": "Pediatrics",
+        "doi": "10.1542/peds.113.6.e560",
+        "url": "https://doi.org/10.1542/peds.113.6.e560",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective. To test the hypothesis that preterm infants with infant respiratory distress syndrome who are treated with nasal continuous positive airway pressure (NCPAP) and surfactant administration followed by immediate extubation and NCPAP application (SURF-NCPAP group) demonstrate less need for mechanical ventilation (MV), compared with infants who receive MV after surfactant administration (SURF-MV group). Methods. A prospective randomized study was conducted, in which infants <30 weeks’ gestation were randomized to the SURF-NCPAP group or the SURF-MV group. Results. At 7 days of life, no patient in the SURF-NCPAP group but 6 patients (43%) in the SURF-MV group still were undergoing MV. The duration of oxygen therapy, NCPAP, and MV, the need for a second dose of surfactant, and the length of stay in the intensive care unit were significantly greater in the SURF-MV group. Conclusions. The immediate reinstitution of NCPAP after surfactant administration for infants with infant respiratory distress syndrome is safe and beneficial, as indicated by the lesser need for MV and the briefer requirement for respiratory supports, compared with the institution of MV after surfactant treatment. Moreover, this strategy contributed to reducing the need for surfactant treatment and reducing the time and costs involved in keeping the infants in the neonatal intensive care unit.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "e5b6dd7147c5973d7b62d6b1d0eb482ee1366b934998068139273aed0a5331ab"
+      },
+      {
+        "pmid": "43075013",
+        "title": "Airway and ventilation challenges in extremely preterm infants weighing ≤500 grams.",
+        "authors": "Ibáñez R, Pellicer L, Del Río R, Borràs-Novell C, Herranz Barbero A, Marce N, Herranz-Rubia N, Rivera T, Delgado R, Izqu",
+        "year": "2026",
+        "journal": "Frontiers in pediatrics",
+        "doi": "10.3389/fped.2026.1946466",
+        "url": "https://europepmc.org/article/PMC/PMC13790047",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction Infants weighing ≤500 g at birth represent one of the most vulnerable neonatal populations, with respiratory disease remaining the leading cause of mortality. Despite the near-universal need for endotracheal intubation and prolonged invasive respiratory support, data describing airway management and respiratory complications in this population remain limited. Material and methods Retrospective observational study of infants with a birth weight ≤500 g born at BCNatal (January 2020-September 2025) who received active perinatal care. Respiratory management, intubation characteristics, tracheal intubation-associated adverse events (TIAEs), short- and long-term outcomes and causes of death were analyzed. Results Twenty-nine infants (22 females, 75.9%) with a median gestational age of 23.9 weeks (IQR 23.4-25.6) were included. Twenty-six (89.7%) required endotracheal intubation and 17 (58.6%) were intubated in the delivery room. Four infants (15.4%) experienced severe TIAEs, and seven (26.9%) had at least one unplanned extubation. Among survivors, respiratory morbidity was substantial, with bronchopulmonary dysplasia in 90.9%, postnatal steroids use in 72.7%, and home oxygen therapy in 54.5%. Overall mortality was 62.1% (18/29). Respiratory disease accounted for 66.7% of deaths (12/18), including five deaths directly attributable to airway management or invasive mechanical ventilation. Neurodevelopmental impairment was identified in 75% (6/8) of infants assessed at 24 months' corrected age. Conclusions Infants weighing ≤500 g require almost universal early endotracheal intubation and prolonged respiratory support, with a high burden of respiratory morbidity and mortality. The observed rate of severe TIAEs highlights the need for standardized airway management protocols, dedicated training, specific devices and prospective multicenter studies to optimize respiratory care in this extremely vulnerable population.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a8738721c84bde6839949c563655ac7446a37ad352f65a17562a75e23259583b"
+      },
+      {
+        "pmid": "cr:10.1002/ppul.24936",
+        "title": "Optiflow vs Vapotherm as extended weaning mode from nasal continuous positive airway pressure in preterm infants ≤ 28 weeks gestational age",
+        "authors": "Fernandez‐Alvarez J. Ramon, Mahoney Liam, Gandhi Rashmi, Rabe Heike",
+        "year": "2020",
+        "journal": "Pediatric Pulmonology",
+        "doi": "10.1002/ppul.24936",
+        "url": "https://doi.org/10.1002/ppul.24936",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Introduction Current evidence supports nasal continuous positive airway pressure (NCPAP) weaning. Heated humidified high‐flow nasal cannula (HHFNC) reduces NCPAP time in infants less than 28 weeks gestational age (GA) without increasing morbidity. The aim of the study was to compare the two most frequently used HHFNC devices in weaning from NCPAP. Methodology We performed a retrospective matched‐pair case‐control study of infants less than or equal to 28 GA born in a single tertiary neonatal center managed with Optiflow or Vapotherm after being weaned from NCPAP. Patients were matched for antenatal steroid doses, delivery mode, birth plurality, GA, birthweight, gender, surfactant doses, length of mechanical ventilation, and length of NCPAP. Outcome measures were duration of HHFNC, low‐flow nasal cannula, nasal bridge lesions, pneumothorax, bronchopulmonary dysplasia, postnatal steroids, necrotizing enterocolitis, sepsis, intraventricular hemorrhage, retinopathy of prematurity, length of stay, discharge weight, and mortality. Results were displayed as median (interquartile range) or ratio (percentage). Statistical analysis was performed using Mann‐Whitney U and χ 2 tests. Results 70 patients were recruited retrospectively. Thirty‐five infants were weaned from NCPAP to Optiflow and 35 infants to Vapotherm with gestational ages and birthweights of 27 GA (26‐27) and 1010 g (835‐1165) and 27 GA (26‐28) and 960 g (788‐1191), respectively. There was no statistically significant difference in any outcome measure. Infants managed with Vapotherm required a not statistically significant shorter length of time on HHFNC and low‐flow nasal cannula. Conclusions Optiflow and Vapotherm seem to be equally effective and safe for weaning from NCPAP. However, infants weaned to Vapotherm appear to spend less time on non‐invasive respiratory support.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a3c0a71dd134671c20c4466df5910beff9630090e0c90e303205e3de19720617"
+      },
+      {
+        "pmid": "42778200",
+        "title": "Occlusive <i>versus</i> non-occlusive CPAP interfaces in neonatal respiratory care: a comparative review of efficacy and safety.",
+        "authors": "Hibner A, Hietalati S, Leibel SL.",
+        "year": "2026",
+        "journal": "European respiratory review : an official journal of the European Respiratory Society",
+        "doi": "10.1183/16000617.0061-2026",
+        "url": "https://europepmc.org/article/PMC/PMC13598625",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background Continuous positive airway pressure (CPAP) is first-line therapy for respiratory distress in preterm infants, but optimal interface selection remains controversial. Occlusive interfaces (nasal prongs and masks with tight seals) provide accurate pressure delivery but can cause significant nasal trauma, while non-occlusive interfaces (loosely fitting nasal cannulae) reduce trauma but may compromise therapeutic efficacy. Objective To synthesise current evidence comparing occlusive with non-occlusive CPAP interfaces regarding pressure delivery accuracy, clinical efficacy, safety outcomes and practical implementation in neonatal intensive care. Methods Comprehensive review of randomised controlled trials, systematic reviews, bench studies and observational studies comparing CPAP interface types in preterm neonates. Evidence quality assessed using the Grading of Recommendations Assessment, Development and Evaluation criteria where applicable. Results Occlusive interfaces deliver pressure within 0.5-1.0 cmH 2 O of set values and demonstrate superior efficacy in landmark trials (COIN, SUPPORT), particularly in extremely preterm infants ( versus 17.3% for occlusive systems. This increased to failure rates >50% in extremely preterm infants. Conclusions Current evidence supports occlusive CPAP as first-line therapy for moderate-to-severe respiratory distress in preterm neonates, particularly those of <32 weeks' gestation. Non-occlusive interfaces may be appropriate for stable infants, weaning support or apnoea of prematurity management. Adequately powered randomised trials stratified by gestational age and respiratory severity are urgently needed to define optimal interface selection strategies.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "ecae748c1d09a6d7d3df40fca1ed73971517393b1b304fb27a4333a08899d78b"
+      },
+      {
+        "pmid": "42626140",
+        "title": "Patterns of preterm admission, morbidity, and mortality in a tribal-district neonatal intensive care unit: A retrospective cohort study.",
+        "authors": "Patil PN, Khan Z, Patel M, Mahyavanshi DK.",
+        "year": "2026",
+        "journal": "World journal of clinical pediatrics",
+        "doi": "10.5409/wjcp.118603",
+        "url": "https://europepmc.org/article/PMC/PMC13491083",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Preterm birth remains the leading cause of neonatal morbidity and mortality worldwide. Data from tribal-district neonatal intensive care units (NICUs) in India are scarce, despite these populations bearing a disproportionate burden of adverse perinatal outcomes. Aim To evaluate morbidity patterns and identify predictors of mortality among preterm neonates in a tribal-district NICU. Methods The present retrospective cohort study included total 1438 preterm neonates admitted between January 2022 and December 2024 to the tribal-district NICU. Clinical data were extracted from medical records. Mortality was analyzed by gestational age. Multivariable logistic regression, with multiple imputation for missing data, was used to identify independent predictors of in-hospital mortality. Results Mortality demonstrated a steep inverse gradient with gestational age, decreasing from 49% among extremely preterm neonates to 4.6% among late preterm infants. The most common morbidities were respiratory distress syndrome (42%-55%) and neonatal sepsis (32%-45%). Early continuous positive airway pressure (CPAP) initiation ( P Conclusion Lower gestational age, lower birth weight, infection, and delayed respiratory stabilization are associated with mortality. Strengthening early neonatal care may improve survival in tribal settings.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "584178dead22bef19395bc405e10cd735735b4ceee14bccfc13aa4379ed064f0"
+      },
+      {
+        "pmid": "cr:10.3389/fped.2025.1568891",
+        "title": "Early successful weaning from continuous positive airway pressure in infants <32 weeks of gestation: predictors of success",
+        "authors": "Bünte Lisa Marie, Walden Christina, Schlecht Jennifer, Bubl Benedikt",
+        "year": "2025",
+        "journal": "Frontiers in Pediatrics",
+        "doi": "10.3389/fped.2025.1568891",
+        "url": "https://doi.org/10.3389/fped.2025.1568891",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Aim To identify demographic and clinical variables predictive of early successful weaning in preterm infants weaned off continuous positive airway pressure (CPAP). Methods Single-center retrospective analysis of preterm infants < 32 0/7 weeks gestational age (GA) weaned off CPAP according to a standardized protocol April 2013–March 2017. Infants were categorized into (1) early successfully weaned (Early-W) if weaned at the first attempt and (2) delayed weaned (Delayed-W) if more than one attempt was necessary. Potential predictor variables were predefined. Association with Early-W was analyzed by multivariable logistic regression with model selection using the Akaike information criterion (AIC). Model performance was evaluated using the area under the receiver operating characteristic (ROC-AUC). Results 145 infants [79 (54.5%) were Early-W and 66 (45.5%) Delayed-W] with complete data sets were included in the analysis. A model of higher GA [odds ratio (OR) 1.66; 95% confidence interval (CI) 1.39, 2.03; p < 0.001], present patent ductus arteriosus (PDA) (OR 0.41, 95% CI 0.16, 1.04; p = 0.062) and higher median respiratory rate (RR) in the previous 12 h (OR 0.36; 95% CI 0.16, 0.74; p = 0.008) best predicted Early-W (ROC-AUC: 0.841). Conclusion This study identified GA, PDA and median RR to predict early successful weaning in preterm infants weaned off CPAP. The predictive value of median RR in the 12 h prior to CPAP cessation is considered a novelty requiring further prospective investigation, with RR being a clinical parameter commonly employed in routine practice and practical for everyday application.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Diagnostic Accuracy Study",
+        "lowMetadata": false,
+        "_sig": "1df6f9863af331bfeb5781cf5731be0b788efdd0cd87dd2ece29b3cdac2bac02"
+      },
+      {
+        "pmid": "cr:10.1111/j.1651-2227.2011.02558.x",
+        "title": "Early prediction of nasal continuous positive airway pressure failure in preterm infants less than 30 weeks gestation",
+        "authors": "De Jaegere Anne P, van der Lee Johanna H, Canté Caroline, van Kaam Anton H",
+        "year": "2012",
+        "journal": "Acta Paediatrica",
+        "doi": "10.1111/j.1651-2227.2011.02558.x",
+        "url": "https://doi.org/10.1111/j.1651-2227.2011.02558.x",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Aim: To predict early nasal continuous positive airway pressure failure within the first 2 h after birth in preterm infants. Methods: Patient and respiratory support variables significantly associated with continuous positive airway pressure failure in the first 72 h after birth were identified in a cohort of preterm infants <30 weeks gestation. Using multivariable logistic regression analysis, risk estimates for early nasal continuous positive airway pressure failure were calculated. Results: From 182 infants included, 62(34%) failed early nasal continuous positive airway pressure. Birth weight ≤800 g, male gender and a fraction of inspired oxygen >0.25 at 1 and 2 h of age were significantly associated with early nasal continuous positive airway pressure failure. Combining these variables in a logistic regression model provided a minimal risk estimate for failure of 0.04[0.01–0.23] (female >800 g, FiO 2 ≤ 0.25 at 1, and 2 h) and maximal estimate of 0.92[0.44–0.99] (male ≤800 g, FiO 2 > 0.25 at 1 and 2 h). Conclusion: Combining gender, birth weight and the fraction of inspired oxygen at 1 and 2 h of age allows for a better and more individualized prediction of early nasal continuous positive airway pressure failure in preterm infants less than 30 weeks gestation.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "14700151da8dfe5920d07878aa8933ccf8e0a0f7ef6fc0dbcf7099f4df51b266"
+      },
+      {
+        "pmid": "40641951",
+        "title": "Haemodynamic changes and mean airway pressure threshold in extremely preterm infants (22–24 weeks of gestation) with tension pneumothorax",
+        "authors": "Tomonori Kurimoto, Takuya Tokuhisa, Asataro Yara, Masaya Kibe",
+        "year": "2025",
+        "journal": "Resuscitation Plus",
+        "doi": "10.1016/j.resplu.2025.100954",
+        "url": "https://doi.org/10.1016/j.resplu.2025.100954",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Extremely preterm infants (22-24 weeks of gestation) are at high risk of tension pneumothorax, a life-threatening condition that causes haemodynamic instability. This study aimed to analyse the haemodynamic changes associated with tension pneumothorax and identify the mean airway pressure (MAP) threshold associated with its onset. Methods: This retrospective descriptive study was conducted in a Level III Neonatal Intensive Care Unit (NICU) (2014-2024). Infants born between 22 + 0 to 24 + 6 weeks of gestation who developed tension pneumothorax within 72 h of birth were included. Haemodynamic parameters, including central venous pressure (CVP), mean arterial pressure (mBP), heart rate (HR), saturation of percutaneous oxygen (SpO2), fraction of inspired oxygen (FiO2), and MAP, were analysed at baseline, pneumothorax onset, and",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "91c65adb121f4c98e74017df1a92242ab90eed5af1a4535db2deb99dad5c3d9b"
+      },
+      {
+        "pmid": "16820391",
+        "title": "Sustainable use of continuous positive airway pressure in extremely preterm infants during the first week after delivery",
+        "authors": "Claire Booth, M H Premkumar, A Yannoulis, M Thomson",
+        "year": "2006",
+        "journal": "Archives of Disease in Childhood Fetal & Neonatal",
+        "doi": "10.1136/adc.2005.092478",
+        "url": "https://doi.org/10.1136/adc.2005.092478",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Early use of nasal continuous positive airway pressure (nCPAP) may reduce lung damage, but it is not clear how many extremely preterm infants can be cared for without mechanical ventilation on the first days after delivery. OBJECTIVES: To describe our experience of nCPAP in infants born at <27 weeks' gestation and to determine the chance of reintubation of this group of extremely preterm infants. METHODS: A retrospective, observational study examined the period from November 2002 to October 2003, when efforts were made to extubate infants to nCPAP at the earliest opportunity. Data were collected on all infants born at <27 weeks' and gestation admitted to The Neonatal Intensive Care Unit, Queen Charlotte's and Chelsea Hospital, London, UK. The chance",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "2e61ab2ed2cfd6aa73d2126ddfe3dc3d6b3886a180d29a73c6268f8be42489a0"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 18,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 3,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "extremely preterm infants 24-28 weeks gestation early continuous positive airway pressure (CPAP) prophylactic intubation and surfactant administration death or bronchopulmonary dysplasia (BPD)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": false
+  }
+}

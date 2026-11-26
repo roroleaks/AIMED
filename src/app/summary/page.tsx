@@ -16,6 +16,7 @@ import {
 } from "@/lib/manuscript-composer";
 import {
   buildSummaryPayload,
+  fitExportPhrase,
   type ExploreSnapshot,
   type ChoiceState
 } from "@/lib/summary-payload";
@@ -117,7 +118,7 @@ function ExtractionTable({ headers, rows }: { headers: string[]; rows: string[][
   };
 
   return (
-    <div style={{ margin: "var(--space-4) 0" }}>
+    <div data-testid="extraction-table" style={{ margin: "var(--space-4) 0" }}>
       {/* Desktop & Tablet Table */}
       <div className="extraction-table-wrapper" style={{ overflowX: "auto", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--fs-body-sm)" }}>
@@ -288,7 +289,7 @@ function FormattedMethodsParagraph({ para }: { para: string }) {
                   <td style={{ padding: "var(--space-1) var(--space-2)", fontWeight: 600, color: "var(--ink-2)", whiteSpace: "nowrap" }}>
                     {getSourceLabel(q.source)}
                   </td>
-                  <td style={{ padding: "var(--space-1) var(--space-2)", fontFamily: "monospace", fontSize: "var(--fs-badge)", color: "var(--ink-2)" }}>
+                  <td style={{ padding: "var(--space-1) var(--space-2)", fontSize: "var(--fs-badge)", wordBreak: "break-word", color: "var(--ink-2)" }}>
                     {q.query || q.source}
                   </td>
                   <td style={{ padding: "var(--space-1) var(--space-2)", whiteSpace: "nowrap", color: "var(--muted)" }}>
@@ -496,7 +497,7 @@ export default function SummaryPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title: choice.phrase,
+          title: fitExportPhrase(choice.phrase),
           workflow: summaryData
         })
       });
@@ -525,7 +526,7 @@ export default function SummaryPage() {
 
   return (
     <div className="wrap">
-      <header className="hdr hdr--compact">
+      <header className="hdr hdr--compact" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <span className="title-main">AIMed</span>
@@ -541,7 +542,7 @@ export default function SummaryPage() {
 
       <main id="main" className="solo">
         {/* Persistent Draft Notice Banner */}
-        <div className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
+        <div data-testid="draft-banner" className="notice notice--warning" style={{ marginBottom: "var(--space-4)" }}>
           <span>⚠️</span>
           <div>
             <strong>Automated draft.</strong> {DRAFT_DISCLAIMER.replace(/^Automated draft\.\s*/i, "")}
@@ -606,7 +607,7 @@ export default function SummaryPage() {
                       background: conf.badgeBg,
                       color: "#fff",
                       fontSize: "var(--fs-badge)",
-                      fontWeight: 800,
+                      fontWeight: 700,
                       padding: "1px 5px",
                       borderRadius: "var(--radius-sm)"
                     }}
@@ -687,7 +688,7 @@ export default function SummaryPage() {
               <span style={{ fontSize: "var(--fs-label)", fontWeight: 700, color: "var(--ink-2)" }}>
                 Citation style:
               </span>
-              <div className="segmented" role="radiogroup" aria-label="Citation style selection">
+              <div data-testid="style-toggle" className="segmented" role="radiogroup" aria-label="Citation style selection">
                 {CITATION_STYLE_OPTIONS.map(opt => {
                   const isActive = style === opt.id;
                   return (
@@ -715,6 +716,7 @@ export default function SummaryPage() {
             <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", flexWrap: "wrap" }}>
               <button
                 type="button"
+                data-testid="enrich-ai"
                 className="btn btn--secondary"
                 onClick={handleAiEnrich}
                 disabled={enriching}
@@ -725,6 +727,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="download-docx"
                 className="btn btn--secondary"
                 onClick={() => handleExport("docx")}
                 disabled={exporting !== null}
@@ -734,6 +737,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="download-pdf"
                 className="btn btn--primary"
                 onClick={() => handleExport("pdf")}
                 disabled={exporting !== null}
@@ -743,6 +747,7 @@ export default function SummaryPage() {
 
               <button
                 type="button"
+                data-testid="start-over"
                 className="btn btn--ghost"
                 onClick={handleStartOver}
                 title="Reset workflow state and return to Step 1"
@@ -782,6 +787,7 @@ export default function SummaryPage() {
 
         {/* Manuscript Document View */}
         <article
+          data-testid="manuscript"
           className="card"
           style={{
             background: "var(--surface)",
@@ -797,7 +803,7 @@ export default function SummaryPage() {
               <h2
                 style={{
                   fontSize: "var(--fs-section)",
-                  fontWeight: 800,
+                  fontWeight: 700,
                   color: "var(--ink)",
                   lineHeight: "var(--lh-heading)",
                   margin: 0,
@@ -894,7 +900,7 @@ export default function SummaryPage() {
           ))}
 
           {/* References Section */}
-          <section style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-4)", borderTop: "2px solid var(--border)" }}>
+          <section data-testid="references" style={{ marginTop: "var(--space-6)", paddingTop: "var(--space-4)", borderTop: "2px solid var(--border)" }}>
             <h3
               style={{
                 fontSize: "var(--fs-section)",

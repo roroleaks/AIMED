@@ -1,0 +1,39 @@
+{
+  "id": "ADV-EMPTY",
+  "recordedAt": "2026-11-26T19:39:00.000Z",
+  "cases": [
+    {
+      "name": "empty-words",
+      "request": { "stage": "screen", "words": [], "specialty": "obgyn" },
+      "expectedStatus": 400
+    },
+    {
+      "name": "non-clinical-abcd",
+      "request": {
+        "stage": "screen",
+        "words": [
+          { "word": "a", "role": "population" },
+          { "word": "b", "role": "intervention" },
+          { "word": "c", "role": "comparator" },
+          { "word": "d", "role": "outcome" }
+        ],
+        "specialty": "obgyn"
+      },
+      "expectedStatusOrClarification": true
+    },
+    {
+      "name": "unknown-specialty",
+      "request": {
+        "stage": "screen",
+        "words": [
+          { "word": "IVF", "role": "population" },
+          { "word": "PGT-A", "role": "intervention" },
+          { "word": "morphology", "role": "comparator" },
+          { "word": "live birth", "role": "outcome" }
+        ],
+        "specialty": "astrology_unknown"
+      },
+      "expectedStatus": 400
+    }
+  ]
+}

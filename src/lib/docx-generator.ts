@@ -9,7 +9,8 @@ import {
   WidthType,
   AlignmentType,
   BorderStyle,
-  HeadingLevel
+  HeadingLevel,
+  Footer
 } from "docx";
 import type { WorkflowExportData } from "./summary-payload.ts";
 import { getFooterText, DRAFT_DISCLAIMER } from "./version.ts";
@@ -398,27 +399,29 @@ export async function buildWorkflowDocx(workflow: WorkflowExportData): Promise<B
     docChildren.push(new Table({ width: { size: 100, type: WidthType.PERCENTAGE }, rows: wordsRows }));
   }
 
-  // Footer notice
-  docChildren.push(
-    new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { before: 360, after: 120 },
-      children: [
-        new TextRun({
-          text: getFooterText(),
-          font: "Arial",
-          size: 17,
-          color: "64748B"
-        })
-      ]
-    })
-  );
-
   const doc = new Document({
     creator: workflow.author ? `${workflow.author} / AIMED` : "AIMED",
     sections: [
       {
         properties: {},
+        // The version and commit line sits in a real Word page footer, so it repeats on every page.
+        footers: {
+          default: new Footer({
+            children: [
+              new Paragraph({
+                alignment: AlignmentType.CENTER,
+                children: [
+                  new TextRun({
+                    text: getFooterText(),
+                    font: "Arial",
+                    size: 17,
+                    color: "64748B"
+                  })
+                ]
+              })
+            ]
+          })
+        },
         children: docChildren
       }
     ]

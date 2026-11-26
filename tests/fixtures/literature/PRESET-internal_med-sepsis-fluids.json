@@ -1,0 +1,369 @@
+{
+  "id": "PRESET-internal_med-sepsis-fluids",
+  "recordedAt": "2026-11-26T23:01:57.369Z",
+  "specialty": "internal_med",
+  "words": [
+    {
+      "word": "critically ill septic adults in emergency/intensive care",
+      "role": "population"
+    },
+    {
+      "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+      "role": "intervention"
+    },
+    {
+      "word": "0.9% normal saline",
+      "role": "comparator"
+    },
+    {
+      "word": "major adverse kidney events within 30 days (MAKE30)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "critically ill septic adults in emergency/intensive care",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+        "role": "intervention"
+      },
+      {
+        "word": "0.9% normal saline",
+        "role": "comparator"
+      },
+      {
+        "word": "major adverse kidney events within 30 days (MAKE30)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In critically ill septic adults in emergency/intensive care (P), does balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) compared with 0.9% normal saline (C) improve major adverse kidney events within 30 days (MAKE30) (O)?",
+        "basis": "Unavailable: Insufficient direct concordant trials identified in screened records to establish definitive consensus.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In critically ill septic adults in emergency/intensive care (P), is balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) superior to 0.9% normal saline (C) for major adverse kidney events within 30 days (MAKE30) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of critically ill septic adults in emergency/intensive care (P), does balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) compared with 0.9% normal saline (C) improve major adverse kidney events within 30 days (MAKE30) (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 10 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 20,
+      "screened": 20,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 21
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of critically ill septic adults in emergency/intensive care (P), does balanced crystalloids (lactated Ringer's or Plasma-Lyte) (I) compared with 0.9% normal saline (C) improve major adverse kidney events within 30 days (MAKE30) (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "critically ill septic adults in emergency/intensive care",
+        "role": "population"
+      },
+      {
+        "word": "balanced crystalloids (lactated Ringer's or Plasma-Lyte)",
+        "role": "intervention"
+      },
+      {
+        "word": "0.9% normal saline",
+        "role": "comparator"
+      },
+      {
+        "word": "major adverse kidney events within 30 days (MAKE30)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "37773798",
+        "title": "Potassium level changes in chronic kidney disease patients following balanced crystalloid administration in the emergency department",
+        "authors": "Sungsig Kong, Hyuksool Kwon",
+        "year": "2023",
+        "journal": "Medicine",
+        "doi": "10.1097/md.0000000000035026",
+        "url": "https://doi.org/10.1097/md.0000000000035026",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "One common reason why clinicians are often hesitate to administer balanced crystalloids in the emergency department is the potential occurrence of unexpected hyperkalemia in patients with chronic kidney disease (CKD). In order to investigate the changes in potassium levels resulting from the administration of balanced crystalloids, specially Plasma Solution A (a generic version of Plasma-Lyte), to emergency department patients with CKD, we conducted an evaluation. A retrospective cohort study was conducted at a single academic hospital. Our study included patients with CKD who received intravenous Plasma Solution A and underwent electrolyte follow-up testing within 24 hours of administration. In total, there were 745 patients included in this study, of whom 87 had CKD. Through a 1:1 propensity score matching procedure",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "56284b62d62935c6ded02bed80f5ef140080810ae522c9d6cb3239417e91e72c"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 34,
+      "screened": 34,
+      "blocked": 0,
+      "returned": 1,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "critically ill septic adults in emergency/intensive care balanced crystalloids (lactated Ringer's or Plasma-Lyte) 0.9% normal saline major adverse kidney events within 30 days (MAKE30)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

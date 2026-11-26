@@ -11,7 +11,16 @@
     "secret-scan": "node scripts/secret-scan.mjs",
     "typecheck": "tsc --noEmit",
     "test": "node --test src/lib/*.test.ts src/app/api/*.test.ts",
-    "test:live": "node scripts/test-live.mjs",
+    "test:science": "node --test tests/science/*.test.ts",
+    "test:api": "node scripts/run-env.mjs AIMED_OFFLINE_LITERATURE=1 -- node --import ./tests/api/_loader.mjs --test tests/api/*.test.ts",
+    "test:exports": "node --test tests/exports/*.test.ts",
+    "test:e2e": "playwright test tests/e2e",
+    "test:ui": "playwright test tests/ui",
+    "test:a11y": "playwright test tests/a11y",
+    "test:visual": "playwright test tests/visual",
+    "test:live": "node scripts/run-env.mjs AIMED_LIVE_NETWORK=1 -- node --test tests/science/live.*.test.ts",
+    "test:prod": "playwright test tests/prod",
+    "test:all": "npm run lint && npm run typecheck && npm test && npm run test:science && npm run test:api && npm run test:exports && npm run test:e2e && npm run test:ui && npm run test:a11y && npm run test:visual",
     "validate": "node scripts/validate-steps.mjs",
     "icons": "node scripts/build-icons.mjs",
     "snapshot": "node scripts/create-snapshot.mjs"
@@ -26,6 +35,8 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.1",
+    "@playwright/test": "^1.65.1",
     "@types/node": "^20",
     "@types/pdfkit": "^0.17.6",
     "@types/qrcode": "^1.5.6",
@@ -33,6 +44,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "jszip": "^3.10.2",
+    "pdfjs-dist": "^6.5.438",
     "typescript": "^5"
   },
   "engines": {

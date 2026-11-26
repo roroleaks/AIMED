@@ -42,28 +42,28 @@ export const AnimatedProcessingIndicator: React.FC<AnimatedProcessingIndicatorPr
           <g className="anim-node-p">
             <circle cx="50" cy="60" r="14" fill="#fff" stroke="var(--accent, #0f766e)" strokeWidth="1.5" />
             <circle cx="50" cy="60" r="10" fill="var(--accent-light, #e3f2f2)" />
-            <text x="50" y="64" fontSize="11" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">P</text>
+            <text x="50" y="64" fontSize="12" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">P</text>
           </g>
 
           {/* I — Intervention Node (top-right) */}
           <g className="anim-node-i">
             <circle cx="150" cy="60" r="14" fill="#fff" stroke="var(--accent, #0f766e)" strokeWidth="1.5" />
             <circle cx="150" cy="60" r="10" fill="var(--accent-light, #e3f2f2)" />
-            <text x="150" y="64" fontSize="11" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">I</text>
+            <text x="150" y="64" fontSize="12" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">I</text>
           </g>
 
           {/* C — Comparator Node (bottom-right) */}
           <g className="anim-node-c">
             <circle cx="140" cy="145" r="14" fill="#fff" stroke="var(--accent, #0f766e)" strokeWidth="1.5" />
             <circle cx="140" cy="145" r="10" fill="var(--accent-light, #e3f2f2)" />
-            <text x="140" y="149" fontSize="11" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">C</text>
+            <text x="140" y="149" fontSize="12" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">C</text>
           </g>
 
           {/* O — Outcome Node (bottom-left) */}
           <g className="anim-node-o">
             <circle cx="60" cy="140" r="14" fill="#fff" stroke="var(--accent, #0f766e)" strokeWidth="1.5" />
             <circle cx="60" cy="140" r="10" fill="var(--accent-light, #e3f2f2)" />
-            <text x="60" y="144" fontSize="11" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">O</text>
+            <text x="60" y="144" fontSize="12" fontWeight="bold" fill="var(--accent, #0f766e)" textAnchor="middle">O</text>
           </g>
 
           {/* Rotating Data Flow Particles */}

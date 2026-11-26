@@ -1,0 +1,606 @@
+{
+  "id": "PRESET-dermatology-hidradenitis-biologics",
+  "recordedAt": "2026-11-26T23:13:02.335Z",
+  "specialty": "dermatology",
+  "words": [
+    {
+      "word": "moderate-to-severe active hidradenitis suppurativa",
+      "role": "population"
+    },
+    {
+      "word": "secukinumab subcutaneous every 2 weeks",
+      "role": "intervention"
+    },
+    {
+      "word": "adalimumab standard dosing",
+      "role": "comparator"
+    },
+    {
+      "word": "HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "moderate-to-severe active hidradenitis suppurativa",
+        "role": "population"
+      },
+      {
+        "word": "secukinumab subcutaneous every 2 weeks",
+        "role": "intervention"
+      },
+      {
+        "word": "adalimumab standard dosing",
+        "role": "comparator"
+      },
+      {
+        "word": "HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In moderate-to-severe active hidradenitis suppurativa (P), is secukinumab subcutaneous every 2 weeks (I) superior to adalimumab standard dosing (C) for HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 10 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical response and draining tunnel reduction at 16 weeks (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "moderate-to-severe active hidradenitis suppurativa",
+        "role": "population"
+      },
+      {
+        "word": "secukinumab subcutaneous every 2 weeks",
+        "role": "intervention"
+      },
+      {
+        "word": "adalimumab standard dosing",
+        "role": "comparator"
+      },
+      {
+        "word": "HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "41848710",
+        "title": "Lutikizumab in Adults With Moderate to Severe Hidradenitis Suppurativa After Anti-TNF Therapy Failure: A Phase 2 Randomized Clinical Trial.",
+        "authors": "Kimball AB, Sawicki KT, Ackerman L, Lima H, Giamarellos-Bourboulis EJ, Zhan T, Drogaris L, Gu Y, Lee CM, Akbari M, Willi",
+        "year": "2026",
+        "journal": "JAMA dermatology",
+        "doi": "10.1001/jamadermatol.2026.0155",
+        "url": "https://europepmc.org/article/PMC/PMC13000743",
+        "source": "pmc",
+        "pubType": "Clinical Trial, Phase II, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Clinical Trial, Phase II",
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Importance Hidradenitis suppurativa (HS) is a debilitating inflammatory skin disease with limited therapeutic options. Objective To assess the efficacy and safety of lutikizumab, a dual-variable domain interleukin 1α/1β antagonist, for adult participants with moderate to severe HS who experienced anti-tumor necrosis factor (TNF) therapy failure. Design, setting, and participants This phase 2, double-blind, placebo-controlled randomized clinical trial was conducted at 45 sites in 8 countries or territories (Australia, Canada, Germany, Greece, Japan, Puerto Rico, Spain, and the US) between December 28, 2021, and November 27, 2023, and included a 35-day screening period, a 16-week treatment period, and a 9-week safety follow-up. Data were analyzed in December 2023. Participants 18 years or older with a diagnosis of HS for 12 months or longer who experienced anti-TNF treatment failure were enrolled. Interventions Eligible participants were randomized 1:1:1:1 to receive lutikizumab, 300 mg, every week; lutikizumab, 300 mg, every other week; lutikizumab, 100 mg, every other week; or placebo, every week. The trial drug was administered starting at baseline and through week 16. Main outcomes and measures The primary end point was achieving a Hidradenitis Suppurativa Clinical Response (HiSCR 50) at week 16. The secondary efficacy objective was achieving at least a 30% reduction and at least 1-unit reduction from baseline in Patient's Global Assessment of skin pain (Numerical Rating Scale [NRS] 30) after 16 weeks of treatment among among patients with a baseline NRS 3 or greater. Additional end points included achieving HiSCR 75 and HiSCR 90, change and percentage change from baseline in draining tunnels, and change from baseline in Dermatology Life Quality Index total scores. Results A total of 153 participants received at least 1 dose of the trial medication (94 female individuals [61.4%]; mean [range] age, 40.5 [19-75] years; 108 patients [70.6%] at Hurley stage III). At week 16, 19 (48.7%), 22 (59.5%), and 10 participants (27.0%) receiving lutikizumab, 300 mg, every week; lutikizumab, 300 mg, every other week; and lutikizumab, 100 mg, every other week, respectively, achieved HiSCR50 at week 16 compared with placebo (35.0%); posterior probabilities of positive treatment effect vs placebo were 89.3%, 98.5%, and 22.8%, respectively, using a bayesian analysis. Among participants with baseline NRS scores of 3 or greater, 10 (34.5%) who received lutikizumab, 300 mg, every other week and 8 (34.8%) who received lutikizumab, 300 mg, every week achieved an NRS30 response compared with 4 (12.9%) who received placebo. There were no deaths or treatment-emergent adverse events of neutropenia, serious hypersensitivity reactions, major adverse cardiovascular events, or opportunistic infections reported. Conclusions and relevance In this phase 2 randomized clinical trial, lutikizumab, 300 mg, every week and 300 mg every other week showed positive treatment effects vs placebo in a hard-to-treat moderate to severe HS population that experienced anti-TNF therapy failure. Trial registration ClinicalTrials.gov Identifier: NCT05139602.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "03f3072b7e1588294f5ad3865fb39f5336a5631346760bfa090d1c47afcb9493"
+      },
+      {
+        "pmid": "39425517",
+        "title": "Secukinumab efficacy in patients with hidradenitis suppurativa assessed by the International Hidradenitis Suppurativa Severity Score System (IHS4): A post hoc analysis of the SUNSHINE and SUNRISE trials.",
+        "authors": "Zouboulis CC, Kyrgidis A, Alavi A, Jemec GBE, Martorell A, Marzano AV, van der Zee HH, Wozniak MB, Martinez AL, Kasparek",
+        "year": "2025",
+        "journal": "Journal of the European Academy of Dermatology and Venereology : JEADV",
+        "doi": "10.1111/jdv.20369",
+        "url": "https://europepmc.org/article/PMC/PMC12291009",
+        "source": "pmc",
+        "pubType": "Clinical Trial, Phase III, research-article, Multicenter Study, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "research-article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Introduction The International Hidradenitis Suppurativa Severity Score System (IHS4) is a validated tool that measures inflammatory lesions, including draining tunnels, in hidradenitis suppurativa (HS). Objective To evaluate secukinumab efficacy using IHS4 in patients with moderate to severe HS. Methods Data from the SUNSHINE and SUNRISE trials, which assessed subcutaneous secukinumab 300 mg every 2 (SECQ2W) and 4 (SECQ4W) weeks in adults with moderate to severe HS, were analyzed. Assessments included changes from baseline in IHS4 and severity classification up to Week 52; IHS4-55, IHS4-75, IHS4-90 responses (55%, 75% and 90% reduction in IHS4) and concordance between IHS4-55 and HS clinical response (HiSCR), at Weeks 16 and 52. Results In total, 1084 patients (SECQ2W = 361; SECQ4W = 360; placebo = 363) were analyzed. At Week 16, SECQ2W and SECQ4W demonstrated a numerically higher reduction in IHS4 from baseline versus placebo (adjusted mean [95% CI]: -10.80 [-12.30 to -9.30] and -9.46 [-10.96 to -7.96] vs. -4.92 [-6.43 to -3.41]); the reduction was maintained until Week 52 in both dose regimens. A greater proportion of patients achieved IHS4-55 with SECQ2W (43.4%) and SECQ4W (39.5%) versus placebo (31.5%) at Week 16, with further improvement at Week 52. Similar trends were observed for IHS4-75 and IHS4-90 responses. While no patients had mild disease based on IHS4 (80.7% had severe and 19.3% had moderate HS) at baseline, a greater proportion of patients were categorized as having mild disease at Week 16 in the SECQ2W (25.9%) and SECQ4W (24.0%) groups versus placebo (16.4%); this trend continued up to Week 52 in both dose regimens. Strong concordance (>85%) was observed between IHS4-55 and HiSCR. Conclusions Both SECQ2W and SECQ4W demonstrated efficacy in improving treatment response as measured by IHS4 and reducing disease severity versus placebo at Week 16 and these improvements were sustained through Week 52. These findings support that the dynamic and dichotomous IHS4 can efficiently detect treatment response changes in clinical trial settings. Clinical trials registration SUNSHINE (NCT03713619); SUNRISE (NCT03713632).",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "92c8cc9e8ac91a93b0519eea68edac1ad013fb03313758b0d6d278548ae77c48"
+      },
+      {
+        "pmid": "36746171",
+        "title": "Secukinumab in moderate-to-severe hidradenitis suppurativa (SUNSHINE and SUNRISE): week 16 and week 52 results of two identical, multicentre, randomised, placebo-controlled, double-blind phase 3 trials",
+        "authors": "Kimball AB, et al",
+        "year": "2023",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(23)00022-3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36746171/",
+        "context": "BACKGROUND: Few therapeutic options are available for patients with moderate-to-severe hidradenitis suppurativa. We aimed to assess the efficacy of secukinumab in patients with moderate-to-severe hidradenitis suppurativa in two randomised trials. METHODS: SUNSHINE and SUNRISE were identical, multicentre, randomised, placebo-controlled, double-blind phase 3 trials done in 219 primary sites in 40 countries. Patients aged 18 years old or older with the capacity to provide written informed consent and with moderate-to-severe hidradenitis suppurativa (defined as a total of ≥5 inflammatory lesions affecting ≥2 distinct anatomical areas) for at least 1 year were eligible for inclusion. Included patients also agreed to daily use of topical over-the-counter antiseptics on the areas affected by hidradenitis suppurativa lesions while on study treatment. Patients were excluded if they had 20 or more fistulae at baseline, had ongoing active conditions requiring treatment with prohibited medication (eg, systemic biological immunomodulating treatment, live vaccines, or other investigational treatments), or met other exclusion criteria. In both trials, patients were randomly assigned (1:1:1) by means of interactive response technology to receive subcutaneous secukinumab 300 mg every 2 weeks, subcutaneous secukinumab 300 mg every 4 weeks, or subcutaneous placebo all via a 2 mL prefilled syringe in a double-dummy method as per treatment assignment. The primary endpoint was the proportion of patients with a hidradenitis suppurativa clinical response, defined as a decrease in abscess and inflammatory nodule count by 50% or more with no increase in the number of abscesses or in the number of draining fistulae compared with baseline, at week 16, assessed in the overall population. Hidradenitis suppurativa clinical response was calculated based on the number of abscesses, inflammatory nodules, draining fistulae, total fistulae, and other lesions in the hidradenitis suppurativa affected areas. Safety was assessed by evaluating the presence of adverse events and serious adverse events according to common terminology criteria for adverse events, which were coded using Medical Dictionary for Regulatory Activities terminology. Both the SUNSHINE, NCT03713619, and SUNRISE, NCT03713632, trials are registered with ClinicalTrials.gov. FINDINGS: Between Jan 31, 2019, and June 7, 2021, 676 patients were screened for inclusion in the SUNSHINE trial, of whom 541 (80%; 304 [56%] women and 237 [44%] men; mean age 36·1 years [SD 11·7]) were included in the analysis (181 [33%] in the secukinumab every 2 weeks group, 180 [33%] in the secukinumab every 4 weeks group, and 180 [33%] in the placebo group). Between the same recruitment dates, 687 patients were screened for inclusion in the SUNRISE trial, of whom 543 (79%; 306 [56%] women and 237 [44%] men; mean age 36·3 [11·4] years) were included in the analysis (180 [33%] in the secukinumab every 2 weeks group, 180 [33%] in the secukinumab every 4 weeks group, and 183 [34%] in the placebo group). In the SUNSHINE trial, significantly more patients in the secukinumab every 2 weeks group had a hidradenitis suppurativa clinical response (rounded average number of patients with response in 100 imputations, 81·5 [45%] of 181 patients) compared with the placebo group (60·7 [34%] of 180 patients; odds ratio 1·8 [95% CI 1·1-2·7]; p=0·0070). However, there was no significant difference between the number of patients in the secukinumab every 4 weeks group (75·2 [42%] of 180 patients) and the placebo group (1·5 [1·0-2·3]; p=0·042). Compared with the placebo group (57·1 [31%] of 183 patients), significantly more patients in the secukinumab every 2 weeks group (76·2 [42%] of 180 patients; 1·6 [1·1-2·6]; p=0·015) and the secukinumab every 4 weeks group (83·1 [46%] of 180 patients; 1·9 [1·2-3·0]; p=0·0022) had a hidradenitis suppurativa clinical response in the SUNRISE trial. Patient responses were sustained up to the end of the trials at week 52. The most common adverse event by preferred term up to week 16 was headache in both the SUNSHINE (17 [9%] patients in the secukinumab every 2 weeks group, 20 [11%] in the secukinumab every 4 weeks group, and 14 [8%] in the placebo group) and SUNRISE (21 [12%] patients in the secukinumab every 2 weeks group, 17 [9%] in the secukinumab every 4 weeks group, and 15 [8%] in the placebo group) trials. No study-related deaths were reported up to week 16. The safety profile of secukinumab in both trials was consistent with that previously reported, with no new or unexpected safety findings detected. INTERPRETATION: When given every 2 weeks, secukinumab was clinically effective at rapidly improving signs and symptoms of hidradenitis suppurativa with a favourable safety profile and with sustained response up to 52 weeks of treatment. FUNDING: Novartis Pharma.",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2114eda9c73f1c9dd313114a3a405832df3fc36d4b21fea292162e152290f28e"
+      },
+      {
+        "pmid": "cr:10.1159/000550262",
+        "title": "Clinical and Transcriptomic Response to Secukinumab in Korean Patients with Moderate-to-Severe Hidradenitis Suppurativa",
+        "authors": "Moon Sujin, Lee Young In, Kwon Hyun Ah, Moon Ji Hwan",
+        "year": "2026",
+        "journal": "Dermatology",
+        "doi": "10.1159/000550262",
+        "url": "https://doi.org/10.1159/000550262",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Hidradenitis suppurativa (HS) is a chronic inflammatory skin disease characterized by recurrent painful nodules, abscesses, and tunnels, primarily affecting intertriginous areas. While IL-17-targeting biologics, including bimekizumab and secukinumab, have shown efficacy in moderate-to-severe HS, data in Asian populations remain limited. The aim of our study was to assess the clinical efficacy of secukinumab in Korean patients with moderate-to-severe HS and to perform an exploratory analysis of treatment-associated transcriptomic changes. Methods: Twenty-five patients with moderate-to-severe HS enrolled in a Managed Access Program (MAP) cohort received secukinumab 300 mg/week for 4 weeks, and then every 2 weeks through week 16. Clinical outcomes were assessed every 4 weeks. Paired lesional skin biopsies (baseline and week 12) from 3 patients underwent RNA sequencing to evaluate transcriptomic changes. Results: At week 16, 86.96% of patients achieved Hidradenitis Suppurativa Clinical Response (HiSCR), 78.26% reached a ≥55% reduction in the International Hidradenitis Suppurativa Severity Score System (IHS4 55), and 81.81% reported a ≥30% improvement in skin pain on the Numeric Rating Scale (NRS-30). Transcriptomic analysis revealed downregulation genes involved in epidermal development, keratinocyte differentiation, and antimicrobial response and upregulation of cell cycle-related pathways. Conclusions: Secukinumab demonstrated substantial clinical efficacy and modulated disease-relevant molecular pathways in Korean patients with moderate-to-severe HS. These findings support its therapeutic potential in Asian populations and provide mechanistic insights into IL-17 blockade in HS.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "b3e847f2930126daf468052b1b4ef12a4ccb0983779f884219c5e210caff1068"
+      },
+      {
+        "pmid": "42741725",
+        "title": "Efficacy of Secukinumab in Chinese Patients with Moderate-to-Severe Hidradenitis Suppurativa: A 16-Week, Single-Center, Prospective, Real-World Study.",
+        "authors": "Wu C, Ma X, Wang YJ, Liu TJ, Zhang XY, Jin HZ.",
+        "year": "2026",
+        "journal": "Journal of inflammation research",
+        "doi": "10.2147/jir.s637429",
+        "url": "https://europepmc.org/article/PMC/PMC13573794",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Hidradenitis suppurativa (HS) is a chronic inflammatory skin disease in which interleukin-17A (IL-17A) is an important therapeutic target. However, prospective real-world data on secukinumab (IL-17A inhibitor) safety and efficacy in Chinese patients with HS remain limited. Objective To evaluate the 16-week efficacy and safety of secukinumab in Chinese patients with moderate-to-severe HS and explore potential treatment response predictors. Methods This single-center, prospective, real-world cohort study included 31 patients with moderate-to-severe HS. The patients received subcutaneous secukinumab 300 mg weekly for 5 weeks, followed by administration either every 2 (1 patient [3.23%]) or 4 (30 patients [96.77%]) weeks. Concomitant therapies were allowed when clinically indicated. The primary endpoint was Hidradenitis Suppurativa Clinical Response (HiSCR) at week 16. Secondary endpoints included changes in inflammatory nodule, abscess, and draining tunnel counts, International Hidradenitis Suppurativa Severity Score System (IHS4), Numeric Rating Scale (NRS) for pain, Dermatology Life Quality Index (DLQI), adverse events, and exploratory predictors of HiSCR. Results The cohort was predominantly male (77.42%). Ten patients (32.26%) were classified as Hurley stage II and 21 (67.74%) as Hurley stage III. During treatment, 74.19% of patients received concomitant therapies. At week 16, HiSCR was achieved by 17/31 patients (54.84%). Inflammatory nodule counts, draining tunnel counts, IHS4, and DLQI significantly decreased. In the adjusted multivariate logistic regression model, after adjustment for prior biologic use, decreased high-density lipoprotein cholesterol, and dyslipidemia, elevated triglyceride was independently associated with HiSCR achievement (β= 3.246, p = 0.037). Adverse events were mild, including acne in two patients (6.45%), facial allergic dermatitis in one (3.23%), fever in two (6.45%), and fatigue in one (3.23%). None discontinued treatment because of adverse events. Conclusions Secukinumab demonstrated meaningful 16-week efficacy and favorable safety in Chinese patients with moderate-to-severe HS. Elevated triglyceride was associated with treatment response in this exploratory analysis; however, further validation in larger cohorts is required.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "a7421c6f68c2fd50ba815018ab9feb44b584393e82e5760f4392e6e70565514b"
+      },
+      {
+        "pmid": "41727443",
+        "title": "Therapeutic drug monitoring of adalimumab in hidradenitis suppurativa: a prospective observational study.",
+        "authors": "Chen SX, Wafae BGO, Look-Why S, Otto T, Snyder C, Sweet W, Ashina N, Gibson R, Salian P, Doroudian Tehrani M, Dervieux T",
+        "year": "2026",
+        "journal": "Frontiers in immunology",
+        "doi": "10.3389/fimmu.2026.1760206",
+        "url": "https://europepmc.org/article/PMC/PMC12917758",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article, Observational Study",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article",
+          "Observational Study"
+        ],
+        "context": "Background Adalimumab (ADA) is an effective treatment for moderate to severe hidradenitis suppurativa (HS). However, nearly half of patients receiving the standard dose may lose response. Objective To establish therapeutic thresholds for HS-specific ADA levels, leading to more personalized treatment. Methods We conducted a single-center, prospective observational study of adults with HS treated with ADA (40 or 80mg/week, and 80mg/biweekly) at a specialized HS clinic (January 2023-May 2024). Serum samples were collected after ≥4 weeks of therapy to ensure steady state. Patients were stratified by physician-assessed response (low 75% improvement). Associations of ADA concentration and clearance with response were tested using Spearman and Pearson correlations; discriminatory performance was evaluated with ROC analysis. Results Among 46 enrolled patients, the majority was female (60.9%) and White (54.3%), with a median age of 38 years (IQR: 30-45). ADA serum concentrations positively correlated with clinical response (r = 0.43, p = 0.002). Low responders had significantly lower concentrations than partial (p = 0.029) and high responders (p = 0.007). Clearance was inversely correlated with ADA levels (r = -0.65, p Conclusion Higher ADA concentrations and lower drug clearance are associated with better clinical outcomes in HS. ROC analysis identified 10.7 μg/mL (ADA concentration) and 0.5 L/day (clearance) as optimal cut-off values to differentiate low from partial/high responders. These findings suggest that therapeutic drug monitoring may help optimize ADA therapy in HS.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1359cb9b13a11c174b7e37faad32c096ed517d1401c18823de6e48d7831bd19b"
+      },
+      {
+        "pmid": "41450452",
+        "title": "Bimekizumab for Hidradenitis Suppurativa from Trials to Real Life: A Review of the Published Literature.",
+        "authors": "Martora F, Megna M.",
+        "year": "2025",
+        "journal": "Clinical, cosmetic and investigational dermatology",
+        "doi": "10.2147/ccid.s565686",
+        "url": "https://europepmc.org/article/PMC/PMC12730175",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Hidradenitis suppurativa (HS) is a chronic, debilitating inflammatory disorder of the hair follicles affecting areas rich in apocrine glands. Moderate-to-severe forms often require biologic therapies, including bimekizumab, a humanized monoclonal antibody that selectively inhibits IL-17A and IL-17F. Secukinumab, a fully human monoclonal antibody targeting IL-17A, and adalimumab, an anti-TNFα monoclonal antibody and the first biologic approved for HS, also represent established therapeutic options, reducing inflammatory lesions and pain with variable long-term response among patients. Approved in Europe and the USA in 2024 for HS, bimekizumab has shown promising efficacy in the BE HEARD I and II clinical trials, with significantly higher HiSCR response rates compared to placebo and improvements sustained through 48 weeks; the BE HEARD EXT extension study confirmed durable benefits at two years, with reduced disease severity and improved quality of life. This review included six studies (two trials, three case series, and one case report), highlighting consistent results in real-world settings, though limited by the drug's recent introduction. Observational studies reported significant reductions in IHS4, pain, and DLQI scores, with complete remission in some cases. The most frequent adverse events were mucocutaneous candidiasis, generally mild and manageable. Dual inhibition of IL-17A and IL-17F represents an innovative therapeutic approach for HS, with potentially greater efficacy than selective inhibitors. However, further large-scale, long-term real-world data are needed to confirm the drug's safety and effectiveness and to define the optimal role of bimekizumab in HS management.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "58de623cc9c0cd699194cf0f22163bac48bb14b3f7f06f838a64d27943da3fc5"
+      },
+      {
+        "pmid": "cr:10.1016/j.jaad.2025.05.762",
+        "title": "63451 Efficacy of secukinumab uptitration from every 4 weeks to every 2 weeks dosing between weeks 52-104 in week 52 HiSCR non-responder patients with moderate to severe hidradenitis suppurativa: A post hoc analysis of the SUNSHINE and SUNRISE extension trial",
+        "authors": "Alavi Afsaneh, Badat Aysha, Bechara Falk G., Giamarellos-Bourboulis Evangelos J.",
+        "year": "2025",
+        "journal": "Journal of the American Academy of Dermatology",
+        "doi": "10.1016/j.jaad.2025.05.762",
+        "url": "https://doi.org/10.1016/j.jaad.2025.05.762",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "7350413b848c956e4ebba45412992030fa098b488d419f5bfe178623391a4765"
+      },
+      {
+        "pmid": "cr:10.2147/ccid.s468268",
+        "title": "Secukinumab for Severe Hidradenitis Suppurativa in a Patient on Haemodialysis: Efficacy and Safety on 300 mg Every 2 Weeks Administration – A Case Report",
+        "authors": "Martora Fabrizio, Annunziata Maria Carmela, Potestio Luca, Battista Teresa",
+        "year": "2024",
+        "journal": "Clinical, Cosmetic and Investigational Dermatology",
+        "doi": "10.2147/ccid.s468268",
+        "url": "https://doi.org/10.2147/ccid.s468268",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "0f4819c6d6063def6ea4aab2f7b78a850a0a8a4f51650b1464ad7504b1c8eaa1"
+      },
+      {
+        "pmid": "39699926",
+        "title": "European S2k guidelines for hidradenitis suppurativa/acne inversa part 2: Treatment.",
+        "authors": "Zouboulis CC, Bechara FG, Benhadou F, Bettoli V, Bukvić Mokos Z, Del Marmol V, Dolenc-Voljč M, Giamarellos-Bourboulis EJ",
+        "year": "2025",
+        "journal": "Journal of the European Academy of Dermatology and Venereology : JEADV",
+        "doi": "10.1111/jdv.20472",
+        "url": "https://europepmc.org/article/PMC/PMC12023723",
+        "source": "pmc",
+        "pubType": "other, Practice Guideline, Journal Article",
+        "publicationTypes": [
+          "other",
+          "Practice Guideline",
+          "Journal Article"
+        ],
+        "context": "Introduction This second part of the S2k guidelines is an update of the 2015 S1 European guidelines. Objective These guidelines aim to provide an accepted decision aid for the selection, implementation and assessment of appropriate and sufficient therapy for patients with hidradenitis suppurativa/acne inversa (HS). Methods The chapters have been selected after a Delphi procedure among the experts/authors. Certain passages have been adopted without changes from the previous version. Potential treatment complications are not included, being beyond the scope of these guidelines. Results Since the S1 guidelines publication, validation of new therapeutic approaches has almost completely overhauled the knowledge in the field of HS treatment. Inflammatory nodules/abscesses/draining tunnels are the primary lesions, which enable the classification of the disease severity by new validated tools. In relation to the degree of detectable inflammation, HS is classified into the inflammatory and the predominantly non-inflammatory forms. While the intensity of the inflammatory form can be subdivided by the IHS4 classification in mild, moderate and severe HS and is treated by medication accordingly, the decision on surgical treatment of the predominantly non-inflammatory form is based on the Hurley stage of the affected localization. The effectiveness of oral tetracyclines as an alternative to the oral combination of clindamycin/rifampicin should be noted. The duration of systemic antibiotic therapy can be shortened by a 5-day intravenous clindamycin treatment. Adalimumab, secukinumab and bimekizumab subcutaneous administration has been approved by the EMA for the treatment of moderate-to-severe HS. Various surgical procedures are available for the predominantly non-inflammatory form of the disease. The combination of a medical therapy to reduce inflammation with a surgical procedure to remove irreversible tissue damage is currently considered a holistic therapeutic approach. Conclusions Suitable therapeutic options while considering HS severity in the therapeutic algorithm according to standardized criteria are aimed at ensuring a proper therapy.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "f2bc20bcafbfa23adc670d1e826741f97278afc1a9d6f56c57b9edc3934d6695"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 36,
+      "screened": 36,
+      "blocked": 0,
+      "returned": 10,
+      "relaxationLevel": 1
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "moderate-to-severe active hidradenitis suppurativa secukinumab subcutaneous every 2 weeks adalimumab standard dosing HiSCR 50 clinical response and draining tunnel reduction at 16 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

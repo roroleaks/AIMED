@@ -1,0 +1,141 @@
+[
+  {
+    "pmid": "39159638",
+    "title": "Comparison of platinum combination chemotherapy plus pembrolizumab versus platinum combination chemotherapy plus nivolumab-ipilimumab for treatment-naive advanced non-small-cell lung cancer in Japan (JCOG2007): an open-label, multicentre, randomised, phase 3 trial",
+    "authors": "Shiraishi Y, et al",
+    "year": "2024",
+    "journal": "The Lancet. Respiratory medicine",
+    "doi": "10.1016/S2213-2600(24)00185-1",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/39159638/",
+    "context": "BACKGROUND: The combination of platinum-based chemotherapy and an antibody to PD-1 or to its ligand PD-L1, with or without an antibody to CTLA-4, has improved the survival of individuals with metastatic non-small-cell lung cancer (NSCLC). However, no randomised controlled trial has evaluated the survival benefit of adding a CTLA-4 inhibitor to platinum-based chemotherapy plus a PD-1 or PD-L1 inhibitor. METHODS: This open-label, randomised, phase 3 trial was conducted at 48 hospitals in Japan. Eligible patients were aged 20 years or older with previously untreated advanced NSCLC and an Eastern Cooperative Oncology Group performance status of 0 or 1. Patients with known driver oncogenes were excluded. Participants were randomly assigned (1:1) to receive platinum-based chemotherapy (four cycles) plus pembrolizumab (pembrolizumab group) or platinum-based chemotherapy (two cycles) plus nivolumab-ipilimumab (nivolumab-ipilimumab group). The primary endpoint was overall survival and assessed in all randomly assigned patients on an intention-to-treat basis. The trial is registered in the Japan Registry for Clinical Trials, jRCTs031210013, and is now closed to new enrolment and is ongoing. FINDINGS: Between patient accrual initiation on April 6, 2021, and discontinuation of the trial on March 30, 2023, 11 (7%) of 148 patients in the nivolumab-ipilimumab group had a treatment-related death. Because of the high number of treatment-related deaths, patient accrual was terminated early, resulting in 295 patients (236 [80%] male and 59 [20%] female) enrolled; the primary analysis was done on the basis of 117 deaths (fewer than the required 329 deaths). By May 25, 2023 (data cutoff), overall survival did not differ significantly between the nivolumab-ipilimumab group and the pembrolizumab group (median 23·7 months [95% CI 17·6-not estimable] vs 20·5 months [17·6-not estimable], respectively; hazard ratio 0·98 [90% CI 0·72-1·34]; p=0·46). Non-haematological adverse events of grade 3 or worse occurred in 87 (60%) of 146 patients in the nivolumab-ipilimumab group and 59 (41%) of 144 patients in the pembrolizumab group. The pembrolizumab group tended to have a better quality of life compared with the nivolumab-ipilimumab group. INTERPRETATION: The safety and efficacy data suggest an unfavourable benefit-risk profile for nivolumab-ipilimumab combined with platinum-based chemotherapy relative to pembrolizumab combined with platinum-based chemotherapy as a first-line treatment for patients with advanced NSCLC, although a definitive conclusion awaits an updated analysis of overall survival. FUNDING: The National Cancer Center Research and Development Fund and Japan Agency for Medical Research and Development.",
+    "source": "pubmed",
+    "publicationTypes": [
+      "Journal Article",
+      "Randomized Controlled Trial",
+      "Clinical Trial, Phase III",
+      "Multicenter Study",
+      "Comparative Study",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "relevancePct": 93,
+    "matchedElements": [
+      "P",
+      "I",
+      "C",
+      "O"
+    ],
+    "design": "Randomized Controlled Trial (RCT)",
+    "lowMetadata": false,
+    "_sig": "f0ffe58948337946fc609bb2a66c7d007f8a7e7465b6f78409c03d26f06f10d9"
+  },
+  {
+    "pmid": "30955977",
+    "title": "Pembrolizumab versus chemotherapy for previously untreated, PD-L1-expressing, locally advanced or metastatic non-small-cell lung cancer (KEYNOTE-042): a randomised, open-label, controlled, phase 3 trial",
+    "authors": "Mok TSK, et al",
+    "year": "2019",
+    "journal": "Lancet (London, England)",
+    "doi": "10.1016/S0140-6736(18)32409-7",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30955977/",
+    "context": "BACKGROUND: First-line pembrolizumab monotherapy improves overall and progression-free survival in patients with untreated metastatic non-small-cell lung cancer with a programmed death ligand 1 (PD-L1) tumour proportion score (TPS) of 50% or greater. We investigated overall survival after treatment with pembrolizumab monotherapy in patients with a PD-L1 TPS of 1% or greater. METHODS: This randomised, open-label, phase 3 study was done in 213 medical centres in 32 countries. Eligible patients were adults (≥18 years) with previously untreated locally advanced or metastatic non-small-cell lung cancer without a sensitising EGFR mutation or ALK translocation and with an Eastern Cooperative Oncology Group (ECOG) performance status score of 0 or 1, life expectancy 3 months or longer, and a PD-L1 TPS of 1% or greater. Randomisation was computer generated, accessed via an interactive voice-response and integrated web-response system, and stratified by region of enrolment (east Asia vs rest of world), ECOG performance status score (0 vs 1), histology (squamous vs non-squamous), and PD-L1 TPS (≥50% vs 1-49%). Enrolled patients were randomly assigned 1:1 in blocks of four per stratum to receive pembrolizumab 200 mg every 3 weeks for up to 35 cycles or the investigator's choice of platinum-based chemotherapy for four to six cycles. Primary endpoints were overall survival in patients with a TPS of 50% or greater, 20% or greater, and 1% or greater (one-sided significance thresholds, p=0·0122, p=0·0120, and p=0·0124, respectively) in the intention-to-treat population, assessed sequentially if the previous findings were significant. This study is registered at ClinicalTrials.gov, number NCT02220894. FINDINGS: From Dec 19, 2014, to March 6, 2017, 1274 patients (902 men, 372 women, median age 63 years [IQR 57-69]) with a PD-L1 TPS of 1% or greater were allocated to pembrolizumab (n=637) or chemotherapy (n=637) and included in the intention-to-treat population. 599 (47%) had a TPS of 50% or greater and 818 patients (64%) had a TPS of 20% or greater. As of Feb 26, 2018, median follow-up was 12·8 months. Overall survival was significantly longer in the pembrolizumab group than in the chemotherapy group in all three TPS populations (≥50% hazard ratio 0·69, 95% CI 0·56-0·85, p=0·0003; ≥20% 0·77, 0·64-0·92, p=0·0020, and ≥1% 0·81, 0·71-0·93, p=0·0018). The median surival values by TPS population were 20·0 months (95% CI 15·4-24·9) for pembrolizumab versus 12·2 months (10·4-14·2) for chemotherapy, 17·7 months (15·3-22·1) versus 13·0 months (11·6-15·3), and 16·7 months (13·9-19·7) versus 12·1 months (11·3-13·3), respectively. Treatment-related adverse events of grade 3 or worse occurred in 113 (18%) of 636 treated patients in the pembrolizumab group and in 252 (41%) of 615 in the chemotherapy group and led to death in 13 (2%) and 14 (2%) patients, respectively. INTERPRETATION: The benefit-to-risk profile suggests that pembrolizumab monotherapy can be extended as first-line therapy to patients with locally advanced or metastatic non-small-cell lung cancer without sensitising EGFR or ALK alterations and with low PD-L1 TPS. FUNDING: Merck Sharp & Dohme.",
+    "source": "pubmed",
+    "pubType": "Clinical Trial, Phase III",
+    "publicationTypes": [
+      "Clinical Trial, Phase III",
+      "Comparative Study",
+      "Journal Article",
+      "Randomized Controlled Trial"
+    ],
+    "relevancePct": 93,
+    "matchedElements": [
+      "P",
+      "I",
+      "C",
+      "O"
+    ],
+    "design": "Randomized Controlled Trial (RCT)",
+    "lowMetadata": false,
+    "_sig": "124703d630c398fbe64fded0548babccb66a86b396c50ee4bbffe814e0ecf6bd"
+  },
+  {
+    "pmid": "30280635",
+    "title": "Pembrolizumab plus Chemotherapy for Squamous Non-Small-Cell Lung Cancer",
+    "authors": "Paz-Ares L, et al",
+    "year": "2018",
+    "journal": "The New England journal of medicine",
+    "doi": "10.1056/NEJMoa1810865",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30280635/",
+    "context": "BACKGROUND: Standard first-line therapy for metastatic, squamous non-small-cell lung cancer (NSCLC) is platinum-based chemotherapy or pembrolizumab (for patients with programmed death ligand 1 [PD-L1] expression on ≥50% of tumor cells). More recently, pembrolizumab plus chemotherapy was shown to significantly prolong overall survival among patients with nonsquamous NSCLC. METHODS: In this double-blind, phase 3 trial, we randomly assigned, in a 1:1 ratio, 559 patients with untreated metastatic, squamous NSCLC to receive 200 mg of pembrolizumab or saline placebo for up to 35 cycles; all the patients also received carboplatin and either paclitaxel or nanoparticle albumin-bound [nab]-paclitaxel for the first 4 cycles. Primary end points were overall survival and progression-free survival. RESULTS: After a median follow-up of 7.8 months, the median overall survival was 15.9 months (95% confidence interval [CI], 13.2 to not reached) in the pembrolizumab-combination group and 11.3 months (95% CI, 9.5 to 14.8) in the placebo-combination group (hazard ratio for death, 0.64; 95% CI, 0.49 to 0.85; P<0.001). The overall survival benefit was consistent regardless of the level of PD-L1 expression. The median progression-free survival was 6.4 months (95% CI, 6.2 to 8.3) in the pembrolizumab-combination group and 4.8 months (95% CI, 4.3 to 5.7) in the placebo-combination group (hazard ratio for disease progression or death, 0.56; 95% CI, 0.45 to 0.70; P<0.001). Adverse events of grade 3 or higher occurred in 69.8% of the patients in the pembrolizumab-combination group and in 68.2% of the patients in the placebo-combination group. Discontinuation of treatment because of adverse events was more frequent in the pembrolizumab-combination group than in the placebo-combination group (13.3% vs. 6.4%). CONCLUSIONS: In patients with previously untreated metastatic, squamous NSCLC, the addition of pembrolizumab to chemotherapy with carboplatin plus paclitaxel or nab-paclitaxel resulted in significantly longer overall survival and progression-free survival than chemotherapy alone. (Funded by Merck Sharp & Dohme; KEYNOTE-407 ClinicalTrials.gov number, NCT02775435 .).",
+    "source": "pubmed",
+    "pubType": "Clinical Trial, Phase III",
+    "publicationTypes": [
+      "Clinical Trial, Phase III",
+      "Journal Article",
+      "Multicenter Study",
+      "Randomized Controlled Trial",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "relevancePct": 93,
+    "matchedElements": [
+      "P",
+      "I",
+      "C",
+      "O"
+    ],
+    "design": "Randomized Controlled Trial (RCT)",
+    "lowMetadata": false,
+    "_sig": "fe55221b15baae1c10cd1cf3555230b8657d7c89601da4fb3f1e4e62d15ad801"
+  },
+  {
+    "pmid": "29658856",
+    "title": "Pembrolizumab plus Chemotherapy in Metastatic Non-Small-Cell Lung Cancer",
+    "authors": "Gandhi L, et al",
+    "year": "2018",
+    "journal": "The New England journal of medicine",
+    "doi": "10.1056/NEJMoa1801005",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29658856/",
+    "context": "BACKGROUND: First-line therapy for advanced non-small-cell lung cancer (NSCLC) that lacks targetable mutations is platinum-based chemotherapy. Among patients with a tumor proportion score for programmed death ligand 1 (PD-L1) of 50% or greater, pembrolizumab has replaced cytotoxic chemotherapy as the first-line treatment of choice. The addition of pembrolizumab to chemotherapy resulted in significantly higher rates of response and longer progression-free survival than chemotherapy alone in a phase 2 trial. METHODS: In this double-blind, phase 3 trial, we randomly assigned (in a 2:1 ratio) 616 patients with metastatic nonsquamous NSCLC without sensitizing EGFR or ALK mutations who had received no previous treatment for metastatic disease to receive pemetrexed and a platinum-based drug plus either 200 mg of pembrolizumab or placebo every 3 weeks for 4 cycles, followed by pembrolizumab or placebo for up to a total of 35 cycles plus pemetrexed maintenance therapy. Crossover to pembrolizumab monotherapy was permitted among the patients in the placebo-combination group who had verified disease progression. The primary end points were overall survival and progression-free survival, as assessed by blinded, independent central radiologic review. RESULTS: After a median follow-up of 10.5 months, the estimated rate of overall survival at 12 months was 69.2% (95% confidence interval [CI], 64.1 to 73.8) in the pembrolizumab-combination group versus 49.4% (95% CI, 42.1 to 56.2) in the placebo-combination group (hazard ratio for death, 0.49; 95% CI, 0.38 to 0.64; P<0.001). Improvement in overall survival was seen across all PD-L1 categories that were evaluated. Median progression-free survival was 8.8 months (95% CI, 7.6 to 9.2) in the pembrolizumab-combination group and 4.9 months (95% CI, 4.7 to 5.5) in the placebo-combination group (hazard ratio for disease progression or death, 0.52; 95% CI, 0.43 to 0.64; P<0.001). Adverse events of grade 3 or higher occurred in 67.2% of the patients in the pembrolizumab-combination group and in 65.8% of those in the placebo-combination group. CONCLUSIONS: In patients with previously untreated metastatic nonsquamous NSCLC without EGFR or ALK mutations, the addition of pembrolizumab to standard chemotherapy of pemetrexed and a platinum-based drug resulted in significantly longer overall survival and progression-free survival than chemotherapy alone. (Funded by Merck; KEYNOTE-189 ClinicalTrials.gov number, NCT02578680 .).",
+    "source": "pubmed",
+    "pubType": "Clinical Trial, Phase III",
+    "publicationTypes": [
+      "Clinical Trial, Phase III",
+      "Journal Article",
+      "Multicenter Study",
+      "Randomized Controlled Trial",
+      "Research Support, Non-U.S. Gov't"
+    ],
+    "relevancePct": 93,
+    "matchedElements": [
+      "P",
+      "I",
+      "C",
+      "O"
+    ],
+    "design": "Randomized Controlled Trial (RCT)",
+    "lowMetadata": false,
+    "_sig": "2996eb87e59dd9992fdec0a4e889f109bd469836e2a86786d1637685d37c4dce"
+  },
+  {
+    "pmid": "doi:10.3389/fimmu.2025.1635056",
+    "title": "Do age and performance status matter? A systematic review and network meta-analysis of immunotherapy studies in untreated advanced/metastatic non-oncogene addicted NSCLC",
+    "authors": "Maria Anna Siciliano, Maria d’Apolito, Teresa Del Giudice, Giulio Caridà",
+    "year": "2025",
+    "journal": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2025.1635056",
+    "url": "https://doi.org/10.3389/fimmu.2025.1635056",
+    "source": "doaj",
+    "pubType": "Journal Article",
+    "publicationTypes": [
+      "Journal Article"
+    ],
+    "context": "BackgroundImmune checkpoint inhibitors (ICIs) redefined the treatment of non-small cell lung cancer (NSCLC) but their efficacy in elderly and frail patients remains unclear due to immune-senescence and the underrepresentation of these populations in clinical trials. This systematic review and meta-analysis aimed to evaluate and rank first-line ICI-based therapies in NSCLC, stratified by age and performance status (PS).MethodsA comprehensive search for randomized controlled trials (RCTs) of ICI regimens, pairwise and network meta-analyses (NMA) based on age (<65, ≥65, ≥75 years) and PS (0 vs. 1) were conducted. Endpoints were overall survival (OS) and progression-free survival (PFS).ResultsICIs significantly improved OS and PFS versus chemotherapy (CT) in most subgroups. No OS benefit was observed in patients over 75 years. In younger patients, ICI+CT combinations (e.g. pembrolizumab+CT, cemiplimab+CT, camrelizumab+CT) ranked highest for OS and PFS. Among ≥65y patients, cemiplimab ranked first reaching statistical significance in most comparisons, while pembrolizumab was the most effective option for PFS. Stratified by PS, cemiplimab+CT ranked highest for OS in PS 0 patients, whereas cemiplimab was preferred in PS 1 patients. Overall, combination regimens were more effective in younger/fit patients, while monotherapy was more effective in older/PS 1 patients, suggesting a different benefit-risk balance. Anti-PD-1 therapies (alone or in combination) outperformed anti-PD-L1 and anti-CTLA-4 therapies in OS.ConclusionsThis meta-analysis highlights how the efficacy of ICIs in advanced NSCLC varies by age and PS. These findings support a tailored approach to immunotherapy and emphasize the need for trials specifically targeting frail and elderly populations.",
+    "relevancePct": 76,
+    "matchedElements": [
+      "P",
+      "I",
+      "O"
+    ],
+    "design": "Systematic Review and Meta-Analysis",
+    "lowMetadata": false,
+    "_sig": "afc6adee3805f5568e0bc70b04d1cd9ccb52912d44fca5fabd7e4db934a773ca"
+  }
+]

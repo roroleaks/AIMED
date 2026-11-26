@@ -453,6 +453,15 @@ export function generateDeterministicScreen(
       ? `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${gapO} (O)?`
       : `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${gapVerb} ${gapO} (O)?`;
     gapBasis = `Screened literature provides sparse coverage (${oCoverage} record(s)) for clinical outcomes, leaving long-term safety and patient-reported endpoints unaddressed.`;
+  } else if (totalScreened > 0 && !isEstablished && !isConflicting && !isGap && matchingPio.length > 0) {
+    // Matching reviews or trials exist, so this is not a missing-evidence gap, yet their abstracts
+    // give no extractable direction of effect, so it can be called neither established nor
+    // conflicting. Leaving all three cards unavailable dead-ends Step 2, so this is offered as the
+    // gap it truthfully is: the direction cannot be determined without full-text appraisal.
+    gapPhrase = isPredictionModel
+      ? `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${gapO} (O)?`
+      : `In ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) ${gapVerb} ${gapO} (O)?`;
+    gapBasis = `${matchingPio.length} matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.`;
   } else if (totalScreened > 0) {
     gapPhrase = isPredictionModel
       ? `In high-risk subgroups of ${P} (P), does ${effectiveI} (I) compared with ${cOrI2OrDefault} (C) predict ${O || "clinical outcomes"} (O) without adverse events (O)?`

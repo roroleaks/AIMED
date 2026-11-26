@@ -185,6 +185,25 @@ export function buildInTextCitation(
   return `(${parts.join(", ")})`;
 }
 
+/** Longest title the composer emits; the export routes refuse anything over 240 characters. */
+export const MAX_TITLE_LENGTH = 200;
+
+/**
+ * "<question>: <suffix>", shortened to fit MAX_TITLE_LENGTH. Only the question part is shortened,
+ * and only between whole words, so no term is ever cut in half; the suffix that tells the reader
+ * how strong the evidence is always survives.
+ */
+export function fitTitle(question: string, suffix: string, max: number = MAX_TITLE_LENGTH): string {
+  const full = `${question}: ${suffix}`;
+  if (full.length <= max) return full;
+  const room = max - suffix.length - 3; // ": " plus the ellipsis
+  if (room < 20) return full.slice(0, max).replace(/\s+\S*$/, "");
+  let cut = question.slice(0, room);
+  if (question.charAt(room) !== " " && /\S$/.test(cut)) cut = cut.replace(/\s+\S*$/, "");
+  cut = cut.replace(/[\s,;:(\-\/]+$/, "");
+  return `${cut}\u2026: ${suffix}`;
+}
+
 function extractStudyPopulation(context: string, title: string): string {
   const full = `${title}. ${context}`;
   const m1 = /\b(?:in|among|of|included?|enrolled?)\s+(\d+[\w\s-]{4,35}?(?:women|patients|men|participants|infants|couples|adults|individuals|cases|embryos|blastocysts))\b/i.exec(full);
@@ -278,7 +297,7 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
   } else {
     titleSuffix = "A Rapid Evidence Summary of Identified Clinical Literature Gaps";
   }
-  const title = `${titlePhrase}: ${titleSuffix}`;
+  const title = fitTitle(titlePhrase, titleSuffix);
 
   // Partition retained records into relevance tiers
   const tier90 = retained.filter(r => (r.relevancePct ?? 0) >= 90);
@@ -424,8 +443,10 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
       const itemCite = buildInTextCitation([r], style, vancouverIndexMap);
       const parsedAuthors = parseAuthorNames(r.authors || "");
       const authorText = parsedAuthors[0]?.surname ? `${parsedAuthors[0].surname} et al.` : "Authors";
+      // Vancouver is a numbered style: name the first author without a year and let the bracketed
+      // number carry the citation, so the text never mixes "(Author et al., 2024)" with "[1]".
       const citationLead = style === "vancouver"
-        ? `(${authorText}, ${r.year || "n.d."}) ${itemCite}`
+        ? `${authorText} ${itemCite}`
         : itemCite;
       if (finding) {
         return `"${r.title}" ${citationLead} reported: "${finding}"`;
@@ -477,7 +498,12 @@ export function composeManuscript(input: ComposeManuscriptInput): ManuscriptData
 
   // Section 5: Conclusion
   const conclusionP1 = `In conclusion, ${evidenceConclusion}`;
-  const conclusionP2 = "Recommended clinical research workup: Investigators should conduct full-text appraisal of all prioritized citations, execute standardized risk-of-bias evaluation (e.g., Cochrane RoB 2 or ROBINS-I), register prospective systematic reviews with PROSPERO, and establish defined cohort monitoring protocols.";
+  // Next-step paragraph built from this question's own terms and the design mix actually retained,
+  // so two unrelated questions never share the same fixed advice. It is category-independent on
+  // purpose: the conclusion must read the same whichever evidence framing the user chose.
+  const conclusionP2 = matchingRetained.length === 0
+    ? `No retained record directly compares ${intWord} with ${compWord} for ${outWord} in ${popWord}. Answering this question would need a comparative study of ${intWord} versus ${compWord} in ${popWord} that reports ${outWord} as an outcome${retained.length > 0 ? `, which the ${retained.length} retained record(s) (${designSummary}) do not provide` : ""}.`
+    : `This draft rests on abstracts only. The ${matchingRetained.length} record(s) that match ${intWord} and ${outWord} (${designSummary}) need full-text appraisal, including a formal risk-of-bias assessment, before ${intWord} versus ${compWord} for ${outWord} in ${popWord} can support any clinical decision.`;
 
   const sections: ManuscriptSection[] = [
     {
@@ -665,8 +691,11 @@ export function validateEnrichedManuscript(
     }
   }
 
-  const title = typeof candidate.title === "string" && candidate.title.trim()
+  const candidateTitle = typeof candidate.title === "string" && candidate.title.trim()
     ? candidate.title.replace(/\s*\([PICO]\)/g, "").replace(/\s+/g, " ").trim()
+    : deterministic.title;
+  const title = candidateTitle.length <= MAX_TITLE_LENGTH
+    ? candidateTitle
     : deterministic.title;
 
   return {

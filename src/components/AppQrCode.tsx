@@ -87,6 +87,7 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
         📱 Scan for Mobile Access
       </div>
       <a
+        className="tap-link"
         href={displayUrl}
         target="_blank"
         rel="noopener noreferrer"

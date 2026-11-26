@@ -1,0 +1,15 @@
+[
+  {
+    "pmid": "99999999",
+    "doi": "10.9999/invented.2026.99999",
+    "title": "Randomized trial of fabricated intervention in clinical practice",
+    "authors": "Invented A, Fake B",
+    "year": "2026",
+    "journal": "Journal of Invented Results",
+    "pubType": "Randomized Controlled Trial",
+    "context": "Patients were randomized to fabricated therapy versus placebo. Results showed significant improvement in fabricated outcomes.",
+    "relevancePct": 95,
+    "matchedElements": ["P", "I", "C", "O"],
+    "source": "pubmed"
+  }
+]

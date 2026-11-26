@@ -597,6 +597,48 @@ export function foldName(s: string): string {
 const NON_NAMES = /^(and|et|al|in|the|a|an|for|of|on|with|by|at|from)$/i;
 
 /**
+ * Locate the publication year inside a formatted reference string.
+ *
+ * A bare first-match on /(19|20)\d{2}/ reads the "2007" in a trial code such as "JCOG2007", in
+ * "KEYNOTE-2019" style names, or in a DOI, instead of the year the paper was published, so a
+ * citation to the right paper looked like an orphan and an export was refused. Digits glued to
+ * letters or digits are never a year, DOIs and URLs are masked out, and the year is taken from
+ * where each citation style puts it: "(2018)", ", 2018.", ". 2024;" / ". 2024." (Vancouver).
+ * Only when none of those positions matches is the last standalone year used, because the
+ * publication year follows the title.
+ */
+export function findPublicationYear(ref: string): { year: string; index: number } | null {
+  const masked = ref
+    .replace(/\b(?:https?:\/\/|doi:\s*|doi\.org\/)\S+/gi, m => " ".repeat(m.length))
+    .replace(/\b10\.\d{4,9}\/\S+/g, m => " ".repeat(m.length))
+    .replace(/\b(?:PMID|PMCID|NCT)\s*:?\s*\w+/gi, m => " ".repeat(m.length));
+  const Y = "(?<![A-Za-z0-9])((?:19|20)\\d{2})(?![A-Za-z0-9])";
+  const positional = [
+    new RegExp("\\(" + Y + "[a-z]?\\)"),
+    new RegExp("[,;]\\s*" + Y + "[a-z]?\\s*[.;:)]"),
+    new RegExp("\\.\\s*" + Y + "[a-z]?\\s*(?:[;:.,]|[A-Z][a-z]{2}\\b|$)")
+  ];
+  // The earliest positional match wins: the year sits right after the authors (APA/Harvard) or the
+  // journal (Vancouver), before any parenthesised year that happens to occur later in the title.
+  let best: { year: string; index: number } | null = null;
+  for (const re of positional) {
+    const m = re.exec(masked);
+    if (!m) continue;
+    const at = m.index + m[0].indexOf(m[1]);
+    if (!best || at < best.index) best = { year: m[1], index: at };
+  }
+  if (best) return best;
+  const all = [...masked.matchAll(new RegExp(Y, "g"))];
+  if (!all.length) return null;
+  const last = all[all.length - 1];
+  return { year: last[1], index: last.index ?? 0 };
+}
+
+export function extractPublicationYear(ref: string): string {
+  return findPublicationYear(ref)?.year ?? "";
+}
+
+/**
  * Surnames appearing before the first year in a reference string.
  *
  * Hyphens stay inside a surname, so "Sanchez-Ramos" is one name rather than "Sanchez-" and
@@ -604,14 +646,24 @@ const NON_NAMES = /^(and|et|al|in|the|a|an|for|of|on|with|by|at|from)$/i;
  */
 export function surnamesOf(ref: string): string[] {
   const t = ref.trim().replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-  const y = /(19|20)\d{2}/.exec(t);
+  const y = findPublicationYear(t);
   if (!y) return [];
   // For Vancouver or Chicago, the author segment is before the first period or before the year:
+  // In APA/Harvard the year follows the whole author list ("Chang, T., & Gardner, D. (2023)" or
+  // "Mok, T.S.K., Wu, Y.L., 2019."), and the periods after initials are not the end of it, so the
+  // author segment is everything before the year. Only a Vancouver/Chicago reference, where the
+  // year follows a period after the title, ends its author list at the first period.
+  const beforeYear = t.slice(0, y.index).trimEnd();
+  const authorYearStyle = /[(,]$/.test(beforeYear);
   const periodIdx = t.indexOf(".");
-  const sliceEnd = periodIdx > 0 && periodIdx < y.index ? periodIdx : y.index;
+  const sliceEnd = !authorYearStyle && periodIdx > 0 && periodIdx < y.index ? periodIdx : y.index;
   const head = t.slice(0, sliceEnd);
   const names = head.match(NAME_TOKEN) || [];
   const filtered = names.filter(n => n.length > 1 && !NON_NAMES.test(n) && CAPITALISED.test(n));
+  // "An, W., ..." opens with a real surname that looks like an article; in a reference the first
+  // token before a comma is always the first author's surname.
+  const lead = /^(\p{Lu}[\p{L}'’\-]+),/u.exec(head.trim())?.[1];
+  if (lead && authorYearStyle && !filtered.includes(lead)) filtered.unshift(lead);
   if (filtered.length) return filtered;
   const fallbackHead = t.slice(0, y.index);
   return (fallbackHead.match(NAME_TOKEN) || []).filter(n => n.length > 1 && !NON_NAMES.test(n) && CAPITALISED.test(n));
@@ -619,11 +671,11 @@ export function surnamesOf(ref: string): string[] {
 
 export function refSurnameYear(s: string): { surname: string; year: string } | null {
   const t = s.trim().replace(/^\[?\d+\]?[\.\)]?\s*/, "");
-  const y = /(19|20)\d{2}/.exec(t);
+  const y = findPublicationYear(t);
   if (!y) return null;
   const first = t.match(NAME_TOKEN)?.[0];
   if (!first) return null;
-  return { surname: first, year: y[0] };
+  return { surname: first, year: y.year };
 }
 
 /**
@@ -745,7 +797,7 @@ export function extractNumericCites(text: string): { citedNumbers: Set<number>; 
  */
 export function checkCitations(discussion: string, refs: string[]): CitationChecks {
   const parsed = refs
-    .map(r => ({ ref: r, year: /(19|20)\d{2}/.exec(r)?.[0] || "", names: surnamesOf(r).map(foldName) }))
+    .map(r => ({ ref: r, year: extractPublicationYear(r), names: surnamesOf(r).map(foldName) }))
     .filter(x => x.year);
   const cites = extractInTextCites(discussion || "");
   const { citedNumbers } = extractNumericCites(discussion || "");
@@ -819,7 +871,7 @@ function cleanRefDoi(raw: unknown): string {
 }
 
 export function resolveReference<T extends AuditableRef>(raw: string, pool: T[]): T | null {
-  const y = /(19|20)\d{2}/.exec(raw)?.[0];
+  const y = extractPublicationYear(raw);
   if (!y) return null;
   const targetYear = parseInt(y, 10);
 

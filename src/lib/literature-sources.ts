@@ -358,7 +358,20 @@ export function decodeHtmlEntities(raw: string): string {
 export function isNonEvidenceTitle(title: string): boolean {
   return /\bprotocol\b|trial registration/i.test(title) ||
     /^(?:abstract\s+[a-z]*\s*\d+|[a-z]{1,3}-?\d{1,4})\s*[:.]/i.test(title.trim()) ||
-    /^(?:erratum|correction|retraction)\b/i.test(title.trim());
+    /^(?:erratum|correction|retraction)\b/i.test(title.trim()) ||
+    isJobAdvertTitle(title);
+}
+
+/**
+ * Job and recruitment adverts that reach the index, e.g. "Position Available: Embryologist/IVF
+ * Specialist". Anchored to the start of the title so a trial about "recruitment strategies" or a
+ * study of "vacancies in the workforce" is not mistaken for one.
+ */
+function isJobAdvertTitle(title: string): boolean {
+  const t = title.trim();
+  return /^(?:(?:faculty\s+|research\s+|clinical\s+)?positions?|posts?|vacanc(?:y|ies)|jobs?|fellowships?|openings?)\s+(?:available|open|vacant|wanted)\b/i.test(t) ||
+    /^(?:we\s+are|now)\s+(?:hiring|recruiting)\b/i.test(t) ||
+    /\b(?:job|vacancy|recruitment)\s+(?:advert(?:isement)?|announcement|notice)\b/i.test(t);
 }
 
 const STOPWORDS = new Set([

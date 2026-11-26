@@ -1,0 +1,847 @@
+{
+  "id": "PRESET-oncology-breast-her2-adc",
+  "recordedAt": "2026-11-26T23:00:20.988Z",
+  "specialty": "oncology",
+  "words": [
+    {
+      "word": "HER2-positive metastatic breast cancer",
+      "role": "population"
+    },
+    {
+      "word": "trastuzumab deruxtecan (T-DXd)",
+      "role": "intervention"
+    },
+    {
+      "word": "trastuzumab emtansine (T-DM1)",
+      "role": "comparator"
+    },
+    {
+      "word": "progression-free survival (PFS)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "HER2-positive metastatic breast cancer",
+        "role": "population"
+      },
+      {
+        "word": "trastuzumab deruxtecan (T-DXd)",
+        "role": "intervention"
+      },
+      {
+        "word": "trastuzumab emtansine (T-DM1)",
+        "role": "comparator"
+      },
+      {
+        "word": "progression-free survival (PFS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In HER2-positive metastatic breast cancer (P), is trastuzumab deruxtecan (T-DXd) (I) superior to trastuzumab emtansine (T-DM1) (C) for progression-free survival (PFS) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?",
+        "basis": "15 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 19
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?"
+    },
+    "words": [
+      {
+        "word": "HER2-positive metastatic breast cancer",
+        "role": "population"
+      },
+      {
+        "word": "trastuzumab deruxtecan (T-DXd)",
+        "role": "intervention"
+      },
+      {
+        "word": "trastuzumab emtansine (T-DM1)",
+        "role": "comparator"
+      },
+      {
+        "word": "progression-free survival (PFS)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "oncology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42865882",
+        "title": "Efficacy and safety of antibody-drug conjugates in pretreated HER2-positive advanced breast cancer: a network meta-analysis of randomized controlled trials.",
+        "authors": "Liu F, Pan Y, Li J, Hu X, Yin G.",
+        "year": "2026",
+        "journal": "Frontiers in pharmacology",
+        "doi": "10.3389/fphar.2026.1921830",
+        "url": "https://europepmc.org/article/PMC/PMC13655522",
+        "source": "pmc",
+        "pubType": "Systematic Review, systematic-review, Journal Article",
+        "publicationTypes": [
+          "Systematic Review",
+          "systematic-review",
+          "Journal Article"
+        ],
+        "context": "Background Antibody-drug conjugates (ADCs) have become the standard treatment for HER2-positive(HER2+)advanced breast cancer following the failure of trastuzumab or taxane. Nevertheless, there are no direct head-to-head trials comparing different ADCs. Methods We searched PubMed, Embase, the Cochrane Library and abstracts from major oncology conferences, and included phase III randomized controlled trials (RCTs) investigating HER2-targeting ADCs. We conducted a frequentist random-effects NMA, and utilized the P-score to rank the efficacy of included treatments. The outcome indicators include progression-free survival (PFS), overall survival (OS), and treatment-related adverse events (TRAEs). Results Seven RCTs involving 3,160 patients and seven ADCs (T-DM1, ARX788, A166, SHR-A1811, RC48, DP303c and T-DXd) were included in our research. All ADCs showed a significant PFS benefit versus chemotherapy plus tyrosine kinase inhibitor (Chem + TKI). T-DXd showed the most favorable PFS (HR = 0.18, 95%CI: 0.13-0.25), followed by SHR-A1811 (HR = 0.22, 95%CI: 0.15-0.33) compared with Chem + TKI. SHR-A1811 showed a promising OS signal(HR = 0.31, 95% CI: 0.14-0.69), followed by T-DXd (HR = 0.41, 95% CI: 0.26-0.66) compared with Chem + TKI. For safety, T-DXd exhibited the highest odds for all-grade TRAEs relative to all included control treatments, with statistically significant differences identified when compared with T-DM1 and Chem + TKI., T-DM1 demonstrated better safety characteristics for grade ≥3 TRAEs, with a significantly lower odds of occurrence than SHR-A1811, ARX788, DP303c, and Chem + TKI. Conclusion Included anti-HER2 ADCs significantly improve PFS over Chem + TKI, among which T-DXd and SHR-A1811 deliver notable survival benefits. Although T-DXd is associated with a higher odd of all-grade TRAEs and T-DM1 exhibits favourable grade ≥3 safety. Systematic review registration https://www.crd.york.ac.uk/prospero/display_record.php?ID=CRD420251234345, identifier CRD420251234345.",
+        "relevancePct": 100,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "4ecea4b98aec5ff76d7d7d6eb39c20db420c9424851683ca0d4db0b26c0a8b55"
+      },
+      {
+        "pmid": "38979893",
+        "title": "Trastuzumab deruxtecan versus trastuzumab emtansine in Asian patients with HER2‐positive metastatic breast cancer",
+        "authors": "Hiroji Iwata, Binghe Xu, Sung‐Bae Kim, Wei‐Pang Chung",
+        "year": "2024",
+        "journal": "Cancer Science",
+        "doi": "10.1111/cas.16234",
+        "url": "https://doi.org/10.1111/cas.16234",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "The global phase 3 DESTINY-Breast03 study (ClinicalTrials.gov; NCT03529110) showed statistically significant and clinically meaningful improvements in progression-free survival (PFS) and overall survival (OS) with trastuzumab deruxtecan (T-DXd) over trastuzumab emtansine (T-DM1) in patients with human epidermal growth factor receptor 2 (HER2)-positive metastatic breast cancer (mBC) previously treated with trastuzumab and a taxane. Here, we report a subgroup analysis of Asian patients enrolled in DESTINY-Breast03. In total, 309 patients (149 in the T-DXd arm and 160 in the T-DM1 arm) from Asian countries and regions were randomized. At data cutoff (July 25, 2022), the median duration of follow-up in the Asian subpopulation was 29.0 months with T-DXd and 26.0 months with T-DM1. The PFS (determined by blinded independent central review) hazard",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "4c8fbc3691c811b1df76ed054875317d5320dc4d6fae30ea443ac6511ae6b8fe"
+      },
+      {
+        "pmid": "38825627",
+        "title": "Trastuzumab deruxtecan versus trastuzumab emtansine in HER2-positive metastatic breast cancer: long-term survival analysis of the DESTINY-Breast03 trial",
+        "authors": "Javier Cortés, Sara Alsterlind Hurvitz, Seock‐Ah Im, Hiroji Iwata",
+        "year": "2024",
+        "journal": "Nature Medicine",
+        "doi": "10.1038/s41591-024-03021-7",
+        "url": "https://doi.org/10.1038/s41591-024-03021-7",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Trastuzumab deruxtecan (T-DXd) demonstrated significantly improved efficacy over trastuzumab emtansine (T-DM1) in DESTINY-Breast03 (median follow-up, 28 months). We report updated efficacy and safety analyses, including secondary and exploratory efficacy endpoints (median follow-up, 41 months) of DESTINY-Breast03. Patients with advanced HER2-positive metastatic breast cancer previously treated with taxane and trastuzumab were randomized to T-DXd (5.4 mg per kg (261 patients)) or T-DM1 (3.6 mg per kg (263 patients)). The primary endpoint was progression-free survival (PFS) by blinded independent central review and was previously reported. The key secondary endpoint was overall survival (OS). Other secondary endpoints included objective response rate, duration of response and PFS (all by investigator assessment) and safety. At data cutoff, 20 November 2023, median PFS by investigator assessment",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "07167043240783ec4efcd02219abbb0ae51e5e4aee26a63f53186339f76d2f95"
+      },
+      {
+        "pmid": "38092229",
+        "title": "Trastuzumab deruxtecan in previously treated patients with HER2-positive metastatic breast cancer: updated survival results from a phase II trial (DESTINY-Breast01)",
+        "authors": "Cristina Saura, Shanu Modi, Ian E. Krop, Y.H. Park",
+        "year": "2023",
+        "journal": "Annals of Oncology",
+        "doi": "10.1016/j.annonc.2023.12.001",
+        "url": "https://doi.org/10.1016/j.annonc.2023.12.001",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Primary analysis of the multicenter, open-label, single-arm, phase II DESTINY-Breast01 trial (median follow-up 11.1 months) demonstrated durable antitumor activity with trastuzumab deruxtecan (T-DXd) in patients with human epidermal growth factor receptor 2 (HER2)-positive metastatic breast cancer (mBC) previously treated with trastuzumab emtansine (T-DM1). We report updated cumulative survival outcomes with a median follow-up of 26.5 months (data cut-off 26 March 2021). PATIENTS AND METHODS: Patients with HER2-positive mBC resistant or refractory to T-DM1 received T-DXd 5.4 mg/kg intravenously every 3 weeks until disease progression, unacceptable adverse events, or withdrawal of consent. The primary endpoint was confirmed objective response rate (ORR) by independent central review (ICR). Secondary endpoints included overall survival (OS), duration of response (DoR), progression-free survival (PFS), and",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3a463b4d974c154901deed1d6efe99c499878ca8f410d7969eea452ed6bfe6d8"
+      },
+      {
+        "pmid": "34999427",
+        "title": "Impacts of clinicopathological factors on efficacy of trastuzumab deruxtecan in patients with HER2-positive metastatic breast cancer",
+        "authors": "Hiromichi Nakajima, Kenichi Harano, Tokiko Nakai, Shota Kusuhara",
+        "year": "2022",
+        "journal": "The Breast",
+        "doi": "10.1016/j.breast.2022.01.002",
+        "url": "https://doi.org/10.1016/j.breast.2022.01.002",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The previous second-line treatment for HER2-positive metastatic breast cancer were ado-trastuzumab emtansine (T-DM1); however, its activity is decreased in tumors with heterogenous, reduced, or loss of HER2 expression. Trastuzumab deruxtecan (T-DXd) has recently been developed as a novel antibody-drug conjugate to overcome resistance to T-DM1. However, clinical evidence on its ability to overcome this resistance is limited. MATERIALS AND METHODS: We retrospectively analyzed data for patients with HER2-positive metastatic breast cancer who received T-DXd at our institution from April 2020 to March 2021. We evaluated the associations between clinicopathological and molecular biomarkers and the efficacy of T-DXd. RESULTS: Twenty-two patients were enrolled in this study. The median progression-free survival (PFS) was 9.7 months (95% confidence interval [CI], 7.0-not reached",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "49cfeef9947afa370578c65173817d765d7a9b4cc8c7b0e1986e11738927fe3b"
+      },
+      {
+        "pmid": "28733983",
+        "title": "Population pharmacokinetics and exposure-response of trastuzumab emtansine in advanced breast cancer previously treated with ≥2 HER2-targeted regimens",
+        "authors": "Chen SC, et al",
+        "year": "2017",
+        "journal": "British journal of clinical pharmacology",
+        "doi": "10.1111/bcp.13381",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28733983/",
+        "context": "AIMS: We conducted population pharmacokinetic (PopPK) and exposure-response analyses for trastuzumab emtansine (T-DM1), to assess the need for T-DM1 dose optimization in patients with low exposure by using TH3RESA [A Study of Trastuzumab Emtansine in Comparison With Treatment of Physician's Choice in Patients With human epidermal growth factor receptor 2 (HER2)-positive Breast Cancer Who Have Received at Least Two Prior Regimens of HER2-directed Therapy] study data (NCT01419197). The randomized phase III TH3RESA study investigated T-DM1 vs. treatment of physician's choice (TPC) in patients with heavily pretreated HER2-positive advanced breast cancer. METHODS: We compared a historical T-DM1 PopPK model with T-DM1 pharmacokinetics in TH3RESA and performed exposure-response analyses using model-predicted cycle 1 maximum concentration (C max ), cycle 1 minimum concentration (C min ) and area under the concentration-time curve at steady state (AUC ss ). Kaplan-Meier analyses [overall survival (OS), progression-free survival (PFS)] and logistic regression [overall response rate (ORR), safety] were stratified by T-DM1 exposure metrics. Survival hazard ratios (HRs) in the lowest exposure quartile (Q1) of cycle 1 C min were compared with matched TPC-treated patients. RESULTS: T-DM1 concentrations in TH3RESA were described well by the historical PopPK model. Patients with higher cycle 1 C min and AUC ss exhibited numerically longer median OS and PFS and higher ORR than patients with lower exposure. Exposure-response relationships were less evident for cycle 1 C max . No relationship between exposure and safety was identified. HRs for the comparison of T-DM1-treated patients in the Q1 subgroup with matched TPC-treated patients were 0.96 [95% confidence interval (CI) 0.63, 1.47] for OS and 0.92 (95% CI 0.64, 1.32) for PFS. CONCLUSIONS: Exposure-response relationships for efficacy were inconsistent across exposure metrics. HRs for survival in patients in the lowest T-DM1 exposure quartile vs. matched TPC-treated patients suggest that, compared with TCP, the approved T-DM1 dose is unlikely to be detrimental to patients with low exposure.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f83dc49e280a032e6c87a653bb5c480e8488376d36e21f1c38ac8778693b8c47"
+      },
+      {
+        "pmid": "42426557",
+        "title": "Anti-Human Epidermal Growth Factor Receptor 2 therapies in metastatic colorectal cancer: a systematic review and meta-analysis.",
+        "authors": "Rota S, Di Nardo P, Zottarelli E, Giudici F, Vida R, Zilli M, de Scordilli M, Foltran L, Fumagalli A, Guardascione M, On",
+        "year": "2026",
+        "journal": "The oncologist",
+        "doi": "10.1093/oncolo/oyag224",
+        "url": "https://europepmc.org/article/PMC/PMC13475379",
+        "source": "pmc",
+        "pubType": "Meta-Analysis, Systematic Review, review-article, Journal Article",
+        "publicationTypes": [
+          "Meta-Analysis",
+          "Systematic Review",
+          "review-article",
+          "Journal Article"
+        ],
+        "context": "Background HER2 amplification identifies a subgroup of colorectal cancer with poorer prognosis and resistance to anti-EGFR therapy. We conducted a systematic review and a meta-analysis of available data on anti-HER2 treatments (HER2Tx) in mCRC patients (pts). Methods A systematic literature search was performed, encompassing phase II/III clinical trials (CTs) investigating HER2Tx in HER2-overexpressed mCRC. CTs reporting HER2Tx plus chemotherapy were excluded. Primary endpoints were objective response rate (ORR) and disease control rate (DCR). Fixed and random-effect models were applied according to heterogeneity assessed through I 2 statistics. Progression-free survival (PFS) and overall survival (OS) were compared descriptively and pooled using the weighted median of medians (WM) with approximated 95% CIs. Subgroup analyses by HER2Tx were carried out. Results The analysis included 10 CTs evaluating Trastuzumab-Pertuzumab (T + P, 5 CTs,), Trastuzumab Deruxtecan (T-DXd, 2 CTs), Trastuzumab-Lapatinib (T + L, 1 CT), Pertuzumab-TDM1 (P+TDM1, 1 CT), and Trastuzumab-Tucatinib (T-Tu, 1 CT), for a total of 467 pts. The pooled ORR was 33.7% (29.6%-38.1%), and the pooled DCR was 68.5% (58.1%-77.4%). The WM OS was 13.4 months (10-24.1) and WM PFS was 5.5 months (4.1-6.9). The T-DX and T-Tu groups showed higher ORR and DCR (38% and 39% respectively, 85.1% and 73.2% respectively) compared to the T + P group (ORR, 30%; DCR, 52.6%). Conclusions HER2Tx demonstrated efficacy in pretreated CRC pts, exhibiting good DCR and ORR alongside promising PFS and OS. T-DXd and T-Tu appear to outperform T + P; however, further studies are needed.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "6471d1978a705bf68ad2583528a15922345df2e8e1cc4e6e895199859a490d2c"
+      },
+      {
+        "pmid": "cr:10.3390/medicina60122069",
+        "title": "Trastuzumab Rechallenge in HER2-Positive Metastatic Breast Cancer: A Promising Strategy for Enhanced Progression-Free Survival Post Ado-Trastuzumab Emtansine Progression",
+        "authors": "Altıntaş Yunus Emre, Kınıkoğlu Oğuzcan, Yıldız Anıl, Işık Deniz",
+        "year": "2024",
+        "journal": "Medicina",
+        "doi": "10.3390/medicina60122069",
+        "url": "https://doi.org/10.3390/medicina60122069",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background and Objectives: Metastatic breast cancer (MBC), particularly the HER2-positive subtype, represents a significant clinical challenge, with approximately 20–25% of breast cancer cases demonstrating HER2 overexpression. Trastuzumab, a monoclonal antibody targeting HER2, has significantly improved outcomes in these patients. However, progression after second-line treatments such as trastuzumab emtansine (T-DM1) necessitates exploring subsequent therapeutic options. This study aims to compare the efficacy of trastuzumab plus gemcitabine (GT) with lapatinib plus capecitabine (LC) as third-line treatments in HER2-positive MBC post-T-DM1 failure. Materials and Methods: This retrospective study included 98 HER2-positive MBC patients treated between 2017 and 2023 who progressed after T-DM1. Patients were divided into two groups: 21 received GT, and 28 received LC. Key endpoints included progression-free survival (PFS), overall survival (OS), objective response rate (ORR), and adverse events. Statistical analyses were performed using SPSS 26.0, with Kaplan–Meier survival curves, log-rank tests, and Cox proportional hazards models. Results: Median PFS was significantly longer in the GT group (9.5 months) compared to the LC group (4.3 months, p = 0.02). OS was also higher for GT (22.1 months vs. 10.0 months, p = 0.02). ORR favored the GT group (33.3% vs. 10.7%, p = 0.046), and progressive disease was more common in the LC group (57.1% vs. 33.3%, p = 0.022). The safety profile showed higher rates of diarrhea in the LC group, but both regimens were generally well tolerated. Conclusions: Trastuzumab re-challenge with gemcitabine demonstrated superior PFS, OS, and ORR compared to lapatinib plus capecitabine, suggesting it may be a more effective third-line therapy in HER2-positive MBC patients who have progressed after T-DM1. Further prospective studies are needed to confirm these findings and optimize treatment sequencing.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "7a004b663c35359db23fbeb4d1ada8d2f4a98ef5310671f12e2953e921701952"
+      },
+      {
+        "pmid": "29022084",
+        "title": "Exposure-response analyses of trastuzumab emtansine in patients with HER2-positive advanced breast cancer previously treated with trastuzumab and a taxane",
+        "authors": "Li C, et al",
+        "year": "2017",
+        "journal": "Cancer chemotherapy and pharmacology",
+        "doi": "10.1007/s00280-017-3440-4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29022084/",
+        "context": "PURPOSE: In the phase III EMILIA study, trastuzumab emtansine (T-DM1) significantly improved progression-free survival (PFS) and overall survival (OS) versus capecitabine plus lapatinib (control) in previously treated human epidermal growth factor receptor 2-positive advanced breast cancer. Using EMILIA data, we evaluated the T-DM1 exposure-response relationship. METHODS: Exposure-response relationships were examined with four exposure metrics [model-predicted and observed minimum concentration (C min ) and area under the concentration-time curve from time zero to day 21 of T-DM1 at cycle 1] and multiple efficacy (OS, PFS, objective response rate) and safety (grade ≥ 3 adverse events, grade ≥ 3 thrombocytopenia, grade ≥ 3 hepatotoxicity) endpoints. RESULTS: An apparent exposure-response trend was observed between model-predicted exposure metrics and efficacy; trends for observed exposure metrics were shallower and often not significant. Although median OS and PFS were numerically longer in patients with higher versus lower model-predicted cycle 1 C min , OS and PFS hazard ratios for T-DM1-treated patients in the lowest exposure quartile (Q1) versus control were < 1 after adjusting for baseline risk factors (e.g., ECOG status, tumor burden, measurable disease, and number of disease sites). No meaningful exposure-response relationship was observed for any safety endpoints. CONCLUSION: Exposure-response relationships for efficacy were inconsistent across exposure metrics; model-predicted cycle 1 C min showed the strongest exposure-response trend. The Q1 subgroup based on model-predicted cycle 1 C min had numerically similar or better OS and PFS versus control following covariate adjustment. The approved T-DM1 dose (3.6 mg/kg every 3 weeks) has a positive benefit-risk ratio versus control, even for the T-DM1 Q1 subgroup.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "c9a4f35d0f559903e348e11f97e55e1446428594f9e8b6907c69c9df14f911c9"
+      },
+      {
+        "pmid": "doi:10.1177/17588359261442687",
+        "title": "A real-world study on treatment after TKI progression in HER2-positive MBC",
+        "authors": "Shiyi Li, Lili Zhang, Ting Xu, Jiayuan Huang",
+        "year": "2026",
+        "journal": "Therapeutic Advances in Medical Oncology",
+        "doi": "10.1177/17588359261442687",
+        "url": "https://doi.org/10.1177/17588359261442687",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background: After disease progression on anti-human epidermal growth factor receptor 2 (HER2) tyrosine kinase inhibitors (TKIs), trastuzumab deruxtecan (T-DXd) is recommended as a subsequent therapy. Because T-DXd has only recently been covered by insurance, patients previously opted for alternative regimens. Objectives: This study aimed to report real-world data on HER2-positive metastatic breast cancer (MBC) patients whose disease progressed during TKI therapy and provide a basis for further research. Design: This retrospective study included 216 HER2-positive MBC patients who progressed after TKI therapy between July 2014 and February 2025. Methods: All patients received anti-HER2 TKI therapy (including pyrotinib and lapatinib) in 28-day cycles. Treatment doses and combinations with chemotherapy, HER2-targeted agents, or endocrine therapy were decided by physicians. The primary objectives were to determine the proportion of patients receiving different regimens after TKI failure and evaluate progression-free survival (PFS). Secondary endpoints included overall survival (OS), objective response rate (ORR), disease control rate (DCR), and adverse events. Results: As of April 1, 2025, treatment distribution was 26.9% in the antibody–drug conjugate (ADC) group, 45.8% in the monoclonal antibody (mAb) group, and 27.3% in the TKI group. The expansion of ADC reimbursement under China’s healthcare policy, beginning in 2023, led to increased clinical adoption. Median PFS was 10.2 months (95% confidence interval (CI), 6.7–13.6) in the ADC group, 7.3 months (95% CI, 5.7–9.0) in the mAb group, and 7.2 months (95% CI, 5.8–8.6) in the TKI group, with no significant differences ( p = 0.282). T-DXd demonstrated substantial antitumor activity with a 12-month PFS rate of 50.0%. Patients who are acquired-resistant to TKI had better outcomes than primary-resistant ones, particularly among those continuing TKI therapy. No unexpected toxic effects were reported. Conclusion: After progression following TKI therapy, T-DXd exhibited notable antitumor activity, although no significant efficacy differences were observed among ADC, mAb, and TKI groups.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "06c402a5e3c3165a4fbb9b896ba73b76a7638476296c12cbcc0e26af9fd1f914"
+      },
+      {
+        "pmid": "42927259",
+        "title": "Complete Response to First-Line Trastuzumab Deruxtecan in Human Epidermal Growth Factor Receptor 2 (HER2)-Positive Extra-axial Central Nervous System Metastases.",
+        "authors": "Oura MJ, Pinho R, Osório F, Barbosa M, Valente A.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.116819",
+        "url": "https://europepmc.org/article/PMC/PMC13695090",
+        "source": "pmc",
+        "pubType": "Journal Article, Case Reports, case-report",
+        "publicationTypes": [
+          "Journal Article",
+          "Case Reports",
+          "case-report"
+        ],
+        "context": "Trastuzumab deruxtecan (T-DXd) is an antibody-drug conjugate approved for the treatment of unresectable or metastatic human epidermal growth factor receptor 2 (HER2)-positive breast cancer in patients who have received a prior anti-HER2-based regimen. HER2-positive breast cancer has a high propensity for central nervous system (CNS) spread, which confers significant morbidity and a poor prognosis. We report the case of a 47-year-old woman with metastatic HER2-positive breast cancer who developed debilitating symptomatic CNS metastases, predominantly extra-axial leptomeningeal lesions. Locoregional treatment options were not feasible, and the patient received off-label first-line systemic therapy with T-DXd. Rapid and marked neurological improvement was observed within weeks. Follow-up MRI at three months demonstrated complete radiologic resolution of all CNS lesions. As of April 2026, after 29 cycles of T-DXd, the patient remains clinically asymptomatic with no evidence of CNS disease on MRI, corresponding to a progression-free survival exceeding 20 months. This case highlights the potential role of T-DXd in symptomatic CNS metastases, particularly leptomeningeal disease, and underscores the need for prospective research into its intracranial efficacy in this distinct and challenging subset of patients.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "7ed6733370e6990c94d9b7cc7afa84a548f2275eb723f6e2c5a7ca61eb5125de"
+      },
+      {
+        "pmid": "42998029",
+        "title": "Efficacy and Safety of Datopotamab Deruxtecan From a Single-Institution Experience in Hormone Receptor-Positive, HER2-Negative Metastatic Breast Cancer After Multiple Prior Therapies Including Antibody-Drug Conjugates.",
+        "authors": "Shimada H, Todo M, Ishiguro H, Mikami E, Inohana W, Kurosawa T, Nakame A, Sakakibara A, Ichinose Y, Fujimoto A, Nukui A,",
+        "year": "2026",
+        "journal": "Cancer medicine",
+        "doi": "10.1002/cam4.72457",
+        "url": "https://europepmc.org/article/PMC/PMC13744144",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Datopotamab deruxtecan (Dato-DXd) is a trophoblast cell surface antigen 2 (TROP2)-directed antibody-drug conjugate (ADC) with a topoisomerase I inhibitor payload and was approved by the Japan Pharmaceuticals and Medical Devices Agency in 2025 for patients with unresectable or recurrent hormone receptor-positive (HR+)/human epidermal growth factor receptor 2-negative (HER2-) breast cancer previously treated with chemotherapy. In the pivotal TROPION-Breast01 trial, most patients had received 1 or 2 prior systemic regimens. However, in routine clinical practice, Dato-DXd is often used in heavily pretreated patients, including those with prior ADC exposure. We evaluated the efficacy and safety of Dato-DXd in this population. Methods We retrospectively analyzed 18 patients with HR+/HER2- metastatic or recurrent breast cancer who received Dato-DXd at our institution between May and December 2025. Clinical data from electronic medical records were reviewed to assess treatment efficacy and treatment-related adverse events (TRAEs). Results All patients were female, with a median age of 56 years (range, 48-81). Patients were heavily pretreated, with a median of seven prior systemic treatment lines (range, 2-11); 72.2% had previously received trastuzumab deruxtecan (T-DXd). Median real-world progression-free survival (rwPFS) was 3.2 months. Patients with prior T-DXd exposure had significantly shorter rwPFS than T-DXd-naïve patients (2.8 vs. 6.4 months, p Conclusions In this cohort of heavily pretreated HR+/HER2- metastatic or recurrent breast cancer, Dato-DXd showed limited clinical activity compared with clinical trials, particularly among patients previously treated with T-DXd. Nevertheless, Dato-DXd was safely administered with toxicity management. Further real-world studies are needed to optimize patient selection and treatment sequencing.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "dd19dc18b759dcc2655f5f2b9898056dbcfb66af7995114562057372b17242d6"
+      },
+      {
+        "pmid": "doi:10.37047/jos.galenos.2026.2026-1-1",
+        "title": "Real-world Efficacy and Safety of Trastuzumab Deruxtecan in HER2-positive Metastatic Breast Cancer: A Multicenter Retrospective Study from Türkiye",
+        "authors": "Harun MUĞLU, Erdem SÜNGER, Lamia ŞEKER CAN, Özgür HAN",
+        "year": "2026",
+        "journal": "Journal of Oncological Sciences",
+        "doi": "10.37047/jos.galenos.2026.2026-1-1",
+        "url": "https://doi.org/10.37047/jos.galenos.2026.2026-1-1",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Objective: Trastuzumab deruxtecan (T-DXd) is a novel human epidermal growth factor receptor 2 (HER2)-directed antibody-drug conjugate that has demonstrated significant clinical activity in patients with HER2-positive metastatic breast cancer (mBC) in multiple pivotal trials. However, data regarding its effectiveness and safety in real-world settings, particularly from underrepresented regions such as Türkiye, remain limited. Material and Methods: This retrospective, multicenter observational study included HER2-positive mBC patients [immunohistochemistry (IHC) score of 3+, or IHC score of 2+ with in situ hybridization-positive gene amplification] who received T-DXd after at least one prior line of systemic therapy. Clinical outcomes, including objective response rate (ORR), disease control rate (DCR), progression-free survival (PFS), and overall survival (OS), were evaluated. Subgroup and univariate Cox regression analyses were conducted to assess prognostic factors. Adverse events (AEs) were recorded and graded according to the Common Terminology Criteria for AEs version 5.0 (CTCAE v5.0). Results: A total of 39 patients were included. The ORR was 89.7%, and the DCR was 100%. Median PFS and median OS were not reached at the time of analysis. In univariate analysis, a better Eastern Cooperative Oncology Group performance status and receipt of T-DXd in earlier treatment lines were associated with improved survival outcomes. AEs were generally manageable; grade ≥3 toxicity occurred in 15.4% of patients. Interstitial lung disease (ILD) was observed in 7.7% of patients, leading to treatment discontinuation in one patient. Conclusion: T-DXd demonstrated high clinical efficacy and manageable toxicity in a real-world cohort of Turkish patients with HER2-positive mBC. These results are consistent with those reported in clinical trials and support the use of T-DXd as an effective treatment option in routine clinical practice. Our findings also highlight the importance of early identification and management of treatment-related AEs, particularly ILD.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "395d837be818a3b34423e3563167857449d69b57d77255460c5ebb464a8e4f88"
+      },
+      {
+        "pmid": "42684568",
+        "title": "Real-world outcomes of datopotamab deruxtecan after trastuzumab deruxtecan in hormone receptor-positive, HER2-negative metastatic breast cancer.",
+        "authors": "Aoyama Y, Ozaki Y, Kuno M, Kizawa R, Masuda J, Nishimura M, Kurata M, Inagaki L, Hosonaga M, Fukada I, Maeda T, Yoshida ",
+        "year": "2026",
+        "journal": "Breast cancer (Tokyo, Japan)",
+        "doi": "10.1007/s12282-026-01908-6",
+        "url": "https://europepmc.org/article/PMC/PMC13695690",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Optimal sequencing of antibody-drug conjugates (ADCs) is an important clinical issue in metastatic breast cancer. However, data on datopotamab deruxtecan (Dato-DXd) following trastuzumab deruxtecan (T-DXd) have not been reported. This study evaluated real-world outcomes of Dato-DXd in patients with hormone receptor-positive, HER2-negative metastatic breast cancer, focusing on prior T-DXd exposure. Methods This single-center retrospective study included patients who received at least one dose of Dato-DXd by December 2025. Outcomes were evaluated overall and by prior T-DXd exposure. Endpoints included disease control rate (DCR), objective response rate (ORR), time to treatment failure (TTF), and progression-free survival (PFS). Among patients who received prior T-DXd, TTF with T-DXd and subsequent Dato-DXd was compared. Results A total of 45 patients were analyzed: 19 had prior T-DXd exposure and 26 were T-DXd-naïve. The cohort was heavily pretreated with a median of six prior treatment lines and three prior chemotherapy regimens for metastatic disease. Overall, the DCR and ORR were 57.8% and 24.4%, respectively; the corresponding rates were 52.6% and 10.5% in the prior T-DXd group and 61.5% and 34.6% in the T-DXd-naïve group. The median TTF and PFS were 4.2 and 4.1 months in the overall cohort, and 3.4 and 3.0 months in the prior T-DXd group, respectively. Among 16 patients evaluable for TTF with both agents, five (31.3%) had a longer TTF with Dato-DXd than with prior T-DXd. Conclusions Dato-DXd showed limited but clinically relevant activity, including after prior T-DXd. Further studies are needed to optimize ADC sequencing.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "a9115f2e7496f607626448b47c84375e116669d0019feb780f7a1861964d8731"
+      },
+      {
+        "pmid": "42810229",
+        "title": "Tucatinib, trastuzumab, and capecitabine as second- or third-line therapy after trastuzumab deruxtecan in HER2-positive metastatic breast cancer: A multicenter retrospective study in France.",
+        "authors": "Frenel J, de Nonnevile A, Guerin-Charbonnel C, Zeghondy J, Mathiot L, Mailliez A, Poumeaud F, Isambert N, Arnedos M, Le ",
+        "year": "2026",
+        "journal": "Breast (Edinburgh, Scotland)",
+        "doi": "10.1016/j.breast.2026.104939",
+        "url": "https://europepmc.org/article/PMC/PMC13651555",
+        "source": "pmc",
+        "pubType": "research-article, Multicenter Study, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Multicenter Study",
+          "Journal Article"
+        ],
+        "context": "Trastuzumab deruxtecan (T-DXd) is the current standard second-line therapy for human epidermal growth factor receptor 2 (HER2)-positive metastatic breast cancer (MBC), and it has been recently approved by FDA as first line therapy in combination with pertuzumab, following the results of the DESTINY-Breast09 trial. However, optimal treatment strategies following T-DXd remain undefined and data on subsequent therapies are limited. The present study evaluated the efficacy of combined treatment with tucatinib, trastuzumab, and capecitabine (TTC) after T-DXd. Patients with HER2-positive MBC who received TTC as second- or third-line therapy following T-DXd in the 17 participating centers were eligible. The primary endpoint was progression-free survival (PFS), and the secondary endpoints were time to next treatment, overall survival (OS), and objective response rate. Between July 2021 and June 2025, 105 patients who received TTC as second- or third-line therapy following T-DXd were included in the study. The median age was 55.1 years, 41.0% had de novo metastatic disease, and 55.2% had brain metastases. Most patients (91.4%) received TTC as third-line therapy. During a median follow-up of 19.5 months, the median PFS, time to next treatment, and OS were 4.7, 6.6, and 15.3 months, respectively. Among evaluable patients, the objective response rate was 29.6%, with 9.2% achieving complete response. Patients with prior T-DXd exposure for >18 months had improved PFS (6.0 months) compared to those with prior T-DXd exposure for ≤18 months (3.8 months). TTC exhibited clinically meaningful activity following T-DXd in patients with HER2-positive MBC, particularly those with prolonged T-DXd response.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "36b3e94938691991fd27bb846adc4626f47a8757b8ca380f7eb71d8ebccbb8e2"
+      },
+      {
+        "pmid": "doi:10.1186/s13058-025-02088-5",
+        "title": "Trastuzumab deruxtecan in patients with active brain metastases from HER2-positive/low metastatic breast cancer: a retrospective multicenter real-world study",
+        "authors": "Fangfang Duan, Xin Hua, Wei Lu, Xingxing Gui",
+        "year": "2025",
+        "journal": "Breast Cancer Research",
+        "doi": "10.1186/s13058-025-02088-5",
+        "url": "https://doi.org/10.1186/s13058-025-02088-5",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Brain metastases (BMs) are almost a norm and devastating complication of metastatic breast cancer (MBC), but patients with active BMs (untreated or progressing to prior local therapy) are usually excluded from participating in clinical trials. Trastuzumab deruxtecan (T-DXd) has shown remarkable intracranial activity in pretreated human epidermal growth factor receptor 2 (HER2)-positive MBC with active BMs in latest prospective trials, but real-world evidence about its efficacy and safety remains limited. Methods This real-world study enrolled patients with active BMs from HER2-positive/low MBC receiving at least one cycle T-DXd (5.4 mg/kg, Q3W) in three hospitals in China between June 2022 to May 2024. The primary endpoint was the best intracranial overall response rate (iORR) following the response assessment in neuro-oncology brain metastases criteria. Secondary endpoints included the intracranial and overall progression-free survival (iPFS-PFS), overall survival (OS), and safety. Results In total, 38 patients were enrolled, including 29 HER2-positive and 9 HER2-low MBC. Except for endocrine therapy, the median number of prior therapy lines was 2 (range 0–10). Among HER2-positive patients, one patient (11.1%) had a complete intracranial response and eighteen (62.1%) had a partial intracranial response as the best intracranial response, with an iORR of 65.5%. As for HER2-low patients, the iORR was 66.7%. During a median follow-up of 10.3 (range 1.53–24.4) months, the median iPFS and OS were not reached for both HER2-positive and HER2-low MBC, their 12-month iPFS rate stood at 79.8% (95% confidence interval (CI): 65.2–97.7%) and 51.9% (95% CI: 26.7–100.0%), respectively. In the HER2-positive cohort, the median PFS was 12.8 months (95% CI: 10.2-not reached) and the 12-month OS rate was 86.5% (95% CI: 69.4–100.0%). For HER2-low cohort, the median PFS and 12-month OS rate were 6.33 months (95% CI: 3.93-not reached) and 85.7% (95% CI: 63.3–100.0%), respectively. Most common adverse events were moderate and no new safety signals were observed. Conclusions In this real-world population, T-DXd yielded encouraging intracranial activity in HER2-positive/low MBC patients with active BMs with acceptable tolerance, which was aligned with previous clinical trials data. These results support the concept of T-DXd as systemic therapy for MBC patients with active BMs irrespective of HER2-positive/low.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "2cb6812506bc4fec3947ea9c12c1d90d0ee73da4f1046bf43750790fcba8df87"
+      },
+      {
+        "pmid": "doi:10.1038/s41523-024-00711-w",
+        "title": "Multi-institutional report of trastuzumab deruxtecan and stereotactic radiosurgery for HER2 positive and HER2-low breast cancer brain metastases",
+        "authors": "Vaseem M. Khatri, Mariella A. Mestres-Villanueva, Sreenija Yarlagadda, Ajay Doniparthi",
+        "year": "2024",
+        "journal": "npj Breast Cancer",
+        "doi": "10.1038/s41523-024-00711-w",
+        "url": "https://doi.org/10.1038/s41523-024-00711-w",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Trastuzumab-deruxtecan (T-DXd) has demonstrated intracranial efficacy; however, safety and efficacy data remains limited with stereotactic radiosurgery (SRS). A multi-institutional review was performed with HER2+ or HER2-low metastatic breast cancer treated with T-DXd and SRS for active brain metastases. We identified 215 lesions treated over 48 SRS courses in 34 patients. Median follow up from T-DXd initiation was 13.9 months. The cumulative incidence of symptomatic radiation necrosis at 24 months per lesion was 2.1% and per patient 11%. The 12-month LC was 97%. HER2-low was associated with worse distant intracranial control (DIC) (adjusted HR 2.5, 95% CI 1.1–5.6, p = 0.03) and worse systemic progression free survival (PFS) (HR 4.1, 95% CI 1.6–10.7, p = 0.004). Concurrent SRS and T-DXd has excellent local control, without an increased risk of radiation necrosis. HER2-low disease is associated with worse systemic PFS and DIC with T-DXd compared to HER2+.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "39052efab349b94bb78e06e3e84613ffb8a5176117abb684a4df972f991c148d"
+      },
+      {
+        "pmid": "39271844",
+        "title": "Trastuzumab deruxtecan in HER2-positive advanced breast cancer with or without brain metastases: a phase 3b/4 trial",
+        "authors": "Nadia Harbeck, Eva Ciruelos, Guy Jérusalem, Volkmar Müller",
+        "year": "2024",
+        "journal": "Nature Medicine",
+        "doi": "10.1038/s41591-024-03261-7",
+        "url": "https://doi.org/10.1038/s41591-024-03261-7",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Trastuzumab deruxtecan (T-DXd) intracranial activity has been observed in small or retrospective patient cohorts with human epidermal growth factor receptor 2-positive (HER2+) advanced/metastatic breast cancer (mBC) and stable or active (untreated/previously treated and progressing) brain metastases (BMs). The phase 3b/4 DESTINY-Breast12 study investigated T-DXd in patients with HER2+ mBC and is, to our knowledge, the largest prospective study of T-DXd in patients with BMs in this setting. Patients (stable/active BMs (n = 263) and no BMs (n = 241)) treated with one or more prior anti-HER2-based regimens received T-DXd (5.4 mg per kg). Primary endpoints were progression-free survival (PFS; BMs cohort) and objective response rate (ORR) per Response Evaluation Criteria in Solid Tumors version 1.1 (non-BMs cohort). Additional endpoints included",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "60027c8daa99ff62be4d179719da9bdc291951bae75c31d91794535517d80383"
+      },
+      {
+        "pmid": "doi:10.3389/fpubh.2023.1049947",
+        "title": "Cost-effectiveness analysis of trastuzumab deruxtecan in patients with HER2-low advanced breast cancer based on DESTINY-Breast04",
+        "authors": "Mei Zhan, Mei Zhan, Zijia Huang, Zijia Huang",
+        "year": "2023",
+        "journal": "Frontiers in Public Health",
+        "doi": "10.3389/fpubh.2023.1049947",
+        "url": "https://doi.org/10.3389/fpubh.2023.1049947",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background and purposeBreast cancer is a rapidly raising healthcare problem worldwide. DESTINY-Breast04 demonstrated that trastuzumab deruxtecan (T-Dxd) had a survival advantage comparing to the physician's choice of chemotherapy for patients with HER2-low metastatic breast cancer. But at the same time, this expensive novel treatment also brought an economic burden. This study assessed the cost-effectiveness of T-Dxd based on results of DESTINY-Breast04 from the perspective of Chinese healthcare system.Materials and methodsA three-state partitioned-survival model [progression-free survival (PFS), progressive disease (PD) and death] based on data from DESTINY-Breast04 and Chinese healthcare system was used to estimate the incremental cost-effectiveness ratio (ICER) of T-Dxd vs. the physician's choice of chemotherapy for HER2-low metastatic breast cancer. Costs, quality-adjusted life-years (QALYs) and the ICER in terms of 2022 US$ per QALY gained were calculated for both hormone receptor–positive cohort and all patients. One-way and probabilistic sensitivity analyses were performed to assess the model robustness.ResultsCompared with the physician's choice of chemotherapy, T-Dxd increased costs by $104,168.30, while gaining 0.31 QALYs, resulting in an ICER of $336,026.77 per QALY in all patients. The costs of T-Dxd and the utility of PFS were the crucial factors in determining the ICER. In the hormone receptor–positive cohort, the ICER was lower than that in all patients, with the ICER of $274,905.72 per QALY. The ICER was much higher than the commonly accepted willingness-to-pay threshold ($357,96.83 per QALY).ConclusionT-Dxd as second- or subsequent-line treatment is not a cost-effective treatment option for HER2-low metastatic breast cancer from the perspective of the Chinese healthcare system.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "23be330230ffe2f0e8d21112ff5f76b02812a0316b1658fa33ec670d77cb207e"
+      },
+      {
+        "pmid": "37488289",
+        "title": "Trastuzumab deruxtecan in metastatic breast cancer with variable HER2 expression: the phase 2 DAISY trial",
+        "authors": "Fernanda Mosele, Élise Deluche, Amélie Lusque, Loïc Le Bescond",
+        "year": "2023",
+        "journal": "Nature Medicine",
+        "doi": "10.1038/s41591-023-02478-2",
+        "url": "https://doi.org/10.1038/s41591-023-02478-2",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "The mechanisms of action of and resistance to trastuzumab deruxtecan (T-DXd), an anti-HER2-drug conjugate for breast cancer treatment, remain unclear. The phase 2 DAISY trial evaluated the efficacy of T-DXd in patients with HER2-overexpressing (n = 72, cohort 1), HER2-low (n = 74, cohort 2) and HER2 non-expressing (n = 40, cohort 3) metastatic breast cancer. In the full analysis set population (n = 177), the confirmed objective response rate (primary endpoint) was 70.6% (95% confidence interval (CI) 58.3-81) in cohort 1, 37.5% (95% CI 26.4-49.7) in cohort 2 and 29.7% (95% CI 15.9-47) in cohort 3. The primary endpoint was met in cohorts 1 and 2. Secondary endpoints included safety. No new safety signals were observed. During treatment, HER2-expressing",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "9a89b41cb94c8d014897c4923bfb4e9796c1941592d4655aec764c01492e6b82"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 19
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 2,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 19,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "HER2-positive metastatic breast cancer trastuzumab deruxtecan (T-DXd) trastuzumab emtansine (T-DM1) progression-free survival (PFS)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

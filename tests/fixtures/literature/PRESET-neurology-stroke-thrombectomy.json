@@ -1,0 +1,833 @@
+{
+  "id": "PRESET-neurology-stroke-thrombectomy",
+  "recordedAt": "2026-11-26T23:02:26.457Z",
+  "specialty": "neurology",
+  "words": [
+    {
+      "word": "acute ischemic stroke, anterior circulation large vessel occlusion",
+      "role": "population"
+    },
+    {
+      "word": "endovascular mechanical thrombectomy plus intravenous thrombolysis",
+      "role": "intervention"
+    },
+    {
+      "word": "intravenous thrombolysis alone",
+      "role": "comparator"
+    },
+    {
+      "word": "functional independence (modified Rankin Scale 0-2 at 90 days)",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "acute ischemic stroke, anterior circulation large vessel occlusion",
+        "role": "population"
+      },
+      {
+        "word": "endovascular mechanical thrombectomy plus intravenous thrombolysis",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous thrombolysis alone",
+        "role": "comparator"
+      },
+      {
+        "word": "functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "neurology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In acute ischemic stroke, anterior circulation large vessel occlusion (P), is endovascular mechanical thrombectomy plus intravenous thrombolysis (I) superior to intravenous thrombolysis alone (C) for functional independence (modified Rankin Scale 0-2 at 90 days) (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O)?",
+        "basis": "7 matching record(s) were screened, but their abstracts do not report an extractable direction of effect, so the comparison cannot be called established or conflicting without full-text appraisal.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous thrombolysis alone (C) improve functional independence (modified Rankin Scale 0-2 at 90 days) (O)?"
+    },
+    "words": [
+      {
+        "word": "acute ischemic stroke, anterior circulation large vessel occlusion",
+        "role": "population"
+      },
+      {
+        "word": "endovascular mechanical thrombectomy plus intravenous thrombolysis",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous thrombolysis alone",
+        "role": "comparator"
+      },
+      {
+        "word": "functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "neurology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "34569878",
+        "title": "SWIFT DIRECT: Solitaire™ With the Intention For Thrombectomy Plus Intravenous t-PA Versus DIRECT Solitaire™ Stent-retriever Thrombectomy in Acute Anterior Circulation Stroke: Methodology of a randomized, controlled, multicentre study",
+        "authors": "Fischer U, et al",
+        "year": "2022",
+        "journal": "International journal of stroke : official journal of the International Stroke Society",
+        "doi": "10.1177/17474930211048768",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34569878/",
+        "context": "RATIONALE: Whether treatment with intravenous alteplase prior to mechanical thrombectomy (MT) in acute ischemic stroke patients with large vessel occlusion is beneficial remains unclear. AIM: To determine whether patients experiencing acute ischemic stroke due to occlusion of the intracranial internal carotid artery or the M1 segment of the middle cerebral artery who are referred to an endovascular stroke center and who are candidates for intravenous alteplase will have non-inferior functional outcome at 90 days when treated with MT alone (direct MT) with stent retrievers compared to patients treated with combined intravenous thrombolysis (IVT) with alteplase plus MT (IVT + MT) with stent retrievers. SAMPLE SIZE: To randomize 404 patients 1:1 to direct MT or combined IVT+MT. METHODS AND DESIGN: A multicenter, prospective, randomized, open-label, blinded-endpoint (PROBE) trial utilizing an adaptive statistical design. OUTCOMES: The primary efficacy endpoint is functional independence (modified Rankin Scale 0-2) at 90 days. Secondary clinical efficacy outcomes include change in National Institutes of Health Stroke Scale score from baseline to day 1 and health-related quality of life at 90 days. Secondary technical efficacy outcomes include successful reperfusion prior to start of MT and time from randomization to successful reperfusion. Safety outcomes include all serious adverse events, symptomatic intracranial hemorrhage, and mortality up to 90 days. DISCUSSION: SWIFT DIRECT will inform physicians whether direct MT in acute ischemic stroke patients with large vessel occlusion is equally or more efficacious than combined treatment with intravenous alteplase and MT. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03192332.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "88dfb964b50789fb51ab6bf3288008f801528506ec6cfe6cd6ee91116a82ad1d"
+      },
+      {
+        "pmid": "23387822",
+        "title": "Endovascular Treatment for Acute Ischemic Stroke",
+        "authors": "Alfonso Ciccone, Luca Valvassori, Michele Nichelatti, Annalisa Sgoifo",
+        "year": "2013",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa1213701",
+        "url": "https://doi.org/10.1056/nejmoa1213701",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: In patients with ischemic stroke, endovascular treatment results in a higher rate of recanalization of the affected cerebral artery than systemic intravenous thrombolytic therapy. However, comparison of the clinical efficacy of the two approaches is needed. METHODS: We randomly assigned 362 patients with acute ischemic stroke, within 4.5 hours after onset, to endovascular therapy (intraarterial thrombolysis with recombinant tissue plasminogen activator [t-PA], mechanical clot disruption or retrieval, or a combination of these approaches) or intravenous t-PA. Treatments were to be given as soon as possible after randomization. The primary outcome was survival free of disability (defined as a modified Rankin score of 0 or 1 on a scale of 0 to 6, with 0 indicating no symptoms, 1 no",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d2c4e49f3593dfab01e6e776a91c211a30e248668a581269a9a04ff38ab48419"
+      },
+      {
+        "pmid": "cr:10.3389/fneur.2023.1237661",
+        "title": "Endovascular therapy beyond 24 hours for anterior circulation large vessel occlusion or stenosis in acute ischemic stroke: a retrospective study",
+        "authors": "Wen An, Cao Wen-feng, Zhao Chao, Wu Ling-feng",
+        "year": "2023",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2023.1237661",
+        "url": "https://doi.org/10.3389/fneur.2023.1237661",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background To assess the clinical and safety outcomes of endovascular treatment (EVT) administered more than 24 h after the onset of symptoms in patients with acute ischemic stroke resulting from anterior circulation large-vessel occlusion or stenosis (AIS-ACLVO/S). Methods We enrolled consecutive AIS-ACLVO/S patients who received EVT in our hospital between January 2019 and February 2022 and divided them into two groups based on the time from AIS onset to EVT: EVT < 24 h group and EVT >24 h group. The successful reperfusion (modified thrombolysis in cerebral infarction, [mTICI] ≥2b), 90-day modified Rankin Scale score (mRS), intracranial hemorrhage (ICH), and symptomatic ICH (sICH), as well as mortality, were analyzed in the two groups of patients. Results A total of 239 patients were included in the study, with 214 patients in the EVT < 24 h group (67.8 ± 0.8 years, 126 males) and 25 patients in the EVT > 24 h group (62.80 ± 2.0 years, 22 males). Both groups were similar in terms of hypertension, diabetes history, responsible vessels, and Alberta stroke program early computed tomography scores ( p > 0.05). However, the EVT < 24 h group had significantly higher age, history of atrial fibrillation, proportion of patients receiving intravenous thrombolysis, and NIHSS scores before EVT than the EVT > 24 h group. AIS etiology differed between the groups, with more cases of large artery atherosclerosis in the EVT > 24-h group and more cases of cardioembolism in the EVT < 24-h group. Successful reperfusion (mTICI ≥2b), ICH, and sICH were similar between the groups. The 90-day functional independence rate (mRS ≤ 2) was significantly higher in the EVT > 24-h than in the EVT < 24-h group (80% vs. 39.7%, p < 0.001), while the 90-day mortality rate was lower in the EVT > 24-h group (0% vs. 24.8%, p < 0.001). Conclusion In our study, we found that EVT beyond 24 h of symptom onset in patients selected with multimodal MR screening, was associated with high functional independence rates and low mortality. Larger or randomized studies are needed to confirm these findings.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "981987520924e7656f9c3fd2fed1a9aa7808e2797c5b9aa568083f3a97d8e4bc"
+      },
+      {
+        "pmid": "43069682",
+        "title": "Acute Reperfusion Therapies for Medium and Distal Vessel Occlusions.",
+        "authors": "Palaiodimou L, Papageorgiou NM, Theodorou A, Magoufis G, Spiliopoulos S, Bakola E, Stefanou MI, Tsalouchidou PE, Melanis",
+        "year": "2026",
+        "journal": "European journal of neurology",
+        "doi": "10.1111/ene.70822",
+        "url": "https://europepmc.org/article/PMC/PMC13791157",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Background Medium and distal vessel occlusions (MDVO) account for a substantial proportion of acute ischemic strokes (AIS) and carry a considerable burden of long-term disability. The optimal acute reperfusion strategy for these occlusions remains uncertain. We aimed to synthesize the current evidence on intravenous thrombolysis (IVT), endovascular treatment (EVT), and intra-arterial thrombolysis (IAT) for MDVO. Methods We conducted a narrative review of randomized-controlled clinical trials (RCTs), observational studies, and meta-analyses, complemented by updated meta-analyses of randomized data where feasible. Results The definition of MDVO remains inconsistent complicating the interpretation and pooling of evidence. IVT achieves recanalization in a minority of distal occlusions, yet retains benefit, including in extended time windows. In our updated meta-analysis of five RCTs, EVT did not improve functional outcomes compared with best medical treatment while increasing symptomatic intracranial hemorrhage. Reperfusion benefit across modalities appears to vary according to stroke severity, occlusion location, timing, and tissue viability. IAT, which delivers thrombolytics directly to the occlusion while minimizing mechanical manipulation of fragile distal vessels, is under investigation as a targeted alternative, with numerous dedicated RCTs ongoing but none yet published. Conclusions No single reperfusion strategy serves this heterogeneous population uniformly. IVT remains the reperfusion therapy with established benefit for most patients with MDVO, whereas EVT has not improved outcomes in unselected MDVO and IAT remains investigational. Pending further evidence, management beyond IVT should remain cautious rather than routine.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "d1e44e0cbc631011e7f69a9341572ec71b730ff75dad4faae9e3f0fc22fa5002"
+      },
+      {
+        "pmid": "cr:10.1097/wnf.0000000000000672",
+        "title": "Risk Factors for Symptom Aggravation in Acute Ischemic Stroke Due to Anterior Circulation Large Vessel Occlusion",
+        "authors": "Liu Shugai, Pu Tianqiang, Ran Qiang, Tao Lei",
+        "year": "2026",
+        "journal": "Clinical Neuropharmacology",
+        "doi": "10.1097/wnf.0000000000000672",
+        "url": "https://doi.org/10.1097/wnf.0000000000000672",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective: This study is designed to expound the risk factors for symptomatic exacerbation of acute ischemic stroke due to anterior circulation large vessel occlusion (AIS-AC-LVO), aiming to inform strategies for preventing disease progression. Methods: Two hundred patients with AIS-AC-LVO were retrospectively analyzed. Baseline data included demographics, vascular risk factors, stroke subtype, admission NIHSS score, core infarct volume, blood pressure, serum lipid profile, homocysteine (Hcy), and neutrophil count. Perioperative variables comprised onset-to-door time (ODT), door-to-procedure time (DPT), intravenous thrombolysis, bridging therapy, occlusion site, anesthesia type, procedure duration, intraoperative rescue interventions, recanalization status, and postoperative sedative use. Patients were classified into exacerbated or nonexacerbated groups according to 7-day neurological outcomes. Univariate analysis, multivariate logistic regression, and receiver operating characteristic (ROC) curve analysis were conducted. Results: Baseline NIHSS score, LDL-C, Hcy, neutrophil count, ODT, procedure duration, core infarct volume, and recanalization rate differed significantly between groups ( P <0.05). Multivariate analysis identified elevated Hcy (OR=2.109, 95% CI: 1.499-2.965), prolonged ODT (OR=1.574, 95% CI: 1.181-2.098), longer procedure duration (OR=1.049, 95% CI: 1.014-1.085), and higher LDL-C (OR=5.398, 95% CI: 1.385-21.036) as independent predictors of symptom worsening. ROC analysis showed strong predictive performance for Hcy (AUC=0.866) and ODT (AUC=0.769) (both P <0.001). Conclusions: Elevated Hcy, elevated LDL-C, and prolonged ODT and procedure duration independently predict short-term neurological deterioration.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Diagnostic Accuracy Study",
+        "lowMetadata": false,
+        "_sig": "e590b05b7163788e93242c83741b567567f2084071129e0f0e11f074b63f5c78"
+      },
+      {
+        "pmid": "26537058",
+        "title": "Endovascular vs medical management of acute ischemic stroke",
+        "authors": "Ching‐Jen Chen, Dale Ding, Robert M. Starke, Prachi Mehndiratta",
+        "year": "2015",
+        "journal": "Neurology",
+        "doi": "10.1212/wnl.0000000000002176",
+        "url": "https://doi.org/10.1212/wnl.0000000000002176",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: To compare the outcomes between endovascular and medical management of acute ischemic stroke in recent randomized controlled trials (RCT). METHODS: A systematic literature review was performed, and multicenter, prospective RCTs published from January 1, 2013, to May 1, 2015, directly comparing endovascular therapy to medical management for patients with acute ischemic stroke were included. Meta-analyses of modified Rankin Scale (mRS) and mortality at 90 days and symptomatic intracranial hemorrhage (sICH) for endovascular therapy and medical management were performed. RESULTS: Eight multicenter, prospective RCTs (Interventional Management of Stroke [IMS] III, Local Versus Systemic Thrombolysis for Acute Ischemic Stroke [SYNTHESIS] Expansion, Mechanical Retrieval and Recanalization of Stroke Clots Using Embolectomy [MR RESCUE], Multicenter Randomized Clinical Trial of Endovascular Treatment for Acute",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "0177142ab50d7c6a3e2f00c6c882eb43aeecbd3bde1f0f592efcb1d1f8b0c1c3"
+      },
+      {
+        "pmid": "42729048",
+        "title": "An innovative endovascular approach for acute ischemic stroke attributable to ICAS-LVO: the RESCUE (Retrievable stent-Endovascular tirofiban-paSs-ExtraCtion-microgUide-rEscue angioplasty) technique.",
+        "authors": "Wu Y, Wang H, Gui Y, Sun R, Feng G, Li W, Zheng Y, Liu W, Hua Z.",
+        "year": "2026",
+        "journal": "Frontiers in neurology",
+        "doi": "10.3389/fneur.2026.1886448",
+        "url": "https://europepmc.org/article/PMC/PMC13561759",
+        "source": "pmc",
+        "pubType": "research-article, Randomized Controlled Trial, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Randomized Controlled Trial",
+          "Journal Article"
+        ],
+        "context": "Background Conventional mechanical thrombectomy (MT) for acute ischemic stroke (AIS) due to intracranial atherosclerosis-related large vessel occlusion (ICAS-LVO) is associated with low first-pass reperfusion (FPR), distal embolization, and recurrent thrombosis. We designed a novel stepwise endovascular strategy, the RESCUE (Retrievable stent-Endovascular tirofiban-paSs-ExtraCtion-microgUide-rEscue angioplasty) technique, and compared its safety and efficacy with that of the standard Solumbra technique. Methods In this prospective, randomized, single-center trial, 85 patients presenting with AIS due to ICAS-LVO were enrolled consecutively. Eligible participants underwent randomization to either the RESCUE group (43 patients) or Solumbra group (42 patients). The primary endpoint was FPR, defined as achieving modified Thrombolysis in Cerebral Infarction (mTICI) grade 2c-3. Secondary endpoints comprised: favorable 90-day functional status [modified Rankin Scale (mRS) score ≤2 for anterior strokes or ≤3 for posterior strokes]; procedural duration from groin puncture to first recanalization; number of retrieval attempts; distal embolization; early reocclusion; symptomatic intracranial hemorrhage (sICH); and death within 90 days. Results A significant difference in FPR rates was observed between the two groups, favoring the RESCUE group [86.0% (37/43) vs. 61.9% (26/42); p = 0.011]. The RESCUE group had a shorter median procedural duration [40.0 min (interquartile range (IQR) 30.0-50.0 min) vs. 60.0 min (IQR 43.0-77.0 min); p = 0.010]. Successful reperfusion, defined as mTICI grade ≥2b, occurred in 93.0% of patients in the RESCUE group and 90.5% of those in the Solumbra group ( p = 0.373). At the 90-day follow-up, a favorable functional outcome was noted in 60.5% (26/43) of RESCUE group patients and 57.1% (24/42) of Solumbra group patients ( p = 0.483). No significant between-group differences emerged in the incidence of sICH (2.3% vs. 4.8%, p = 1.000) or 90-day mortality (0% vs. 4.8%, p = 0.237). Conclusion The RESCUE technique is a safe and effective lesion-specific endovascular strategy for ICAS-LVO, providing superior FPR and shorter procedural time compared with the conventional Solumbra technique, without increasing safety concerns. Larger-scale multicenter investigations are needed to confirm these results.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "25e15355710c2bd80c6d37e0aa006c20aad06f61cdb725ee1ecbb800989113c4"
+      },
+      {
+        "pmid": "doi:10.3389/fneur.2022.962987",
+        "title": "Endovascular treatment of acute ischemic stroke with a fully radiopaque retriever: A randomized controlled trial",
+        "authors": "Yongxin Zhang, Pei Liu, Zifu Li, Ya Peng",
+        "year": "2022",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2022.962987",
+        "url": "https://doi.org/10.3389/fneur.2022.962987",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "ObjectiveThe Neurohawk retriever is a new fully radiopaque retriever. A randomized controlled non-inferiority trial was conducted to compare the Neurohawk and the Solitaire FR in terms of safety and efficacy. In order to evaluate the efficacy and safety of endovascular treatment in acute ischemic stroke (AIS) caused by intracranial atherosclerotic disease (ICAD) larger vessel occlusion (LVO), a sub-analysis was performed.MethodsAcute ischemic stroke patients aged 18–80 years with LVO in the anterior circulation were randomly assigned to undergo thrombectomy with either the Neurohawk or the Solitaire FR. The primary efficacy endpoint was successful reperfusion (mTICI 2b-3) rate by the allocated retriever. A relevant non-inferiority margin was 12.5%. Safety outcomes were symptomatic intracranial hemorrhage (sICH) and all-cause mortality within 90 days. Secondary endpoints included first-pass effect (FPE), modified FPE, and favorable outcomes at 90 days. In subgroup analysis, the patients were divided into the ICAD group and non-ICAD group according to etiology, and baseline characteristics, angiographic, and clinical outcomes were compared.ResultsA total of 232 patients were involved in this analysis (115 patients in the Neurohawk group and 117 in the Solitaire group). The rates of successful reperfusion with the allocated retriever were 88.70% in the Neurohawk group and 90.60% in the Solitaire group (95%CI of the difference, −9.74% to 5.94%; p = 0.867). There were similar results in FPE and mFPE in both groups. The rate of sICH seemed higher in the Solitaire group (13.16% vs. 7.02%, p = 0.124). All-cause mortality and favorable outcome rates were comparable as well. In subgroup analysis, 58 patients were assigned to the ICAD group and the remaining 174 to the non-ICAD group. The final successful reperfusion and favorable outcome rates showed no statistically significant differences in two groups. Mortality within 90 days was relatively lower in the ICAD group (6.90% vs. 17.24%; p = 0.054).ConclusionThe Neurohawk retriever is non-inferior to the Solitaire FR in the mechanical thrombectomy of large vessel occlusion-acute ischemic stroke (LVO-AIS). The sub-analysis suggested that endovascular treatment including thrombectomy with the retriever and essential rescue angioplasty is effective and safe in AIS patients with intracranial atherosclerotic disease-larger vessel occlusion (ICAD-LVO).Clinical trial registrationhttps://clinicaltrials.gov/ct2/show/NCT04995757, number: NCT04995757.",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "cea668a9ec481c1118058e512f7b642396b57228dbf3ffe2a9b7941374b7452b"
+      },
+      {
+        "pmid": "cr:10.51731/cjht.2022.314",
+        "title": "Systemic Thrombolysis and Endovascular Therapy for Large Vessel Occlusion Acute Ischemic Stroke",
+        "authors": "Farrell Keeley, Askin Nicole",
+        "year": "2022",
+        "journal": "Canadian Journal of Health Technologies",
+        "doi": "10.51731/cjht.2022.314",
+        "url": "https://doi.org/10.51731/cjht.2022.314",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Evidence was mixed, with higher-quality evidence suggesting that there were no differences between treatment with alteplase before endovascular therapy or endovascular therapy alone in patients with large vessel occlusion acute ischemic stroke for outcomes related to safety and efficacy, and lower-quality evidence indicating a difference between the groups for certain outcomes.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "82867088b09a98065ba1a53a99c0ab4f6335d8cf19aa534e72f0b6e8a4298c5c"
+      },
+      {
+        "pmid": "cr:10.1186/s12883-021-02122-x",
+        "title": "Endovascular treatment of acute ischemic stroke due to anterior circulation large vessel occlusion beyond 6 hours: a real-world study in China",
+        "authors": "Huang Qing, Gu Mengmeng, Zhou Junshan, Jiang Teng",
+        "year": "2021",
+        "journal": "BMC Neurology",
+        "doi": "10.1186/s12883-021-02122-x",
+        "url": "https://doi.org/10.1186/s12883-021-02122-x",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background We aimed to assess the safety and efficacy of endovascular treatment (EVT) in patients with anterior circulation emergent large vessel occlusion (ELVO) beyond 6 h from symptom onset in a real-world cohort of patients in China. Methods We retrospectively examined 305 patients with anterior circulation ELVO treated with EVT. Patients were divided into two groups: treated with known onset within 6 h ( n = 238) and beyond 6 h ( n = 67). Multivariable logistic regression and ordinal shift analyses were used to evaluate the associations between onset-to-groin puncture time and safety and efficacy outcomes. Results Treatment beyond 6 h was not associated with symptomatic intracranial hemorrhage within 48 h (sICH; odds ratio [OR] 2.03, 95% confidence interval [CI] 0.48–8.57, p = 0.334), in-hospital mortality (OR 1.95, 95% CI 0.48–7.91, p = 0.348), successful recanalization (modified Thrombolysis in Cerebral Infarction score 2b or 3; OR 0.73, 95% CI 0.31–1.73, p = 0.470), favorable functional outcome (modified Rankin Scale score 0–2; OR 0.55, 95% CI 0.25–1.23, p = 0.145), and functional improvement (modified Rankin Scale shift by 1-point decrease; common OR 0.80, 95%CI 0.45–1.42, p = 0.450) at 3 months compared with treatment within 6 h. Futher interaction analysis showed that stroke etiology did not modify the associations between onset-to-groin puncture time and outcomes ( p > 0.05). Conclusions In this real-world study, after careful assessment, EVT beyond 6 h from known stroke onset was safe, effective and had comparable short-term outcomes to EVT within 6 h.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "2ba791f576ac0ba642039e98a68a02160f7e7025b6e7945f266102b780230208"
+      },
+      {
+        "pmid": "doi:10.3389/fneur.2019.00127",
+        "title": "Treatment Methods and Early Neurologic Improvement After Endovascular Treatment of Tandem Occlusions in Acute Ischemic Stroke",
+        "authors": "Marta Wallocha, Marta Wallocha, René Chapot, Hannes Nordmeyer",
+        "year": "2019",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2019.00127",
+        "url": "https://doi.org/10.3389/fneur.2019.00127",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background and Purpose: A tandem occlusion of the intracranial circulation and the extracranial carotid artery (ICA) occurs in 10–20% of all strokes based on large vessel occlusion (LVO). The optimal treatment strategy for those patients is unknown. We report our management strategy and the outcome in these patients in a large single-center cohort.Materials and Methods: We retrospectively identified and analyzed all patients treated by Mechanical Thrombectomy (MT) for an intracranial LVO associated with an occlusion of the extracranial ICA between April 2009 and May 2016 (163/1,645, 9.9%). The following data was collected: Recanalization rate, occurrence of symptomatic intracranial hemorrhage (sICH), clinical result according to the early neurological improvement (ENI, NIHSS score improvement of ≥8 points after 24 h or NIHSS score of 0 or 1 after 3 days) and functional outcome and mortality during long term follow up. Secondary endpoints were the patency of the internal carotid artery at 24 h. Patient demographics and anti-aggregation regimen were recorded as co-variables.Results: 163/1,645 (9.9%) MT patients had a tandem occlusion. All thrombectomy procedures were performed with stent retrievers. PTA with or without additional placement of a stent was performed in 149 vs. 14 patients. The overall rate of TICI IIB/III recanalization was 91.4%. An early neurological improvement was found in 79 of 163 patients (48.4%), 51% (76/149) in the stent group and 21% (3/14) in the non stent group. 120/163 patients (73.6%) had a long term favorable outcome (mRS 0–2). The ICA re-occlusion rate at 24 h was 5.4% (8/149) in the stent group and 42% (6/14) in the non stent group. The rate of symptomatic hemorrhage was 4.9%.The regression analysis showed that only younger age (p = 0.002) and shorter recanalization times (p = 0.017) were associated with good outcome.Conclusion: Stent-PTA of the ICA in addition to MT with a stent retriever was safe and effective in tandem occlusion of the anterior brain circulation. PTA and MT without stenting in tandem lesions showed a higher early re-occlusion rate and lower rate of early neurological improvement. The technical approach should aim for the fastest possible recanalization of the intracranial vessels, either with stenting first or last.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "6377a89e79edaf2a1ad0fd78d6717e4c9bf30d97f7d7657f6d160fade9d3c158"
+      },
+      {
+        "pmid": "doi:10.3390/life11050458",
+        "title": "Comparing Endovascular Treatment Methods in Acute Ischemic Stroke Due to Tandem Occlusion Focusing on Clinical Aspects",
+        "authors": "Peter Janos Kalmar, Gabor Tarkanyi, Csaba Balazs Nagy, Peter Csecsei",
+        "year": "2021",
+        "journal": "Life",
+        "doi": "10.3390/life11050458",
+        "url": "https://doi.org/10.3390/life11050458",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Introduction: Acute ischemic strokes (AIS) due to tandem occlusion (TO) of intracranial anterior large vessel and concomitant extracranial internal carotid artery (EICA) are represent in 15–20% of all ischemic strokes. The endovascular treatment (EVT) strategy for those patients is still unclear. Although the intracranial mechanical thrombectomy (MT) is considered as a standard treatment approach, the EICA lesion stent necessity remains a matter of debate. We sought to assess the efficacy and safety of EVT in tandem lesions, particularly the EICA stenting management. Methods: We retrospectively analyzed all patients with anterior circulation stroke associated with EICA lesion and receiving EVT in the three participated stroke centers between November 2017 and December 2020. Patients’ data were collected from our prospective stroke registry (STAY ALIVE). Patients enrolled in our study were divided into two groups depending on whether acute carotid stenting (ACS) or balloon angioplasty only (BAO) technique was used. Our primary outcome was the 90-day functional outcome assessed by modified Rankin scale (mRS). Mortality at 90 days and symptomatic intracranial hemorrhage (sICH) were considered as secondary outcomes. Results: A total of 101 patients (age: 67 ± 10 years, 38.6% female) were enrolled in our study, including 29 (28.3%) BAO cases, and 72 (71.3%) patients treated with ACS. Patients in the BAO group were slightly older (70 ± 9 years vs. 66 ± 10 years, p = 0.054), and had higher prevalence of comorbidities such as hypertension (100.0% vs. 59.4%, p p = 0.808) between the groups. However, we observed a trend towards higher rates of sICH (8.3% vs. 3.4%, p = 0.382) and 90-day mortality (23.5% vs. 13.8%, p = 0.278) with significantly higher frequency of distal embolization (39.1% vs. 17.9%, p = 0.043) in patients with ACS. In the overall population age ( p = 0.013), atrial fibrillation (AF) ( p = 0.008), National Institutes of Health Stroke Scale (NIHSS) baseline ( p = 0.029), and successful recanalization ( p = 0.023) were associated with favorable outcome. Conclusion: Endovascular approach of EICA in addition to MT was safe and effective in tandem occlusion of anterior circulation. Furthermore, our results suggest that balloon angioplasty technique without acute stenting shows a comparable favorable outcome rate to ACS with moderately less hemorrhagic events and mortality rates.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1ae6d8cb824ef292e6c30d4e7569b019f2815c4eae36d404a363aabc30e40025"
+      },
+      {
+        "pmid": "42974611",
+        "title": "Association Between Hypoperfusion Intensity Ratio and Outcomes After Endovascular Thrombectomy in Posterior Circulation Stroke: A Retrospective Study.",
+        "authors": "Mo M, Tao CR, Yu CY, Chen ZJ, Hu W.",
+        "year": "2026",
+        "journal": "Stroke (Hoboken, N.J.)",
+        "doi": "10.1161/svin.125.002305",
+        "url": "https://europepmc.org/article/PMC/PMC13727208",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background The prognostic utility of the hypoperfusion intensity ratio (HIR) in posterior circulation stroke is undefined. We investigated the association between pretreatment HIR and outcomes after mechanical thrombectomy for acute posterior circulation large vessel occlusion. Methods This post hoc analysis of the ATTENTION (Endovascular Treatment for Acute Basilar Artery Occlusion)/ATTENTION-IA (Intra-Arterial Tenecteplase After Successful Endovascular Recanalisation in Patients With Acute Posterior Circulation Arterial Occlusion) trials included patients with posterior circulation occlusion who underwent mechanical thrombectomy and had baseline computed tomography perfusion. HIR (Tmax>10 s/ Tmax>6 s volume) was analyzed. Functional independence (modified Rankin Scale score, 0-2) at 90 days was the primary outcome. Results Among 139 patients, higher HIR (per 0.1 increment) was independently associated with lower odds of 90-day modified Rankin Scale score of 0 to 2 (adjusted odds ratio, 0.643 [95% CI, 0.422-0.979]; P =0.039). However, its discriminative ability was the modest (area under the curve, 0.617 [95% CI, 0.521-0.712]). The established anterior circulation cutoff (HIR P =0.115). Conclusions Elevated HIR is independently associated with worse 90-day outcomes after posterior circulation mechanical thrombectomy, but its overall prognostic utility is limited, and the anterior circulation threshold (0.4) could not be validated in this underpowered analysis, highlighting circulation-specific pathophysiological differences.",
+        "relevancePct": 60,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "2a99c01add26267bb968a3c53036e01147a53af254e5d34f133304a244f6cef9"
+      },
+      {
+        "pmid": "cr:10.3390/jcm13133707",
+        "title": "Association between Transient-Continuous Hypotension during Mechanical Thrombectomy for Acute Ischemic Stroke and Final Infarct Volume in Patients with Proximal Anterior Circulation Large Vessel Occlusion",
+        "authors": "Wiącek Marcin, Tomaszewska-Lampart Izabella, Dziedzic Marzena, Kaczorowska Anna",
+        "year": "2024",
+        "journal": "Journal of Clinical Medicine",
+        "doi": "10.3390/jcm13133707",
+        "url": "https://doi.org/10.3390/jcm13133707",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background/Objectives: Periprocedural blood pressure changes in stroke patients with a large vessel occlusion are a known modifiable risk factor of unfavorable treatment outcomes. We aimed to evaluate the association between pre-revascularization hypotension and the final infarct volume. Methods: In our retrospective analysis, we included 214 consecutive stroke patients with an anterior circulation large vessel occlusion that underwent mechanical thrombectomy under general anesthesia. Noninvasively obtained blood pressure values prior to symptomatic vessel recanalization were analyzed as a predictor of post-treatment infarct size. Linear logistic regression models adjusted for predefined factors were used to investigate the association between blood pressure parameters and the final infarct volume. Results: In our cohort, higher baseline systolic blood pressure (aβ = 8.32, 95% CI 0.93–15.7, p = 0.027), its maximal absolute drop (aβ = 6.98, 95% CI 0.42–13.55, p = 0.037), and >40% mean arterial pressure decrease (aβ = 41.77, CI 95% 1.93–81.61, p = 0.040) were independently associated with higher infarct volumes. Similarly, continuous hypotension measured as intraprocedural cumulative time spent below either 100 mmHg (aβ = 3.50 per 5 min, 95% CI 1.49–5.50, p = 0.001) or 90 mmHg mean arterial pressure (aβ = 2.91 per 5 min, 95% CI 0.74–5.10, p = 0.010) was independently associated with a larger ischemia size. In the subgroup analysis of 151 patients with an M1 middle cerebral artery occlusion, two additional factors were independently associated with a larger ischemia size: systolic blood pressure maximal relative drop and >40% drop from pretreatment value (aβ = 1.36 per 1% lower than baseline, 95% CI 0.04–2.67, p = 0.043, and aβ = 43.01, 95% CI 2.89–83.1, p = 0.036, respectively). No associations between hemodynamic parameters and post-treatment infarct size were observed in the cohort of intracranial internal carotid artery occlusion. Conclusions: In patients with ischemic stroke due to a proximal middle cerebral artery occlusion, higher pre-thrombectomy treatment systolic blood pressure is associated with a larger final infarct size. In patients treated under general anesthesia, hypotension prior to the M1 portion of middle cerebral artery recanalization is independently correlated with the post-treatment infarct volume. In this group, every 5 min spent below the mean arterial pressure threshold of 100 mmHg is associated with a 4 mL increase in ischemia volume on a post-treatment NCCT. No associations between blood pressure and final infarct volume were present in the subgroup of patients with an intracranial internal carotid artery occlusion.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "4fc8f5f71cc830626c79ca9eaf4cc35c04efc7a5e112fb3576f385acdf678009"
+      },
+      {
+        "pmid": "31009355",
+        "title": "Risk Factors for Acute Ischemic Stroke Caused by Anterior Large Vessel Occlusion",
+        "authors": "Philipp Hendrix, Nelson Sofoluke, Matthew D. Adams, Saran Kunaprayoon",
+        "year": "2019",
+        "journal": "Stroke",
+        "doi": "10.1161/strokeaha.118.023917",
+        "url": "https://doi.org/10.1161/strokeaha.118.023917",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background and Purpose- Accurate prediction of acute ischemic stroke (AIS) caused by anterior large vessel occlusion (LVO) that is amendable to mechanical thrombectomy remains a challenge. We developed and validated a prediction model for anterior circulation LVO stroke using past medical history elements present on admission and neurological examination. Methods- We retrospectively reviewed AIS patients admitted between 2009 and 2017 to 3 hospitals within a large healthcare system in the United States. Patients with occlusions of the internal carotid artery or M1 or M2 segments of the middle cerebral artery were randomly split into 2/3 derivation and 1/3 validation cohorts for development of an anterior circulation LVO prediction model and score that was further curtailed for potential use in the",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prediction Model Study",
+        "lowMetadata": false,
+        "_sig": "1fd48bfd689e3ae54366ea796129454dd135f991e56e257e05837e58e7b69143"
+      },
+      {
+        "pmid": "doi:10.3389/fneur.2026.1773323",
+        "title": "Association of uric acid levels with the risk of severe CED in LVO-AIS patients after mechanical thrombectomy",
+        "authors": "Mayila Abuduaini, Xinli Xiong, Gang Li, Tianrui Zhu",
+        "year": "2026",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2026.1773323",
+        "url": "https://doi.org/10.3389/fneur.2026.1773323",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "ObjectivesCerebral edema (CED) significantly exacerbates mortality in patients with acute ischemic stroke (AIS) and can offset the benefits of endovascular therapy. Uric acid (UA) is recognized for its potential neuroprotective properties. This study aimed to investigate the association between serum UA levels and moderate-to-severe CED in large-vessel occlusion (LVO-AIS) patients following mechanical thrombectomy (MT).MethodsWe retrospectively analyzed 272 patients with anterior circulation LVO-AIS who achieved successful reperfusion (mTICI grade 2b-3) after MT. Patients were categorized into mild and moderate-to-severe CED groups, Multivariate logistic regression and interaction analyses were employed to determine the relationship between UA levels and the risk of moderate-to-severe CED.ResultsPatients in the no-to-mild CED group exhibited significantly higher UA levels compared to the moderate-to-severe CED group (median 310.0 vs. 302.0 μmol/L; p < 0.05). After adjusting for confounders (hypertension history, NIHSS, TICI, and ASPECT scores), higher UA levels were inversely correlated with moderate-to-severe CED risk (adjusted OR: 0.74; 95% CI: 0.56–0.99; p = 0.044). Interaction analysis revealed that this protective effect was more pronounced in patients with lower admission blood glucose (<7.5 mmol/L), higher mTICI grades (grade 3), and a history of hypertension (all P-interaction<0.06). Specifically, among patients with glucose<7.5 mmol/L, those with UA ≥ 360 μmol/L had a 76% lower risk of moderate-to-severe CED (aOR: 0.24; 95% CI: 0.09–0.69; p = 0.033).ConclusionHigher serum UA levels may serve as a protective factor against moderate-to-severe CED following MT in LVO-AIS patients. This association is particularly significant in patients with lower glucose levels, optimal reperfusion (mTICI 3), and a history of hypertension.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c3d1921ed17deaa00f4e69aa808eb96f83ba0a29899adfd813b232eccaf135e0"
+      },
+      {
+        "pmid": "doi:10.3389/fneur.2022.1016734",
+        "title": "Preliminary experience with recanalization of large vessel occlusion due to underlying long-segment dissection using a standby microwire technique",
+        "authors": "Xiaoxi Zhang, Hongye Xu, Zhengzhe Feng, Weilong Hua",
+        "year": "2022",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2022.1016734",
+        "url": "https://doi.org/10.3389/fneur.2022.1016734",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "PurposeThis study aimed at investigating a novel standby microwire technique to facilitate revascularization of large vessel occlusion due to underlying long-segment dissection.MethodsPatients with acute ischemic stroke with emergent large vessel occlusion (ELVO) due to underlying long-segment dissection were screened from the prospectively established database between January 2021 and May 2022. The clinical and radiological data of eligible patients who underwent endovascular treatment by using a standby microwire technique were investigated.ResultsOf the 165 acute ischemic stroke patients who underwent mechanical thrombectomy, the standby microwire technique was used in five patients aged 33–55 years old with occlusion due to underlying long-segment dissection. Of them, three patients were diagnosed with tandem lesions and three were located at the anterior circulation. A 300 cm exchange microwire was used as the standby microwire. Stent deployment was performed in all five patients. Groin puncture to reperfusion time ranged from 10–68 min. Technical success and favorable clinical outcomes were achieved in all five patients (100%). No technique-related complication was observed.ConclusionOur preliminary experience showed that the standby microwire technique was a useful ancillary approach to facilitate the revascularization of large vessel occlusion due to underlying long-segment dissection.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bd723b6b6c1b9d764569af6fc3d8bb95f04c85089378087c7a7cc0a049090277"
+      },
+      {
+        "pmid": "31001193",
+        "title": "Endovascular Treatment of Acute Stroke Due to Intracranial Atherosclerotic Stenosis–Related Large Vessel Occlusion",
+        "authors": "Hyungjong Park, Jang‐Hyun Baek, Byung Moon Kim",
+        "year": "2019",
+        "journal": "Frontiers in Neurology",
+        "doi": "10.3389/fneur.2019.00308",
+        "url": "https://doi.org/10.3389/fneur.2019.00308",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Endovascular treatment (EVT) has become a standard treatment for acute ischemic stroke due to large vessel occlusion (LVO) in the anterior circulation. However, whether EVT tools used for intracranial atherosclerotic stenosis (ICAS)-related LVO are as safe and effective as for use in embolic LVO remains unclear. There have been only a few studies about EVT for ICAS-related LVO, and these studies revealed that mechanical thrombectomy with a stent retriever or contact aspiration was less effective and more time consuming in ICAS-related LVO than in embolic LVO. Because fast and successful recanalization (defined as modified Thrombolysis in Cerebral Ischemia grade, 2b or 3) is the most critical factor influencing favorable outcomes, it is important to determine the appropriate EVT strategy for",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "30f8db0a2c5f3d83650c20995d7acd0f6cf3a5175cf4fbd15a8132e6a0e77245"
+      },
+      {
+        "pmid": "27422968",
+        "title": "A population-based incidence of acute large vessel occlusions and thrombectomy eligible patients indicates significant potential for growth of endovascular stroke therapy in the USA",
+        "authors": "Ansaar Rai, Aaron E Seldon, SoHyun Boo, Paul S Link",
+        "year": "2016",
+        "journal": "Journal of NeuroInterventional Surgery",
+        "doi": "10.1136/neurintsurg-2016-012515",
+        "url": "https://doi.org/10.1136/neurintsurg-2016-012515",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Data on large vessel strokes are important for resource allocation and infrastructure development. OBJECTIVE: To determine an annual incidence of large vessel occlusions (LVOs) and a thrombectomy eligible patient population. METHODS: All patients with acute ischemic stroke discharged over 3 years from a tertiary-level hospital serving a large geographic area were evaluated for an LVO (M1, internal carotid artery terminus, basilar artery). The incidence of LVO was determined for the hospital's 4-county primary service area (PSA, population 210 000) based on each county's discharges and extrapolated to the US population. 'Thrombectomy eligibility' for anterior circulation LVOs was based on time (onset <6 hours) and imaging (Alberta Stroke Program Early CT Score (ASPECTS) ≥6). The number of annual thrombectomy procedures",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c5cf53a776cdb90e22880d2fffecbd02cf6ad64dfa876843b1ca9471208c321e"
+      },
+      {
+        "pmid": "doi:10.1016/j.cdtm.2016.11.005",
+        "title": "Advances in endovascular therapy for ischemic cerebrovascular diseases",
+        "authors": "Jun Lu, Daming Wang",
+        "year": "2016",
+        "journal": "Chronic Diseases and Translational Medicine",
+        "doi": "10.1016/j.cdtm.2016.11.005",
+        "url": "https://doi.org/10.1016/j.cdtm.2016.11.005",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Endovascular therapy for ischemic cerebrovascular diseases has developed rapidly in recent years. The latest clinical trials of acute ischemic stroke have shown promising results with the continued advancement of concepts, techniques, and materials. Mechanical thrombectomy is recommended in the treatment of acute ischemic stroke caused by large vessel occlusion of the anterior circulation, according to the guidelines updated in Europe, USA, and China. The long-term therapeutic efficacy of endovascular stenting for carotid artery stenosis has also been proved noninferior to that of carotid endarterectomy. However, the latest clinical trials have shown that the efficacy of stenting for intracranial artery and vertebral artery stenosis is inferior to that of medical treatment alone, which needs urgent attention through further development and studies. Keywords: Ischemic cerebrovascular diseases, Interventional surgery, Progress",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "213237a4f2b7408854e3840d831302d2c62ee1ef643bd4f2ff5176afe7470544"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 22,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "acute ischemic stroke, anterior circulation large vessel occlusion endovascular mechanical thrombectomy plus intravenous thrombolysis intravenous thrombolysis alone functional independence (modified Rankin Scale 0-2 at 90 days)",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": false
+  }
+}

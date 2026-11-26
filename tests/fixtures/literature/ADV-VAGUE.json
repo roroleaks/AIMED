@@ -1,0 +1,60 @@
+{
+  "id": "ADV-VAGUE",
+  "recordedAt": "2026-11-26T22:58:54.650Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "pain",
+      "role": "population"
+    },
+    {
+      "word": "drug",
+      "role": "intervention"
+    },
+    {
+      "word": "better",
+      "role": "comparator"
+    },
+    {
+      "word": "patients",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "pain",
+        "role": "population"
+      },
+      {
+        "word": "drug",
+        "role": "intervention"
+      },
+      {
+        "word": "better",
+        "role": "comparator"
+      },
+      {
+        "word": "patients",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "needsClarification": true,
+    "message": "Input contains only generic clinical terms ('pain, drug, better, patients'). Please specify a concrete patient population, named intervention, and measurable clinical endpoint.",
+    "phrases": null,
+    "corpusStats": {
+      "retrieved": 0,
+      "screened": 0,
+      "relaxationLevel": 0
+    },
+    "sources": []
+  },
+  "exploreRequest": null,
+  "exploreStatus": null,
+  "exploreResponse": null
+}

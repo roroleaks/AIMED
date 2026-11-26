@@ -1,0 +1,834 @@
+{
+  "id": "PRESET-internal_med-ckd-sglt2",
+  "recordedAt": "2026-11-26T23:01:54.362Z",
+  "specialty": "internal_med",
+  "words": [
+    {
+      "word": "chronic kidney disease with albuminuria, with or without diabetes",
+      "role": "population"
+    },
+    {
+      "word": "dapagliflozin",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "sustained eGFR decline, end-stage kidney disease, or renal death",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "chronic kidney disease with albuminuria, with or without diabetes",
+        "role": "population"
+      },
+      {
+        "word": "dapagliflozin",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "sustained eGFR decline, end-stage kidney disease, or renal death",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In chronic kidney disease with albuminuria, with or without diabetes (P), does dapagliflozin (I) compared with placebo (C) reduce sustained eGFR decline, end-stage kidney disease, or renal death (O)?",
+        "basis": "Screened literature contains 4 randomized controlled trial(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In chronic kidney disease with albuminuria, with or without diabetes (P), is dapagliflozin (I) superior to placebo (C) for sustained eGFR decline, end-stage kidney disease, or renal death (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of chronic kidney disease with albuminuria, with or without diabetes (P), does dapagliflozin (I) compared with placebo (C) reduce sustained eGFR decline, end-stage kidney disease, or renal death (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In chronic kidney disease with albuminuria, with or without diabetes (P), does dapagliflozin (I) compared with placebo (C) reduce sustained eGFR decline, end-stage kidney disease, or renal death (O)?"
+    },
+    "words": [
+      {
+        "word": "chronic kidney disease with albuminuria, with or without diabetes",
+        "role": "population"
+      },
+      {
+        "word": "dapagliflozin",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "sustained eGFR decline, end-stage kidney disease, or renal death",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "internal_med",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "39475817",
+        "title": "Baseline, Early Changes, and Residual Albuminuria: Post Hoc Analysis of a Randomized Clinical Trial of Dapagliflozin in Chronic Kidney Disease",
+        "authors": "Dominique van Mil, Priya Vart, Glenn Matthew Chertow, Ron T. Gansevoort",
+        "year": "2024",
+        "journal": "Clinical Journal of the American Society of Nephrology",
+        "doi": "10.2215/cjn.0000000000000550",
+        "url": "https://doi.org/10.2215/cjn.0000000000000550",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Key Points Dapagliflozin reduced albuminuria in participants with CKD, with reductions being proportional to reductions in the risk of disease progression. Residual albuminuria (at month 4) was linked to higher risks of primary and kidney end points, with no heterogeneity by diabetes status or allocated treatment. Participants with residual albuminuria at month 4 had high rates of kidney end points, implying the need for added therapy for long-term kidney and cardiovascular benefits. Background Albuminuria is a strong indicator of kidney and cardiovascular risk in patients with CKD. We assessed risk associations between albuminuria at baseline and 4 months after randomization in a placebo-controlled trial of dapagliflozin and kidney end points in patients with CKD and albuminuria, with and without type",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "3fb596388f79a7cda2e2d225c808aa05b284e9c0ccdc70fb3833ad61bf4a2d54"
+      },
+      {
+        "pmid": "oax:W4281684581",
+        "title": "Dapagliflozin for Chronic Kidney Disease",
+        "authors": "Sara D. Khangura, Melissa Severn",
+        "year": "2022",
+        "journal": "Canadian Journal of Health Technologies",
+        "doi": "10.51731/cjht.2022.354",
+        "url": "https://doi.org/10.51731/cjht.2022.354",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Recent, large, high-quality trials have demonstrated some benefits of dapagliflozin for the treatment of chronic kidney disease (most often in patients with Type II diabetes) as compared to placebo. Data describing the clinical effectiveness of dapagliflozin has identified both relative benefits and no differences compared to placebo in various measures of renal and cardiovascular health and function, as well as health care utilization, mortality and adverse events. A large proportion of the available data has been generated from the same randomized controlled trial that has recently been reported in multiple publications describing various patient subgroups and outcomes. No evidence was identified describing the cost-effectiveness of dapagliflozin for the treatment of patients with chronic kidney disease.",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1278fd84ea724f89f153333cba503dca7c4d2818202fd0dcae15120df653ba4c"
+      },
+      {
+        "pmid": "34619108",
+        "title": "Effect of dapagliflozin on the rate of decline in kidney function in patients with chronic kidney disease with and without type 2 diabetes: a prespecified analysis from the DAPA-CKD trial",
+        "authors": "Hiddo J.L. Heerspink, Niels Jongs, Glenn Matthew Chertow, Anna Maria Langkilde",
+        "year": "2021",
+        "journal": "The Lancet Diabetes & Endocrinology",
+        "doi": "10.1016/s2213-8587(21)00242-4",
+        "url": "https://doi.org/10.1016/s2213-8587(21)00242-4",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Dapagliflozin reduced the risk of kidney failure in patients with chronic kidney disease with and without type 2 diabetes in the DAPA-CKD trial. In this pre-specified analysis, we assessed the effect of dapagliflozin on the rate of change in estimated glomerular filtration rate (eGFR)-ie, the eGFR slope. METHODS: DAPA-CKD was a randomised controlled trial that enrolled participants aged 18 years or older, with or without type 2 diabetes, with a urinary albumin-to-creatinine ratio (UACR) of 200-5000 mg/g, and an eGFR of 25-75 mL/min per 1·73m2. Participants were randomly assigned (1:1) to oral dapagliflozin 10 mg once daily or placebo, added to standard care. In this pre-specified analysis, we analysed eGFR slope using mixed-effect models with different slopes from baseline",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "a4410687262c39726e87a591ece48c900281d715e6bc2662a1b7169a217b03e6"
+      },
+      {
+        "pmid": "33792669",
+        "title": "Effects of dapagliflozin on mortality in patients with chronic kidney disease: a pre-specified analysis from the DAPA-CKD randomized controlled trial",
+        "authors": "Hiddo J.L. Heerspink, C. David Sjöström, Niels Jongs, Glenn Matthew Chertow",
+        "year": "2021",
+        "journal": "European Heart Journal",
+        "doi": "10.1093/eurheartj/ehab094",
+        "url": "https://doi.org/10.1093/eurheartj/ehab094",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIMS: Mortality rates from chronic kidney disease (CKD) have increased in the last decade. In this pre-specified analysis of the DAPA-CKD trial, we determined the effects of dapagliflozin on cardiovascular and non-cardiovascular causes of death. METHODS AND RESULTS: DAPA-CKD was an international, randomized, placebo-controlled trial with a median of 2.4 years of follow-up. Eligible participants were adult patients with CKD, defined as a urinary albumin-to-creatinine ratio (UACR) 200-5000 mg/g and an estimated glomerular filtration rate (eGFR) 25-75 mL/min/1.73 m2. All-cause mortality was a key secondary endpoint. Cardiovascular and non-cardiovascular death was adjudicated by an independent clinical events committee. The DAPA-CKD trial randomized participants to dapagliflozin 10 mg/day (n = 2152) or placebo (n = 2152). The mean age was 62",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "c9e0cb40a73f9306e9d582d8e2518970811997c1687504be4c0fa03c88d7aa32"
+      },
+      {
+        "pmid": "29370424",
+        "title": "Effects of the sodium–glucose co-transporter 2 inhibitor dapagliflozin in patients with type 2 diabetes and Stages 3b–4 chronic kidney disease",
+        "authors": "Claire C. J. Dekkers, David Collins. Wheeler, C. David Sjöström, Bergur V. Stefánsson",
+        "year": "2018",
+        "journal": "Nephrology Dialysis Transplantation",
+        "doi": "10.1093/ndt/gfx350",
+        "url": "https://doi.org/10.1093/ndt/gfx350",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: The sodium-glucose co-transporter 2 inhibitor dapagliflozin decreases haemoglobin A1c (HbA1c), body weight, blood pressure (BP) and urinary albumin:creatinine ratio (UACR) in patients with type 2 diabetes. The efficacy and safety of this drug have not been properly defined in patients with type 2 diabetes and Stages 3b-4 chronic kidney disease (CKD). Methods: In a pooled analysis of 11 phase 3 randomized controlled clinical trials, we determined least square mean changes in HbA1c, body weight, BP, estimated glomerular filtration rate (eGFR) and UACR over 102 weeks in patients with type 2 diabetes and an eGFR between 12 to less than 45 mL/min/1.73 m2 receiving placebo (n = 69) or dapagliflozin 5 or 10 mg (n = 151). Effects on UACR",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "2370e7ac06ea5ef35a1efb9d52baadcce8899203afe6eb1b35d7e25f55f1fbf8"
+      },
+      {
+        "pmid": "oax:W7223053560",
+        "title": "SGLT2 INHIBITORS IN CHRONIC KIDNEY DISEASE WITH AND WITHOUT DIABETES: RENAL AND CARDIOVASCULAR OUTCOMES – A LITERATURE REVIEW",
+        "authors": "João Batista Rebouças Lima, Vanilson Pires Cerqueira Jr, Vanessa Figueredo de Brito, Julia Ceolin Leonardi",
+        "year": "2026",
+        "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+        "doi": "10.5281/zenodo.23511540",
+        "url": "https://doi.org/10.5281/zenodo.23511540",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Introduction: Chronic kidney disease (CKD) affects roughly one in ten adults and is a major driver of cardiovascular morbidity and progression to kidney failure. For decades, renin-angiotensin system blockade was the main therapy proven to slow progression, leaving a large residual risk. SGLT2 inhibitors, initially developed as glucose-lowering drugs, emerged as renoprotective agents. Methods: Literature review of the DAPA-CKD and EMPA-KIDNEY randomized trials and the 2024 KDIGO guideline, covering efficacy, safety, and patient selection. Results: DAPA-CKD randomized 4,304 patients with eGFR 25-75 mL/min/1.73 m² and albuminuria (UACR 200-5,000 mg/g), about two thirds with type 2 diabetes, to dapagliflozin 10 mg or placebo. Over a median of 2.4 years, dapagliflozin reduced the primary composite of sustained eGFR decline ≥50%, end-stage kidney",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "d49e8017926d5e19fc0a894265c58657a0f6e9c90b82e00f8fb2be765bdc5b77"
+      },
+      {
+        "pmid": "38367893",
+        "title": "Dapagliflozin and Blood Pressure in Patients with Chronic Kidney Disease and Albuminuria",
+        "authors": "Hiddo JL Heerspink, Michele Provenzano, Priya Vart, Niels Jongs",
+        "year": "2024",
+        "journal": "American Heart Journal",
+        "doi": "10.1016/j.ahj.2024.02.006",
+        "url": "https://doi.org/10.1016/j.ahj.2024.02.006",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND AND AIMS: Sodium-glucose cotransporter 2 inhibitors decrease blood pressure in patients with type 2 diabetes, but the consistency and magnitude of blood pressure lowering with dapagliflozin in patients with chronic kidney disease (CKD) is unknown. We conducted a prespecified analysis of the DAPA-CKD trial to investigate the effect of dapagliflozin on systolic blood pressure (SBP) in patients with CKD, with and without type 2 diabetes. METHODS: A total of 4304 adults with baseline estimated glomerular filtration rate (eGFR) 25-75 mL/min/1.73m2 and urinary albumin-to-creatinine ratio (UACR) 200-5000 mg/g were randomized to either dapagliflozin 10 mg or placebo once daily; median follow-up was 2.4 years. The primary endpoint was a composite of sustained ≥50% eGFR decline, end-stage kidney disease, or death",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "191ccfc9bc834e86cd33ff1a2a97b38bf2bfecc4bfa59181b3d8b11dfca4fa02"
+      },
+      {
+        "pmid": "37119064",
+        "title": "Effects of Dapagliflozin in Chronic Kidney Disease, With and Without Other Cardiovascular Medications: DAPA‐CKD Trial",
+        "authors": "Glenn Matthew Chertow, Ricardo Correa‐Rotter, Priya Vart, Niels Jongs",
+        "year": "2023",
+        "journal": "Journal of the American Heart Association",
+        "doi": "10.1161/jaha.122.028739",
+        "url": "https://doi.org/10.1161/jaha.122.028739",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background The DAPA-CKD (Dapagliflozin and Prevention of Adverse Outcomes in Chronic Kidney Disease) trial (NCT03036150) demonstrated that dapagliflozin reduced the risk of kidney and cardiovascular events in patients with chronic kidney disease and albuminuria with and without type 2 diabetes. We aimed to determine whether baseline cardiovascular medication use modified the dapagliflozin treatment effect. Methods and Results We randomized 4304 adults with baseline estimated glomerular filtration rate 25 to 75 mL/min per 1.73 m2 and urinary albumin:creatinine ratio 200 to 5000 mg/g to dapagliflozin 10 mg or placebo once daily. The primary end point was a composite of ≥50% estimated glomerular filtration rate decline, end-stage kidney disease, and kidney or cardiovascular death. Secondary end points included a kidney composite end",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e120865534196455334cb62efd03d324879ced316d858dee8995a8e1185df9bd"
+      },
+      {
+        "pmid": "34619106",
+        "title": "Effect of dapagliflozin on urinary albumin excretion in patients with chronic kidney disease with and without type 2 diabetes: a prespecified analysis from the DAPA-CKD trial",
+        "authors": "Niels Jongs, Tom Greene, Glenn Matthew Chertow, John J.V. McMurray",
+        "year": "2021",
+        "journal": "The Lancet Diabetes & Endocrinology",
+        "doi": "10.1016/s2213-8587(21)00243-6",
+        "url": "https://doi.org/10.1016/s2213-8587(21)00243-6",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Reductions in albuminuria are associated with a subsequent lower risk of kidney failure in patients with chronic kidney disease. The SGLT2 inhibitor dapagliflozin significantly reduced albuminuria in patients with type 2 diabetes and normal or near-normal kidney function. Whether this effect persists in patients with chronic kidney disease with and without type 2 diabetes is unknown. We assessed the effects of dapagliflozin on albuminuria in patients with chronic kidney disease with and without type 2 diabetes in the dapagliflozin and prevention of adverse outcomes in chronic kidney disease (DAPA-CKD) trial. METHODS: DAPA-CKD was a multicentre, double-blind, placebo-controlled, randomised trial done at 386 sites in 21 countries. Patients were eligible for the trial if they had chronic kidney disease, defined",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "2bb1413541db030a459b30c66f67fca0e94a88025fc24555545820c994f92ec4"
+      },
+      {
+        "pmid": "34272327",
+        "title": "Effects of Dapagliflozin in Stage 4 Chronic Kidney Disease",
+        "authors": "Glenn Matthew Chertow, Priya Vart, Niels Jongs, Robert D. Toto",
+        "year": "2021",
+        "journal": "Journal of the American Society of Nephrology",
+        "doi": "10.1681/asn.2021020167",
+        "url": "https://doi.org/10.1681/asn.2021020167",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Significance Statement Relatively little is known about the relative safety and efficacy of sodium-glucose cotransporter 2 (SGLT2) inhibitors in patients with advanced (stage 4) CKD. The Dapagliflozin and Prevention of Adverse Outcomes in Chronic Kidney Disease (DAPA-CKD) trial enrolled patients with CKD with or without type 2 diabetes (mean eGFR 43 ± 12 ml/min per 1.73m 2), finding that patients receiving the drug had lower risks of major kidney and cardiovascular events and an attenuation of progressive eGFR loss compared with patients receiving placebo. In this analysis within a subgroup of patients with stage 4 CKD and albuminuria, the authors found that the benefits of the SGLT2 inhibitor dapagliflozin in patients with baseline eGFR<30 ml/min per 1.73m 2 were consistent",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "dccf76870282033f9ded4610a80a591eca5cb1c44cf3620839db0552bfdce3c6"
+      },
+      {
+        "pmid": "34850160",
+        "title": "Safety and efficacy of dapagliflozin in patients with focal segmental glomerulosclerosis: a prespecified analysis of the dapagliflozin and prevention of adverse outcomes in chronic kidney disease (DAPA-CKD) trial",
+        "authors": "David Collins. Wheeler, Niels Jongs, Bergur V. Stefánsson, Glenn Matthew Chertow",
+        "year": "2021",
+        "journal": "Nephrology Dialysis Transplantation",
+        "doi": "10.1093/ndt/gfab335",
+        "url": "https://doi.org/10.1093/ndt/gfab335",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Despite renin-angiotensin-aldosterone system blockade and immunosuppressive treatment, focal segmental glomerulosclerosis (FSGS) often progresses to kidney failure. The objective of this prespecified analysis of the dapagliflozin and prevention of adverse outcomes in chronic kidney disease trial (DAPA-CKD) was to assess efficacy and safety of dapagliflozin in a small subgroup of participants with FSGS confirmed by kidney biopsy. METHODS: In DAPA-CKD, patients with an estimated glomerular filtration rate (eGFR) 25-75 mL/min/1.73 m2 and urinary albumin:creatinine ratio (UACR) 200-5000 mg/g (22.6-565 mg/mol) were randomized to dapagliflozin 10 mg once daily or placebo as an adjunct to standard care and followed for median 2.4 years. The primary composite endpoint was sustained eGFR decline ≥50%, end-stage kidney disease, or kidney or cardiovascular death. The",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e8bfc71f16502e9339225a7e5dde88dc87dfb0af0d9f2daea0fbc40e355e8d87"
+      },
+      {
+        "pmid": "34984791",
+        "title": "Quételet (body mass) index and effects of dapagliflozin in chronic kidney disease",
+        "authors": "Glenn Matthew Chertow, Priya Vart, Niels Jongs, Anna Maria Langkilde",
+        "year": "2022",
+        "journal": "Diabetes Obesity and Metabolism",
+        "doi": "10.1111/dom.14641",
+        "url": "https://doi.org/10.1111/dom.14641",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIM: To assess the effects of dapagliflozin in patients with chronic kidney disease (CKD) and albuminuria, with and without type 2 diabetes, stratified by the Quételet (body mass) index (BMI). METHODS: We randomized 4304 adult patients with an estimated glomerular filtration rate (eGFR) of 25-75 ml/min/1.73m2 and urinary albumin-to-creatinine ratio of 200-5000 mg/g to dapagliflozin 10 mg/day or placebo. The primary outcome was a composite of sustained decline in eGFR of 50% or more, kidney failure, or death from kidney or cardiovascular causes. Secondary outcomes included kidney composite endpoint (primary composite endpoint without cardiovascular death), cardiovascular composite endpoint (hospitalized heart failure/ cardiovascular death), and all-cause mortality. We categorized participants according to World Health Organization BMI criteria: lean/ideal (<25 kg/m2 ),",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "7d61cffc30e2e62c9ec9887cf91f4a298f061355ad111a215e10953fdacaf2d0"
+      },
+      {
+        "pmid": "36331190",
+        "title": "Empagliflozin in Patients with Chronic Kidney Disease",
+        "authors": "The EMPA-KIDNEY Collaborative Group",
+        "year": "2022",
+        "journal": "New England Journal of Medicine",
+        "doi": "10.1056/nejmoa2204233",
+        "url": "https://doi.org/10.1056/nejmoa2204233",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: The effects of empagliflozin in patients with chronic kidney disease who are at risk for disease progression are not well understood. The EMPA-KIDNEY trial was designed to assess the effects of treatment with empagliflozin in a broad range of such patients. METHODS: We enrolled patients with chronic kidney disease who had an estimated glomerular filtration rate (eGFR) of at least 20 but less than 45 ml per minute per 1.73 m2 of body-surface area, or who had an eGFR of at least 45 but less than 90 ml per minute per 1.73 m2 with a urinary albumin-to-creatinine ratio (with albumin measured in milligrams and creatinine measured in grams) of at least 200. Patients were randomly assigned to receive empagliflozin",
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "91113ff7d267ac6130ae8cd75fb9b35ce1d9f17f0b4b8dbc544a8e13e070b751"
+      },
+      {
+        "pmid": "36344217",
+        "title": "Effects of Dapagliflozin in People without Diabetes and with Microalbuminuria",
+        "authors": "Hiddo J.L. Heerspink, Glenn Matthew Chertow, Niels Jongs, Ricardo Correa‐Rotter",
+        "year": "2022",
+        "journal": "Clinical Journal of the American Society of Nephrology",
+        "doi": "10.2215/cjn.07290622",
+        "url": "https://doi.org/10.2215/cjn.07290622",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Sodium-glucose cotransporter 2 inhibitors slow progressive loss of kidney function in patients with type 2 diabetes across a wide range of eGFR and albuminuria. In the Dapagliflozin and Prevention of Adverse Outcomes in CKD (DAPA-CKD) trial, dapagliflozin reduced the risk of kidney failure by approximately 40% in participants with CKD, with consistent effects in those with and without type 2 diabetes (1). The majority of participants in the DAPA-CKD trial had severely increased (Kidney Disease Improving Global Outcomes [KDIGO] stage A3) albuminuria at baseline, with a median of 949 mg/g. Whether the kidney-protective benefits of dapagliflozin, as demonstrated in the DAPA-CKD trial, extend to participants without type 2 diabetes and with lower levels of albuminuria is unknown. The DAPA-CKD trial",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "52e56b44e5fbb70f6a34e8fdd82b8f2336f2a541e460b3802e20c89eaee48eb9"
+      },
+      {
+        "pmid": "38240949",
+        "title": "Dapagliflozin Utilization in Chronic Kidney Disease and Its Real-World Effectiveness Among Patients with Lower Levels of Albuminuria in the USA and Japan",
+        "authors": "Navdeep Tangri, Anjay Rastogi, Cassandra Nan, Lai Hong",
+        "year": "2024",
+        "journal": "Advances in Therapy",
+        "doi": "10.1007/s12325-023-02773-x",
+        "url": "https://doi.org/10.1007/s12325-023-02773-x",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "INTRODUCTION: Sodium-glucose cotransporter 2 inhibitors such as dapagliflozin have been proven effective for slowing chronic kidney disease (CKD) progression in large outcomes trials that mainly included patients with higher levels of albuminuria. Understanding the real-world utilization and effectiveness of these drugs among patients with CKD with lower levels of albuminuria can inform clinical decision-making in this population. METHODS: Claims data from the USA and Japan were used to describe patients with CKD and urinary albumin-to-creatinine ratio (UACR) < 200 mg/g who were eligible for dapagliflozin 10 mg treatment (initiators and untreated) following its approval for CKD. A quantile regression analysis was performed to evaluate the effect of dapagliflozin 10 mg initiation versus no initiation on estimated glomerular filtration rate (eGFR)",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5902cd35bfb31d51ca8c98130c71f0aebfe94ad41efe06e5edc6f525593ce621"
+      },
+      {
+        "pmid": "41218621",
+        "title": "Balcinrenone in combination with dapagliflozin compared with dapagliflozin alone in patients with chronic kidney disease and albuminuria: a randomised, active-controlled double-blind, phase 2b clinical trial",
+        "authors": "Hiddo J.L. Heerspink, José Cardona, Shivinder Jolly, Pablo E. Pérgola",
+        "year": "2025",
+        "journal": "The Lancet",
+        "doi": "10.1016/s0140-6736(25)02014-8",
+        "url": "https://doi.org/10.1016/s0140-6736(25)02014-8",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "d6b899d39ac5601fb3a3d837726b5b78e2b615cf84205ebaf8178fa80d357700"
+      },
+      {
+        "pmid": "38680053",
+        "title": "Real‐world effectiveness of sodium‐glucose cotransporter‐2 inhibitors on the progression of chronic kidney disease in patients without diabetes, with and without albuminuria",
+        "authors": "Afif Nakhleh, Muhammad A Abdul‐Ghani, Sivan Gazit, Adi Gross",
+        "year": "2024",
+        "journal": "Diabetes Obesity and Metabolism",
+        "doi": "10.1111/dom.15623",
+        "url": "https://doi.org/10.1111/dom.15623",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "AIM: To examine the renal effects of sodium-glucose cotransporter-2 (SGLT2) inhibition among non-diabetic individuals with chronic kidney disease (CKD) in a real-world setting. METHODS: We collected de-identified data on adults without diabetes and with an estimated glomerular filtration rate (eGFR) of 25-60 mL/min/1.73 m2, who initiated the SGLT2 inhibitors dapagliflozin or empagliflozin between September 2020 and November 2022 at Maccabi Healthcare Services, an Israeli health maintenance organization. We assessed the effects of SGLT2 inhibitors on renal function (changes in eGFR slope/time). Index date was defined as the date of the first dispensing of SGLT2 inhibitors. Annual baseline slope was calculated using all eGFR measurements during the 2 years prior to index date (median = 7 measurements), while annual follow-up slope",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "3979ab07b9a86f413f84c6d8aaad7f401484132a5450fde4e339d0bce099a746"
+      },
+      {
+        "pmid": "36114995",
+        "title": "Effect of dapagliflozin on the initial estimated glomerular filtration rate dip in chronic kidney disease patients without diabetes mellitus",
+        "authors": "Ryo Shibata, Kensei Taguchi, Yusuke Kaida, Kei Fukami",
+        "year": "2022",
+        "journal": "Clinical and Experimental Nephrology",
+        "doi": "10.1007/s10157-022-02277-y",
+        "url": "https://doi.org/10.1007/s10157-022-02277-y",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Dapagliflozin (DAPA), a sodium-glucose transporter 2 inhibitor (SGLT2i), attenuates kidney outcomes in patients with not only diabetes mellitus (DM) but also chronic kidney disease (CKD). SGLT2i-derived initial dip in estimated glomerular filtration rate (eGFR) has been considered to reduce excess glomerular pressure, followed by renal protection in patients with DM. However, whether DAPA confers the eGFR dip and its independent determinants for CKD patients without DM are unclear. METHODS: A total of 126 patients with CKD treated with 10 mg DAPA daily was retrospectively registered. After participants with missing data and DM were excluded, 51 participants were enrolled. RESULTS: An initial eGFR dip was observed 1 month after initiation of DAPA, which was sustained until 2 months. DAPA did",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "5425d7de8e7a84b128a5a40c25c59a30cd0ddc7ab902fa725a7ea4f06e09f9b6"
+      },
+      {
+        "pmid": "31196815",
+        "title": "Effects of dapagliflozin on development and progression of kidney disease in patients with type 2 diabetes: an analysis from the DECLARE–TIMI 58 randomised trial",
+        "authors": "Ofri Mosenzon, Stephen D. Wiviott, Avivit Cahn, Aliza Rozenberg",
+        "year": "2019",
+        "journal": "The Lancet Diabetes & Endocrinology",
+        "doi": "10.1016/s2213-8587(19)30180-9",
+        "url": "https://doi.org/10.1016/s2213-8587(19)30180-9",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "bd7c04df74358c784f59c2d4c6a3779826f7a1b949289c7423ad55ec0138b714"
+      },
+      {
+        "pmid": "34128195",
+        "title": "Dapagliflozin Improves the Clinical Outcomes of Patients with Chronic Kidney Disease and Albuminuria",
+        "authors": "Stephanie Patrick, Tracey D. Dabal, Christopher Jackson",
+        "year": "2021",
+        "journal": "Journal of General Internal Medicine",
+        "doi": "10.1007/s11606-021-06871-w",
+        "url": "https://doi.org/10.1007/s11606-021-06871-w",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "relevancePct": 64,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "bcf553dcbd968bfbc0beee097a98207db7bb4310f2324e59ea5113c62ee98b86"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 26,
+      "screened": 26,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "chronic kidney disease with albuminuria, with or without diabetes dapagliflozin placebo sustained eGFR decline, end-stage kidney disease, or renal death",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

@@ -11,7 +11,7 @@ import { Modal } from "@/components/Modal";
 import { WorkflowStepper } from "@/components/WorkflowStepper";
 import { PhiNotice } from "@/components/PhiNotice";
 import { PresetCard } from "@/components/PresetCard";
-import type { PicoPreset } from "@/lib/specialties";
+import { keywordsPlaceholderFor, type PicoPreset } from "@/lib/specialties";
 import { SEARCH_SOURCE_OPTIONS } from "@/lib/literature-sources";
 import { AppFooter } from "@/components/AppFooter";
 import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
@@ -20,6 +20,14 @@ import { AuthorHeaderRight } from "@/components/AuthorHeaderRight";
 function sessionPicoSnapshot(): string {
   if (typeof window === "undefined") return "";
   try {
+    // The keywords box is saved as the user types or picks a preset, so a reload restores exactly
+    // what was on screen. It wins over the words saved at the last "Save & Screen", which are only
+    // the fallback for a session that never typed in the box.
+    const savedText = window.sessionStorage.getItem(KEYS.inputText);
+    if (savedText !== null) {
+      const parsed = JSON.parse(savedText);
+      if (typeof parsed === "string") return parsed;
+    }
     const savedPico = window.sessionStorage.getItem(KEYS.picoWords);
     if (savedPico) {
       const parsed = JSON.parse(savedPico);
@@ -29,10 +37,6 @@ function sessionPicoSnapshot(): string {
           .filter(Boolean)
           .join(", ");
       }
-    }
-    const savedText = window.sessionStorage.getItem(KEYS.inputText);
-    if (savedText) {
-      return JSON.parse(savedText);
     }
   } catch {}
   return "";
@@ -95,7 +99,10 @@ export default function DashboardPage() {
   const restoredInput = useSyncExternalStore(subscribeToNothing, sessionPicoSnapshot, serverSnapshot);
   const [draft, setDraft] = useState<string | null>(null);
   const rawInput = draft ?? restoredInput;
-  const setRawInput = useCallback((v: string) => setDraft(v), []);
+  const setRawInput = useCallback((v: string) => {
+    setDraft(v);
+    sset(KEYS.inputText, v);
+  }, []);
   const [savedNotice, setSavedNotice] = useState<string | null>(null);
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
@@ -179,7 +186,7 @@ export default function DashboardPage() {
 
   return (
     <div className="wrap">
-      <header className="hdr">
+      <header className="hdr" data-testid="app-header">
         <div className="hdr-inner">
           <div className="hdr-left">
             <Image
@@ -203,7 +210,7 @@ export default function DashboardPage() {
       </header>
 
       {/* Workflow Stepper: Step 1 Active */}
-      <div style={{ maxWidth: 1380, margin: "12px auto 0 auto", padding: "0 24px", width: "100%" }}>
+      <div style={{ maxWidth: "var(--content-max)", margin: "12px auto 0 auto", padding: "0 24px", width: "100%" }}>
         <WorkflowStepper currentStep={1} />
       </div>
 
@@ -226,6 +233,7 @@ export default function DashboardPage() {
             <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center", flexWrap: "wrap" }}>
               <button
                 type="button"
+                data-testid="change-specialty"
                 className="btn btn--secondary btn--sm"
                 onClick={() => router.push("/")}
                 title="Return to specialty selection portal"
@@ -236,6 +244,7 @@ export default function DashboardPage() {
                 ref={quickSwitchTriggerRef}
                 type="button"
                 id="btn-choose-speciality"
+                data-testid="quick-switch"
                 className="btn btn--secondary btn--sm"
                 onClick={() => {
                   setIsSourcesModalOpen(false);
@@ -256,7 +265,7 @@ export default function DashboardPage() {
               <p className="aimed-preset-hint">
                 Fills the keywords below — you can edit them.
               </p>
-              <div className="preset-grid" data-count={activePresets.length}>
+              <div className="preset-grid" data-testid="preset-grid" data-count={activePresets.length}>
                 {activePresets.map((preset) => {
                   const isPressed = activePresetId === preset.id;
                   return (
@@ -278,9 +287,10 @@ export default function DashboardPage() {
               </label>
               <textarea
                 id="raw-pico-input"
+                data-testid="keywords-input"
                 className="aimed-textarea textarea"
                 rows={3}
-                placeholder="e.g. women with endometriosis, laparoscopic surgery, medical therapy, pain score reduction"
+                placeholder={keywordsPlaceholderFor(currentSpecialty)}
                 value={rawInput}
                 onChange={(e) => {
                   setRawInput(e.target.value);
@@ -289,10 +299,10 @@ export default function DashboardPage() {
                 style={{ width: "100%", maxWidth: "var(--form-max)" }}
               />
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "var(--space-2)" }}>
-                <span className={`count-hint ${canSubmit ? "ok" : hasAttemptedSubmit ? "warn" : "rest"}`} style={{ fontSize: "var(--fs-caption)" }}>
+                <span data-testid="keywords-helper" className={`count-hint ${canSubmit ? "ok" : hasAttemptedSubmit ? "warn" : "rest"}`} style={{ fontSize: "var(--fs-caption)" }}>
                   {countHint}
                 </span>
-                <span style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
+                <span data-testid="keywords-counter" style={{ fontSize: "var(--fs-caption)", color: "var(--muted-2)" }}>
                   {words.length} / 5 terms
                 </span>
               </div>
@@ -310,6 +320,8 @@ export default function DashboardPage() {
                     return (
                       <span
                         key={`${pw.word}-${idx}`}
+                        data-testid="pico-chip"
+                        data-role={pw.role}
                         className="aimed-role-chip"
                         style={{
                           background: cfg.bg,
@@ -329,7 +341,7 @@ export default function DashboardPage() {
                             background: cfg.badgeBg,
                             color: "#fff",
                             fontSize: "var(--fs-badge)",
-                            fontWeight: 800,
+                            fontWeight: 700,
                             padding: "2px 5px",
                             borderRadius: "var(--radius-sm)"
                           }}
@@ -397,6 +409,7 @@ export default function DashboardPage() {
 
             {/* Literature Search Databases Bar */}
             <div
+              data-testid="db-list"
               style={{
                 marginBottom: "var(--space-5)",
                 padding: "var(--space-3) var(--space-4)",
@@ -444,6 +457,7 @@ export default function DashboardPage() {
 
             <div className="row" style={{ display: "flex", gap: "var(--space-3)", alignItems: "center", flexWrap: "wrap", maxWidth: "var(--form-max)", width: "100%" }}>
               <button
+                data-testid="save-and-screen"
                 className="btn btn--primary btn--lg"
                 onClick={start}
                 type="submit"
@@ -454,6 +468,7 @@ export default function DashboardPage() {
               {(rawInput || picoWords.length > 0) && (
                 <button
                   type="button"
+                  data-testid="reset-words"
                   className="btn btn--ghost"
                   onClick={() => {
                     resetSession();

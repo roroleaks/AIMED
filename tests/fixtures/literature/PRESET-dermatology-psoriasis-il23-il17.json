@@ -1,0 +1,658 @@
+{
+  "id": "PRESET-dermatology-psoriasis-il23-il17",
+  "recordedAt": "2026-11-26T23:11:54.202Z",
+  "specialty": "dermatology",
+  "words": [
+    {
+      "word": "moderate-to-severe chronic plaque psoriasis",
+      "role": "population"
+    },
+    {
+      "word": "risankizumab (IL-23 p19 inhibitor)",
+      "role": "intervention"
+    },
+    {
+      "word": "secukinumab (IL-17A inhibitor)",
+      "role": "comparator"
+    },
+    {
+      "word": "PASI 90 and PASI 100 clear skin response at 52 weeks",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "moderate-to-severe chronic plaque psoriasis",
+        "role": "population"
+      },
+      {
+        "word": "risankizumab (IL-23 p19 inhibitor)",
+        "role": "intervention"
+      },
+      {
+        "word": "secukinumab (IL-17A inhibitor)",
+        "role": "comparator"
+      },
+      {
+        "word": "PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In moderate-to-severe chronic plaque psoriasis (P), does risankizumab (IL-23 p19 inhibitor) (I) compared with secukinumab (IL-17A inhibitor) (C) improve PASI 90 and PASI 100 clear skin response at 52 weeks (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 1 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In moderate-to-severe chronic plaque psoriasis (P), is risankizumab (IL-23 p19 inhibitor) (I) superior to secukinumab (IL-17A inhibitor) (C) for PASI 90 and PASI 100 clear skin response at 52 weeks (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of moderate-to-severe chronic plaque psoriasis (P), does risankizumab (IL-23 p19 inhibitor) (I) compared with secukinumab (IL-17A inhibitor) (C) improve PASI 90 and PASI 100 clear skin response at 52 weeks (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In moderate-to-severe chronic plaque psoriasis (P), is risankizumab (IL-23 p19 inhibitor) (I) superior to secukinumab (IL-17A inhibitor) (C) for PASI 90 and PASI 100 clear skin response at 52 weeks (O)?"
+    },
+    "words": [
+      {
+        "word": "moderate-to-severe chronic plaque psoriasis",
+        "role": "population"
+      },
+      {
+        "word": "risankizumab (IL-23 p19 inhibitor)",
+        "role": "intervention"
+      },
+      {
+        "word": "secukinumab (IL-17A inhibitor)",
+        "role": "comparator"
+      },
+      {
+        "word": "PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "42254161",
+        "title": "Efficacy and safety of risankizumab in moderate to severe psoriasis: an updated systematic review and meta-analysis.",
+        "authors": "Shuja H, Farhan K, Wamiq U, Khan MS, Tariq MB, Shakir S, Uzair M, Salomon I.",
+        "year": "2026",
+        "journal": "Annals of medicine and surgery (2012)",
+        "doi": "10.1097/ms9.0000000000005155",
+        "url": "https://europepmc.org/article/PMC/PMC13236244",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Risankizumab, a selective IL-23 inhibitor, has emerged as a promising therapeutic agent for moderate-to-severe plaque psoriasis. This study aims to systematically assess its efficacy and safety through an updated meta-analysis of randomized controlled trials (RCTs). Methods A comprehensive literature search of PubMed/MEDLINE, Embase, Scopus, Cochrane Library, and ClinicalTrials.gov was conducted from their inception to 15 April 2025 for RCTs comparing risankizumab with placebo or active comparators in adults with moderate-to-severe psoriasis. Data were pooled using random-effects models (RevMan 5.4), and heterogeneity was assessed using I 2 statistics. The Cochrane Risk of Bias Tool 2 (RoB 2) was utilized for risk of bias assessment of each included RCT. The forest plots were generated using risk ratios (RRs) with 95% confidence intervals (CIs). Results Eleven RCTs ( n = 2664 patients) were included in the study. Risankizumab showed significantly greater efficacy than placebo for PASI 75 (OR: 23.93, 95% CI: 7.80-73.41), PASI 90 (OR: 18.11, 95% CI: 5.03-65.24), and PASI 100 (OR: 30.31, 95% CI: 12.36-74.34). Compared to active comparators (ustekinumab and adalimumab), risankizumab demonstrated a superior PASI 90 response (OR 3.40, 95% CI: 2.32-4.96). Quality of life (DLQI) improved significantly (OR: 31.53, 95% CI: 19.46-51.09). No increased risk of SAEs was observed (OR: 0.71, 95% CI: 0.33-1.54), although the infection risk was slightly elevated (OR: 1.38, 95% CI: 0.87-2.18). Conclusion This meta-analysis confirms the superiority of risankizumab over placebo and other biologics in achieving complete or near-complete skin clearance, with a favorable safety profile. These findings suggest that risankizumab is a first-line biologic agent for moderate-to-severe plaque psoriasis, although infection monitoring remains warranted.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "1e66136f687e1622024ac084fff82635b544383d55f7d0361879b5ac14c36931"
+      },
+      {
+        "pmid": "30097359",
+        "title": "Efficacy and safety of risankizumab in moderate-to-severe plaque psoriasis (UltIMMa-1 and UltIMMa-2): results from two double-blind, randomised, placebo-controlled and ustekinumab-controlled phase 3 trials",
+        "authors": "Gordon KB, et al",
+        "year": "2018",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(18)31713-6",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30097359/",
+        "context": "BACKGROUND: Risankizumab is a humanised IgG1 monoclonal antibody that binds to the p19 subunit of interleukin-23, inhibiting this key cytokine and its role in psoriatic inflammation. We aimed to assess the efficacy and safety of risankizumab compared with placebo or ustekinumab in patients with moderate-to-severe chronic plaque psoriasis. METHODS: UltIMMa-1 and UltIMMa-2 were replicate phase 3, randomised, double-blind, placebo-controlled and active comparator-controlled trials done at 139 sites in Australia, Austria, Belgium, Canada, Czech Republic, France, Germany, Japan, Mexico, Poland, Portugal, South Korea, Spain, and the USA. Eligible patients were 18 years or older, with moderate-to-severe chronic plaque psoriasis. In each study, patients were stratified by weight and previous exposure to tumour necrosis factor inhibitor and randomly assigned (3:1:1) by use of interactive response technology to receive 150 mg risankizumab, 45 mg or 90 mg ustekinumab (weight-based per label), or placebo. Following the 16-week double-blind treatment period (part A), patients initially assigned to placebo switched to 150 mg risankizumab at week 16; other patients continued their originally randomised treatment (part B, double-blind, weeks 16-52). Study drug was administered subcutaneously at weeks 0 and 4 during part A and at weeks 16, 28, and 40 during part B. Co-primary endpoints were proportions of patients achieving a 90% improvement in the Psoriasis Area Severity Index (PASI 90) and a static Physician's Global Assessment (sPGA) score of 0 or 1 at week 16 (non-responder imputation). All efficacy analyses were done in the intention-to-treat population. These trials are registered with ClinicalTrials.gov, numbers NCT02684370 (UltIMMa-1) and NCT02684357 (UltIMMa-2), and have been completed. FINDINGS: Between Feb 24, 2016, and Aug 31, 2016, 506 patients in UltIMMa-1 were randomly assigned to receive 150 mg risankizumab (n=304), 45 mg or 90 mg ustekinumab (n=100), or placebo (n=102). Between March 1, 2016, and Aug 30, 2016, 491 patients in UltIMMa-2 were randomly assigned to receive 150 mg risankizumab (n=294), 45 mg or 90 mg ustekinumab (n=99), or placebo (n=98). Co-primary endpoints were met for both studies. At week 16 of UltIMMa-1, PASI 90 was achieved by 229 (75·3%) patients receiving risankizumab versus five (4·9%) receiving placebo (placebo-adjusted difference 70·3% [95% CI 64·0-76·7]) and 42 (42·0%) receiving ustekinumab (ustekinumab-adjusted difference 33·5% [22·7-44·3]; p<0·0001 vs placebo and ustekinumab). At week 16 of UltIMMa-2, PASI 90 was achieved by 220 (74·8%) patients receiving risankizumab versus two (2·0%) receiving placebo (placebo-adjusted difference 72·5% [95% CI 66·8-78·2]) and 47 (47·5%) receiving ustekinumab (ustekinumab-adjusted difference 27·6% [16·7-38·5]; p<0·0001 vs placebo and ustekinumab). In UltIMMa-1, sPGA 0 or 1 at week 16 was achieved by 267 (87·8%) patients receiving risankizumab versus eight (7·8%) receiving placebo (placebo-adjusted difference 79·9% [95% CI 73·5-86·3]) and 63 (63·0%) receiving ustekinumab (ustekinumab-adjusted difference 25·1% [15·2-35·0]; p<0·0001 vs placebo and ustekinumab). In UltIMMa-2, 246 (83·7%) patients receiving risankizumab versus five (5·1%) receiving placebo (placebo-adjusted difference 78·5% [95% CI 72·4-84·5]) and 61 (61·6%) receiving ustekinumab achieved sPGA 0 or 1 at week 16 (ustekinumab-adjusted difference 22·3% [12·0-32·5]; p<0·0001 vs placebo and ustekinumab). The frequency of treatment-emergent adverse events in UltIMMa-1 and UltIMMa-2 was similar across risankizumab (part A: 151 [49·7%] of 304 and 134 [45·6%] of 294; part B: 182 [61·3%] of 297 and 162 [55·7%] of 291), placebo (part A: 52 [51·0%] of 102 and 45 [45·9%] of 98), ustekinumab (part A: 50 [50·0%] of 100 and 53 [53·5%] of 99; part B: 66 [66·7%] of 99 and 70 [74·5%] of 94), and placebo to risankizumab (part B: 65 [67·0%] of 97 and 61 [64·9%] of 94) treatment groups throughout the study duration. INTERPRETATION: Risankizumab showed superior efficacy to both placebo and ustekinumab in the treatment of moderate-to-severe plaque psoriasis. Treatment-emergent adverse event profiles were similar across treatment groups and there were no unexpected safety findings. FUNDING: AbbVie and Boehringer Ingelheim.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Comparative Study",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "8af00a839d9e2a44e791e0e033bf38ab6dd50021e5a1625163315025610f51ba"
+      },
+      {
+        "pmid": "41906525",
+        "title": "Superior Clinical and Economic Value of IL-23 Inhibitors Versus Adalimumab Biosimilars in Plaque Psoriasis.",
+        "authors": "Falco GM, Ippoliti E, Gori N, Caldarola G, De Simone C, Di Giorgi N, Longo PG, Galluzzo M, Bianchi L, Marcelli L, Talamo",
+        "year": "2026",
+        "journal": "International journal of dermatology",
+        "doi": "10.1111/ijd.70371",
+        "url": "https://europepmc.org/article/PMC/PMC13646478",
+        "source": "pmc",
+        "pubType": "Comparative Study, research-article, Journal Article",
+        "publicationTypes": [
+          "Comparative Study",
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background In recent years, the introduction of interleukin (IL)-23 inhibitors has revolutionized psoriasis treatment, allowing the majority of patients to achieve a long-term, complete clinical control of the disease. Nevertheless, there are no real-world studies exploring the cost benefit ratio of these new drugs compared to the currently most prescribed therapies as adalimumab biosimilars. Methods We performed a retrospective study to evaluate the clinical effectiveness, measured as Psoriasis Area and Severity Index (PASI)90-number needed to treat (NNT) and the cost-effectiveness of IL-23 inhibitors (guselkumab, risankizumab, tildrakizumab) in patients with moderate to severe psoriasis as compared to adalimumab biosimilars (imraldi, hyrimoz, yuflima, and amgevita). Assessments were performed at Weeks 16 and 52. Results Our analysis included 616 patients with moderate to severe psoriasis who had been treated with adalimumab biosimilars or an anti-IL-23 inhibitor for at least 16 weeks. Overall, IL-23 inhibitors were shown to be more effective compared to adalimumab biosimilars, with significantly lower NNT. Risankizumab achieved the highest PASI90 response rates, whereas guselkumab had the most favorable incremental cost per PASI90 responder at Weeks 16 and 52. Conclusions Our study highlights the substantial clinical benefit of IL-23 inhibitors over adalimumab biosimilars, with guselkumab as the more cost-effective option than the other IL-23 inhibitors for the real-world management of moderate-to-severe psoriasis.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "53da0a65b212bd18485606e27ccaa3c1c000e8fef3a6ce96508148e13af4791f"
+      },
+      {
+        "pmid": "41994714",
+        "title": "Efficacy of Risankizumab in Moderate to Severe Psoriasis Considering Body Mass Index: A Scoping Review.",
+        "authors": "Sarmiento K, Siqueiros M, Hernández M, Morales G, Orozco V, Pumarejo LF, Gonzalez AD.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.105055",
+        "url": "https://europepmc.org/article/PMC/PMC13080858",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Psoriasis is a chronic, immune-mediated inflammatory skin disease that significantly impacts patients quality of life and is frequently associated with obesity. This comorbidity may influence disease progression and treatment outcomes. Risankizumab, an interleukin-23 (IL-23) inhibitor, has demonstrated high efficacy in treating moderate to severe plaque psoriasis. However, its performance in obese patients remains unclear due to conflicting data. This scoping review aims to evaluate the impact of obesity, specifically BMI ≥ 30 kg/m², on the efficacy and safety of risankizumab in adults with moderate to severe plaque psoriasis. A comprehensive literature search was carried out in databases including PubMed, Scopus, JAMA, Elsevier, and Wiley, between December 2024 and February 2025. The selection included studies from 2020 to 2025, focusing on Psoriasis Area and Severity Index (PASI) and Dermatology Life Quality Index (DLQI) outcomes in psoriatic patients receiving risankizumab, with or without obesity. 24 articles were included and analyzed by study design, patient characteristics, treatment response, and BMI influence. Risankizumab consistently demonstrated strong efficacy and safety in reducing PASI scores and improving DLQI across all BMI categories. While most studies reported no significant difference in response due to BMI, some suggested enhanced early responses in non-obese patients. Continuous treatment showed long-term benefits regardless of BMI, with 90% or greater improvement in the PASI (PASI90) and complete clearance (PASI100) maintained up to five years. Risankizumab is a highly effective and safe biologic therapy for moderate to severe psoriasis, even in patients across all BMI. Although some variations in response exist, the overall evidence supports its use across diverse patient profiles. Weight management should still be considered a complementary strategy in psoriasis care.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Review",
+        "lowMetadata": false,
+        "_sig": "626b6289c00ffb610e169b699cd2885ca5b4c8db3f995e32a278ef57a2a6a048"
+      },
+      {
+        "pmid": "cr:10.1155/2019/2546161",
+        "title": "Short-Term Efficacy and Safety of IL-17, IL-12/23, and IL-23 Inhibitors Brodalumab, Secukinumab, Ixekizumab, Ustekinumab, Guselkumab, Tildrakizumab, and Risankizumab for the Treatment of Moderate to Severe Plaque Psoriasis: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials",
+        "authors": "Bai Fan, Li Gang Gang, Liu Qingmin, Niu Xinwu",
+        "year": "2019",
+        "journal": "Journal of Immunology Research",
+        "doi": "10.1155/2019/2546161",
+        "url": "https://doi.org/10.1155/2019/2546161",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background . The role of interleukin-12 (IL-12), interleukin-23 (IL-23), and interleukin-17 (IL-17) has been recognized in psoriasis pathogenesis, and new drugs targeting this axis have already been developed which may provide a new therapeutic approach for patients with moderate to severe psoriasis. Objective . To compare the direct and indirect evidences of the efficacy and safety of brodalumab, secukinumab, ixekizumab, ustekinumab, guselkumab, tildrakizumab, and risankizumab in the short-term treatment of moderate to severe plaque psoriasis using network meta-analysis (NMA). Methods . A comprehensive literature search was performed in PubMed, EMBASE, and Cochrane Central Register of Controlled Trials for the available relevant studies. NMA was conducted by Stata 15.0 software using relative risks (RR) with 95% confidence interval to assess the clinical effectiveness and safety. Ranked the efficacy and safety for each drug accordance with the surface under the cumulative ranking curve (SUCRA). Results . This meta-analysis included 28 studies. All the interventions performed better than placebo in short-term achievement. Based on the result of SUCRA, ixekizumab 80 mg every 2 weeks ranked the highest in short-term achievement of PASI 75 (SUCRA = 93.0%). Brodalumab 210 mg ranked the highest in short-term achievement of PASI 100 (SUCRA = 85.0%). Secukinumab 300 mg ranked the highest in short-term achievement of sPGA 0/1 or IGA 0/1 or PGA 0/1 (SUCRA = 98.1%). In terms of having a risk of adverse events, the rates were higher in brodalumab, secukinumab, ixekizumab, and ustekinumab 45 mg compared with placebo. Ixekizumab 80 mg every 4 weeks ranked the highest in the risk of adverse events during short-term treatment (SUCRA = 4.5%). Guselkumab 50 mg ranked the highest in the risk of serious adverse events during short-term treatment (SUCRA = 25.9%). Ixekizumab 80 mg every 4 weeks ranked the highest in the risk of discontinuations due to adverse events during short-ter treatment (SUCRA = 10.7%). Conclusions . IL-17, IL-12/23, and IL-23 inhibitors had high efficacy in the achievement of PASI 75, PASI 100, and sPGA 0/1 or IGA 0/1 or PGA 0/1 in moderate to severe plaque psoriasis after 12 or 16 weeks of treatment. IL-17 inhibitors showed superior efficacy. However, its clinical safety was poor. Risankizumab appeared to have relatively high efficacy and low risk. The clinical tolerance of other biological agents needs to be further observed.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "d2445122aad638ae4091ae2bb71567d1125a666ffe5905436cc749666a0b8f35"
+      },
+      {
+        "pmid": "31280967",
+        "title": "Risankizumab compared with adalimumab in patients with moderate-to-severe plaque psoriasis (IMMvent): a randomised, double-blind, active-comparator-controlled phase 3 trial",
+        "authors": "Reich K, et al",
+        "year": "2019",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(19)30952-3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31280967/",
+        "context": "BACKGROUND: Psoriasis is an autoimmune disease that affects approximately 100 million people worldwide, and is a disease that can be ameliorated by anti-cytokine treatment. We aimed to compare the efficacy and safety of risankizumab with adalimumab in patients with moderate-to-severe plaque psoriasis. METHODS: IMMvent was a phase 3, randomised, double-blind, active-comparator-controlled trial completed at 66 clinics in 11 countries. Eligible patients were aged 18 years or older with moderate-to-severe chronic plaque psoriasis. Patients were randomly assigned 1:1 using interactive response technology to receive 150 mg risankizumab subcutaneously at weeks 0 and 4 or 80 mg adalimumab subcutaneously at randomisation, then 40 mg at weeks 1, 3, 5, and every other week thereafter during a 16-week double-blind treatment period (part A). For weeks 16-44 (part B), adalimumab intermediate responders were re-randomised 1:1 to continue 40 mg adalimumab or switch to 150 mg risankizumab. In part A, participants and investigators were masked to study treatment. Randomisation was stratified by weight and previous tumour necrosis factor inhibitor exposure. Co-primary endpoints in part A were a 90% improvement from baseline (PASI 90) and a static Physician's Global Assessment (sPGA) score of 0 or 1 at week 16, and for part B was PASI 90 at week 44 (non-responder imputation). Efficacy analyses were done in the intention-to-treat population and safety analyses were done in the safety population (all patients who received at least one dose of study drug or placebo). This study is registered with ClinicalTrials.gov, number NCT02694523. FINDINGS: Between March 31, 2016, and Aug 24, 2017, 605 patients were randomly assigned to receive either risankizumab (n=301, 50%) or adalimumab (n=304, 50%). 294 (98%) of patients in the risankizumab group and 291 (96%) in the adalimumab group completed part A, and 51 (96%) of 53 patients re-randomised to risankizumab and 51 (91%) of 56 patients re-randomised to continue adalimumab completed part B. At week 16, PASI 90 was achieved in 218 (72%) of 301 patients given risankizumab and 144 (47%) of 304 patients given adalimumab (adjusted absolute difference 24·9% [95% CI 17·5-32·4]; p<0·0001), and sPGA scores of 0 or 1 were achieved in 252 (84%) patients given risankizumab and 252 (60%) patients given adalimumab (adjusted absolute difference 23·3% [16·6-30·1]; p<0·0001). In part B, among adalimumab intermediate responders, PASI 90 was achieved by 35 (66%) of 53 patients switched to risankizumab and 12 (21%) of 56 patients continuing adalimumab (adjusted absolute difference 45·0% [28·9-61·1]; p<0·0001) at week 44. Adverse events were reported in 168 (56%) of 301 patients given risankizumab and 179 (57%) of 304 patients given adalimumab in part A, and among adalimumab intermediate responders, adverse events were reported in 40 (75%) of 53 patients who switched to risankizumab and 37 (66%) of 56 patients who continued adalimumab in part B. INTERPRETATION: Risankizumab showed significantly greater efficacy than adalimumab in providing skin clearance in patients with moderate-to-severe plaque psoriasis. No additional safety concerns were identified for patients who switched from adalimumab to risankizumab. Treatment with risankizumab provides flexibility in the long-term treatment of psoriasis. FUNDING: AbbVie and Boehringer Ingelheim.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1eb46193c3b9025f7d64188d394e95de538699231f17d7c527e334d47721785d"
+      },
+      {
+        "pmid": "42393457",
+        "title": "Matching-Adjusted Indirect Comparison of Risankizumab Versus Icotrokinra in Adult Patients with Moderate-to-Severe Plaque Psoriasis.",
+        "authors": "Crowley J, Song EJ, Stein-Gold L, Gisondi P, Bunick CG, Garg V, Leoncini E, Kaplan B, Ta R, Truong B, Sharma D, Strober ",
+        "year": "2026",
+        "journal": "Dermatology and therapy",
+        "doi": "10.1007/s13555-026-01839-2",
+        "url": "https://europepmc.org/article/PMC/PMC13493357",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Introduction Risankizumab (RZB) is an approved injectable IL-23 inhibitor with demonstrated high levels of skin clearance, and icotrokinra (ICO) is an oral IL-23 receptor blocker recently approved for the treatment of moderate-to-severe plaque psoriasis. In the absence of head-to-head trials, this study uses matching-adjusted indirect comparison (MAIC) to compare RZB with ICO in the treatment of adult patients with moderate-to-severe psoriasis. Methods Individual patient data from phase 3 RZB trials and summary data from published ICO phase 3 trials were used in this MAIC through week 52. Risk differences between RZB and ICO placebo-adjusted response rates (anchored) were assessed for ≥ 75%, ≥ 90%, and 100% improvement in Psoriasis Area and Severity Index (PASI 75, PASI 90, and PASI 100) and Investigator's Global Assessment (IGA) of 0 and 0/1 (IGA 0 and IGA 0/1) every 4 weeks up to week 16. Risk differences between RZB and ICO unadjusted response rates (unanchored) at weeks 24 and 52, along with confidence intervals and P-values, are also presented. Results At 16 weeks, the PBO-adjusted response rates (RZB versus ICO) were 80.6% versus 61.7%, with a risk difference (RD) of 18.9% (95% CI 11.5, 26.4; P Conclusion In this analysis, adult patients with moderate-to-severe psoriasis treated with RZB demonstrated greater clinical efficacy as early as week 4 or 8, and through week 52 compared with ICO.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Comparative Study",
+        "lowMetadata": false,
+        "_sig": "f1de2864209c65ad6d5de7fe7d856ab75ae7fce843cbad78a7b03ecd01f8422d"
+      },
+      {
+        "pmid": "cr:10.25208/vdv1349",
+        "title": "Efficacy and safety of treatment of moderate and severe psoriasis with the interleukin 23 inhibitor risankizumab",
+        "authors": "Bakulev Andrey L., Kruglova Larisa S.",
+        "year": "2022",
+        "journal": "Vestnik dermatologii i venerologii",
+        "doi": "10.25208/vdv1349",
+        "url": "https://doi.org/10.25208/vdv1349",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "A review of the literature on the use of the genetically engineered biological drug Skyrizi (INN: risankizumab) for the treatment of psoriasis in patients is presented. The problem of high dissatisfaction of patients with the available means (methods) of therapy for this dermatosis is discussed. Inhibition of regulatory IL-23 seems to be a very promising direction of therapy, which makes it possible to block the immunopathogenesis of the disease. The IL-23 inhibitor risankizumab is a highly effective GEBA for the treatment of moderate to severe psoriasis in patients. The use of this drug is accompanied by a very rapid and stable therapeutic response in the form of clear or almost clear skin. Long-term use of risankizumab demonstrates the maintenance of a stable therapeutic response without a tendency to decrease. Risankizumab has a favorable safety profile with a low risk of infections and malignancies. At the same time, such adverse events as the development of tuberculosis or inflammatory bowel disease are not typical for therapy with these GIBDs.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "5d68e8d63001055ac28e517c3867af77d394f10a3bbc5f78bab4e50657d816fd"
+      },
+      {
+        "pmid": "doi:10.1177/2050313x261505796",
+        "title": "Switching within the interleukin-23 inhibitor class to tildrakizumab due to adverse events in two patients with severe chronic plaque psoriasis",
+        "authors": "Jensen Yeung MD, FRCPC, Jihad Waked HBSc, Siddhartha Sood MD, Abrahim Abduelmula MD",
+        "year": "2026",
+        "journal": "SAGE Open Medical Case Reports",
+        "doi": "10.1177/2050313x261505796",
+        "url": "https://doi.org/10.1177/2050313x261505796",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Interleukin (IL)-23 p19 inhibitors are among the safest systemic therapies for moderate-to-severe plaque psoriasis, and randomised trials have not distinguished guselkumab, risankizumab, and tildrakizumab from one another on safety. Switching within or away from this class is therefore almost always undertaken for inadequate efficacy rather than tolerability. We describe two patients with severe chronic plaque psoriasis who were switched within the class to tildrakizumab because of recurrent adverse events despite complete skin clearance. A 76-year-old woman developed a reproducible viral-type illness after each risankizumab dose, and 62-year-old man experienced recurrent respiratory infections attributed to guselkumab. Both discontinued their prior agent while clear, subsequently relapsed, and then regained and maintained complete clearance on tildrakizumab for 34 and 30 months, respectively, without recurrence of the index adverse event. These cases suggest that intraclass switching to tildrakizumab can preserve disease control when a safety concern arises, without leaving the IL-23 class.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "a783d7d9e87dcdb0b5bc2f491174e7c12980520ca5f29a4c3889b12f918c5b87"
+      },
+      {
+        "pmid": "41709961",
+        "title": "IL-23 Inhibitors in Psoriasis: What Have We Learnt so Far?",
+        "authors": "Megna M, D'Agostino M, Feo F, Ventura V, Tommasino N, Potestio L.",
+        "year": "2026",
+        "journal": "Journal of inflammation research",
+        "doi": "10.2147/jir.s540848",
+        "url": "https://europepmc.org/article/PMC/PMC12912178",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Interleukin-23 (IL-23) inhibitors represent a major advance in the management of moderate-to-severe plaque psoriasis, grounded in the central pathogenic role of the IL-23/Th17 axis. By selectively targeting the p19 subunit, guselkumab, risankizumab, and tildrakizumab effectively suppress disease-driving inflammation while preserving IL-12-mediated host defence. Pivotal randomized trials have demonstrated high levels of skin clearance, durable efficacy, and favourable safety profiles. Nevertheless, such trials only partially reflect the heterogeneous and medically complex populations treated in everyday practice. Against this background, this narrative review focuses on the expanding body of real-world evidence, which has provided novel insights into the long-term durability, drug survival, performance in difficult-to-treat anatomical sites, and safety of IL-23 inhibitors in special and comorbid populations. Real-world studies consistently confirm high effectiveness in elderly patients, individuals with multiple comorbidities, and those with extensive prior biologic exposure, as well as in challenging disease localisations such as scalp, nails, palmoplantar, genital, and pretibial psoriasis. Across large observational cohorts, IL-23 inhibitors show excellent treatment persistence, largely driven by sustained efficacy and low rates of discontinuation for adverse events. Reassuring safety profiles have also been documented in patients with a history of malignancy, latent infections, or cardiometabolic disease, together with improvements in quality of life and systemic inflammatory burden. By integrating evidence from randomized trials with large real-world cohorts, this narrative review provides a clinically oriented synthesis of the efficacy, safety, and therapeutic positioning of IL-23 inhibitors in psoriasis. Although all three agents demonstrate high and durable effectiveness, real-world data suggest subtle intraclass differences, with guselkumab and risankizumab often achieving faster or deeper early responses, and tildrakizumab offering greater dosing flexibility with comparable long-term persistence in selected patient profiles. Overall, IL-23 blockade has evolved from a highly effective trial-based strategy into a versatile and reliable long-term therapeutic approach capable of addressing unmet needs in routine clinical practice.",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "7af56723c1fc57821becea7288a60c5836d15abaed5df74068a2f55cf8611c1d"
+      },
+      {
+        "pmid": "cr:10.1177/1060028019885836",
+        "title": "Risankizumab for the Treatment of Moderate to Severe Plaque Psoriasis",
+        "authors": "Li Wendy, Ghamrawi Rima, Haidari Wasim, Feldman Steven R.",
+        "year": "2019",
+        "journal": "Annals of Pharmacotherapy",
+        "doi": "10.1177/1060028019885836",
+        "url": "https://doi.org/10.1177/1060028019885836",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective: Risankizumab (Skyrizi), an interleukin-23 (IL-23) antagonist, was approved by the Food and Drug Administration (FDA) for the treatment of moderate to severe plaque psoriasis in April 2019. This article will review phase II and III clinical trials to assess the efficacy, safety, and clinical application of this drug. Data Sources: A systematic literature review was performed using the terms “psoriasis AND risankizumab” in the OVID MEDLINE, PubMed, Cochrane Library, EMBASE, and Web of Science databases. ClinicalTrials.gov was searched to identify ongoing or nonpublished studies. Study Selection and Data Extraction: Articles written in English between January 2000 and October 2019 discussing phase II and phase III clinical trials were evaluated. Data Synthesis: By the primary end point at week 16 in phase III trials, more patients achieved Psoriasis Area and Severity Index 90 receiving 150 mg risankizumab (72%-75%) compared with placebo (2.0%-4.9%, P < 0.001), 45 or 90 mg ustekinumab (42.0%-48%, P < 0.0001), and 40 mg adalimumab (47%, P < 0.0001). More patients achieved a static Physician’s Global Assessment score of 0 or 1 receiving 150 mg risankizumab (84%-88%) compared with placebo (5.1%-7.8%, P < 0.001), 45 or 90 mg ustekinumab (62%-63%, P < 0.0001), and 40 mg adalimumab (60%, P < 0.0001). Risankizumab was well tolerated across all studies. Conclusion: Risankizumab is a newly FDA-approved IL-23 inhibitor that shows particular promise in the treatment of plaque psoriasis. Based on this review, it is an effective and safe addition to the armamentarium of biologics that are currently available.",
+        "relevancePct": 58,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "2ae573ea97d541db49bd46af0a6c3ee7902a1d844473fc3da236958832b28183"
+      },
+      {
+        "pmid": "42719781",
+        "title": "Comparative Efficacy of Interleukin Inhibitors and JAK Inhibitors in Moderate to Severe Plaque Psoriasis.",
+        "authors": "Daily A, Danchulis L, Krulikowski K, Shectman B, Riskin SI.",
+        "year": "2026",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.114260",
+        "url": "https://europepmc.org/article/PMC/PMC13557042",
+        "source": "pmc",
+        "pubType": "review-article, Review, Journal Article",
+        "publicationTypes": [
+          "review-article",
+          "Review",
+          "Journal Article"
+        ],
+        "context": "Plaque psoriasis is a chronic autoimmune skin condition characterized by erythematous, scaly plaques that commonly affect the scalp, trunk, and extensor surfaces. As the most prevalent form of psoriasis, it results from immune system dysregulation, particularly involving cytokines. Cytokines such as interleukin-17 (IL-17) and interleukin-23 (IL-23), as well as downstream Janus kinase (JAK)/tyrosine kinase 2 (TYK2) signal pathways, lead to accelerated skin cell turnover. While an expanding array of treatment options exists, including topical agents, conventional oral medications, and targeted biologics, gaps persist in optimizing long-term management, such as improving access to medications and balancing efficacy with patient preference. Effective, practical, and acceptable long-term treatment options are needed. Injectable interleukin inhibitors, such as risankizumab (Skyrizi © ) and bimekizumab (Bimzelx © ), have demonstrated significant efficacy in treating moderate to severe plaque psoriasis. However, the recent FDA approval of deucravacitinib (Sotyktu © ), an oral TYK2-selective JAK inhibitor, presents a promising alternative that may represent an important oral alternative for selected patients, particularly for patients who are needle-averse, have limited access to biologic infusions, or prefer oral therapies. This structured narrative review evaluates the current evidence surrounding leading IL-17 and IL-23 inhibitors and evaluates the potential role of JAK/TYK2 inhibition in addressing gaps in care. By comparing efficacy, safety profiles, and practical considerations across these agents, this review highlights the need for further longitudinal studies and real-world evidence to guide individualized treatment planning and broaden access to patient-centered care.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "8515ea126773ada1f5ef0df78259d9477d24be8d25aec315b986ecd18770a8ce"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 40,
+      "screened": 40,
+      "blocked": 0,
+      "returned": 12,
+      "relaxationLevel": 1
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "moderate-to-severe chronic plaque psoriasis risankizumab (IL-23 p19 inhibitor) secukinumab (IL-17A inhibitor) PASI 90 and PASI 100 clear skin response at 52 weeks",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

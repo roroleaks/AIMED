@@ -25,7 +25,7 @@
 
   /* Colour — ONE teal accent */
   --accent: #0f766e; --accent-hover: #0d5f59; --accent-subtle: #f0fdfa; --accent-border: #99f6e4;
-  --ink: #0f172a; --ink-2: #334155; --muted: #475569; --muted-2: #64748b;
+  --ink: #0f172a; --ink-2: #334155; --muted: #475569; --muted-2: #5f6e84;
   --surface: #ffffff; --canvas: #f6f8fa; --border: #d8dee6; --border-strong: #cbd5e1;
   --success: #15803d; --success-bg: #ecfdf5;
   --warning: #b45309; --warning-bg: #fef3c7;
@@ -39,7 +39,7 @@
   --focus-ring: 0 0 0 3px rgba(15,118,110,.35);
 
   /* Layout */
-  --content-max: 1120px; --reading-max: 72ch; --form-max: 760px;
+  --content-max: 1120px; --reading-max: min(72ch, 760px); --form-max: 760px;
 
   /* Legacy aliases (keep until migration is complete) */
   --card: var(--surface); --bg: var(--canvas); --accent-strong: var(--accent);
@@ -146,10 +146,18 @@ button {
   background: var(--accent-hover);
 }
 
-.btn--primary:disabled,
 .btn:disabled {
   background: var(--border-strong);
   color: var(--muted-2);
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* The primary button keeps the one accent colour when disabled and is dimmed instead. */
+.btn--primary:disabled {
+  background: var(--accent);
+  color: #ffffff;
+  opacity: 0.45;
   cursor: not-allowed;
   border-color: transparent;
 }
@@ -498,6 +506,13 @@ button {
   }
 }
 
+/* Two-column layout (640-1023px): an odd last card spans the row instead of leaving a hole. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .preset-grid > .preset-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 .preset-card {
   display: grid;
   grid-template-columns: 20px 1fr;
@@ -553,16 +568,18 @@ button {
   font-size: var(--fs-label);
   font-weight: 600;
   color: var(--ink);
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
+  hyphens: manual;
 }
 
 .preset-card__comparison {
   font-size: var(--fs-caption);
   color: var(--muted);
   margin-top: 2px;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
+  hyphens: manual;
 }
 
 .preset-vs {
@@ -570,7 +587,7 @@ button {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted-2);
-  margin: 0 4px;
+  margin: 0 2px;
 }
 
 @media (max-width: 767px) {
@@ -811,7 +828,7 @@ button:active,
 }
 
 .solo {
-  max-width: 1380px;
+  max-width: var(--content-max);
   margin: 26px auto;
   padding: 0 24px;
   width: 100%;
@@ -873,10 +890,9 @@ button:active,
 /* Badges, Pills & Hints */
 .pill {
   display: inline-block;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
   color: var(--accent);
   background: var(--accent-light);
   border-radius: 999px;
@@ -1143,7 +1159,7 @@ button.link {
   color: #fff;
   border-radius: 999px;
   padding: 2px 10px;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -1236,7 +1252,7 @@ button.link {
 .v-num {
   font-weight: 700;
   color: var(--accent);
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -1459,6 +1475,39 @@ table.pico td:first-child {
 }
 
 /* Footer */
+footer a,
+.tap-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* Touch targets: 44px on phones for every button, chip and standalone link. */
+@media (max-width: 767px) {
+  footer a,
+  .tap-link {
+    min-height: 44px;
+  }
+
+  .btn,
+  .btn--sm {
+    height: auto;
+    min-height: 44px;
+  }
+
+  .chip,
+  .specialty-preset-pill,
+  .mode-tab,
+  .category-pill {
+    min-height: 44px;
+  }
+}
+
+/* Reading width: keep running prose within a comfortable measure. */
+p {
+  max-width: 760px;
+}
+
 footer {
   text-align: center;
   color: var(--muted);
@@ -1663,7 +1712,7 @@ footer {
   background: rgba(15, 118, 110, 0.1);
   color: var(--accent);
   border: 1px solid rgba(15, 118, 110, 0.25);
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1674,7 +1723,7 @@ footer {
 
 .aimed-hero-title {
   font-size: var(--fs-display);
-  font-weight: 800;
+  font-weight: 700;
   color: #0f172a;
   line-height: 1.25;
   margin-bottom: 12px;
@@ -1780,7 +1829,7 @@ footer {
   background: none;
   border: none;
   font-size: var(--fs-body-sm);
-  color: #94a3b8;
+  color: var(--muted-2);
   cursor: pointer;
   padding: 4px;
 }
@@ -2028,7 +2077,7 @@ footer {
 
 .specialty-dropdown-header {
   padding: 10px 14px;
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   color: #64748b;
@@ -2113,7 +2162,7 @@ footer {
 }
 
 .pipeline-step-tag {
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   text-transform: uppercase;
   display: block;
@@ -2392,7 +2441,7 @@ footer {
 }
 
 .evidence-category-tag {
-  font-size: var(--fs-caption);
+  font-size: var(--fs-badge);
   font-weight: 700;
   border-radius: 999px;
   padding: 3px 10px;

@@ -1,0 +1,757 @@
+{
+  "id": "PRESET-infectious_disease-cdi-fidaxomicin-vanc",
+  "recordedAt": "2026-11-26T23:10:43.522Z",
+  "specialty": "infectious_disease",
+  "words": [
+    {
+      "word": "adults with initial or recurrent Clostridioides difficile infection",
+      "role": "population"
+    },
+    {
+      "word": "oral fidaxomicin (standard or pulsed regimen)",
+      "role": "intervention"
+    },
+    {
+      "word": "oral vancomycin 125 mg four times daily",
+      "role": "comparator"
+    },
+    {
+      "word": "sustained clinical cure without recurrence at 30-90 days",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "adults with initial or recurrent Clostridioides difficile infection",
+        "role": "population"
+      },
+      {
+        "word": "oral fidaxomicin (standard or pulsed regimen)",
+        "role": "intervention"
+      },
+      {
+        "word": "oral vancomycin 125 mg four times daily",
+        "role": "comparator"
+      },
+      {
+        "word": "sustained clinical cure without recurrence at 30-90 days",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In adults with initial or recurrent Clostridioides difficile infection (P), does oral fidaxomicin (standard or pulsed regimen) (I) compared with oral vancomycin 125 mg four times daily (C) improve sustained clinical cure without recurrence at 30-90 days (O)?",
+        "basis": "Unavailable: Direction not determinable from available study abstracts; full-text appraisal required.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In adults with initial or recurrent Clostridioides difficile infection (P), is oral fidaxomicin (standard or pulsed regimen) (I) superior to oral vancomycin 125 mg four times daily (C) for sustained clinical cure without recurrence at 30-90 days (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of adults with initial or recurrent Clostridioides difficile infection (P), does oral fidaxomicin (standard or pulsed regimen) (I) compared with oral vancomycin 125 mg four times daily (C) improve sustained clinical cure without recurrence at 30-90 days (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 20 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of adults with initial or recurrent Clostridioides difficile infection (P), does oral fidaxomicin (standard or pulsed regimen) (I) compared with oral vancomycin 125 mg four times daily (C) improve sustained clinical cure without recurrence at 30-90 days (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "adults with initial or recurrent Clostridioides difficile infection",
+        "role": "population"
+      },
+      {
+        "word": "oral fidaxomicin (standard or pulsed regimen)",
+        "role": "intervention"
+      },
+      {
+        "word": "oral vancomycin 125 mg four times daily",
+        "role": "comparator"
+      },
+      {
+        "word": "sustained clinical cure without recurrence at 30-90 days",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "37797310",
+        "title": "An Open-Label, Randomized Trial Comparing Fidaxomicin With Oral Vancomycin for the Treatment of Clostridioides difficile Infection in Hospitalized Patients Receiving Concomitant Antibiotics for Concurrent Infections",
+        "authors": "Rao K, et al",
+        "year": "2024",
+        "journal": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+        "doi": "10.1093/cid/ciad606",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37797310/",
+        "context": "BACKGROUND: Recurrent Clostridioides difficile infection (rCDI) occurs frequently, and concomitant antibiotic (CA) during the initial episode for treatment of non-CDI is a major risk factor. We sought to address the comparative efficacy of fidaxomicin versus vancomycin in the setting of CA during the initial CDI episode. METHODS: We conducted a randomized, controlled, open-label trial at 2 hospitals in Ann Arbor, Michigan. We consecutively consented and enrolled hospitalized patients ≥18 years old with diarrhea, a positive test for C. difficile, and ≥1 qualifying CA. Complicated CDI, CDI treatment for >24 hours prior to enrollment, and planned long-term (>12 weeks) CA use were notable exclusions. Clinical cure was defined as resolution of diarrhea for 2 consecutive days maintained until 2 days after therapy, and rCDI as recurrent diarrhea with positive testing ≤30 days after initial treatment. Patients were randomized to fidaxomicin or vancomycin. RESULTS: Baseline characteristics were similar in the 2 groups of 144 patients. Rates of clinical cure (73% vs 62.9%, P = .195) and rCDI (3.3% vs 4.0%; P > .99) were similar for fidaxomicin and vancomycin in the intention-to-treat and per-protocol cohorts, respectively. Only 4 patients developed rCDI. CONCLUSIONS: In this study of patients with CDI receiving CA, a numerically higher proportion were cured with fidaxomicin versus vancomycin, but this result did not reach statistical significance. Overall recurrence was lower than anticipated in both arms compared with previous studies that did not extend duration of CDI treatment during CA. CLINICAL TRIALS REGISTRATION: www.clinicaltrials.gov (NCT02692651).",
+        "source": "pubmed",
+        "pubType": "Randomized Controlled Trial",
+        "publicationTypes": [
+          "Randomized Controlled Trial",
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4414bcb86802df0791027783761636575379e0feaa1298fb2a665e62979f91ff"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofad500.741",
+        "title": "679. Retrospective Analysis of Vancomycin and Fidaxomicin for the Treatment of Recurrent Clostridioides difficile Infection",
+        "authors": "Fabian Amy, Frantz Tyler, Patel Rachana, Kier Karen",
+        "year": "2023",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofad500.741",
+        "url": "https://doi.org/10.1093/ofid/ofad500.741",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background It is estimated that one out of every six patients with a Clostridioides difficile infection (CDI) will develop a recurrence. Guidelines recommend treatment with fidaxomicin rather than vancomycin standard course or tapered and pulsed regimens for the treatment of recurrent CDI (rCDI). The objective of this study is to evaluate clinical outcomes for three different pharmacological approaches for the treatment of rCDI. Methods This is a multi-centered, retrospective cohort of patients who have had more than one episode of CDI who received either fidaxomicin, conventional vancomycin dosing, or vancomycin tapered and pulsed. Inclusion criteria are adult patients who have received at least one dose of oral vancomycin or fidaxomicin and had a positive stool assay for CDI from October 1st, 2021 to September 30th, 2022. Patients who presented with an initial CDI, were pregnant, experienced in-hospital death prior to completion of antibiotic, were less than 18 years old, and elected palliative or hospice care were excluded. The primary outcome is the proportion of patients who develop rCDI at eight weeks. Secondary outcomes include time to recurrence, proportion of patients prescribed guideline-preferred therapy, and the proportion of patients with rCDI or mortality at three months and six months from starting therapy for rCDI. Primary and secondary outcomes will be analyzed using ANOVA testing, and a multi-variable regression analysis was performed to identify significant risk factors for rCDI. Results Among 71 patients, no difference was detected between fidaxomicin (n=11, 16%), vancomycin conventional dosing (n=48, 68%), and vancomycin tapered and pulsed (n=12, 17%) in the proportion of patients with rCDI at eight weeks (p = 0.335). A subgroup analysis of patients with infectious diseases (ID) consults (n=34, 47%) was performed, and they were more likely to be prescribed fidaxomicin (n=11, 32%; p = ≤ 0.001) and less likely to have rCDI (n=12, 17%; p = 0.008). Conclusion Compliance with guideline preferred therapy for rCDI in the community hospital setting is low among non-ID providers. Further research should be conducted to determine the impact that an ID consult can have on clinical outcomes in patients with rCDI. Disclosures All Authors: No reported disclosures",
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Practice Guideline",
+        "lowMetadata": false,
+        "_sig": "ddc09bdf12c96e42585d29c951708b28de9a1ca6ce0b0ff246cd2d93d279f750"
+      },
+      {
+        "pmid": "29273269",
+        "title": "Extended-pulsed fidaxomicin versus vancomycin for Clostridium difficile infection in patients 60 years and older (EXTEND): a randomised, controlled, open-label, phase 3b/4 trial",
+        "authors": "Guery B, et al",
+        "year": "2018",
+        "journal": "The Lancet. Infectious diseases",
+        "doi": "10.1016/S1473-3099(17)30751-X",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29273269/",
+        "context": "BACKGROUND: Clostridium difficile infection causes severe complications and frequently recurs. An extended-pulsed fidaxomicin regimen might facilitate sustained clinical cure by prolonging C difficile suppression and supporting gut microbiota recovery. We aimed to compare clinical outcomes of extended-pulsed fidaxomicin with standard vancomycin. METHODS: In this randomised, controlled, open-label, superiority study, we recruited hospitalised adults aged 60 years and older with confirmed C difficile infection at 86 European hospitals. Patients were randomly assigned (1:1) using an interactive web response system to receive extended-pulsed fidaxomicin (200 mg oral tablets, twice daily on days 1-5, then once daily on alternate days on days 7-25) or vancomycin (125 mg oral capsules, four times daily on days 1-10), stratified by baseline C difficile infection severity, cancer presence, age (≥75 years vs <75 years), and number of previous C difficile infection occurrences. The primary endpoint was sustained clinical cure 30 days after end of treatment (day 55 for extended-pulsed fidaxomicin and day 40 for vancomycin), assessed in all randomised patients who met the inclusion criteria and received at least one dose of study medication (modified full analysis set). Adverse events were assessed in all patients who received at least one dose of study drug. The study is registered with ClinicalTrials.gov, number NCT02254967. FINDINGS: Between Nov 6, 2014, and May 5, 2016, 364 patients were enrolled and randomly assigned to receive extended-pulsed fidaxomicin or vancomycin. 362 patients received at least one dose of study medication (181 in each group). 124 (70%) of 177 patients in the modified full analysis set receiving extended-pulsed fidaxomicin achieved sustained clinical cure 30 days after end of treatment, compared with 106 (59%) of 179 patients receiving vancomycin (difference 11% [95% CI 1·0-20·7], p=0·030; odds ratio 1·62 [95% CI 1·04-2·54]). Incidence of treatment-emergent adverse events did not differ between extended-pulsed fidaxomicin (121 [67%] of 181) and vancomycin (128 [71%] of 181) treatment arms. One death in the vancomycin arm was considered by the investigator to be related to study drug. INTERPRETATION: Extended-pulsed fidaxomicin was superior to standard-dose vancomycin for sustained cure of C difficile infection, and, to our knowledge, extended-pulsed fidaxomicin recurrence rates in this study are the lowest observed in a randomised clinical trial of antibiotic treatment for C difficile infection. FUNDING: Astellas Pharma, Inc.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Clinical Trial, Phase IV",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't",
+          "Equivalence Trial"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "77442c290df336f141c983c0408603bbbf069ca51984fae7b06aeb1f3c7f24db"
+      },
+      {
+        "pmid": "21288078",
+        "title": "Fidaxomicin versus vancomycin for Clostridium difficile infection",
+        "authors": "Louie TJ, et al",
+        "year": "2011",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa0910812",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21288078/",
+        "context": "BACKGROUND: Clostridium difficile infection is a serious diarrheal illness associated with substantial morbidity and mortality. Patients generally have a response to oral vancomycin or metronidazole; however, the rate of recurrence is high. This phase 3 clinical trial compared the efficacy and safety of fidaxomicin with those of vancomycin in treating C. difficile infection. METHODS: Adults with acute symptoms of C. difficile infection and a positive result on a stool toxin test were eligible for study entry. We randomly assigned patients to receive fidaxomicin (200 mg twice daily) or vancomycin (125 mg four times daily) orally for 10 days. The primary end point was clinical cure (resolution of symptoms and no need for further therapy for C. difficile infection as of the second day after the end of the course of therapy). The secondary end points were recurrence of C. difficile infection (diarrhea and a positive result on a stool toxin test within 4 weeks after treatment) and global cure (i.e., cure with no recurrence). RESULTS: A total of 629 patients were enrolled, of whom 548 (87.1%) could be evaluated for the per-protocol analysis. The rates of clinical cure with fidaxomicin were noninferior to those with vancomycin in both the modified intention-to-treat analysis (88.2% with fidaxomicin and 85.8% with vancomycin) and the per-protocol analysis (92.1% and 89.8%, respectively). Significantly fewer patients in the fidaxomicin group than in the vancomycin group had a recurrence of the infection, in both the modified intention-to-treat analysis (15.4% vs. 25.3%, P=0.005) and the per-protocol analysis (13.3% vs. 24.0%, P=0.004). The lower rate of recurrence was seen in patients with non–North American Pulsed Field type 1 strains. The adverse-event profile was similar for the two therapies. CONCLUSIONS: The rates of clinical cure after treatment with fidaxomicin were noninferior to those after treatment with vancomycin. Fidaxomicin was associated with a significantly lower rate of recurrence of C. difficile infection associated with non–North American Pulsed Field type 1 strains. (Funded by Optimer Pharmaceuticals; ClinicalTrials.gov number, NCT00314951.)",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Comparative Study",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "ed53499e518a595c22189a7e6c6656e9697caff01125a88c9b3b195e331c0270"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics12081323",
+        "title": "Clinical Efficacy of Fidaxomicin and Oral Metronidazole for Treating Clostridioides difficile Infection and the Associated Recurrence Rate: A Retrospective Cohort Study",
+        "authors": "Mori Nobuaki, Hirai Jun, Ohashi Wataru, Asai Nobuhiro",
+        "year": "2023",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics12081323",
+        "url": "https://doi.org/10.3390/antibiotics12081323",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Clostridioides difficile infection (CDI) has significant implications for healthcare economics. Although clinical trials have compared fidaxomicin (FDX) and vancomycin, comparisons of FDX and oral metronidazole (MNZ) are limited. Therefore, we compared the therapeutic effects of FDX and oral MNZ. Patients diagnosed with CDI between January 2015 and March 2023 were enrolled. Those treated with oral MNZ or FDX were selected and retrospectively analyzed. The primary outcome was the global cure rate. Secondary outcomes included factors contributing to the CDI global cure rate; the rate of medication change owing to initial treatment failure; and incidence rates of clinical cure, recurrence, and all-cause mortality within 30 days. Of the 264 enrolled patients, 75 and 30 received initial oral MNZ and FDX treatments, respectively. The corresponding CDI global cure rates were 53.3% and 70% (p = 0.12). In multivariate analysis, FDX was not associated with the global cure rate. In the MNZ group, 18.7% of the patients had to change medications owing to initial treatment failure. The FDX group had a higher clinical cure rate and lower recurrence rate than the MNZ group, although not significant. However, caution is necessary owing to necessary treatment changes due to MNZ failure.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "51b006e6eab302f6f4f5c5b895e2d51e5645d96a181dad1956eaac6c5528ee95"
+      },
+      {
+        "pmid": "cr:10.1093/ofid/ofaa439.914",
+        "title": "722. Effectiveness of Fidaxomicin versus Oral Vancomycin in the Treatment of Recurrent Clostridioides difficile",
+        "authors": "Rinaldi Alyssa, Reed Erica E, Jessica Smith, Stevenson Kurt",
+        "year": "2020",
+        "journal": "Open Forum Infectious Diseases",
+        "doi": "10.1093/ofid/ofaa439.914",
+        "url": "https://doi.org/10.1093/ofid/ofaa439.914",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background The 2017 IDSA/SHEA clinical practice guidelines for Clostridioides difficile infection (CDI) recommend treating recurrent episodes with fidaxomicin or oral vancomycin, but there is little evidence to support one strategy over another, particularly beyond the first recurrence. The aim of this study was to compare clinical outcomes in patients with recurrent CDI treated with vancomycin vs. fidaxomicin. Methods This was a retrospective study evaluating inpatients with recurrent CDI treated with vancomycin or fidaxomicin between January 1, 2013 and May 1, 2019. The primary outcome was CDI recurrence. Secondary outcomes included re-infection, treatment failure, infection-related length of stay (IRLOS), and in-hospital all-cause mortality (IHACM). Data collected included demographics; number of previous CDI episodes; CDI therapy; time to recurrence and re-infection; exposure to broad-spectrum antibiotics, proton pump inhibitors, and probiotics. Wilcoxon rank sum, Pearson chi-square, or Fisher’s exact tests were utilized, as appropriate. A multivariable logistic regression (MLR) model was used to estimate the adjusted odds ratio and 95% confidence interval assessing recurrence while adjusting for confounding variables. A survival analysis was also conducted. Results One hundred thirty-five patients met inclusion criteria (n = 35 fidaxomicin vs. n = 100 vancomycin). Of these, 42 (31%) had experienced at least 2 CDI episodes prior to their index recurrence. There was no difference in CDI recurrence [7 (20%) fidaxomicin vs. 11 (11%) vancomycin, p=0.18]; this persisted in the MLR model (OR 0.85 [95% CI 0.27-2.7]) and survival analysis (P = 0.1954). Additionally, there was no difference in re-infection rate (p=0.73), treatment failure (p=0.13), IRLOS (p=0.19), or IHACM (p=0.65). Conclusion Oral vancomycin and fidaxomicin are both suitable treatment options in the setting of recurrent CDI. Disclosures All Authors: No reported disclosures",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "f02c7e77bbb8b43b3a0a11b1ec136c70d1e5bbbe79e6dfb545178d8e74ccbd17"
+      },
+      {
+        "pmid": "42566576",
+        "title": "Association of oral vancomycin prophylaxis with Clostridium difficile infection in hematopoietic stem cell transplant recipients: A systematic review and meta-analysis",
+        "authors": "Amir M, et al",
+        "year": "2026",
+        "journal": "Medicine",
+        "doi": "10.1097/MD.0000000000050096",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42566576/",
+        "context": "BACKGROUND: Clostridium difficile infection (CDI) occurs in up to 30% of hematopoietic stem cell transplant (HSCT) recipients and remains a significant cause of infectious diarrhea. This meta-analysis evaluated the association of oral vancomycin prophylaxis (OVP) with CDI prevention after HSCT. METHODS: We conducted a literature search of PubMed, Cochrane, and Google Scholar for articles from inception to July 2025 that compared the safety and efficacy of OVP for CDI in post-HSCT patients. Statistical analysis of the extracted data was conducted using Review Manager 5.4. The odds ratio for dichotomous variables and the mean difference for continuous variables were analyzed along with the corresponding 95% confidence intervals. A random-effects model was applied when heterogeneity was high (I2 ≥ 50%), and a fixed-effect model was applied when heterogeneity was low (I2 ≤ 50%). RESULTS: This meta-analysis included 5 studies comprising 957 patients, with 490 (51.2%) receiving OVP and 467 (48.8%) not receiving OVP (no OVP). OVP was significantly associated with a reduced incidence of CDI during hospitalization (P < .00001). Although a lower overall incidence of CDI (hospitalization plus 180-day follow-up) was observed in the OVP group, the result was not statistically significant (P = .06). A leave-one-out analysis was performed to establish a significant association (P = .04). In the OVP group, higher rates of grade 2 to 4 acute graft-versus-host disease (P = .13) and lower rates of bloodstream infections (P = .74), 1-year event-free survival (P = .44), and longer hospital stays (P = .36) were observed, although none reached statistical significance. CONCLUSION: We conclude that oral vancomycin might be associated with a lower incidence of CDI during hospitalization in post-HSCT recipients and can be considered for CDI prophylaxis. No statistically significant adverse outcomes were observed in the OVP group compared with placebo. However, given the observational nature of these studies, these findings should be considered preliminary. Large-scale randomized controlled trials are needed to confirm the true efficacy and safety profile of OVP in post-HSCT recipients.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "a0e5d521b93560272db6b9614018d90f415bf9bb8cb5d9593cc7ef64c3e3cc9b"
+      },
+      {
+        "pmid": "30716016",
+        "title": "Vancomycin Enema in the Treatment of Clostridium difficile Infection",
+        "authors": "Fawley J, Napolitano LM",
+        "year": "2019",
+        "journal": "Surgical infections",
+        "doi": "10.1089/sur.2018.238",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30716016/",
+        "context": "Background: Current guidelines for the treatment of Clostridium difficile infections (CDIs) recommend vancomycin enemas for patients with adynamic ileus. There is significant variability in guideline recommendations for vancomycin dose and enema volume and whether a retention enema should be used. The most recent (2017) guidelines from the Infectious Diseases Society of America/Society for Healthcare Epidemiology of America recommend rectal instillation of 500 mg of vancomycin in 100 mL of physiologic saline every 6 hours as a retention enema. Methods: Published studies regarding vancomycin enema use in CDI (1990-present) were reviewed to compare drug dose, volume, and whether a retention enema was used in order to determine the efficacy and make recommendations for optimal dosing. Results: Case series with higher vancomycin dose, higher enema volume, and use of retention enema demonstrated greater efficacy. Use of smaller volumes and lower doses (100 mL; 125-250 mg q 6 hours) demonstrated no efficacy of intracolonic vancomycin. Conclusion: We recommend revision of the current CDI guideline recommendations for patients with adynamic ileus to the following: Vancomycin per rectum (500 mg in a volume of 500 mL q 6 hours) by retention enema (18F Foley catheter with 30-cc balloon inserted into the rectum, balloon inflated, solution instilled, and catheter clamped for 60 minutes) for optimal efficacy.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review",
+        "lowMetadata": false,
+        "_sig": "0c87ce9f5e782427089bc38971d8b13cb261c9fb4b33e70616b98534f2e8e8fc"
+      },
+      {
+        "pmid": "22752871",
+        "title": "Fidaxomicin versus vancomycin for Clostridium difficile infection: meta-analysis of pivotal randomized controlled trials",
+        "authors": "Crook DW, et al",
+        "year": "2012",
+        "journal": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+        "doi": "10.1093/cid/cis499",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22752871/",
+        "context": "Two recently completed phase 3 trials (003 and 004) showed fidaxomicin to be noninferior to vancomycin for curing Clostridium difficile infection (CDI) and superior for reducing CDI recurrences. In both studies, adults with active CDI were randomized to receive blinded fidaxomicin 200 mg twice daily or vancomycin 125 mg 4 times a day for 10 days. Post hoc exploratory intent-to-treat (ITT) time-to-event analyses were undertaken on the combined study 003 and 004 data, using fixed-effects meta-analysis and Cox regression models. ITT analysis of the combined 003/004 data for 1164 patients showed that fidaxomicin reduced persistent diarrhea, recurrence, or death by 40% (95% confidence interval [CI], 26%-51%; P < .0001) compared with vancomycin through day 40. A 37% (95% CI, 2%-60%; P = .037) reduction in persistent diarrhea or death was evident through day 12 (heterogeneity P = .50 vs 13-40 days), driven by 7 (1.2%) fidaxomicin versus 17 (2.9%) vancomycin deaths at <12 days. Low albumin level, low eosinophil count, and CDI treatment preenrollment were risk factors for persistent diarrhea or death at 12 days, and CDI in the previous 3 months was a risk factor for recurrence (all P < .01). Fidaxomicin has the potential to substantially improve outcomes from CDI.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Meta-Analysis",
+          "Multicenter Study",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "74d5dbfa48b660e58877641fb469fb189a5755cf2526e0aa8d258e16a5627371"
+      },
+      {
+        "pmid": "40523286",
+        "title": "Fecal Microbiota Transplantation Versus Vancomycin for Primary Clostridioides difficile Infection : A Randomized Controlled Trial",
+        "authors": "Juul FE, et al",
+        "year": "2025",
+        "journal": "Annals of internal medicine",
+        "doi": "10.7326/ANNALS-24-03285",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40523286/",
+        "context": "BACKGROUND: Fecal microbiota transplantation (FMT) is recommended for recurrent Clostridioides difficile infection (CDI), but its role in primary CDI is unclear. OBJECTIVE: To investigate the efficacy and safety of FMT in primary CDI. DESIGN: Randomized, open-label, noninferiority, multicenter trial. (ClinicalTrials.gov: NCT03796650). SETTING: Hospitals and primary care facilities in Norway. PATIENTS: Adults with CDI ( C difficile toxin in stool and ≥3 loose stools daily) and no previous CDI within 365 days before enrollment. INTERVENTION: FMT without antibiotic pretreatment versus oral vancomycin, 125 mg 4 times daily for 10 days. MEASUREMENTS: The primary end point was clinical cure (firm stools or <3 bowel movements daily) at day 14 and no disease recurrence within 60 days with the assigned treatment alone. RESULTS: Of 104 randomly assigned patients, 100 received FMT or the first dose of vancomycin and were eligible for analysis. Clinical cure and no disease recurrence within 60 days without additional treatment was observed in 34 of 51 patients (66.7%) with FMT versus 30 of 49 (61.2%) with vancomycin (difference, 5.4 percentage points [95.2% CI, -13.5 to 24.4 percentage points]; P for noninferiority < 0.001, rejecting the hypothesis that response to FMT is 25 percentage points lower than response to vancomycin). Eleven patients in the FMT group and 4 in the vancomycin group had additional C difficile treatment. Clinical cure at day 14 and no recurrence with or without additional treatment was observed in 40 of 51 patients (78.4%) with FMT and 30 of 49 (61.2%) with vancomycin (difference, 17.2 percentage points [95.2% CI, -0.7 to 35.1 percentage points]). No significant differences in adverse events were observed between groups. LIMITATIONS: Open-label design and reliance on clinical end points. CONCLUSION: FMT may be considered as first-line therapy in primary CDI. PRIMARY FUNDING SOURCE: South-East Norway Health Trust.",
+        "source": "pubmed",
+        "pubType": "Equivalence Trial",
+        "publicationTypes": [
+          "Equivalence Trial",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "537b8f17ad58ccf4263b678677f4528908b40156bdcf8e2a4eb5ba84a80b300d"
+      },
+      {
+        "pmid": "40601321",
+        "title": "Oral Vancomycin for Prevention of Recurrent Clostridioides difficile Infection: A Randomized Clinical Trial",
+        "authors": "Keating JA, et al",
+        "year": "2025",
+        "journal": "JAMA network open",
+        "doi": "10.1001/jamanetworkopen.2025.17834",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40601321/",
+        "context": "IMPORTANCE: Systemic antibiotic use for patients with a non-Clostridioides difficile infection (CDI) is a major risk factor for recurrent CDI. Increasing use of oral vancomycin for secondary prophylaxis against recurrent CDI in this context has uncertain efficacy. OBJECTIVE: To evaluate whether oral vancomycin prophylaxis compared with placebo is effective against recurrent CDI during and 8 weeks after the end of study treatment. DESIGN, SETTING, AND PARTICIPANTS: This phase 2, placebo-controlled, double-blind randomized clinical trial was conducted in 4 large health systems across the upper Midwest US. Adults who had completed treatment for CDI within the past 180 days and were taking a systemic antibiotic for a non-CDI indication were enrolled between May 21, 2018, and March 30, 2023, and followed up for 8 weeks after the end of study treatment. INTERVENTION: Participants were randomized 1:1 to 125 mg of oral vancomycin or placebo once daily during antibiotic use for a non-CDI plus 5 days following cessation of those antibiotics. MAIN OUTCOMES AND MEASURES: The primary outcome was recurrent CDI incidence during treatment and the 8-week follow-up period. The secondary outcome was vancomycin-resistant Enterococcus carriage in stool. RESULTS: Among 81 randomized participants (median age, 59 years [IQR, 50-67 years]), all were included in the primary as-randomized analysis (39 in the vancomycin group; 42 in the placebo group). Sixty patients (74.1%) completed 8-week follow-up and were included in the secondary as-completed treatment analysis (31 in the vancomycin group; 29 in the placebo group). Recurrent CDI occurred in 17 of 39 participants in the oral vancomycin group (43.6%) and 24 of 42 in the placebo group (57.1%; absolute difference in percentage, -13.5% [95% CI, -35.1% to 8.0%]). Adverse events occurred in 27 of 39 participants in the oral vancomycin group (69.2%) and 27 of 42 in the placebo group (64.3%). Vancomycin-resistant Enterococcus carriage was found in 15 of 30 patients in the oral vancomycin group (50.0%) and 6 of 25 in the placebo group (24.0%) (P = .048) 8 weeks after treatment. CONCLUSIONS AND RELEVANCE: In this randomized clinical trial, the incidence of recurrent CDI was lower (though did not reach significance) in participants taking oral vancomycin compared with those taking placebo. Because the study was underpowered, it was unable to reveal firm conclusions about the efficacy (or lack thereof) of vancomycin prophylaxis with respect to recurrent CDI. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03462459.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase II",
+          "Research Support, U.S. Gov't, P.H.S.",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "088c4e61a1c2641d55532d8c18a12480ea92695d4e20b07edb204b6214bd4480"
+      },
+      {
+        "pmid": "31773143",
+        "title": "Safety and Efficacy of Fidaxomicin and Vancomycin in Children and Adolescents with Clostridioides (Clostridium) difficile Infection: A Phase 3, Multicenter, Randomized, Single-blind Clinical Trial (SUNSHINE)",
+        "authors": "Wolf J, et al",
+        "year": "2020",
+        "journal": "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America",
+        "doi": "10.1093/cid/ciz1149",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31773143/",
+        "context": "BACKGROUND: Fidaxomicin, a narrow-spectrum antibiotic approved for Clostridioides (Clostridium) difficile infection (CDI) in adults, is associated with lower rates of recurrence than vancomycin; however, pediatric data are limited. This multicenter, investigator-blind, phase 3, parallel-group trial assessed the safety and efficacy of fidaxomicin in children. METHODS: Patients aged <18 years with confirmed CDI were randomized 2:1 to 10 days of treatment with fidaxomicin (suspension or tablets, twice daily) or vancomycin (suspension or tablets, 4 times daily). Safety assessments included treatment-emergent adverse events. The primary efficacy end point was confirmed clinical response (CCR), 2 days after the end of treatment (EOT). Secondary end points included global cure (GC; CCR without CDI recurrence) 30 days after EOT (end of study; EOS). Plasma and stool concentrations of fidaxomicin and its active metabolite OP-1118 were measured. RESULTS: Of 148 patients randomized, 142 were treated (30 <2 years old). The proportion of participants with treatment-emergent adverse events was similar with fidaxomicin (73.5%) and vancomycin (75.0%). Of 3 deaths in the fidaxomicin arm during the study, none were CDI or treatment related. The rate of CCR at 2 days after EOT was 77.6% (76 of 98 patients) with fidaxomicin and 70.5% (31 of 44) with vancomycin, whereas the rate of GC at EOS was significantly higher in participants receiving fidaxomicin (68.4% vs 50.0%; adjusted treatment difference, 18.8%; 95% confidence interval, 1.5%-35.3%). Systemic absorption of fidaxomicin and OP-1118 was minimal, and stool concentrations were high. CONCLUSIONS: Compared with vancomycin, fidaxomicin was well tolerated and demonstrated significantly higher rates of GC in children and adolescents with CDI. CLINICAL TRIALS REGISTRATION: NCT02218372.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "d51c359cd45369fed49902d0b6d1550a844bf2a47ccf8de041140872c3e0a230"
+      },
+      {
+        "pmid": "23323867",
+        "title": "Duodenal infusion of donor feces for recurrent Clostridium difficile",
+        "authors": "van Nood E, et al",
+        "year": "2013",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa1205037",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23323867/",
+        "context": "BACKGROUND: Recurrent Clostridium difficile infection is difficult to treat, and failure rates for antibiotic therapy are high. We studied the effect of duodenal infusion of donor feces in patients with recurrent C. difficile infection. METHODS: We randomly assigned patients to receive one of three therapies: an initial vancomycin regimen (500 mg orally four times per day for 4 days), followed by bowel lavage and subsequent infusion of a solution of donor feces through a nasoduodenal tube; a standard vancomycin regimen (500 mg orally four times per day for 14 days); or a standard vancomycin regimen with bowel lavage. The primary end point was the resolution of diarrhea associated with C. difficile infection without relapse after 10 weeks. RESULTS: The study was stopped after an interim analysis. Of 16 patients in the infusion group, 13 (81%) had resolution of C. difficile-associated diarrhea after the first infusion. The 3 remaining patients received a second infusion with feces from a different donor, with resolution in 2 patients. Resolution of C. difficile infection occurred in 4 of 13 patients (31%) receiving vancomycin alone and in 3 of 13 patients (23%) receiving vancomycin with bowel lavage (P<0.001 for both comparisons with the infusion group). No significant differences in adverse events among the three study groups were observed except for mild diarrhea and abdominal cramping in the infusion group on the infusion day. After donor-feces infusion, patients showed increased fecal bacterial diversity, similar to that in healthy donors, with an increase in Bacteroidetes species and clostridium clusters IV and XIVa and a decrease in Proteobacteria species. CONCLUSIONS: The infusion of donor feces was significantly more effective for the treatment of recurrent C. difficile infection than the use of vancomycin. (Funded by the Netherlands Organization for Health Research and Development and the Netherlands Organization for Scientific Research; Netherlands Trial Register number, NTR1177.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "e7c0cb77bcb7e6896b3a3c70dcad3efd11d6b643afe7bc2d06111df0e5ff2dc1"
+      },
+      {
+        "pmid": "cr:10.1016/s0016-5085(26)03963-6",
+        "title": "Mo2075 COMPARATIVE OUTCOMES OF FIDAXOMICIN VERSUS ORAL VANCOMYCIN FOR CLOSTRIDIOIDES DIFFICILE INFECTION IN CIRRHOSIS",
+        "authors": "Ahmed Hatem, Gomaa Sameh, Almahmood Motaz, Ahmed Roy Arslan",
+        "year": "2026",
+        "journal": "Gastroenterology",
+        "doi": "10.1016/s0016-5085(26)03963-6",
+        "url": "https://doi.org/10.1016/s0016-5085(26)03963-6",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "7ba3c7e2f7bd05fbaff65774f79eae6c9d87d1e10e70e2fd9c30ac447d1234de"
+      },
+      {
+        "pmid": "cr:10.1111/acem.14600",
+        "title": "Oral fidaxomicin versus vancomycin for Clostridioides difficile infection",
+        "authors": "Long Brit, Gottlieb Michael",
+        "year": "2022",
+        "journal": "Academic Emergency Medicine",
+        "doi": "10.1111/acem.14600",
+        "url": "https://doi.org/10.1111/acem.14600",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "386b910f26fa59bfdfe52e0205ee98f713403874eddfa1d809b5ad3e8a471867"
+      },
+      {
+        "pmid": "cr:10.1016/j.jiac.2025.102709",
+        "title": "Extended-pulsed fidaxomicin therapy for recurrent Clostridioides difficile infection after standard vancomycin and fidaxomicin failure: A case report",
+        "authors": "Hirai Jun",
+        "year": "2025",
+        "journal": "Journal of Infection and Chemotherapy",
+        "doi": "10.1016/j.jiac.2025.102709",
+        "url": "https://doi.org/10.1016/j.jiac.2025.102709",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "35cb7cea4a83703e90a79bd850596f8ed6585c3c08d6ba1d4b1a93639cd0d639"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 16,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 30
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 22
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 30,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 22,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "adults with initial or recurrent Clostridioides difficile infection oral fidaxomicin (standard or pulsed regimen) oral vancomycin 125 mg four times daily sustained clinical cure without recurrence at 30-90 days",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": false
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "id": "ADV-HOMEO",
+  "recordedAt": "2026-11-26T22:58:54.649Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "IVF",
+      "role": "population"
+    },
+    {
+      "word": "homeopathy",
+      "role": "intervention"
+    },
+    {
+      "word": "placebo",
+      "role": "comparator"
+    },
+    {
+      "word": "live birth",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "IVF",
+        "role": "population"
+      },
+      {
+        "word": "homeopathy",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "live birth",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In IVF (P), does homeopathy (I) compared with placebo (C) improve live birth (O)?",
+        "basis": "Unavailable: No systematic review or randomized trial in the screened literature directly addresses this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In IVF (P), is homeopathy (I) superior to placebo (C) for live birth (O)?",
+        "basis": "Unavailable: No conflicting trial literature identified in screened records for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In IVF (P), does homeopathy (I) compared with [comparator not specified] (C) improve live birth (O)?",
+        "basis": "No screened record addresses 'homeopathy' — comparative evidence for this element is missing.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 23
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In IVF (P), does homeopathy (I) compared with [comparator not specified] (C) improve live birth (O)?"
+    },
+    "words": [
+      {
+        "word": "IVF",
+        "role": "population"
+      },
+      {
+        "word": "homeopathy",
+        "role": "intervention"
+      },
+      {
+        "word": "placebo",
+        "role": "comparator"
+      },
+      {
+        "word": "live birth",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 400,
+  "exploreResponse": {
+    "error": "Phrase does not contain submitted word: \"placebo\""
+  }
+}

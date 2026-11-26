@@ -1,0 +1,714 @@
+{
+  "id": "PRESET-dermatology-atopic-derm-jak-biologic",
+  "recordedAt": "2026-11-26T23:12:24.037Z",
+  "specialty": "dermatology",
+  "words": [
+    {
+      "word": "moderate-to-severe atopic dermatitis in adults",
+      "role": "population"
+    },
+    {
+      "word": "oral upadacitinib 30 mg daily",
+      "role": "intervention"
+    },
+    {
+      "word": "subcutaneous dupilumab 300 mg every 2 weeks",
+      "role": "comparator"
+    },
+    {
+      "word": "EASI 75 and PP-NRS itch reduction at week 16",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "moderate-to-severe atopic dermatitis in adults",
+        "role": "population"
+      },
+      {
+        "word": "oral upadacitinib 30 mg daily",
+        "role": "intervention"
+      },
+      {
+        "word": "subcutaneous dupilumab 300 mg every 2 weeks",
+        "role": "comparator"
+      },
+      {
+        "word": "EASI 75 and PP-NRS itch reduction at week 16",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In moderate-to-severe atopic dermatitis in adults (P), does oral upadacitinib 30 mg daily (I) compared with subcutaneous dupilumab 300 mg every 2 weeks (C) improve EASI 75 and PP-NRS itch reduction at week 16 (O)?",
+        "basis": "Unavailable: No systematic review or randomized trial in the screened literature directly addresses this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In moderate-to-severe atopic dermatitis in adults (P), is oral upadacitinib 30 mg daily (I) superior to subcutaneous dupilumab 300 mg every 2 weeks (C) for EASI 75 and PP-NRS itch reduction at week 16 (O)?",
+        "basis": "Unavailable: No conflicting trial literature identified in screened records for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of moderate-to-severe atopic dermatitis in adults (P), does oral upadacitinib 30 mg daily (I) compared with subcutaneous dupilumab 300 mg every 2 weeks (C) improve EASI 75 and PP-NRS itch reduction at week 16 (O) without additional adverse events (O)?",
+        "basis": "While overall efficacy has 11 matching records, high-risk subgroup stratification and long-term adverse event profiles remain unaddressed in screened evidence.",
+        "supported": true
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 10
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "gap",
+      "phrase": "In high-risk subgroups of moderate-to-severe atopic dermatitis in adults (P), does oral upadacitinib 30 mg daily (I) compared with subcutaneous dupilumab 300 mg every 2 weeks (C) improve EASI 75 and PP-NRS itch reduction at week 16 (O) without additional adverse events (O)?"
+    },
+    "words": [
+      {
+        "word": "moderate-to-severe atopic dermatitis in adults",
+        "role": "population"
+      },
+      {
+        "word": "oral upadacitinib 30 mg daily",
+        "role": "intervention"
+      },
+      {
+        "word": "subcutaneous dupilumab 300 mg every 2 weeks",
+        "role": "comparator"
+      },
+      {
+        "word": "EASI 75 and PP-NRS itch reduction at week 16",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "dermatology",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "41780001",
+        "title": "Neoadjuvant GOLP in Resectable High-Risk Intrahepatic Cholangiocarcinoma",
+        "authors": "Shi GM, et al",
+        "year": "2026",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2513918",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41780001/",
+        "context": "BACKGROUND: No neoadjuvant treatment has been considered to be standard therapy for patients with resectable intrahepatic cholangiocarcinoma with high-risk factors for recurrence. The GOLP regimen (gemcitabine-oxaliplatin, lenvatinib, and an anti-programmed death 1 antibody) has shown promising efficacy with a manageable safety profile in advanced intrahepatic cholangiocarcinoma and biliary tract cancer. METHODS: In a phase 2-3 trial, we randomly assigned, in a 1:1 ratio, patients with resectable high-risk intrahepatic cholangiocarcinoma to the neoadjuvant group (intravenous gemcitabine-oxaliplatin plus toripalimab every 3 weeks for three cycles and oral lenvatinib once daily for 9 weeks, followed by curative resection) or the control group (curative resection and no neoadjuvant treatment). All patients received adjuvant capecitabine for eight cycles after surgery. The primary end point was event-free survival. Secondary end points included overall survival and safety. RESULTS: A total of 178 patients underwent randomization (88 patients to the neoadjuvant group and 90 to the control group). At the interim analysis at a median follow-up of 16.9 months, the median event-free survival was significantly longer in the neoadjuvant group (18.0 months; 95% confidence interval [CI], 13.8 to 27.6) than in the control group (8.7 months; 95% CI, 7.2 to 12.4) (P<0.001). Overall survival at 24 months was 79% (95% CI, 70 to 90) in the neoadjuvant group and 61% (95% CI, 50 to 75) in the control group (hazard ratio for death, 0.43; 95% CI, 0.23 to 0.79; P = 0.005, which did not meet the significance criterion [two-sided alpha, 0.0019]). Across all treatment phases, adverse events occurred in 97% of the patients in the neoadjuvant group and in 70% of those in the control group. During the neoadjuvant phase, adverse events of grade 3 or higher occurred in 28% of the patients, and treatment-related adverse events of grade 3 or higher in 26%. No treatment-related adverse event led to death. CONCLUSIONS: Neoadjuvant GOLP led to significantly longer event-free survival than control therapy, with mainly low-grade adverse events, among patients with resectable high-risk intrahepatic cholangiocarcinoma. (Funded by the Clinical Research Plan of Shanghai Hospital Development Center and others; ZSAB-neoGOLP ClinicalTrials.gov number, NCT04669496.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study",
+          "Clinical Trial, Phase II"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "fc1f59c3cc0120f7d13ed6cf644aff71d0e3039bea05d5b4766b104781e08995"
+      },
+      {
+        "pmid": "34347860",
+        "title": "Efficacy and Safety of Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis: A Randomized Clinical Trial",
+        "authors": "Blauvelt A, et al",
+        "year": "2021",
+        "journal": "JAMA dermatology",
+        "doi": "10.1001/jamadermatol.2021.3023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34347860/",
+        "context": "IMPORTANCE: Atopic dermatitis (AD) is a chronic, recurrent, inflammatory skin disease with an unmet need for treatments that provide rapid and high levels of skin clearance and itch improvement. OBJECTIVE: To assess the safety and efficacy of upadacitinib vs dupilumab in adults with moderate-to-severe AD. DESIGN, SETTING, AND PARTICIPANTS: Heads Up was a 24-week, head-to-head, phase 3b, multicenter, randomized, double-blinded, double-dummy, active-controlled clinical trial comparing the safety and efficacy of upadacitinib with dupilumab among 692 adults with moderate-to-severe AD who were candidates for systemic therapy. The study was conducted from February 21, 2019, to December 9, 2020, at 129 centers located in 22 countries across Europe, North and South America, Oceania, and the Asia-Pacific region. Efficacy analyses were conducted in the intent-to-treat population. INTERVENTIONS: Patients were randomized 1:1 and treated with oral upadacitinib, 30 mg once daily, or subcutaneous dupilumab, 300 mg every other week. MAIN OUTCOMES AND MEASURES: The primary end point was achievement of 75% improvement in the Eczema Area and Severity Index (EASI75) at week 16. Secondary end points were percentage change from baseline in the Worst Pruritus Numerical Rating Scale (NRS) (weekly average), proportion of patients achieving EASI100 and EASI90 at week 16, percentage change from baseline in Worst Pruritus NRS at week 4, proportion of patients achieving EASI75 at week 2, percentage change from baseline in Worst Pruritus NRS (weekly average) at week 1, and Worst Pruritus NRS (weekly average) improvement of 4 points or more at week 16. End points at week 24 included EASI75, EASI90, EASI100, and improvement of 4 points or more in Worst Pruritus NRS from baseline (weekly average). Safety was assessed as treatment-emergent adverse events in all patients receiving 1 or more dose of either drug. RESULTS: Of 924 patients screened, 348 (183 men [52.6%]; mean [SD] age, 36.6 [14.6] years) were randomized to receive upadacitinib and 344 were randomized to receive dupilumab (194 men [56.4%]; mean [SD] age, 36.9 [14.1] years); demographic and disease characteristics were balanced among treatment groups. At week 16, 247 patients receiving upadacitinib (71.0%) and 210 patients receiving dupilumab (61.1%) achieved EASI75 (P = .006). All ranked secondary end points also demonstrated the superiority of upadacitinib vs dupilumab, including improvement in Worst Pruritus NRS as early as week 1 (mean [SE], 31.4% [1.7%] vs 8.8% [1.8%]; P < .001), achievement of EASI75 as early as week 2 (152 [43.7%] vs 60 [17.4%]; P < .001), and achievement of EASI100 at week 16 (97 [27.9%] vs 26 [7.6%]; P < .001). Rates of serious infection, eczema herpeticum, herpes zoster, and laboratory-related adverse events were higher for patients who received upadacitinib, whereas rates of conjunctivitis and injection-site reactions were higher for patients who received dupilumab. CONCLUSIONS AND RELEVANCE: During 16 weeks of treatment, upadacitinib demonstrated superior efficacy vs dupilumab in patients with moderate-to-severe AD, with no new safety signals. TRIAL REGISTRATION: ClinicalTrials.gov Identifier: NCT03738397.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "ebf73c701413c914c96a2ddc3286f1defdd89fd388b4932f5b9c401fcfbf8f13"
+      },
+      {
+        "pmid": "34023009",
+        "title": "Safety and efficacy of upadacitinib in combination with topical corticosteroids in adolescents and adults with moderate-to-severe atopic dermatitis (AD Up): results from a randomised, double-blind, placebo-controlled, phase 3 trial",
+        "authors": "Reich K, et al",
+        "year": "2021",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(21)00589-4",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34023009/",
+        "context": "BACKGROUND: Systemic therapies are typically combined with topical corticosteroids for the management of moderate-to-severe atopic dermatitis. Upadacitinib is an oral Janus kinase (JAK) inhibitor with greater inhibitory potency for JAK1 than JAK2, JAK3, or tyrosine kinase 2 that is being tested for atopic dermatitis. We aimed to assess the efficacy and safety of upadacitinib plus topical corticosteroids compared with placebo for the treatment of moderate-to-severe atopic dermatitis. METHODS: In this randomised, double-blind, placebo-controlled, phase 3 trial (AD Up) adults (aged 18-75 years) and adolescents (aged 12-17 years) with chronic atopic dermatitis that was moderate to severe (≥10% of body surface area affected, Eczema Area and Severity Index [EASI] score of ≥16, validated Investigator's Global Assessment for atopic dermatitis [vIGA-AD] score of ≥3, and weekly average Worst Pruritus Numerical Rating Scale score of ≥4 at baseline) were enrolled at 171 clinical centres across 22 countries in the Asia-Pacific region, Europe, the Middle East, North America, and Oceania. Patients were randomly assigned (1:1:1) to receive upadacitinib 15 mg, upadacitinib 30 mg, or placebo once daily, all in combination with topical corticosteroids for 16 weeks. Randomisation was done using an interactive response technology system, stratified by baseline disease severity, geographical region, and age. Study investigators, study site personnel, and patients were masked to study treatment. The coprimary endpoints were the proportion of patients who had achieved at least a 75% reduction in EASI score from baseline (EASI-75) and the proportion of patients who had achieved a vIGA-AD response (defined as a vIGA-AD score of 0 [clear] or 1 [almost clear] with ≥2 grades of improvement from baseline) at week 16. Efficacy was analysed in the intention-to-treat population and safety was analysed in all patients who received at least one dose of study drug. This study is registered with ClinicalTrials.gov, NCT03568318, and is active, but not recruiting. FINDINGS: Between Aug 9, 2018, and Dec 20, 2019, 901 patients were randomly assigned to receive upadacitinib 15 mg plus topical corticosteroids (n=300), upadacitinib 30 mg plus topical corticosteroids (n=297), or placebo plus topical corticosteroids (n=304). At week 16, the proportion of patients who had achieved EASI-75 was significantly higher in the upadacitinib 15 mg plus topical corticosteroid group (194 [65%] of 300 patients) and the upadacitinib 30 mg plus topical corticosteroids group (229 [77%] of 297 patients) than the placebo group (80 [26%] of 304 patients; adjusted difference in EASI-75 response rate vs placebo, 38·1% [95% CI 30·8-45·4] for the upadacitinib 15 mg group and 50·6% [43·8-57·4] for the upadacitinib 30 mg group; p<0·0001 for both doses). The proportion of patients who had achieved a vIGA-AD response at week 16 was significantly higher in the upadacitinib 15 mg plus topical corticosteroid group (119 [40%] patients) and upadacitinib 30 mg plus topical corticosteroid group (174 [59%] patients) than the placebo group (33 [11%] patients; adjusted difference in vIGA-AD response vs placebo, 28·5% [22·1-34·9] for the upadacitinib 15 mg group and 47·6% [41·1-54·0] for the upadacitinib 30 mg group; p<0·0001 for both doses). During the double-blind period, upadacitinib 15 and 30 mg were well tolerated in combination with topical corticosteroids. The most frequently reported treatment-emergent adverse events (≥5% in any treatment group) were acne, nasopharyngitis, upper respiratory tract infection, oral herpes, elevation of blood creatine phosphokinase levels, headache, and atopic dermatitis. The incidence of acne was higher in the upadacitinib 15 mg (30 [10%] of 300 patients) and upadacitinib 30 mg (41 [14%] of 297 patients) groups than the placebo group (six [2%] of 304 patients). The incidence of adverse events leading to discontinuation of study drug (four [1%] patients in the upadacitinib 15 mg plus topical corticosteroids group, four [1%] patients in the upadacitinib 30 mg plus topical corticosteroids group, and seven [2%] patients in the placebo plus topical corticosteroids group) and serious adverse events (seven [2%] patients, four [1%] patients, and nine [3%] patients) were similar among treatment groups. No deaths were reported in any treatment group. INTERPRETATION: Upadacitinib plus topical corticosteroids was well tolerated and superior to placebo plus topical corticosteroids. Upadacitinib as combination therapy had a positive benefit-risk profile in adults and adolescents with moderate-to-severe atopic dermatitis. FUNDING: AbbVie.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 98,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "28fe7bdf3ee0b7429bd410735ae05998d42f4fb9444cb6da9e1c9291de23ac93"
+      },
+      {
+        "pmid": "41738176",
+        "title": "Switching to twice-yearly depemokimab from mepolizumab/benralizumab in severe asthma: a multicenter, randomized, double-blind, phase 3A clinical trial (NIMBLE)",
+        "authors": "Chupp G, et al",
+        "year": "2026",
+        "journal": "American journal of respiratory and critical care medicine",
+        "doi": "10.1093/ajrccm/aamag031",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41738176/",
+        "context": "RATIONALE: Depemokimab is the first ultra-long-acting biologic with high IL-5 binding affinity, high potency, and an extended half-life enabling twice-yearly dosing. OBJECTIVES: Investigate the efficacy and safety of switching to depemokimab in participants with severe asthma already managed with and responsive to short-acting biologic therapies targeting IL-5 or its receptor. METHODS: NIMBLE (NCT04718389) was a multicenter, randomized, double-blind, double-dummy, parallel-group, phase 3A noninferiority study. Participants were ≥12 years old with asthma and documented clinical benefit on mepolizumab 100 mg subcutaneously every 4 weeks or benralizumab 30 mg subcutaneously every 8 weeks for ≥12 months. Participants were randomized 1:1 to depemokimab 100 mg subcutaneously every 26 weeks or maintained on their prior biologic (mepolizumab or benralizumab). The primary endpoint was annualized rate of clinically significant exacerbations over 52 weeks, with predefined noninferiority margin set at 1.28. Safety endpoints included adverse events. MEASUREMENTS AND MAIN RESULTS: Annualized rates (95% confidence intervals [CIs]) of clinically significant exacerbations over 52 weeks were 0.57 (0.50 to 0.64) with depemokimab (n = 848) and 0.49 (0.43 to 0.55) with active comparator (n = 839); the rate ratio (95% CI) was 1.16 (0.98 to 1.38). Since the upper bound of the 95% CI exceeded 1.28, noninferiority was not met. Most participants in both treatment arms experienced no clinically significant exacerbations. Health-related quality of life, asthma control, and lung function outcomes were stable throughout the study. Adverse events were comparable between treatment groups. CONCLUSIONS: While statistical noninferiority was not met, exacerbation rates were low and symptom control/lung function were maintained in both groups. This first randomized, controlled switch trial in severe asthma suggests that participants with severe asthma on mepolizumab or benralizumab may safely switch to twice-yearly depemokimab. People with severe asthma may be treated with injectable biologic medicines to reduce inflammation in the bronchial tubes of the lungs. These medicines (aka biologics) can reduce asthma flare-ups (ie, exacerbations) and improve asthma symptoms; they are considered safer than long-term steroid use. Depemokimab is a newly developed biologic that has been shown to reduce severe exacerbations versus placebo in patients with severe asthma (SWIFT-1/-2 studies). Once injected under the skin, depemokimab works for a 6-month period, so injections are only needed twice a year. Currently available biologics for severe asthma, such as mepolizumab and benralizumab, require injections every 4 to 8 weeks. Since people with asthma may prefer fewer injections and find it easier to stay on less frequent treatment, it is of clinical interest to find out whether those who have previously improved with mepolizumab/benralizumab therapy maintain that improvement when their treatment is switched to depemokimab therapy. This study compared outcomes after 1 year in people with severe asthma who either switched to depemokimab or continued with mepolizumab/benralizumab. A statistical threshold was set to determine whether switching to depemokimab was noninferior (ie, not worse) than continuing mepolizumab/benralizumab. While the study did not meet this threshold for noninferiority, switching to depemokimab was linked to only a marginally higher number of exacerbations per year compared with continuing mepolizumab/benralizumab, and most people in all treatment groups did not experience any exacerbations. Additionally, other outcomes, such as asthma symptoms, lung function, and adverse events were similar between all the treatments. These results indicate that most people with severe asthma can safely and effectively switch from a current short-acting biologic to a twice-yearly treatment regimen with depemokimab.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Equivalence Trial"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1ba7bd2b40173af151cd9e6cbeb9f762dd0e7050c6af643064252e1efe7446ec"
+      },
+      {
+        "pmid": "42708515",
+        "title": "Tozorakimab to Prevent COPD Exacerbations",
+        "authors": "Sciurba FC, et al",
+        "year": "2026",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2606998",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42708515/",
+        "context": "BACKGROUND: Many patients with chronic obstructive pulmonary disease (COPD) have exacerbations despite receiving standard-of-care inhaled maintenance therapy. Dysregulated interleukin-33 signaling is implicated in the pathogenesis of COPD. Tozorakimab is a monoclonal antibody that inhibits the activity of interleukin-33. METHODS: In two replicate phase 3 trials (OBERON and TITANIA), we enrolled adults with COPD who were current or former smokers and had a history of exacerbations in the previous year despite receiving stable standard-of-care inhaled maintenance therapy. There were no eligibility criteria related to blood eosinophil count. Patients were randomly assigned to receive add-on subcutaneous tozorakimab (300 mg) or placebo every 4 weeks for 52 weeks. The primary end point was the annualized rate of moderate or severe exacerbations that occurred over a 52-week period among former smokers, and the first key secondary end point was the annualized rate of moderate or severe exacerbations in the overall population. Safety was also assessed. RESULTS: The overall population in OBERON included 446 patients in the tozorakimab group and 431 in the placebo group, and in TITANIA included 438 in the tozorakimab group and 435 in the placebo group. The annualized rate of moderate or severe exacerbations among former smokers was 1.34 events in the tozorakimab group and 1.90 events in the placebo group (rate ratio, 0.71; 95% confidence interval [CI], 0.57 to 0.88; P = 0.002) in OBERON, and 1.37 events and 2.07 events, respectively (rate ratio, 0.66; 95% CI, 0.55 to 0.80; P<0.001), in TITANIA. In the overall population, the annualized rate of moderate or severe exacerbations was 1.41 events in the tozorakimab group and 2.00 events in the placebo group (rate ratio, 0.70; 95% CI, 0.58 to 0.85; P<0.001) in OBERON, and 1.44 events and 2.03 events, respectively (rate ratio, 0.71; 95% CI, 0.59 to 0.84; P<0.001), in TITANIA. Adverse events occurred in 70.4% of the patients in the tozorakimab group and in 77.2% of those in the placebo group in OBERON, and in 80.1% and 79.8%, respectively, in TITANIA. CONCLUSIONS: Among patients with COPD, treatment with tozorakimab resulted in a significantly lower rate of moderate or severe exacerbations than placebo in the cohort of former smokers and in the overall population of current and former smokers. (Funded by AstraZeneca; OBERON ClinicalTrials.gov number, NCT05166889; TITANIA ClinicalTrials.gov number, NCT05158387.).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study"
+        ],
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "5f39b728cc44dd714d817d32389602597273d9e2940a434f1455899b9076308f"
+      },
+      {
+        "pmid": "cr:10.33393/grhta.2025.3458",
+        "title": "Cost per responder of upadacitinib 30 mg and dupilumab 300 mg in patients with moderate-to-severe atopic dermatitis in italy",
+        "authors": "Stingeni Luca, Ravasio Roberto, Palladino Chiara, Di Fino Sara",
+        "year": "2025",
+        "journal": "Global and Regional Health Technology Assessment",
+        "doi": "10.33393/grhta.2025.3458",
+        "url": "https://doi.org/10.33393/grhta.2025.3458",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Purpose: The objective of this economic evaluation was to compare the cost per responder between upadacitinib (Upa) 30 mg and dupilumab (Dup) 300 mg in patients with moderate-to-severe atopic dermatitis in Italy. Methods: A cost per responder analysis was developed based on results of Heads Up, a head-to-head randomized clinical trial. The primary endpoint was EASI75 at week 16, and the secondary endpoints were EASI90, EASI100, and WP-NRS improvement ≥4 points at week 16. The analysis also assessed a fifth exploratory endpoint from a Heads Up post-hoc analysis: EASI90 & WP-NRS 0/1 at week 16. The cost per responder was based on the perspective of the Italian National Health System (I-NHS). Ex-factory prices were used, excluding mandatory and other hidden discounts. The treatment cost was based on the number of administrations at week 16. The cost per responder was adopted as a cost-effectiveness indicator. Results: Independently of the endpoint evaluated, upadacitinib always had the lower cost per responder than dupilumab. In the base case, the cost-effectiveness of upadacitinib ranges from a minimum of €361.50 considering EASI75 index at week 16 (Upa: €8,839.78 vs. Dup: €9,201.28) to a maximum of €50,376.18 considering EASI100 index at week 16 (Upa: €22,535.2 vs. Dup: €72,911.39). The difference in cost per responder between upadacitinib and dupilumab increased with higher EASI response levels. Conclusion: Considering five clinical endpoints, the cost per responder for upadacitinib 30 mg was always lower than for dupilumab 300 mg, highlighting its substantial clinical and economic benefits for patients with moderate-to-severe atopic dermatitis.",
+        "relevancePct": 79,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "baed5a19d0f3b40a46ce17fd9053caea3a4b0425e01cb5f45cbabacf7e7bab02"
+      },
+      {
+        "pmid": "cr:10.25251/yhn4cs07",
+        "title": "Durable maintenance of EASI-90 with amlitelimab in adults with moderate-to-severe atopic dermatitis: 52-week results from the STREAM-AD phase 2b trial",
+        "authors": "Blauvelt Andrew, Strober Bruce, Armstrong April, Igawa Ken",
+        "year": "2025",
+        "journal": "SKIN The Journal of Cutaneous Medicine",
+        "doi": "10.25251/yhn4cs07",
+        "url": "https://doi.org/10.25251/yhn4cs07",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction & Objectives: Amlitelimab (SAR445229, KY1005) is a fully human, anti-OX40 ligand (OX40L) monoclonal antibody. In the STREAM-AD phase 2b trial (NCT05131477), the primary endpoint was met at Week 16, with a significant decrease in Eczema Area and Severity Index (EASI) percentage change with amlitelimab versus placebo. Amlitelimab demonstrated clinically meaningful improvements in atopic dermatitis (AD) lesions and pruritus compared with placebo-treated participants up to Week 24 in Part 1, including the proportion of patients achieving ≥90% improvement of EASI (EASI-90). In clinical responders, defined as participants achieving EASI-75 and/or Investigators Global Assessment (IGA) 0/1 at Week 24, durability of response (EASI-75 and IGA 0/1) was observed through Week 52 (Part 2), with improvements maintained while participants were either on- or off-amlitelimab. Here, the proportion of clinical responders achieving and maintaining EASI-90 with amlitelimab in Part 2 of the STREAM-AD trial is reported. Materials & Methods: STREAM-AD was a 52-week, randomised, double-blinded, placebo-controlled trial, consisting of a 24-week treatment period (Part 1) and a 28-week maintenance/withdrawal period (Part 2). Adults with moderate-to-severe AD (N=390) were randomised 1:1:1:1:1 to receive subcutaneous amlitelimab every 4 weeks (Q4W; 250 mg + 500-mg loading dose [LD], n=77; 250 mg, n=78; 125 mg, n=77; or 62.5 mg, n=79) or placebo Q4W (n=79) in Part 1. In Part 2, clinical responders (N=190) were re-randomised 3:1 to withdraw from amlitelimab or continue their pre-Week 24 dose (250 mg with 500-mg loading dose, n=34 [treatment withdrawal]/n=13 [continuing]; 250 mg, n=28/n=12; 125 mg, n=33/n=12; 62.5 mg, n=35/n=7; placebo responders continuing placebo, n=16) for 28 weeks. Among overall clinical responders (participants achieving EASI-75 and/or IGA 0/1 at Week 24), the proportion of patients who achieved EASI-90 at Week 24 and maintained it at Week 52 following continuation or withdrawal from amlitelimab during Part 2 (post hoc) was evaluated. Participants using rescue medications in Part 2 or with missing data were imputed as non-responders. Results: Among overall amlitelimab-treated clinical responders, 62.6% achieved EASI-90 at Week 24. Among these Week 24 EASI-90 responders, 61.3% of participants who continued amlitelimab during Part 2 maintained EASI-90 at Week 52. Of the Week 24 EASI-90 responders who withdrew from amlitelimab for 28 weeks, 59.0% maintained EASI-90 at Week 52. Conclusions: The results demonstrate that a high proportion of clinical responders achieved EASI-90 response at Week 24. The majority maintained EASI-90 response with continued amlitelimab treatment at Week 52. Notably, EASI-90 was also maintained at Week 52 after 28 weeks of withdrawal from amlitelimab by the majority of Week 24 EASI-90 responders. Taken together, these data further demonstrate that targeting the OX40L/OX40 pathway via amlitelimab may lead to durable disease control, even while off-amlitelimab, in patients with moderate-to-severe AD. Ongoing phase 3 trials will further evaluate the effect of continued amlitelimab treatment or withdrawal over longer observational periods.",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "C",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "98dbfcea1b12b4dd8407e671dfbdec47a098dca03ae6efc1805a1cbbc65d3748"
+      },
+      {
+        "pmid": "40900410",
+        "title": "Efficacy and Safety of Upadacitinib in Patients With Moderate-to-Severe Atopic Dermatitis: Phase 3 Randomized Clinical Trial Results Through 140 Weeks",
+        "authors": "Irvine AD, et al",
+        "year": "2025",
+        "journal": "American journal of clinical dermatology",
+        "doi": "10.1007/s40257-025-00975-3",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40900410/",
+        "context": "BACKGROUND: Upadacitinib is an oral selective Janus kinase inhibitor approved to treat moderate-to-severe atopic dermatitis (AD) in adults and adolescents; long-term efficacy and safety data beyond 1 year are needed. OBJECTIVE: The aim was to evaluate the long-term efficacy and safety of upadacitinib treatment through 140 weeks in patients with moderate-to-severe AD. METHODS: Measure Up 1 (MeUp1; NCT03569293), Measure Up 2 (MeUp2; NCT03607422), and AD Up (NCT03568318) are ongoing, phase 3, randomized clinical trials evaluating upadacitinib 15 mg (UPA15) and 30 mg (UPA30) in adults and adolescents with moderate-to-severe AD. This interim analysis evaluated efficacy and safety through week 140. At baseline, patients were randomized 1:1:1 to receive once-daily UPA15, UPA30, or placebo alone (MeUp1/2) or with concomitant topical corticosteroids (AD Up). At week 16, patients initially randomized to placebo were rerandomized 1:1 to UPA15 or UPA30. Skin and itch efficacy assessments included achievement of ≥ 75%/≥ 90%/100% improvement from baseline in Eczema Area and Severity Index (EASI 75/90/100), validated Investigator Global Assessment for AD score of clear/almost clear (vIGA-AD 0/1), and ≥ 4-point improvement from baseline in Worst Pruritus Numerical Rating Scale (∆WP-NRS≥4). Safety assessments included incidence of treatment-emergent adverse events. RESULTS: A total of 2782 patients were randomized in MeUp1/2 or AD Up. Efficacy response rates, including optimal outcomes such as EASI 90 and WP-NRS score of 0/1, were sustained through week 140 in all three studies. At week 140, EASI 75 was achieved by 85.5%/90.5% (UPA15/UPA30; integrated MeUp1/2) and 81.5%/90.0% (UPA15/UPA30; AD Up) of patients, and vIGA-AD 0/1 was achieved by 56.6%/64.4% (UPA15/UPA30; integrated MeUp1/2) and 52.0%/56.8% (UPA15/UPA30; AD Up) of patients. Over 60% of patients across all three studies achieved ∆WP-NRS≥4 at week 140. Pooled safety data across all three studies demonstrated safety profiles consistent with 16-week and 52-week analyses. CONCLUSIONS: UPA15 and UPA30 with and without topical corticosteroids demonstrated robust, durable efficacy and a favorable safety profile through 140 weeks in adults and adolescents with moderate-to-severe AD. TRIAL REGISTRATION: Measure Up 1 (NCT03569293; https://clinicaltrials.gov/study/NCT03569293 ), Measure Up 2 (NCT03607422; https://clinicaltrials.gov/study/NCT03607422 ), and AD Up (NCT03568318; https://clinicaltrials.gov/study/NCT03568318 ).",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III",
+          "Multicenter Study"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "af5015a29989e026adc8a5c6844ebe7927e4deb7d770cfc8eda1c38973509ced"
+      },
+      {
+        "pmid": "39441580",
+        "title": "Upadacitinib in Adolescents With Moderate to Severe Atopic Dermatitis: Analysis of 3 Phase 3 Randomized Clinical Trials Through 76 Weeks",
+        "authors": "Paller AS, et al",
+        "year": "2024",
+        "journal": "JAMA dermatology",
+        "doi": "10.1001/jamadermatol.2024.3696",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39441580/",
+        "context": "IMPORTANCE: The Measure Up 1, Measure Up 2, and AD Up studies demonstrated the efficacy and adverse events of upadacitinib through 52 weeks in adults and adolescents with atopic dermatitis (AD); however, longer-term outcomes (longer than 1 year) in adolescents have not previously been available. OBJECTIVE: To evaluate the efficacy and adverse events of upadacitinib in adolescent patients with moderate to severe AD through 76 weeks. DESIGN, SETTING, AND PARTICIPANTS: The Measure Up 1, Measure Up 2, and AD Up trials are ongoing double-blind, placebo-controlled phase 3 randomized clinical trials including adolescents (aged 12 to 17 years) with moderate to severe AD. Data were collected from August 2018 to April 2022, and data were analyzed from June 2022 to September 2023. INTERVENTIONS: Adolescents were randomized 1:1:1 to receive once-daily oral upadacitinib, 15 mg; upadacitinib, 30 mg; or placebo, either alone (Measure Up 1 and Measure Up 2 trials) or with topical corticosteroids (AD Up). At week 16, placebo-treated patients were rerandomized to receive upadacitinib, 15 mg, or upadacitinib, 30 mg, daily. MAIN OUTCOMES AND MEASURES: Coprimary end points assessing efficacy included achievement of 75% reduction or more in the Eczema Area and Severity Index Score (EASI-75) from baseline, Validated Investigator Global Assessment for Atopic Dermatitis (vIGA-AD) score of clear (0) or almost clear (1) with 2 grades or more of improvement, and Worst Pruritus Numerical Rating Scale (WP-NRS) improvement of 4 points or greater through week 76 for participants with a WP-NRS score of 4 points or higher at baseline. RESULTS: From all studies, 542 adolescents were included; of these, 284 (52.4%) were female. At week 76, among patients in the Measure Up 1, Measure Up 2, and AD Up trials, EASI-75 was achieved by 89.1%, 84.4%, and 87.8% of adolescents taking upadacitinib, 15 mg, respectively, and by 96.1%, 93.6%, and 82.7% of adolescents taking upadacitinib, 30 mg, indicating maintenance or improvement of EASI-75 across 76 weeks with upadacitinib. Efficacy measured by achievement of vIGA-AD score of 0 or 1 and WP-NRS improvement of 4 points or more from baseline was similarly maintained or improved through week 76 for adolescents taking upadacitinib, 15 mg or 30 mg. Long-term outcomes in Measure Up 1, Measure Up 2, and AD Up participants were consistent with the known adverse event profile of upadacitinib (herpetic infection: 4.0, 1.9, and 1.1 events per 100 patient-years, respectively; creatine kinase elevation: 11.6, 11.0, and 7.1 events per 100 patient-years); no new signals were observed with either dose. CONCLUSIONS AND RELEVANCE: In this study assessing 3 randomized clinical trials, long-term treatment of adolescents with moderate to severe AD with upadacitinib demonstrated a favorable benefit-risk profile, with sustained efficacy responses through 76 weeks. TRIAL REGISTRATIONS: Measure Up 1 trial: ClinicalTrials.gov Identifier: NCT03569293; Measure Up 2 trial: NCT03607422; AD Up trial: NCT03568318.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Clinical Trial, Phase III"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "f647ba7cfec278b2478c99d2e00902c3a67d8cbb10170aee1b4878d022ddfbed"
+      },
+      {
+        "pmid": "34023008",
+        "title": "Once-daily upadacitinib versus placebo in adolescents and adults with moderate-to-severe atopic dermatitis (Measure Up 1 and Measure Up 2): results from two replicate double-blind, randomised controlled phase 3 trials",
+        "authors": "Guttman-Yassky E, et al",
+        "year": "2021",
+        "journal": "Lancet (London, England)",
+        "doi": "10.1016/S0140-6736(21)00588-2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34023008/",
+        "context": "BACKGROUND: Upadacitinib is an oral Janus kinase (JAK) inhibitor with greater inhibitory potency for JAK1 than JAK2, JAK3, and tyrosine kinase 2. We aimed to assess the efficacy and safety of upadacitinib compared with placebo for the treatment of moderate-to-severe atopic dermatitis. METHODS: Measure Up 1 and Measure Up 2 were replicate multicentre, randomised, double-blind, placebo-controlled, phase 3 trials; Measure Up 1 was done at 151 clinical centres in 24 countries across Europe, North and South America, Oceania, and the Asia-Pacific region; and Measure Up 2 was done at 154 clinical centres in 23 countries across Europe, North America, Oceania, and the Asia-Pacific region. Eligible patients were adolescents (aged 12-17 years) and adults (aged 18-75 years) with moderate-to-severe atopic dermatitis (≥10% of body surface area affected by atopic dermatitis, Eczema Area and Severity Index [EASI] score of ≥16, validated Investigator's Global Assessment for Atopic Dermatitis [vIGA-AD] score of ≥3, and Worst Pruritus Numerical Rating Scale score of ≥4). Patients were randomly assigned (1:1:1) using an interactive response technology system to receive upadacitinib 15 mg, upadacitinib 30 mg, or placebo once daily for 16 weeks, stratified by baseline disease severity, geographical region, and age. Coprimary endpoints were the proportion of patients who had achieved at least a 75% improvement in EASI score from baseline (EASI-75) and the proportion of patients who had achieved a vIGA-AD response (defined as a vIGA-AD score of 0 [clear] or 1 [almost clear] with ≥2 grades of reduction from baseline) at week 16. Efficacy was analysed in the intention-to-treat population and safety was analysed in all randomly assigned patients who received at least one dose of study drug. These trials are registered with ClinicalTrials.gov, NCT03569293 (Measure Up 1) and NCT03607422 (Measure Up 2), and are both active but not recruiting. FINDINGS: Between Aug 13, 2018, and Dec 23, 2019, 847 patients were randomly assigned to upadacitinib 15 mg (n=281), upadacitinib 30 mg (n=285), or placebo (n=281) in the Measure Up 1 study. Between July 27, 2018, and Jan 17, 2020, 836 patients were randomly assigned to upadacitinib 15 mg (n=276), upadacitinib 30 mg (n=282), or placebo (n=278) in the Measure Up 2 study. At week 16, the coprimary endpoints were met in both studies (all p<0·0001). The proportion of patients who had achieved EASI-75 at week 16 was significantly higher in the upadacitinib 15 mg (196 [70%] of 281 patients) and upadacitinib 30 mg (227 [80%] of 285 patients) groups than the placebo group (46 [16%] of 281 patients) in Measure Up 1 (adjusted difference in EASI-75 response rate vs placebo, 53·3% [95% CI 46·4-60·2] for the upadacitinib 15 mg group; 63·4% [57·1-69·8] for the upadacitinib 30 mg group) and Measure Up 2 (166 [60%] of 276 patients in the upadacitinib 15 mg group and 206 [73%] of 282 patients in the upadacitinib 30 mg group vs 37 [13%] of 278 patients in the placebo group; adjusted difference in EASI-75 response rate vs placebo, 46·9% [39·9-53·9] for the upadacitinib 15 mg group; 59·6% [53·1-66·2] for the upadacitinib 30 mg group). The proportion of patients who achieved a vIGA-AD response at week 16 was significantly higher in the upadacitinib 15 mg (135 [48%] patients) and upadacitinib 30 mg (177 [62%] patients) groups than the placebo group (24 [8%] patients) in Measure Up 1 (adjusted difference in vIGA-AD response rate vs placebo, 39·8% [33·2-46·4] for the upadacitinib 15 mg group; 53·6% [47·2-60·0] for the upadacitinib 30 mg group) and Measure Up 2 (107 [39%] patients in the upadacitinib 15 mg group and 147 [52%] patients in the upadacitinib 30 mg group vs 13 [5%] patients in the placebo group; adjusted difference in vIGA-AD response rate vs placebo, 34·0% [27·8-40·2] for the upadacitinib 15 mg group; 47·4% [41·0-53·7] for the upadacitinib 30 mg group). Both upadacitinib doses were well tolerated. The incidence of serious adverse events and adverse events leading to study drug discontinuation were similar among groups. The most frequently reported treatment-emergent adverse events were acne (19 [7%] of 281 patients in the upadacitinib 15 mg group, 49 [17%] of 285 patients in the upadacitinib 30 mg group, and six [2%] of 281 patients in the placebo group in Measure Up 1; 35 [13%] of 276 patients in the upadacitinib 15 mg group, 41 [15%] of 282 patients in the upadacitinib 30 mg group, and six [2%] of 278 patients in the placebo group in Measure Up 2), upper respiratory tract infection (25 [9%] patients, 38 [13%] patients, and 20 [7%] patients; 19 [7%] patients, 17 [16%] patients, and 12 [4%] patients), nasopharyngitis (22 [8%] patients, 33 [12%] patients, and 16 [6%] patients; 16 [6%] patients, 18 [6%] patients, and 13 [5%] patients), headache (14 [5%] patients, 19 [7%] patients, and 12 [4%] patients; 18 [7%] patients, 20 [7%] patients, and 11 [4%] patients), elevation in creatine phosphokinase levels (16 [6%] patients, 16 [6%] patients, and seven [3%] patients; nine [3%] patients, 12 [4%] patients, and five [2%] patients), and atopic dermatitis (nine [3%] patients, four [1%] patients, and 26 [9%] patients; eight [3%] patients, four [1%] patients, and 26 [9%] patients). INTERPRETATION: Monotherapy with upadacitinib might be an effective treatment option and had a positive benefit-risk profile in adolescents and adults with moderate-to-severe atopic dermatitis. FUNDING: AbbVie.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase III",
+        "publicationTypes": [
+          "Clinical Trial, Phase III",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "1d682b94e18ee25e2d4e4c6b6335c29b516fffc732e50d44edc065350af86889"
+      },
+      {
+        "pmid": "31786154",
+        "title": "Upadacitinib in adults with moderate to severe atopic dermatitis: 16-week results from a randomized, placebo-controlled trial",
+        "authors": "Guttman-Yassky E, et al",
+        "year": "2020",
+        "journal": "The Journal of allergy and clinical immunology",
+        "doi": "10.1016/j.jaci.2019.11.025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31786154/",
+        "context": "BACKGROUND: Atopic dermatitis is a chronic inflammatory skin disease characterized by pruritic skin lesions. OBJECTIVE: We sought to evaluate the safety and efficacy of multiple doses of the selective Janus kinase 1 inhibitor upadacitinib in patients with moderate to severe atopic dermatitis. METHODS: In the 16-week, double-blind, placebo-controlled, parallel-group, dose-ranging portion of this 88-week trial in 8 countries (ClinicalTrials.gov, NCT02925117; ongoing, not recruiting), adults with moderate to severe disease and inadequate control by topical treatment were randomized 1:1:1:1, using an interactive response system and stratified geographically, to once-daily upadacitinib oral monotherapy 7.5, 15, or 30 mg or placebo. The primary end point was percentage improvement in Eczema Area and Severity Index from baseline at week 16. Efficacy was analyzed by intention-to-treat in all randomized patients. Safety was analyzed in all randomized patients who received study medication, based on actual treatment. RESULTS: Patients (N = 167) enrolled from November 21, 2016, to April 20, 2017. All were randomized and analyzed for efficacy (each upadacitinib group, n = 42; placebo, n = 41); 166 were analyzed for safety (each upadacitinib group, n = 42; placebo, n = 40). The mean (SE) primary efficacy end point was 39% (6.2%), 62% (6.1%), and 74% (6.1%) for the upadacitinib 7.5-, 15-, and 30-mg groups, respectively, versus 23% (6.4%) for placebo (P = .03, <.001, and <.001). Serious adverse events occurred in 4.8% (2 of 42), 2.4% (1 of 42), and 0% (0 of 42) of upadacitinib groups (vs 2.5% [1 of 40] for placebo). CONCLUSIONS: A dose-response relationship was observed for upadacitinib efficacy; the 30-mg once-daily dose showed the greatest clinical benefit. Dose-limiting toxicity was not observed.",
+        "source": "pubmed",
+        "pubType": "Clinical Trial, Phase II",
+        "publicationTypes": [
+          "Clinical Trial, Phase II",
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 74,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "20ade28b571b41126bac23b78ca3218e708cdd7c5dfc67a6a51ff6386ab53177"
+      },
+      {
+        "pmid": "doi:10.1007/s13555-024-01157-5",
+        "title": "Upadacitinib Rapidly Improves Patient-Reported Outcomes in Atopic Dermatitis: 16-Week Results from Phase 3 Clinical Trials (Measure Up 1 and 2)",
+        "authors": "Eric L. Simpson, Vimal H. Prajapati, Yael A. Leshem, Raj Chovatiya",
+        "year": "2024",
+        "journal": "Dermatology and Therapy",
+        "doi": "10.1007/s13555-024-01157-5",
+        "url": "https://doi.org/10.1007/s13555-024-01157-5",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Introduction Atopic dermatitis (AD) is characterized by intense itch and other symptoms that negatively impact quality of life (QoL). This study evaluates the effect of upadacitinib (an oral selective Janus kinase inhibitor) monotherapy on patient-reported outcomes (PROs) among adults and adolescents with moderate-to-severe AD over 16 weeks. Methods This integrated analysis of the double-blind, placebo-controlled periods of phase 3 monotherapy clinical trials Measure Up 1 (NCT03569293) and Measure Up 2 (NCT03607422) assessed itch (Worst Pruritus Numerical Rating Scale [WP-NRS] and SCORing Atopic Dermatitis [SCORAD]), skin pain and symptom severity (AD Symptom Scale), symptom frequency (Patient-Oriented Eczema Measure), sleep (AD Impact Scale [ADerm-IS] and SCORAD), daily activities and emotional state (ADerm-IS), QoL (Dermatology Life Quality Index [DLQI] and Children’s DLQI), mental health (Hospital Anxiety and Depression Scale), and patient impressions (Patient Global Impression of Severity, Patient Global Impression of Change, and Patient Global Impression of Treatment). Results Data from 1683 patients (upadacitinib 15 mg, n = 557; upadacitinib 30 mg, n = 567; placebo, n = 559) were analyzed. A greater proportion of patients receiving upadacitinib versus placebo experienced improvements in itch (≥ 4-point improvement on WP-NRS) by week 1 (upadacitinib 15 mg, 11.2%; upadacitinib 30 mg, 17.7%; placebo, 0.5%; P < 0.001), with response rates sustained through week 16 (upadacitinib 15 mg, 47.1%; upadacitinib 30 mg, 59.8%; placebo, 10.4%; P < 0.001). Improvements were similar for PROs assessing skin pain/symptoms, sleep, daily activities, QoL, emotional state, mental health, and patient impressions of disease severity and treatment. Responses generally improved rapidly (within 1–2 weeks), increased through weeks 4–6, and were maintained through week 16. Conclusions Once-daily oral upadacitinib monotherapy improved response rates across PROs compared with placebo. Upadacitinib therapy resulted in rapid, sustained improvements in PROs measuring symptom burden and QoL in adults and adolescents with moderate-to-severe AD. Trial Registration ClinicalTrials.gov identifiers, NCT03569293 and NCT03607422.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "c23245945060cbd99c2eee1d0b8e7420c590ad38cdfa063579eff399fbffd32a"
+      },
+      {
+        "pmid": "doi:10.1016/j.waojou.2022.100678",
+        "title": "Growth analysis among adolescents with moderate-to-severe atopic dermatitis receiving upadacitinib in combination with topical corticosteroids in Japan: A case study series from a phase 3, randomized, controlled trial (Rising Up)",
+        "authors": "Toshiaki Tanaka, MD, Takuya Sasaki, BA, Kimitoshi Ikeda, PhD, Jianzhong Liu, MD",
+        "year": "2022",
+        "journal": "World Allergy Organization Journal",
+        "doi": "10.1016/j.waojou.2022.100678",
+        "url": "https://doi.org/10.1016/j.waojou.2022.100678",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Background: Treatment options for adolescents with moderate-to-severe atopic dermatitis (AD) are limited. Oral corticosteroid therapies are used to treat children and adolescents with moderate-to-severe AD; however, long-term use is not recommended because of potential growth impairment. Upadacitinib, an oral Janus kinase inhibitor, is approved to treat moderate-to-severe AD in the United States, Japan, and Europe. To investigate potential effects of upadacitinib on growth, we analyzed height and height velocity in 6 adolescent patients in the phase 3 Rising Up study who were in the decline phase of pubertal growth at the time of study entry. Methods: The randomized, double-blind, Rising Up (NCT03661138) study compared upadacitinib plus topical corticosteroids (TCS) to placebo plus TCS in adolescents and adults with moderate-to-severe AD in Japan. Eligible adolescents (aged 12–17 years) were randomized 1:1:1 to receive once-daily upadacitinib 15 mg, upadacitinib 30 mg, or placebo in combination with TCS for 16 weeks. After 16 weeks, patients randomized to receive placebo were rerandomized 1:1 to receive upadacitinib 15 mg or upadacitinib 30 mg. Historical height measurements were obtained when available. Individual growth and growth velocity curves were compared with standard curves for Japanese youths. This non-prespecified analysis used 52-week data. Results: Of the 29 adolescents enrolled, 6 were in the decline phase of pubertal growth at enrollment. Growth curves and growth velocity curves for these 6 patients remained within the normal range for Japanese adolescents throughout the study. Biomarkers of bone metabolism generally remained stable over the course of the study. No musculoskeletal adverse events were reported. Conclusions: No cases suggested that upadacitinib negatively affected adolescent growth. Ongoing studies will continue to assess height and adverse effects related to bone growth to further inform on this patient group. Trial registration: ClinicalTrials.gov Identifier NCT03661138.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "5d8a2d44903546a78e5d5c8118baa965bce871700187205f0807b56270449e99"
+      },
+      {
+        "pmid": "cr:10.2340/actadv.v104.18452",
+        "title": "Targeted Combined Endpoint Improvement in Patient and Disease Domains in Atopic Dermatitis: A Treat-to-Target Analysis of Adults with Moderate-to-Severe Atopic Dermatitis Treated with Upadacitinib",
+        "authors": "Kwatra Shawn G., De Bruin-Weller Marjolein, Silverberg Jonathan I., Lio Peter",
+        "year": "2024",
+        "journal": "Acta Dermato-Venereologica",
+        "doi": "10.2340/actadv.v104.18452",
+        "url": "https://doi.org/10.2340/actadv.v104.18452",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "A treat-to-target approach was recently developed to guide systemic treatment for adults with atopic dermatitis (AD). Recommendations outlined criteria for a 3-month initial acceptable treatment target and a 6-month optimal target, evaluated using global assessment of patient-reported disease severity, as well as Eczema Area and Severity Index, itch assessed on an 11-point numerical rating scale, Dermatology Life Quality Index, or Patient-Oriented Eczema Measure. Achievement of these targets with once-daily upadacitinib (15 mg and 30 mg) monotherapy was evaluated using integrated adult data from the Measure Up 1 and 2 phase 3 studies. Among the 852 patients treated with upadacitinib 15 mg or 30 mg, the 3-month initial acceptable target was achieved by >80%, >78%, and ≥87% of patients, and the 6-month optimal target was achieved by ≥53%, >61%, and >73% of patients at weeks 2, 16, and 52, respectively. Achievement of all 6 individual criteria for each of the target goals also increased over time. These findings suggest that upadacitinib 15 mg and 30 mg may help improve standards of care in patients with moderate-to-severe AD by achieving 6-month target goals at 16 weeks and as early as 2 weeks for most patients.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "f3f626e8a7bcf4ea68b5442f6ce5f20e6c6a8fd73d1ea9beae0b0800df701003"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 38,
+      "screened": 38,
+      "blocked": 0,
+      "returned": 14,
+      "relaxationLevel": 1
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 11
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 10
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 11,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 3,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 10,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "moderate-to-severe atopic dermatitis in adults oral upadacitinib 30 mg daily subcutaneous dupilumab 300 mg every 2 weeks EASI 75 and PP-NRS itch reduction at week 16",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      }
+    ],
+    "hasMore": true
+  }
+}

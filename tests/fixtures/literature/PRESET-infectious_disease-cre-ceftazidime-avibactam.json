@@ -1,0 +1,810 @@
+{
+  "id": "PRESET-infectious_disease-cre-ceftazidime-avibactam",
+  "recordedAt": "2026-11-26T23:11:07.307Z",
+  "specialty": "infectious_disease",
+  "words": [
+    {
+      "word": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia",
+      "role": "population"
+    },
+    {
+      "word": "ceftazidime-avibactam monotherapy",
+      "role": "intervention"
+    },
+    {
+      "word": "colistin-based combination regimens",
+      "role": "comparator"
+    },
+    {
+      "word": "30-day all-cause mortality and renal toxicity",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia",
+        "role": "population"
+      },
+      {
+        "word": "ceftazidime-avibactam monotherapy",
+        "role": "intervention"
+      },
+      {
+        "word": "colistin-based combination regimens",
+        "role": "comparator"
+      },
+      {
+        "word": "30-day all-cause mortality and renal toxicity",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In hospitalized adults with carbapenem-resistant Enterobacterales bacteremia (P), does ceftazidime-avibactam monotherapy (I) compared with colistin-based combination regimens (C) reduce 30-day all-cause mortality and renal toxicity (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (1 favourable, 0 no-difference, 1 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In hospitalized adults with carbapenem-resistant Enterobacterales bacteremia (P), is ceftazidime-avibactam monotherapy (I) superior to colistin-based combination regimens (C) for 30-day all-cause mortality and renal toxicity (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of hospitalized adults with carbapenem-resistant Enterobacterales bacteremia (P), does ceftazidime-avibactam monotherapy (I) compared with colistin-based combination regimens (C) reduce 30-day all-cause mortality and renal toxicity (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 2
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In hospitalized adults with carbapenem-resistant Enterobacterales bacteremia (P), is ceftazidime-avibactam monotherapy (I) superior to colistin-based combination regimens (C) for 30-day all-cause mortality and renal toxicity (O)?"
+    },
+    "words": [
+      {
+        "word": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia",
+        "role": "population"
+      },
+      {
+        "word": "ceftazidime-avibactam monotherapy",
+        "role": "intervention"
+      },
+      {
+        "word": "colistin-based combination regimens",
+        "role": "comparator"
+      },
+      {
+        "word": "30-day all-cause mortality and renal toxicity",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "infectious_disease",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "cr:10.1186/s12879-026-14447-4",
+        "title": "Ceftazidime–avibactam for carbapenem-resistant Klebsiella pneumoniae infections: determining mortality predictors in the intensive care unit",
+        "authors": "Çekin Zuhal Kalaycı, Deniz Mustafa",
+        "year": "2026",
+        "journal": "BMC Infectious Diseases",
+        "doi": "10.1186/s12879-026-14447-4",
+        "url": "https://doi.org/10.1186/s12879-026-14447-4",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Background Carbapenem-resistant Klebsiella pneumoniae (CRKP) represent a significant global threat. The objective of this study is to provide a comprehensive description of the clinical course and outcomes of patients with CRKP infections treated with ceftazidime avibactam (CAZ-AVI) in comparison to patients treated with alternative agents. Methods A retrospective cohort study was conducted on patients diagnosed with CRKP infection between November 2022 and January 2025.The present study comprised all patients treated with CAZ-AVI in the intensive care unit and clinical cultures in which carbapenem-resistant isolates were detected.Patients were divided into two groups: those treated with CAZ-AVI and those receiving alternative combination antibiotic therapies. The clinical efficacy of CAZ-AVI treatment and its effect on mortality were evaluated by comparing these groups. Results A total of 249 patients were included in the study, of whom 115 received CAZ-AVI and 134 were assigned to the comparator group. The two groups were comparable in terms of age ( p = 0.236) and comorbidities. Patients treated with CAZ-AVI demonstrated significantly lower mortality at days 7, 14, and 28 compared with the comparator group ( p = 0.011, p < 0.001, and p < 0.001, respectively). However, in multivariable analyses, CAZ-AVI treatment was not independently associated with mortality at days 7, 14, or 28 ( p = 0.201, p = 0.105, and p = 0.175, respectively). Advanced age was independently associated with 14- and 28-day mortality ( p = 0.016 and p = 0.018, respectively), while diabetes mellitus ( p = 0.038), low lymphocyte count ( p = 0.002), and hypoalbuminemia ( p = 0.029) were independently associated with 28-day mortality. Conclusions A substantial enhancement in the early survival of patients treated with CAZ-AVI was evident, yet this correlation was found to be insignificant in multivariate analyses. This observation indicates that the observed survival benefit may be partially attributable to variations in baseline clinical characteristics rather than an independent treatment effect. The mortality rate in critically ill KP-BSI patients is attributable to a multitude of disease-related risk factors, and the mortality rate in CRKP patients underscores the necessity for rational, evidence-based antibiotic management, as well as effective and continuous surveillance strategies.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "41104afc23b96fa0b11e6a7d3d51a30c77e7a568a68373f32e5d2cc8758bdce5"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics13100990",
+        "title": "Ceftazidime–Avibactam Versus Polymyxin-Based Combination Therapies: A Study on 30-Day Mortality in Carbapenem-Resistant Enterobacterales Bloodstream Infections in an OXA-48-Endemic Region",
+        "authors": "Dumlu Rıdvan, Şahin Meyha, Derin Okan, Gül Özlem",
+        "year": "2024",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics13100990",
+        "url": "https://doi.org/10.3390/antibiotics13100990",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Ceftazidime–avibactam (CAZ-AVI) is recommended as first-line treatment for Oxacillinase-48 (OXA-48) β-Lactamase-producing carbapenem-resistant Enterobacterales (CRE) infections, while polymyxin-based combination therapies (PBCTs) are used as a last resort when CAZ-AVI is unavailable. Research comparing the effectiveness of CAZ-AVI and PBCT in CRE blood stream infections (CRE-BSIs) is limited, mostly focusing on Klebsiella pneumoniae carbapenemase (KPC)-producing isolates. In Turkey, OXA-48 is endemic and OXA-48-Like is common. Therefore, our study aimed to compare the impact of these treatments on 30-day mortality in patients with CRE-BSIs in endemic regions. Methods: Retrospective data from January 2019 to May 2023 were collected from four tertiary healthcare centers in Istanbul. Demographic, clinical, and outcome data of ICU patients treated with CAZ-AVI monotherapy or PBCT for CRE-BSIs were analyzed. The effect on 30-day survival was evaluated using Cox regression analysis post propensity score matching (PSM). Results: Out of 151 patients, 44.4% (n: 67) received CAZ-AVI and 55.6% (n: 84) received PBCT. All-cause mortality rates were 20% (n: 13) with CAZ-AVI and 36.9% (n: 31) with PBCT. Cox regression analysis post PSM indicated CAZ-AVI monotherapy significantly reduced the mortality risk compared to PBCT (HR: 0.16, 95%CI: 0.07–0.37, p < 0.001), while age increased the risk (HR: 1.02 per year, 95% CI 1.0–1.04, p: 0.01). Conclusions: In OXA-48-predominant areas, CAZ-AVI demonstrated significantly lower mortality in patients with CRE-BSIs compared to PBCT. The results were attributed to the pharmacokinetic and pharmacodynamic disadvantages of polymyxins compared to CAZ-AVI, and the impact of age-related physical conditions. Therefore, CAZ-AVI should be the preferred treatment for CRE-BSIs in OXA-48-endemic regions.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "c207b3b6bc5cd67596dd3cce3d1c6dd198f0a90bcaa92515246eb6bbd2041219"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics9070388",
+        "title": "Ceftazidime-Avibactam Combination Therapy Compared to Ceftazidime-Avibactam Monotherapy for the Treatment of Severe Infections Due to Carbapenem-Resistant Pathogens: A Systematic Review and Network Meta-Analysis",
+        "authors": "Fiore Marco, Alfieri Aniello, Di Franco Sveva, Pace Maria Caterina",
+        "year": "2020",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics9070388",
+        "url": "https://doi.org/10.3390/antibiotics9070388",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Ceftazidime-avibactam (CZA) is a novel beta-lactam beta-lactamase inhibitor combination approved for the treatment of complicated urinary tract infections, complicated intra-abdominal infections, and for hospital-acquired/ventilator-associated pneumonia. The aim of this systematic review (PROSPERO registration number: CRD42019128927) was to evaluate the effectiveness of CZA combination therapy versus CZA monotherapy in the treatment of severe infections. The databases included in the search, until 12 February 2020, were MEDLINE by PubMed, EMBASE, and The Cochrane Central Register of Controlled Trials. We included both randomized controlled trials (RCTs) and non-randomized studies published in peer-reviewed journals and in the English language. The primary outcome was all-cause mortality (longest follow-up) evaluated in patients with the diagnosis of infection with at least one pathogen; secondary outcomes were clinical and microbiological improvement/cure. Thirteen studies were included in the qualitative synthesis: 7 RCTs and 6 retrospective studies All the six retrospective studies identified carbapenamase-producing Enterobacteriaceae (CRE) as the cause of infection and for this reason were included in the network meta-analysis (NMA); the quality of the studies, assessed using the New Castle-Ottawa Scale, was moderate-high. In all the six retrospective studies included in the NMA, CZA was used in large part for off-label indications (mostly blood stream infections: 80–100% of patients included). No difference in mortality rate was observed in patients undergoing CZA combination therapy compared to CZA monotherapy [n = 503 patients, direct evidence OR: 0.96, 95% CI: 0.65–1.41].",
+        "relevancePct": 76,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "824e284fe14b70e22b16bf1aaf2e64fb0820951f824aeb7a6613bad7560260ed"
+      },
+      {
+        "pmid": "cr:10.3390/microorganisms14092102",
+        "title": "Ceftazidime–Avibactam Versus Colistin-Based Regimens for Carbapenem-Resistant Enterobacterales Bloodstream Infections: A Six-Year Retrospective Cohort and 30-Day Mortality Analysis",
+        "authors": "Ormeneanu Victor-Pierre, Zanfirescu Anca, Andrei Corina, Dumitru Florin",
+        "year": "2026",
+        "journal": "Microorganisms",
+        "doi": "10.3390/microorganisms14092102",
+        "url": "https://doi.org/10.3390/microorganisms14092102",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Bloodstream infections (BSIs) caused by carbapenemase-producing Enterobacterales (CPE) carry a high mortality, and comparative real-world data remain limited, particularly for metallo-β-lactamase (MBL) and dual-carbapenemase producers. We conducted a single-centre, six-year (2020–2025) retrospective study of 308 adults with CPE BSIs at a Romanian tertiary hospital, applying multivariable logistic regression, Cox proportional-hazards models with a 72 h landmark analysis, and inverse-probability-of-treatment-weighted (IPTW) regression to examine 30-day mortality and microbiological recurrence. Pre-specified sensitivity analyses addressed calendar period, carbapenemase class and incomplete outcome ascertainment. Klebsiella pneumoniae accounted for 92.5% of isolates, MBL determinants for 44.1% and dual carbapenemases for 31.8%. Thirty-day mortality was 72% among 275 patients with documented day-30 status. Vasopressor requirement, viral pneumonia and bacterial respiratory infection were independently associated with death, whereas definitive ceftazidime/avibactam with or without aztreonam (C/AVI ± AZT) was associated with lower mortality (adjusted OR 0.38; 95% CI 0.17–0.83). Mortality was 66.3% with C/AVI ± AZT, 79.3% with colistin and 67.1% with other regimens. After IPTW, C/AVI ± AZT was associated with lower 30-day mortality than colistin (OR 0.48; 95% CI 0.26–0.93); in the OXA-48/KPC subgroup, the estimate was unchanged but less precise (OR 0.49; 95% CI 0.20–1.19). The association was attenuated and no longer significant after adjustment for calendar period (OR 0.72; 95% CI 0.37–1.42), with epoch-stratified estimates of 1.14, 0.75 and 0.44 for 2020–2021, 2022–2023 and 2024–2025, respectively; crude mortality under colistin was stable across epochs (81.1%, 76.6%, and 81.2%, respectively), whereas mortality under C/AVI ± AZT fell (83.3%, 72.2%, and 60.7%, respectively). Weighted estimates were near-identical in isolates with and without an MBL determinant (0.46 and 0.48, respectively). Recurrence (10.1%) was more frequent with single OXA-48 or MBL producers. C/AVI ± AZT was associated with lower 30-day mortality than colistin, but the association was concentrated in the period when the agent was routinely available and did not survive adjustment for calendar time. These findings describe an association, not a causal survival advantage.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "29ddcd42dcfdf99a283c8adb2d36846056e205d56d3d4b0bd21bbd56f26d1589"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics15111101",
+        "title": "Inflammatory Dynamics in Carbapenem-Resistant Klebsiella pneumoniae Hospital-Acquired and Ventilator-Associated Pneumonia Treated with Ceftazidime–Avibactam: Microbiological Response and 14-Day Mortality",
+        "authors": "Filiz Mine, Aydoğdu Elmas Emsal, Yazıcı Ertuğrul, Yalçı Aysun",
+        "year": "2026",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics15111101",
+        "url": "https://doi.org/10.3390/antibiotics15111101",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Carbapenem-resistant Klebsiella pneumoniae (CRKP) hospital-acquired pneumonia (HAP) and ventilator-associated pneumonia (VAP) remain associated with substantial treatment failure and mortality despite ceftazidime-avibactam therapy. We investigated whether early inflammatory dynamics and hemogram-derived indices could provide additional information regarding microbiological response and short-term mortality. Methods: This single-center retrospective observational study included 125 adults with CRKP HAP/VAP treated with ceftazidime–avibactam between January 2021 and January 2026. C-reactive protein velocity (CRPv), inflammatory burden index (IBI), systemic immune-inflammation index (SII), systemic inflammation response index (SIRI), and pan-immune-inflammation value (PIV) were assessed at treatment initiation and approximately 72 h later. The primary outcome was microbiological clearance at 48–72 h, and the secondary outcome was 14-day all-cause mortality. Receiver operating characteristic (ROC) analyses and multivariable logistic regression models adjusted for Pitt bacteremia score and bacteremia status were performed. Results: Microbiological clearance occurred in 89 patients (71.2%), while 39 (31.2%) died within 14 days. CRPv was independently associated with microbiological clearance (odds ratio (OR) 0.434, 95% confidence interval (CI) 0.256–0.737; p = 0.002), and the CRPv-adjusted model showed an area under the curve (AUC) of 0.743. Among patients who survived and remained evaluable at day 3, higher day-3 IBI was independently associated with mortality within 14 days of ceftazidime–avibactam initiation (OR, 1.029 per 100-unit increase; 95% CI, 1.005–1.053; p = 0.018). SII, SIRI, and PIV showed no consistent independent associations. None of the evaluated biomarkers significantly increased the AUC beyond the clinical baseline models. Conclusions: Early inflammatory dynamics may complement baseline severity assessment in CRKP HAP/VAP. A faster CRP decline was independently associated with early microbiological response. Higher day-3 IBI was associated with 14-day mortality among patients who survived and remained evaluable at approximately day 3. These readily available markers may support early reassessment of treatment and risk stratification, although these exploratory findings require validation before clinical application.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Diagnostic Accuracy Study",
+        "lowMetadata": false,
+        "_sig": "59d4e97f7ecedcd696758ff20aa3e6aed7ebc1d18acdaf624534ef7158e784b1"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics14030226",
+        "title": "Impact of Antibiotic Therapy with Ceftazidime Avibactam vs. Best Available Therapy in Adult Patients with Bacteremia Caused by Carbapenem-Resistant Enterobacterales",
+        "authors": "Arboleda Daniel, Buitrago Camilo, Vergara Erika Paola, Nocua-Báez Laura Cristina",
+        "year": "2025",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics14030226",
+        "url": "https://doi.org/10.3390/antibiotics14030226",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background/Objectives: Carbapenem-resistant Enterobacterales (CRE) infection is associated with a higher mortality rate. The purpose of this study was to evaluate the effect of ceftazidime avibactam (CZA) for treating bacteremia caused by CRE compared to the best available therapy in an area where these microorganisms are endemic. Methods: A retrospective cohort study of patients with CRE bacteremia was conducted. We included adults with CRE bacteremia who were treated with CZA or the best available therapy (BAT) for more than 48 h, and the hospitalization time was recorded. The outcomes included death during hospitalization, relapse, and microbiological cure. Confounders were adjusted using propensity score-derived stabilized inverse probability of treatment weighting (IPTW). Results: A total of 169 patients with CRE bacteremia were included. About 72.6% of isolates had a class A serin carbapenamase, and 20.4% had metallo-β-lactamase co-production. A total of 107 patients were treated with CZA, 63% in monotherapy and 32% with aztreonam (ATM). Crude mortality during hospitalization was 36 (34.5%) in patients treated with CZA and 21 (33.2%) with BAT. No difference was observed between death rates (HR 0.86: IC 95% 0.40–1.83), microbiological cure (OR 1.31 IC 95% 0.46–3.67), clinical response (OR 1.39 IC 95% 0.35–5.43), acute kidney injury (OR 0.56 IC 95% 0.11–2.80) or relapse (OR 0.99 IC 95% 0.17–5.51) during the hospitalization after the adjustment. Conclusions: Among adult patients with CRE, no differences were observed between treatments with CZA and BAT after adjustment with IPTW.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "4829b4ccedd9c03396ba5c639b4af42c3f356a22a44aca47124180ed154dbe4a"
+      },
+      {
+        "pmid": "cr:10.62830/mmj1-3-1a",
+        "title": "Effectiveness and Outcomes of Ceftazidime -Avibactam in the Treatment of Infections due to Carbapenem-Resistant Klebsiella Pneumoniae.",
+        "authors": "Budhiraja Sandeep",
+        "year": "2024",
+        "journal": "Effectiveness and Outcomes of Ceftazidime -Avibactam in the Treatment of Infections due to Carbapenem-Resistant Klebsiella Pneumoniae.",
+        "doi": "10.62830/mmj1-3-1a",
+        "url": "https://doi.org/10.62830/mmj1-3-1a",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "In the intensive care units (ICUs), gram-negative sepsis has proven to be amongst the most difficult to treat infections. This retrospective study was conducted to examine the efficacy of ceftazidime-avibactam (CAZ-AVI) in patients with infections caused by carbapenem-resistant Klebsiella pneumoniae (CR-KP) in a Delhi hospital. We aimed to evaluate the clinical treatment success rate in patients treated with CAZ-AVI on day 14 or at the end of treatment (EOT), whichever was earlier. Data from 100 patients was analysed. The 14-day survival rate with CAZ-AVI was 55% and the 30-day survival rate was 52%, as 3 patients died between days 15 and 30. All surviving patients showed clinical improvement. Microbiological outcomes were available for 44 cases, of whom 38 (86.4%) were positive and 6 were negative. The mortality was lower in the negative cases, but was not statistically significant (p = 0.807). The CAZ-AVI success rate in our study was high with more than half of the patients surviving at the end of both the 14th and 30th day.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "d859502392b7b7c5b53af0656b2d8bfab8dbaca3eff01a5c54155daff3dac80d"
+      },
+      {
+        "pmid": "cr:10.3389/fmed.2023.1249030",
+        "title": "In vitro, in vivo and clinical studies comparing the efficacy of ceftazidime-avibactam monotherapy with ceftazidime-avibactam-containing combination regimens against carbapenem-resistant Enterobacterales and multidrug-resistant Pseudomonas aeruginosa isolates or infections: a scoping review",
+        "authors": "Aslan Abdullah Tarık, Ezure Yukiko, Horcajada Juan Pablo, Harris Patrick N. A.",
+        "year": "2023",
+        "journal": "Frontiers in Medicine",
+        "doi": "10.3389/fmed.2023.1249030",
+        "url": "https://doi.org/10.3389/fmed.2023.1249030",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction Carbapenem-resistant Enterobacterales (CRE) and multidrug-resistant Pseudomonas aeruginosa (MDR-PA) infections are associated with a high risk of morbidity, mortality, and treatment costs. We aimed to evaluate in vitro , in vivo and clinical studies comparing the efficacy of ceftazidime-avibactam (CZA) combination regimens with CZA alone against CRE and/or MDR-PA isolates or infections. Methods We systematically reviewed the relevant literature in CINAHL/MEDLINE, Pubmed, Cochrane, Web of Science, Embase, and Scopus until December 1, 2022. Review articles, grey literature, abstracts, comments, editorials, non-peer reviewed articles, non-English articles, and in vitro synergy studies conducted on single isolates were excluded. Results 22 in vitro , 7 in vivo and 20 clinical studies were evaluated. In vitro studies showed reliable synergy between CZA and aztreonam against metallo-β-lactamase (MBL)-producing isolates. Some studies indicated good in vitro synergy between CZA and amikacin, meropenem, fosfomycin and polymyxins against CRE isolates. For MDR-PA isolates, there are comparatively fewer in vitro or in vivo studies. In observational clinical studies, mortality, clinical cure, adverse events, and development of CZA resistance after exposure were generally similar in monotherapy and combination therapy groups. However, antibiotic-related nephrotoxicity and infection relapses were higher in patients receiving CZA combination therapies. Discussion The benefit, if any, of CZA combination regimens in MDR-PA infections is elusive, as very few clinical studies have included these infections. There is no currently documented clinical benefit for the use of CZA combination regimens rather than CZA monotherapy. CZA combined with aztreonam for serious infections due to MBL producers should be evaluated by randomized controlled trials. Systematic review registration https://www.crd.york.ac.uk/prospero/display_record.php?RecordID=278552 , CRD42021278552.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Scoping Review",
+        "lowMetadata": false,
+        "_sig": "40e82c1610b9018f9afc279e6c6b5eff7138aacbb55ac5eacc0d70bfa7f3f3e8"
+      },
+      {
+        "pmid": "cr:10.3390/antibiotics15080724",
+        "title": "Combating Carbapenem-Resistant Enterobacterales: Comparative In Vitro Efficacy of Aztreonam–Avibactam and Ceftazidime–Avibactam and Distribution of Carbapenemase Genes",
+        "authors": "Yaşar Duman Melike, Kanat Mervenur, Tanrıverdi Elif Seren, Çilli Feriha",
+        "year": "2026",
+        "journal": "Antibiotics",
+        "doi": "10.3390/antibiotics15080724",
+        "url": "https://doi.org/10.3390/antibiotics15080724",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Carbapenem-resistant Enterobacterales (CRE) are a major therapeutic challenge, particularly in settings where metallo-β-lactamases are prevalent. Aztreonam–avibactam (AZA) may provide activity against metallo-β-lactamase-producing isolates, whereas ceftazidime–avibactam (CZA) has limited activity against the isolates that harbor these enzymes. This study aimed to evaluate the in vitro activity of aztreonam–avibactam and ceftazidime–avibactam against invasive carbapenem-resistant Enterobacterales isolates and to characterize the distribution of carbapenemase genes in a tertiary-care center in Türkiye. Methods: A total of 100 non-duplicate CRE isolates recovered from blood cultures and sterile body fluids between January 2024 and January 2026 were included. Species identification and routine antimicrobial susceptibility testing were performed using MALDI-TOF MS and an automated system. CZA and AZA MICs were determined by gradient diffusion testing, whereas CZA–aztreonam synergy was assessed separately using a disk/gradient diffusion-based method. Carbapenemase genes were detected by real-time PCR. Whole-genome sequencing was performed for the two AZA-resistant Escherichia coli isolates. Results: The isolate collection was dominated by Klebsiella pneumoniae (87.0%), and most isolates were recovered from blood cultures (80.0%). CZA susceptibility was observed in 31.0% of isolates, with MIC50/90 values of 256/256 mg/L. In contrast, AZA showed high in vitro activity, with 98.0% of isolates categorized as susceptible and MIC50/90 values of 0.25/0.50 mg/L. CZA–aztreonam synergy was detected in 98.0% of isolates. Qualitative CZA–aztreonam synergy testing did not fully concord with direct AZA MIC-based susceptibility categorization: one AZA-resistant isolate showed a positive synergy result, whereas one synergy-negative isolate remained AZA-susceptible. Carbapenemase genes were detected in 99.0% of isolates; blaNDM was the most frequent gene (81.0%), followed by blaOXA-48 (72.0%), blaKPC (14.0%), and blaVIM (4.0%). The most common carbapenemase profile was blaNDM + blaOXA-48 (62.0%). blaNDM carriage was strongly associated with CZA resistance, and CZA MICs were significantly higher among blaNDM-positive isolates. The two AZA-resistant E. coli isolates belonged to ST500 and ST410, and both carried a YRIK insertion in PBP3; one of them additionally showed ompF disruption associated with a 4 bp insertion. Conclusions: AZA demonstrated potent in vitro activity against invasive CRE isolates in this setting, whereas CZA activity was substantially limited, likely reflecting the high prevalence of blaNDM and frequent carbapenemase co-carriage. These findings support the potential value of AZA in regions with emerging metallo-β-lactamase predominance and highlight the importance of local molecular surveillance to guide antimicrobial strategies.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "In Vitro Study",
+        "lowMetadata": false,
+        "_sig": "8bf7d507a1d48bc622cd547d1c752890c859461c36a84add7df0d9efafaced21"
+      },
+      {
+        "pmid": "cr:10.61529/idjp.v33i4.327",
+        "title": "Identification of carbapenemase genes and evaluation of in vitro activity of ceftazidime-avibactam against carbapenem-resistant Enterobacterales",
+        "authors": "Sultan Aqib, Safdar Nida, Malik Nasrullah, Nizamuddin Summiya",
+        "year": "2024",
+        "journal": "Infectious Diseases Journal of Pakistan",
+        "doi": "10.61529/idjp.v33i4.327",
+        "url": "https://doi.org/10.61529/idjp.v33i4.327",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: Infections caused by carbapenem-resistant Enterobacterales are becoming an intensifying global concern because of the scarce treatment options available. Carbapenem resistance plays a major role in increasing morbidity and mortality rates in healthcare settings. Ceftazidime-avibactam (CZA), demonstrates in vitro effectiveness against multi-drug resistant (MDR) organisms. The aim of the study was to identify various types of carbapenemase genes present among carbapenem-resistant Enterobacterales (CRE) and assess the in-vitro activity of ceftazidime-avibactam against carbapenem-resistant Enterobacterales. Material and Methods: This prospective study was carried out in the Microbiology section of the Shaukat Khanum Memorial Cancer Hospital and Research Centre, Lahore, from January to May 2024. Carbapenem-resistant Enterobacterales (CRE) isolated from blood cultures of patients were included in the study. The detection of carbapenem-resistant genes was conducted using the Xpert Carba-R assay. Antimicrobial susceptibility testing was performed using the Sensititre automated system. Results: During this period, sixty CRE isolates, recovered from blood culture samples were analysed. The most prevalent gene detected was NDM, found in 43 isolates (71.66%), followed by a combination of NDM and OXA-48 in 13 isolates (21.66%), and OXA-48 alone in 4 isolates (6.66%). Ceftazidime-avibactam (CZA) exhibited susceptibility in only 4 isolates (6.66%). All four of these isolates carried the OXA-48 gene alone. Conclusion: The study's findings indicated that, within the timeframe investigated, the NDM gene was the predominant resistant gene among CRE isolates, accounting for 93.33% of cases. Ceftazidime-avibactam demonstrated good activity against CRE isolates carrying the OXA-48 gene alone. However, it was not active against CRE isolates containing the NDM gene. Key Words: Carbapenem-resistant Enterobacterales, Carbapenemases, Ceftazidime-avibactam",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prospective Study",
+        "lowMetadata": false,
+        "_sig": "820d0c58462a6b56c9f6f9cdde07e76c745e5e484ce03872efe816ba0aa9c22b"
+      },
+      {
+        "pmid": "cr:10.51253/pafmj.v73i6.7377",
+        "title": "Correlation between Mechanism of Carbapenem Resistance and in vitro Efficacy of Ceftazidime-Avibactam and Meropenem-Vaborbactam on Carbapenem-Resistant Enterobacterales and Pseudomonas Aeruginosa",
+        "authors": "Ali Fatima, Mirza Irfan Ali, Waseem Hafsa, Zafar Humaira",
+        "year": "2022",
+        "journal": "Pakistan Armed Forces Medical Journal",
+        "doi": "10.51253/pafmj.v73i6.7377",
+        "url": "https://doi.org/10.51253/pafmj.v73i6.7377",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Objective: To determine the mechanism of Carbapenem resistance, type of Carbapenemase produced and in vitro efficacy of Ceftazidime-Avibactam (CAZ-AVI) and Meropenem-Vaborbactam (MEV) against Carbapenem-resistant Enterobacterales and in vitro efficacy of Ceftazidime-Avibactam against Carbapenem-resistant Pseudomonas aeruginosa. Study Design: Cross-sectional study. Place and Duration of Study: Microbiology Department, Armed Forces Institute of Pathology, Rawalpindi Pakistan, from Mar to Aug 2020. Methodology: The mechanism of Carbapenem resistance in Enterobacterales and P.aeruginosa was determined by mCIM and eCIM methods. In vitro, the susceptibility of isolates to Ceftazidime-Avibactam and Meropenem-Vaborbactam was determined by disk diffusion technique according to CLSI 2020 guidelines. Results: Out of 249 Carbapenem -resistant isolates, there were 192(77.1%) Enterobacterales and 57(22.9%) P.aeruginosa. From 192 Enterobacterales, 174(90.6%) were Carbapenemase producers while 18(9.4%) used ‘other mechanisms. From 174 Carbapenemase producers, metallo-β-lactamases were produced by 141(73.4%) while serine Carbapenemases by 33(17.2%). Out of 33 serine Carbapenemase producers,19(57.6%) were sensitive to CAZ-AVI and 6(18.2%) to MEV. Out of 141 MBL producers, 31(22%) were sensitive to CAZ-AVI and 18(12.8%) to MEV. Out of 57 P.aeruginosa, 30(52.6%) were Carbapenemase producers and 1(3.4%) were sensitive to CAZ-AVI while 27(47.4%) were non-Carbapenemase producers and 13(48%) were sensitive to CAZ-AVI. MBL production predominated. Conclusion: The in vitro efficacy of these antibiotics against MBL producers and serine Carbapenemase producers was not satisfactory.",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cross-Sectional Study",
+        "lowMetadata": false,
+        "_sig": "713b3b5d09e08851cc8f16617a127c8306f8bd0a7dcaf826b69e4aca46d31690"
+      },
+      {
+        "pmid": "cr:10.34172/jrcm.026.34799",
+        "title": "An insight into Ceftazidime-avibactam activity on Carbapenem-resistant Enterobacterales causing bloodstream infections",
+        "authors": "Rajni Ekadashi, Galav Himanshi, Bairwa Kanika",
+        "year": "2026",
+        "journal": "Journal of Research in Clinical Medicine",
+        "doi": "10.34172/jrcm.026.34799",
+        "url": "https://doi.org/10.34172/jrcm.026.34799",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Introduction: Carbapenem-resistant Enterobacterales (CRE) are among the biggest challenges faced by the healthcare community worldwide. Antibiotic treatment of these infections remains challenging, especially in developing nations. Ceftazidime-avibactam (CZA) is a β-lactam-β-lactamase inhibitor combination with potent activity against CRE. The present study was conducted to provide insight into the in vitro activity of CZA against CRE causing bloodstream infections. Methods: This was a prospective observational study, conducted from July 2022 to June 2023 at a tertiary care teaching hospital, Jaipur, and included all non-duplicate CRE isolates obtained from bloodstream infections in adult patients admitted to the ICU. Identification and antimicrobial susceptibility testing were performed using the VITEK-2 automated system and interpreted according to Clinical and Laboratory Standards Institute guidelines. All CRE isolates resistant to CZA were further tested for synergy between Ceftazidime-avibactam and Aztreonam (AT) using the disk elution method. Results: During the one-year study period, 104 CRE strains were isolated in the laboratory from bloodstream infections in adult patients admitted to the ICU, which included 19 (18%) E. coli, 80 (77%) K.pneumoniae and 5 (5%) Enterobacter spp. Susceptibility rates of 61%, 31% and, 30% were observed for amikacin, tigecycline and minocycline, respectively. Overall, 31% and, 4% CRE isolates were susceptible to CZA and AT alone, respectively, while 97% were found to exhibit synergy. Conclusion: In the present study, 69% CRE isolates were found to be resistant to CZA. CZA+ATM combination, however, demonstrated excellent in vitro activity against CRE isolated from blood cultures in our ICU setting. Thus, this combination can be considered a suitable therapeutic option in patients with sepsis.",
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "3b29dfdd790ed485306b0377dad3e2bc4413a7b054d604947533dc547b1aaff1"
+      },
+      {
+        "pmid": "cr:10.61882/jommid.13.3.197",
+        "title": "In vitro Synergistic Activity of Ceftazidime-Avibactam and Aztreonam Against Carbapenem-resistant Enterobacterales",
+        "authors": "Joshi Chetana, Mudshingkar Swati, Petkar Jaishree, Deorukhkar Sachin",
+        "year": "2025",
+        "journal": "Journal of Medical Microbiology and Infectious Diseases",
+        "doi": "10.61882/jommid.13.3.197",
+        "url": "https://doi.org/10.61882/jommid.13.3.197",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "In Vitro Study",
+        "lowMetadata": false,
+        "_sig": "3e2f4d82f6ec489fb4b45120ca9235e1383b7aa6d4f82ee2c13ec4ac6567c748"
+      },
+      {
+        "pmid": "cr:10.1016/j.cegh.2025.102061",
+        "title": "Mortality and clinical outcomes of ceftazidime/avibactam vs best available therapy in treating carbapenem-resistant enterobacterales infections: A retrospective cohort study",
+        "authors": "Alhamed Nada, Hashhoush Mai, Al-Omari Raghad, Alomani Marwa",
+        "year": "2025",
+        "journal": "Clinical Epidemiology and Global Health",
+        "doi": "10.1016/j.cegh.2025.102061",
+        "url": "https://doi.org/10.1016/j.cegh.2025.102061",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "05f865e4fdcb1e76f61658cac639c46e13ff6a5e1798f037f4be375b8e316fca"
+      },
+      {
+        "pmid": "cr:10.7759/cureus.85689",
+        "title": "Prognosis and Outcome of Carbapenem-Resistant Enterobacterales Bacteremia Managed With Ceftazidime-Avibactam and Aztreonam Combination Therapy in Tawam Hospital, UAE: A Retrospective Study",
+        "authors": "Agha Abla, Al Hassani Ali, Shubbar Aya, Al Hassani Zaid",
+        "year": "2025",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.85689",
+        "url": "https://doi.org/10.7759/cureus.85689",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Prognostic Study",
+        "lowMetadata": false,
+        "_sig": "bae18ebda4a6aa630699e273ba8334566db45270f01fb51626df2ae4c8534211"
+      },
+      {
+        "pmid": "cr:10.47750/jptcp.2023.30.04.050",
+        "title": "In Vitro Efficacy of Ceftazidime-Avibactam among Carbapenem Resistant Enterobacterales and Pseudomonas aeruginosa Clinical Isolates in Specialized Pediatric Hospital",
+        "authors": "Academic Authors",
+        "year": "2023",
+        "journal": "Journal of Population Therapeutics and Clinical Pharmacology",
+        "doi": "10.47750/jptcp.2023.30.04.050",
+        "url": "https://doi.org/10.47750/jptcp.2023.30.04.050",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "In Vitro Study",
+        "lowMetadata": false,
+        "_sig": "a0fced79f0b00e05a00564c9612b77a0d42f1e69155c73511d94fe1fb079a136"
+      },
+      {
+        "pmid": "cr:10.2147/idr.s357396",
+        "title": "Genetic Diversity and in vitro Activity of Aztreonam/Avibactam and Ceftazidime/Avibactam Against Carbapenem-Resistant Enterobacterales: A Multi-Center Study in Southwest China",
+        "authors": "Sun Shan, Chen Kai, Kong Xuehua, Tian Wenjun",
+        "year": "2022",
+        "journal": "Infection and Drug Resistance",
+        "doi": "10.2147/idr.s357396",
+        "url": "https://doi.org/10.2147/idr.s357396",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 48,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "In Vitro Study",
+        "lowMetadata": false,
+        "_sig": "c5dece5d13ed2c031f0129edd4b301270c41b2b5c757c5347c3e9ef75566f759"
+      },
+      {
+        "pmid": "cr:10.1016/j.bjid.2026.105395",
+        "title": "BLOODSTREAM INFECTIONS CAUSED BY CARBAPENEM-RESISTANT ENTEROBACTERALES: IMPACT OF CEFTAZIDIME-AVIBACTAM ANTIBIOTIC THERAPY ON LETHALITY",
+        "authors": "de Araújo Lorena Galvão, Bahia Fabianna Márcia Maranhão, Voss Edilane Gouveia, Pedreira Joice Neves Reis",
+        "year": "2026",
+        "journal": "The Brazilian Journal of Infectious Diseases",
+        "doi": "10.1016/j.bjid.2026.105395",
+        "url": "https://doi.org/10.1016/j.bjid.2026.105395",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "9335e8149a0844fbec1aefeff1c79fe8307c5633da49ef219f79a6baf1099b63"
+      },
+      {
+        "pmid": "cr:10.1016/j.jgar.2024.10.005",
+        "title": "Ceftazidime-Avibactam versus Polymyxin-Based Therapies: A Study on 30-Day Mortality in Carbapenem-Resistant Enterobacterales Bloodstream Infections in an OXA-48 Endemic Region",
+        "authors": "Dumlu Rıdvan, Şahin Meyha, Derin Okan, Gül Özlem",
+        "year": "2024",
+        "journal": "Journal of Global Antimicrobial Resistance",
+        "doi": "10.1016/j.jgar.2024.10.005",
+        "url": "https://doi.org/10.1016/j.jgar.2024.10.005",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "f674fb1f670e3cd5d5f4d1eef864cf95f19af72e1fa8bb32f5be0346aec58d80"
+      },
+      {
+        "pmid": "cr:10.7759/cureus.75221",
+        "title": "Role of Ceftazidime-Avibactam in Urinary Tract Infections Caused by Carbapenem-Resistant Enterobacterales",
+        "authors": "Dobhal Shipra, Sen Manodeep, Yadav Harshita, Agarwal Jyotsana",
+        "year": "2024",
+        "journal": "Cureus",
+        "doi": "10.7759/cureus.75221",
+        "url": "https://doi.org/10.7759/cureus.75221",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "relevancePct": 43,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "261013494b0595147b894b450a09eac5fffd49b7fedc77997390cb21a035407c"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 24,
+      "screened": 24,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 0
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "OpenAlex HTTP 429"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "hospitalized adults with carbapenem-resistant Enterobacterales bacteremia ceftazidime-avibactam monotherapy colistin-based combination regimens 30-day all-cause mortality and renal toxicity",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}

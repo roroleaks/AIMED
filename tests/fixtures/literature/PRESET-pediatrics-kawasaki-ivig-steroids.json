@@ -1,0 +1,839 @@
+{
+  "id": "PRESET-pediatrics-kawasaki-ivig-steroids",
+  "recordedAt": "2026-11-26T23:01:49.498Z",
+  "specialty": "pediatrics",
+  "words": [
+    {
+      "word": "acute Kawasaki disease, high risk for IVIG resistance",
+      "role": "population"
+    },
+    {
+      "word": "intravenous immunoglobulin plus prednisolone",
+      "role": "intervention"
+    },
+    {
+      "word": "intravenous immunoglobulin alone",
+      "role": "comparator"
+    },
+    {
+      "word": "coronary artery aneurysm incidence",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "acute Kawasaki disease, high risk for IVIG resistance",
+        "role": "population"
+      },
+      {
+        "word": "intravenous immunoglobulin plus prednisolone",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous immunoglobulin alone",
+        "role": "comparator"
+      },
+      {
+        "word": "coronary artery aneurysm incidence",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In acute Kawasaki disease, high risk for IVIG resistance (P), does intravenous immunoglobulin plus prednisolone (I) compared with intravenous immunoglobulin alone (C) reduce coronary artery aneurysm incidence (O)?",
+        "basis": "Unavailable: Retrieved trials report conflicting directional findings (3 favourable, 1 no-difference, 2 adverse).",
+        "supported": false,
+        "unavailableReason": "Unavailable: Insufficient high-certainty concordant trial or systematic review evidence."
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In acute Kawasaki disease, high risk for IVIG resistance (P), is intravenous immunoglobulin plus prednisolone (I) superior to intravenous immunoglobulin alone (C) for coronary artery aneurysm incidence (O)?",
+        "basis": "Screened records demonstrate discordant clinical findings across trials evaluating this comparison.",
+        "supported": true
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of acute Kawasaki disease, high risk for IVIG resistance (P), does intravenous immunoglobulin plus prednisolone (I) compared with intravenous immunoglobulin alone (C) reduce coronary artery aneurysm incidence (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "conflicting",
+      "phrase": "In acute Kawasaki disease, high risk for IVIG resistance (P), is intravenous immunoglobulin plus prednisolone (I) superior to intravenous immunoglobulin alone (C) for coronary artery aneurysm incidence (O)?"
+    },
+    "words": [
+      {
+        "word": "acute Kawasaki disease, high risk for IVIG resistance",
+        "role": "population"
+      },
+      {
+        "word": "intravenous immunoglobulin plus prednisolone",
+        "role": "intervention"
+      },
+      {
+        "word": "intravenous immunoglobulin alone",
+        "role": "comparator"
+      },
+      {
+        "word": "coronary artery aneurysm incidence",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "pediatrics",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "doi:10.3389/fphar.2025.1661380",
+        "title": "Comparison of multiple doses of corticosteroids in Kawasaki disease: a Bayesian network analysis",
+        "authors": "Xuan Li, Xuan Tang, Xuan Tang, Daoping Yang",
+        "year": "2025",
+        "journal": "Frontiers in Pharmacology",
+        "doi": "10.3389/fphar.2025.1661380",
+        "url": "https://doi.org/10.3389/fphar.2025.1661380",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "BackgroundKawasaki disease (KD) is a leading cause of acquired heart disease in children, with coronary artery lesion (CAL) as a major complication. Although intravenous immunoglobulin (IVIG) remains the cornerstone of therapy, corticosteroids continue to play an important role in the management of IVIG-resistant, high-risk, or severe Kawasaki disease. Nevertheless, the optimal dosing strategies and differential therapeutic effects of corticosteroids in children with distinct clinical subtypes of KD remain poorly understood, particularly in those at highest risk.MethodsWe conducted a Bayesian network meta-analysis of five regimens: intravenous immunoglobulin alone (IVIG-alone), medium-dose methylprednisolone alone (MDMP-alone), high-dose methylprednisolone alone (HDMP-alone), IVIG-plus-low-dose methylprednisolone (IVIG-plus-LDP), and IVIG-plus-HDMP. Data from randomized controlled trials (RCTs) through December 2024 were included.ResultsIVIG-plus-HDMP ranked highest for preventing treatment resistance and reducing fever in initial and refractory KD [Surface Under the Cumulative Ranking Curve (SUCRA) 0.79]. IVIG-plus-LDP had the highest probability of reducing coronary artery dilation (CAD) incidence (SUCRA 0.89). Corticosteroid-related side effects (e.g., bradycardia, hypertension) were mild, transient, and reversible across all regimens, with no severe adverse events reported.ConclusionIVIG-plus-HDMP is the most effective therapy for acute symptom control in KD, particularly in high-risk or IVIG-resistant cases, while IVIG-plus-LDP appears superior for long-term prevention of coronary complications in the general KD population. Treatment selection should be individualized based on patient risk profile and treatment priorities, balancing rapid symptom management against long-term coronary outcomes.Systematic Review Registrationhttps://www.crd.york.ac.uk/prospero/, identifier CRD42022339937.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "c2302f251b1530647f46b1dcc2a328aa4645b7d8a94ef6001cfe13e9ceb0b07b"
+      },
+      {
+        "pmid": "35989868",
+        "title": "Predictors for Intravenous Immunoglobulin Resistance in Patients with Kawasaki Disease",
+        "authors": "Wei Li, Li Zhang, Zhouping Wang, Xiufang He",
+        "year": "2022",
+        "journal": "International Journal of Clinical Practice",
+        "doi": "10.1155/2022/2726686",
+        "url": "https://doi.org/10.1155/2022/2726686",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Background: Between 10 and 20% of Kawasaki disease (KD) patients are resistant to treatment with initial intravenous immunoglobulin (IVIG) and have a high risk of developing coronary artery lesions. Some studies have been conducted to identify predictive factors. However, the results are controversial. This study aims to identify the risk factors for IVIG-resistant KD patients in a Chinese population. Methods: We performed a retrospective analysis of medical records of consecutive KD patients from two medical centers in South China from January 2015 to December 2017. A total of 1281 KD patients were eligible for inclusion in this study and maintained follow-up for over 12 months. The KD patients were divided into two groups based on IVIG response. Clinical characteristics and",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Study",
+        "lowMetadata": false,
+        "_sig": "956159c028aa8a96685360db0fc35451db9545a5ff0e87e755ee096f668b7ea8"
+      },
+      {
+        "pmid": "30999718",
+        "title": "Predictors and management of intravenous immunoglobulin-resistant Kawasaki disease",
+        "authors": "Min Seob Song",
+        "year": "2019",
+        "journal": "Korean Journal of Pediatrics",
+        "doi": "10.3345/kjp.2019.00150",
+        "url": "https://doi.org/10.3345/kjp.2019.00150",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "Kawasaki disease (KD) is a systemic vasculitis that mainly affects younger children. Intravenous immunoglobulin (IVIG) resistant cases are at increasing risk for coronary artery complications. The strategy on prediction of potential nonresponders and treatment of IVIG-resistant patients is now controversial. In this review the definition and predictors of IVIG-resistant KD and current evidence to guide management are discussed.",
+        "relevancePct": 95,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "0e2c7c14e1c65661f229ab05b9ae4382e3709034aaafb97097c3e539f7576b57"
+      },
+      {
+        "pmid": "31048415",
+        "title": "Etanercept With IVIg for Acute Kawasaki Disease: A Randomized Controlled Trial",
+        "authors": "Michael A. Portman, Nagib Dahdah, April E Slee, Aaron K Olson",
+        "year": "2019",
+        "journal": "PEDIATRICS",
+        "doi": "10.1542/peds.2018-3675",
+        "url": "https://doi.org/10.1542/peds.2018-3675",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVES: Patients with Kawasaki disease can develop life-altering coronary arterial abnormalities, particularly in those resistant to intravenous immunoglobulin (IVIg) therapy. We tested the tumor necrosis factor α receptor antagonist etanercept for reducing both IVIg resistance and coronary artery (CA) disease progression. METHODS: In a double-blind multicenter trial, patients with Kawasaki disease received either etanercept (0.8 mg/kg; n = 100) or placebo (n = 101) subcutaneously starting immediately after IVIg infusion. IVIg resistance was the primary outcome with prespecified subgroup analyses according to age, sex, and race. Secondary outcomes included echocardiographic CA measures within subgroups defined by coronary dilation (z score >2.5) at baseline. We used generalized estimating equations to analyze z score change and a prespecified algorithm for change in",
+        "relevancePct": 93,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "5b67787417dc72f32dfe4478fdfd93185f320382645701503c76cdc43ba63d6e"
+      },
+      {
+        "pmid": "cr:10.20885/jkki.vol12.iss3.art13",
+        "title": "The time administration and cost burden of intravenous immunoglobulin (IVIG) therapy in a 4-year-old girl with Kawasaki disease: A case report",
+        "authors": "Agustina Nenden Nursyamsi, Arjadi Fitranto",
+        "year": "2021",
+        "journal": "Jurnal Kedokteran dan Kesehatan Indonesia",
+        "doi": "10.20885/jkki.vol12.iss3.art13",
+        "url": "https://doi.org/10.20885/jkki.vol12.iss3.art13",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Kawasaki disease (KD) is an acute systemic vasculitis frequently affecting children under five years old. KD can cause severe complications. It can lead to coronary aneurysms in 15-25% of untreated cases. Intravenous immunoglobulin (IVIG) treatment within ten days of initial onset can reduce the rate of coronary artery aneurysms. However, IVIG administration in Indonesia is currently limited due to its high cost. The case reported a 4-year-old girl with a chief complaint of fever. She complained about a high fever seven days before hospitalization. She also complained about vomiting, cough, joint pain, diarrhea, skin peeling, and rash on her body, palms, and soles. On examination, she looked irritable and sluggish. The temperature was 39.9o C. There were red eyes without discharge, strawberry tongue, oral thrush, and red, dry, cracked lips, swollen neck lymph nodes, and skin rash on her body, palms, and soles. Laboratory testing showed microcytic hypochromic anemia with Hb 7.9 g/dL and leukocytosis 24.230/mm3. Chest X-ray showed perihilar and paracardial infiltrates. Electrocardiogram revealed sinus tachycardia. An echocardiogram showed left ventricle dilatation with trivial mitral regurgitation and no coronary abnormalities were found. She was diagnosed with Kawasaki Disease. She was treated by IVIG 30 gr single dose during 12 hours on day 7 of initial onset, methylprednisolone injection 10 mg/8 hours, paracetamol 150 mg/8 hours, and aspirin 400 mg/8 hours orally and discharged from the hospital with improvement. There weren’t any coronary artery abnormalities found. IVIG administration within ten days of initial onset in KD patients can reduce the risk of coronary artery complications. IVIG administration after day 10 of initial onset can achieve resolution of inflammation but can be insufficient for preventing coronary artery lesions (CALs).",
+        "relevancePct": 92,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "6a8c726c1e01c433873c762341e07ea9fa94233b987baeea6a09ef0fe4c8474f"
+      },
+      {
+        "pmid": "cr:10.59492/kd.2025.3.2.e16",
+        "title": "Nationwide Validation of Japanese Initial Intravenous Immunoglobulin (IVIG) Resistance Scores in Korean Children with Kawasaki Disease",
+        "authors": "Choi Hee Yoon, Han Mi Young",
+        "year": "2025",
+        "journal": "Kawasaki Disease",
+        "doi": "10.59492/kd.2025.3.2.e16",
+        "url": "https://doi.org/10.59492/kd.2025.3.2.e16",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Kawasaki disease (KD) is an acute pediatric vasculitis in which 10%–20% of patients show resistance to initial intravenous immunoglobulin (IVIG) therapy, increasing the risk of coronary artery complications. Several Japanese risk scores—Kobayashi, Egami, and Sano—are widely used to predict IVIG resistance, but their applicability to other populations remains uncertain. This study aimed to validate these Japanese risk models in a large nationwide Korean cohort and examine their age-specific performance. This nationwide retrospective cohort study analyzed data from the Korean nationwide KD survey (2015–2017), including 10,352 children diagnosed with KD who received standard IVIG treatment. IVIG resistance was defined as persistent or recurrent fever ≥ 36 hours after IVIG completion. The Kobayashi, Egami, and Sano scores were calculated using pre-treatment laboratory parameters, and predictive performance was assessed using sensitivity, specificity, positive and negative predictive values (PPV/NPV), accuracy, and area under the receiver operating characteristic curve (AUC). Subgroup analyses were performed by age (< 6 months, 6–11 months, 12–59 months, ≥ 60 months). Overall IVIG resistance occurred in 16.3% of patients. The proportion classified as high risk was 26.3% (Kobayashi), 30.0% (Egami), and 16.7% (Sano). Across all ages, sensitivities ranged from 0.33–0.47, specificities from 0.73–0.87, and AUCs from 0.64–0.66. Infants aged 6–11 months showed higher discrimination, with AUCs increasing from 0.63 to 0.68., whereas no subgroup exceeded an AUC ≥ 0.70. All three scores demonstrated high NPV (0.87–0.88) but low PPV (0.26–0.33), indicating stronger ability to exclude rather than predict IVIG resistance. In this nationwide Korean cohort, Japanese IVIG-resistance risk scores exhibited consistently low sensitivity, high specificity, and only modest discrimination. These findings confirm limited cross-population transportability of Japanese models and underscore the need for recalibrated or newly developed Korean-specific prediction tools to improve early identification of IVIG-resistant KD patients.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "eeab97e4b0f73d296c137a83f1a4d0c8a3195d3b917b55897ae04ab23c1518c7"
+      },
+      {
+        "pmid": "34530763",
+        "title": "Prediction of repeated intravenous immunoglobulin resistance in children with Kawasaki disease",
+        "authors": "Yaheng Lu, Tingting Chen, Yizhou Wen, Feifei Si",
+        "year": "2021",
+        "journal": "BMC Pediatrics",
+        "doi": "10.1186/s12887-021-02876-w",
+        "url": "https://doi.org/10.1186/s12887-021-02876-w",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Repeated intravenous immunoglobulin (IVIG) resistance prediction is one of the pivotal topics in Kawasaki disease (KD). Those non-responders of repeated IVIG treatment might be improved by an early-intensified therapy to reduce coronary artery lesion and medical costs. This study investigated predictors of resistance to repeated IVIG treatment in KD. METHODS: A total of 94 children with IVIG-resistant KD treated at our hospital between January 2016 and August 2020 were retrospectively analyzed. According to the therapeutic effect of a second dose IVIG treatment, the children were divided into repeated IVIG-responsive group and repeated IVIG-resistant group, and the clinical and laboratory data were compared. Predictors of repeated IVIG resistance and the optimal cut-off value were determined by multiple logistic regression analysis",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "d600545c326033ccddc3462bdca2b6a1975a4722e03f0cce62bd4acca08dc73f"
+      },
+      {
+        "pmid": "32080307",
+        "title": "Defining the risk of first intravenous immunoglobulin unresponsiveness in non-Asian patients with Kawasaki disease",
+        "authors": "Maryam Piram, Martha Darce Bello, Stéphanie Tellier, Sylvie Di Filippo",
+        "year": "2020",
+        "journal": "Scientific Reports",
+        "doi": "10.1038/s41598-020-59972-7",
+        "url": "https://doi.org/10.1038/s41598-020-59972-7",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "About 10-20% of patients with Kawasaki disease (KD) are unresponsive to intravenous immunoglobulin (IVIg) and are at increased risk of coronary artery abnormalities (CAAs). Early identification is critical to initiate aggressive therapies, but available scoring systems lack sensitivity in non-Japanese populations. We investigated the accuracy of 3 Japanese scoring systems and studied factors associated with IVIg unresponsiveness in a large multiethnic French population of children with KD to build a new scoring system. Children admitted for KD between 2011-2014 in 65 centers were enrolled. Factors associated with second line-treatment; i.e. unresponsiveness to initial IVIg treatment, were analyzed by multivariate regression analysis. The performance of our score and the Kobayashi, Egami and Sano scores were compared in our population and in",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "578d75b0a3fb744bb599fc2429a0c049edd388151c1af8916e78c88edcc499e5"
+      },
+      {
+        "pmid": "cr:10.1097/inf.0000000000001951",
+        "title": "Infliximab Plus Intravenous Immunoglobulin (IVIG) Versus IVIG Alone as Initial Therapy in Children With Kawasaki Disease Presenting With Coronary Artery Lesions",
+        "authors": "Jone Pei-Ni, Anderson Marsha S., Mulvahill Matthew J., Heizer Heather",
+        "year": "2018",
+        "journal": "Pediatric Infectious Disease Journal",
+        "doi": "10.1097/inf.0000000000001951",
+        "url": "https://doi.org/10.1097/inf.0000000000001951",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Background: We previously demonstrated that 80% of Kawasaki disease (KD) patients who develop coronary artery lesions (CALs) have them at diagnosis. We postulated that KD patients presenting with CALs represent a group that may benefit from more aggressive initial therapy. Infliximab has been shown to decrease inflammation in KD patients when added to standard therapy. We compared outcomes of KD patients with CALs initially treated with intravenous immunoglobulin (IVIG) alone versus IVIG plus infliximab. Methods: Medical records of KD patients from January 2009 to July 2016 were retrospectively reviewed. CALs were defined as a left anterior descending or right coronary artery Z score ≥2.5. KD patients with CALs on initial echocardiogram treated with IVIG alone were compared with those treated with IVIG plus infliximab. Clinical characteristics were compared between groups using Wilcoxon rank-sum test, χ 2 test and Fischer’s exact tests; length of stay was analyzed using log-normal regression and need for additional therapy using logistic regression. Effect of treatment on CALs between groups was assessed using linear mixed models. Results: Sixty-nine KD patients with CALs at presentation were included. Fifteen of 34 (44%) patients treated with IVIG alone required additional therapy compared with 4 of 35 (11%) patients treated with IVIG plus infliximab ( P = 0.003). There were no significant differences between treatment groups for length of stay, CALs or C-reactive protein fall. Conclusions: IVIG plus infliximab as initial therapy reduces the need for additional therapy in KD patients presenting with CALs. Intensified initial therapy, consisting of infliximab plus IVIG, could be considered for this group of KD patients.",
+        "relevancePct": 85,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "8a08bd1b1806a2a378eb7faf7d705e57799ac6d4328206095fb2e5d9789d6688"
+      },
+      {
+        "pmid": "cr:10.59492/kd.2023.1.1.e9",
+        "title": "Successful Treatment with Infliximab in Intravenous Immunoglobulin-Resistant Kawasaki Disease with High Procalcitonin Level: A Case Report",
+        "authors": "Song Min Seob, Hwang Hye Su",
+        "year": "2023",
+        "journal": "Kawasaki Disease",
+        "doi": "10.59492/kd.2023.1.1.e9",
+        "url": "https://doi.org/10.59492/kd.2023.1.1.e9",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Procalcitonin (PCT) is modulated by sepsis-related cytokines such as tumor necrosis factor (TNF)-α and interleukins. Therefore, TNF-α blockade, infliximab may be useful for intravenous immunoglobulin (IVIG)-resistant Kawasaki disease (KD) with high PCT level. We report a case of IVIG-resistant KD with elevated PCT level who was successfully treated with infliximab. This case report suggests that the treatment of infliximab may be useful for IVIG-resistant KD with high PCT level.",
+        "relevancePct": 73,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Case Report",
+        "lowMetadata": false,
+        "_sig": "7ac847651040b700b3013ed25d436efb8c8548f125fcf8ddd02b9b98a623bcae"
+      },
+      {
+        "pmid": "36797460",
+        "title": "Intravenous immunoglobulin resistance in Kawasaki disease patients: prediction using clinical data",
+        "authors": "Jonathan Y. Lam, Min-Seob Song, Gi Beom Kim, Chisato Shimizu",
+        "year": "2023",
+        "journal": "Pediatric Research",
+        "doi": "10.1038/s41390-023-02519-z",
+        "url": "https://doi.org/10.1038/s41390-023-02519-z",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: About 10-20% of Kawasaki disease (KD) patients are resistant to the initial infusion of intravenous immunoglobin (IVIG). The aim of this study was to assess whether IVIG resistance in KD patients could be predicted using standard clinical and laboratory features. METHODS: Data were from two cohorts: a Korean cohort of 7101 KD patients from 2015 to 2017 and a cohort of 649 KD patients from San Diego enrolled from 1998 to 2021. Features included laboratory values, the worst Z-score from the initial echocardiogram or during hospitalization, and the five clinical KD signs at presentation. RESULTS: Five machine learning models achieved a maximum median AUC of 0.711 [IQR: 0.706-0.72] in the Korean cohort and 0.696 [IQR: 0.609-0.722] in the San",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "ec42a460171bb591f4e9d1a3a5f749f49b3ccf5a7187d76f8d34676fe67704d9"
+      },
+      {
+        "pmid": "35099338",
+        "title": "Nomogram to predict risk of resistance to intravenous immunoglobulin in children hospitalized with Kawasaki disease in Eastern China",
+        "authors": "Hongbiao Huang, Jiaqi Jiang, Xiaosong Shi, Jie Qin",
+        "year": "2022",
+        "journal": "Annals of Medicine",
+        "doi": "10.1080/07853890.2022.2031273",
+        "url": "https://doi.org/10.1080/07853890.2022.2031273",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "OBJECTIVE: We aimed to develop a nomogram to predict risk of resistance to intravenous immunoglobulin (IVIG) in children with Kawasaki disease in eastern China. METHODS: We retrospectively analysed the data of children with Kawasaki disease who received IVIG during hospitalisation at Soochow University Affiliated Children's Hospital. IVIG resistance was defined as recrudescent or persistent fever ≥36 h after the end of the IVIG infusion. Baseline variables were analysed using least absolute shrinkage and selection operator (LASSO) to identify the predictors of IVIG resistance, which were then used to construct a predictive nomogram. Calibration curve and area under the receiver operating characteristic curve (AUC) were used to evaluate the performance of the model. The predictive nomogram was validated on test sets",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Diagnostic Accuracy Study",
+        "lowMetadata": false,
+        "_sig": "35f1328b80c943fdba218f474faefd51b056c01b4365ac62fa1888865168096b"
+      },
+      {
+        "pmid": "33358267",
+        "title": "Comparison of risk scores for predicting intravenous immunoglobulin resistance in Taiwanese patients with Kawasaki disease",
+        "authors": "Chi-Nan Huang, Fen-Fen Wu, Ya‐Mei Chang, Hsin-Chung Huang",
+        "year": "2020",
+        "journal": "Journal of the Formosan Medical Association",
+        "doi": "10.1016/j.jfma.2020.12.010",
+        "url": "https://doi.org/10.1016/j.jfma.2020.12.010",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND/PURPOSE: Kawasaki disease (KD) is the most common type of acquired heart disease in children, and intravenous immunoglobulin (IVIG) therapy is the preferred treatment. Several risk scoring systems have been developed to predict IVIG resistance, which is important in KD management, including the Kobayashi, Egami, and Formosa scores. We evaluated the performance of these scoring systems with a KD patient cohort from Taiwan. METHODS: We retrospectively analyzed the medical records of all KD patients admitted to our institution from 2012 to 2017. We compared the characteristics of IVIG-resistant and non-resistant patients and evaluated the predictive ability of the scoring systems for IVIG resistance. RESULTS: We included 84 patients, with 73 receiving IVIG therapy. Eight patients were unresponsive to the first",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "12b363cabd6b8852265bb8de857699b2d48e05c585e47d5b8c939ff152561c2a"
+      },
+      {
+        "pmid": "cr:10.1093/eurheartj/ehz745.0156",
+        "title": "4311Decreased CD177 expression and its association with intravenous immunoglobulin resistance in Kawasaki disease",
+        "authors": "Huang Y",
+        "year": "2019",
+        "journal": "European Heart Journal",
+        "doi": "10.1093/eurheartj/ehz745.0156",
+        "url": "https://doi.org/10.1093/eurheartj/ehz745.0156",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Kawasaki disease (KD) is the most common acute coronary vasculitis disease occurring in children. Its occurrence has been attributed to the combined effects of infection, genetics, and immunity. While the etiopathogenesis of KD remains unknown, we have performed a survey of global genetic DNA methylation status and transcripts expression in KD patients to address how they contribute to the pathogenesis of KD. Methods We recruited 148 participants for this study. The chip studies consisted of 18 KD patients that were analyzed prior to administering intravenous immunoglobulin (IVIG) treatment and at least 3 weeks afterward, as well as 36 non-KD control subjects. We performed a separate cohort of 94 subjects to validate real-time quantitative PCR. Results According to the microarray study, CD177, a neutrophil surface molecule, appeared to be most significantly upregulated in KD patients compared to controls with epigenetic hypomethylation. After patients received IVIG treatment, CD177 mRNA levels decreased significantly. PCR validation indicated that the expression of CD177 is consistent with the Transcriptome Array 2.0 results. Furthermore, the area under the curve values of CD177 between KD patients and controls is 0.937. We also observed significantly higher CD177 levels in typical KD than incomplete presentation, which was associated with IVIG resistance in KD patients. Conclusion The present study is the first to highlight the epigenetic hypomethylation of an increased CD177 transcript during the acute stage of KD. Furthermore, the higher expression of CD177 in a typical presentation of KD patients and was related to IVIG resistance.",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "107b3798b6c5541efd776834afb657d773c08de794217c4551e19398c66327b5"
+      },
+      {
+        "pmid": "25910931",
+        "title": "Risk factors and derived formosa score for intravenous immunoglobulin unresponsiveness in Taiwanese children with Kawasaki disease",
+        "authors": "Ming‐Tai Lin, Chin‐Hao Chang, Li‐Chuan Sun, Hsin-Ming Liu",
+        "year": "2015",
+        "journal": "Journal of the Formosan Medical Association",
+        "doi": "10.1016/j.jfma.2015.03.012",
+        "url": "https://doi.org/10.1016/j.jfma.2015.03.012",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND/PURPOSE: Kawasaki disease (KD) is the most common pediatric vasculitis. The study aimed to identify the risk factors of intravenous immunoglobulin (IVIG) unresponsiveness from the initial clinical parameters of the Taiwanese KD patients. METHODS: We enrolled 248 KD (development dataset: 181, validation: 67) patients who received IVIG within 10 days after fever onset. IVIG unresponsiveness was defined by persistent fever beyond 24 hours after IVIG or recrudescent fever with KD symptoms. RESULTS: From the development dataset (181 patients), IVIG unresponsiveness was noted in 22 patients (12.1%). The preIVIG levels of albumin, percentage of neutrophils, and positive lymphadenopathy were identified with highest risk for IVIG unresponsiveness. These three variables were used to construct a three-variable logistic regression model, which yielded an",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Validation Study",
+        "lowMetadata": false,
+        "_sig": "e42a1eb2aded613001fd6f25b37b97721d81fff1c9b0de333e83d5b796b87224"
+      },
+      {
+        "pmid": "23901839",
+        "title": "Immune-monitoring in Kawasaki disease patients treated with infliximab and intravenous immunoglobulin",
+        "authors": "Jane C. Burns, Y Song, Matthew Bujold, Chisato Shimizu",
+        "year": "2013",
+        "journal": "Clinical & Experimental Immunology",
+        "doi": "10.1111/cei.12182",
+        "url": "https://doi.org/10.1111/cei.12182",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "The expansion of regulatory T cells (Treg ) controls inflammation in children with acute Kawasaki disease (KD). Blockade of tumour necrosis factor (TNF)-α is an emerging therapy for KD patients with refractory inflammation, but there is concern that this therapy could impede the host immune regulation. To define the effect of TNF-α blockade, we conducted ex-vivo immune-monitoring in KD subjects who participated in a randomized, double-blind, placebo-controlled clinical trial of the addition of infliximab to standard intravenous immunoglobulin (IVIG) therapy. We enumerated circulating myeloid and plasmocytoid dendritic cells (DC), regulatory T cells (Treg ) and memory T cells (Tmem ) in 14 consecutive, unselected KD patients (seven treated with IVIG, seven with IVIG + infliximab) at three time-points: (i) acute",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Clinical Trial",
+        "lowMetadata": false,
+        "_sig": "e0dd133af423a9799ceb53aede0af481e8ce5b940612b38d9d725223b0066382"
+      },
+      {
+        "pmid": "cr:10.59492/kd.2025.3.2.e17",
+        "title": "Toward Integrated Use of BNP and N-Terminal Pro-B-Type Natriuretic Peptide (NT-ProBNP) in Predicting Resistance to Initial Intravenous Immunoglobulin (IVIG) in Acute Phase of Kawasaki Disease",
+        "authors": "Yu Jeong Jin, Kim Gi Beom",
+        "year": "2025",
+        "journal": "Kawasaki Disease",
+        "doi": "10.59492/kd.2025.3.2.e17",
+        "url": "https://doi.org/10.59492/kd.2025.3.2.e17",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "B-type natriuretic peptide (BNP) and N-terminal pro-B-type natriuretic peptide (NT-proBNP) have been suggested as potential predictors of resistance to intravenous immunoglobulin (IVIG) in the acute phase of Kawasaki disease. However, these peptides are selectively and inconsistently measured across institutions, making their integrated use in outcome prediction challenging. This study analyzed data from two nationwide Korean Kawasaki disease surveys (2012–2014 and 2015–2017), including 18,110 patients. Of these, 12,537 had BNP or NT-proBNP results (group 1), while 5,573 did not (group 2). Log-transformed BNP and NT-proBNP values were standardized into z scores within their respective subgroups. Propensity score matching and logistic regression analyses were performed to assess their predictive value for resistance to initial IVIG. The z scores of log-transformed values remained significant in multivariate analyses (P = 0.002 for BNP, P = 0.026 for NT-proBNP). In univariate analyses, both BNP and NT-proBNP were significant predictors of IVIG resistance, with Nagelkerke R2 values of 0.029 and 0.015, respectively. After log transformation, the values converged to 0.024 and 0.025. The similarity in predictive power supports a common scale for these markers. The z scores of log-transformed BNP and NT-proBNP values demonstrated comparable predictive performance for resistance to initial IVIG, supporting the potential feasibility of their integrated use in clinical research and practice.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "376eca5171895d24163e259d45ea5d3bd6adaaff4c1861c5926d8b0a4f1be5a0"
+      },
+      {
+        "pmid": "37661679",
+        "title": "The effects of glucocorticoid plus intravenous immunoglobulin (IVIG) vs IVIG alone on platelet activation in children with Kawasaki disease",
+        "authors": "Qiong-Qiong Wang, Liyun Zheng, Sheng Zhao",
+        "year": "2023",
+        "journal": "The Turkish Journal of Pediatrics",
+        "doi": "10.24953/turkjped.2022.571",
+        "url": "https://doi.org/10.24953/turkjped.2022.571",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND: Even though intravenous immunoglobulin (IVIG) is a current treatment for Kawasaki disease (KD), 10-20% of patients require additional therapy. This study seeks to investigate the therapeutic effects of glucocorticoids plus IVIG on KD and to ascertain the subsequent effect on platelet activation during the acute phase. METHODS: A total of 32 children with KD were randomly classified into two groups: the experimental group (16 cases) and the control group (16 cases). The control group was exposed to IVIG (2 g/kg), whereas children in the experimental group were treated with IVIG (2 g/kg) + glucocorticoid. Peripheral venous blood samples were obtained from all participants before treatment as well as three days post-treatment to test platelet activation levels with procaspase activating",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "0e0ac0c9ef1831900dc9898e0103d7b02535b0a24234cfc8af651d14581cdcae"
+      },
+      {
+        "pmid": "30307902",
+        "title": "Intravenous Immunoglobulin Gamma (IVIG) versus IVIG Plus Infliximab in Young Children with Kawasaki Disease",
+        "authors": "Chunling Han, Suo-Lin Zhao",
+        "year": "2018",
+        "journal": "Medical Science Monitor",
+        "doi": "10.12659/msm.908678",
+        "url": "https://doi.org/10.12659/msm.908678",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND Kawasaki disease (KD) is a serious disease characterized by systemic lesions of the skin and mucous membranes, as well as lymphomas and vascular inflammation. KD threatens the health and lives of children, especially young ones. Here, we compared the therapeutic effects of single intravenous immunoglobulin gamma (IVIG) vs. a combination of IVIG and infliximab in young children with Kawasaki disease (KD). MATERIAL AND METHODS A total of 154 children with KD, younger than 5 years old, were enrolled in the study from January 2013 to January 2017. The patients were randomly divided into an IVIG group and a combination of IVIG and infliximab treatment group. After systematic treatments, the therapeutic indicators of the 2 groups were compared. During the",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "58f62a6859c5486c73ff7050bd4e14ec5c5882a4f82d523c69d8442492fbc53a"
+      },
+      {
+        "pmid": "25469144",
+        "title": "Prediction of Resistance to Standard Intravenous Immunoglobulin Therapy in Kawasaki Disease",
+        "authors": "Sang Min Lee, Jeong Bong Lee, Young Bin Go, Ho Young Song",
+        "year": "2014",
+        "journal": "Korean Circulation Journal",
+        "doi": "10.4070/kcj.2014.44.6.415",
+        "url": "https://doi.org/10.4070/kcj.2014.44.6.415",
+        "source": "openalex",
+        "pubType": "article",
+        "publicationTypes": [
+          "article"
+        ],
+        "context": "BACKGROUND AND OBJECTIVES: Ten to twenty percent of children with Kawasaki disease (KD) do not respond to initial intravenous immunoglobulin (IVIG) treatment. If untreated, approximately 15% to 25% of KD patients have complications. The aim of this study was to find useful predictors of responsiveness to initial IVIG treatment in KD. SUBJECTS AND METHODS: We retrospectively reviewed medical records of 91 children diagnosed with KD at Myong Ji Hospital from March 2012 to April 2014. Before and after (24 hours to 36 hours) IVIG treatment, the following laboratory data were obtained: hemoglobin (Hb) level, white blood cell count, proportion of neutrophil, lymphocyte and eosinophil, platelet count, erythrocyte sedimentation rate (ERS), C-reactive protein (CRP), creatine kinase (CK), creatine kinase MB (CK-MB),",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "C"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "b5be382b37d8a96e1d7efccc7626d93b20ca940a0d076e0366aff443cade6ee9"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 30,
+      "screened": 30,
+      "blocked": 0,
+      "returned": 20,
+      "relaxationLevel": 0
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "pmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "The operation was aborted due to timeout"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC HTTP 503"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Semantic Scholar throttled (429)"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 25,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 1,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 3,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Cochrane HTTP 503"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "acute Kawasaki disease, high risk for IVIG resistance intravenous immunoglobulin plus prednisolone intravenous immunoglobulin alone coronary artery aneurysm incidence",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": false,
+        "skipped": "none",
+        "error": "Europe PMC Preprints HTTP 503"
+      }
+    ],
+    "hasMore": true
+  }
+}

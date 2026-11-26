@@ -6,7 +6,7 @@ interface AppFooterProps {
 
 export function AppFooter({ stepText }: AppFooterProps) {
   return (
-    <footer>
+    <footer data-testid="app-footer">
       <div>
         {getFooterText()} {stepText ? `· ${stepText}` : "· Educational & Research Decision Support: always verify formulated questions clinically."}
       </div>

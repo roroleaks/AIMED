@@ -1,0 +1,593 @@
+{
+  "id": "ART-1",
+  "recordedAt": "2026-11-26T22:58:00.539Z",
+  "specialty": "obgyn",
+  "words": [
+    {
+      "word": "IVF patients",
+      "role": "population"
+    },
+    {
+      "word": "artificial intelligence embryo selection",
+      "role": "intervention"
+    },
+    {
+      "word": "embryologist morphological assessment",
+      "role": "comparator"
+    },
+    {
+      "word": "live birth",
+      "role": "outcome"
+    }
+  ],
+  "screenRequest": {
+    "stage": "screen",
+    "words": [
+      {
+        "word": "IVF patients",
+        "role": "population"
+      },
+      {
+        "word": "artificial intelligence embryo selection",
+        "role": "intervention"
+      },
+      {
+        "word": "embryologist morphological assessment",
+        "role": "comparator"
+      },
+      {
+        "word": "live birth",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn"
+  },
+  "screenStatus": 200,
+  "screenResponse": {
+    "phrases": {
+      "established": {
+        "category": "established",
+        "phrase": "In IVF patients (P), does artificial intelligence embryo selection (I) compared with embryologist morphological assessment (C) improve live birth (O)?",
+        "basis": "Screened literature contains 1 systematic review / meta-analysis publication(s) matching P, I, and O with concordant direction of effect.",
+        "supported": true
+      },
+      "conflicting": {
+        "category": "conflicting",
+        "phrase": "In IVF patients (P), is artificial intelligence embryo selection (I) superior to embryologist morphological assessment (C) for live birth (O)?",
+        "basis": "Unavailable: Screened studies do not exhibit conflicting directional findings.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Screened studies do not exhibit conflicting directional findings."
+      },
+      "gap": {
+        "category": "gap",
+        "phrase": "In high-risk subgroups of IVF patients (P), does artificial intelligence embryo selection (I) compared with embryologist morphological assessment (C) improve live birth (O) without additional adverse events (O)?",
+        "basis": "Unavailable: Established trial evidence exists; literature does not exhibit an unresolved gap for this comparison.",
+        "supported": false,
+        "unavailableReason": "Unavailable: Well-powered trial literature exists for this comparison."
+      }
+    },
+    "corpusStats": {
+      "retrieved": 25,
+      "screened": 25,
+      "relaxationLevel": 0
+    },
+    "aiRefined": false,
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 25
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 3
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 7
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ]
+  },
+  "exploreRequest": {
+    "stage": "explore",
+    "choice": {
+      "category": "established",
+      "phrase": "In IVF patients (P), does artificial intelligence embryo selection (I) compared with embryologist morphological assessment (C) improve live birth (O)?"
+    },
+    "words": [
+      {
+        "word": "IVF patients",
+        "role": "population"
+      },
+      {
+        "word": "artificial intelligence embryo selection",
+        "role": "intervention"
+      },
+      {
+        "word": "embryologist morphological assessment",
+        "role": "comparator"
+      },
+      {
+        "word": "live birth",
+        "role": "outcome"
+      }
+    ],
+    "specialty": "obgyn",
+    "excluded": {
+      "userExcluded": [],
+      "seen": []
+    }
+  },
+  "exploreStatus": 200,
+  "exploreResponse": {
+    "records": [
+      {
+        "pmid": "35367059",
+        "title": "Noninvasive embryo evaluation and selection by time-lapse monitoring vs. conventional morphologic assessment in women undergoing in vitro fertilization/intracytoplasmic sperm injection: a single-center randomized controlled study",
+        "authors": "Meng Q, et al",
+        "year": "2022",
+        "journal": "Fertility and sterility",
+        "doi": "10.1016/j.fertnstert.2022.02.015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35367059/",
+        "context": "OBJECTIVE: To determine whether time-lapse monitoring (TLM) for cleavage-stage embryo selection improves reproductive outcomes in comparison with conventional morphological assessment (CMA) selection. DESIGN: Prospective randomized controlled trial. SETTING: Single academic center. PATIENTS: We randomly assigned 139 women who were undergoing their first in vitro fertilization or intracytoplasmic sperm injection cycle to undergo either fresh embryo transfer or first frozen embryo transfer (FET). Only 1 cleavage-stage embryo was transferred to each participant. INTERVENTIONS: The patients were randomly assigned to either the CMA or the TLM group. In the CMA group, day 2 and day 3 embryos were observed. A good-quality cleavage-stage embryo was selected for transfer or freezing in both groups. MAIN OUTCOME MEASURES: The primary and secondary outcomes were the clinical pregnancy rate (CPR) and the live birth rate (LBR), respectively, after the first embryo transfer (fresh embryo transfer or FET). RESULTS: The CPR and LBR were significantly lower in the TLM group than in the CMA group (CPR: 49.18% vs. 70.42%; relative risk, 0.70; 95% confidence interval [CI], 0.52-0.94; LBR: 45.90% vs. 64.79%; relative risk, 0.71; 95% CI, 0.51-0.98). The CPR with fresh embryo transfer or FET did not significantly differ between the TLM and the CMA groups (fresh embryo transfer: 44.44% vs. 70.0%, relative risk, 0.63, 95% CI, 0.39-1.03; FET: 52.94% vs. 70.73%, relative risk, 0.75, 95% CI, 0.52-1.09). There was a significant difference in the LBR with fresh embryo transfer between the TLM and the CMA groups (40.74% vs. 66.67%; relative risk, 0.61; 95% CI, 0.36-1.03). The LBRs with FET were similar in the TLM and the CMA groups (50.0% vs. 63.41%; relative risk, 0.79; 95% CI, 0.52-1.19). The rates of early spontaneous abortion and ectopic pregnancy did not differ between the TLM and the CMA groups. CONCLUSIONS: Elective single cleavage-stage embryo transfer with TLM-based selection did not have any advantages over CMA when day 2 and day 3 embryo morphology was combined in young women with a good ovarian reserve. Because of these results, we conclude that TLM remains an investigational procedure for in vitro fertilization practice. CLINICAL TRIAL REGISTRATION NUMBER: ChiCTR1900021981.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 96,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "83e61470fb5c44d76ec16bbad0d00a8a935f8749b4cd73dc9e0647e72ed70853"
+      },
+      {
+        "pmid": "42745869",
+        "title": "Clinical evaluation and predictive model development of AI-based non-invasive embryo selection in <i>in vitro</i> fertilization patients.",
+        "authors": "Zhu P, Bi X, Su D, Zhang X, Wu X.",
+        "year": "2026",
+        "journal": "Frontiers in endocrinology",
+        "doi": "10.3389/fendo.2026.1920306",
+        "url": "https://europepmc.org/article/PMC/PMC13574665",
+        "source": "pmc",
+        "pubType": "research-article, Journal Article",
+        "publicationTypes": [
+          "research-article",
+          "Journal Article"
+        ],
+        "context": "Background Embryo selection remains one of the most critical determinants of IVF success. Conventional embryo grading relies primarily on morphological assessment and is subject to inter-observer variability and limited predictive accuracy. Recent advances in AI have enabled non-invasive systems to analyze embryological and morphokinetic features, improving embryo selection and reproductive outcomes. Objective To evaluate the clinical effectiveness of an AI-based non-invasive embryo selection system and develop predictive models for IVF outcomes among patients undergoing assisted reproductive treatment. Methods A retrospective cohort study was conducted at a tertiary fertility center involving 300 IVF cycles from January 2020 to December 2024. Clinical, demographic, embryological, and AI-derived data were extracted from electronic medical records and laboratory databases. Primary outcome was clinical pregnancy; secondary outcomes included implantation, ongoing pregnancy, live birth, and model performance. Machine learning algorithms (logistic regression, random forest, SVM, gradient boosting, and neural networks) were evaluated using accuracy, sensitivity, specificity, precision, F1-score, and AUC-ROC. Results A total of 300 IVF cycles and 742 embryos were analyzed. Implantation, clinical pregnancy, ongoing pregnancy, and live birth rates were 60.7%, 56.0%, 51.3%, and 48.7%, respectively. Higher AI-derived embryo scores were significantly associated with improved outcomes. Clinical pregnancy rates increased progressively across AI score categories, from 18.5% (scores Conclusion AI-based non-invasive embryo selection showed significant predictive value for reproductive outcomes and outperformed conventional assessment in identifying embryos with high implantation potential. AI-derived embryo scores were independently associated with clinical pregnancy success, and the model exhibited excellent discrimination and calibration. These findings support integrating AI-assisted embryo assessment into contemporary IVF practice and highlight its potential to enhance personalized reproductive care.",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "3ede5eed01d0c2c9e561875b5771c136ea7ee913d7f0a3e3fa75d5e178388af8"
+      },
+      {
+        "pmid": "cr:10.1093/humrep/deaf097.725",
+        "title": "P-419 Prediction Model for Live Birth After Single Embryo Transfer Following IVF and ICSI Based on Nomogram",
+        "authors": "Yang P",
+        "year": "2025",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deaf097.725",
+        "url": "https://doi.org/10.1093/humrep/deaf097.725",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Study question This study aims to explore the clinical predictive factors for live birth after single embryo transfer following IVF or ICSI and to develop a nomogram Summary answer The live birth prediction model consists of 11 key features. The model achieved an AUC of 0.866, demonstrating excellent calibration and strong clinical applicability. What is known already Several preliminary studies have explored the potential of machine learning in predicting IVF outcomes. However, these methods still face certain limitations in the practical clinical application. Firstly, many algorithms fail to effectively integrate embryo characteristics with maternal data, limiting their clinical utility. Secondly, most existing models focus on multiple embryo transfer, neglecting the potential negative impact of embryo interactions on pregnancy outcomes. Therefore, this study aims to integrate embryo characteristics with maternal data to construct a machine learning model that predicts the probability of live birth following single embryo transfer after IVF and intracytoplasmic sperm injection (ICSI). Study design, size, duration This study is a single-center retrospective analysis that included patients who underwent IVF/ICSI treatment at Sichuan Jinxin Xinan Women and Children’s Hospital between 2020 and 2023. The research integrated embryo characteristics along with clinical and laboratory data from both partners since their admission. After data cleaning, a predictive model was constructed and validated. Participants/materials, setting, methods This study retrospectively analyzed the data of patients who underwent IVF/ICSI, and single embryo transfer between 2020 and 2023. The patients were randomly divided into a training cohort (70%) and a testing cohort (30%). During the training process, LASSO combined with ten-fold cross-validation was used to select features. Subsequently, a multivariable logistic regression model was developed to construct a nomogram. The diagnostic performance was evaluated through ROC, calibration curves, and decision curve analysis. Main results and the role of chance A total of 21,385 patients who underwent IVF/ICSI with single embryo transfer were included in this study, of whom 5,700 achieved live birth, while 15,685 did not. The study sample was randomly divided into a training cohort (14,969 cases) and a validation cohort (6,416 cases). The live birth prediction model was constructed using 11 significant variables, including female age, number of oocytes retrieved, progesterone levels on the day of HCG injection, HCG levels 14 days post-transfer, antiphospholipid antibodies, BMI, peripheral blood NK cell ratio, AMH levels, male sperm morphology, sperm DNA fragmentation index, and embryo Gardner score. The model achieved an AUC of 0.897 (95% CI: 0.878, 0.918) in the training cohort, with an internal validation AUC of 0.887. In the testing cohort, the AUC was 0.866 (95% CI: 0.846, 0.887). The model demonstrated good predictive performance in both the calibration curve and decision curve analysis (DCA). Limitations, reasons for caution It is a single-center retrospective study, and its findings are yet to be validated through multicenter validation. Additionally, due to data completeness, this study excluded non-routine testing variables with a missing rate exceeding 30%, which may have resulted in the model not fully encompassing all potential key explanatory features. Wider implications of the findings This study developed a nomogram for predicting live birth outcomes in IVF/ICSI and embryo transfer patients. This tool can assist doctors in making timely decisions for treatment and intervention. It holds the potential to improve live birth rates and offers more precise and personalized decision support in assisted reproductive treatment. Trial registration number No",
+        "relevancePct": 90,
+        "matchedElements": [
+          "P",
+          "I",
+          "C",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "be16deefa906361aaf324e7003139a3e934c4b84c87fb6520db81b8a86028d74"
+      },
+      {
+        "pmid": "40780719",
+        "title": "Effects of different electroacupuncture/ transcutaneous electrical acupoint stimulation parameters on the pregnancy outcomes of in vitro fertilisation-embryo transfer: a systematic review and meta-analysis",
+        "authors": "Zhu H, et al",
+        "year": "2025",
+        "journal": "BMJ open",
+        "doi": "10.1136/bmjopen-2024-097901",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40780719/",
+        "context": "BACKGROUND: Extensive progress has been made in improving pregnancy outcomes for in vitro fertilisation and embryo transfer (IVF-ET) patients through the use of electroacupuncture (EA) and transcutaneous electrical acupoint stimulation (TEAS). However, a clear and suitable recommendation for the parameter selection scheme of EA/TEAS remains elusive. OBJECTIVE: To evaluate evidence-based conclusions of different EA/TEAS parameters on improvement of pregnancy outcomes in patients undergoing IVF-ET and evaluate other factors that may affect pregnancy outcomes. METHOD: This meta-analysis systematically searched eight databases from inception to 27 August 2024, focusing on randomised controlled trials (RCTs) that evaluated the effectiveness of EA/TEAS in improving IVF-ET outcomes, with the ‌primary outcome‌ defined as ‌clinical pregnancy rate (CPR)‌, and ‌secondary outcomes‌ including ‌biochemical pregnancy rate‌ (BPR) and ‌live birth rate‌ (LBR). We further explored CPR variations associated with EA/TEAS parameters: waveform (dilatational vs continuous wave), frequency (low vs high) and treatment duration (20, 25, 30, 40, 60 min). Additionally, seven subgroup variables were analysed to identify potential influencing factors: routine treatment, intervention dose, intervention modality, mean participant age, control type, randomisation risk and allocation concealment risk. RESULTS: A total of 27 RCTs (3786 participants) were included, with the quality of evidence ranging from moderate to very low. Compared with control groups, ‌the use of dilatational waves‌ ‌significantly increased CPR‌ (RR=1.36, 95% CI [1.17 to 1.58], p<0.01, I 2 =0). Similarly, ‌low-frequency currents‌ ‌demonstrated a significant positive association with CPR‌ (RR=1.38, 95% CI [1.25 to 1.51], p<0.01, I 2 =0) and ‌a treatment duration of 30 min per session‌ ‌was associated with elevated CPR‌ (RR=1.30, 95% CI [1.19 to 1.42], p<0.01, I 2 =0). Subgroup analyses revealed that the effect of EA/TEAS on CPRs varied significantly depending on therapeutic dose (p=0.029), with stronger associations observed in studies involving ‌patients receiving high therapeutic dose compared with those receiving low therapeutic dose‌. CONCLUSION: Current evidence suggests that dilatational waves, low-frequency currents and 30-minute treatment duration may improve CPRs, though findings require validation in larger trials. While parameter optimisation shows promise, stronger evidence is needed before standardising protocols. Future research should focus on rigorous RCTs to determine optimal parameters and dose-response relationships.",
+        "source": "pubmed",
+        "publicationTypes": [
+          "Journal Article",
+          "Systematic Review",
+          "Meta-Analysis"
+        ],
+        "relevancePct": 81,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Systematic Review and Meta-Analysis",
+        "lowMetadata": false,
+        "_sig": "249346a3abdd4acc9b1cc76a46830140037b4073d2f8ddc8b28938985e453fbf"
+      },
+      {
+        "pmid": "34818479",
+        "title": "Live Birth with or without Preimplantation Genetic Testing for Aneuploidy",
+        "authors": "Yan J, et al",
+        "year": "2021",
+        "journal": "The New England journal of medicine",
+        "doi": "10.1056/NEJMoa2103613",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34818479/",
+        "context": "BACKGROUND: Embryo selection with preimplantation genetic testing for aneuploidy (PGT-A) may improve pregnancy outcomes after initial embryo transfer. However, it remains uncertain whether PGT-A improves the cumulative live-birth rate as compared with conventional in vitro fertilization (IVF). METHODS: In this multicenter, randomized, controlled trial, we randomly assigned subfertile women with three or more good-quality blastocysts to undergo either PGT-A or conventional IVF; all the women were between 20 and 37 years of age. Three blastocysts were screened by next-generation sequencing in the PGT-A group or were chosen by morphologic criteria in the conventional-IVF group and then were successively transferred one by one. The primary outcome was the cumulative live-birth rate after up to three embryo-transfer procedures within 1 year after randomization. We hypothesized that the use of PGT-A would result in a cumulative live-birth rate that was no more than 7 percentage points higher than the rate after conventional IVF, which would constitute the noninferiority margin for conventional IVF as compared with PGT-A. RESULTS: A total of 1212 patients underwent randomization, and 606 were assigned to each trial group. Live births occurred in 468 women (77.2%) in the PGT-A group and in 496 (81.8%) in the conventional-IVF group (absolute difference, -4.6 percentage points; 95% confidence interval [CI], -9.2 to -0.0; P<0.001). The cumulative frequency of clinical pregnancy loss was 8.7% and 12.6%, respectively (absolute difference, -3.9 percentage points; 95% CI, -7.5 to -0.2). The incidences of obstetrical or neonatal complications and other adverse events were similar in the two groups. CONCLUSIONS: Among women with three or more good-quality blastocysts, conventional IVF resulted in a cumulative live-birth rate that was noninferior to the rate with PGT-A. (Funded by the National Natural Science Foundation of China and others; ClinicalTrials.gov number, NCT03118141.).",
+        "source": "pubmed",
+        "pubType": "Equivalence Trial",
+        "publicationTypes": [
+          "Equivalence Trial",
+          "Journal Article",
+          "Multicenter Study",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "relevancePct": 77,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Randomized Controlled Trial (RCT)",
+        "lowMetadata": false,
+        "_sig": "4c7ef59e0981f08bc750609473d78a6544c3e079d3b065a587ed1d6758174a23"
+      },
+      {
+        "pmid": "cr:10.1093/humrep/deag083.1083",
+        "title": "L26/P-756 Impact of dyslipidemia on cumulative live birth rate in PCOS patients undergoing IVF/ICSI and a predictive nomogram",
+        "authors": "Chen X., Xu H., Zheng B.",
+        "year": "2026",
+        "journal": "Human Reproduction",
+        "doi": "10.1093/humrep/deag083.1083",
+        "url": "https://doi.org/10.1093/humrep/deag083.1083",
+        "source": "crossref",
+        "pubType": "journal-article",
+        "publicationTypes": [
+          "journal-article"
+        ],
+        "context": "Abstract Study question Can a predictive model for cumulative live birth rate (CLBR) be developed based on dyslipidemia status in PCOS patients undergoing their first IVF/ICSI cycle? Summary answer Elevated triglycerides (TG) independently reduced CLBR, and a nomogram based on BMI, TG, high-quality blastocyst rate, and high-quality embryo rate acceptably predicts it. What is known already Obesity, insulin resistance, and dyslipidemia impact pregnancy. Management in PCOS focuses on weight and insulin resistance, with lipid management receiving less attention. While dyslipidemia’s effect on live birth per cycle has been studied, its impact on CLBR in PCOS patients undergoing IVF/ICSI is not well-established. Study design, size, duration A retrospective cohort study of 413 PCOS patients (<40 years) undergoing their first IVF/ICSI cycle (long or antagonist protocol) between January 2022 and May 2024. Participants/materials, setting, methods Patients were categorized into dyslipidemic (n = 277) and normolipidemic (n = 136) groups. Groups were compared, and stratified analyses by Body mass index (BMI) and homeostatic model assessment-insulin resistance (HOMA-IR) were performed. Logistic regression identified CLBR predictors. A nomogram was built and validated using training and validation sets, with internal validation performed via Bootstrap resampling (1000 iterations). Main results and the role of chance Elevated TG was an independent risk factor for reduced CLBR (adjusted odds ratio=0.732, 95% confidence interval: 0.552-0.969, P = 0.029). The predictive model included BMI, TG, high-quality blastocyst rate, and high-quality embryo rate. It demonstrated moderate discrimination with an area under the curve (AUC) of 0.776 (95% CI 0.709–0.843) in the training set and 0.721 (95% CI 0.601–0.840) upon internal validation. Calibration and decision curve analysis indicated good consistency and clinical utility. Limitations, reasons for caution This single-center retrospective study may have selection bias. The model did not account for potential confounders like diet or exercise, and assessed only baseline (not dynamic) lipid levels. The validation set sample size (n = 123) is relatively small. Wider implications of the findings The model helps identify patients at potentially low CLBR, enabling personalized pre-transfer strategies targeting modifiable factors like weight and lipid control. This optimizes the treatment pathway and supports targeted counseling in PCOS patients with dyslipidemia undergoing IVF/ICSI. Trial registration number No",
+        "relevancePct": 71,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Retrospective Cohort Study",
+        "lowMetadata": false,
+        "_sig": "532ad83cdf881e42b18c800147781982470d52e6d7e99052fa08f284ed3cb972"
+      },
+      {
+        "pmid": "doi:10.1038/s41598-023-29319-z",
+        "title": "Development of an artificial intelligence based model for predicting the euploidy of blastocysts in PGT-A treatments",
+        "authors": "Zhenya Yuan, Mu Yuan, Xuemei Song, Xiaojie Huang",
+        "year": "2023",
+        "journal": "Scientific Reports",
+        "doi": "10.1038/s41598-023-29319-z",
+        "url": "https://doi.org/10.1038/s41598-023-29319-z",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract The euploidy of embryos is unpredictable before transfer in in vitro fertilisation (IVF) treatments without pre-implantation genetic testing (PGT). Previous studies have suggested that morphokinetic characteristics using an artificial intelligence (AI)-based model in the time-lapse monitoring (TLM) system were correlated with the outcomes of frozen embryo transfer (FET), but the predictive effectiveness of the model for euploidy remains to be perfected. In this study, we combined morphokinetic characteristics, morphological characteristics of blastocysts, and clinical parameters of patients to build a model to predict the euploidy of blastocysts and live births in PGT for aneuploidy treatments. The model was effective in predicting euploidy (AUC = 0.879) but was ineffective in predicting live birth after FET. These results provide a potential method for the selection of embryos for IVF treatments with non-PGT.",
+        "relevancePct": 69,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "49b91711eb39f56dc2abeaa71c33ef63dd9e6b2497fe46e7cbadb30bc31be4a2"
+      },
+      {
+        "pmid": "doi:10.1016/j.heliyon.2024.e30189",
+        "title": "A novel non-invasive embryo evaluation method (NICS-Timelapse) with enhanced predictive precision and clinical impact",
+        "authors": "Hui He, Li Wu, Yulin Chen, Tuan Li",
+        "year": "2024",
+        "journal": "Heliyon",
+        "doi": "10.1016/j.heliyon.2024.e30189",
+        "url": "https://doi.org/10.1016/j.heliyon.2024.e30189",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "The selection of the finest possible embryo in in-vitro fertilization (IVF) was crucial and revolutionary, particularly when just one embryo is transplanted to lessen the possibility of multiple pregnancies. However, practical usefulness of currently used methodologies may be constrained. Here, we established a novel non-invasive embryo evaluation method that combines non-invasive chromosomal screening (NICS) and Timelapse system along with artificial intelligence algorithms. With an area under the curve (AUC) of 0.94 and an accuracy of 0.88, the NICS-Timelapse model was able to predict blastocyst euploidy. The performance of the model was further evaluated using 75 patients in various clinical settings. The clinical pregnancy and live birth rates of embryos predicted by the NICS-Timelapse model, showing that embryos with higher euploid probabilities were associated with higher clinical pregnancy and live birth rates. These results demonstrated the NICS-Timelapse model's significantly wider application in clinical IVF due to its excellent accuracy and noninvasiveness.",
+        "relevancePct": 66,
+        "matchedElements": [
+          "P",
+          "I",
+          "O"
+        ],
+        "design": "Observational Study",
+        "lowMetadata": false,
+        "_sig": "1dc2900dd18a80c982187511bdfe632613229a83bffbc3eb437687c49aa55d5b"
+      },
+      {
+        "pmid": "doi:10.7916/vib.v6i.5909",
+        "title": "“The Identity Problem” in Prenatal Testing",
+        "authors": "Nina Beguš",
+        "year": "2020",
+        "journal": "Voices in Bioethics",
+        "doi": "10.7916/vib.v6i.5909",
+        "url": "https://doi.org/10.7916/vib.v6i.5909",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "GENETICIST You've already specified blue eyes, dark hair and fair skin. I have taken the liberty of eradicating any potentially prejudicial conditions – premature baldness, myopia, alcoholism and addictive susceptibility, propensity for violence and obesity – MARIA (interrupting, anxious) – We didn't want—diseases, yes. ANTONIO (more diplomatic) We were wondering if we should leave some things to chance. GENETICIST (reassuring) You want to give your child the best possible start. Believe me, we have enough imperfection built-in already. Your child doesn't need any additional burdens. And keep in mind, this child is still you, simply the best of you. You could conceive naturally a thousand times and never get such a result.[i] Few inventions in science and technology have not previously been imagined in film and literature. The scene from Andrew Niccol’s 1997 film Gattaca reveals what I call “the identity problem”: the discomfort of the couple and the dissonance between them and the geneticist is palpable. Maria and Antonio naturally conceived their first child who was born with a heart defect, which is why they decided to take the in vitro fertilization (IVF) route with preimplantation genetic testing (PGD) for their second child. In the futuristic world of Gattaca, IVF with PGD is an ordinary way of procreating. By conceiving their first son naturally, the couple went against the norm. Have Maria and Antonio wronged their first son? The notorious nonidentity problem[ii] confirms harm if we account for the non-person affecting principle, which states that harm exists if a child is born when another child could have been born instead with better prospects.[iii] Indeed, the life this couple had given their first son by default offers him less opportunities and more hardship, which is especially obvious in comparison to their second son. We could also argue they did not do harm if we assume that their first son, had he been conceived in vitro and tested before implanting, would likely not been chosen among the available embryos due to his heart defect. Alternatively, the pregnancy might result in selective termination due to his prenatal testing results. In a futuristic scenario, his heart defect might be fixed before or during the pregnancy, which would ultimately eliminate the nonidentity paradox. It would not, however, eliminate the identity problem if the defect would be treated after the birth. Prenatal information burdens patients and clinicians not only in science fiction and the real-world future—it is an issue they face today. When a prenatal test claims that an embryo or a fetus has a heart defect, spina bifida, short stature or eleven fingers, it crosses into a physician-patient discourse where at least five value systems meet: the patient’s, their partner’s, and the clinician’s, as well as that of the institution and wider society. In Gattaca, the mainstream ethical values are obvious: the couple is able to choose superfluous features while the society, with the geneticist as its proxy, takes over to eliminate the undesirable ones. In the USA, it is widely believed that the right decision is made when the patient considers it right for themselves, as long as it does not harm anyone. Not choosing against deafness or Down’s Syndrome is a controversial decision at the PGD stage of IVF (in the UK, for example, it is forbidden to transfer an embryo with known aneuploidy). Physicians might view this choice as voting for non-health over health, thus going against the essence of medicine.[iv] It is in such cases where the borderline lies and where we need to listen to individual stories and contexts, many of which are find in fiction and nonfiction. A Brief History of The Identity Problem The identity problem has existed even before the ultrasound first offered a peak into the uterus, revealing the sex and health status of the fetus. In a broader sense, it has been around at least since the idea of eugenics was discussed in fictional utopias, such as Samuel Butler’s Erewhon: or, Over the Range (1872)[v] and Francis Galton’s Kantsaywhere (1910),[vi] both highly influenced by Darwin’s ideas. Yet, the identity problem grows larger and more obvious with advanced technology of prenatal diagnostic and screening tests as well as with assisted reproductive technologies. Granted, people already make choices about their potential child’s genetic, cultural, and partly environmental characteristics when choosing their partner. Yet, when these decisions are made in the realm of assisted reproductive technologies, they are much more rational and intentional – and sometimes agonizing. Choosing a donor is a task that cannot be taken easily. The commercialization of sperm and eggs tells us that. For example, Ivy League donors are paid better, even if everyone is aware this money is only buying a chance of the progeny being similar to the donor. Another set of issues comes from the fact that these patients are disproportionally wealthy, white, and older, while donors and surrogates are all the contrary. Various prenatal tests offer more certainty about the forming individual in vitro or in the uterus, but are, despite similar results, a target of vastly different levels of controversy. PGD and chromosome blood testing are such an example: they often reveal the same information on aneuploidies and sex of the embryo, but PGD gets more controversy while chromosome blood tests receive little reflection on their ramifications (see Kaposy).[vii] From the ethical perspective, prenatal blood tests often result in heavier consequences for the patients. Chromosome blood testing takes place at the end of the first trimester of pregnancy and prospective parents, who opt to terminate a previously wanted pregnancy, must undergo an abortion. PGD, on the other hand, takes place days before the embryo is ready to implant in the womb, at the point when the woman is not actually pregnant yet. By virtue of PGD, a three-day-old embryo can have its identity revealed, in some aspects, more clearly than that of a child or even adult whose genetic predispositions show up only through the course of life or, perhaps, never at all. Such embryos can be identified as female or male, abled or disabled, blue, brown, or green-eyed, right and wrong. New tests open new ethical questions. We will soon be able to point out other relevant and irrelevant genetic factors as well, for example, later-onset diseases, such as BRCA1 and 2 mutations which greatly increase the risk of developing certain types of cancer later in life.[viii] What Does Literature Say About Prenatal Tests? A technology similar to PGD was depicted in Aldous Huxley’s Brave New World (1932), a satirical novel that never really went out of style. In the Hatchery, a factory in which all human beings are created via technology similar to a combination of IVF and artificial wombs, each embryonic and fetal information chart is labeled with information of “[h]eredity, date of fertilization, membership of Bokanovsky Group [a caste].” The narrator makes an argument that the knowledge of fetal characteristics makes the prospective human “[n]o longer anonymous, but named, identified”.[ix] Information about their identity alleviates the human, individual, and personal statuses of these embryos and fetuses: it might be a fetus, but we also know that she is a female with perfect pitch who will experience an early onset of Alzheimer’s disease. We thus estimate and evaluate the individual’s identity and future on the basis of their genes. Like Huxley, I argue that there is a profound difference in our relationship to an embryo or a fetus that is a blank slate vs. an embryo with identity markers of medical prognostics. “Even queer theorists are sobered to learn the sex of an embryo,” writes Andrea Long Chu, queer theorist and transwoman.[x] Another issue with sex selection is that embryos of transgender people can, so far, render only their sex but not gender; it is not difficult to imagine consequences if studies examining transgender genetics prove fruitful for prenatal testing. No information is simple and straightforward in prenatal life, not even the sex, as widely attested by sexual discrimination against female fetuses in many cultures. IVF allows, by the mere protocol of the technology, for a manipulation of the birth and sex orders of potential siblings. While this choice may simply be a collateral luxury secondary to treatment (such as the physical features Maria and Antonio chose via PGD) and possibly the last thing on the mind of patients suffering the pain of infertility, this is not the case for everyone. Those willing to undergo IVF with PGD, and can afford it, are able to choose from a growing repertoire of features. Where to draw the line, then? “Diseases, yes,” says Maria, unaware of the many repercussions of her simple answer. Authors of genetic utopias imagine a world without any pathology or diversity. Maria and Antonio’s first child exhibits extreme will and ability by (illegally) penetrating into the group of genetically modified people. On the contrary, some genetically superior people in Gattaca as well as Brave New World fail at genetically conditioned prospering or have unexpected health issues. The only guarantee these two dystopias offer is that the world will get grimmer and more stratified, more scientific and superficial – overall, less of what makes us human. The suffering and harm are still there, in a different form. Humans are there in a different form. Principles of beneficence and non-maleficence serve a noble goal, but not all suffering and harm is to be alleviated at the stage of prenatal life. There are better ways of dealing with deafness and some types of heart defects after, rather than before, birth and as technology progresses, there will always be newer and better solutions at all stages. In vitro gene editing is developing faster than predicted, eliminating undesirable conditions from an already-identified embryonic or fetal individual. IVF thus serves at least two roles: treatment of prospective parents’ infertility (as restitution ad integrum) and selection (and potential treatment) of prospective children’s genetics (as transformation ad optimum, an access point of the man-led evolution). The quest for perfection is in human nature. All the same, the very essence of human nature is diversity and pathology (diseases, yes). Pathology, per George Canguilhem,[xi] is not a deviance of the norm, but rather a different kind of norm. In Octavia Butler’s Lilith’s Brood: The Xenogenesis Trilogy (1987-89),[xii] every genetic anomaly is treated. Yet, humanity is doomed due to a Human Contradiction—a lethal combination of “intelligence at the service of hierarchical behavior” that is essential for our species.[xiii] In the buzzing biotechnological (r)evolution we are undergoing, we should turn to fictional and (auto)biographical narratives before we make any decisions on behalf of other human beings, nascent or not. [i] Gattaca, DVD, directed by Andrew Niccol (1997 Jersey Films), DVD. [ii] First devised by Derek Parfit in Reasons and Persons (Oxford: Clarendon Press, 1987). [iii] Buchanan, A., D. Brock, N. Daniels and D. Wikler, From Chance to Choice: Genetics and Justice (Cambridge: Cambridge University Press, 2000). [iv] Galarneau, Charlotte, “Many ‘Ways of Looking’: Physician Refusal of Embryo Transfer” (Harvard Medical School Bioethics Journal Summer 2019) Accessed Sep 13, 2019. bioethicsjournal.hms.harvard.edu/summer-2019/many-“ways-looking”-physician-refusal-embryo-transfer [v] Butler, Samuel, Erewhon: or, Over the Range (London: Trübner, 1872). [vi] Galton, Francis, The Eugenic College of Kantsaywhere 1910. (Digitized by University College London, 1996.) [vii] Kaposy, Chris, Choosing Down’s Syndrome: Ethics and New Prenatal Testing Techniques (Cambridge: The MIT Press, 2018). [viii] Robertson, J. A., ‘Extending Preimplantation Genetic Diagnosis: Medical and Non-medical Uses’ (Journal of Medical Ethics 29/4 (2003): 213-216), 214. [ix] Huxley, Aldous, ‘Brave New World,’ Brave New World and Brave New World Revisited. (New York: Harper Collins, 2004), 20-21. [x] Chu, Andrea Long, ‘Extreme Pregnancy’ Once and Future Feminist (Boston Review Forum), (Ed. Merve Emre, Cambridge, MA: The MIT Press, 2018, 66-79), 67. [xi] Canguilhem, Georges, Knowledge of life [La Connaisance de la Vie], tran. Paola Marrati, Todd Meyers. (New York: Fordham University Press, 2018). [xii] Butler, Octavia, Dawn. (New York: Warner Books, 1987.) Adulthood Rites. (New York: Warner Books 1988.) Imago. (New York: Warner Books, 1989). [xiii] Butler, Octavia, Adulthood Rites (New York: Warner Books 1988), 467.",
+        "relevancePct": 56,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Narrative Review",
+        "lowMetadata": false,
+        "_sig": "613f9d9c034794d641c0e8232d89e29c2c38b9b875fc1a4db5532c05cd50139d"
+      },
+      {
+        "pmid": "doi:10.1186/s42269-025-01368-6",
+        "title": "Cancer and IVF: assessing fertility preservation options and associated cancer risks",
+        "authors": "Oindrila Sarkar, Sayan Sharma, Rajgourab Ghosh",
+        "year": "2025",
+        "journal": "Bulletin of the National Research Centre",
+        "doi": "10.1186/s42269-025-01368-6",
+        "url": "https://doi.org/10.1186/s42269-025-01368-6",
+        "source": "doaj",
+        "pubType": "Journal Article",
+        "publicationTypes": [
+          "Journal Article"
+        ],
+        "context": "Abstract Background Cancer treatments often pose significant risks to fertility, particularly among women diagnosed during their reproductive years. In vitro fertilization (IVF) and related assisted reproductive techniques have become essential strategies for fertility preservation in these patients. However, concerns persist regarding the potential cancer risks associated with fertility treatments, particularly hormonal stimulation, necessitating a balanced evaluation of the benefits and potential harms. Results This review evaluates current IVF-based fertility preservation techniques, their efficacy, safety, and implications for cancer patients. Key fertility preservation strategies discussed include ovarian transposition, embryo cryopreservation, controlled ovarian stimulation protocols for cancer patients, and ovarian tissue cryopreservation. These methods allow preservation of reproductive potential without substantially delaying essential cancer therapies. Emerging technologies such as artificial intelligence-driven embryo selection and personalized stimulation protocols are highlighted for their potential to enhance reproductive outcomes and reduce hormonal exposure, thereby mitigating theoretical risks associated with fertility medications. Nonetheless, the relationship between fertility treatments and cancer remains complex. While most extensive cohort studies suggest minimal or no significant increase in breast cancer risk following fertility treatment, certain subgroups, including women undergoing multiple hormonal stimulation cycles or those genetically predisposed to cancer, may experience slightly elevated risks. Additionally, there is growing evidence indicating an increased risk of specific cancers, particularly paediatric hepatic tumours, among children conceived through IVF procedures. These findings underscore the importance of ongoing research and cautious interpretation of fertility treatment-associated risks. Conclusion IVF-based fertility preservation strategies offer critical reproductive options for women undergoing cancer treatment. Although generally safe, the nuanced relationship between fertility treatments and cancer risks emphasizes the importance of personalized, evidence-based approaches. Continued research, interdisciplinary collaboration, and comprehensive patient counselling are essential to optimize reproductive outcomes and safeguard the long-term health of cancer survivors and their offspring. Graphical abstract",
+        "relevancePct": 53,
+        "matchedElements": [
+          "P",
+          "I"
+        ],
+        "design": "Cohort Study",
+        "lowMetadata": false,
+        "_sig": "5bd53bff8b8eb2c5a7c7e37d3bfeb5502bcd74d61be078c7423ec68d39153020"
+      }
+    ],
+    "corpusStats": {
+      "retrieved": 50,
+      "screened": 50,
+      "blocked": 0,
+      "returned": 10,
+      "relaxationLevel": 2
+    },
+    "sources": [
+      {
+        "id": "pubmed",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "pmc",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "europepmc",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "googlescholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "semanticscholar",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "openalex",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "crossref",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "doaj",
+        "ok": true,
+        "count": 20
+      },
+      {
+        "id": "clinicaltrials",
+        "ok": true,
+        "count": 24
+      },
+      {
+        "id": "cochrane",
+        "ok": false,
+        "count": 0
+      },
+      {
+        "id": "preprints",
+        "ok": false,
+        "count": 0
+      }
+    ],
+    "searchLog": [
+      {
+        "id": "pubmed",
+        "name": "PubMed",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "pmc",
+        "name": "PMC",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "europepmc",
+        "name": "Europe PMC",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "googlescholar",
+        "name": "Google Scholar",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "no_key"
+      },
+      {
+        "id": "semanticscholar",
+        "name": "Semantic Scholar",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "openalex",
+        "name": "OpenAlex",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "crossref",
+        "name": "CrossRef",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "doaj",
+        "name": "DOAJ",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 20,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "clinicaltrials",
+        "name": "ClinicalTrials.gov",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 24,
+        "date": "2026-11-26",
+        "attempted": true,
+        "ok": true,
+        "skipped": "none"
+      },
+      {
+        "id": "cochrane",
+        "name": "Cochrane Library",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      },
+      {
+        "id": "preprints",
+        "name": "Preprints",
+        "query": "IVF patients artificial intelligence embryo selection embryologist morphological assessment live birth",
+        "count": 0,
+        "date": "2026-11-26",
+        "attempted": false,
+        "ok": false,
+        "skipped": "cooldown"
+      }
+    ],
+    "hasMore": true
+  }
+}
