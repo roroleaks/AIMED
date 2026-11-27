@@ -35,12 +35,6 @@ jobs:
       - name: Link project by name (team raouf12, project aimed = aimed2.vercel.app)
         if: steps.gate.outputs.go == 'true'
         run: npx --yes vercel@latest link --yes --project aimed --scope raouf12 --token="$VERCEL_TOKEN"
-      - name: Pull Vercel project settings
+      - name: Deploy (Vercel builds remotely)
         if: steps.gate.outputs.go == 'true'
-        run: npx --yes vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
-      - name: Build
-        if: steps.gate.outputs.go == 'true'
-        run: npx --yes vercel@latest build --prod --token="$VERCEL_TOKEN"
-      - name: Deploy
-        if: steps.gate.outputs.go == 'true'
-        run: npx --yes vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        run: npx --yes vercel@latest deploy --prod --yes --token="$VERCEL_TOKEN"
