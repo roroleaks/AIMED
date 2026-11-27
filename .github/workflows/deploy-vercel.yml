@@ -1,7 +1,7 @@
 name: Deploy to Vercel (production)
 
-# Deploys every push to main to the Vercel project whose IDs are stored in the
-# repository secrets below. Skips quietly until the secrets exist.
+# Deploys every push to main to the Vercel project named below, using only the
+# VERCEL_TOKEN repository secret. Skips quietly until it exists.
 on:
   push:
     branches: [main]
@@ -16,14 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - name: Check secrets
         id: gate
         run: |
-          if [ -z "$VERCEL_TOKEN" ] || [ -z "$VERCEL_ORG_ID" ] || [ -z "$VERCEL_PROJECT_ID" ]; then
-            echo "Vercel secrets not set; skipping deploy."
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "VERCEL_TOKEN secret not set; skipping deploy."
             echo "go=false" >> "$GITHUB_OUTPUT"
           else
             echo "go=true" >> "$GITHUB_OUTPUT"
@@ -34,6 +32,9 @@ jobs:
         if: steps.gate.outputs.go == 'true'
         with:
           node-version: "22"
+      - name: Link project by name (team raouf12, project aimed = aimed2.vercel.app)
+        if: steps.gate.outputs.go == 'true'
+        run: npx --yes vercel@latest link --yes --project aimed --scope raouf12 --token="$VERCEL_TOKEN"
       - name: Pull Vercel project settings
         if: steps.gate.outputs.go == 'true'
         run: npx --yes vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
