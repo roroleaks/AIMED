@@ -365,75 +365,6 @@ export const KB: Record<SpecialtyKey, SpecialtyKB> = {
   }
 };
 
-export const SYNONYMS: Record<string, string> = {
-  "coenzyme q10": "coenzyme Q10",
-  "coq10": "coenzyme Q10",
-  "ubiquinol": "coenzyme Q10",
-  "ubidecarenone": "coenzyme Q10",
-  "clomid": "clomiphene citrate",
-  "serophene": "clomiphene citrate",
-  "myoinositol": "myo-inositol",
-  "inositol": "myo-inositol",
-  "lmwh": "low molecular weight heparin",
-  "clexane": "low molecular weight heparin",
-  "enoxaparin": "low molecular weight heparin",
-  "vitd": "vitamin D",
-  "endometriosis excision": "endometriosis surgery",
-  "laparoscopic excision": "endometriosis surgery",
-  // Multilingual aliases (Arabic, French, Spanish, Chinese) for top conditions
-  "preterm birth": "preterm birth risk",
-  "premature birth": "preterm birth risk",
-  "preterm delivery": "preterm birth risk",
-  "الولادة المبكرة": "preterm birth risk",
-  "ولادة مبكرة": "preterm birth risk",
-  "naissance prématurée": "preterm birth risk",
-  "parto prematuro": "preterm birth risk",
-  "早产": "preterm birth risk",
-  "تسمم الحمل": "preeclampsia",
-  "ما قبل تسمم الحمل": "preeclampsia",
-  "prééclampsie": "preeclampsia",
-  "سكري الحمل": "gestational diabetes",
-  "diabète gestationnel": "gestational diabetes",
-  "diabetes gestacional": "gestational diabetes",
-  "قصر عنق الرحم": "short cervix",
-  "col court": "short cervix",
-  "cuello uterino corto": "short cervix",
-  "تكيس المبايض": "PCOS",
-  "متلازمة تكيس المبايض": "PCOS",
-  "بطانة الرحم المهاجرة": "endometriosis",
-  "endométriose": "endometriosis",
-  "فشل القلب": "heart failure with reduced ejection fraction (HFrEF)",
-  "قصور القلب": "heart failure with reduced ejection fraction (HFrEF)",
-  "insuficiencia cardíaca": "heart failure with reduced ejection fraction (HFrEF)",
-  "insuffisance cardiaque": "heart failure with reduced ejection fraction (HFrEF)",
-  "الرجفان الأذيني": "non-valvular atrial fibrillation",
-  "fibrillation auriculaire": "non-valvular atrial fibrillation",
-  "fibrilación auricular": "non-valvular atrial fibrillation",
-  "ارتفاع ضغط الدم": "resistant hypertension",
-  "السكتة الدماغية": "acute ischemic stroke",
-  "جلطة دماغية": "acute ischemic stroke",
-  "الصداع النصفي": "chronic migraine",
-  "الشقيقة": "chronic migraine",
-  "الربو": "severe asthma",
-  "asthme": "severe asthma",
-  "asma": "severe asthma",
-  "مرض الكلى المزمن": "chronic kidney disease (CKD stage 3-4)",
-  "maladie rénale chronique": "chronic kidney disease (CKD stage 3-4)",
-  "enfermedad renal crónica": "chronic kidney disease (CKD stage 3-4)",
-  "الاكتئاب": "major depressive disorder (treatment-resistant)",
-  "dépression": "major depressive disorder (treatment-resistant)",
-  "depresión": "major depressive disorder (treatment-resistant)"
-};
-
-export const QUESTION_TYPES = [
-  { type: "Therapy / Prevention", framework: "PICO" },
-  { type: "Diagnosis", framework: "Diagnostic accuracy (PIRD)" },
-  { type: "Prognosis", framework: "PECO prognostic" },
-  { type: "Etiology / Risk factors", framework: "PECO" },
-  { type: "Screening", framework: "Population-Test-Comparator-Outcome" },
-  { type: "Harm", framework: "PECO harm" }
-];
-
 
 
 
@@ -448,37 +379,4 @@ export interface Analysis {
   missing: string[];
   interpretation: string;
   source: "ai" | "rules";
-}
-
-export interface Clarification {
-  done: boolean;
-  field: string | null;
-  questionText: string;
-  options: string[];
-  allowFreeText: boolean;
-  source: "ai" | "rules" | "hybrid";
-  rationale?: string;
-  /**
-   * Present when `field` is "outcome": the ranked, schema-validated selection payload.
-   *
-   * `options` stays the flat label list so existing consumers keep working, but the UI reads this
-   * field for categories, per-option rationales and the recommended primary. It is produced by the
-   * shared selector rather than assembled per caller, so the two cannot drift.
-   */
-  outcomeSelection?: unknown;
-}
-
-export interface Formulation {
-  framework: string;
-  elements: { label: string; value: string }[];
-  finalQuestion: string;
-  variants?: { question: string; rationale: string }[];
-  scores: { name: string; value: number }[];
-  advisories: string[];
-  searchTerms: { population: string; intervention: string; outcome: string };
-  source: "ai" | "rules";
-  /** False when the inputs are too thin to state a clinical question honestly. */
-  complete: boolean;
-  /** PICO elements the caller still owes when `complete` is false. */
-  missingElements: string[];
 }
