@@ -1,0 +1,20 @@
+name: One-off Vercel diagnose
+on:
+  push:
+    branches: ["ci/vercel-diagnose"]
+    paths: [".github/workflows/vercel-diagnose.yml"]
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Who am I, teams, projects
+        run: |
+          npx --yes vercel@latest whoami --token="$VERCEL_TOKEN" || true
+          echo "--- teams"
+          npx --yes vercel@latest teams ls --token="$VERCEL_TOKEN" || true
+          echo "--- projects (default scope)"
+          npx --yes vercel@latest project ls --token="$VERCEL_TOKEN" || true
