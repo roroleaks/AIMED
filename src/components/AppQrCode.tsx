@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import QRCode from "qrcode";
+
+const subscribeNoop = () => () => {};
 
 interface AppQrCodeProps {
   url?: string;
@@ -11,17 +13,17 @@ interface AppQrCodeProps {
 
 export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }: AppQrCodeProps) {
   const [dataUrl, setDataUrl] = useState<string>("");
-  // Start from the prop so server and first client render match (no hydration mismatch),
-  // then switch to the real origin after mount.
-  const [displayUrl, setDisplayUrl] = useState<string>(url);
+  // The server snapshot is the prop, so server HTML and the first client render match
+  // (no hydration mismatch); after hydration the real origin is used.
+  const displayUrl = useSyncExternalStore(
+    subscribeNoop,
+    () => (window.location.origin && !window.location.origin.includes("localhost") ? window.location.origin : url),
+    () => url
+  );
 
   useEffect(() => {
     let active = true;
-    const resolvedUrl =
-      typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
-        ? window.location.origin
-        : url;
-    setDisplayUrl(resolvedUrl);
+    const resolvedUrl = displayUrl;
 
     void QRCode.toDataURL(resolvedUrl, {
       margin: 1,
@@ -39,7 +41,7 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
     return () => {
       active = false;
     };
-  }, [url, size]);
+  }, [displayUrl, size]);
 
   return (
     <div
