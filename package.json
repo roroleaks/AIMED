@@ -23,7 +23,8 @@
     "test:all": "npm run lint && npm run typecheck && npm test && npm run test:science && npm run test:api && npm run test:exports && npm run test:e2e && npm run test:ui && npm run test:a11y && npm run test:visual",
     "validate": "node scripts/validate-steps.mjs",
     "icons": "node scripts/build-icons.mjs",
-    "snapshot": "node scripts/create-snapshot.mjs"
+    "snapshot": "node scripts/create-snapshot.mjs",
+    "test:eval": "playwright test tests/eval"
   },
   "dependencies": {
     "docx": "^9.15.1",
