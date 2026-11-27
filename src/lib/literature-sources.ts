@@ -1367,31 +1367,5 @@ export async function searchMultiSourceLiterature(options: MultiSourceSearchOpti
   return fresh;
 }
 
-/** Display badge (label, icon, CSS class) for the provider that returned a record. */
-export function getSourceBadge(source?: string, pmid?: string): { label: string; icon: string; className: string } {
-  const s = (source || "").toLowerCase();
-  const id = pmid || "";
-  const pick = (sid: LiteratureSource) => {
-    const opt = SEARCH_SOURCE_OPTIONS.find(o => o.id === sid)!;
-    return {
-      label: opt.id === "crossref" ? "CrossRef" : opt.id === "pmc" ? "PMC" : opt.id === "clinicaltrials" ? "ClinicalTrials.gov" : opt.id === "cochrane" ? "Cochrane" : opt.name,
-      icon: opt.icon,
-      className: opt.badgeClass
-    };
-  };
-  if (SEARCH_SOURCE_OPTIONS.some(o => o.id === s)) return pick(s as LiteratureSource);
-  if (id.startsWith("nct:")) return pick("clinicaltrials");
-  if (id.startsWith("cochrane:")) return pick("cochrane");
-  if (id.startsWith("ppr:")) return pick("preprints");
-  if (id.startsWith("oax:")) return pick("openalex");
-  if (id.startsWith("cr:")) return pick("crossref");
-  if (id.startsWith("s2:")) return pick("semanticscholar");
-  if (id.startsWith("gs:")) return pick("googlescholar");
-  if (id.startsWith("doaj:")) return pick("doaj");
-  if (id.startsWith("epmc:")) return pick("europepmc");
-  if (/^(pmc:|PMC)/.test(id)) return pick("pmc");
-  return pick("pubmed");
-}
-
 /** "PubMed · PMC · Europe PMC · …" - every mandatory source, for labels and exports. */
 export const ALL_SOURCES_LABEL = SEARCH_SOURCE_OPTIONS.map(o => o.name.replace(/ \(PubMed Central\)$/, "")).join(" · ");

@@ -12,11 +12,6 @@ export interface ParsedClinicalScenario {
 
 export type OutcomeDirection = "adverse" | "desirable" | "neutral";
 
-export interface OutcomeMetadata {
-  label: string;
-  direction: OutcomeDirection;
-}
-
 // Comprehensive clinical taxonomy for Obstetrics, Gynecology, and Infertility
 interface MedicalTermEntry {
   canonical: string;
@@ -1568,59 +1563,4 @@ export function parseClinicalScenario(rawInput: string, explicitSpecialty?: Spec
     outcomes,
     suggestedQuestions
   };
-}
-
-/**
- * Validates generated PICO and flags nonsensical combinations (P0-5).
- * Rejects:
- * - Outcome equal to population
- * - Intervention equal to comparator
- * - Outcome that is an intervention/procedure name (e.g. "increase pgt-a (O)")
- * - Intervention that the user did not enter (e.g. injecting "laparoscopic surgery")
- */
-export function isNonsensicalPico(
-  pico: {
-    population?: string;
-    intervention?: string;
-    comparator?: string;
-    outcome?: string;
-  },
-  userTokens?: string[]
-): { nonsensical: boolean; reason?: string } {
-  const norm = (s?: string) => (s || "").trim().toLowerCase();
-  const p = norm(pico.population);
-  const i = norm(pico.intervention);
-  const c = norm(pico.comparator);
-  const o = norm(pico.outcome);
-
-  if (!p || !i) {
-    return { nonsensical: true, reason: "Missing population or intervention" };
-  }
-
-  // Outcome equal to population
-  if (o && (p === o || p.includes(o) || o.includes(p))) {
-    return { nonsensical: true, reason: "Outcome cannot be identical to population" };
-  }
-
-  // Intervention equal to comparator (unless comparator is not specified)
-  if (c && c !== "[comparator not specified]" && (i === c || i.includes(c) || c.includes(i))) {
-    return { nonsensical: true, reason: "Intervention cannot be identical to comparator" };
-  }
-
-  // Outcome that is an intervention or procedure name
-  if (o && (INTERVENTION_WORD.test(o) || /\b(pgt-a|pgta|aspirin|antibiotics?|surgery|ivf|icsi)\b/i.test(o))) {
-    return { nonsensical: true, reason: `Outcome '${pico.outcome}' is an intervention or procedure name` };
-  }
-
-  // Intervention that the user did not enter (if userTokens provided)
-  if (userTokens && userTokens.length > 0 && i) {
-    const rawJoined = userTokens.join(" ").toLowerCase();
-    const wordsInI = i.split(/\s+/).filter(w => w.length > 3);
-    const hasAnyUserOverlap = wordsInI.some(w => rawJoined.includes(w));
-    if (!hasAnyUserOverlap && !rawJoined.includes(i)) {
-      return { nonsensical: true, reason: `Intervention '${pico.intervention}' was not entered by the user` };
-    }
-  }
-
-  return { nonsensical: false };
 }

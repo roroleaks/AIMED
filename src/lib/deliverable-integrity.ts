@@ -8,8 +8,6 @@ import { normalizeDoi, type EvidenceWarning } from "./evidence-set.ts";
  * because the reader still meets an attribution the bibliography does not support.
  */
 export const NARRATIVE_FIELDS = ["abstract", "introduction", "methods", "results", "discussion", "conclusion"] as const;
-export type NarrativeField = (typeof NARRATIVE_FIELDS)[number];
-
 export interface DeliverableIntegrityInput {
   /** Every narrative field that can reach a deliverable. */
   fields: Record<string, string>;
@@ -280,8 +278,4 @@ export function validateDeliverableIntegrity(input: DeliverableIntegrityInput): 
     misanchoredCitations,
     warnings: []
   };
-}
-
-export function guardDeliverable(input: DeliverableIntegrityInput): DeliverableIntegrityResult {
-  return validateDeliverableIntegrity(input);
 }

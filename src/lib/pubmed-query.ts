@@ -351,12 +351,6 @@ function buildBroadClause(value: string | null | undefined): string {
   return phrase ? `(${quotePhrase(phrase)})` : "";
 }
 
-export const PUBMED_SEARCH_ARMS = {
-  srMa: '("systematic review"[pt] OR "meta-analysis"[pt] OR "practice guideline"[pt])',
-  rct: '("randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])',
-  unfiltered: 'NOT ("study protocol"[Publication Type] OR "clinical trial protocol"[Publication Type] OR "editorial"[Publication Type] OR "letter"[Publication Type] OR "news"[Publication Type])'
-} as const;
-
 export function getPublicationTypeFilter(questionType?: string | null): string {
   if (questionType === "Therapy / Prevention" || questionType === "Therapy" || questionType === "Prevention") {
     return '("systematic review"[pt] OR "meta-analysis"[pt] OR "practice guideline"[pt] OR "randomized controlled trial"[pt] OR "clinical trial"[pt] OR "controlled clinical trial"[pt])';
