@@ -1,0 +1,49 @@
+{
+  "specialty": "pulmonology",
+  "preset": "asthma-biologics",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In severe uncontrolled asthma with type 2 inflammatory phenotype (P), does add-on dupilumab subcutaneous every 2 weeks (I) compared with standard high-dose inhaled therapy alone ("
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In severe uncontrolled asthma with type 2 inflammatory phenotype (P), is add-on dupilumab subcutaneous every 2 weeks (I) superior to standard high-dose inhaled therapy alone (C) "
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of severe uncontrolled asthma with type 2 inflammatory phenotype (P), does add-on dupilumab subcutaneous every 2 weeks (I) compared with standard high-dose inhaled"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2557,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In severe uncontrolled asthma with type 2 inflammatory phenotype, does add-on dupilumab subcutaneous every 2 weeks compared with standard…: A Rapid Evidence Sum"
+      ]
+    }
+  },
+  "errors": []
+}

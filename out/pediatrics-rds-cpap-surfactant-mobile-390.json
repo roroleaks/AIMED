@@ -1,0 +1,49 @@
+{
+  "specialty": "pediatrics",
+  "preset": "rds-cpap-surfactant",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfactant administrati"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In extremely preterm infants 24-28 weeks gestation (P), is early continuous positive airway pressure (CPAP) (I) superior to prophylactic intubation and surfactant administration "
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of extremely preterm infants 24-28 weeks gestation (P), does early continuous positive airway pressure (CPAP) (I) compared with prophylactic intubation and surfact"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 15
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2866,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of extremely preterm infants 24-28 weeks gestation, does early continuous positive airway pressure (CPAP)…: A Rapid Evidence Summary of I"
+      ]
+    }
+  },
+  "errors": []
+}

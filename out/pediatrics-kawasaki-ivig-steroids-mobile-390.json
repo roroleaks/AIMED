@@ -1,0 +1,49 @@
+{
+  "specialty": "pediatrics",
+  "preset": "kawasaki-ivig-steroids",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In acute Kawasaki disease, high risk for IVIG resistance (P), does intravenous immunoglobulin plus prednisolone (I) compared with intravenous immunoglobulin alone (C) reduce coron"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In acute Kawasaki disease, high risk for IVIG resistance (P), is intravenous immunoglobulin plus prednisolone (I) superior to intravenous immunoglobulin alone (C) for coronary ar"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of acute Kawasaki disease, high risk for IVIG resistance (P), does intravenous immunoglobulin plus prednisolone (I) compared with intravenous immunoglobulin alone "
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 14
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2846,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In acute Kawasaki disease, high risk for IVIG resistance, is intravenous immunoglobulin plus prednisolone superior to intravenous…: A Rapid Evidence Summary of "
+      ]
+    }
+  },
+  "errors": []
+}

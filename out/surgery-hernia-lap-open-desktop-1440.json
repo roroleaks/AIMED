@@ -1,0 +1,49 @@
+{
+  "specialty": "surgery",
+  "preset": "hernia-lap-open",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In adult primary unilateral inguinal hernia (P), does laparoscopic repair (TEP or TAPP) (I) compared with open Lichtenstein tension-free mesh repair (C) reduce chronic postoperati"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adult primary unilateral inguinal hernia (P), is laparoscopic repair (TEP or TAPP) (I) superior to open Lichtenstein tension-free mesh repair (C) for chronic postoperative gro"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adult primary unilateral inguinal hernia (P), does laparoscopic repair (TEP or TAPP) (I) compared with open Lichtenstein tension-free mesh repair (C) reduce chr"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2638,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of adult primary unilateral inguinal hernia, does laparoscopic repair (TEP or TAPP) compared with open…: A Rapid Evidence Summary of Iden"
+      ]
+    }
+  },
+  "errors": []
+}

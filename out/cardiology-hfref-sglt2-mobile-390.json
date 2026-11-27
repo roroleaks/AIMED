@@ -1,0 +1,49 @@
+{
+  "specialty": "cardiology",
+  "preset": "hfref-sglt2",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In heart failure with reduced ejection fraction, NYHA class II-IV (P), does SGLT2 inhibitors (I) compared with placebo (C) reduce cardiovascular death or heart failure hospitaliza"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In heart failure with reduced ejection fraction, NYHA class II-IV (P), is SGLT2 inhibitors (I) superior to placebo (C) for cardiovascular death or heart failure hospitalization ("
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of heart failure with reduced ejection fraction, NYHA class II-IV (P), does SGLT2 inhibitors (I) compared with placebo (C) reduce cardiovascular death or heart fai"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 19,
+      "relevantByTerm": 18
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2723,
+      "refCount": 19,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In heart failure with reduced ejection fraction, NYHA class II-IV, is SGLT2 inhibitors superior to placebo for cardiovascular death or heart…: A Rapid Evidence "
+      ]
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "specialty": "infectious_disease",
+  "preset": "mrsa-bacteremia-combination",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In adults with persistent MRSA bacteremia (P), does high-dose daptomycin plus ceftaroline combination (I) compared with standard vancomycin monotherapy (C) improve time to bactere"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adults with persistent MRSA bacteremia (P), is high-dose daptomycin plus ceftaroline combination (I) superior to standard vancomycin monotherapy (C) for time to bacteremia cle"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adults with persistent MRSA bacteremia (P), does high-dose daptomycin plus ceftaroline combination (I) compared with standard vancomycin monotherapy (C) improve"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 19,
+      "relevantByTerm": 19
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2422,
+      "refCount": 19,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In adults with persistent MRSA bacteremia, is high-dose daptomycin plus ceftaroline combination superior to standard vancomycin monotherapy…: A Rapid Evidence S"
+      ]
+    }
+  },
+  "errors": []
+}

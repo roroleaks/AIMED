@@ -1,0 +1,49 @@
+{
+  "specialty": "emergency_med",
+  "preset": "trauma-txa",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In adult trauma patients with significant bleeding within 3 hours (P), does intravenous tranexamic acid (CRASH-2 protocol) (I) compared with placebo (C) reduce all-cause mortality"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adult trauma patients with significant bleeding within 3 hours (P), is intravenous tranexamic acid (CRASH-2 protocol) (I) superior to placebo (C) for all-cause mortality at 28"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adult trauma patients with significant bleeding within 3 hours (P), does intravenous tranexamic acid (CRASH-2 protocol) (I) compared with placebo (C) reduce all"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 15
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2311,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In adult trauma patients with significant bleeding within 3 hours, does intravenous tranexamic acid (CRASH-2 protocol) compared with placebo…: A Rapid Evidence "
+      ]
+    }
+  },
+  "errors": []
+}

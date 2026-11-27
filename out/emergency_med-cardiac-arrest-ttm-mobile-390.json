@@ -1,0 +1,49 @@
+{
+  "specialty": "emergency_med",
+  "preset": "cardiac-arrest-ttm",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermia (36-37.5°C) (C"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In comatose adults after resuscitation from out-of-hospital cardiac arrest (P), is targeted temperature management at 33°C (I) superior to targeted normothermia (36-37.5°C) (C) f"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of comatose adults after resuscitation from out-of-hospital cardiac arrest (P), does targeted temperature management at 33°C (I) compared with targeted normothermi"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 19,
+      "relevantByTerm": 18
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2549,
+      "refCount": 19,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In comatose adults after resuscitation from out-of-hospital cardiac arrest, is targeted temperature management at 33°C superior to targeted…: A Rapid Evidence S"
+      ]
+    }
+  },
+  "errors": []
+}

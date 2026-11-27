@@ -1,0 +1,51 @@
+{
+  "specialty": "dermatology",
+  "preset": "hidradenitis-biologics",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiSCR 50 clinical r"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In moderate-to-severe active hidradenitis suppurativa (P), is secukinumab subcutaneous every 2 weeks (I) superior to adalimumab standard dosing (C) for HiSCR 50 clinical response"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of moderate-to-severe active hidradenitis suppurativa (P), does secukinumab subcutaneous every 2 weeks (I) compared with adalimumab standard dosing (C) improve HiS"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 10,
+      "relevantByTerm": 10
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1938,
+      "refCount": 10,
+      "duplicateSentences": 1,
+      "dupList": [
+        "Journal of the European Academy of Dermatology and Venereology : JEADV."
+      ],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of moderate-to-severe active hidradenitis suppurativa, does secukinumab subcutaneous every 2 weeks compared…: A Rapid Evidence Summary of"
+      ]
+    }
+  },
+  "errors": []
+}

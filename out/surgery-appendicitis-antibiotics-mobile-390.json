@@ -1,0 +1,49 @@
+{
+  "specialty": "surgery",
+  "preset": "appendicitis-antibiotics",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In adults with uncomplicated acute appendicitis (P), does primary antibiotic therapy (I) compared with laparoscopic appendectomy (C) reduce treatment success without recurrence at"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adults with uncomplicated acute appendicitis (P), is primary antibiotic therapy (I) superior to laparoscopic appendectomy (C) for treatment success without recurrence at 1 yea"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adults with uncomplicated acute appendicitis (P), does primary antibiotic therapy (I) compared with laparoscopic appendectomy (C) reduce treatment success witho"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 15,
+      "relevantByTerm": 15
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2246,
+      "refCount": 15,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of adults with uncomplicated acute appendicitis, does primary antibiotic therapy compared with laparoscopic…: A Rapid Evidence Summary of"
+      ]
+    }
+  },
+  "errors": []
+}

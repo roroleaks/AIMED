@@ -1,0 +1,49 @@
+{
+  "specialty": "cardiology",
+  "preset": "cad-pci-cabg",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In multivessel coronary artery disease, diabetes mellitus (P), does coronary artery bypass grafting (CABG) (I) compared with percutaneous coronary intervention (PCI) (C) improve m"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In multivessel coronary artery disease, diabetes mellitus (P), is coronary artery bypass grafting (CABG) (I) superior to percutaneous coronary intervention (PCI) (C) for major ad"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of multivessel coronary artery disease, diabetes mellitus (P), does coronary artery bypass grafting (CABG) (I) compared with percutaneous coronary intervention (PC"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 17
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2934,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In multivessel coronary artery disease, diabetes mellitus, is coronary artery bypass grafting (CABG) superior to percutaneous coronary…: A Rapid Evidence Summar"
+      ]
+    }
+  },
+  "errors": []
+}

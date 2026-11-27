@@ -1,0 +1,49 @@
+{
+  "specialty": "endocrinology",
+  "preset": "obesity-tirzepatide",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In adults with obesity or overweight without diabetes (P), does tirzepatide once weekly (I) compared with semaglutide 2.4 mg once weekly (C) improve percentage total body weight l"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adults with obesity or overweight without diabetes (P), is tirzepatide once weekly (I) superior to semaglutide 2.4 mg once weekly (C) for percentage total body weight loss at "
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adults with obesity or overweight without diabetes (P), does tirzepatide once weekly (I) compared with semaglutide 2.4 mg once weekly (C) improve percentage tot"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 14,
+      "relevantByTerm": 13
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2178,
+      "refCount": 14,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In adults with obesity or overweight without diabetes, does tirzepatide once weekly compared with semaglutide 2.4 mg once weekly improve…: A Rapid Evidence Summ"
+      ]
+    }
+  },
+  "errors": []
+}

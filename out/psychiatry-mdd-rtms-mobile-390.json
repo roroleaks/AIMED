@@ -1,0 +1,49 @@
+{
+  "specialty": "psychiatry",
+  "preset": "mdd-rtms",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In treatment-resistant major depressive disorder (P), does adjunctive esketamine nasal spray plus SSRI/SNRI (I) compared with adjunctive quetiapine extended-release plus SSRI/SNRI"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In treatment-resistant major depressive disorder (P), is adjunctive esketamine nasal spray plus SSRI/SNRI (I) superior to adjunctive quetiapine extended-release plus SSRI/SNRI (C"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of treatment-resistant major depressive disorder (P), does adjunctive esketamine nasal spray plus SSRI/SNRI (I) compared with adjunctive quetiapine extended-releas"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 5
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2766,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In treatment-resistant major depressive disorder, does adjunctive esketamine nasal spray plus SSRI/SNRI compared with adjunctive quetiapine…: A Rapid Evidence S"
+      ]
+    }
+  },
+  "errors": []
+}

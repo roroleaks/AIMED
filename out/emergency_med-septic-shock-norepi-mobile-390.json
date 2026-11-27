@@ -1,0 +1,49 @@
+{
+  "specialty": "emergency_med",
+  "preset": "septic-shock-norepi",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In adults with fluid-refractory septic shock in emergency department (P), does early continuous norepinephrine infusion within 1 hour (I) compared with standard delayed vasopresso"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adults with fluid-refractory septic shock in emergency department (P), is early continuous norepinephrine infusion within 1 hour (I) superior to standard delayed vasopressor i"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adults with fluid-refractory septic shock in emergency department (P), does early continuous norepinephrine infusion within 1 hour (I) compared with standard de"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 18
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2833,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In adults with fluid-refractory septic shock in emergency department, is early continuous norepinephrine infusion within 1 hour superior to…: A Rapid Evidence S"
+      ]
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "specialty": "oncology",
+  "preset": "ovarian-parp",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In advanced BRCA-mutated ovarian cancer, first-line platinum response (P), does olaparib maintenance therapy (I) compared with placebo (C) improve progression-free survival (PFS) "
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In advanced BRCA-mutated ovarian cancer, first-line platinum response (P), is olaparib maintenance therapy (I) superior to placebo (C) for progression-free survival (PFS) (O)? Sc"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of advanced BRCA-mutated ovarian cancer, first-line platinum response (P), does olaparib maintenance therapy (I) compared with placebo (C) improve progression-free"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 19
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2725,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In advanced BRCA-mutated ovarian cancer, first-line platinum response, is olaparib maintenance therapy superior to placebo for…: A Rapid Evidence Summary of Con"
+      ]
+    }
+  },
+  "errors": []
+}

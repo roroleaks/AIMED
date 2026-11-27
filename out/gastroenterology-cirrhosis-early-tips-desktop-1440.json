@@ -1,0 +1,49 @@
+{
+  "specialty": "gastroenterology",
+  "preset": "cirrhosis-early-tips",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), does early preemptive TIPS within 72 hours (I) compared with standard medical therapy (vasoactiv"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), is early preemptive TIPS within 72 hours (I) superior to standard medical therapy (vasoactive d"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C (P), does early preemptive TIPS within 72 hours (I) compared with standard medical th"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 15
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2437,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In cirrhotic patients with acute variceal hemorrhage, Child-Pugh class B or C, does early preemptive TIPS within 72 hours compared with…: A Rapid Evidence Summa"
+      ]
+    }
+  },
+  "errors": []
+}

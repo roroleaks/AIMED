@@ -1,0 +1,49 @@
+{
+  "specialty": "pulmonology",
+  "preset": "ipf-antifibrotic",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) reduce annual ra"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), is nintedanib 150 mg twice daily (I) superior to pirfenidone titrated to 2403 mg daily (C) for annual rate of "
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction (P), does nintedanib 150 mg twice daily (I) compared with pirfenidone titrated to 2403 mg daily (C) "
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 6,
+      "relevantByTerm": 6
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1274,
+      "refCount": 6,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of idiopathic pulmonary fibrosis, mild-to-moderate restriction, does nintedanib 150 mg twice daily compared…: A Rapid Evidence Summary of"
+      ]
+    }
+  },
+  "errors": []
+}

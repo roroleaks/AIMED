@@ -1,0 +1,49 @@
+{
+  "specialty": "neurology",
+  "preset": "stroke-tenecteplase",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In acute ischemic stroke within 4.5 hours of onset (P), does intravenous tenecteplase (0.25 mg/kg) (I) compared with intravenous alteplase (0.9 mg/kg) (C) improve excellent functi"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In acute ischemic stroke within 4.5 hours of onset (P), is intravenous tenecteplase (0.25 mg/kg) (I) superior to intravenous alteplase (0.9 mg/kg) (C) for excellent functional re"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of acute ischemic stroke within 4.5 hours of onset (P), does intravenous tenecteplase (0.25 mg/kg) (I) compared with intravenous alteplase (0.9 mg/kg) (C) improve "
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 18
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2511,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of acute ischemic stroke within 4.5 hours of onset, does intravenous tenecteplase (0.25 mg/kg) compared with…: A Rapid Evidence Summary o"
+      ]
+    }
+  },
+  "errors": []
+}

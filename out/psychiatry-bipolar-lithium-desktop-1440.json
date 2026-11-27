@@ -1,0 +1,49 @@
+{
+  "specialty": "psychiatry",
+  "preset": "bipolar-lithium",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In bipolar I disorder in maintenance phase (P), does lithium monotherapy (I) compared with valproate monotherapy (C) reduce time to recurrence of any mood episode (O)? Screened li"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In bipolar I disorder in maintenance phase (P), is lithium monotherapy (I) superior to valproate monotherapy (C) for time to recurrence of any mood episode (O)? Unavailable: Scre"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of bipolar I disorder in maintenance phase (P), does lithium monotherapy (I) compared with valproate monotherapy (C) reduce time to recurrence of any mood episode "
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 17,
+      "relevantByTerm": 15
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2457,
+      "refCount": 17,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In bipolar I disorder in maintenance phase, does lithium monotherapy compared with valproate monotherapy reduce time to recurrence of any…: A Rapid Evidence Sum"
+      ]
+    }
+  },
+  "errors": []
+}

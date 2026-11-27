@@ -1,0 +1,49 @@
+{
+  "specialty": "dermatology",
+  "preset": "psoriasis-il23-il17",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In moderate-to-severe chronic plaque psoriasis (P), does risankizumab (IL-23 p19 inhibitor) (I) compared with secukinumab (IL-17A inhibitor) (C) improve PASI 90 and PASI 100 clear"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In moderate-to-severe chronic plaque psoriasis (P), is risankizumab (IL-23 p19 inhibitor) (I) superior to secukinumab (IL-17A inhibitor) (C) for PASI 90 and PASI 100 clear skin r"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of moderate-to-severe chronic plaque psoriasis (P), does risankizumab (IL-23 p19 inhibitor) (I) compared with secukinumab (IL-17A inhibitor) (C) improve PASI 90 an"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 12,
+      "relevantByTerm": 10
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2037,
+      "refCount": 12,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In moderate-to-severe chronic plaque psoriasis, is risankizumab (IL-23 p19 inhibitor) superior to secukinumab (IL-17A inhibitor) for PASI 90…: A Rapid Evidence "
+      ]
+    }
+  },
+  "errors": []
+}

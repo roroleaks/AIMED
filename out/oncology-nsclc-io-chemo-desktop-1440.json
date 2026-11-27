@@ -1,0 +1,49 @@
+{
+  "specialty": "oncology",
+  "preset": "nsclc-io-chemo",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In advanced non-small cell lung cancer, wild-type EGFR/ALK (P), does pembrolizumab plus platinum chemotherapy (I) compared with platinum chemotherapy alone (C) improve overall sur"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In advanced non-small cell lung cancer, wild-type EGFR/ALK (P), is pembrolizumab plus platinum chemotherapy (I) superior to platinum chemotherapy alone (C) for overall survival ("
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of advanced non-small cell lung cancer, wild-type EGFR/ALK (P), does pembrolizumab plus platinum chemotherapy (I) compared with platinum chemotherapy alone (C) imp"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 13,
+      "relevantByTerm": 8
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2031,
+      "refCount": 13,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In advanced non-small cell lung cancer, wild-type EGFR/ALK, does pembrolizumab plus platinum chemotherapy compared with platinum…: A Rapid Evidence Summary of E"
+      ]
+    }
+  },
+  "errors": []
+}

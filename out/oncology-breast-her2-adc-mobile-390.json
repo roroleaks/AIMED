@@ -1,0 +1,49 @@
+{
+  "specialty": "oncology",
+  "preset": "breast-her2-adc",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free survival (PFS) (O)?"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In HER2-positive metastatic breast cancer (P), is trastuzumab deruxtecan (T-DXd) (I) superior to trastuzumab emtansine (T-DM1) (C) for progression-free survival (PFS) (O)? Unavai"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of HER2-positive metastatic breast cancer (P), does trastuzumab deruxtecan (T-DXd) (I) compared with trastuzumab emtansine (T-DM1) (C) improve progression-free sur"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2951,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of HER2-positive metastatic breast cancer, does trastuzumab deruxtecan (T-DXd) compared with trastuzumab…: A Rapid Evidence Summary of Id"
+      ]
+    }
+  },
+  "errors": []
+}

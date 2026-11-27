@@ -1,0 +1,51 @@
+{
+  "specialty": "pulmonology",
+  "preset": "copd-triple-dual",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In symptomatic COPD with history of >= 1 exacerbation (P), does single-inhaler triple therapy (ICS/LABA/LAMA) (I) compared with dual bronchodilator therapy (LABA/LAMA) (C) improve"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In symptomatic COPD with history of >= 1 exacerbation (P), is single-inhaler triple therapy (ICS/LABA/LAMA) (I) superior to dual bronchodilator therapy (LABA/LAMA) (C) for annual"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of symptomatic COPD with history of >= 1 exacerbation (P), does single-inhaler triple therapy (ICS/LABA/LAMA) (I) compared with dual bronchodilator therapy (LABA/L"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 11,
+      "relevantByTerm": 6
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1671,
+      "refCount": 11,
+      "duplicateSentences": 1,
+      "dupList": [
+        "International Journal of Chronic Obstructive Pulmonary Disease."
+      ],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of symptomatic COPD with history of >= 1 exacerbation, does single-inhaler triple therapy (ICS/LABA/LAMA)…: A Rapid Evidence Summary of I"
+      ]
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "specialty": "neurology",
+  "preset": "stroke-thrombectomy",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared with intravenous th"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In acute ischemic stroke, anterior circulation large vessel occlusion (P), is endovascular mechanical thrombectomy plus intravenous thrombolysis (I) superior to intravenous throm"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion (P), does endovascular mechanical thrombectomy plus intravenous thrombolysis (I) compared wit"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2758,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of acute ischemic stroke, anterior circulation large vessel occlusion, does endovascular mechanical…: A Rapid Evidence Summary of Identif"
+      ]
+    }
+  },
+  "errors": []
+}

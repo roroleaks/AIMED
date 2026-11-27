@@ -1,0 +1,52 @@
+{
+  "specialty": "infectious_disease",
+  "preset": "cdi-fidaxomicin-vanc",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In adults with initial or recurrent Clostridioides difficile infection (P), does oral fidaxomicin (standard or pulsed regimen) (I) compared with oral vancomycin 125 mg four times "
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In adults with initial or recurrent Clostridioides difficile infection (P), is oral fidaxomicin (standard or pulsed regimen) (I) superior to oral vancomycin 125 mg four times dai"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of adults with initial or recurrent Clostridioides difficile infection (P), does oral fidaxomicin (standard or pulsed regimen) (I) compared with oral vancomycin 12"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 16,
+      "relevantByTerm": 16
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2275,
+      "refCount": 16,
+      "duplicateSentences": 2,
+      "dupList": [
+        "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America.",
+        "Clinical infectious diseases : an official publication of the Infectious Diseases Society of America."
+      ],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of adults with initial or recurrent Clostridioides difficile infection, does oral fidaxomicin (standard or…: A Rapid Evidence Summary of "
+      ]
+    }
+  },
+  "errors": []
+}

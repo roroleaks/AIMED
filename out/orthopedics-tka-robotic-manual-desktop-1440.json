@@ -1,0 +1,51 @@
+{
+  "specialty": "orthopedics",
+  "preset": "tka-robotic-manual",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In end-stage primary knee osteoarthritis (P), does robotic-assisted total knee arthroplasty (I) compared with conventional manual total knee arthroplasty (C) improve patient-repor"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In end-stage primary knee osteoarthritis (P), is robotic-assisted total knee arthroplasty (I) superior to conventional manual total knee arthroplasty (C) for patient-reported joi"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of end-stage primary knee osteoarthritis (P), does robotic-assisted total knee arthroplasty (I) compared with conventional manual total knee arthroplasty (C) impro"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2861,
+      "refCount": 20,
+      "duplicateSentences": 1,
+      "dupList": [
+        "A Case Report of Metallosis-Related Aseptic Loosening of Primary Total Knee Arthroplasty Implant Managed with Revision Total Knee Arthroplas"
+      ],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In end-stage primary knee osteoarthritis, is robotic-assisted total knee arthroplasty superior to conventional manual total knee…: A Rapid Evidence Summary of C"
+      ]
+    }
+  },
+  "errors": []
+}

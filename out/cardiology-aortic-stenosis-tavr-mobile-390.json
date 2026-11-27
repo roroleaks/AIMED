@@ -1,0 +1,49 @@
+{
+  "specialty": "cardiology",
+  "preset": "aortic-stenosis-tavr",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In severe symptomatic aortic stenosis, intermediate surgical risk (P), does transcatheter aortic valve replacement (TAVR) (I) compared with surgical aortic valve replacement (SAVR"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In severe symptomatic aortic stenosis, intermediate surgical risk (P), is transcatheter aortic valve replacement (TAVR) (I) superior to surgical aortic valve replacement (SAVR) ("
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of severe symptomatic aortic stenosis, intermediate surgical risk (P), does transcatheter aortic valve replacement (TAVR) (I) compared with surgical aortic valve r"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2965,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In severe symptomatic aortic stenosis, intermediate surgical risk, does transcatheter aortic valve replacement (TAVR) compared with…: A Rapid Evidence Summary o"
+      ]
+    }
+  },
+  "errors": []
+}

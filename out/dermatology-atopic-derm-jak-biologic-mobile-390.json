@@ -1,0 +1,49 @@
+{
+  "specialty": "dermatology",
+  "preset": "atopic-derm-jak-biologic",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In moderate-to-severe atopic dermatitis in adults (P), does oral upadacitinib 30 mg daily (I) compared with subcutaneous dupilumab 300 mg every 2 weeks (C) improve EASI 75 and PP-"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In moderate-to-severe atopic dermatitis in adults (P), is oral upadacitinib 30 mg daily (I) superior to subcutaneous dupilumab 300 mg every 2 weeks (C) for EASI 75 and PP-NRS itc"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of moderate-to-severe atopic dermatitis in adults (P), does oral upadacitinib 30 mg daily (I) compared with subcutaneous dupilumab 300 mg every 2 weeks (C) improve"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 14,
+      "relevantByTerm": 11
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2286,
+      "refCount": 14,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of moderate-to-severe atopic dermatitis in adults, does oral upadacitinib 30 mg daily compared with…: A Rapid Evidence Summary of Identif"
+      ]
+    }
+  },
+  "errors": []
+}

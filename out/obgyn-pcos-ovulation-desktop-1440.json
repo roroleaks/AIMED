@@ -1,0 +1,49 @@
+{
+  "specialty": "obgyn",
+  "preset": "pcos-ovulation",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In polycystic ovary syndrome, anovulatory infertility (P), does letrozole (I) compared with clomiphene citrate (C) improve cumulative live birth rate (O)? Unavailable: Retrieved t"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In polycystic ovary syndrome, anovulatory infertility (P), is letrozole (I) superior to clomiphene citrate (C) for cumulative live birth rate (O)? Screened records demonstrate di"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of polycystic ovary syndrome, anovulatory infertility (P), does letrozole (I) compared with clomiphene citrate (C) improve cumulative live birth rate (O) without a"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 17
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2619,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In polycystic ovary syndrome, anovulatory infertility, is letrozole superior to clomiphene citrate for cumulative live birth rate: A Rapid Evidence Summary of C"
+      ]
+    }
+  },
+  "errors": []
+}

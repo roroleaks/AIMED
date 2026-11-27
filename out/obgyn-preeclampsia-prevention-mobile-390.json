@@ -1,0 +1,49 @@
+{
+  "specialty": "obgyn",
+  "preset": "preeclampsia-prevention",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In high-risk pregnancy, prior preeclampsia (P), does early low-dose aspirin 150 mg (I) compared with placebo (C) reduce preterm preeclampsia < 37 weeks (O)? Unavailable: Retrieved"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In high-risk pregnancy, prior preeclampsia (P), is early low-dose aspirin 150 mg (I) superior to placebo (C) for preterm preeclampsia < 37 weeks (O)? Screened records demonstrate"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of high-risk pregnancy, prior preeclampsia (P), does early low-dose aspirin 150 mg (I) compared with placebo (C) reduce preterm preeclampsia < 37 weeks (O) without"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 18,
+      "relevantByTerm": 17
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2518,
+      "refCount": 18,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk pregnancy, prior preeclampsia, is early low-dose aspirin 150 mg superior to placebo for preterm preeclampsia < 37 weeks: A Rapid Evidence Summary o"
+      ]
+    }
+  },
+  "errors": []
+}

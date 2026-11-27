@@ -1,0 +1,49 @@
+{
+  "specialty": "pediatrics",
+  "preset": "bronchiolitis-hfnc",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In infants under 12 months, acute viral bronchiolitis (P), does high-flow nasal cannula (HFNC) therapy (I) compared with standard low-flow oxygen therapy (C) reduce treatment fail"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In infants under 12 months, acute viral bronchiolitis (P), is high-flow nasal cannula (HFNC) therapy (I) superior to standard low-flow oxygen therapy (C) for treatment failure re"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of infants under 12 months, acute viral bronchiolitis (P), does high-flow nasal cannula (HFNC) therapy (I) compared with standard low-flow oxygen therapy (C) reduc"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 12,
+      "relevantByTerm": 11
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1937,
+      "refCount": 12,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of infants under 12 months, acute viral bronchiolitis, does high-flow nasal cannula (HFNC) therapy compared…: A Rapid Evidence Summary of"
+      ]
+    }
+  },
+  "errors": []
+}

@@ -1,0 +1,49 @@
+{
+  "specialty": "gastroenterology",
+  "preset": "crohn-il23-antitnf",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In moderate-to-severe active Crohn's disease (P), does risankizumab intravenous induction then subcutaneous maintenance (I) compared with ustekinumab or adalimumab standard mainte"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In moderate-to-severe active Crohn's disease (P), is risankizumab intravenous induction then subcutaneous maintenance (I) superior to ustekinumab or adalimumab standard maintenan"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of moderate-to-severe active Crohn's disease (P), does risankizumab intravenous induction then subcutaneous maintenance (I) compared with ustekinumab or adalimumab"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 17
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2831,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In moderate-to-severe active Crohn's disease, does risankizumab intravenous induction then subcutaneous maintenance compared with…: A Rapid Evidence Summary of "
+      ]
+    }
+  },
+  "errors": []
+}

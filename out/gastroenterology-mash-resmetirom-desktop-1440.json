@@ -1,0 +1,49 @@
+{
+  "specialty": "gastroenterology",
+  "preset": "mash-resmetirom",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stage fibrosis impro"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In biopsy-confirmed MASH with stage F2-F3 fibrosis (P), is resmetirom 100 mg once daily (I) superior to placebo (C) for MASH resolution and at least 1-stage fibrosis improvement "
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of biopsy-confirmed MASH with stage F2-F3 fibrosis (P), does resmetirom 100 mg once daily (I) compared with placebo (C) improve MASH resolution and at least 1-stag"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 5,
+      "relevantByTerm": 4
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1242,
+      "refCount": 5,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of biopsy-confirmed MASH with stage F2-F3 fibrosis, does resmetirom 100 mg once daily compared with placebo…: A Rapid Evidence Summary of"
+      ]
+    }
+  },
+  "errors": []
+}

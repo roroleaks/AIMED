@@ -1,0 +1,49 @@
+{
+  "specialty": "obgyn",
+  "preset": "short-cervix",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In asymptomatic singleton pregnancy, short cervix <= 25 mm (P), does vaginal progesterone (I) compared with cervical cerclage (C) improve spontaneous preterm birth < 34 weeks (O)?"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In asymptomatic singleton pregnancy, short cervix <= 25 mm (P), is vaginal progesterone (I) superior to cervical cerclage (C) for spontaneous preterm birth < 34 weeks (O)? Screen"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of asymptomatic singleton pregnancy, short cervix <= 25 mm (P), does vaginal progesterone (I) compared with cervical cerclage (C) improve spontaneous preterm birth"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 3147,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In asymptomatic singleton pregnancy, short cervix <= 25 mm, is vaginal progesterone superior to cervical cerclage for spontaneous preterm…: A Rapid Evidence Sum"
+      ]
+    }
+  },
+  "errors": []
+}

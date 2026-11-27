@@ -1,0 +1,49 @@
+{
+  "specialty": "orthopedics",
+  "preset": "hip-fracture-tha-hemi",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In active elderly patients with displaced femoral neck fracture (P), does total hip arthroplasty (THA) (I) compared with hemiarthroplasty (C) improve reoperation rate and function"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In active elderly patients with displaced femoral neck fracture (P), is total hip arthroplasty (THA) (I) superior to hemiarthroplasty (C) for reoperation rate and functional mobi"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of active elderly patients with displaced femoral neck fracture (P), does total hip arthroplasty (THA) (I) compared with hemiarthroplasty (C) improve reoperation r"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 20
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 3026,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In active elderly patients with displaced femoral neck fracture, does total hip arthroplasty (THA) compared with hemiarthroplasty improve…: A Rapid Evidence Sum"
+      ]
+    }
+  },
+  "errors": []
+}

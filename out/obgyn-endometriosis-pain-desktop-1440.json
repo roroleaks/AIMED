@@ -1,0 +1,51 @@
+{
+  "specialty": "obgyn",
+  "preset": "endometriosis-pain",
+  "project": "desktop-1440",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In endometriosis, chronic pelvic pain (P), does laparoscopic surgical excision (I) compared with dienogest (C) improve pelvic pain reduction at 12 months (O)? Unavailable: Insuffi"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In endometriosis, chronic pelvic pain (P), is laparoscopic surgical excision (I) superior to dienogest (C) for pelvic pain reduction at 12 months (O)? Unavailable: Screened studi"
+        },
+        {
+          "cat": "gap",
+          "avail": "true",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of endometriosis, chronic pelvic pain (P), does laparoscopic surgical excision (I) compared with dienogest (C) improve pelvic pain reduction at 12 months (O) witho"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 13,
+      "relevantByTerm": 13
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 1973,
+      "refCount": 13,
+      "duplicateSentences": 1,
+      "dupList": [
+        "European journal of obstetrics, gynecology, and reproductive biology."
+      ],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In high-risk subgroups of endometriosis, chronic pelvic pain, does laparoscopic surgical excision compared with dienogest improve…: A Rapid Evidence Summary of "
+      ]
+    }
+  },
+  "errors": []
+}

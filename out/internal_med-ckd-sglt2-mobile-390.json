@@ -1,0 +1,49 @@
+{
+  "specialty": "internal_med",
+  "preset": "ckd-sglt2",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "true",
+          "phrase": "✅ Established evidence Choose this focus In chronic kidney disease with albuminuria, with or without diabetes (P), does dapagliflozin (I) compared with placebo (C) reduce sustained eGFR decline, end-stage kidney disease,"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "false",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In chronic kidney disease with albuminuria, with or without diabetes (P), is dapagliflozin (I) superior to placebo (C) for sustained eGFR decline, end-stage kidney disease, or re"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of chronic kidney disease with albuminuria, with or without diabetes (P), does dapagliflozin (I) compared with placebo (C) reduce sustained eGFR decline, end-stage"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 19
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2864,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In chronic kidney disease with albuminuria, with or without diabetes, does dapagliflozin compared with placebo reduce sustained eGFR…: A Rapid Evidence Summary "
+      ]
+    }
+  },
+  "errors": []
+}

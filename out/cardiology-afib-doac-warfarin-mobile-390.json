@@ -1,0 +1,49 @@
+{
+  "specialty": "cardiology",
+  "preset": "afib-doac-warfarin",
+  "project": "mobile-390",
+  "steps": {
+    "dashboard": {
+      "issues": []
+    },
+    "screen": {
+      "issues": [],
+      "cards": [
+        {
+          "cat": "established",
+          "avail": "false",
+          "phrase": "✅ Established evidence Choose this focus In non-valvular atrial fibrillation, elevated thromboembolic risk (P), does direct oral anticoagulants (DOACs) (I) compared with warfarin (C) reduce stroke or systemic embolism (O"
+        },
+        {
+          "cat": "conflicting",
+          "avail": "true",
+          "phrase": "⚖️ Conflicting evidence Choose this focus In non-valvular atrial fibrillation, elevated thromboembolic risk (P), is direct oral anticoagulants (DOACs) (I) superior to warfarin (C) for stroke or systemic embolism (O)? Scr"
+        },
+        {
+          "cat": "gap",
+          "avail": "false",
+          "phrase": "🔍 Evidence gap Choose this focus In high-risk subgroups of non-valvular atrial fibrillation, elevated thromboembolic risk (P), does direct oral anticoagulants (DOACs) (I) compared with warfarin (C) reduce stroke or syst"
+        }
+      ],
+      "availableCount": 1
+    },
+    "explore": {
+      "issues": [],
+      "papers": 20,
+      "relevantByTerm": 18
+    },
+    "summary": {
+      "issues": [],
+      "sections": 6,
+      "words": 2759,
+      "refCount": 20,
+      "duplicateSentences": 0,
+      "dupList": [],
+      "headings": [
+        "Step 4 · Scientific Manuscript",
+        "In non-valvular atrial fibrillation, elevated thromboembolic risk, is direct oral anticoagulants (DOACs) superior to warfarin for stroke or…: A Rapid Evidence S"
+      ]
+    }
+  },
+  "errors": []
+}
