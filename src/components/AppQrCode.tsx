@@ -11,6 +11,9 @@ interface AppQrCodeProps {
 
 export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }: AppQrCodeProps) {
   const [dataUrl, setDataUrl] = useState<string>("");
+  // Start from the prop so server and first client render match (no hydration mismatch),
+  // then switch to the real origin after mount.
+  const [displayUrl, setDisplayUrl] = useState<string>(url);
 
   useEffect(() => {
     let active = true;
@@ -18,6 +21,7 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
       typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
         ? window.location.origin
         : url;
+    setDisplayUrl(resolvedUrl);
 
     void QRCode.toDataURL(resolvedUrl, {
       margin: 1,
@@ -36,11 +40,6 @@ export function AppQrCode({ url = "https://aimed-pico.vercel.app", size = 130 }:
       active = false;
     };
   }, [url, size]);
-
-  const displayUrl =
-    typeof window !== "undefined" && window.location.origin && !window.location.origin.includes("localhost")
-      ? window.location.origin
-      : url;
 
   return (
     <div
