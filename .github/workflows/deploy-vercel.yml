@@ -37,4 +37,4 @@ jobs:
         run: npx --yes vercel@latest link --yes --project aimed --scope raouf12 --token="$VERCEL_TOKEN"
       - name: Deploy (Vercel builds remotely)
         if: steps.gate.outputs.go == 'true'
-        run: npx --yes vercel@latest deploy --prod --yes --token="$VERCEL_TOKEN"
+        run: npx --yes vercel@latest deploy --prod --yes --token="$VERCEL_TOKEN" --build-env NEXT_PUBLIC_COMMIT_SHA="${{ github.sha }}"
