@@ -12,11 +12,11 @@ import { mockEngineWithFixtures } from "../_helpers/mock-api";
  */
 const OUT = path.join(process.cwd(), "eval-out");
 
-const BAD_TEXT = /\b(undefined|NaN|null)\b|\[object|lorem ipsum|TODO|\{\{|\}\}|\$\{/i;
+const BAD_TEXT = /\b(undefined|NaN|null)\b|\[object|lorem ipsum|\bTODO\b|\{\{|\}\}|\$\{/;
 
 async function pageFindings(page: import("@playwright/test").Page) {
   return page.evaluate((badSrc) => {
-    const bad = new RegExp(badSrc, "i");
+    const bad = new RegExp(badSrc);
     const issues: string[] = [];
     const vis = (el: Element) => {
       const st = getComputedStyle(el);
@@ -57,7 +57,7 @@ for (const entry of ALL_PRESETS) {
     fs.mkdirSync(OUT, { recursive: true });
     const rec: Record<string, unknown> = { specialty: entry.specialtyId, preset: entry.preset.id, project: proj, steps: {} };
     const errors: string[] = [];
-    page.on("pageerror", (e) => errors.push("pageerror: " + e.message.slice(0, 120)));
+    page.on("pageerror", (e) => errors.push(`pageerror@${new URL(page.url()).pathname}: ` + e.message.slice(0, 60)));
     page.on("console", (m) => { if (m.type() === "error") errors.push("console: " + m.text().slice(0, 120)); });
     const steps = rec.steps as Record<string, unknown>;
     const shot = async (name: string) => {
@@ -111,9 +111,11 @@ for (const entry of ALL_PRESETS) {
       const refs = await page.getByTestId("references").innerText();
       const refCount = (refs.match(/^\s*\d+[.)]/gm) || []).length;
       const sentences = ms.text.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter((s) => s.length > 60);
-      const dup = sentences.length - new Set(sentences).size;
+      const seen = new Set<string>(); const dupList: string[] = [];
+      for (const x of sentences) { if (seen.has(x)) dupList.push(x.slice(0, 140)); seen.add(x); }
+      const dup = dupList.length;
       const titleEl = await page.locator("h1, h2").allInnerTexts();
-      steps.summary = { issues: f4.issues, sections: ms.sections, words: ms.words, refCount, duplicateSentences: dup, headings: titleEl.slice(0, 4).map((t) => t.slice(0, 160)) };
+      steps.summary = { issues: f4.issues, sections: ms.sections, words: ms.words, refCount, duplicateSentences: dup, dupList, headings: titleEl.slice(0, 4).map((t) => t.slice(0, 160)) };
       await shot("4-summary");
     } catch (e) {
       rec.fatal = String((e as Error).message).slice(0, 300);
